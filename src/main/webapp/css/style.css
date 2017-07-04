@@ -6,6 +6,12 @@
 .container {
   max-width: 1150px;
   margin: 0 auto;
+  background-color: yellow;
+}
+
+.footer {
+  width: 100%;
+  background-color: #F39C12;
 }
 /*mobile*/
 @media (max-width: 740px) {
