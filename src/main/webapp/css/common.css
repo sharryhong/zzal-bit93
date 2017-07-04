@@ -1,6 +1,8 @@
 @charset "utf-8";
 
-/*box모델에서 width가 border까지 확장되어 작업이 수월하다.*/
+body {
+	margin: 0;
+}
 body *, body *::before, body *::after {
 	box-sizing: border-box;
 }
