@@ -1,0 +1,22 @@
+.header {
+  width: 100%;
+  background-color: #F39C12;
+}
+
+.container {
+  max-width: 1150px;
+  margin: 0 auto;
+}
+/*mobile*/
+@media (max-width: 740px) {
+  .header {
+    height: 50px;
+  }
+}
+
+/*desktop*/
+@media (min-width: 741px) {
+  .header {
+    height: 66px;
+  }
+}

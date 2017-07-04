@@ -6,10 +6,8 @@ body *, body *::before, body *::after {
 }
 
 /*목록 초기화 스타일 모듈*/
-.reset-list ul,
-.reset-list ol, 
-ul.reset-list,
-ol.reset-list {
+ul,
+ol{
 	margin-top: 0;
 	margin-bottom: 0;
 	padding-left: 0;
