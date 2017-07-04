@@ -1,0 +1,17 @@
+.container {
+  width: 90%;
+  height: 100px;
+  background-color: yellow;
+}
+
+@media (max-width: 800px) {
+  .container {
+    background-color: blue;
+  }
+}
+
+@media (min-width: 801px) {
+  .container {
+    color: red;
+  }
+}
