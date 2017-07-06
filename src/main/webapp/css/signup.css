@@ -1,0 +1,201 @@
+@CHARSET "UTF-8";
+
+
+
+
+
+/*mobile*/
+@media (max-width: 740px) {
+	
+  html {
+   font-size:16px;
+  }
+	
+  .header {
+    height: 50px;
+  }
+    .header {
+    height: 66px;
+  }
+  
+  .container {
+  max-width: 1150px;
+  margin: 0 auto;
+    border: 2px solid blue;
+  
+}
+
+.top {
+  height: 125px;
+}
+
+.mid {
+  height: 150px;
+  
+  max-width:1150px;
+  margin: 0 auto;
+}
+
+
+.method {
+    font-size: 1.25rem;
+}
+
+
+.bottom {
+  display: inline-block;
+  width: 100%
+}
+
+
+
+.bottom_left {
+  display: inline-block;
+  width:100%;
+  float:left;
+}
+
+
+.bottom_mid {
+  display: inline-block;
+  width: 0%;
+  float: left;
+  
+}
+
+
+.bottom_right {
+  display: inline-block;
+  width:100%;
+/*   margin-left: 70px; */
+  float: left;
+}
+
+
+.password {
+  display: inline-block;
+}
+
+
+.confirm_password {
+  display: inline-block;
+}
+
+.agreement {
+  display: inline-block;
+}
+
+.checkbox {
+  float:left; 
+/*   margin-right: 76px; */
+  
+}
+
+.btn-sm {
+/*   display: inline-block; */
+  float:right 
+}
+  
+  
+}
+
+
+
+
+/*desktop*/
+@media (min-width: 741px) {
+	
+  html {
+   font-size:16px;
+  }
+  
+    
+body {
+  background-image:url(../images/login.jpg);
+}
+
+
+  .header {
+    height: 66px;
+  }
+  
+  .container {
+  max-width: 1150px;
+  margin: 0 auto;
+  background-color: rgba(255,255,255,0.9);
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.top {
+  height: 125px;
+}
+
+.mid {
+  height: 150px;
+  max-width:1150px;
+  margin: 0 auto;
+  margin-top : 15px;
+}
+
+.method1 {
+  padding-left: 20px;
+  font-size: 1.25rem;
+}
+
+.method2 {
+  font-size: 1.25rem;
+}
+
+
+.bottom {
+  display: inline-block;
+  width: 100%
+}
+
+.bottom_left {
+  display: inline-block;
+  width:50%;
+  float:left;
+}
+
+.email  {
+	font-size=1.0rem;
+}
+
+
+.bottom_right {
+  display: inline-block;
+  width:40%;
+  margin-top: 68px;
+  margin-left: 70px;
+  float: left;
+}
+
+
+.password {
+  display: inline-block;
+}
+
+
+.confirm_password {
+  display: inline-block;
+}
+
+.agreement {
+  display: inline-block;
+}
+
+.checkbox  {
+  float:left; 
+/*   margin-right: 76px; */
+  
+}
+
+.signBtn {
+  
+  float:right;
+  margin-top :11px;
+}
+  
+}
