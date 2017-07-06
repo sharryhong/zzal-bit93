@@ -56,6 +56,7 @@ h1 {
 .main-content .top {
   max-width: 920px;
   height: 250px;
+  margin: 0 auto;
 }
 .main-content .slider {
   width: 66%;
