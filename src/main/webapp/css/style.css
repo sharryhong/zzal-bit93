@@ -15,17 +15,21 @@ h1 {
 
 .main-content {
   min-height: 600px;
-  margin-top: 40px;
+  margin-top: 30px;
 }
 
 .footer {
   width: 100%;
   background-color: #F39C12;
 }
+.nav {
+  text-align: center;
+}
 
 .nav li {
   display: inline-block;
   padding-right: 14px;
+  margin-right: 10px;
   background-color: #E0E0E0;
   border-radius: 27px;
 }
@@ -51,6 +55,81 @@ h1 {
   line-height: 40px;
   font-size: 18px;
 }
+
+/*main page*/
+.zzal-container {
+  margin: 30px 0;
+  width: 100%;
+}
+.zzal-header .title {
+  display: inline-block;
+  font-weight: normal;
+  margin: 0;
+  font-size: 20px;
+}
+.zzal-container .plus {
+  float: right;
+  font-size: 16px;
+}
+.zzal-container .plus .fa {
+  margin-right: 5px;
+}
+.zzal-list {
+  margin-top: 10px;
+  width: 100%;
+}
+.zzal-list li {
+  float: left;
+  width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.zzal-list li:first-child {
+  padding-left: 0px;
+}
+.zzal-list li:last-child {
+  padding-right: 0px;
+}
+.zzal-list .big {
+  display: inline-block;
+  width: 50%;
+}
+.zzal-list .big .img {
+  display: inline-block;
+  width: 100%;
+  height: 295px;
+  overflow: hidden;
+}
+.zzal-list .big .title {
+  font-size: 26px;
+}
+.zzal-list .big .sub-title {
+  font-size: 20px;
+}
+.zzal-list .nick {
+  font-size: 14px;
+}
+.zzal-list .view {
+  font-size: 14px;
+}
+.zzal-list .small {
+  width: 25%;
+}
+.zzal-list .small .title {
+  font-size: 20px;
+}
+.zzal-list .small .sub-title {
+  font-size: 16px;
+}
+.zzal-list .small .img {
+  display: inline-block;
+  width: 100%;
+  height: 295px;
+  overflow: hidden;
+}
+
+
+
 /*mobile*/
 @media (max-width: 740px) {
   .header {

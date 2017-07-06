@@ -3,8 +3,15 @@
   height: 100px;
   background-color: yellow;
 }
+.big-font {
 
+  font-size: 1.125em; /* 18/16 */
+}
+/*mobile*/
 @media (max-width: 800px) {
+  html {
+    font-size: 14px;
+  }
   .container {
     background-color: blue;
   }
