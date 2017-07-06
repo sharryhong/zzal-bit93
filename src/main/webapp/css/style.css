@@ -51,27 +51,82 @@ h1 {
 /*main contents*/
 .main-content {
   min-height: 600px;
-  margin-top: 30px;
+  margin: 30px 0;
 }
 .main-content .top {
   max-width: 920px;
-  height: 250px;
-  margin: 0 auto;
+  /*height: 250px;*/
+  margin: 30px auto;
 }
 .main-content .slider {
   width: 66%;
   height: 250px;
-  border: 1px solid #eee;
+  border: 1px solid #ccc;
 }
 .main-content .best {
   width: 33%;
   padding: 10px 15px;
-  border: 1px solid #eee;
+  border: 1px solid #ccc;
 }
 .main-content .best .title {
   color: #54BAE6;
   font-size: 1rem;/* 18/16 */
   font-weight: bold;
+}
+/*zzal*/
+.zzal-lects li {
+  float: left;
+  width: 33.333%;
+  padding: 5px;
+  height: 400px;
+}
+.zzal-lect {
+  border: #ccc 1px solid;
+  width: 100%;
+}
+.zzal-lect .lect-top {
+  height: 50px;
+  font-size: 0.875rem; /* 14/16 */
+  padding: 10px;
+}
+.zzal-lect .user-photo {
+  display: inline-block;
+  width:30px;
+  height:30px;
+  border-radius:15px;
+  background-image: url("../image/user.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.zzal-lect .user-name {
+  vertical-align: super;
+}
+.zzal-lect .title {
+  font-size: 1.125rem;/* 18/16 */
+}
+.zzal-lect .zzal img {
+  width: 100%;
+}
+.zzal-lect .for-title {
+  padding: 10px;
+}
+.zzal-lect .bottom {
+  padding: 0 10px;
+  line-height: 35px;
+  font-size: 0.75rem;/* 12/16 */
+  background: #f2f2f2;
+  height: 35px;
+}
+.zzal-lect .view {
+  float: left;
+}
+.zzal-lect .right {
+  float: right;
+}
+.zzal-lect .like {
+  float: left;
+  margin-left: 10px;
 }
 
 .footer {
@@ -147,6 +202,9 @@ h1 {
   .main-content .best {
     display: none;
   }
+  .zzal-lects li {
+    width: 50%;
+  }
 }
 
 /*module*/
@@ -157,6 +215,6 @@ h1 {
   vertical-align: middle;
   text-align: center;
   border: none;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #ccc;
   background: none;
 }
