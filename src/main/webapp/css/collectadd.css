@@ -8,28 +8,39 @@
     font-size: 1.5rem;
     color: gray;
   }
-  .coll-photoAdd {
+  .collect-photoAdd {
     border: 2px solid gray;
     width: 100%;
     height: 250px;
     background-image: url('../image/space.gif');
   }
-  .btn {
+  .btn1 {
     width: 20%;
     position: relative;
     left: 60%;
     top: 50%;
   }
-
-  .main-content {
-    min-height: 600px;
-    max-width: 1150px;
-    margin: 0 auto;
+  .btn2 {
+    width: 20%;
+    position: relative;
+    left: 60%;
+    top: 50%;
   }
-  .coll-add {
+  .collect-add {
     margin-top: 50px;
   }
-
+  .collect-name {
+    width: 70%;
+    height: 50px;
+    border-radius: 10px;
+    font-size: 2rem;
+  }
+  .collect-exp {
+    width: 70%;
+    height: 50px;
+    border-radius: 10px;
+    font-size: 2rem;
+  }
   .onoffswitch {
     position: relative; width: 60px;
     -webkit-user-select:none;
@@ -79,52 +90,56 @@
 }
 /*mobile*/
 @media (max-width: 740px) {
-  h1 {
-    padding: 20px 20px 20px 40px;
-    margin-top: 0;
-    color: white;
-    font-size: 2rem;
-  }
-  h2 {
-    font-size: 2rem;
-    color: white;
-    margin: 0 0 0 10px;
+  body {
+    background-color: #333333;
   }
   ul{
     font-size: 1.2rem;
-    color: gray;
+    color: white;
     margin: 0 0 0 10px;
+    padding-top: 10px;
   }
-  .header {
-    height: 66px;
-    width: 100%;
-    background-color: #F39C12;
-  }
-  .photoAdd {
-    background-image: url('../image/space.gif');
-    border: 2px solid gray;
+
+  .collect-photoAdd {
+    background-image: url('../image/friday.gif');
+    position: relative;
     width: 100%;
     height: 180px;
   }
-  .main-content .btn {
+
+  .btn1 {
     width: 40%;
     position: relative;
     left: 25px;
+    margin-bottom: 50px;
   }
-  .main-content {
-    min-height: 450px;
-    max-width: 1150px;
-    margin: 0 auto;
-    background-color: #333333;
+  .btn2 {
+    width: 40%;
+    position: relative;
+    left: 25px;
+    margin-bottom: 50px;
   }
-
+  .collect-name {
+    width: 80%;
+    height: 25px;
+    border-radius: 6px;
+    font-size: 1rem;
+    margin: 0 0 0 10px;
+  }
+  .collect-exp {
+    width: 80%;
+    height: 25px;
+    border-radius: 6px;
+    font-size: 1rem;
+    margin: 0 0 0 10px;
+  }
 /*비공개 스위치*/
   .onoffswitch {
     position: relative; width: 50px;
     -webkit-user-select:none;
     -moz-user-select:none;
     -ms-user-select: none;
-    margin-left: 10px;
+    margin: 0 0 50px 10px;
   }
   .onoffswitch-checkbox {
     display: none;
@@ -166,13 +181,4 @@
     right: 0px;
   }
 
-  .container {
-    max-width: 1150px;
-    margin: 0 auto;
-    /*background-color: yellow;*/
-  }
-  .footer {
-    width: 100%;
-    background-color: #F39C12;
-    }
 }
