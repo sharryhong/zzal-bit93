@@ -1,43 +1,46 @@
-/*html {
-  font-size: 16px;
-}*/
+.zzal-container .zzal-lect-detail-con {
+  border: solid 1px red;
+  /*position: relative;*/
+  max-width: 1150px;
+  height : 800px;
+  /*요기는 상의*/
+  margin: 0 auto;
+}
 
+.main-content {
+  margin-left: 0px;
+}
 
+ .left-func-menu {
+  height: 100%;
+  /*padding-top: 10px;*/
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: center;
+  font-size:  0.875rem;
+  float: left;
+  border-right: solid 1px #ccc;
+}
 
-/*desktop*/
-@media (min-width: 766px) {
-
-
-  .content-con {
-    border: 3px solid yellow;
-  }
-
-  .content-left {
-    width: 80px;
-    /*max-height: 700px;*/
-    border: 3px solid blue;
-    position: fixed;
-
-    padding-left: 15px;
-    padding-top: 20px;
-    margin-right : 15px;
-
-  }
-
+.photo:hover {
+  color: orange;
+}
 
 .fa-camera {
   font-size: 40px;
 }
 
+}
 .photo > p {
   margin-top: 0px;
-  margin-left: 5px;
+  /*margin-left: 5px;*/
 }
 
 
-
-.video {
+.video:hover {
   margin-top: 35px;
+  color: orange;
+
 }
 
 .fa-link {
@@ -61,24 +64,24 @@
 
 .voice > p {
   margin-top: 0px;
-  margin-left: 100px;
+  margin-bottom: 250px;
+  /*margin-left: 100px;*/
 
 }
 
 
+.zzal-lect-detail-con {
+  margin-left : 80px;
+}
 
+.button-2 {
+  margin-top:10px;
+}
 
-  .content-right {
-    margin-left: 80px;
-    min-width: 95%;
-    height: 670px;
-    border: 3px solid green;
-  }
 
   .write-con {
     border: 3px solid red;
     width: 600px;
-    height: 600px;
     margin: 0 auto;
   }
 
@@ -88,7 +91,6 @@
     border: 1px solid black;
     display: inline-block;
   }
-
 
 
   .user-picture {
@@ -131,22 +133,43 @@
     margin-top: 20px;
   }
 
+  .nextpagebutton {
+    border: 1px solid black;
+    width:100%;
+    height:70px;
+    margin-top: 70px;
+    font-size : 2.5rem;
+    text-align: center;
+  }
+
+  .nextpagebutton>.fa {
+    cursor:pointer;
+  }
+
+.left-upper-menu .navinfo {
+  font-size: 20px;
+}
+.left-down-menu {
+  /*padding: 80% 0;*/
+  color: blue;
 }
 
-
-/*mobile*/
-@media (max-width: 765px) {
-
+.lect-right-info-detail {
+  height: 100%;
+  float: right;
+  width : 28%;
+  border-left: solid 1px #ccc;
+  margin: 0;
+}
+.lect-right-info-detail .upper-info {
+  height: 50%;
+  border-bottom: solid 1px #ccc;
+}
+.lect-right-info-detail .comment-list{
+    height: 50%;
 }
 
-/*module*/
-.input-line {
-  display: inline-block;
-  outline-style: none;
-  padding: 5px;
-  vertical-align: middle;
-  text-align: center;
-  border: none;
-  border-bottom: 1px solid #eee;
-  background: none;
+.user-phot {
+  color: #ccc;
+  font-size: 50px;
 }
