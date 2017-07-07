@@ -4,10 +4,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <meta charset="UTF-8">
   <title>컬렉션 추가</title>
-  <link rel="stylesheet"
+  <!-- <link rel="stylesheet"
         href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
         integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-        crossorigin="anonymous">
+        crossorigin="anonymous"> -->
+  <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/common.css">
   <link rel="stylesheet" href="css/style.css">
@@ -29,30 +30,27 @@
     </div>
   </div>
 </div>
-<div class="coll-photoAdd">
+<div class="collect-photoAdd">
   <h2>컬렉션 대표사진<h2>
 </div>
-<div class="main-content">
-  <div class="coll-add">
-      <h2>컬렉션 이름</h2><br>
-      <input class="form-control" placeholder="이름을 입력해주세요"
-          style="width: 70%; margin: 0 0 0 10px;"><br>
-      <h2>컬렉션 설명</h2><br>
-      <input class="form-control" placeholder="내용을 입력해주세요"
-          style="width: 70%; margin: 0 0 0 10px;">
-      <hr color="gray" width=100%>
-        <h2>공개 범위 설정</h2>
-        <ul>비공개 컬렉션으로 설정하면 다른 Zzaler들에게이컬렉션이 보이지 않습니다.</ul>
+  <div class="zzal-container">
+    <div class="collect-add">
+      <ul>컬렉션 이름(필수)</ul><br>
+      <input class="collect-name" placeholder="이름을 입력해주세요">
+      <ul>컬렉션 설명</ul><br>
+      <input class="collect-exp" placeholder="내용을 입력해주세요">
+        <ul>공개 범위 설정</ul>
+        <li>비공개 컬렉션으로 설정하면 다른 Zzaler들에게 이컬렉션이 보이지 않습니다.</li>
   <!-- 비공개 스위치 -->
   <div class="onoffswitch">
-        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox"
-                id="myonoffswitch" checked>
-        <label class="onoffswitch-label" for="myonoffswitch"></label>
+    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox"
+            id="myonoffswitch" checked>
+    <label class="onoffswitch-label" for="myonoffswitch"></label>
   </div>
-    <button id="" type="button" class="btn btn-default">취소</button>
-    <button id="" type="button" class="btn btn-primary">만들기</button>
+    <button id="" type="button" class="btn1 ">취소</button>
+    <button id="" type="button" class="btn2 ">만들기</button>
   </div>
-</div>
+</div><br>
 
 <footer class="footer">
   <div class="container">
