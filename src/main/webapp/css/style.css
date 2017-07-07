@@ -109,7 +109,6 @@ h1 {
   position: relative;
   margin-top: 50px;
   width: 100%;
-  /*top: 50px;*/
 }
 .zzal-lect .title {
   font-size: 1.125rem;/* 18/16 */
@@ -118,7 +117,7 @@ h1 {
   position: absolute;
   width: 100%;
   padding-bottom: 60%;
-  background-color: yellow;
+  background-color: black;
   overflow: hidden;
 }
 .zzal-lect .zzal img {
@@ -129,9 +128,10 @@ h1 {
 }
 .zzal-lect .for-title {
   position: absolute;
-  bottom: 30px;
+  bottom: 10px;
   padding: 10px;
   color: white;
+  background-color: rgba(0,0,0,0.3);
 }
 .zzal-lect .bottom {
   position: absolute;
