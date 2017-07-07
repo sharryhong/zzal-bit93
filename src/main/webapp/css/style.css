@@ -111,6 +111,8 @@ h1 {
   width: 100%;
 }
 .zzal-lect .title {
+  height: 46px;
+  overflow: hidden;
   font-size: 1.125rem;/* 18/16 */
 }
 .zzal-lect .zzal-img {
@@ -140,7 +142,7 @@ h1 {
   padding: 0 10px;
   line-height: 35px;
   font-size: 0.75rem;/* 12/16 */
-  background: #f2f2f2;
+  background: #eee;
   height: 35px;
 }
 .zzal-lect .view {
@@ -161,7 +163,7 @@ h1 {
 }
 
 /*desktop*/
-@media (min-width: 741px) {
+@media (min-width: 766px) {
   .zzal-container {
     padding: 0 20px;
     max-width: 1150px;
@@ -191,7 +193,7 @@ h1 {
 }
 
 /*mobile*/
-@media (max-width: 740px) {
+@media (max-width: 765px) {
   html {
     font-size: 14px;
   }
@@ -230,13 +232,33 @@ h1 {
   .zzal-lects li {
     width: 50%;
   }
-}
-
-/*@media (min-width: 1080px) {
-  .zzal-lect {
-    padding-bottom: 100%;
+  /*.zzal-lect .for-title {
+    bottom: 17px;
+  }*/
+  .zzal-lect .title {
+    height: 39px;
+    font-size: 1rem;
   }
-}*/
+  .zzal-lect .view {
+    display: none;
+  }
+
+}
+@media (max-width: 540px) {
+  .zzal-lect {
+    padding-bottom: 70%;
+  }
+  .zzal-lect .zzal-img {
+    position: absolute;
+    width: 100%;
+    padding-bottom: 70%;
+    background-color: black;
+    overflow: hidden;
+  }
+  .zzal-lect .for-title {
+    bottom: 34px;
+  }
+}
 
 /*module*/
 .input-line {
