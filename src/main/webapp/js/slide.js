@@ -1,102 +1,60 @@
-//current position
-var pos = 0;
-//number of slides
-var totalSlides = $('#slider-wrap ul li').length;
-//get the slide width
-var sliderWidth = $('#slider-wrap').width();
+// 왼쪽 slide menu
+(function(global, $){
+	'use strict';
+  var slideMenu = new SlideMenu();
+	function SlideMenu() {
+		// 슬라이드 메뉴 관련 프로퍼티
+		this.$toggleMenu = null;
+		this.$toggleBtn = null;
+		this.$toggleContents = null;
+		this.$mainContext = null;
+		this.$deskWidth = false; // 한번만 실행하기 위한 변수
+		this.$deskWidthPx = 1350; // 슬라이드 메뉴 들어가는 시점
+	}
 
-$(document).ready(function(){
+	SlideMenu.prototype.init = function() {
+		// 햄버거 버튼
+		this.$toggleMenu = $('.header');
+		this.$toggleBtn = this.$toggleMenu.find('.menu');
+		// 메뉴
+		this.$toggleContents = $('.nav');
+		this.$mainContext = $('.main-page .main-content');
+	}
 
-	/*****************
-	 BUILD THE SLIDER
-	*****************/
-	//set width to be 'x' times the number of slides
-	$('#slider-wrap ul#slider').width(sliderWidth*totalSlides);
+	SlideMenu.prototype.initEvent = function() {
+		var objThis = this;
+		// 햄버거 버튼 클릭시 toggleMenu메소드 실행
+		this.$toggleBtn.on('click', function(){
+			objThis.toggleMenu();
+		});
+		if(window.innerWidth > objThis.$deskWidthPx && objThis.$deskWidth == false){
+			objThis.toggleMenu();
+			objThis.$deskWidth = true;
+		}
+		// 브라우저 창 크기 바뀔 때
+		$(window).resize(function(){
+			// 데스크탑이 아니면 (or 창이 줄어들면)
+			if(window.innerWidth < objThis.$deskWidthPx && objThis.$deskWidth == true){
+				console.log(objThis.$deskWidthPx+'px 값보다 작아지면!');
+				// objThis.toggleMenu();
+				objThis.$toggleContents.removeClass('sliding');
+				objThis.$deskWidth = false;
+			// 데스크탑이라면
+			} else if(window.innerWidth > objThis.$deskWidthPx && objThis.$deskWidth == false){
+				console.log(objThis.$deskWidthPx+'px 값보다 커지면!');
+				// objThis.toggleMenu();
+				objThis.$toggleContents.addClass('sliding');
+				objThis.$deskWidth = true;
+			}
+		});
+	}
+	// class 이름 붙이고 떼는 기능
+	SlideMenu.prototype.toggleMenu = function() {
+		this.$toggleContents.toggleClass('sliding');
+		// this.$mainContext.css( { "margin-left" : "0px" } );
+	}
 
-    //next slide
-	$('#next').click(function(){
-		slideRight();
-	});
+	slideMenu.init();
+	slideMenu.initEvent();
 
-	//previous slide
-	$('#previous').click(function(){
-		slideLeft();
-	});
-
-	/*************************
-	 //*> OPTIONAL SETTINGS
-	************************/
-	//automatic slider
-	var autoSlider = setInterval(slideRight, 3000);
-
-	//for each slide
-	$.each($('#slider-wrap ul li'), function() {
-	   //set its color
-	   var c = $(this).attr("data-color");
-	   $(this).css("background",c);
-
-	   //create a pagination
-	   var li = document.createElement('li');
-	   $('#pagination-wrap ul').append(li);
-	});
-
-	//counter
-	countSlides();
-
-	//pagination
-	pagination();
-
-	//hide/show controls/btns when hover
-	//pause automatic slide when hover
-	$('#slider-wrap').hover(
-	  function(){ $(this).addClass('active'); clearInterval(autoSlider); },
-	  function(){ $(this).removeClass('active'); autoSlider = setInterval(slideRight, 3000); }
-	);
-
-
-
-});//DOCUMENT READY
-
-
-
-/***********
- SLIDE LEFT
-************/
-function slideLeft(){
-	pos--;
-	if(pos==-1){ pos = totalSlides-1; }
-	$('#slider-wrap ul#slider').css('left', -(sliderWidth*pos));
-
-	//*> optional
-	countSlides();
-	pagination();
-}
-
-
-/************
- SLIDE RIGHT
-*************/
-function slideRight(){
-	pos++;
-	if(pos==totalSlides){ pos = 0; }
-	$('#slider-wrap ul#slider').css('left', -(sliderWidth*pos));
-
-	//*> optional
-	countSlides();
-	pagination();
-}
-
-
-
-
-/************************
- //*> OPTIONAL SETTINGS
-************************/
-function countSlides(){
-	$('#counter').html(pos+1 + ' / ' + totalSlides);
-}
-
-function pagination(){
-	$('#pagination-wrap ul li').removeClass('active');
-	$('#pagination-wrap ul li:eq('+pos+')').addClass('active');
-}
+})(this, this.jQuery);
