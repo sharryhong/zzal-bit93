@@ -1,0 +1,47 @@
+.zzal-container .zzal-lect-detail-con {
+  border: solid 1px red;
+  /*position: relative;*/
+  max-width: 1150px;
+  height : 600px;
+  /*요기는 상의*/
+  margin: 0 auto;
+}
+
+.zzal-lect-detail-con .left-func-menu {
+  height: 100%;
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: center;
+  font-size: 40px;
+  /*position: absolute;*/
+  /*left: 0;*/
+  float: left;
+  border-right: solid 1px #ccc;
+}
+.left-upper-menu .navinfo {
+  font-size: 20px;
+}
+.left-down-menu {
+  /*padding: 80% 0;*/
+  color: blue;
+}
+
+.lect-right-info-detail {
+  height: 100%;
+  float: right;
+  width : 28%;
+  border-left: solid 1px #ccc;
+  margin: 0;
+}
+.lect-right-info-detail .upper-info {
+  height: 50%;
+  border-bottom: solid 1px #ccc;
+}
+.lect-right-info-detail .comment-list{
+    height: 50%;
+}
+
+.user-phot {
+  color: #ccc;
+  font-size: 50px;
+}
