@@ -10,17 +10,30 @@
         crossorigin="anonymous">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/collectadd.css">
 </head>
 <body>
-<header class="header">
-    <h1>Zzal School</h1>
-</header>
-<div class="photoAdd">
+<div id="con">
+  <div class="header">
+    <div class="left">
+      <a href="#" class="menu"><i class="fa fa-bars" aria-hidden="true"><span class="blind">메뉴버튼</span></i></a>
+      <h1 class="logo"><a href="#">Zzal School</a></h1>
+    </div>
+    <div class="right">
+      <span class="search">
+        <input type="text" class="input-line" id="search-btn" placeholder="">
+        <label for="search-btn" class="search-icon"><i class="fa fa-search" aria-hidden="true"><span class="blind">검색하기</span></i></label>
+      </span>
+      <a href="#" class="login">로그인</a>
+    </div>
+  </div>
+</div>
+<div class="coll-photoAdd">
   <h2>컬렉션 대표사진<h2>
 </div>
 <div class="main-content">
-  <div class="collect">
+  <div class="coll-add">
       <h2>컬렉션 이름</h2><br>
       <input class="form-control" placeholder="이름을 입력해주세요"
           style="width: 70%; margin: 0 0 0 10px;"><br>
@@ -35,11 +48,12 @@
         <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox"
                 id="myonoffswitch" checked>
         <label class="onoffswitch-label" for="myonoffswitch"></label>
-    </div>
+  </div>
     <button id="" type="button" class="btn btn-default">취소</button>
     <button id="" type="button" class="btn btn-primary">만들기</button>
   </div>
 </div>
+
 <footer class="footer">
   <div class="container">
     <h3>Zzal School</h3>

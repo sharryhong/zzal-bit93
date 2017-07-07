@@ -1,3 +1,82 @@
+/*desktop*/
+@media (min-width: 741px) {
+  h2 {
+    font-size: 2.5rem;
+    margin: 0;
+  }
+  ul{
+    font-size: 1.5rem;
+    color: gray;
+  }
+  .coll-photoAdd {
+    border: 2px solid gray;
+    width: 100%;
+    height: 250px;
+    background-image: url('../image/space.gif');
+  }
+  .btn {
+    width: 20%;
+    position: relative;
+    left: 60%;
+    top: 50%;
+  }
+
+  .main-content {
+    min-height: 600px;
+    max-width: 1150px;
+    margin: 0 auto;
+  }
+  .coll-add {
+    margin-top: 50px;
+  }
+
+  .onoffswitch {
+    position: relative; width: 60px;
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select: none;
+  }
+  .onoffswitch-checkbox {
+    display: none;
+  }
+  .onoffswitch-label {
+    display: block;
+    overflow: hidden;
+    cursor: pointer;
+    height: 36px;
+    padding: 0;
+    line-height: 36px;
+    border: 2px solid #E3E3E3;
+    border-radius: 36px;
+    background-color: #FFFFFF;
+    transition: background-color 0.3s ease-in;
+  }
+   .onoffswitch-label:before {
+    content: "";
+    display: block;
+    width: 36px;
+    margin: 0px;
+    background: #FFFFFF;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 22px;
+    border: 2px solid #E3E3E3;
+    border-radius: 36px;
+    transition: all 0.3s ease-in 0s;
+  }
+    .onoffswitch-checkbox:checked + .onoffswitch-label {
+    background-color: #49E845;
+  }
+    .onoffswitch-checkbox:checked + .onoffswitch-label,
+    .onoffswitch-checkbox:checked + .onoffswitch-label:before {
+    border-color: #49E845;
+  }
+    .onoffswitch-checkbox:checked + .onoffswitch-label:before {
+    right: 0px;
+  }
+
+}
 /*mobile*/
 @media (max-width: 740px) {
   h1 {
@@ -22,12 +101,12 @@
     background-color: #F39C12;
   }
   .photoAdd {
-    background-image: url('../image/ohhh.jpg');
+    background-image: url('../image/space.gif');
     border: 2px solid gray;
     width: 100%;
     height: 180px;
   }
-  .btn {
+  .main-content .btn {
     width: 40%;
     position: relative;
     left: 25px;
@@ -41,38 +120,50 @@
 
 /*비공개 스위치*/
   .onoffswitch {
-      position: relative; width: 60px;
-      -webkit-user-select:none;
-       -moz-user-select:none;
-      -ms-user-select: none;
+    position: relative; width: 50px;
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select: none;
+    margin-left: 10px;
   }
   .onoffswitch-checkbox {
     display: none;
   }
   .onoffswitch-label {
-      display: block; overflow: hidden; cursor: pointer;
-      height: 36px; padding: 0; line-height: 36px;
-      border: 2px solid #E3E3E3; border-radius: 36px;
-      background-color: #FFFFFF;
-      transition: background-color 0.3s ease-in;
+    display: block;
+    overflow: hidden;
+    cursor: pointer;
+    height: 26px;
+    padding: 0;
+    line-height: 26px;
+    border: 2px solid #E3E3E3;
+    border-radius: 26px;
+    background-color: #FFFFFF;
+    /*transition: background-color 0.3s ease-in;*/
   }
   .onoffswitch-label:before {
-      content: "";
-      display: block; width: 36px; margin: 0px;
-      background: #FFFFFF;
-      position: absolute; top: 0; bottom: 0;
-      right: 22px;
-      border: 2px solid #E3E3E3; border-radius: 36px;
-      transition: all 0.3s ease-in 0s;
+    content: "";
+    display: block;
+    width: 26px;
+    margin: 0px;
+    background: #FFFFFF;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 22px;
+    border: 2px solid #E3E3E3;
+    border-radius: 26px;
+    transition: all 0.3s ease-in 0s;
   }
   .onoffswitch-checkbox:checked + .onoffswitch-label {
-      background-color: #49E845;
+    background-color: #49E845;
   }
-  .onoffswitch-checkbox:checked + .onoffswitch-label, .onoffswitch-checkbox:checked + .onoffswitch-label:before {
-     border-color: #49E845;
+  .onoffswitch-checkbox:checked + .onoffswitch-label,
+   .onoffswitch-checkbox:checked + .onoffswitch-label:before {
+    border-color: #49E845;
   }
   .onoffswitch-checkbox:checked + .onoffswitch-label:before {
-      right: 0px;
+    right: 0px;
   }
 
   .container {
@@ -84,95 +175,4 @@
     width: 100%;
     background-color: #F39C12;
     }
-}
-
-/*desktop*/
-@media (min-width: 741px) {
-h1 {
-  /*border: 1px solid red;*/
-  margin-top: 0;
-  padding: 10px 10px 10px 60px;
-  color: white;
-}
-
-h2 {
-  font-size: 2.5rem;
-  margin: 0;
-}
-ul{
-  font-size: 1.5rem;
-  color: gray;
-}
-.header {
-  height: 66px;
-  width: 100%;
-  background-color: #F39C12;
-}
-.photoAdd {
-  border: 2px solid gray;
-  width: 100%;
-  height: 250px;
-  background-image: url('../image/oh.jpg');
-}
-.btn {
-  width: 20%;
-  position: relative;
-  left: 60%;
-  top: 50%;
-}
-
-.main-content {
-  min-height: 600px;
-  max-width: 1150px;
-  margin: 0 auto;
-}
-.collect {
-  margin-top: 50px;
-}
-
-.onoffswitch {
-  position: relative; width: 60px;
-  -webkit-user-select:none;
-  -moz-user-select:none;
-  -ms-user-select: none;
-}
-.onoffswitch-checkbox {
-  display: none;
-}
-.onoffswitch-label {
-    display: block; overflow: hidden; cursor: pointer;
-    height: 36px; padding: 0; line-height: 36px;
-    border: 2px solid #E3E3E3; border-radius: 36px;
-    background-color: #FFFFFF;
-    transition: background-color 0.3s ease-in;
-}
-.onoffswitch-label:before {
-    content: "";
-    display: block; width: 36px; margin: 0px;
-    background: #FFFFFF;
-    position: absolute; top: 0; bottom: 0;
-    right: 22px;
-    border: 2px solid #E3E3E3; border-radius: 36px;
-    transition: all 0.3s ease-in 0s;
-}
-.onoffswitch-checkbox:checked + .onoffswitch-label {
-    background-color: #49E845;
-}
-.onoffswitch-checkbox:checked + .onoffswitch-label, .onoffswitch-checkbox:checked + .onoffswitch-label:before {
-   border-color: #49E845;
-}
-.onoffswitch-checkbox:checked + .onoffswitch-label:before {
-    right: 0px;
-}
-
-.container {
-  max-width: 1150px;
-  margin: 0 auto;
-  /*background-color: yellow;*/
-}
-  .footer {
-    width: 100%;
-    background-color: #F39C12;
-  }
-
 }
