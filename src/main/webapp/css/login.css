@@ -1,29 +1,17 @@
 @CHARSET "UTF-8";
 
-
-
-
-
 /*mobile*/
 @media (max-width: 740px) {
-	
-  
-  html {
-   font-size:16px;
-  }
-  
-  
-/*   .loginform {
-    background-color: rgba(255,255,255,0.9);
-  border-radius: 10px;
-  width:400px;
-  } */
-  
-  .header {
-    height: 66px;
-  }
-  
-  .container {
+
+html {
+ font-size:16px;
+}
+
+.header {
+  height: 66px;
+}
+
+.container {
   max-width: 450px;
   margin: 0 auto;
 }
@@ -35,7 +23,7 @@
 .mid {
   padding-top: 30px;
   height: 150px;
-  
+
   max-width:450px;
   margin: 0 auto;
 }
@@ -59,7 +47,7 @@
 }
 
 
-.email  {
+.email {
   font-size=1.0rem;
 }
 
@@ -78,9 +66,7 @@
 }
 
 .checkbox  {
-  float:left; 
-/*   margin-right: 76px; */
-  
+  float:left;
 }
 
 .rememberId  {
@@ -97,7 +83,7 @@
 }
 
 .btn-sm {
-  float:right 
+  float:right
 }
 
 .isVisitFirst {
@@ -105,8 +91,8 @@
   margin-right: 70px;
 }
 
-  
-  
+
+
 }
 
 
@@ -115,28 +101,27 @@
 
 /*desktop*/
 @media (min-width: 741px) {
-	
-  html {
-   font-size:16px;
-  }
-	
-	
+
+html {
+ font-size:16px;
+}
+
 body {
   background-image:url(../images/login.jpg);
 }
-	
-	.loginform {
-    background-color: rgba(255,255,255,0.9);
-  border-radius: 10px;
-  width:400px;
-  padding 
-	}
-	
-  .header {
-    height: 66px;
-  }
-  
-  .container {
+
+.loginform {
+  background-color: rgba(255,255,255,0.9);
+border-radius: 10px;
+width:400px;
+padding
+}
+
+.header {
+  height: 66px;
+}
+
+.container {
   max-width: 450px;
   margin: 0 auto;
 }
@@ -148,7 +133,7 @@ body {
 .mid {
 	padding-top: 30px;
 	height: 150px;
-  
+
   max-width:450px;
   margin: 0 auto;
 }
@@ -162,7 +147,6 @@ body {
     font-size: 1.25rem;
 }
 
-
 .bottom {
 	padding:30px;
 	margin-left: 50px;
@@ -170,7 +154,6 @@ body {
   margin: 0 auto;
   width: 100%
 }
-
 
 .email  {
 	font-size=1.0rem;
@@ -191,9 +174,7 @@ body {
 }
 
 .checkbox  {
-  float:left; 
-/*   margin-right: 76px; */
-  
+  float:left;
 }
 
 .rememberId  {
@@ -210,7 +191,7 @@ body {
 }
 
 .btn-sm {
-  float:right 
+  float:right
 }
 
 .isVisitFirst {
@@ -218,12 +199,4 @@ body {
 	margin-right: 70px;
 }
 
-
-
-
-
-
-
-
-  
 }
