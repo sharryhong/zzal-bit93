@@ -64,13 +64,32 @@ h1 {
 }
 .main-content .best {
   width: 33%;
-  padding: 10px 15px;
+  font-size: 0.875rem;/* 14/16 */
+  padding: 13px 15px;
   border: 1px solid #ccc;
 }
 .main-content .best .title {
   color: #54BAE6;
   font-size: 1rem;/* 18/16 */
   font-weight: bold;
+  padding-bottom: 3px;
+  margin-bottom: 5px;
+  border-bottom: 1px solid #54BAE6;
+}
+.main-content .best li {
+  height: 32px;
+  line-height: 32px;
+}
+.main-content .best .ranking {
+  color: #54BAE6;
+  font-weight: bold;
+}
+.main-content .best a {
+  display: inline-block;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 /*zzal*/
 .zzal-lects li {
@@ -119,7 +138,7 @@ h1 {
   position: absolute;
   width: 100%;
   padding-bottom: 60%;
-  background-color: black;
+  background-color: rgba(0,0,0,0.9);
   overflow: hidden;
 }
 .zzal-lect .zzal img {
@@ -133,7 +152,7 @@ h1 {
   bottom: 10px;
   padding: 10px;
   color: white;
-  background-color: rgba(0,0,0,0.3);
+  background-color: rgba(0,0,0,0.5);
 }
 .zzal-lect .bottom {
   position: absolute;
@@ -252,7 +271,7 @@ h1 {
     position: absolute;
     width: 100%;
     padding-bottom: 70%;
-    background-color: black;
+    /*background-color: rgba(0,0,0,0.3);*/
     overflow: hidden;
   }
   .zzal-lect .for-title {
