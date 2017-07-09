@@ -321,23 +321,29 @@ h1 {
     margin-top: 50px;
     overflow-x: auto;
     white-space: nowrap;
-    background-color: #eee;
-    padding: 0 10px;
+    /* background-color: #eee; */
+    /* padding: 0 10px; */
 	}
   .mobile-nav li {
     display: inline-block;
+  }
+  .mobile-nav li:first-child {
+    margin-left: 10px;
+  }
+  .mobile-nav li:last-child {
+    margin-right: 10px;
   }
 	.mobile-nav a {
 	  position: relative;
     display: inline-block;
     text-align: center;
-    padding: 12px 7px 10px 7px;
+    padding: 12px 7px 7px 7px;
     text-decoration: none;
 	}
 	.mobile-nav .on {
 	  color: #F39C12;
 	}
-	.mobile-nav .on:after {
+	/* .mobile-nav .on:after {
 	  display: inline-block;
 	  position: absolute;
 	  content: '';
@@ -346,7 +352,17 @@ h1 {
 	  bottom: 0;
 	  left: 0;
 	  background: #F39C12;
+	} */
+	.mCSB_horizontal.mCSB_inside > .mCSB_container {
+    margin-bottom: 3px;
 	}
+	.mobile-nav .mCS-dark-thin.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
+    background-color: #000;
+    background-color: rgba(0,0,0,0.2);
+  }
+  .mobile-nav .mCSB_scrollTools.mCSB_scrollTools_horizontal {
+    bottom: -6px;
+  }
   .main-content {
     margin-top: 0px;
   }
