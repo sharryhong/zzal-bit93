@@ -29,46 +29,19 @@
 <div class="main-content">
   <div class="mypage_users_info">
     <div class="zzal-container">
-
-      <div class="top clearfix">
-        <div class="users-info-box">
-          <div class="user-border clearfix">
-              <div class="border-text">
-                <span class="name">RECEIVED</span><span style="display : none"><span>
-              </div>
-              <div class="border-text">
-                <span class="name">조회수</span><span class="num">13,5555</span>
-              </div>
-              <div class="border-text">
-                <span class="name">좋아요수</span><span class="num">13,5555</span>
-              </div>
-              <div class="border-text">
-                <span class="name">구독자수</span><span class="num">13,5555</span>
-              </div>
-          </div>
-        </div>
-          <div class="user-info-face">
-              <div class="phot">
-              </div>
-              <span class="user-name">javajoa</span>
-              <!--수정이 필요해!  -->
-          </div>
+      <div id="mypage-header" class="top clearfix">
       </div> <!--top-->
+    </div><!-- mypage_datail -->
 
-  </div><!-- mypage_datail -->
-    <div class="mypage_mid">
-      <div class="select_info">
-        <span class="name">짤강</span><span class="num">154</span>
-        <span class="name">컬렉션</span><span class="num">200</span>
-      </div>
+    <div id="mypage-mid" class="mypage_mid">
     </div>
+
   <div class="mypage_bottom">
     <div class="bottom-container">
      <div class="bottom-selector clearfix">
        <div class="bottom-liner">
-         <div class=" one">
-           <span class="name">내 짤강</span><span class="num">154</span>
-         </div>
+        <div id= "mypage-bot"class=" one">
+      </div>
        <span class="name two">좋아요 짤강</span>
        </div>
      </div>
@@ -374,7 +347,50 @@
     <p>zzal school</p>
 </div>
 </div>
+
+<script id="mypageheader-template" type="text/x-handlebars-template">
+ <div class="users-info-box">
+   <div class="user-border clearfix">
+       {{#each list}}
+       <div class="border-text">
+         <span class="name">RECEIVED</span><span style="display : none"><span>
+       </div>
+       <div class="border-text">
+         <span class="name">조회수</span><span class="num">{{viewCnt}}</span>
+       </div>
+       <div class="border-text">
+         <span class="name">좋아요수</span><span class="num">{{likeCnt}}</span>
+       </div>
+       <div class="border-text">
+         <span class="name">구독자수</span><span class="num">{{subsCnt}}</span>
+       </div>
+
+   </div>
+ </div>
+   <div class="user-info-face">
+       <div class="phot" style= "background-image: url('{{userPhot}}');" >
+       </div>
+       <span class="user-name">{{userNick}}</span>
+       <!--수정이 필요해!  -->
+   </div>
+   {{/each}}
+ </script>
+ <script id="mypagemid-template" type="text/x-handlebars-template">
+   {{#each list}}
+ <div class="select_info">
+   <span class="name">짤강</span><span class="num">{{zzalLectCnt}}</span>
+   <span class="name">컬렉션</span><span class="num">{{zzalCollecCnt}}</span>
+ </div>
+ {{/each}}
+ </script>
+ <script id="mypagebot-template" type="text/x-handlebars-template">
+   {{#each list}}
+   <span class="name">내 짤강</span><span class="num">{{myzzalLect}}</span>
+    {{/each}}
+ </script>
 <script src="node_modules/jquery/dist/jquery.min.js"></script>
+<script src="node_modules/handlebars/dist/handlebars.min.js"></script>
+<script src="js/mypage.js"></script>
 <!-- <script src="js/slide.js"></script> -->
 </body>
 </html>
