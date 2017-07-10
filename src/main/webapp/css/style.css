@@ -36,6 +36,11 @@ h1 {
 .header .search {
   font-size: 1.875rem; /* 30/16 */
 }
+
+input:-ms-input-placeholder { color: #777; }
+input::-webkit-input-placeholder { color: #777; } 
+input::-moz-placeholder { color: #777; } 
+
 .search-icon {
   margin-left: -10px;
 }
@@ -155,6 +160,7 @@ h1 {
   position: absolute;
   bottom: 10px;
   padding: 10px;
+  width: 100%;
   color: white;
   background-color: rgba(0,0,0,0.5);
 }
@@ -499,7 +505,7 @@ button {
   vertical-align: middle;
   text-align: center;
   font-size: 1rem;
-  color: white;
+  color: #333;
   border: none;
   border-bottom: 1px solid #ccc;
   background: none;
