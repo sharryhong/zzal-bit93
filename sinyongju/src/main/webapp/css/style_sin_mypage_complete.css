@@ -1,0 +1,179 @@
+/*@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);*/
+/*@import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);*/
+/*body, input, textarea, button, pre {
+    font: 'Nanum Gothic', Dotum, Arial, Verdana, sans-serif;
+    color: #333;
+}*/
+
+/*main*/
+.mypage_users_info .top {
+
+  height: 110px;
+}
+.mypage_users_info {
+
+  border-bottom: solid 1px #ccc;
+}
+
+.users-info-box {
+  height: 80px;
+  float: right;
+}
+.users-info-box .user-border div{
+  /*display: inline-block;
+  margin: 0;*/
+    border-bottom: solid 1px #ccc;
+
+}
+.border-text {
+  font-size:  14px;
+  /*폰트 레이시오로 바꾸기 */
+}
+
+.user-border .border-text .name{
+  padding-right: 22px;
+}
+
+.user-border .border-text .num{
+  /*padding-right: 22px;*/
+  float: right;
+}
+.user-info-face .user-name{
+  padding-top: ;
+  display: block;
+  vertical-align: text-bottom;
+}
+
+.user-info-face .phot {
+  float: left;
+  background-image: url('sul.jpg');
+  background-size: cover;
+  height: 75px;
+  width: 75px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.mypage_mid {
+
+  border-bottom: solid 1px #ccc;
+}
+.select_info {
+
+  margin: 0 auto;
+  width: 1150px;
+  padding: 20px 0px;
+}
+.select_info .name {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.mypage_bottom {
+  margin: 0 auto;
+  max-width: 1150px;
+  padding: 20px 0px;
+}
+.bottom-selector {
+
+  border-bottom: solid 1px #ccc;
+}
+
+.bottom-liner{
+  float: right;
+
+}
+
+.bottom-selector div{
+  margin-left: 10px;
+  margin-right: 10px;
+  display: inline-block;
+}
+.bottom-selector  .name{
+  margin-right: 10px;
+}
+.bottom-selector .one {
+  border-bottom: solid 5px orange;
+}
+
+
+
+/*desktop*/
+/*@media (min-width: 741px) {
+  .zzal-container {
+    padding: 0 20px;
+    max-width: 1150px;
+    margin: 0 auto;
+  }
+  .header {
+    height: 66px;
+    line-height: 63px;
+    text-align: center;
+  }
+  .header .left {
+    left: 20px;
+  }
+  .header .login {
+    line-height: 66px;
+  }
+  .main-content .slider {
+    float: left;
+    width: 66%;
+    height: 250px;
+  }
+  .main-content .best {
+    float: right;
+    width: 33%;
+    height: 250px;
+  }
+}*/
+
+/*mobile*/
+/*@media (max-width: 740px) {
+  html {
+    font-size: 14px;
+  }
+  .zzal-container {
+    padding: 0 10px;
+  }
+  .header {
+    padding: 0 10px;
+    height: 50px;
+    line-height: 43px;
+  }
+  .header .menu {
+    display: none;
+  }
+  .header .left {
+    left: 10px;
+  }
+  .header .right {
+    position: absolute;
+    right: 10px;
+  }
+  .header .login {
+    line-height: 50px;
+    margin-left: 10px;
+  }
+  .header .input-line {
+    display: none;
+  }
+  .main-content .slider {
+    width: 100%;
+    height: 180px;
+  }
+  .main-content .best {
+    display: none;
+  }
+}*/
+
+/*module*/
+.input-line {
+  display: inline-block;
+  outline-style: none;
+  padding: 5px;
+  vertical-align: middle;
+  text-align: center;
+  border: none;
+  border-bottom: 1px solid #eee;
+  background: none;
+}

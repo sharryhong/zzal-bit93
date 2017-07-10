@@ -88,7 +88,7 @@
   float:left;
   width:50px;
   height:50px;
-  background-image: url("../css/sul.jpg");
+  background-image: url("../image/sul.jpg");
 
 
 }
@@ -208,7 +208,7 @@ font-size:0.875rem;
   /*left:0;*/
   width:34px;
   height:34px;
-  background-image: url("../css/sul.jpg");
+  background-image: url("../image/sul.jpg");
 }
 .form-con .form-loca-use {
   padding-top: 0.65625rem;
@@ -286,7 +286,7 @@ position: absolute;
   margin: 10px 0 0 10px;
   width:34px;
   height:34px;
-  background-image: url("../css/sul.jpg");
+  background-image: url("../image/sul.jpg");
 }
 
 .comment-list-unit-conainer .comment-list-unit-textinfos {
@@ -345,10 +345,10 @@ position: absolute;
 /*middle main contents*/
 
 .zzal-detail-content-container {
-    position: relative;
-  max-width: 60%;
-  margin-left: 120px;
-  margin-right: 265px;
+      position: relative;
+    max-width: 60%;
+    margin-left: 120px;
+    margin-right: 265px;
 }
 .contents-title h1 {
   margin-right: 20PX;

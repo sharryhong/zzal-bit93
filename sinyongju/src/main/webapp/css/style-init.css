@@ -1,0 +1,189 @@
+/*@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);*/
+/*@import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);*/
+/*body, input, textarea, button, pre {
+    font: 'Nanum Gothic', Dotum, Arial, Verdana, sans-serif;
+    color: #333;
+}*/
+h1 {
+  margin-top: 0;
+}
+#con {
+  min-width: 300px;
+}
+.header {
+  position: relative;
+  width: 100%;
+  padding: 0 20px;
+  color: white;
+  background-color: #F39C12;
+}
+.header .left {
+  position: absolute;
+  /*left: 20px;*/
+}
+.header .menu {
+  display: inline-block;
+  margin-right: 10px;
+  font-size: 30px;
+}
+.fa-bars {
+  -webkit-text-stroke: 1px #F39C12;
+}
+.header .logo {
+  display: inline-block;
+  font-size: 1.5625rem; /* 25/16 */
+}
+.header .search {
+  font-size: 1.875rem; /* 30/16 */
+}
+.search-icon {
+  margin-left: -10px;
+}
+.fa-search {
+  -webkit-text-stroke: 1px #F39C12;
+  /*-webkit-font-smoothing: antialiased;*/
+  /*font-weight: lighter;*/
+}
+.header .login {
+  float: right;
+}
+
+/*main contents*/
+.main-content {
+  min-height: 600px;
+  margin-top: 30px;
+}
+.main-content {
+  height: 250px;
+
+}
+
+.main-content .top {
+  max-width: 920px;
+}
+
+.main-content .best {
+  width: 33%;
+  padding: 10px 15px;
+  border: 1px solid #eee;
+}
+.main-content .best .title {
+  color: #54BAE6;
+  font-size: 1rem;/* 18/16 */
+  font-weight: bold;
+}
+
+/*main*/
+.users-info-box {
+
+}
+.users-info-box .user-table {
+  /*display: inline-block;
+  margin: 0;*/
+  border : solid 1px red;
+}
+
+.users-info-box .user-table li ,ul {
+    border : solid 1px red;
+    margin: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*footer*/
+.footer {
+  width: 100%;
+  padding: 15px;
+  background-color: #F0F0F0;
+}
+
+/*desktop*/
+@media (min-width: 741px) {
+  .zzal-container {
+    padding: 0 20px;
+    max-width: 1150px;
+    margin: 0 auto;
+  }
+  .header {
+    height: 66px;
+    line-height: 63px;
+    text-align: center;
+  }
+  .header .left {
+    left: 20px;
+  }
+  .header .login {
+    line-height: 66px;
+  }
+  .main-content .slider {
+    float: left;
+    width: 66%;
+    height: 250px;
+  }
+  .main-content .best {
+    float: right;
+    width: 33%;
+    height: 250px;
+  }
+}
+
+/*mobile*/
+@media (max-width: 740px) {
+  html {
+    font-size: 14px;
+  }
+  .zzal-container {
+    padding: 0 10px;
+  }
+  .header {
+    padding: 0 10px;
+    height: 50px;
+    line-height: 43px;
+  }
+  .header .menu {
+    display: none;
+  }
+  .header .left {
+    left: 10px;
+  }
+  .header .right {
+    position: absolute;
+    right: 10px;
+  }
+  .header .login {
+    line-height: 50px;
+    margin-left: 10px;
+  }
+  .header .input-line {
+    display: none;
+  }
+  .main-content .slider {
+    width: 100%;
+    height: 180px;
+  }
+  .main-content .best {
+    display: none;
+  }
+}
+
+/*module*/
+.input-line {
+  display: inline-block;
+  outline-style: none;
+  padding: 5px;
+  vertical-align: middle;
+  text-align: center;
+  border: none;
+  border-bottom: 1px solid #eee;
+  background: none;
+}

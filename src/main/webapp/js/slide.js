@@ -38,12 +38,14 @@
 				console.log(objThis.$deskWidthPx+'px 값보다 작아지면!');
 				// objThis.toggleMenu();
 				objThis.$toggleContents.removeClass('sliding');
+				objThis.$mainContext.removeClass('sliding');
 				objThis.$deskWidth = false;
 			// 데스크탑이라면
 			} else if(window.innerWidth > objThis.$deskWidthPx && objThis.$deskWidth == false){
 				console.log(objThis.$deskWidthPx+'px 값보다 커지면!');
 				// objThis.toggleMenu();
 				objThis.$toggleContents.addClass('sliding');
+				objThis.$mainContext.addClass('sliding');
 				objThis.$deskWidth = true;
 			}
 		});
@@ -51,7 +53,7 @@
 	// class 이름 붙이고 떼는 기능
 	SlideMenu.prototype.toggleMenu = function() {
 		this.$toggleContents.toggleClass('sliding');
-		// this.$mainContext.css( { "margin-left" : "0px" } );
+		this.$mainContext.toggleClass('sliding');
 	}
 
 	slideMenu.init();
