@@ -1,3 +1,6 @@
+.zzal-container.zzal-lect-detail {
+  padding: 0;
+}
 .zzal-container .zzal-lect-detail-con {
   /*border: solid 1px red;*/
   position: relative;
