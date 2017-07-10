@@ -291,6 +291,7 @@ position: absolute;
   left: 20%;
   display: inline-block;
   width:80%;
+  min-height: 50px;
   /*float: left;*/
 }
 
