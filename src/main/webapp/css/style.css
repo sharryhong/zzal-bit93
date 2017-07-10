@@ -210,11 +210,33 @@ h1 {
 	font-size: 1rem;
 	line-height: 1.5;
 }
+.zzal-week-container {
+	margin: 35px 0;
+	padding: 20px 0;
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+}
+.top-con {
+	padding: 0 10px 5px 10px;
+}
+.top-con .title {
+	float: left;
+	font-weight: bold;
+}
+.top-con .more {
+	float: right;
+	font-size: 0.875rem;
+}
+.zzal-week-container .title {
+	font-size: 1rem;
+}
 
 .footer {
   font-family: 'Arial', sans-serif;
   width: 100%;
   padding: 15px;
+  margin-top: 20px;
+  text-align: center;
   background-color: #F0F0F0;
 }
 
