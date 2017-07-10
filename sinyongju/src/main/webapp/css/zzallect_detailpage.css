@@ -10,7 +10,7 @@
 /* 좌측 유저인포 */
 .zzal-lect-detail-con .left-func-menu {
   height: 100vh;
-  width: 8%;
+  width: 80px;
   padding-top: 20px;
   vertical-align: center;
   text-align: center;
@@ -45,7 +45,7 @@
 .lect-right-info-detail {
   height: 100vh;
   float: right;
-  width : 27%;
+  width : 265px;
   border-left: solid 1px #ccc;
   margin: 0;
 }
@@ -69,20 +69,7 @@
   margin-left: 10px;
 }
 
-/*.upper-info .user-phot-posi {
-  float: left;
-  color: #ccc;
-  font-size: 3.125rem;
-}*/
 
-.upper-info .user-phot-posi {
-  float:left;
-  width:50px;
-  height:50px;
-  background-image: url("../css/sul.jpg");
-
-
-}
 .photo-insert {
   border: red solid 1px;
   display: inline-block;
@@ -92,9 +79,19 @@
   background-position: center;
 }
 
+
+
+.upper-info .user-phot-posi {
+  float:left;
+  width:50px;
+  height:50px;
+  background-image: url("../css/sul.jpg");
+
+
+}
+
 .upper-info .user-lect-info {
   margin-left: 10px;
-
   float: left;
 
 }
@@ -125,11 +122,16 @@ font-size:0.875rem;
 
 .lect-write-date {
   position: absolute;
-  right: 0px;
+  right:0px;
   font-size: 0.875rem;
 }
+
+.lect-write-date .date {
+  margin-left: 15px;
+}
+
 .lect-write-date .name {
-  margin-left: 5px;
+  margin-left: 1px;
 }
 /* 우측 상단 유저인포 */
 
