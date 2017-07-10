@@ -181,30 +181,24 @@ h1 {
 
 /* zzal02 */
 .zzal-lects02 li {
-  float: left;
+  float: left; 
+  display: inline-block;
   width: 25%;
   padding: 5px;
 }
 .zzal-lects02 .zzal-lect {
 	padding-bottom: 87%;
 	overflow: hidden;
+	border: none;
 }
 .zzal-lects02 .zzal-lect .zzal {
 	margin-top: 0px;
 }
-/* .zzal-lects02 .for-title {
-	background: none;
-	color: #333;
-	bottom: 0px;
-	height: 63px;
-}
-.zzal-lects02 .title {
-	font-size: 1rem;
-}  */
 .zzal-lects02 .bottom {
 	height: 61px;
 	background: white;
-	padding-top: 5px;
+	padding: 5px 0;
+	width: 100%;
 }
 .zzal-lects02 .title {
 	font-size: 1rem;
