@@ -80,8 +80,8 @@
   </div>
 <!-- zzal-lect -->
   <div class="zzal-container">
-      <ul class="zzal-lects clearfix">
-        <li>
+      <ul class="zzal-lects clearfix" id="zzal-list">
+        <!-- <li>
           <div class="zzal-lect">
             <div class="lect-top">
               <span class="user-photo"></span>
@@ -254,7 +254,7 @@
               </div>
             </div>
           </div>
-        </li>
+        </li> -->
       </ul>
 <!-- zzal-lect -->
     
@@ -499,7 +499,43 @@
     <p>zzal school</p>
 </div>
 </div>
+
+<script id="main-template" type="text/x-handlebars-template">
+{{#each mainList1}}
+<li>
+  <div class="zzal-lect">
+    <div class="lect-top">
+      <span class="user-photo" style='background-image:url("{{profileImg}}")'></span>
+      <span class="user-name">{{nickName}}</span>
+    </div>
+    <div class="zzal">
+      <div class="zzal-img">
+        <img src="{{zzalImg}}" alt="">
+        <div class="for-title">
+          <h3 class="title">{{zzalTitle}}</h3>
+        </div>
+      </div>
+    </div>
+    <div class="bottom">
+      <div class="view">
+        <span>조회수</span><span> {{viewCount}}</span>
+      </div>
+      <div class="right">
+        <div class="like">
+          <span><i class="fa fa-heart-o" aria-hidden="true"><span class="blind">좋아요</span></i></span><span> {{likeCount}}</span>
+        </div>
+        <div class="like">
+          <span><i class="fa fa-commenting-o" aria-hidden="true"><span class="blind">댓글</span></i></span><span> {{commentCount}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</li>
+{{/each}}
+</script>
+
 <script src="node_modules/jquery/dist/jquery.min.js"></script>
+<script src="node_modules/handlebars/dist/handlebars.min.js"></script>
 <script src="scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
 <script src="js/slide.js"></script>
 <script src="js/main.js"></script>

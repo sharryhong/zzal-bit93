@@ -1,0 +1,190 @@
+/*desktop*/
+@media (min-width: 741px) {
+p {
+  margin: 100px 0 0 0;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+input[type=checkbox] {
+  float: right;
+  width: 30px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.btn {
+  float: right;
+  margin: 25px 15px;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.catg-a,.catg-b,.catg-c,.catg-d,
+.catg-e,.catg-f,.catg-g,.catg-h,
+.catg-i,.catg-j,.catg-k,.catg-l{
+  display: inline-block;
+  margin: 10px;
+  width: 150px;
+  height: 150px;
+  position:relative;
+  left: 30px;
+  background-image: url('../image/space.gif');
+  border-radius: 75px;
+  border: 2px solid gray;
+}
+
+
+}
+/*mobile*/
+@media (max-width: 740px) {
+  p {
+    margin: 50px 0 0 0;
+    margin-bottom: 0;
+    font-size: 1.123rem;
+    text-align: center;
+  }
+
+  input[type=checkbox] {
+    float: right;
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+  }
+
+  .btn {
+    float: right;
+    margin: 15px 15px;
+    font-size: 1.5rem;
+  }
+
+  .catg-a,.catg-b,.catg-c,.catg-d,
+  .catg-e,.catg-f,.catg-g,.catg-h,
+  .catg-i,.catg-j,.catg-k,.catg-l {
+    display: inline-block;
+    margin: 0px;
+    width: 100px;
+    height: 100px;
+    position:relative;
+    left: 10px;
+    background-image: url('../image/space.gif');
+    border-radius: 50%;
+    border: 2px solid gray;
+  }
+
+}
+/*각각 하나의 클래스를 쓸때 (나중에)*/
+/*.catg-a {
+display: inline-block;
+margin-left:10px;
+width: 100px;
+height: 100px;
+background-image: url('../image/simzz.gif');
+border-radius: 50px;
+border: 2px solid gray;
+}
+
+.catg-b {
+display: inline-block;
+margin-left:10px;
+width: 100px;
+height: 100px;
+background-image: url('../image/ohhh.jpg');
+border-radius: 50px;
+border: 2px solid gray;
+}
+
+.catg-c {
+display: inline-block;
+margin-left:10px;
+width: 100px;
+height: 100px;
+background-image: url('../image/ohhh.jpg');
+border-radius: 50px;
+border: 2px solid gray;
+}
+
+.catg-d {
+display: inline-block;
+margin-left:10px;
+width: 100px;
+height: 100px;
+background-image: url('../image/ohhh.jpg');
+border-radius: 50px;
+border: 2px solid gray;
+}
+
+.catg-e {
+display: inline-block;
+margin-left:10px;
+width: 100px;
+height: 100px;
+background-image: url('../image/ohhh.jpg');
+border-radius: 50px;
+border: 2px solid gray;
+}
+
+.catg-f {
+display: inline-block;
+margin-left:10px;
+width: 100px;
+height: 100px;
+background-image: url('../image/ohhh.jpg');
+border-radius: 50px;
+border: 2px solid gray;
+}
+.catg-g {
+display: inline-block;
+margin-left:10px;
+width: 100px;
+height: 100px;
+background-image: url('../image/ohhh.jpg');
+border-radius: 50px;
+border: 2px solid gray;
+}
+
+.catg-h {
+display: inline-block;
+margin-left:10px;
+width: 100px;
+height: 100px;
+background-image: url('../image/ohhh.jpg');
+border-radius: 50px;
+border: 2px solid gray;
+}
+.catg-i {
+display: inline-block;
+margin-left:10px;
+width: 100px;
+height: 100px;
+background-image: url('../image/ohhh.jpg');
+border-radius: 50px;
+border: 2px solid gray;
+}
+.catg-j {
+display: inline-block;
+margin-left:10px;
+width: 100px;
+height: 100px;
+background-image: url('../image/ohhh.jpg');
+border-radius: 50px;
+border: 2px solid gray;
+}
+.catg-k {
+display: inline-block;
+margin-left:10px;
+width: 100px;
+height: 100px;
+background-image: url('../image/ohhh.jpg');
+border-radius: 50px;
+border: 2px solid gray;
+}
+.catg-l {
+display: inline-block;
+margin-left:10px;
+width: 100px;
+height: 100px;
+background-image: url('../image/ohhh.jpg');
+border-radius: 50px;
+border: 2px solid gray;
+}*/

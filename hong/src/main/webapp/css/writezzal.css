@@ -1,0 +1,175 @@
+.zzal-container .zzal-lect-detail-con {
+  border: solid 1px red;
+  /*position: relative;*/
+  max-width: 1150px;
+  height : 800px;
+  /*요기는 상의*/
+  margin: 0 auto;
+}
+
+.main-content {
+  margin-left: 0px;
+}
+
+ .left-func-menu {
+  height: 100%;
+  /*padding-top: 10px;*/
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: center;
+  font-size:  0.875rem;
+  float: left;
+  border-right: solid 1px #ccc;
+}
+
+.photo:hover {
+  color: orange;
+}
+
+.fa-camera {
+  font-size: 40px;
+}
+
+}
+.photo > p {
+  margin-top: 0px;
+  /*margin-left: 5px;*/
+}
+
+
+.video:hover {
+  margin-top: 35px;
+  color: orange;
+
+}
+
+.fa-link {
+  font-size:40px;
+  margin-left: 3px;
+}
+
+.video > p {
+  margin-top: 0px;
+}
+
+
+.voice {
+  margin-top: 35px;
+}
+
+.fa-headphones {
+  font-size:40px;
+  margin-left: 3px;
+}
+
+.voice > p {
+  margin-top: 0px;
+  margin-bottom: 250px;
+  /*margin-left: 100px;*/
+
+}
+
+
+.zzal-lect-detail-con {
+  margin-left : 80px;
+}
+
+.button-2 {
+  margin-top:10px;
+}
+
+
+  .write-con {
+    border: 3px solid red;
+    width: 600px;
+    margin: 0 auto;
+  }
+
+  .user-line {
+    height: 60px;
+    width: 100%;
+    border: 1px solid black;
+    display: inline-block;
+  }
+
+
+  .user-picture {
+    height: 50px;
+    width: 50px;
+    border-radius:25px;
+    margin-top: 3px;
+    margin-left: 4px;
+    border: 1px solid black;
+    display: inline-block;
+    background-image: url('../image/userpicture.jpg');
+    background-size: 50px 50px;
+  }
+
+  .id {
+    font-size: 0.875rem;
+  }
+
+
+  .title-line {
+    height:33px;
+    width: 100%;
+    border: 1px solid black;
+    font-size:1.5rem;
+    margin-top:5px;
+    margin-bottom: 5px;
+  }
+
+  .picture-line {
+    height: 315px;
+    width: 100%;
+    border: 1px solid black;
+  }
+
+  .text {
+    height: 130px;
+    width: 100%
+    border: 1px solid black;
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .nextpagebutton {
+    border: 1px solid black;
+    width:100%;
+    height:70px;
+    margin-top: 70px;
+    font-size : 2.5rem;
+    text-align: center;
+  }
+
+  .nextpagebutton>.fa {
+    cursor:pointer;
+  }
+
+.left-upper-menu .navinfo {
+  font-size: 20px;
+}
+.left-down-menu {
+  /*padding: 80% 0;*/
+  color: blue;
+}
+
+.lect-right-info-detail {
+  height: 100%;
+  float: right;
+  width : 28%;
+  border-left: solid 1px #ccc;
+  margin: 0;
+}
+.lect-right-info-detail .upper-info {
+  height: 50%;
+  border-bottom: solid 1px #ccc;
+}
+.lect-right-info-detail .comment-list{
+    height: 50%;
+}
+
+.user-phot {
+  color: #ccc;
+  font-size: 50px;
+}

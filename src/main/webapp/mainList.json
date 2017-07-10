@@ -1,0 +1,15 @@
+{
+  "status" : "success",
+  "data":
+    {
+      "mainList1" :
+      [
+        {"profileImg":"image/user.jpg", "nickName":"이완1", "zzalImg":"image/zzal01.gif", "zzalTitle":"우리 함께 브런치 할까요? 단돈 3000원에...", "viewCount":22242, "likeCount":1222, "commentCount":3578 },
+        {"profileImg":"image/oh.jpg", "nickName":"오연서2", "zzalImg":"image/zzal02.jpg", "zzalTitle":"우리 함께 브런치 할까요? 단돈 3000원에...", "viewCount":22242, "likeCount":1222, "commentCount":1222 },
+        {"profileImg":"image/ohh.jpg", "nickName":"오연서3", "zzalImg":"image/zzal03.jpg", "zzalTitle":"우리 함께 브런치 할까요? 단돈 3000원에...", "viewCount":22242, "likeCount":1222, "commentCount":1222 },
+        {"profileImg":"image/user.jpg", "nickName":"이완4", "zzalImg":"image/zzal02.jpg", "zzalTitle":"우리 함께 브런치 할까요? 단돈 3000원에...", "viewCount":22242, "likeCount":1222, "commentCount":1222 },
+        {"profileImg":"image/user.jpg", "nickName":"이완5", "zzalImg":"image/zzal02.jpg", "zzalTitle":"우리 함께 브런치 할까요? 단돈 3000원에...", "viewCount":22242, "likeCount":1222, "commentCount":1222 },
+        {"profileImg":"image/user.jpg", "nickName":"이완6", "zzalImg":"image/zzal02.jpg", "zzalTitle":"우리 함께 브런치 할까요? 단돈 3000원에...", "viewCount":22242, "likeCount":1222, "commentCount":1222 }
+      ]
+    }
+}

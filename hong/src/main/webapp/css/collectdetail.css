@@ -1,0 +1,90 @@
+/*desktop*/
+@media (min-width: 741px) {
+  h2 {
+    position: relative;
+    left: 40%;
+    font-size: 1.5rem;
+    margin: 10px;
+  }
+  ul{
+    font-size: 1.5rem;
+    color: gray;
+  }
+  .collect-photo {
+    margin-top: 65px;
+    border: 2px solid gray;
+    width: 100%;
+    height: 250px;
+    background-image: url('../image/zzal1.gif');
+  }
+  .btn1 {
+    width: 50px;
+    margin-top: 1%;
+    cursor: pointer;
+  }
+  .user-profile {
+    display: inline-block;
+    width: 70px;
+    height: 70px;
+    background-color: gray;
+    border-radius: 35px;
+    position: relative;
+    left: 45%;
+  }
+  .new-zzaladd {
+    padding-top: 1%;
+    position: relative;
+    left: 60%;
+  }
+  .fa-plus-square {
+    font-size: 2rem;
+  }
+}
+/*mobile*/
+@media (max-width: 740px) {
+  body {
+    background-color: #333333;
+  }
+  ul{
+    font-size: 1.2rem;
+    color: white;
+    margin: 0 0 0 10px;
+    padding-top: 10px;
+  }
+
+  .collect-photoAdd {
+    margin-top: 50px;
+    background-image: url('../image/friday.gif');
+    position: relative;
+    width: 100%;
+    height: 180px;
+  }
+
+  .btn1 {
+    width: 50px;
+    position: relative;
+    left: 25px;
+    margin-bottom: 50px;
+  }
+  .btn2 {
+    width: 40%;
+    position: relative;
+    left: 25px;
+    margin-bottom: 50px;
+  }
+  .collect-name {
+    width: 80%;
+    height: 25px;
+    border-radius: 6px;
+    font-size: 1rem;
+    margin: 0 0 0 10px;
+  }
+  .collect-exp {
+    width: 80%;
+    height: 25px;
+    border-radius: 6px;
+    font-size: 1rem;
+    margin: 0 0 0 10px;
+  }
+
+}
