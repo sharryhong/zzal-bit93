@@ -1,12 +1,12 @@
 {
-  "name": "step08",
+  "name": "zzal-school",
   "version": "1.0.0",
   "description": "",
-  "main": "main/main.js",
+  "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "zzal-java93",
   "license": "ISC",
   "dependencies": {
     "bootstrap": "^3.3.7",

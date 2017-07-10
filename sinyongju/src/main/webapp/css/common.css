@@ -1,15 +1,15 @@
 @charset "utf-8";
 
-/*box모델에서 width가 border까지 확장되어 작업이 수월하다.*/
+body {
+	margin: 0;
+}
 body *, body *::before, body *::after {
 	box-sizing: border-box;
 }
 
 /*목록 초기화 스타일 모듈*/
-.reset-list ul,
-.reset-list ol, 
-ul.reset-list,
-ol.reset-list {
+ul,
+ol{
 	margin-top: 0;
 	margin-bottom: 0;
 	padding-left: 0;
@@ -19,6 +19,11 @@ ol.reset-list {
 a {
 	color: inherit;
 	text-decoration: none;
+}
+
+h1,h2,h3,h4,h5,h6 {
+	margin: 0;
+	font-weight: normal;
 }
 
 img {
