@@ -1,3 +1,7 @@
+.main-content.zzal-detail-page {
+  margin-top: 66px;
+
+}
 .zzal-container.zzal-lect-detail {
   padding: 0;
 }
@@ -5,7 +9,7 @@
   /*border: solid 1px red;*/
   position: relative;
   max-width: 1150px;
-  min-height: 600px;
+  height: 650px;
   /*요기는 상의*/
   margin: 0 auto;
 }
