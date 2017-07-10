@@ -342,9 +342,9 @@ position: absolute;
 
 .zzal-detail-content-container {
     position: relative;
-  width: 60%;
-  margin-left: 12%;
-  margin-right: 33%;
+  max-width: 60%;
+  margin-left: 120px;
+  margin-right: 265px;
 }
 .contents-title h1 {
   margin-right: 20PX;
@@ -357,8 +357,8 @@ position: absolute;
 }
 .zzal-detail-content-container .func-button{
   position: absolute;
-  top:7%;
-  right:7%;
+  top:33px;
+  right:33px;
   display: inline-block;
   font-size: 1.875rem;
   font-weight: 300;
