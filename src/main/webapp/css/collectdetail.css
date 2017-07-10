@@ -18,11 +18,11 @@
     background-image: url('../image/zzal1.gif');
   }
   .btn1 {
-    width: 5%;
+    width: 50px;
     margin-top: 1%;
-    float: right;
+    cursor: pointer;
   }
-  .user-photo {
+  .user-profile {
     display: inline-block;
     width: 70px;
     height: 70px;
@@ -61,7 +61,7 @@
   }
 
   .btn1 {
-    width: 40%;
+    width: 50px;
     position: relative;
     left: 25px;
     margin-bottom: 50px;
@@ -85,53 +85,6 @@
     border-radius: 6px;
     font-size: 1rem;
     margin: 0 0 0 10px;
-  }
-/*비공개 스위치*/
-  .onoffswitch {
-    position: relative; width: 50px;
-    -webkit-user-select:none;
-    -moz-user-select:none;
-    -ms-user-select: none;
-    margin: 0 0 50px 10px;
-  }
-  .onoffswitch-checkbox {
-    display: none;
-  }
-  .onoffswitch-label {
-    display: block;
-    overflow: hidden;
-    cursor: pointer;
-    height: 26px;
-    padding: 0;
-    line-height: 26px;
-    border: 2px solid #E3E3E3;
-    border-radius: 26px;
-    background-color: #FFFFFF;
-    /*transition: background-color 0.3s ease-in;*/
-  }
-  .onoffswitch-label:before {
-    content: "";
-    display: block;
-    width: 26px;
-    margin: 0px;
-    background: #FFFFFF;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 22px;
-    border: 2px solid #E3E3E3;
-    border-radius: 26px;
-    transition: all 0.3s ease-in 0s;
-  }
-  .onoffswitch-checkbox:checked + .onoffswitch-label {
-    background-color: #49E845;
-  }
-  .onoffswitch-checkbox:checked + .onoffswitch-label,
-   .onoffswitch-checkbox:checked + .onoffswitch-label:before {
-    border-color: #49E845;
-  }
-  .onoffswitch-checkbox:checked + .onoffswitch-label:before {
-    right: 0px;
   }
 
 }
