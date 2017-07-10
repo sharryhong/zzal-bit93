@@ -9,7 +9,7 @@
         });
     });
     
-    var zzalList = $('#zzal-list');
+    var zzalList1 = $('#zzal-list1');
     
     $.getJSON('mainList.json', function(result) {
         console.log(result.data.mainList)
@@ -17,8 +17,8 @@
 	    var templateFn = Handlebars.compile($('#main-template').text())
 	    console.log(templateFn)
 	    var generatedHTML = templateFn(result.data) // 템플릿 함수에 데이터를 넣고 html을 생성한다.
-	    zzalList.text('')
-	    zzalList.html(generatedHTML)
+	    zzalList1.text('')
+	    zzalList1.html(generatedHTML)
       }) // getJSON()
     
     
