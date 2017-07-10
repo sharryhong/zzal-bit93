@@ -1,6 +1,7 @@
 .main-content.zzal-detail-page {
   margin-top: 66px;
 
+
 }
 .zzal-container.zzal-lect-detail {
   padding: 0;
@@ -9,7 +10,7 @@
   /*border: solid 1px red;*/
   position: relative;
   max-width: 1150px;
-  height: 650px;
+  min-height: 600px;
   /*요기는 상의*/
   margin: 0 auto;
 }
@@ -57,7 +58,7 @@
   margin: 0;
 }
 .lect-right-info-detail .upper-info {
-  height: 50%;
+  height:282px;
   border-bottom: solid 1px #ccc;
 }
 .lect-right-info-detail .comment-list{
@@ -72,7 +73,8 @@
 }
 
 .user-phot {
-  margin-top: 10px;
+
+  margin-top: 20px;
   margin-left: 10px;
 }
 
@@ -89,10 +91,11 @@
 
 
 .upper-info .user-phot-posi {
+
   float:left;
   width:50px;
   height:50px;
-  background-image: url("../css/sul.jpg");
+  background-image: url("../image/sul.jpg");
 
 
 }
@@ -185,8 +188,6 @@ font-size:0.875rem;
   width : 28%;
 }
 .users-lect-list-sumnail-title {
-  background-color: #eee;
-  margin-left: 20px;
   padding-bottom: 10px;
 }
 /* 우측 상단 섬네일 */
@@ -212,7 +213,7 @@ font-size:0.875rem;
   /*left:0;*/
   width:34px;
   height:34px;
-  background-image: url("../css/sul.jpg");
+  background-image: url("../image/sul.jpg");
 }
 .form-con .form-loca-use {
   padding-top: 0.65625rem;
@@ -290,7 +291,7 @@ position: absolute;
   margin: 10px 0 0 10px;
   width:34px;
   height:34px;
-  background-image: url("../css/sul.jpg");
+  background-image: url("../image/sul.jpg");
 }
 
 .comment-list-unit-conainer .comment-list-unit-textinfos {
@@ -349,10 +350,11 @@ position: absolute;
 /*middle main contents*/
 
 .zzal-detail-content-container {
+    padding-top: 20px;
     position: relative;
-  max-width: 60%;
-  margin-left: 120px;
-  margin-right: 265px;
+    max-width: 61%;
+    margin-left: 120px;
+
 }
 .contents-title h1 {
   margin-right: 20PX;
@@ -373,17 +375,18 @@ position: absolute;
   color: #cca;
   }
 .zzal-detail-content-container .images-wrapper {
+  display: inline-block;
   margin-left: 10%;
   margin-right: 40%;
-  /*border: 1px solid red;*/
   position: relative;
-  /*position: absolute;*/
   width: 65%;
-  padding-bottom: 60%;
-  /*background-color: rgba(0,0,0,0.9);*/
+  /*padding-bottom: 60%;*/
   overflow: hidden;
+  min-height: 300px;
+  /*height: auto;*/
 }
 .images-wrapper .contents-images-zzals {
+  padding: 0px;
   position: absolute;
   display: inline-block;
   width: 100%;
@@ -399,10 +402,12 @@ position: absolute;
 
 .zzal-detail-content-container-footer {
   font-weight: 100;
-  bottom: 2px;
+  text-align: center;
+  /*bottom: 2px;*/
   width : 100%;
-  padding : 5px 0;;
-  position: absolute;
+  padding : 5px 0;
+  padding-bottom: 100px;
+  /*position: absolute;*/
   display: inline-block;
   left:29%;
   font-size: 1.875rem;

@@ -188,8 +188,8 @@ font-size:0.875rem;
   width : 28%;
 }
 .users-lect-list-sumnail-title {
-  background-color: #eee;
-  margin-left: 20px;
+  /*background-color: #eee;*/
+
   padding-bottom: 10px;
 }
 /* 우측 상단 섬네일 */
@@ -354,7 +354,7 @@ position: absolute;
 .zzal-detail-content-container {
     padding-top: 20px;
     position: relative;
-    max-width: 60%;
+    max-width: 61%;
     margin-left: 120px;
 
 }
@@ -377,17 +377,18 @@ position: absolute;
   color: #cca;
   }
 .zzal-detail-content-container .images-wrapper {
+  display: inline-block;
   margin-left: 10%;
   margin-right: 40%;
-  /*border: 1px solid red;*/
   position: relative;
-  /*position: absolute;*/
   width: 65%;
-  padding-bottom: 60%;
-  /*background-color: rgba(0,0,0,0.9);*/
+  /*padding-bottom: 60%;*/
   overflow: hidden;
+  min-height: 300px;
+  /*height: auto;*/
 }
 .images-wrapper .contents-images-zzals {
+  padding: 0px;
   position: absolute;
   display: inline-block;
   width: 100%;

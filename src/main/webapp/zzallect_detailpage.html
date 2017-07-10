@@ -162,9 +162,10 @@
           <h2>포즈와 함께 DSLR 왕초보탈출! 8. DSLR 버튼 한큐에 파악하기</h2>
         </div>
         <div class="func-button"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></div>
-        <div class="images-wrapper">
-          <img class= "contents-images-zzals"src="image/sul.jpg">
+        <div id="imagetest" class="images-wrapper">
+          <img class= "contents-images-zzals"src="image/user.jpg">
         </div>
+
         <div class="content-box"><p>he border-radius property is used to add rounded corners to an element.
         The border-radius property is a shorthand property for setting the four border-*-radius properties.
         If you specify only one value for the border-radius property, this radius will be applied to all 4 corners.
@@ -191,7 +192,17 @@
     <p>zzal school</p>
 </div>
 </div>
+
 <script src="node_modules/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript">
+ function funLoad(){
+ var Cheight = $('.contents-images-zzals').height();
+ $('#imagetest').css({'height':Cheight+'px'});
+ console.log(Cheight)
+  }
+ window.onload = funLoad;
+ window.onresize = funLoad;
+</script>
 <!-- <script src="js/slide.js"></script> -->
 </body>
 </html>
