@@ -449,12 +449,6 @@ position: absolute;
  .zzal-detail-content-container-footer div{
    display: inline-block;
  }
-
- .mobile-detail-footer,.write-date,.mmove-arrow {
-   display: none;
- }
-
-
 }
 @media (max-width: 1009px) {
   .zzal-detail-content-container {
@@ -523,10 +517,5 @@ position: absolute;
 
   .zzal-detail-content-container-footer div{
     display: inline-block;
-  }
-
-
-  .mobile-detail-footer,.write-date,.mmove-arrow {
-    display: none;
   }
 }

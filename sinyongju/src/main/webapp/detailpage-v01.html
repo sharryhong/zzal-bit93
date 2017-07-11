@@ -10,10 +10,12 @@
   <link rel="stylesheet" href="css/common.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/zzallect_detailpage.css">
-  <link rel="stylesheet" href="css/zzallect_detail_mobile-01.css">
+  <link rel="stylesheet" href="css/zzallect_detail_mobile-v01.css">
 </head>
 <body>
 <div id="con">
+<div class="mobile-detail-cover">
+  <div class="mobile-detail-backimage">
 <div class="header">
   <div class="left">
     <a href="#" class="menu"><i class="fa fa-bars" aria-hidden="true"><span class="blind">메뉴버튼</span></i></a>
@@ -30,6 +32,7 @@
 <div class="main-content zzal-detail-page">
     <div class="zzal-container zzal-lect-detail">
      <div class="zzal-lect-detail-con clearfix">
+
        <div class="left-func-menu">
         <div class="left-upper-menu">
           <ul>
@@ -66,14 +69,14 @@
             </div>
           </li>
           <li>
-
             <div class="auto">
               <div class="fa fa-twitter comui" aria-hidden="true"></div>
             </div>
           </li>
           </ul>
         </div>
-      </div>
+      </div><!-- left-func-menu -->
+
       <div class="lect-right-info-detail">
         <div class="upper-info">
           <div class="user-phot clearfix">
@@ -119,12 +122,11 @@
                </form>
              </div>
             </div>
-        </div>
+          </div>
 
         <div class="comment-list-units">
           <div class="comments-header">
             <div class="comment-list-contents"><span>1</span><span class="num">개의 댓글</span></div>
-
           </div>
           <ul class="comment-list-units-con">
             <li>
@@ -153,15 +155,16 @@
 
           </ul>
         </div>
-      </div>
-        <!-- comment-list-->
-      </div>
-      <!-- lect-func-menu-->
+
+      </div><!-- comment-list-->
+    </div><!-- lect-right-info-detail-->
 
       <div class="zzal-detail-content-container">
+          <div class="write-date">2017-07-11</div>
         <div class="contents-title">
           <h2>포즈와 함께 DSLR 왕초보탈출! 8. DSLR 버튼 한큐에 파악하기</h2>
         </div>
+        <div class="mmove-arrow"><span class="direction">좌우로 넘겨 주세여!</span class="arrow">arrow</div>
         <div class="func-button"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></div>
         <div id="imagetest" class="images-wrapper">
           <img class= "contents-images-zzals"src="image/sul.jpg">
@@ -181,6 +184,7 @@
             </div>
           </div>
     </div><!--zzal-detail-content-->
+
   </div><!-- zzal-detail-content-container -->
 
   </div><!--zzal-container-->
@@ -189,11 +193,28 @@
 
 
 
-<div class="footer">
-    <p>zzal school</p>
-</div>
-</div>
+    <div class="footer">
+        <p>zzal school</p>
+    </div>
 
+    <div class="mobile-detail-footer">
+        <div class="mdetail-footer">
+          <div class="comment mfooter">
+            <span class="fa fa-commenting-o name" aria-hidden="true"></span><span class="num">2,000</span>
+          </div>
+          <div class="like mfooter">
+            <span class="fa fa-heart-o name" aria-hidden="true"></span><span class="num">2,000</span>
+          </div>
+          <div class="share mfooter">
+            <span class="fa fa-share-alt name" aria-hidden="true"></span><span class="num">2,000</span>
+          </div>
+        </div>
+    </div>
+
+
+  </div>
+ </div>
+</div>
 <script src="node_modules/jquery/dist/jquery.min.js"></script>
 <script type="text/javascript">
  function funLoad(){

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>zzal school</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+  <!-- <link rel="stylesheet" href="css/slide.css"> -->
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/zzallect_detail_mobile-02.css">
+</head>
+<body>
+<div id="con">
+<div class="header">
+  <div class="left">
+    <a href="#" class="menu"><i class="fa fa-bars" aria-hidden="true"><span class="blind">메뉴버튼</span></i></a>
+    <h1 class="logo"><a href="#">Zzal School</a></h1>
+  </div>
+  <div class="right">
+    <span class="search">
+      <input type="text" class="input-line" id="search-btn" placeholder="짤강을 검색해 보세요.">
+      <label for="search-btn" class="search-icon"><i class="fa fa-search" aria-hidden="true"><span class="blind">검색하기</span></i></label>
+    </span>
+    <a href="#" class="login">로그인</a>
+  </div>
+</div>
+<div class="main-content zzal-detail-page">
+    <div class="zzal-container zzal-lect-detail">
+     <div class="zzal-lect-detail-con clearfix">
+
+
+
+     </div><!-- zzal-detail-content-container -->
+
+  </div><!--zzal-container-->
+</div> <!-- main-content -->
+
+
+
+
+<div class="footer">
+    <p>zzal school</p>
+</div>
+</div>
+
+<script src="node_modules/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript">
+ function funLoad(){
+ var Cheight = $('.contents-images-zzals').height();
+ $('#imagetest').css({'height':Cheight+'px'});
+ console.log(Cheight)
+  }
+ window.onload = funLoad;
+ window.onresize = funLoad;
+</script>
+
+<script src="node_modules/jquery/dist/jquery.min.js"></script>
+<script src="node_modules/handlebars/dist/handlebars.min.js"></script>
+<!-- <script src="js/slide.js"></script> -->
+</body>
+</html>
