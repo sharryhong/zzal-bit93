@@ -8,6 +8,7 @@
     font-size: 1.5rem;
     color: gray;
   }
+
   .collect-photoAdd {
     margin-top: 65px;
     border: 2px solid gray;
@@ -15,17 +16,21 @@
     height: 250px;
     background-image: url('../image/space.gif');
   }
-  .btn1 {
+  .cancle-btn {
     width: 20%;
     position: relative;
     left: 60%;
     top: 50%;
+    cursor: pointer;
+    box-shadow:inset 0 0 10px
   }
-  .btn2 {
+  .make-btn {
     width: 20%;
     position: relative;
     left: 60%;
     top: 50%;
+    cursor: pointer;
+    box-shadow:inset 0 0 10px
   }
   .collect-add {
     margin-top: 50px;
@@ -91,11 +96,12 @@
 }
 /*mobile*/
 @media (max-width: 740px) {
-  body {
+  .main-content.collect-add{
     background-color: #333333;
   }
-  ul{
-    font-size: 1.2rem;
+
+  ul, li{
+    font-size: 1rem;
     color: white;
     margin: 0 0 0 10px;
     padding-top: 10px;
@@ -109,17 +115,29 @@
     height: 180px;
   }
 
-  .btn1 {
-    width: 40%;
+  .cancle-btn {
+    width: 100px;
+    height: 30px;
     position: relative;
-    left: 25px;
+    left: 50px;
     margin-bottom: 50px;
+    cursor: pointer;
+    background-color: white;
+    border-radius: 5px;
+    border: 1px solid black;
+    box-shadow:inset 0 0 10px
   }
-  .btn2 {
-    width: 40%;
+  .make-btn {
+    width: 100px;
+    height: 30px;
     position: relative;
-    left: 25px;
+    left: 100px;
     margin-bottom: 50px;
+    cursor: pointer;
+    background-color: blue;
+    border-radius: 5px;
+    border: 1px solid black;
+    box-shadow:inset 0 0 10px
   }
   .collect-name {
     width: 80%;

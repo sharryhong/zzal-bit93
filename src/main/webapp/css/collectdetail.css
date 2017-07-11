@@ -1,90 +1,150 @@
+.detaile-photo {
+  border: 2px solid gray;
+  width: 100%;
+  height: 250px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.collection-main-profile {
+  display: inline-block;
+  width: 70px;
+  height: 70px;
+  margin-bottom: 10px;
+  background-color: gray;
+  border-radius: 35px;
+  position: relative;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  left: 40%;
+}
+
 /*desktop*/
 @media (min-width: 741px) {
   h2 {
-    position: relative;
-    left: 40%;
+    text-align: center;
     font-size: 1.5rem;
     margin: 10px;
   }
-  ul{
-    font-size: 1.5rem;
-    color: gray;
+  ul {
+    font-size: 0.7rem;
   }
-  .collect-photo {
-    margin-top: 65px;
-    border: 2px solid gray;
-    width: 100%;
-    height: 250px;
-    background-image: url('../image/zzal1.gif');
-  }
-  .btn1 {
+
+  .edit-btn {
+    border: 1px solid black;
     width: 50px;
     margin-top: 1%;
     cursor: pointer;
+    font-size: 1.1rem;
+    float: right;
+    background-color: #33FF66;
+    border-radius: 5px;
+    box-shadow: inset 0 0 10px;
   }
-  .user-profile {
+
+  .vieW {
+    margin-left: 10px;
+    font-size: 0.8rem;
+  }
+  .my-collection {
     display: inline-block;
-    width: 70px;
-    height: 70px;
+    border: 1px solid gray;
+    margin: 10px;
+    width: 333px;
+    height: 250px;
+  }
+  .users-profile {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
     background-color: gray;
-    border-radius: 35px;
-    position: relative;
-    left: 45%;
+    border-radius: 15px;
+    margin: 5px 0 0 10px;
   }
-  .new-zzaladd {
-    padding-top: 1%;
+  .main-nickname {
+    display: inline-block;
     position: relative;
-    left: 60%;
+    left: 70px;
+    white-space: nowrap;
+    font-size: 1rem;
+    margin-top: 47px;
   }
-  .fa-plus-square {
-    font-size: 2rem;
+  .user-nickname {
+    display: inline-block;
+    position: relative;
+    left: 30px;
+    white-space: nowrap;
+    font-size: 1rem;
+    margin-top: 9px;
   }
 }
 /*mobile*/
 @media (max-width: 740px) {
-  body {
+  .main-content .collection-detailpage{
     background-color: #333333;
   }
-  ul{
-    font-size: 1.2rem;
+  h2 {
+    text-align: center;
+    font-size: 1.5rem;
+    margin: 10px;
     color: white;
-    margin: 0 0 0 10px;
-    padding-top: 10px;
+  }
+  ul {
+    font-size: 0.7rem;
   }
 
-  .collect-photoAdd {
-    margin-top: 50px;
-    background-image: url('../image/friday.gif');
-    position: relative;
-    width: 100%;
-    height: 180px;
-  }
-
-  .btn1 {
+  .edit-btn {
+    border: 1px solid black;
     width: 50px;
-    position: relative;
-    left: 25px;
-    margin-bottom: 50px;
-  }
-  .btn2 {
-    width: 40%;
-    position: relative;
-    left: 25px;
-    margin-bottom: 50px;
-  }
-  .collect-name {
-    width: 80%;
-    height: 25px;
-    border-radius: 6px;
-    font-size: 1rem;
-    margin: 0 0 0 10px;
-  }
-  .collect-exp {
-    width: 80%;
-    height: 25px;
-    border-radius: 6px;
-    font-size: 1rem;
-    margin: 0 0 0 10px;
+    margin-top: 50px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    float: right;
+    background-color: #33FF66;
+    border-radius: 5px;
+    box-shadow: inset 0 0 10px;
   }
 
+  .vieW {
+    margin-left: 10px;
+    font-size: 0.5rem;
+    color: white;
+  }
+  .my-collection {
+    display: inline-block;
+    border: 1px solid gray;
+    margin: 10px;
+    width: 333px;
+    height: 250px;
+  }
+  .users-profile {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-color: gray;
+    border-radius: 15px;
+    margin: 5px 0 0 10px;
+    color: white;
+  }
+  .main-nickname {
+    display: inline-block;
+    position: relative;
+    left: 70px;
+    white-space: nowrap;
+    font-size: 1rem;
+    margin-top: 47px;
+    color: white;
+  }
+  .user-nickname {
+    display: inline-block;
+    position: relative;
+    left: 30px;
+    white-space: nowrap;
+    font-size: 1rem;
+    margin-top: 9px;
+    color: white;
+  }
+}
 }

@@ -1,6 +1,6 @@
 /*desktop*/
 @media (min-width: 741px) {
-p {
+.category  {
   margin: 100px 0 0 0;
   font-size: 1.5rem;
   text-align: center;
@@ -13,11 +13,18 @@ input[type=checkbox] {
   cursor: pointer;
 }
 
-.btn {
+.choice-btn {
   float: right;
   margin: 25px 15px;
-  font-size: 2rem;
+  font-size: 1.5rem;
   cursor: pointer;
+  background-color: #cccccc;
+  border-radius: 7px;
+  box-shadow:inset 0 0 5px;
+}
+.music {
+  float: right;
+  color: white;
 }
 
 .catg-a,.catg-b,.catg-c,.catg-d,
@@ -27,8 +34,6 @@ input[type=checkbox] {
   margin: 10px;
   width: 150px;
   height: 150px;
-  position:relative;
-  left: 30px;
   background-image: url('../image/space.gif');
   border-radius: 75px;
   border: 2px solid gray;
@@ -38,10 +43,10 @@ input[type=checkbox] {
 }
 /*mobile*/
 @media (max-width: 740px) {
-  p {
+  .category{
     margin: 50px 0 0 0;
     margin-bottom: 0;
-    font-size: 1.123rem;
+    font-size: 1rem;
     text-align: center;
   }
 
@@ -52,10 +57,14 @@ input[type=checkbox] {
     cursor: pointer;
   }
 
-  .btn {
+  .choice-btn {
     float: right;
     margin: 15px 15px;
-    font-size: 1.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    background-color: #cccccc;
+    border-radius: 7px;
+    box-shadow:inset 0 0 5px;
   }
 
   .catg-a,.catg-b,.catg-c,.catg-d,
@@ -65,8 +74,6 @@ input[type=checkbox] {
     margin: 0px;
     width: 100px;
     height: 100px;
-    position:relative;
-    left: 10px;
     background-image: url('../image/space.gif');
     border-radius: 50%;
     border: 2px solid gray;
