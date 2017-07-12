@@ -57,7 +57,7 @@
 .mypage_mid li {
 	float: left;
 	position: relative;
-	border-right: 1px solid #ccc;
+	border-right: 1px solid #eee;
 }
 .mypage_mid li:last-child {
 	border-right: none;
@@ -95,8 +95,8 @@
 	display: inline-block;
 	width: 100%;
 	padding: 10px 25px;
-	border-top-left-radius: 5px;
-	border-top-right-radius: 5px;
+	/* border-top-left-radius: 5px;
+	border-top-right-radius: 5px; */
 }
 .mypage_bottom .zzal-menu a.on {
 	border-bottom: 3px solid #54BAE6;
@@ -113,14 +113,30 @@
 	.main-content {
     margin-top: 65px;
 	}
+	.main-content .top {
+    padding: 0 10px;
+	}
 	.zzal-container {
     padding: 0 5px;
 	}
 	.mypage_mid {
     margin: 15px 0 0 0;
-	}
-	.mypage_mid {
+    padding: 0;
     font-size: 1rem;
+	}
+	.mypage_mid .zzal-container {
+	  padding: 0;
+	}
+	.mypage_mid li {
+		width: 32%;
+		text-align: center;
+	}
+	.mypage_mid li:last-child {
+	 width: 34%;
+	}
+	.mypage_mid .menu {
+		padding: 10px 0px;
+		width: 100%;
 	}
 	.mypage_bottom .zzal-menu {
     margin-bottom: 5px;
