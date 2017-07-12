@@ -1,3 +1,6 @@
+html {
+	-webkit-text-size-adjust: none;
+}
 body {
 	color: #333;
 }
@@ -42,7 +45,9 @@ input::-webkit-input-placeholder { color: #777; }
 input::-moz-placeholder { color: #777; } 
 
 .search-icon {
+	display: inline-block;
   margin-left: -10px;
+  cursor: pointer;
 }
 .fa-search {
   -webkit-text-stroke: 1px #F39C12;
@@ -52,12 +57,33 @@ input::-moz-placeholder { color: #777; }
 .header .login {
   float: right;
 }
+.header .before-login {
+	display: none;
+}
+.header .after-login {
+	float: right;
+	font-size: 27px;
+	margin-left: 14px;
+	/* margin-top: 3px; */
+}
+.header .after-login a {
+	float: left;
+	padding: 0 7px;
+}
+.header .after-login .fa {
+	height: 50px;
+	line-height: 48px;
+}
+.header .zzal-write {
+	font-size: 30px;
+}
+
 
 
 /*main contents*/
 .main-content {
   margin-top: 96px;
-  min-height: 600px;
+  min-height: 78vh;
   /*margin-left: 190px;*/
 }
 
@@ -99,6 +125,7 @@ input::-moz-placeholder { color: #777; }
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
 
 /*zzal*/
 .zzal-lects li {
@@ -321,6 +348,9 @@ input::-moz-placeholder { color: #777; }
 		font-weight: bold;
 		color: #F39C12;
 	}
+	.notice-wrap {
+		top: 66px;
+	}
 	.main-content .top {
 	  padding: 0 10px;
 	}
@@ -362,6 +392,7 @@ input::-moz-placeholder { color: #777; }
   .header .right {
     position: absolute;
     right: 10px;
+    top: 2px;
   }
   .header .login {
     line-height: 50px;
@@ -419,6 +450,25 @@ input::-moz-placeholder { color: #777; }
   .mobile-nav .mCSB_scrollTools.mCSB_scrollTools_horizontal {
     bottom: -6px;
   }
+
+	.header .search {
+    font-size: 27px;
+	}
+	.header .right a {
+		padding: 0 7px;
+		font-size: 25px;
+	}
+	.header .right {
+	  margin-right: 5px;
+	}
+	.header .right .zzal-write {
+	  display: inline-block;
+	  font-size: 28px;
+	  /* -webkit-margin-top: 5px; */
+	}
+	.header .after-login {
+    margin-left: 10px;
+	}
   .main-content {
     margin-top: 0px;
   }
