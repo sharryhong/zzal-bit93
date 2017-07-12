@@ -1,0 +1,80 @@
+.mypage_users_info .top {
+  height: 110px;
+}
+.mypage_users_info {
+  border-bottom: solid 1px #ccc;
+}
+.users-info-box {
+  height: 80px;
+  float: right;
+}
+.users-info-box .user-border div{
+  border-bottom: solid 1px #ccc;
+  padding: 3px;
+}
+.border-text {
+  font-size:  14px;
+}
+.user-border .border-text .name{
+  padding-right: 22px;
+}
+.user-border .border-text .num{
+  float: right;
+}
+.user-info-face .user-name{
+  padding-top: ;
+  display: block;
+  vertical-align: text-bottom;
+}
+.user-info-face .phot {
+  float: left;
+  background-image: url('../image/sul.jpg');
+  background-size: cover;
+  height: 75px;
+  width: 75px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.mypage_mid {
+  border-bottom: solid 1px #ccc;
+}
+.select_info {
+  margin: 0 auto;
+  width: 1150px;
+  padding: 20px 0px;
+}
+.select_info .name {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.mypage_bottom {
+  /*background-color: #ccc;*/
+  margin: 0 auto;
+  max-width: 1150px;
+  padding: 20px 0px;
+}
+.bottom-selector {
+  border-bottom: solid 1px #ccc;
+}
+.bottom-liner{
+  float: right;
+}
+.bottom-selector div{
+  margin-left: 10px;
+  margin-right: 10px;
+  display: inline-block;
+}
+.bottom-selector  .name{
+  margin-right: 10px;
+}
+.bottom-selector .one {
+  border-bottom: solid 5px orange;
+}
+
+/*desktop*/
+@media (min-width: 766px) {
+}
+
+/*mobile*/
+@media (max-width: 765px) {
+}

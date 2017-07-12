@@ -87,7 +87,7 @@ input::-moz-placeholder { color: #777; }
   /*margin-left: 190px;*/
 }
 
-.main-content .top {
+.main-content.index-page .top {
   max-width: 920px;
   margin: 30px auto 20px auto;
 }
@@ -298,6 +298,7 @@ input::-moz-placeholder { color: #777; }
 	  height: 100vh;
 	  padding: 15px 0;
 	  background: #F2F2F2;
+	  box-shadow: 3px 0px 10px rgba(0,0,0,0.1);
 	}
 	.nav .new-icon {
 	  font-family: 'Impact', sans-serif;
@@ -333,10 +334,10 @@ input::-moz-placeholder { color: #777; }
 	  transform: translateX(0px);
 	  opacity: 1;
 	}
-	.nav .top-menu {
+	/* .nav .top-menu {
 	  padding-bottom: 15px;
 	  border-bottom: 1px solid #ccc;
-	}
+	} */
 	.nav .category {
 		padding-top: 15px;
 	}
