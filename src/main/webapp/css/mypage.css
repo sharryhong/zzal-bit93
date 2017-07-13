@@ -1,6 +1,6 @@
 .main-content.mypage {
 	margin-top: 85px;
-	background: #f3f3f3;
+	background: #f9f9f9;
 }
 .main-content.mypage .top {
 	background: white;
@@ -46,10 +46,10 @@
 .border-text {
   font-size:  14px;
 }
-.user-border .border-text .name{
+.user-border .border-text .name {
   padding-right: 22px;
 }
-.user-border .border-text .num{
+.user-border .border-text .num {
   float: right;
 }
 .mypage_mid {
@@ -119,8 +119,9 @@
 }
 .zzal-collection .collections li {
 	float: left;
-	width: 33.333%;
+	width: 50%;
 	padding: 5px;
+	margin-bottom: 10px;
 }
 .zzal-collection .img {
   float: left;
@@ -140,19 +141,24 @@
   position: absolute;
   font-family: FontAwesome;
   font-size: 2rem;
-  top: 37%;
-  left: 37%;
+  top: 35px;
+  left: 35px;
   color: #aaa;
 }
 .zzal-collection .add .img:hover::after {
 	color: #F39C12;
 }
-.zzal-collection .title {
-	display: block;
-	margin-bottom: 5px;
-}
 .zzal-collection .right {
 	float: left;
+	width: calc(100% - 120px);
+}
+.zzal-collection .title {
+	display: inline-block;
+	margin-bottom: 5px;
+	width: 100%;
+	white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .zzal-collection .add .right {
 	line-height: 100px;
@@ -209,10 +215,7 @@
     margin-bottom: 5px;
     padding-top: 5px;
 	}
+	.zzal-collection .collections li {
+	  width: 100%;
+	}
 }
-
-/* .btn {
-	display: inline-block;
-	text-align: center;
-	font-size: 0.875rem;
-} */
