@@ -118,11 +118,13 @@
 	width: 100%;
 }
 .zzal-collection .collections li {
-	width: 50%;
+	float: left;
+	width: 33.333%;
 	padding: 5px;
 }
 .zzal-collection .img {
   float: left;
+  position: relative;
   background-image: url(../image/zzal03.jpg);
   background-size: cover;
   background-position: center;
@@ -130,19 +132,41 @@
   width: 100px;
   margin-right: 10px;
   border-radius: 5px;
-  border: 1px solid #eee;
+  border: 1px solid #aaa;
   box-shadow: 0px 2px 0px rgba(0,0,0,0.2);
+}
+.zzal-collection .add .img::after {
+  content: "\f055"; 
+  position: absolute;
+  font-family: FontAwesome;
+  font-size: 2rem;
+  top: 37%;
+  left: 37%;
+  color: #aaa;
+}
+.zzal-collection .add .img:hover::after {
+	color: #F39C12;
+}
+.zzal-collection .title {
+	display: block;
+	margin-bottom: 5px;
 }
 .zzal-collection .right {
 	float: left;
 }
-.zzal-collection .title {
-	display: block;
-	margin-bottom: 7px;
+.zzal-collection .add .right {
+	line-height: 100px;
+}
+.zzal-collection .add .img {
+	background: #eee;
 }
 .zzal-collection .sfont {
 	display: block;
-	font-size: 0.875rem;
+	font-size: 0.8125rem;
+	margin-bottom: 2px;
+}
+.zzal-collection .btn {
+	margin-top: 2px;
 }
 
 /*desktop*/
