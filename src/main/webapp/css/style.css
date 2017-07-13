@@ -84,6 +84,7 @@ input::-moz-placeholder { color: #777; }
 .main-content {
   margin-top: 96px;
   min-height: 78vh;
+  padding-bottom: 20px;
 }
 /* .main-content.index-page {
 }
@@ -264,7 +265,7 @@ input::-moz-placeholder { color: #777; }
   font-family: 'Arial', sans-serif;
   width: 100%;
   padding: 15px;
-  margin-top: 20px;
+  /* margin-top: 20px; */
   text-align: center;
   background-color: #F0F0F0;
 }

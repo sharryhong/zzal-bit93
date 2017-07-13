@@ -1,5 +1,10 @@
-.main-content {
+.main-content.mypage {
 	margin-top: 85px;
+	background: #f3f3f3;
+}
+.main-content.mypage .top {
+	background: white;
+	padding-bottom: 20px;
 }
 .user-info-face {
 	float: left;
@@ -50,7 +55,7 @@
 .mypage_mid {
 	border-top: 1px solid #ccc;
 	border-bottom: 1px solid #ccc;
-	margin: 20px 0 0 0;
+	background: white;
 	padding: 0 10px;
 	font-size: 1.125rem;
 }
@@ -80,9 +85,9 @@
 	color: #F39C12;
 	font-weight: bold;
 }
-.mypage_bottom {
+/* .mypage_bottom {
 	background: #f3f3f3;
-}
+} */
 .mypage_bottom .zzal-menu {
 	width: 100%;
 	border-bottom: 2px solid #ddd;
@@ -105,6 +110,9 @@
 	border-bottom: 3px solid #54BAE6;
 	/* background: #54BAE6; */
 	font-weight: bold;
+}
+.zzal-category .zzal-con {
+	margin-top: 15px;
 }
 
 /*desktop*/
