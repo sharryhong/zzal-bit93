@@ -5,6 +5,13 @@
   }
 }
 @media (max-width: 750px) {
+
+  /*mobile-in-dis-detialmain-p   detailmain page에서 안보이게 하기 위함!*/
+  /*mobile-detail-main-header*/
+  #con .mobile-in-dis-detailmain-p {
+    display:none;
+  }
+
   .header .fa-search{
     -webkit-text-stroke : 1px #ffffff;
   }
@@ -16,11 +23,13 @@
     background-color: transparent;
   }
 
+  /*mobile-detail-main-header*/
+  /*mobile-detail-cover, image*/
   .mobile-detail-cover {
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
-      background-image: url("../image/ohh.jpg");
+      background-image: url("image/ohh.jpg");
   }
 
   .mobile-detail-backimage {
@@ -29,50 +38,51 @@
     background-color: rgba(51, 51, 51,0.5);
     overflow:hidden;
   }
-
-
-
+  /*mobile-detail-cover, image*/
 
   .mdetail-footer .mfooter {
     display: inline-block;
     color:#ffffff;
   }
-.mfooter .name {
+ .mfooter .name {
   font-size: 27px;
   margin: 0 3px;
-}
+ }
   .mfooter .num {
   font-size: 16px;
   margin-right: 3px;
   }
 
-  .zzal-lect-detail-con .left-func-menu,.lect-right-info-detail {
-    display: none;
+  /*mobile-in-dis mobile detail page에서는 사용하지 않는다*/
+
+
+
+  .mobile-detail-main-con{
+    min-width: 100%;
+    height: 100vh;
+    margin: 0;
+    position: relative;
   }
 
-  .zzal-detail-content-container .func-button, #imagetest,
-                                .content-box, .zzal-detail-content-container-footer{
-    display: none;
-  }
-
-  .zzal-detail-content-container.mobile-main-controller{
+  .mobile-detail-main-con .mobile-detail-main-mid{
     position: absolute;
     top:40%;
-  }
-
-  .zzal-detail-content-container{
-    max-width: 100%;
+    width: 100%;
     display: inline-block;
     margin: 0 5px;
     padding: 0;
     color: #ffffff;
   }
 
-  .zzal-detail-content-container h2{
+  /*.zzal-detail-content-container .mobile-detail-main-mid{
+
+  }*/
+
+  .mobile-detail-main-mid h2{
     width: 80%;
     display: inline-block;
   }
-  .zzal-detail-content-container .contents-title {
+  .mobile-detail-main-mid .contents-title {
     display: inline-block;
     margin: 0;
   }
@@ -87,8 +97,8 @@
     color: rgba(255,255,255, 0.5);
   }
 
-
-  .mobile-main-midbot-con .mobile-detail-footer{
+/*mobile-detail-main-footer*/
+  .mobile-detail-footer{
     display: inline-block;
     width:100%;
     position: fixed;
@@ -97,7 +107,22 @@
     margin-bottom: 20px;
   }
 
+/*mobile-detail-main-footer*/
+
+.mobile-contents-header {
+  display: none;
+}
+
+
+
+/*mobile util css*/
+.mobile-in-dis {
+  display:none
+}
+
   .footer {
     display: none;
   }
+/*mobile util css*/
+
 }

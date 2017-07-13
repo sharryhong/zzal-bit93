@@ -31,34 +31,64 @@
   }
 
 
-
-
   .mdetail-footer .mfooter {
     display: inline-block;
     color:#ffffff;
   }
 .mfooter .name {
-  font-size: 27px;
-  margin: 0 3px;
+  font-size: 30px;
+  margin: 0 5px;
 }
   .mfooter .num {
   font-size: 16px;
-  margin-right: 3px;
+  margin-right: 5px;
   }
 
-  .zzal-lect-detail-con .left-func-menu,.lect-right-info-detail {
+  .mobile-detail-cover .mobile-dis-detailcontents{
+  display: none;
+  }
+
+  .mobile-main-midbot-con .contents-title.mobile-dis-detailcontents
+                          /*.zzal-detail-content-container-footer.mobile-dis-detailcontents*/
+                          {
     display: none;
   }
 
-  .zzal-detail-content-container .func-button, #imagetest,
+  /*.zzal-detail-content-container .func-button, #imagetest,
                                 .content-box, .zzal-detail-content-container-footer{
     display: none;
+  }*/
+
+  /*.zzal-detail-content-container .contents-title,.func-button,
+                                .content-box{
+    display: none;
+  }*/
+
+  /*.mobile-main-midbot-con .mobile-dis-detailcontents {
+    display: none;
+  }*/
+
+  .mobile-right {
+    float: right;
   }
+  .mobile-right div {
+    display: inline-block;
+    margin: 0 5px;
+    font-size: 20px;
+  }
+
+
+
+  /*.zzal-detail-content-container.mobile-main-controller{
+    position: absolute;
+    top:40%;
+  }*/
 
   .zzal-detail-content-container.mobile-main-controller{
     position: absolute;
-    top:40%;
+    top:5%;
   }
+
 
   .zzal-detail-content-container{
     max-width: 100%;
@@ -97,7 +127,27 @@
     margin-bottom: 20px;
   }
 
+  .mobile-detailpage-mover div{
+    display : inline-block;
+  }
+
+  .mobile-detail-footer .mobile-detailpage-mover {
+    float:left;
+    line-height: 30px;
+    font-size: 28px;
+  }
+  .mobile-detail-footer .mdetail-footer{
+    float:right;
+    margin-right: 10px;
+  }
+
   .footer {
     display: none;
   }
+
+
+
+
+
+
 }

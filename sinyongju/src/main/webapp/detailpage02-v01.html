@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="css/common.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/zzallect_detailpage.css">
-  <link rel="stylesheet" href="css/zzallect_detail_mobile-v01.css">
+  <link rel="stylesheet" href="css/zzallect_detail_mobile_page02-v01.css">
 </head>
 <body>
 <div id="con">
@@ -21,19 +21,30 @@
     <a href="#" class="menu"><i class="fa fa-bars" aria-hidden="true"><span class="blind">메뉴버튼</span></i></a>
     <h1 class="logo"><a href="#">Zzal School</a></h1>
   </div>
-  <div class="right">
+  <div class="right mobile-dis-detailcontents">
     <span class="search">
       <input type="text" class="input-line" id="search-btn" placeholder="짤강을 검색해 보세요.">
       <label for="search-btn" class="search-icon"><i class="fa fa-search" aria-hidden="true"><span class="blind">검색하기</span></i></label>
     </span>
     <a href="#" class="login">로그인</a>
   </div>
+
+  <div class="mobile-right">
+    <div class="mlisten">
+      <div class="fa fa-volume-up" aria-hidden="true"></div><div class="fa fa-volume-off" aria-hidden="true" style="display:none"></div>
+    </div>
+    <div class="mauto-play">
+      <div class="fa fa-play-circle" aria-hidden="true"></div>
+    </div>
+  </div>
+
+
 </div>
 <div class="main-content zzal-detail-page">
     <div class="zzal-container zzal-lect-detail">
      <div class="zzal-lect-detail-con clearfix">
 
-       <div class="left-func-menu">
+       <div class="left-func-menu mobile-dis-detailcontents">
         <div class="left-upper-menu">
           <ul>
             <li>
@@ -77,7 +88,7 @@
         </div>
       </div><!-- left-func-menu -->
 
-      <div class="lect-right-info-detail">
+      <div class="lect-right-info-detail mobile-dis-detailcontents">
         <div class="upper-info">
           <div class="user-phot clearfix">
             <div class="user-phot-posi photo-insert" aria-hidden="true"></div>
@@ -161,14 +172,12 @@
 
       <div class="zzal-detail-content-container mobile-main-controller">
         <div class="mobile-main-midbot-con">
-          <div class="write-date">2017-07-11</div>
-
-
-            <div class="contents-title">
+          <div class="write-date mobile-dis-detailcontents">2017-07-11</div>
+          <div class="contents-title mobile-dis-detailcontents">
               <h2>포즈와 함께 DSLR 왕초보탈출! 8. DSLR 버튼 한큐에 파악하기</h2>
-            </div>
-            <div class="mmove-arrow"><span class="direction">좌우로 넘겨 주세여!</span class="arrow"><i class="fa fa-hand-o-right" aria-hidden="true"></i></div>
-            <div class="func-button"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></div>
+          </div>
+            <div class="mmove-arrow mobile-dis-detailcontents"><span class="direction">좌우로 넘겨 주세여!</span class="arrow"><i class="fa fa-hand-o-right" aria-hidden="true"></i></div>
+            <div class="func-button mobile-dis-detailcontents"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></div>
             <div id="imagetest" class="images-wrapper">
               <img class= "contents-images-zzals"src="image/sul.jpg">
             </div>
@@ -179,7 +188,7 @@
             However, you can specify each corner separately if you wish. Here are the rules:
             Four values: first value applies to top-left, second value ap</p></div>
 
-            <div class="zzal-detail-content-container-footer">
+            <div class="zzal-detail-content-container-footer mobile-dis-detailcontents">
                 <div class="page-footer">
                   <div class="move-pointer-left"><div class="fa fa-chevron-left" aria-hidden="true"></div></div>
                   <span>1</span><span>/</span><span>100</span>
@@ -187,9 +196,17 @@
                 </div>
               </div>
 
+<!--mobile footers-->
+              <div class="mobile-detail-footer clearfix">
+                 <div class="mobile-detailpage-mover">
+                    <div class="page-footer">
+                      <div class="move-pointer-left"><div class="fa fa-chevron-left" aria-hidden="true"></div></div>
+                      <span>1</span><span>/</span><span>100</span>
+                      <div class="move-pointer-right"><div class="fa fa-chevron-right" aria-hidden="true"></div></div>
+                    </div>
+                  </div>
 
-              <div class="mobile-detail-footer">
-                  <div class="mdetail-footer">
+                  <div class="mdetail-footer  mobile-detailpage-mover">
                     <div class="comment mfooter">
                       <span class="fa fa-commenting-o name" aria-hidden="true"></span><span class="num">2,000</span>
                     </div>

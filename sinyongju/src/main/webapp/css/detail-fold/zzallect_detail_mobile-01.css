@@ -5,18 +5,23 @@
   }
 }
 @media (max-width: 750px) {
-  .header .fa-search{
-    -webkit-text-stroke : 1px #ffffff;
-  }
+
   .mobile-detail-cover .header {
+    display:none;
+  }
+
+  .mobile-detail-main-header {
     background-color: transparent;
   }
 
   .mobile-detail-cover {
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center;
-      background-image: url("../image/ohh.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url("../../image/ohh.jpg");
+  }
+  .header .fa-search{
+    -webkit-text-stroke : 1px #ffffff;
   }
 
   .mobile-detail-backimage {

@@ -9,14 +9,14 @@
   <!-- <link rel="stylesheet" href="css/slide.css"> -->
   <link rel="stylesheet" href="css/common.css">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/zzallect_detailpage.css">
-  <link rel="stylesheet" href="css/zzallect_detail_mobile-v01.css">
+  <link rel="stylesheet" href="../css/detail-fold/zzallect_detailpage.css">
+  <link rel="stylesheet" href="css/detail-fold/zzallect_detail_mobile-v02.css">
 </head>
 <body>
 <div id="con">
 <div class="mobile-detail-cover">
   <div class="mobile-detail-backimage">
-<div class="header">
+<div class="header mobile-dis-detailcontents">
   <div class="left">
     <a href="#" class="menu"><i class="fa fa-bars" aria-hidden="true"><span class="blind">메뉴버튼</span></i></a>
     <h1 class="logo"><a href="#">Zzal School</a></h1>
@@ -29,11 +29,28 @@
     <a href="#" class="login">로그인</a>
   </div>
 </div>
+
+<div class="mobile-header">
+  <div class="left">
+    <h1 class="logo"><a href="#">Zzal School</a></h1>
+  </div>
+  <div class="mobile-right">
+    <div class="mlisten">
+      <div class="fa fa-volume-up" aria-hidden="true"></div><div class="fa fa-volume-off" aria-hidden="true" style="display:none"></div>
+    </div>
+    <div class="mauto-play">
+      <div class="fa fa-play-circle" aria-hidden="true"></div>
+    </div>
+  </div>
+</div>
+
+
+
 <div class="main-content zzal-detail-page">
     <div class="zzal-container zzal-lect-detail">
      <div class="zzal-lect-detail-con clearfix">
 
-       <div class="left-func-menu">
+       <div class="left-func-menu mobile-dis-detailcontents">
         <div class="left-upper-menu">
           <ul>
             <li>
@@ -77,7 +94,7 @@
         </div>
       </div><!-- left-func-menu -->
 
-      <div class="lect-right-info-detail">
+      <div class="lect-right-info-detail mobile-dis-detailcontents">
         <div class="upper-info">
           <div class="user-phot clearfix">
             <div class="user-phot-posi photo-insert" aria-hidden="true"></div>
@@ -161,35 +178,44 @@
 
       <div class="zzal-detail-content-container mobile-main-controller">
         <div class="mobile-main-midbot-con">
-          <div class="write-date">2017-07-11</div>
-
-
-            <div class="contents-title">
+          <div class="write-date mobile-dis-detailcontents">2017-07-11</div>
+          <div class="contents-title mobile-dis-detailcontents">
               <h2>포즈와 함께 DSLR 왕초보탈출! 8. DSLR 버튼 한큐에 파악하기</h2>
-            </div>
-            <div class="mmove-arrow"><span class="direction">좌우로 넘겨 주세여!</span class="arrow"><i class="fa fa-hand-o-right" aria-hidden="true"></i></div>
-            <div class="func-button"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></div>
+          </div>
+            <div class="mmove-arrow mobile-dis-detailcontents"><span class="direction">좌우로 넘겨 주세여!</span class="arrow"><i class="fa fa-hand-o-right" aria-hidden="true"></i></div>
+            <div class="func-button mobile-dis-detailcontents"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></div>
+          <div class="content-box">
             <div id="imagetest" class="images-wrapper">
               <img class= "contents-images-zzals"src="image/sul.jpg">
             </div>
-
-            <div class="content-box"><p>he border-radius property is used to add rounded corners to an element.
+              <p>he border-radius property is used to add rounded corners to an element.
             The border-radius property is a shorthand property for setting the four border-*-radius properties.
             If you specify only one value for the border-radius property, this radius will be applied to all 4 corners.
             However, you can specify each corner separately if you wish. Here are the rules:
-            Four values: first value applies to top-left, second value ap</p></div>
 
-            <div class="zzal-detail-content-container-footer">
-                <div class="page-footer">
+            Four values: first value applies to top-left, second value ap</p>
+          </div>
+            <div class="zzal-detail-content-container-footer mobile-dis-detailcontents">
+                <div class="page-move-footer">
                   <div class="move-pointer-left"><div class="fa fa-chevron-left" aria-hidden="true"></div></div>
                   <span>1</span><span>/</span><span>100</span>
                   <div class="move-pointer-right"><div class="fa fa-chevron-right" aria-hidden="true"></div></div>
                 </div>
-              </div>
+              </div><!--web footers-->
+
 
 
               <div class="mobile-detail-footer">
-                  <div class="mdetail-footer">
+
+                 <div class="mobile-detailpage-left-footer">
+                    <div class="page-footer">
+                      <div class="move-pointer-left"><a href="#" hover><div class="fa fa-chevron-left" aria-hidden="true"></div></a></div>
+                      <span>1</span><span>/</span><span>100</span>
+                      <div class="move-pointer-right"><a href="#" hover><div class="fa fa-chevron-right" aria-hidden="true"></div></a></div>
+                    </div>
+                  </div>
+
+                  <div class="mdetail-footer  mobile-detailpage-right-footer">
                     <div class="comment mfooter">
                       <span class="fa fa-commenting-o name" aria-hidden="true"></span><span class="num">2,000</span>
                     </div>
@@ -201,6 +227,7 @@
                     </div>
                   </div>
               </div>
+
           </div><!--mobile-main-midbot-con-->
     </div><!--zzal-detail-content-->
 

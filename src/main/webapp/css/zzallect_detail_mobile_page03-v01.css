@@ -1,0 +1,236 @@
+/*desktop*/
+@media (min-width: 766px) {
+  .mobile-detail-footer,.write-date,.mmove-arrow,.mobile-header {
+    display: none;
+  }
+}
+/*mobile*/
+@media (max-width: 765px) {
+
+.mobile-header{
+  color: #ffffff;
+  position: relative;
+}
+
+  .mobile-header .left {
+    display: inline-block;
+    position: absolute;
+    left: 0;
+  }
+  .mobile-header .mobile-right{
+    font-size: 35px;
+    margin-right: 10px;
+    position: absolute;
+    right :0;
+
+  }
+  .header .fa-search{
+    -webkit-text-stroke : 1px #ffffff;
+  }
+  .mobile-detail-cover {
+    height: 100vmax;
+
+  }
+  .mobile-detail-cover .header {
+    background-color: transparent;
+  }
+
+  /*.mobile-detail-cover {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-image: url("../image/ohh.jpg");
+  }*/
+  .mobile-detail-cover {
+    background-color: black;
+  }
+
+  .mobile-detail-backimage {
+    height: 100%;
+    position: relative;
+    background-color: rgba(51, 51, 51,0.5);
+    overflow:hidden;
+  }
+
+
+  .mdetail-footer .mfooter {
+    display: inline-block;
+    color:#ffffff;
+  }
+  .mfooter .name {
+    font-size: 27px;
+    margin: 0 2px;
+  }
+  .mfooter .num {
+  font-size: 10px;
+  margin:0 2px;
+  }
+
+  /*.mobile-dis-detailcontents {
+    display: none
+  }*/
+  .zzal-lect-detail-con .mobile-main-controller {
+    display:none;
+  }
+  .mobile-detail-cover .mobile-dis-detailcontents{
+  display: none;
+  }
+
+  .mobile-main-midbot-con .contents-title.mobile-dis-detailcontents
+  {
+    display: none;
+  }
+
+
+  .mobile-right {
+    float: right;
+  }
+  .mobile-right div {
+    display: inline-block;
+    margin: 0 5px;
+    font-size: 20px;
+  }
+
+
+
+  /*.zzal-detail-content-container.mobile-main-controller{
+    position: absolute;
+    top:40%;
+  }*/
+
+  .zzal-detail-content-container.mobile-main-controller{
+    width:100%;
+    position: absolute;
+    top:2%;
+  }
+
+
+  .zzal-detail-content-container{
+    max-width: 100%;
+    display: inline-block;
+    margin: 0 5px;
+    padding: 0;
+    color: #ffffff;
+  }
+
+  .zzal-detail-content-container h2{
+    width: 80%;
+    display: inline-block;
+  }
+  .zzal-detail-content-container .contents-title {
+    display: inline-block;
+    margin: 0;
+  }
+  .write-date {
+    display: block;
+    margin-left: 10px;
+  }
+  .mmove-arrow {
+    margin-left: 20px;
+    padding-top: 10px;
+    display: block;
+    color: rgba(255,255,255, 0.5);
+  }
+  .mobile-main-midbot-con {
+    position:relative;
+  }
+
+  .mobile-main-midbot-con .mobile-detail-footer{
+    display: inline-block;
+    width:100%;
+    position: fixed;
+    bottom:0;
+    text-align: center;
+    margin-bottom: 20px;
+    z-index: 1000;
+  }
+  .mobile-main-midbot-con .content-box {
+    min-width: 100%;
+  }
+  /*.mobile-detailpage-mover div{
+    display : inline-block;
+  }*/
+
+
+  .mobile-detail-footer .mobile-detailpage-left-footer {
+    display: inline-block;
+    margin : 0 10px 0 10px;
+    float:left;
+    line-height: 30px;
+    font-size: 28px;
+  }
+  .mobile-detailpage-left-footer div {
+    display: inline-block;
+  }
+
+
+  .mobile-detail-footer .mobile-detailpage-right-footer{
+    float:right;
+    margin-right: 10px;
+
+  }
+
+ .page-footer a{
+    padding: 5px;
+  }
+
+
+
+  .mobile-detail-dis-last {
+    display:none;
+  }
+
+  .header.mobile-detail-last-replyinfo{
+    background-color: #F39C12;
+  }
+
+  .mobile-lect-right-info-detail {
+    /*background-color:rgb(60, 60, 60);*/
+    color:#ffffff;
+  }
+  /*.mobile-lect-right-info-detail .upper-info {
+    background-color: #ddd;
+  }
+  */
+  .mobile-lect-right-info-detail .comment-list {
+    height: 100vh;
+  }
+.mobile-lect-right-info-detail .comment-list,.form-con {
+  width: 100%;
+}
+.mobile-lect-right-info-detail .form-con {
+  left: 14%;
+  /*padding-bottom: 10px;*/
+}
+.form-con .form-loca-use {
+  top:2px
+  padding: 0;
+  line-height: 60px;
+}
+.form-loca-use .comment-listener {
+  margin:0;
+  display:inline-block;
+}
+.comment-listener .comment-submit-btn{
+  float:left;
+}
+
+
+  .mobile-lect-right-info-detail .comment-list,.comment-list-units{
+    background-color: #ffffff;
+    border:1px solid black;
+    color:rgb(0, 0, 0);
+  }
+  .comment-list-units .comments-header {
+    border-bottom: 1px solid black;
+  }
+  .footer {
+    display: none;
+  }
+
+
+
+
+
+
+}
