@@ -35,14 +35,14 @@
 		$(window).resize(function(){
 			// 데스크탑이 아니면 (or 창이 줄어들면)
 			if(window.innerWidth < objThis.$deskWidthPx && objThis.$deskWidth == true){
-				console.log(objThis.$deskWidthPx+'px 값보다 작아지면!');
+				//console.log(objThis.$deskWidthPx+'px 값보다 작아지면!');
 				// objThis.toggleMenu();
 				objThis.$toggleContents.removeClass('sliding');
 				objThis.$mainContext.removeClass('sliding');
 				objThis.$deskWidth = false;
 			// 데스크탑이라면
 			} else if(window.innerWidth > objThis.$deskWidthPx && objThis.$deskWidth == false){
-				console.log(objThis.$deskWidthPx+'px 값보다 커지면!');
+				//console.log(objThis.$deskWidthPx+'px 값보다 커지면!');
 				// objThis.toggleMenu();
 				objThis.$toggleContents.addClass('sliding');
 				objThis.$mainContext.addClass('sliding');

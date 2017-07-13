@@ -64,7 +64,10 @@
 }
 .mypage_mid .menu {
 	display: inline-block;
-	margin-right: 25px;
+	/* margin-right: 25px; */
+}
+.mypage_mid .menu a {
+	display: inline-block;
 	padding: 10px 20px;
 }
 .mypage_mid .menu:last-child {
@@ -98,7 +101,7 @@
 	/* border-top-left-radius: 5px;
 	border-top-right-radius: 5px; */
 }
-.mypage_bottom .zzal-menu a.on {
+.mypage_bottom .zzal-menu .on {
 	border-bottom: 3px solid #54BAE6;
 	/* background: #54BAE6; */
 	font-weight: bold;
@@ -134,9 +137,10 @@
 	.mypage_mid li:last-child {
 	 width: 34%;
 	}
-	.mypage_mid .menu {
+	.mypage_mid .menu a {
+	  display: inline-block;
+	  width: 100%;
 		padding: 10px 0px;
-		width: 100%;
 	}
 	.mypage_bottom .zzal-menu {
     margin-bottom: 5px;
