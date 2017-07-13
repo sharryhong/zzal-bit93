@@ -2,9 +2,14 @@
 
 body {
 	margin: 0;
+	line-height: normal;
 }
 body *, body *::before, body *::after {
 	box-sizing: border-box;
+}
+
+button, input, select, textarea {
+	line-height: normal;
 }
 
 /*목록 초기화 스타일 모듈*/

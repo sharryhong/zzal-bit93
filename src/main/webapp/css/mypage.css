@@ -114,6 +114,36 @@
 .zzal-category .zzal-con {
 	margin-top: 15px;
 }
+.zzal-collection .collections {
+	width: 100%;
+}
+.zzal-collection .collections li {
+	width: 50%;
+	padding: 5px;
+}
+.zzal-collection .img {
+  float: left;
+  background-image: url(../image/zzal03.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 100px;
+  width: 100px;
+  margin-right: 10px;
+  border-radius: 5px;
+  border: 1px solid #eee;
+  box-shadow: 0px 2px 0px rgba(0,0,0,0.2);
+}
+.zzal-collection .right {
+	float: left;
+}
+.zzal-collection .title {
+	display: block;
+	margin-bottom: 7px;
+}
+.zzal-collection .sfont {
+	display: block;
+	font-size: 0.875rem;
+}
 
 /*desktop*/
 @media (min-width: 766px) {
@@ -156,3 +186,9 @@
     padding-top: 5px;
 	}
 }
+
+/* .btn {
+	display: inline-block;
+	text-align: center;
+	font-size: 0.875rem;
+} */
