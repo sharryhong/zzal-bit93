@@ -1,20 +1,11 @@
 @CHARSET "UTF-8";
+
 /*desktop*/
 @media (min-width: 766px) {
   .main-content.write-wrap {
     margin-top: 60px;
   }
 
-.space-div {
-  display: none;
-}
-  /*.mobile {
-    display: none;
-  }*/
-
-  .mobile-sub-btns {
-    display: none;
-  }
 
   .zzal-container .zzal-lect-detail-con {
     /*border: solid 1px red;*/
@@ -23,7 +14,6 @@
     /*height : 800px;*/
     /*요기는 상의*/
     margin: 0 auto;
-
   }
 
   .main-content {
@@ -110,6 +100,9 @@
     /*margin-left: 100px;*/
   }
 
+  .zzal-lect-detail-con {
+    margin-left : 80px;
+  }
 
   .buttons {
     position: absolute;
@@ -125,17 +118,16 @@
 
   .write-con {
     border: 3px solid red;
-    /*position: relative;*/
-    /*min-height: 600px;*/
-    /*width: 500px;*/
-    /*margin: 0 auto;*/
+    position: relative;
+    min-height: 600px;
+    width: 500px;
+    margin: 0 auto;
     margin-top: 20px;
-    margin-left:100px;
   }
 
   .write-con .id-title-pic-con {
-    /*position: absolute;
-    height: 70%;*/
+    position: absolute;
+    height: 70%;
     width:100%;
   }
 
@@ -159,66 +151,44 @@
     font-size: 0.875rem;
   }
 
-  .title-collection {
-    margin-top: 20px;
-  }
+.title-collection {
+  margin-top: 20px;
+}
 
-  .title-linetext{
+.title-collection .title-line {
     float:left;
+    background:gray;
     width: 70%;
-    height: 100%;
-    /*width :100px;*/
-    background-color: rbga(255,255,255,0);
-    border-bottom: 1px solid #ccc;
+    /*border: 1px solid black;*/
     font-size:1.5rem;
   }
 
   .select-collection {
-    float: right;
-    /*background: red;*/
-    width:100 px;
-    margin-bottom: 10px;
-  }
-
-  select {
-    float: right;
-    width: 100px;
+    float:right;
+    background: red;
+    width:30%;
   }
 
   .picture-line {
-    margin: 0 auto;
-    margin-top: 13px;
-    min-height: 20vmax;
-    max-width: 55vmax;
+    margin-top: 15px;
+    /*height:300px;*/
     width: 100%;
+    height: auto%;
     border: 1px solid red;
-    overflow: hidden;
+
   }
 
 
- .picture-line img {
-   width: 100%;
- }
-
-	.text-pagebutton {
-	  /*position : absolute;*/
-	  /*top:70%;
-	  height:30%;*/
-	  width:100%;
-	}
-
-
-  .text-pagebutton textarea {
-    display: inline-block;
-    width: 80%;
-    height: 100px;
-    font-size: 1rem;
-  }
-
+.text-pagebutton {
+  position : absolute;
+  top:70%;
+  height:30%;
+  width:100%;
+}
 
 
   .text {
-    /*height: 130px;*/
+    height: 130px;
     width: 100%;
     /*border: 1px solid black;*/
     text-align: center;
@@ -235,40 +205,23 @@
   }
 
 
-  .mobile-buttons {
-    display: none;
-  }
-
-  .mobile-attc-btns{
-    display: none;
-  }
-
-  .hide-when-web {
-    display: none;
-  }
 }
 
 
-/*-----------------------*/
+
+
+
+
+
+
+
+
+
+
+
 /*mobile*/
 @media (max-width: 765px) {
-  .space-div {
-    width:100%;
-    height: 102px;
-  }
 
-  .hide-when-mobile {
-    display: none;
-  }
-
-  #con {
-    position: relative;
-    height : 100vmax;
-  }
-
-  /*.header.mobile {
-    position : static;
-  }*/
 
   .header .right {
     display: none;
@@ -278,16 +231,15 @@
     display: none;
   }
 
-  .mobile-sub-btns {
+  .mobile-buttons {
     position: absolute;
     z-index: 920;
     right:0;
     float:right;
-    line-height : 51px;
 
   }
 
-  .mobile-sub-btns .mbutton {
+  .mobile-buttons .mbutton {
     color:white;
     font-size: 1.125rem;
   }
@@ -298,46 +250,40 @@
 
 
 
-  .main-content.write-wrap {
-    position: absolute;
-    width: 100%;
-    height: 97vmax;
-    bottom: 0;
-  }
-
-  .zzal-container{
-    margin-top: -50px;
-    /*position:relative;*/
-  }
 
 
 
   .left-func-menu {
-    display: none;
+    float :right;
+    hegiht: 30%;
   }
 
    .photo {
-    float:left;
-    margin-right: 30px;
+     position: absolute;
+     top: 3%;
+     left: 50%;
+     margin-left: -22px;
    }
 
-    .photo:hover {
+   .photo:hover {
      color: orange;
    }
 
 
    .fa-camera {
-     font-size: 30px;
+     font-size: 40px;
    }
 
-  .photo > p {
-    margin: 0px;
+   .photo > p {
+     margin-top: 0px;
+     /*margin-left: 5px;*/
    }
 
    .video {
-    float:left;
-    margin-right: 20px;
-
+     position: absolute;
+     top: 15%;
+     left: 50%;
+     margin-left: -22px;
    }
 
    .video:hover {
@@ -346,17 +292,20 @@
 
 
    .fa-link {
-     font-size: 30px;
+     font-size:40px;
      margin-left: 3px;
    }
 
    .video > p {
-    margin: 0px;
+     margin-top: 0px;
    }
 
 
    .voice {
-    float:left;
+     position: absolute;
+     top: 27%;
+     left: 50%;
+     margin-left: -22px;
    }
 
    .voice:hover {
@@ -365,19 +314,18 @@
 
 
    .fa-headphones {
-     font-size:30px;
+     font-size:40px;
      margin-left: 3px;
    }
 
    .voice > p {
-     margin: 0px;
+     margin-top: 0px;
+     margin-bottom: 250px;
+     /*margin-left: 100px;*/
    }
 
    .zzal-lect-detail-con {
-     /*position:absolute;*/
-     /*bottom: 0px;*/
-     width: 100%;
-     /*margin-left : 80px;*/
+     margin-left : 80px;
    }
 
    .buttons {
@@ -393,22 +341,23 @@
    }
 
    .write-con {
+     border: 3px solid red;
+     position: relative;
+     min-height: 600px;
+     width: 500px;
      margin: 0 auto;
-     /*margin-top: 50px;*/
+     margin-top: 20px;
    }
 
    .write-con .id-title-pic-con {
-     /*position: absolute;*/
-     /*margin-top: 50px;*/
+     position: absolute;
      height: 70%;
      width:100%;
    }
 
    .write-con .id-title-pic-con .user-line {
-     /*margin-top: 20px;*/
-     display: none;
+     margin-top: 20px;
    }
-
 
    .user-picture {
      height: 50px;
@@ -427,96 +376,62 @@
    }
 
  .title-collection {
-   /*position: absolute;*/
-   width: 100%;
+   margin-top: 20px;
  }
 
-  .title-linetext {
+ .title-collection .title-line {
      float:left;
-     margin-top: 10px;
-     width: 100%;
-     height:33px;
+     background:gray;
+     width: 70%;
+     /*border: 1px solid black;*/
      font-size:1.5rem;
-     border-bottom : solid 1px #ccc;
    }
 
-   .select-collection select{
-     float: right;
-     /*background: red;*/
-     width:100px;
-     margin: 5px;
+   .select-collection {
+     float:right;
+     background: red;
+     width:30%;
    }
-
 
    .picture-line {
-     /*margin-top: 15px;*/
-     /*position: absolute;*/
-     /*top : 19%;*/
-     margin-top: 10px;
-     min-height: 20vmax;
-     max-height: 30vmax;
+     margin-top: 15px;
+     /*height:300px;*/
      width: 100%;
+     height: auto%;
      border: 1px solid red;
-     overflow: hidden;
+
    }
 
-  .picture-line img {
-    width: 100%;
-  }
 
  .text-pagebutton {
-   /*position : absolute;*/
-   /*top:55%;*/
-   /*height:30%;*/
+   position : absolute;
+   top:70%;
+   height:30%;
    width:100%;
-   margin-top: 15px;
-   height: 100px;
-   font-size: 1rem;
  }
-  .text-pagebutton textarea {
-    display: inline-block;
-    width: 100%;
-    height: 100px;
-    font-size: 1rem;
-  }
 
 
    .text {
-     /*height: 190px;*/
+     height: 130px;
      width: 100%;
      /*border: 1px solid black;*/
      text-align: center;
-     margin-bottom: 20px;
-     /*margin-top: 20px;*/
-     /*margin :15px*/
+     margin-top: 20px;
    }
 
-   .mobile-bottom {
-	    position: absolute;
-	    width: 100%;
-	    bottom: 0;
-	  }
-
-  .nextpagebutton  {
-    /* position: absolute;
-    bottom:0px; */
-    /*border-top: 2px solid #ccc;*/
-    /*padding-top: 13px;*/
-    margin-left: 10px;
-    /*bottom: -14vh;*/
-    float:left;
-   }
-
-   .mobile-attc-btns{
-    /*  position: absolute;
-     bottom: 0px; */
-     float:right;
-     right: 3px;
-     margin-right: 7px;
+   .nextpagebutton  {
+     text-align: center;
    }
 
    .nextpagebutton .fa {
      font-size : 2.5rem;
      cursor:pointer;
    }
+
+
+
+
+
+
+
 } /*@media mobile
