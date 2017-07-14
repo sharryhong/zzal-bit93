@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="kr">
+
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>zzal school</title>
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+  <!-- <link rel="stylesheet" href="css/slide.css"> -->
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/writezzal.css">
+</head>
+
+
+<body>
+  <div id="con">
+    <div class="header mobile">
+      <div class="left">
+        <a href="#" class="menu"><i class="fa fa-bars" aria-hidden="true"><span class="blind">메뉴버튼</span></i></a>
+        <h1 class="logo"><a href="#">Zzal School</a></h1>
+      </div>
+      <div class="right">
+        <span class="search">
+      <input type="text" class="input-line" id="search-btn" placeholder="짤강을 검색해 보세요.">
+      <label for="search-btn" class="search-icon"><i class="fa fa-search" aria-hidden="true"><span class="blind">검색하기</span></i>
+        </label>
+        </span>
+        <a href="#" class="login">로그인</a>
+      </div>
+
+
+      <div class="mobile-sub-btns">
+        <button class="mbutton">취소</button>
+        <button class="mbutton">올리기</button>
+      </div>
+
+
+    </div>
+
+    <div class="main-content write-wrap">
+      <div class="zzal-container">
+        <div class="mobile space-div"></div>
+        <div class="left-func-menu web">
+          <div class="photo"><i class="fa fa-camera" aria-hidden="true"></i>
+            <p>사진</p>
+          </div>
+          <div class="video"><i class="fa fa-link" aria-hidden="true"></i>
+            <p>동영상</p>
+          </div>
+          <div class="voice"><i class="fa fa-headphones" aria-hidden="true"></i>
+            <p>음성</p>
+          </div>
+
+          <div class="buttons">
+            <div class="button-1">
+              <button class>취소</button>
+            </div>
+            <div class="button-2">
+              <button>올리기</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="zzal-lect-detail-con clearfix">
+          <div class="write-con">
+            <div class="id-title-pic-con">
+              <div class="user-line" id="user-pic1"></div>
+              <div class="title-collection clearfix">
+                <div class="select-collection">
+                  <select>
+                    <option value="volvo">내 컬렉션</option>
+                    <option value="saab">지정안함</option>
+                  </select>
+                </div>
+                <div class="title-line"><input class="title-linetext" type="text" placeholder="짤강제목"></div>
+              </div>
+              <div class="picture-line">
+                <img src="image/zzal02.jpg">
+              </div>
+            </div>
+
+            <div class="text-pagebutton">
+              <div class="text"><textarea maxlength="150" placeholder="내용을 입력해주세요"></textarea></div>
+
+              <div class="nextpagebutton hide-when-mobile">
+                <a href="#"><i class="fa fa-angle-left" aria-hidden="true"></i></a> 숫자/숫자
+                <a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i></a>
+              </div>
+
+
+              <div class="mobile-attc-btns hide-when-mobile">
+                <div class="photo"><i class="fa fa-camera" aria-hidden="true"></i>
+                  <p>사진</p>
+	              </div>
+	              <div class="video"><i class="fa fa-link" ar ia-hidden="true"></i>
+	                <p>동영상</p>
+	              </div>
+	              <div class="voice"><i class="fa fa-headphones" aria-hidden="true"></i>
+	                <p>음성</p>
+	              </div>
+	            </div>
+            </div>
+
+        </div>
+
+        <div class="prac-div"></div>
+
+      </div>
+      <!--.zzal-lect-detail-con-->
+
+
+
+    </div>
+    <!-- zzal-container div-->
+
+
+
+  </div>
+  <!-- main-content -->
+
+  <div class="mobile-bottom">
+      <div class="nextpagebutton hide-when-web">
+        <a href="#"><i class="fa fa-angle-left" aria-hidden="true"></i></a> 숫자/숫자
+        <a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i></a>
+      </div>
+      <div class="mobile-attc-btns hide-when-web">
+        <div class="photo"><i class="fa fa-camera" aria-hidden="true"></i>
+          <p>사진</p>
+        </div>
+        <div class="video"><i class="fa fa-link" ar ia-hidden="true"></i>
+          <p>동영상</p>
+        </div>
+        <div class="voice"><i class="fa fa-headphones" aria-hidden="true"></i>
+          <p>음성</p>
+        </div>
+      </div>
+    </div>
+
+  <div class="footer writezzal-footer">
+    <p>zzal school</p>
+  </div>
+  </div>
+
+
+
+  <!-- 핸들바스 스크립트 -->
+  <script id="writeuser-template1" type="text/x-handlebars-template">
+    {{#each userinfo}}
+    <div class="user-picture" style='background-image:url("{{profileImg}}")'></div><span class="user-id">{{nickName}}</span> {{/each}}
+  </script>
+
+
+
+  <script src="node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="node_modules/handlebars/dist/handlebars.min.js"></script>
+  <script src="js/writezzal.js"></script>
+  <!-- <script src="js/slide.js"></script> -->
+
+</body>
+
+</html>

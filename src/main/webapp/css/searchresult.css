@@ -1,0 +1,266 @@
+
+.header {
+  display: none;
+}
+
+.nav {
+  display: none;
+}
+
+.mobile-nav {
+  display: none;
+}
+
+.inner-head {
+  position: fixed;
+  z-index: 999;
+	height: 66px;
+  width: 100%;
+  background-color: #F39C12;
+  border-bottom : solid 1px #ccc;
+  line-height: 60px;
+  /*z-index: 9999;*/
+}
+
+.search-left {
+  position: absolute;
+  left: 20px;
+  font-size: 30px;
+  width: 30px;
+  /*float:left;*/
+  width :5%;
+  color:white;
+  margin-left:10px;
+}
+
+.search-mid {
+  position: absolute;
+  top: 6%;
+  right: 25%;
+  text-align: center;
+  margin-top: 13px;
+  width:50%;
+}
+
+.search-line {
+  float:left;
+  width:90%;
+  text-align: left;
+  min-width: 167px;
+  }
+
+
+.search-right {
+  position: absolute;
+  right: 0%;
+  top: 26%;
+  width : 10%;
+  right:6%;
+}
+
+.search-right > button {
+  color: white;
+  font-size: 1.1rem;
+  float:left;
+  min-width:50px;
+}
+
+
+
+.main-content {
+	margin-top: 0px;
+}
+
+.info-tag {
+	width:100%;
+	display: block;
+	text-align: center;
+	padding-top: 90px;
+	padding-bottom: 25px;
+  padding-right: 6%;
+	color: #848992;
+	font-size: 1.125rem;
+}
+
+.txt-tag {
+}
+
+.ellipsis-button {
+  float:right;
+  /*margin-right: 6%*/
+}
+
+
+.drop-menu{
+  display:none;
+  width: 115px;
+  position: absolute;
+  z-index: 999;
+  right: 0;
+  color: white;
+  background-color: rgba(132, 137, 146, 1);
+  font-size: 1.0rem;
+
+  text-align: left;
+  padding-left: 17px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+
+  line-height: 180%;
+}
+
+.drop-menu > ul {
+  display: inline-block;
+  /*margin: 3px;*/
+}
+
+
+
+
+
+.user-info-face {
+	float: left;
+}
+.user-info-face .phot {
+  float: left;
+  display: inline-block;
+  background-image: url('../image/user.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 75px;
+  width: 75px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.user-info-face .user-name {
+	float: left;
+  line-height: 75px;
+  margin-left: 12px;
+}
+.user-info-face .setting-wrap {
+	font-size: 0.875rem;
+	margin-top: 10px;
+}
+.user-info-face .setting-wrap .fa {
+	font-size: 1rem;
+}
+.setting-wrap .setting {
+	margin-right: 10px;
+}
+.users-info-box {
+  height: 80px;
+  float: right;
+}
+.users-info-box .user-border div{
+  border-bottom: solid 1px #ccc;
+  padding: 3px;
+}
+.border-text {
+  font-size:  14px;
+}
+.user-border .border-text .name{
+  padding-right: 22px;
+}
+.user-border .border-text .num{
+  float: right;
+}
+.mypage_mid {
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	margin: 20px 0 0 0;
+	padding: 0 10px;
+	font-size: 1.125rem;
+}
+.mypage_mid li {
+	float: left;
+	/*position: relative;*/
+	border-right: 1px solid #eee;
+}
+.mypage_mid li:last-child {
+	border-right: none;
+}
+.mypage_mid .menu {
+	display: inline-block;
+	/* margin-right: 25px; */
+}
+.mypage_mid .menu a {
+	display: inline-block;
+	padding: 10px 20px;
+}
+.mypage_mid .menu:last-child {
+	margin-right: 0;
+}
+.mypage_mid .menu:last-child::after {
+	background: none;
+}
+.mypage_mid .menu.on {
+	color: #F39C12;
+	font-weight: bold;
+}
+.mypage_bottom {
+	background: #f3f3f3;
+}
+.mypage_bottom .zzal-menu {
+	width: 100%;
+	border-bottom: 2px solid #ddd;
+	margin-bottom: 15px;
+	padding-top: 15px;
+	text-align: center;
+}
+.mypage_bottom .zzal-menu li {
+	float: left;
+	width: 50%;
+}
+.mypage_bottom .zzal-menu a {
+	display: inline-block;
+	width: 100%;
+	padding: 10px 25px;
+	/* border-top-left-radius: 5px;
+	border-top-right-radius: 5px; */
+}
+.mypage_bottom .zzal-menu .on {
+	border-bottom: 3px solid #54BAE6;
+	/* background: #54BAE6; */
+	font-weight: bold;
+}
+
+/*desktop*/
+@media (min-width: 766px) {
+}
+
+/*mobile*/
+@media (max-width: 765px) {
+	.main-content {
+    /*margin-top: 65px;*/
+	}
+	.main-content .top {
+    padding: 0 10px;
+	}
+	.zzal-container {
+    padding: 0 5px;
+	}
+	.mypage_mid {
+    margin: 15px 0 0 0;
+    padding: 0;
+    font-size: 1rem;
+	}
+	.mypage_mid .zzal-container {
+	  padding: 0;
+	}
+	.mypage_mid li {
+		width: 32%;
+		text-align: center;
+	}
+	.mypage_mid li:last-child {
+	 width: 34%;
+	}
+	.mypage_mid .menu a {
+	  display: inline-block;
+	  width: 100%;
+		padding: 10px 0px;
+	}
+	.mypage_bottom .zzal-menu {
+    margin-bottom: 5px;
+    padding-top: 5px;
+	}
+}

@@ -1,0 +1,16 @@
+{
+  "status" : "success",
+  "data":
+  {
+    "profilePhoto" :
+    [
+      {"phoTo":"image/01images.jpg"}
+    ],
+    "colldetailList" :
+    [
+      {"collectionTitle":"초초초초 간단 영양 요리","userNickname":"by.nickname",
+          "vieWcount":12345,"fallow":12345}
+    ]
+
+  }
+}

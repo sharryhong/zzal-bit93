@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>컬렉션 상세페이지</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/collectdetail.css">
+</head>
+<body>
+<div id="con">
+  <div class="header">
+    <div class="left">
+      <a href="#" class="menu"><i class="fa fa-bars" aria-hidden="true"><span class="blind">메뉴버튼</span></i></a>
+      <h1 class="logo"><a href="#">Zzal School</a></h1>
+    </div>
+    <div class="right">
+      <span class="search">
+        <input type="text" class="input-line" id="search-btn" placeholder="짤강을 검색해 주세요">
+        <label for="search-btn" class="search-icon"><i class="fa fa-search" aria-hidden="true"><span class="blind">검색하기</span></i></label>
+      </span>
+      <a href="#" class="login">로그인</a>
+    </div>
+  </div>
+</div>
+<div class="main-content">
+  <div class="collection-detailpage">
+    <div class="zzal-container">
+      <div class="collection-main-photo" id="main-collectdetail1"></div>
+        <div class="collection-detail-title" id="main-collectdetail2"></div>
+      <div class="form-collection">
+        <div class="my-collection">
+          <a href="#" class="users-profile"><span class="user-nickname">...</span></a>
+        </div>
+        <div class="my-collection">
+          <a href="#" class="users-profile"><span class="user-nickname">...</span></a>
+        </div>
+        <div class="my-collection">
+          <a href="#" class="users-profile"><span class="user-nickname">...</span></a>
+        </div>
+        <div class="my-collection">
+          <a href="#" class="users-profile"><span class="user-nickname">...</span></a>
+        </div>
+      </div>
+    </div> <!--zzal-container -->
+  </div>  
+</div><!--main content -->
+
+<footer class="footer">
+  <div class="container">
+    <h3>Zzal School</h3>
+  </div>
+</footer>
+
+
+<script id="collectdetail-template1" type="text/x-handlebars-template">
+  {{#each profilePhoto}}
+  <div class="collection-photo">
+      <div class="detaile-photo" style="background-image: url('{{phoTo}}')">
+        <button type="button" class="edit-btn ">편집</button>
+      </div>
+  </div>
+  {{/each}}
+</script>
+
+<script id="collectdetail-template2" type="text/x-handlebars-template">
+{{#each colldetailList}}
+<div class="collection-title">
+  <h2>{{collectionTitle}}</h2>
+  <div class="collection-main-profile" style="background-image: url('image/oh.jpg')">
+    <a href="#" class="collection-profile"><span class="main-nickname">{{userNickname}}</span></a>
+  </div>
+</div>
+  <div class="vieWcount">
+    <hr color="gray" width=98%><br>
+    <span class="vieW">짤강</span><i><span class="vieW">{{vieWcount}}</span>
+    <span class="vieW">구독</span><i><span class="vieW">{{fallow}}</span>
+  </div>
+{{/each}}
+</script>
+
+<script src="node_modules/jquery/dist/jquery.min.js"></script>
+<script src="node_modules/handlebars/dist/handlebars.min.js"></script>
+<script src="js/collectdetail.js"></script>
+</body>
+</html>

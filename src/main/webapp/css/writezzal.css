@@ -2,7 +2,7 @@
 /*desktop*/
 @media (min-width: 766px) {
   .main-content.write-wrap {
-    margin-top: 60px;
+    margin-top: 80px;
   }
 
 .space-div {
@@ -36,7 +36,7 @@
 
  .left-func-menu {
   position: absolute;
-  height: 80%;
+  height: 77%;
   text-align: center;
   font-size:  0.875rem;
   float: left;
@@ -124,7 +124,7 @@
   }
 
   .write-con {
-    border: 3px solid red;
+    /*border: 3px solid red;*/
     /*position: relative;*/
     /*min-height: 600px;*/
     /*width: 500px;*/
@@ -174,15 +174,13 @@
   }
 
   .select-collection {
-    float: right;
-    /*background: red;*/
     width:100 px;
-    margin-bottom: 10px;
   }
 
   select {
     float: right;
     width: 100px;
+    margin-top: 6px;
   }
 
   .picture-line {
@@ -191,7 +189,7 @@
     min-height: 20vmax;
     max-width: 55vmax;
     width: 100%;
-    border: 1px solid red;
+    /*border: 1px solid red;*/
     overflow: hidden;
   }
 
@@ -456,7 +454,7 @@
      min-height: 20vmax;
      max-height: 30vmax;
      width: 100%;
-     border: 1px solid red;
+     /*border: 1px solid red;*/
      overflow: hidden;
    }
 
