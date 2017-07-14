@@ -84,6 +84,17 @@
 
   }
 
+
+  .mobile-right {
+    float: right;
+  }
+  .mobile-right div {
+    display: inline-block;
+    margin: 0 5px;
+    font-size: 20px;
+  }
+
+
   .footer {
     display: none;
   }
