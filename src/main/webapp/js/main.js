@@ -1,6 +1,7 @@
 (function($){
 	'use strict';
 	
+	// scrollbar
     $(window).on("load",function(){
         $(".mobile-nav").mCustomScrollbar({
             axis:"x",
@@ -9,6 +10,7 @@
         });
     });
     
+    // tabmenu
     let zzalList1 = $('#zzal-list1');
     let zzalList2 = $('#zzal-list2');
     let zzalWeekList= $('#zzal-week-list');
@@ -30,6 +32,26 @@
   	  generatedHTML = templateFn(result.data)
   	  target.text('')
   	  target.html(generatedHTML)
+    }
+    
+    if(window.innerWidth > 761) {
+    	$('.main-content.category-con .bxslider').bxSlider({
+        	auto: true,
+        	speed: 300,
+        	slideWidth: 400,
+            minSlides: 4,
+            maxSlides: 4,
+            moveSlides: 1
+    	});
+    } else {
+    	$('.main-content.category-con .bxslider').bxSlider({
+        	auto: true,
+        	speed: 300,
+        	slideWidth: 300,
+            minSlides: 2,
+            maxSlides: 2,
+            moveSlides: 1
+    	});
     }
     
 })(jQuery);

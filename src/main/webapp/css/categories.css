@@ -1,0 +1,17 @@
+.bx-wrapper {
+	margin: 0 auto;
+	border: none;
+}
+.bx-wrapper .bx-controls.bx-has-controls-auto.bx-has-pager .bx-pager {
+	text-align: center;
+  width: 100%;
+}
+.zzal-lects02 li {
+	padding: 0;
+}
+.zzal-lect .zzal-img {
+	width: 120%;
+}
+.zzal-lects02 .title {
+	text-align: center;
+}

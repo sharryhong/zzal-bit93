@@ -25,7 +25,9 @@
     <a href="#" class="login before-login">로그인</a>
     <div class="after-login">
       <a href="#" class="zzal-write"><i class="fa fa-pencil-square-o" aria-hidden="true"><span class="blind">짤강만들기</span></i></a>
-	    <a href="notice.html" class="notice"><i class="fa fa-bell-o" aria-hidden="true"><span class="blind">알림</span></i></a>
+	    <a href="notice.html" class="notice">
+	      <i class="fa fa-bell-o" aria-hidden="true"><span class="blind">알림</span><span class="num-box">1</span></i>
+	    </a>
 	    <a href="mypage.html" class="mypage"><i class="fa fa-user-circle-o" aria-hidden="true"><span class="blind">마이페이지</span></i></a>
     </div>
   </div>
@@ -40,7 +42,7 @@
   <div class="category">
     <h3 class="title">카테고리</h3>
 	  <ul>
-	    <li><a href="#"><span class="icon"><i class="fa fa-music" aria-hidden="true"></i></span> 음악</a></li>
+	    <li><a href="category-music.html"><span class="icon"><i class="fa fa-music" aria-hidden="true"></i></span> 음악</a></li>
 	    <li><a href="#"><span class="icon"><i class="fa fa-camera" aria-hidden="true"></i></span> 사진, 여행</a></li>
 	    <li><a href="#"><span class="icon"><i class="fa fa-picture-o" aria-hidden="true"></i></span> 예술, 문화</a></li>
 	    <li><a href="#"><span class="icon"><i class="fa fa-gratipay" aria-hidden="true"></i></span> 연애, 가족</a></li>
@@ -57,7 +59,7 @@
   <li><a href="#">새로운</a></li>
   <li><a href="#">추천순</a></li>
   <li><a href="#">많이본</a></li>
-  <li><a href="#">음악</a></li>
+  <li><a href="category-music.html">음악</a></li>
   <li><a href="#">사진, 여행</a></li>
   <li><a href="#">예술, 문화</a></li>
   <li><a href="#">연애, 가족</a></li>
@@ -108,7 +110,7 @@
 <script id="main-template1" type="text/x-handlebars-template">
 {{#each mainList1}}
 <li>
-  <div class="zzal-lect">
+  <a href="detailpage-v01.html" class="zzal-lect">
     <div class="lect-top">
       <span class="user-photo" style='background-image:url("{{profileImg}}")'></span>
       <span class="user-name">{{nickName}}</span>
@@ -134,14 +136,14 @@
         </div>
       </div>
     </div>
-  </div>
+  </a>
 </li>
 {{/each}}
 </script>
 <script id="main-template2" type="text/x-handlebars-template">
 {{#each mainList2}}
 <li>
-  <div class="zzal-lect">
+  <a href="#" class="zzal-lect">
     <div class="lect-top">
       <span class="user-photo" style='background-image:url("{{profileImg}}")'></span>
       <span class="user-name">{{nickName}}</span>
@@ -167,14 +169,14 @@
         </div>
       </div>
     </div>
-  </div>
+  </a>
 </li>
 {{/each}}
 </script>
 <script id="main-week-template" type="text/x-handlebars-template">
 {{#each weekList}}
 <li>
-  <div class="zzal-lect">
+  <a href="#" class="zzal-lect">
     <div class="zzal">
       <div class="zzal-img">
         <img src="{{zzalImg}}" alt="">
@@ -183,7 +185,7 @@
     <div class="bottom">
       <h3 class="title">{{zzalTitle}}</h3>
     </div>
-  </div>
+  </a>
 </li>
 {{/each}}
 </script>

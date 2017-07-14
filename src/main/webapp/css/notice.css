@@ -1,30 +1,17 @@
-.header .page-right {
-	display: none;
-}
-.notice-wrap {
-	margin-top: 66px;
-	padding: 0 15px;
-	font-size: 1rem;
-}
-.notice-wrap .title {
-	font-size: 22px;
-	font-weight: bold;
-	padding-bottom: 10px;
-	margin-bottom: 20px;
-	border-bottom: 3px solid #eee;
-}
-.notice-wrap .notices {
+
+
+.titles-wrap .notices {
 	width: 100%;
 	padding: 10px 10px;
 	border-bottom: 1px solid #ccc;
 	background: #f3f3f3;
 }
-.notice-wrap .date {
+.titles-wrap .date {
 	font-size: 0.8125rem;
 	color: #999;
 	margin: 5px 0 0 0;
 }
-.notice-wrap .user-photo {
+.titles-wrap .user-photo {
 	float: left;
 	width: 45px;
 	height: 45px;
@@ -34,17 +21,17 @@
   background-repeat: no-repeat;
   background-position: center;
 }
-.notice-wrap .contents {
+.titles-wrap .contents {
 	float: left;
 	padding-left: 10px;
 }
-.notice-wrap .bold {
+.titles-wrap .bold {
 	font-weight: bold;
 }
 
 /*mobile*/
 @media (max-width: 765px) {
-	.header .right {
+	.header.change-header .right {
 	  display: none;
 	}
 	.header .page-right {
@@ -71,16 +58,8 @@
 	.main-content {
     margin-top: 50px;
 	}
-	.notice-wrap {
-		top: 50px;
-		width: 100%;
-		margin-top: 0;
-    padding: 0px;
-	}
-	.notice-wrap .title {
-	  display: none;
-	}
-	.notice-wrap .contents {
+	
+	.titles-wrap .contents {
 		width: 83%;
 	}
 	.zzal-container {

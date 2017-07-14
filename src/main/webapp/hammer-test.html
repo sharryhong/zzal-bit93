@@ -11,6 +11,12 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/notice.css">
 </head>
+<style>
+.titles-wrap .title {
+  position: absolute;
+  left: 100px;
+}
+</style>
 <body>
 <div class="main-page">
 <div class="header change-header">
@@ -73,7 +79,7 @@
   <li><a href="#">직업, 진로</a></li>
   <li><a href="#">패션, 뷰티</a></li>
 </ul>
-<div class="main-content">
+<div class="main-content" id="hitarea">
 <div class="zzal-container">
 	<div class="titles-wrap">
 	  <h2 class="title">알림</h2>
@@ -107,6 +113,17 @@
 <script src="node_modules/handlebars/dist/handlebars.min.js"></script>
 <script src="scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
 <script src="js/slide.js"></script>
-<script src="js/main.js"></script>
+<!-- <script src="js/main.js"></script> -->
+<script src="node_modules/hammerjs/hammer.min.js"></script>
+<script src="node_modules/jquery-hammerjs/jquery.hammer.js"></script>
+<script>
+var myElement = document.getElementById('hitarea');
+Hammer(myElement).on("swipe", function() {
+	var el = $('.titles-wrap .title')
+	
+	el.animate({left: "+=100"}, 500)
+  console.log('ok')
+});
+</script>
 </body>
 </html>
