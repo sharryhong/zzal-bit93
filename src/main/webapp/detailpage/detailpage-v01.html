@@ -6,18 +6,22 @@
   <title>zzal school</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
-  <link rel="stylesheet" href="../node_modules/swiper/dist/css/swiper.min.css">
+  <!-- <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css"/> -->
   <!-- <link rel="stylesheet" href="css/slide.css"> -->
   <link rel="stylesheet" href="../css/common.css">
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="../css/zzallect_detailpage.css">
   <link rel="stylesheet" href="../css/detailpage/zzallect_detail_mobile-v01.css">
+
+
 </head>
 <body>
 <div id="con">
 <div class="mobile-detail-cover">
   <div class="mobile-detail-backimage">
-      <div class="header mobile-in-dis-detailmain-p">
+
+
+      <div class="header m-dis-depg">
         <div class="left">
           <a href="#" class="menu"><i class="fa fa-bars" aria-hidden="true"><span class="blind">메뉴버튼</span></i></a>
           <h1 class="logo"><a href="#">Zzal School</a></h1>
@@ -32,7 +36,7 @@
       </div>
       <!-- mobile-detail-main-header -->
       <div class="using-detail-main mobile-detail-main-header">
-        <div class="header mobile-dis-detailcontents">
+        <div class="header">
           <div class="left">
             <a href="#" class="menu"><i class="fa fa-bars" aria-hidden="true"><span class="blind">메뉴버튼</span></i></a>
             <h1 class="logo"><a href="#">Zzal School</a></h1>
@@ -48,7 +52,7 @@
       </div>
       <!-- mobile-detail-main-header -->
       <!--mobile contents header-->
-      <div class="mobile-contents-header">
+      <div id="m-detpg-header" class="mobile-contents-header m-dis-depg">
         <div class="left">
           <h1 class="logo"><a href="#">Zzal School</a></h1>
         </div>
@@ -61,7 +65,6 @@
           </div>
         </div>
       </div>
-
       <!--mobile contents header-->
 
 
@@ -114,8 +117,7 @@
         </div>
       </div><!-- left-func-menu -->
 
-
-      <div class="lect-right-info-detail mobile-in-dis-detailmain-p">
+      <div class="lect-right-info-detail m-dis-depg">
         <div class="upper-info">
           <div class="user-phot clearfix">
             <div class="user-phot-posi photo-insert" aria-hidden="true"></div>
@@ -152,7 +154,8 @@
             <div class="user-phot-posi photo-insert" aria-hidden="true"></div>
             <!-- <div class="fa fa-user-circle user-phot-comment-posi photo-insert" aria-hidden="true"></div> -->
             <!-- img tag로 변경할꺼얌 -->
-            <div class="form-con">
+            <div class="zzal-form-con">
+              <!--  -->
               <div class="form-loca-use">
                <form class="comment-listener clearfix" action="index.html" method="post">
                 <input class="comment-inputer" type="text" name="comment" value="" placeholder="댓글을 입력하세요!">
@@ -198,22 +201,28 @@
     </div><!-- lect-right-info-detail-->
 
 
-          <div class="zzal-detail-content-container mobile-detail-main-con">
-            <!-- mobile-main-controller -->
+          <div class="zzal-detail-content-container mobile-detail-main-con"><!-- mobile-main-controller -->
 
             <!-- mobile-detail-main-mid -->
-                <div id="zzallect-starter" class="mobile-detail-main-mid">
+                <div id="m-zzallect-starter" class="mobile-detail-main-mid">
                   <div class="write-date">2017-07-11</div>
                   <div class="contents-title">
                     <h2>포즈와 함께 DSLR 왕초보탈출! 8. DSLR 버튼 한큐에 파악하기</h2>
                   </div>
-                  <div class="mmove-arrow"><span class="direction">좌우로 넘겨 주세여!</span class="arrow"><i class="fa fa-hand-o-right" aria-hidden="true"></i></div>
+                  <div class="mmove-arrow"><span class="direction">좌우로 넘겨 주세여!</span class="arrow">
+                    <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+                  </div>
                 </div>
             <!-- mobile-detail-main-mid -->
 
 
-            <div class="mobile-main-midbot-con mobile-in-dis-detailmain-p">
-              <div class="content-box">
+            <div class="mobile-main-midbot-con m-dis-depg">
+              <div class="contents-title">
+                  <h2>포즈와 함께 DSLR 왕초보탈출! 8. DSLR 버튼 한큐에 파악하기</h2>
+              </div>
+                <!-- <div class="mmove-arrow"><span class="direction">좌우로 넘겨 주세여!</span class="arrow"><i class="fa fa-hand-o-right" aria-hidden="true"></i></div> -->
+              <div id="detail-pgContext" class="func-button"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></div>
+              <div  class="content-box">
                 <div id="imagetest" class="images-wrapper">
                   <img class= "contents-images-zzals"src="../image/sul.jpg">
                 </div>
@@ -224,10 +233,10 @@
 
                 Four values: first value applies to top-left, second value ap</p>
               </div>
-                <div class="zzal-detail-content-container-footer mobile-dis-detailcontents">
+                <div class="zzal-detail-content-container-footer">
                     <div class="page-move-footer">
                       <div class="move-pointer-left"><div class="fa fa-chevron-left" aria-hidden="true"></div></div>
-                      <span>1</span><span>/</span><span>100</span>
+                      <span id="pageNum">1</span><span>/</span><span id="pageSize">30</span>
                       <div class="move-pointer-right"><div class="fa fa-chevron-right" aria-hidden="true"></div></div>
                     </div>
                   </div><!--web footers-->
@@ -237,16 +246,17 @@
               </div><!--mobile-main-midbot-con-->
 
                                 <div class="mobile-detail-footer">
-
-                                   <div class="mobile-detailpage-left-footer mobile-in-dis-detailmain-p">
+                                   <div class="mobile-detailpage-left-footer m-dis-depg">
                                       <div class="page-footer">
-                                        <div class="move-pointer-left"><a href="#" hover><div class="fa fa-chevron-left" aria-hidden="true"></div></a></div>
-                                        <span>1</span><span>/</span><span>100</span>
-                                        <div class="move-pointer-right"><a href="#" hover><div class="fa fa-chevron-right" aria-hidden="true"></div></a></div>
+                                        <div class="float-foot">
+                                          <div class="move-pointer-left"><a href="#" hover><div class="fa fa-chevron-left" aria-hidden="true"></div></a></div>
+                                          <span id="mobile-pageNum">1</span><span>/</span><span id="mobile-pageSize">3</span>
+                                          <div class="move-pointer-right"><a href="#" hover><div class="fa fa-chevron-right" aria-hidden="true"></div></a></div>
+                                        </div>
                                       </div>
                                     </div>
 
-                                    <div class="mdetail-footer  mobile-detailpage-right-footer ">
+                                    <div class="mdetail-footer  mobile-detailpage-right-footer">
                                       <div class="comment mfooter">
                                         <span class="fa fa-commenting-o name" aria-hidden="true"></span><span class="num">2,000</span>
                                       </div>
@@ -279,27 +289,15 @@
   </div>
  </div>
 </div>
+
+
 <script src="../node_modules/jquery/dist/jquery.min.js"></script>
-<script src="../node_modules/swiper/dist/js/swiper.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
 
-<script type="text/javascript">
-  console.log("이미지 높이!")
- function funLoad(){
- var Cheight = $('.contents-images-zzals').height();
- $('#imagetest').css({'height':Cheight+'px'});
-  }
- window.onload = funLoad;
- window.onresize = funLoad;
 
-</script>
+<!-- <script src="../css/detailpage/detailpage.js"></script> -->
 
-<script type="text/javascript">
-  console.log($('#zzallect-starter'));
-  $('#zzallect-starter').on('swiper',function(){
-    console.log("호우!")
-  })
-
-</script>
 
 <script src="../node_modules/handlebars/dist/handlebars.min.js"></script>
 <!-- <script src="js/slide.js"></script> -->

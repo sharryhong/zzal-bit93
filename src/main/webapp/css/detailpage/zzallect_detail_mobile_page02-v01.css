@@ -32,6 +32,7 @@
 
   }
   .mobile-detail-cover .header {
+
     background-color: transparent;
   }
 
@@ -54,10 +55,10 @@
     display: inline-block;
     color:#ffffff;
   }
-.mfooter .name {
-  font-size: 27px;
-  margin: 0 2px;
-}
+  .mfooter .name {
+    font-size: 27px;
+    margin: 0 2px;
+  }
   .mfooter .num {
   font-size: 10px;
   margin:0 2px;
@@ -71,25 +72,10 @@
   display: none;
   }
 
-  .mobile-main-midbot-con .contents-title.mobile-dis-detailcontents
-                          /*.zzal-detail-content-container-footer.mobile-dis-detailcontents*/
-                          {
+  .mobile-main-midbot-con .contents-title.mobile-dis-detailcontents {
     display: none;
   }
 
-  /*.zzal-detail-content-container .func-button, #imagetest,
-                                .content-box, .zzal-detail-content-container-footer{
-    display: none;
-  }*/
-
-  /*.zzal-detail-content-container .contents-title,.func-button,
-                                .content-box{
-    display: none;
-  }*/
-
-  /*.mobile-main-midbot-con .mobile-dis-detailcontents {
-    display: none;
-  }*/
 
   .mobile-right {
     float: right;
