@@ -97,7 +97,7 @@
 }
 .mypage_bottom .zzal-menu li {
 	float: left;
-	width: 50%;
+	width: 150px;
 }
 .mypage_bottom .zzal-menu a {
 	display: inline-block;
@@ -190,9 +190,28 @@
 	}
 	.zzal-container {
     padding: 0 5px;
+    /* text-align: center; */
+	}
+	.users-info-box .user-border {
+	  display: none;
+	}
+	.user-info-face {
+	  float: none;
+	} 
+	.main-content.mypage .top {
+	  padding-bottom: 10px;
+	}
+	.setting-wrap .setting {
+	  display: block;
+	  margin: 5px 0 10px;
+	}
+	.profile-wrap {
+	  float: left;
+	}
+	.user-info-face .setting-wrap {
+	  float: right;
 	}
 	.mypage_mid {
-    /* margin: 15px 0 0 0; */
     padding: 0;
     font-size: 1rem;
 	}
@@ -202,7 +221,7 @@
 	.mypage_mid li {
 		width: 32%;
 		text-align: center;
-	}
+	}	
 	.mypage_mid li:last-child {
 	 width: 34%;
 	}
@@ -218,4 +237,11 @@
 	.zzal-collection .collections li {
 	  width: 100%;
 	}
+	.mypage_bottom .zzal-menu li {
+		width: 50%;
+	}
+}
+
+.main-content.mypage .btn {
+	min-width: 70px;
 }
