@@ -1,57 +1,90 @@
+.private-collect {
+  float: left;
+  margin-bottom: 20px;
+}
+
 /*desktop*/
 @media (min-width: 741px) {
-  h2 {
+  .collect-photo h2 {
     font-size: 2.5rem;
     margin: 0;
   }
-  ul{
-    font-size: 1.5rem;
+  .collect-add ul{
+    font-size: 1rem;
     color: gray;
   }
-
-  .collect-photoAdd {
-    margin-top: 65px;
+  .input-option {
+    margin-top: 30px;
+    font-size: 1.5rem;
+  }
+  .collect-photo {
+    z-index: 10;
     border: 2px solid gray;
     width: 100%;
     height: 250px;
-    background-image: url('../image/space.gif');
+    background-color: black;
+    opacity: 0.5;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
-  .cancle-btn {
-    width: 20%;
-    position: relative;
-    left: 60%;
-    top: 50%;
-    cursor: pointer;
-    box-shadow:inset 0 0 10px
+  .fa-camera {
+    z-index: 20;
+    font-size: 5rem;
+    position: absolute;
+    right: 50%;
+    top: 20%;
+    color: white;
   }
-  .make-btn {
-    width: 20%;
-    position: relative;
-    left: 60%;
-    top: 50%;
-    cursor: pointer;
-    box-shadow:inset 0 0 10px
-  }
+
   .collect-add {
     margin-top: 50px;
   }
-  .collect-name {
-    width: 70%;
-    height: 50px;
-    border-radius: 10px;
-    font-size: 2rem;
+
+  .cancle-btn {
+    margin-top: 30px;
+    width: 150px;
+    height: 40px;
+    position: fixed;
+    position: relative;
+    left: 33%;
+    top: 50%;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow:inset 0 0 5px;
   }
-  .collect-exp {
+  .make-btn {
+    margin-top: 30px;
+    width: 150px;
+    height: 40px;
+    position: fixed;
+    position: relative;
+    left: 34%;
+    top: 50%;
+    background-color: #0064FF;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow:inset 0 0 10px
+  }
+  .collect-input-name {
     width: 70%;
     height: 50px;
     border-radius: 10px;
-    font-size: 2rem;
+    font-size: 1.3rem;
+  }
+  .collect-input-exp {
+    width: 70%;
+    height: 50px;
+    border-radius: 10px;
+    font-size: 1.3rem;
   }
   .onoffswitch {
-    position: relative; width: 60px;
+    position: relative;
+     width: 60px;
     -webkit-user-select:none;
     -moz-user-select:none;
     -ms-user-select: none;
+    float: left;
   }
   .onoffswitch-checkbox {
     display: none;
@@ -96,70 +129,84 @@
 }
 /*mobile*/
 @media (max-width: 740px) {
-  .main-content.collect-add{
-    background-color: #333333;
+  .main-content.addpage {
+    background-color: #DDDDDD;
   }
 
-  ul, li{
-    font-size: 1rem;
-    color: white;
-    margin: 0 0 0 10px;
-    padding-top: 10px;
+  .collect-add ul{
+    font-size: 0.7rem;
+    margin-bottom: 10px;
   }
 
-  .collect-photoAdd {
+  .collect-photo {
     margin-top: 50px;
-    background-image: url('../image/friday.gif');
-    position: relative;
+    border: 1px solid gray;
     width: 100%;
     height: 180px;
+    background-color: #fff;
+    opacity: 0.95;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .fa-camera {
+    z-index: 20;
+    font-size: 3rem;
+    position: absolute;
+    right: 45%;
+    top: 15%;
+    color: white;
+  }
+
+  .input-option {
+    margin-top: 5px;
+    font-size: 1rem;
   }
 
   .cancle-btn {
-    width: 100px;
-    height: 30px;
-    position: relative;
-    left: 50px;
-    margin-bottom: 50px;
+    margin:30px 0 30px 25px;
+    width: 150px;
+    height: 40px;
     cursor: pointer;
-    background-color: white;
     border-radius: 5px;
-    border: 1px solid black;
-    box-shadow:inset 0 0 10px
+    box-shadow:inset 0 0 5px;
   }
   .make-btn {
-    width: 100px;
-    height: 30px;
-    position: relative;
-    left: 100px;
-    margin-bottom: 50px;
+    margin-top: 30px;
+    width: 150px;
+    height: 40px;
+    background-color: #0064FF;
     cursor: pointer;
-    background-color: blue;
     border-radius: 5px;
-    border: 1px solid black;
     box-shadow:inset 0 0 10px
   }
-  .collect-name {
-    width: 80%;
-    height: 25px;
+  .collect-input-name {
+    width: 85%;
+    height: 35px;
     border-radius: 6px;
     font-size: 1rem;
-    margin: 0 0 0 10px;
+    margin:10px 10px 10px;
+
   }
-  .collect-exp {
-    width: 80%;
-    height: 25px;
+  .collect-input-exp {
+    width: 85%;
+    height: 35px;
     border-radius: 6px;
     font-size: 1rem;
-    margin: 0 0 0 10px;
+    margin:10px 10px 10px;
+
   }
 /*비공개 스위치*/
+
   .onoffswitch {
-    position: relative; width: 50px;
+    position: relative;
+    width: 50px;
+    margin:0 100px 50px 0;
+    float: left;
     -webkit-user-select:none;
     -moz-user-select:none;
     -ms-user-select: none;
-    margin: 0 0 50px 10px;
+
   }
   .onoffswitch-checkbox {
     display: none;

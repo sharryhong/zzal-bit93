@@ -1,13 +1,5 @@
-.detaile-photo {
-  border: 2px solid gray;
-  width: 100%;
-  height: 250px;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
 
-.collection-main-profile {
+.collect-main-profile {
   display: inline-block;
   width: 70px;
   height: 70px;
@@ -23,15 +15,20 @@
 
 /*desktop*/
 @media (min-width: 741px) {
-  h2 {
+  .collect-title h2 {
     text-align: center;
     font-size: 1.5rem;
     margin: 10px;
   }
-  ul {
-    font-size: 0.7rem;
-  }
 
+  .detail-photoImage {
+    border: 2px solid gray;
+    width: 100%;
+    height: 250px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
   .edit-btn {
     border: 1px solid black;
     width: 50px;
@@ -48,21 +45,6 @@
     margin-left: 10px;
     font-size: 0.8rem;
   }
-  .my-collection {
-    display: inline-block;
-    border: 1px solid gray;
-    margin: 10px;
-    width: 333px;
-    height: 250px;
-  }
-  .users-profile {
-    display: inline-block;
-    width: 30px;
-    height: 30px;
-    background-color: gray;
-    border-radius: 15px;
-    margin: 5px 0 0 10px;
-  }
   .main-nickname {
     display: inline-block;
     position: relative;
@@ -71,34 +53,67 @@
     font-size: 1rem;
     margin-top: 47px;
   }
-  .user-nickname {
+  /*ul {
+  font-size: 0.7rem;
+  }*/
+
+  /*.my-zzal-view {
+    display: inline-block;
+    border: 1px solid gray;
+    margin: 10px;
+    width: 333px;
+    height: 250px;
+  }*/
+
+  /*.users-profile {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-color: gray;
+    border-radius: 15px;
+    margin: 5px 0 0 10px;
+  }*/
+
+  /*.user-nickname {
     display: inline-block;
     position: relative;
     left: 30px;
     white-space: nowrap;
     font-size: 1rem;
     margin-top: 9px;
-  }
+  }*/
 }
 /*mobile*/
 @media (max-width: 740px) {
-  .main-content .collection-detailpage{
-    background-color: #333333;
+  .main-content.detailpage {
+    background-color: #DDDDDD;
   }
-  h2 {
+  .detail-photoImage {
+    border: 2px solid gray;
+    position: relative;
+    top: 50px;
+    width: 100%;
+    height: 200px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .collect-title h2 {
     text-align: center;
     font-size: 1.5rem;
     margin: 10px;
     color: white;
   }
-  ul {
-    font-size: 0.7rem;
+  .collect-title {
+    height: 200px;
+    position: relative;
+    top: 60px;
   }
 
   .edit-btn {
     border: 1px solid black;
     width: 50px;
-    margin-top: 50px;
     cursor: pointer;
     font-size: 1.1rem;
     float: right;
@@ -110,24 +125,8 @@
   .vieW {
     margin-left: 10px;
     font-size: 0.5rem;
-    color: white;
   }
-  .my-collection {
-    display: inline-block;
-    border: 1px solid gray;
-    margin: 10px;
-    width: 333px;
-    height: 250px;
-  }
-  .users-profile {
-    display: inline-block;
-    width: 30px;
-    height: 30px;
-    background-color: gray;
-    border-radius: 15px;
-    margin: 5px 0 0 10px;
-    color: white;
-  }
+
   .main-nickname {
     display: inline-block;
     position: relative;
@@ -135,9 +134,29 @@
     white-space: nowrap;
     font-size: 1rem;
     margin-top: 47px;
-    color: white;
   }
-  .user-nickname {
+  /*ul {
+  font-size: 0.7rem;
+  }*/
+
+  /*.my-zzal-view {
+    display: inline-block;
+    border: 1px solid gray;
+    margin: 10px;
+    width: 333px;
+    height: 250px;
+  }*/
+  /*.users-profile {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-color: gray;
+    border-radius: 15px;
+    margin: 5px 0 0 10px;
+    color: white;
+  }*/
+
+  /*.user-nickname {
     display: inline-block;
     position: relative;
     left: 30px;
@@ -145,6 +164,5 @@
     font-size: 1rem;
     margin-top: 9px;
     color: white;
-  }
-}
+  }*/
 }
