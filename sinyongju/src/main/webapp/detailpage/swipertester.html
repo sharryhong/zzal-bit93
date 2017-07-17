@@ -8,8 +8,8 @@
   <link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <!-- <script src="../node_modules/hammerjs/hammer.js"></script> -->
-  <script src="js/hammer.min.js"></script>
-  <script src="js/jquery.hammer.js/jquery.hammer.js"></script>
+  <!-- <script src="js/jquery.hammer.js/jquery.hammer.js"></script> -->
+  <script src="js\jquery.hammer.js\node_modules\hammerjs\hammer.min.js"></script>
   <!-- <script src="../node_modules/jquery-hammerjs/jquery.hammer.js"></script> -->
   <!-- <link rel="stylesheet" href="../node_modules/swiper/dist/css/swiper.min.css"> -->
 <!-- <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script> -->
@@ -43,11 +43,41 @@
   </div>
 
 <script type="text/javascript">
+var el = document.querySelector('#m-zzallect-starter')
 
-var hammerTest = $('#zzallect-starter').hammer();
-console.log(hammerTest.data)
-console.log(hammerTest.on())
-hammerTest.on('tap',function(){console.log('호우')})
+// var myElement = document.getElementById();
+var mc = new Hammer.Manager(el);
+var mc = new Hammer.Manager(el, {
+    recognizers: [
+    // RecognizerClass, [options], [recognizeWith, ...], [requireFailure, ...]
+    [Hammer.Rotate],
+    [Hammer.Pinch, { enable: false }, ['rotate']],
+    [Hammer.Swipe,{ direction: Hammer.DIRECTION_HORIZONTAL }],
+    ]
+});
+// [출처] 모바일웹 터치 제스쳐 적용기 - [2] Hammer.js로 쉽게 구현하기|작성자 개발몬스터
+  var ht= $('html')
+  $(window).resize('resize',function(){
+
+      if(ht.width() < 766){
+        console.log('766이하')
+        return
+      }
+    console.log('766이상')
+    mc.on('swipe',function(e){
+
+      if(ht.width() < 766){
+        console.log('swipe')
+        $('<p>').appendTo('body').html('호우')
+
+      }
+      //console.log(e)
+    })
+  })
+
+
+
+
 
 
 </script>

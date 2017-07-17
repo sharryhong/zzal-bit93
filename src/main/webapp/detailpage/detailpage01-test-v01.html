@@ -10,7 +10,7 @@
   <!-- <link rel="stylesheet" href="css/slide.css"> -->
   <link rel="stylesheet" href="../css/common.css">
   <link rel="stylesheet" href="../css/style.css">
-  <link rel="stylesheet" href="../css/zzallect_detailpage.css">
+  <link rel="stylesheet" href="../css/zzallect_detailpage-test.css">
   <link rel="stylesheet" href="../css/detailpage/zzallect_detail_mobile-v01.css">
 
 
@@ -21,7 +21,7 @@
   <div class="mobile-detail-backimage">
 
 
-      <div class="header m-dis-depg">
+      <div class="header in-web-detail">
         <div class="left">
           <a href="#" class="menu"><i class="fa fa-bars" aria-hidden="true"><span class="blind">메뉴버튼</span></i></a>
           <h1 class="logo"><a href="#">Zzal School</a></h1>
@@ -35,7 +35,7 @@
         </div>
       </div>
       <!-- mobile-detail-main-header -->
-      <div class="using-detail-main mobile-detail-main-header">
+      <div class="mobile-detail-main-header in-mobile-detail">
         <div class="header">
           <div class="left">
             <a href="#" class="menu"><i class="fa fa-bars" aria-hidden="true"><span class="blind">메뉴버튼</span></i></a>
@@ -51,8 +51,15 @@
         </div>
       </div>
       <!-- mobile-detail-main-header -->
+
+
+
+
+
+
+
       <!--mobile contents header-->
-      <div id="m-detpg-header" class="mobile-contents-header m-dis-depg">
+      <div id="m-detpg-header" class="mobile-contents-header in-mobile-detail">
         <div class="left">
           <h1 class="logo"><a href="#">Zzal School</a></h1>
         </div>
@@ -65,7 +72,26 @@
           </div>
         </div>
       </div>
-      <!--mobile contents header-->
+      <!-- mobile contents header-->
+
+      <!--mobile-detail-last-replyinfo-->
+      <div class="header mobile-detail-last-replyinfo">
+        <div class="left">
+          <a href="#" class="menu"><i class="fa fa-bars" aria-hidden="true"><span class="blind">메뉴버튼</span></i></a>
+          <h1 class="logo"><a href="#">Zzal School</a></h1>
+        </div>
+        <div class="right">
+          <span class="search">
+            <input type="text" class="input-line" id="search-btn" placeholder="짤강을 검색해 보세요.">
+            <label for="search-btn" class="search-icon"><i class="fa fa-search" aria-hidden="true"><span class="blind">검색하기</span></i></label>
+          </span>
+          <a href="#" class="login">로그인</a>
+        </div>
+      </div>
+      <!--mobile-detail-last-replyinfo -->
+
+
+
 
 
 
@@ -115,9 +141,10 @@
           </li>
           </ul>
         </div>
-      </div><!-- left-func-menu -->
+      </div>
+      <!-- left-func-menu -->
 
-      <div class="lect-right-info-detail m-dis-depg">
+      <div class="lect-right-info-detail in-web-detail">
         <div class="upper-info">
           <div class="user-phot clearfix">
             <div class="user-phot-posi photo-insert" aria-hidden="true"></div>
@@ -190,7 +217,8 @@
                       <span class="fa fa-heart-o heart" aria-hidden="true"></span><span>100</span><span class="fa fa-commenting-o  comui" aria-hidden="true"></span><span>100</span>
                     </div>
                  </div>
-                </div><!-- comment-list-unit-container -->
+                </div>
+                <!-- comment-list-unit-container -->
             </div>
            </li>
 
@@ -200,11 +228,102 @@
       </div><!-- comment-list-->
     </div><!-- lect-right-info-detail-->
 
+    <!-- <div class="fa fa-user-circle user-phot-posi" aria-hidden="true"></div> -->
+    <!--img tag로 수정을 필요로 한다-->
+    <div class="mobile-lect-right-info-detail">
+      <div class="upper-info">
+        <div class="user-phot clearfix">
+          <div class="user-phot-posi photo-insert" aria-hidden="true"></div>
+          <div class="user-lect-info">
+            <div class = "users-info-list">
+              <div class="users-name"><span>[유끼만두냔]</span></div>
+              <div class="viewpoints"><span class="view-name">조회수</span><span class="num">12,3333</span></div>
+              <div class="like-comment">
+                <span class="name like-comui">좋아요</span><span class="lnum">1,000</span>
+                <span class="name name-comui">댓글</span><span class="lnum">1,000</span>
+              </div>
+            </div>
+          </div>
+          <div class="lect-write-date"><span>2017-07-07</span><span class="name">작성</span></div>
+        </div>
+        <div class="users-lect-list-sumnail">
+          <div class="users-lect-list-sumnail-title">
+            <div class="more-viewing">더 보기 ></div>
+            <div class="users-sumnail-title"><span>[유끼만두]</span><span class="phrase">의 다른 짤강</span></div>
+          </div>
+          <div class="lect-sumnail">
+            <div class="lect-sumnail-units clearfix">
+              <div class="lect-sumnail-unit"><div ></div></div>
+              <div class="lect-sumnail-unit"><div ></div></div>
+              <div class="lect-sumnail-unit"><div ></div></div>
+            </div>
+          </div>
+        </div>
+        <!-- users-lect-list-sumnail -->
+        <!-- <div class="fa fa-user-circle user-phot-comment-posi photo-insert" aria-hidden="true"></div> -->
+        <!-- img tag로 변경할꺼얌 -->
+      </div>
+    <div class="comment-list">
+        <div class="inlect-header">
+          <div class="user-phot-posi photo-insert" aria-hidden="true"></div>
+          <div class="form-con">
+            <div class="form-loca-use">
+             <form class="comment-listener clearfix" action="index.html" method="post">
+              <input class="comment-inputer" type="text" name="comment" value="" placeholder="댓글을 입력하세요!">
+              <button class="comment-submit-btn">입력</button>
+             </form>
+           </div>
+          </div>
+        </div>
+
+
+
+      <div class="comment-list-units">
+        <div class="comments-header">
+          <div class="comment-list-contents"><span>1</span><span class="num">개의 댓글</span></div>
+        </div>
+        <ul class="comment-list-units-con">
+          <li>
+           <div class="comment-list-unit-conainer">
+            <div class="user-phot-comment-in-li-posi photo-insert" aria-hidden="true"></div>
+            <!-- <div class="fa fa-user-circle user-phot-comment-in-li-posi photo-insert" aria-hidden="true"></div> -->
+            <!--img 교체 요망-->
+              <div class="comment-list-unit-textinfos">
+                <div class="users-comment-in-name ">
+                  <div>Unknowns</div>
+                </div>
+                <div class="users-comment-in-content-text height-control">
+                  <div>아..예쁘디♡</div>
+                </div>
+                <div class="users-comment-in-content-textinfo clearfix">
+                  <div class="users-comment-in-content-datereply">
+                    <span>올린시간</span><span>답글 달기</span>
+                  </div>
+                  <div class="users-comment-in-content-selectfunc">
+                    <span class="fa fa-heart-o heart" aria-hidden="true"></span><span>100</span><span class="fa fa-commenting-o  comui" aria-hidden="true"></span><span>100</span>
+                  </div>
+               </div>
+              </div>
+           </div>
+         </li>
+
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+    <!-- comment-list-->
+    <!-- lect-right-info-detail-->
+
+
+
+
 
           <div class="zzal-detail-content-container mobile-detail-main-con"><!-- mobile-main-controller -->
 
             <!-- mobile-detail-main-mid -->
-                <div id="m-zzallect-starter" class="mobile-detail-main-mid">
+                <div id="m-zzallect-starter" class="mobile-detail-main-mid in-mobile-detail">
                   <div class="write-date">2017-07-11</div>
                   <div class="contents-title">
                     <h2>포즈와 함께 DSLR 왕초보탈출! 8. DSLR 버튼 한큐에 파악하기</h2>
@@ -216,7 +335,8 @@
             <!-- mobile-detail-main-mid -->
 
 
-            <div class="mobile-main-midbot-con m-dis-depg">
+            <div class="in-web-detail">
+              <!-- in-web-detail -->
               <div class="contents-title">
                   <h2>포즈와 함께 DSLR 왕초보탈출! 8. DSLR 버튼 한큐에 파악하기</h2>
               </div>
@@ -240,17 +360,50 @@
                       <div class="move-pointer-right"><div class="fa fa-chevron-right" aria-hidden="true"></div></div>
                     </div>
                   </div><!--web footers-->
-
-
-
               </div><!--mobile-main-midbot-con-->
-                                <div class="mobile-detail-footer">
-                                   <div class="mobile-detailpage-left-footer m-dis-depg">
+
+
+              <div id="showmdet" class="in-mobile-detail">
+                  <div class="mobile-main-midbot-con">
+                    <!-- in-web-detail -->
+                    <div class="contents-title">
+                        <h2>포즈와 함께 DSLR 왕초보탈출! 8. DSLR 버튼 한큐에 파악하기</h2>
+                    </div>
+                      <!-- <div class="mmove-arrow"><span class="direction">좌우로 넘겨 주세여!</span class="arrow"><i class="fa fa-hand-o-right" aria-hidden="true"></i></div> -->
+                    <div id="detail-pgContext" class="func-button"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></div>
+                    <div  class="mobile-content-box">
+                      <div id="imagetest" class="images-wrapper">
+                        <img class= "contents-images-zzals"src="../image/sul.jpg">
+                      </div>
+                        <p>he border-radius property is used to add rounded corners to an element.
+                      The border-radius property is a shorthand property for setting the four border-*-radius properties.
+                      If you specify only one value for the border-radius property, this radius will be applied to all 4 corners.
+                      However, you can specify each corner separately if you wish. Here are the rules:
+
+                      Four values: first value applies to top-left, second value ap</p>
+                    </div>
+                      <!-- <div class="zzal-detail-content-container-footer">
+                          <div class="page-move-footer">
+                            <div class="move-pointer-left"><div class="fa fa-chevron-left" aria-hidden="true"></div></div>
+                            <span id="mobile-pageNum">1</span><span>/</span><span id="mobile-pageSize">30</span>
+                            <div class="move-pointer-right"><div class="fa fa-chevron-right" aria-hidden="true"></div></div>
+                          </div>
+                        </div>
+                      -->
+                        <!--web footers-->
+                    </div><!--mobile-main-midbot-con-->
+              </div>
+              <!--in-mobile-detail contents-box-->
+
+
+
+                                <div  class="mobile-detail-footer in-mobile-detail">
+                                   <div class="mobile-detailpage-left-footer">
                                       <div class="page-footer">
                                         <div class="float-foot">
-                                          <div class="move-pointer-left"><a href="#" hover><div class="fa fa-chevron-left" aria-hidden="true"></div></a></div>
+                                          <div class="m-move-pointer-left"><a href="#" hover><div class="fa fa-chevron-left" aria-hidden="true"></div></a></div>
                                           <span id="mobile-pageNum">1</span><span>/</span><span id="mobile-pageSize">3</span>
-                                          <div class="move-pointer-right"><a href="#" hover><div class="fa fa-chevron-right" aria-hidden="true"></div></a></div>
+                                          <div class="m-move-pointer-right"><a href="#" hover><div class="fa fa-chevron-right" aria-hidden="true"></div></a></div>
                                         </div>
                                       </div>
                                     </div>
@@ -290,11 +443,11 @@
 
 
 <script src="../node_modules/jquery/dist/jquery.min.js"></script>
-<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-<script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
+<!-- <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script> -->
 
-
-<!-- <script src="../css/detailpage/detailpage.js"></script> -->
+<script src="../js/hammer.min.js"></script>
+<script src="../css/detailpage/detailpage.js"></script>
 
 
 <script src="../node_modules/handlebars/dist/handlebars.min.js"></script>
