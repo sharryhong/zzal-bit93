@@ -21,13 +21,13 @@ $.getJSON('collectdetail.json',function(result){
 	maincollectdetail2.text('')
 	maincollectdetail2.html(generatedHTML2)
 	})
-	$.getJSON('collectdetail.json',function(result){
-	  console.log(result)
+$.getJSON('collectdetail.json',function(result){
+  console.log(result)
 
-	  let templateFn3 = Handlebars.compile($('#collectdetail-template3').text())
-	  let generatedHTML3 = templateFn3(result.data)
-	  console.log(generatedHTML3)
-	  maincollectdetail3.text('')
-	  maincollectdetail3.html(generatedHTML3)
-		})
+  let templateFn3 = Handlebars.compile($('#collectdetail-template3').text())
+  let generatedHTML3 = templateFn3(result.data)
+  console.log(generatedHTML3)
+  maincollectdetail3.text('')
+  maincollectdetail3.html(generatedHTML3)
+	})
 })(jQuery);

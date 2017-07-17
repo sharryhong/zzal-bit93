@@ -4,8 +4,6 @@
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <meta charset="UTF-8">
   <title>카테고리 선택</title>
-  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css"> -->
   <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/common.css">
@@ -27,59 +25,21 @@
       <a href="#" class="login">로그인</a>
     </div>
   </div>
-
-<!-- <script id="allcategory-template" type="text/x-handlebars-template"> -->
-
 <div class="main-content">
   <div class="zzal-container">
-    <div class="choicecatg"> <!--컨테이너 구분 -->
-      <div id="all-category" class="category">
-        <p class="choiceTitle">관심 분야를 1개 이상 선택해주세요. </p>
-        <p class="choiceTitle">짤 스쿨의 재미있는 강의들을 추천해드립니다.</p>
+    <div id="all-category-title" class="title-category">
+      <div class="choiceone">
+        <p class="choicetitle">관심 분야를 1개 이상 선택해주세요. </p>
+        <p class="choicetitle">짤 스쿨의 재미있는 강의들을 추천해드립니다.</p>
+      </div>
         <button type="button" class="choice-btn">선택완료!</button>
         <hr color="gray" width=100%>
-      <div class="choice-catg">
-        <div class="catg-con">
-          <div class="catg-a">
-            <span class="music"><input type="checkbox"></span>
-          </div>
-          <div class="catg-b">
-            <span class=""><input type="checkbox"></span>
-          </div>
-          <div class="catg-c">
-            <span><input type="checkbox"></span>
-          </div>
-          <div class="catg-d">
-            <span><input type="checkbox"></span>
-          </div>
-          <div class="catg-e">
-            <span><input type="checkbox"></span>
-          </div>
-          <div class="catg-f">
-            <span><input type="checkbox"></span>
-          </div>
-          <div class="catg-g">
-            <span><input type="checkbox"></span>
-          </div>
-          <div class="catg-h">
-            <span><input type="checkbox"></span>
-          </div>
-          <div class="catg-i">
-            <span><input type="checkbox"></span>
-          </div>
-          <div class="catg-j">
-            <span><input type="checkbox"></span>
-          </div>
-          <div class="catg-k">
-            <span><input type="checkbox"></span>
-          </div>
-          <div class="catg-l">
-            <span><input type="checkbox"></span>
-          </div>
-        </div>
+    </div> <!-- title-category -->
+    <div class="choice-catg">
+      <div class="catg-con">
+        <div class="categorys" id="choice-categorys"></div>
       </div>
-      </div> <!-- category -->
-    </div><!--choicecatg -->
+    </div>
   </div><!-- zzal -->
 </div><!--main content -->
 <footer class="footer">
@@ -87,10 +47,76 @@
     <h3>Zzal School</h3>
   </div>
 </footer>
+<script id="choiceCategory-template1" type="text/x-handlebars-template">
+{{#each categoryList}}
+<div class="category-1">
+    <div class="music catg-choicer">
+      <input type="checkbox" id="music-catg" class="click-checkbox">
+      <label for="music-catg"><img src="{{category1}}" title="{{categoryTitle1}}" class="music-img"></label>
+    </div>
+    <div class="girltalent catg-choicer">
+      <input type="checkbox" id="girltalent-catg" class="click-checkbox">
+      <label for="girltalent-catg"><img src="{{category2}}" title="{{categoryTitle2}}" class="girltalent-img"></label>
+    </div>
+    <div class="character catg-choicer">
+      <input type="checkbox" id="character-catg" class="click-checkbox">
+      <label for="character-catg"><img src="{{category3}}" title="{{categoryTitle3}}" class="character-img"></label>
+    </div>
+    <div class="mantalent catg-choicer">
+      <input type="checkbox" id="mantalent-catg" class="click-checkbox">
+      <label for="mantalent-catg"><img src="{{category4}}" title="{{categoryTitle4}}" class="mantalent-img"></label>
+    </div>
+    <div class="cook catg-choicer">
+      <input type="checkbox" id="cook-catg" class="click-checkbox">
+      <label for="cook-catg"><img src="{{category5}}" title="{{categoryTitle5}}" class="cook-img"></label>
+    </div>
 
+    <div class="music catg-choicer">
+        <input type="checkbox" id="music-catg" class="click-checkbox">
+        <label for="music-catg"><img src="{{category1}}" title="{{categoryTitle1}}" class="music-img"></label>
+    </div>
+    <div class="girltalent catg-choicer">
+      <input type="checkbox" id="girltalent-catg" class="click-checkbox">
+      <label for="girltalent-catg"><img src="{{category2}}" title="{{categoryTitle2}}" class="girltalent-img"></label>
+    </div>
+    <div class="character catg-choicer">
+      <input type="checkbox" id="character-catg" class="click-checkbox">
+      <label for="character-catg"><img src="{{category3}}" title="{{categoryTitle3}}" class="character-img"></label>
+    </div>
+    <div class="mantalent catg-choicer">
+      <input type="checkbox" id="mantalent-catg" class="click-checkbox">
+      <label for="mantalent-catg"><img src="{{category4}}" title="{{categoryTitle4}}" class="mantalent-img"></label>
+    </div>
+    <div class="cook catg-choicer">
+      <input type="checkbox" id="cook-catg" class="click-checkbox">
+      <label for="cook-catg"><img src="{{category5}}" title="{{categoryTitle5}}" class="cook-img"></label>
+    </div>
+
+    <div class="music catg-choicer">
+        <input type="checkbox" id="music-catg" class="click-checkbox">
+        <label for="music-catg"><img src="{{category1}}" title="{{categoryTitle1}}" class="music-img"></label>
+    </div>
+    <div class="girltalent catg-choicer">
+      <input type="checkbox" id="girltalent-catg" class="click-checkbox">
+      <label for="girltalent-catg"><img src="{{category2}}" title="{{categoryTitle2}}" class="girltalent-img"></label>
+    </div>
+    <div class="character catg-choicer">
+      <input type="checkbox" id="character-catg" class="click-checkbox">
+      <label for="character-catg"><img src="{{category3}}" title="{{categoryTitle3}}" class="character-img"></label>
+    </div>
+    <div class="mantalent catg-choicer">
+      <input type="checkbox" id="mantalent-catg" class="click-checkbox">
+      <label for="mantalent-catg"><img src="{{category4}}" title="{{categoryTitle4}}" class="mantalent-img"></label>
+    </div>
+    <div class="cook catg-choicer">
+      <input type="checkbox" id="cook-catg" class="click-checkbox">
+      <label for="cook-catg"><img src="{{category5}}" title="{{categoryTitle5}}" class="cook-img"></label>
+    </div>
+</div>
+{{/each}}
+</script>
 <script src="node_modules/jquery/dist/jquery.min.js"></script>
-<!-- <script src="node_modules/handlebars/dist/handlebars.min.js"></script> -->
-<script src="js/category.js"></script>
-<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script> -->
+<script src="node_modules/handlebars/dist/handlebars.min.js"></script>
+<script src="js/choicecatg.js"></script>
 </body>
 </html>

@@ -1,0 +1,15 @@
+{
+  "status" : "success",
+  "data":
+  {
+    "categoryList" :
+    [
+      {"category1":"image/music1.jpg","categoryTitle1":"음악",
+        "category2":"image/oh.jpg","categoryTitle2":"여자연예인",
+        "category3":"image/mini.gif","categoryTitle3":"캐릭터",
+        "category4":"image/user.jpg","categoryTitle4":"남자연예인",
+        "category5":"image/zzal03.jpg","categoryTitle5":"요리"
+      }
+    ]
+  }
+}
