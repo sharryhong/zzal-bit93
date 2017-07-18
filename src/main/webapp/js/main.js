@@ -10,7 +10,7 @@
         });
     });
     
-    // tabmenu
+    // 핸들바스를 이용한 html 템플릿 
     let zzalList1 = $('#zzal-list1');
     let zzalList2 = $('#zzal-list2');
     let zzalWeekList= $('#zzal-week-list');
@@ -34,24 +34,22 @@
   	  target.html(generatedHTML)
     }
     
-    if(window.innerWidth > 761) {
-    	$('.main-content.category-con .bxslider').bxSlider({
-        	auto: true,
-        	speed: 300,
-        	slideWidth: 400,
-            minSlides: 4,
-            maxSlides: 4,
-            moveSlides: 1
-    	});
-    } else {
-    	$('.main-content.category-con .bxslider').bxSlider({
-        	auto: true,
-        	speed: 300,
-        	slideWidth: 300,
-            minSlides: 2,
-            maxSlides: 2,
-            moveSlides: 1
-    	});
-    }
+    // 각 카테고리 상단 슬라이더 
+    $('.main-content.category-con .bxslider').bxSlider({
+    	auto: true,
+    	speed: 300,
+    	slideWidth: 280,
+        minSlides: 2,
+        maxSlides: 4,
+        moveSlides: 1,
+        controls: false
+	});
+    $('.index-page .bxslider').bxSlider({
+    	auto: true,
+    	mode: 'fade',
+    	speed: 300,
+    	captions: true,
+    	pager: false
+	});
     
 })(jQuery);
