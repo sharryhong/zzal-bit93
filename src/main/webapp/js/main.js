@@ -1,10 +1,18 @@
 (function($){
 	'use strict';
 	
-	var swiper = new Swiper('.swiper-container', {
+	// 메뉴선택시 on붙이기
+	let $navMenus = $('.nav .nav-menu')
+	$navMenus.click(function() {
+		$(navMenus).removeClass('on')
+		$(this).addClass('on')
+	})
+	
+	// 모바일화면 메뉴 swiper적용
+	let swiper = new Swiper('#header .swiper-container', {
 		scrollbar: '.swiper-pagination',
         slidesPerView: 'auto',
-        spaceBetween: 10,
+        spaceBetween: 0,
         grabCursor: true
     });
     
@@ -42,6 +50,7 @@
         moveSlides: 1,
         controls: false
 	});
+    // 메인페이지 상단 슬라이더
     $('.index-page .bxslider').bxSlider({
     	auto: true,
     	mode: 'fade',
