@@ -57,9 +57,9 @@ input::-moz-placeholder { color: #777; }
 .header .login {
   float: right;
 }
-.header .before-login {
+/* .header .before-login {
 	display: none;
-}
+} */
 .header .after-login {
 	float: right;
 	font-size: 27px;
@@ -310,6 +310,9 @@ input::-moz-placeholder { color: #777; }
 	overflow: hidden;
 	background: black;
 }
+.bx-wrapper img {
+	width: 100%;
+}
 
 .footer {
   font-family: 'Arial', sans-serif;
@@ -510,6 +513,9 @@ input::-moz-placeholder { color: #777; }
 	.header .right a {
 		padding: 0 7px;
 		font-size: 25px;
+	}
+	.header .right .login {
+	  font-size: 1rem;
 	}
 	.header .right {
 	  margin-right: 5px;
