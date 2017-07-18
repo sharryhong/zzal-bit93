@@ -17,8 +17,8 @@
   height: 100%;
   opacity: 0.90;
   background-color: #fff;
-  z-index: 899;
-  display: none;
+  z-index: 10000;
+  display: none; 
 }
 
 .inner-head {
@@ -93,10 +93,6 @@
   right : 50px;
   line-height: 50px;
   font-size: 1.125rem;
-}
-
-.nav.sliding {
-  display:none;
 }
 
 body {overflow-y:hidden; overflow-x:hidden;}
@@ -201,10 +197,6 @@ body {overflow-y:hidden; overflow-x:hidden;}
     right : 50px;
     line-height: 50px;
     font-size: 1.125rem;
-  }
-
-  .nav.sliding {
-    display:none;
   }
 
   body {overflow-y:hidden; overflow-x:hidden;}

@@ -1,18 +1,11 @@
 (function($) {
   'use strict';
 
-  $(window).on("load", function() {
-
-
-    $(".mobile-nav").mCustomScrollbar({
-      axis: "x",
-      theme: "dark-thin",
-      autoHideScrollbar: true
-    });
-
+  //$(window).on("load", function() {
 
     //검색버튼(돋보기버튼)이나, 검색창 클릭하면 검색헤더로 변하게 만들기.
     $('.search').click(function() {
+    	console.log('kk')
       $(".opacity-curtain").show();
       $(".header").hide();
 
@@ -40,6 +33,6 @@
 
     });
 
-  });
+ // });
 
 })(jQuery);

@@ -3,6 +3,7 @@ $(document).ready(function(){
 	  $("#header").html(data);
 	  $.getScript("./js/slide.js");
 	  $.getScript("./js/main.js");
+	  $.getScript("./js/search.js");
 	});
 	$.get("footer.html", function(data) {
 	  $("#footer").html(data);
