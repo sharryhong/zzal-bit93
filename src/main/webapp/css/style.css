@@ -448,7 +448,7 @@ input::-moz-placeholder { color: #777; }
 		font-weight: bold;
 		color: #F39C12;
 	}
-	.swiper-container {
+	.header .swiper-container {
 	  display: none;
 	}
 	.notice-wrap {
