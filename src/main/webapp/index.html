@@ -18,8 +18,8 @@
 <div class="main-content index-page">
   <div class="top clearfix">
     <div class="slider">
-	    <ul class="bxslider clearfix">
-	      <li>
+	    <ul class="bxslider clearfix" id="main-slide">
+	      <!-- <li>
 			    <img src="image/zzal02.jpg" title="떡볶이 국물로 만드는 빠바 스탈 떡볶이 빵">
 				</li>
 				<li>
@@ -27,7 +27,7 @@
 				</li>
 				<li>
 				  <img src="image/zzal01.gif" title="놀러가자">
-				</li>
+				</li> -->
 	    </ul>
 	  </div>
     <div class="best">
@@ -61,6 +61,14 @@
 </div>
 <div id="footer"></div>
 </div>
+
+<script id="main-slide-template" type="text/x-handlebars-template">
+{{#each list}}
+<li>
+  <img src="{{zzalImg}}" title="{{zzalTitle}}">
+</li>
+{{/each}}
+</script>
 
 <script id="main-template1" type="text/x-handlebars-template">
 {{#each mainList1}}
@@ -150,5 +158,6 @@
 <script src="js/jquery.bxslider.min.js"></script>
 <script src="node_modules/swiper/dist/js/swiper.min.js"></script>
 <script src="js/load.js"></script>
+<script src="js/hbs.js"></script>
 </body>
 </html>
