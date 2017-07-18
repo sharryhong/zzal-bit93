@@ -25,6 +25,7 @@
 		var objThis = this;
 		// 햄버거 버튼 클릭시 toggleMenu메소드 실행
 		this.$toggleBtn.on('click', function(){
+			console.log('ok')
 			objThis.toggleMenu();
 		});
 		if(window.innerWidth > objThis.$deskWidthPx && objThis.$deskWidth == false){

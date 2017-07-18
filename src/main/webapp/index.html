@@ -13,7 +13,8 @@
 </head>
 <body>
 <div class="main-page">
-<div class="header">
+<div id="header"></div>
+<!-- <div class="header">
   <div class="left">
     <a href="#" class="menu"><i class="fa fa-bars" aria-hidden="true"><span class="blind">메뉴버튼</span></i></a>
     <h1 class="logo"><a href="./">Zzal School</a></h1>
@@ -69,7 +70,7 @@
   <li><a href="#">IT</a></li>
   <li><a href="#">직업, 진로</a></li>
   <li><a href="#">패션, 뷰티</a></li>
-</ul>
+</ul> -->
 <div class="main-content index-page">
   <div class="top clearfix">
     <div class="slider">
@@ -206,7 +207,16 @@
 <script src="node_modules/handlebars/dist/handlebars.min.js"></script>
 <script src="scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
 <script src="js/jquery.bxslider.min.js"></script>
-<script src="js/slide.js"></script>
-<script src="js/main.js"></script>
+<!-- <script src="js/slide.js"></script> -->
+<!-- <script src="js/main.js"></script> -->
+<script>
+$(document).ready(function(){ 
+	$.get("header.html", function(data) {
+	  $("#header").html(data);
+	  $.getScript("./js/slide.js");
+	  $.getScript("./js/main.js");
+	});
+});
+</script>
 </body>
 </html>
