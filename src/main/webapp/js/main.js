@@ -1,13 +1,11 @@
 (function($){
 	'use strict';
 	
-	// scrollbar
-    $(window).on("load",function(){
-        $(".mobile-nav").mCustomScrollbar({
-            axis:"x",
-            theme:"dark-thin",
-            autoHideScrollbar: true
-        });
+	var swiper = new Swiper('.swiper-container', {
+		scrollbar: '.swiper-pagination',
+        slidesPerView: 'auto',
+        spaceBetween: 10,
+        grabCursor: true
     });
     
     // 핸들바스를 이용한 html 템플릿 
