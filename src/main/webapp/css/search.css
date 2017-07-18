@@ -17,7 +17,7 @@
   height: 100%;
   opacity: 0.90;
   background-color: #fff;
-  /*z-index: 899;*/
+  z-index: 899;
   display: none;
 }
 
@@ -63,6 +63,8 @@
 .search-right .cancle-btn {
   color: white;
   font-size: 1.1rem;
+  background: transparent;
+  border: none;
 }
 
 .suggest-search {
@@ -145,28 +147,32 @@ body {overflow-y:hidden; overflow-x:hidden;}
   }
 
   .search-mid {
+    position: absolute;
+    left: 7%;
     float:left;
     margin-top: 10px;
     width:80%;
-
+    margin-left: 30px;
   }
 
   .search-line {
     float:left;
-    width:100%;
-    text-align: left;
+    width:80%;
+    text-align: center;
     }
 
 
   .search-right {
     float: right;
-    width : 10%;
+    width : 16%;
     margin-top:-4px;
   }
 
   .search-right .cancle-btn {
     color: white;
     font-size: 1.1rem;
+    background: transparent;
+    border:none;
   }
 
   .suggest-search {

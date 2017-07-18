@@ -1,8 +1,0 @@
-.select {position:relative; line-height:35px;}
-.select > a {display:block; border:1px solid #ccc; padding:0 8px; overflow:hidden;}
-.select > a:after,
-.select > ul > li:first-child:after {display:block; float:right;}
-.select > a:after
-.select > ul {position:absolute; width:100%; top:1px; background:#fff; display:none;}
-.select > ul > li {cursor:pointer; padding:0 8px; border:1px solid #ccc; border-top:0;}
-.select > ul > li:first-child:after 

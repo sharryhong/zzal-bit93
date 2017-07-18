@@ -1,97 +1,88 @@
 <!DOCTYPE html>
-<html lang="kr">
+<html lang="kr" class="bgBlur">
+
 <head>
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <meta charset="UTF-8">
-  <title>회원가입</title>
+  <title>로그인</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-
   <link rel="stylesheet" href="css/common.css">
-  <link rel="stylesheet" href="css/signup.css">
+  <link rel="stylesheet" href="css/login.css">
 </head>
 
 <body>
 
-  <div class="top">
-</div>
-
-<div class="container">
-
-<div class="mid">
-
-  <span class="method1">방법 1) 소셜 계정으로 회원가입하기</span><br>
-  
-  <img src="images/facebook.png" height="81px">
-  <img src="images/google.png" height="55px">
-</div>
-
-
-
-<div class="bottom">
-  <form>
-  <div class="bottom_left">
-    <span class="method2">방법 2) 간단하게 회원가입하기 <br>
-    이메일, 닉네임, 비밀번호면 끝~!</span> <br><br>
-
-
-    <span>이메일</span>
-    <div class="form-group">
-      <input type="email" class="form-control" id="email" placeholder="이메일을 입력하세요">
-    </div>
-  
-    <span>비밀번호</span>
-    <div class="form-group">
-      <input type="password" class="form-control" id="password" placeholder="비밀번호">
-    </div>
-  
-    <span>비밀번호 확인</span>
-    <div class="form-group">
-      <input type="password" class="form-control" id="confirmPassword" placeholder="비밀번호 확인">
+  <div class="container">
+    <div class="logo">
+      <img src="images/facebook.png">
     </div>
 
-    <span>닉네임</span>
-    <div class="form-group">
-      <input type="email" class="form-control" id="nickname" placeholder="닉네임을 입력하세요">
+    <div class="login-form">
+      <div class="login-sns">
+        <span class="method1">방법1) 소셜계정으로 회원가입 하기</span>
+        <div class="sns-btn-group clearfix">
+          <div class="sns-btn-facebook"><img src="images/facebook.png"></div>
+          <div class="sns-btn-google"><img src="images/facebook.png"></div>
+        </div>
+      </div>
+
+      <div class="login-normal">
+        <span class="method2">간단하게 회원가입하기<br>
+        이메일, 닉네임, 비밀번호 끝 !</span>
+
+        <div class="form-group">
+        <span class="email">이메일</span>
+          <input class="input-email" type="email" placeholder="이메일을 입력하세요">
+        </div>
+
+        <div class="form-group">
+        <span class="pwd">비밀번호</span>
+          <input class="input-pwd" type="password" placeholder="비밀번호">
+        </div>
+
+        <div class="form-group">
+        <span class="pwd">비밀번호확인</span>
+          <input class="input-pwd" type="password" placeholder="비밀번호확인">
+        </div>
+
+        <div class="form-group">
+        <span class="pwd">닉네임(한글가능)</span>
+          <input class="input-pwd" type="password" placeholder="닉네임">
+        </div>
+
+
+
+        <div class="remember-find clearfix">
+          <input type="checkbox" class="checkbox" value="">
+          <span class="rememberId">아이디 기억하기</span>
+          <span class="findId">비밀번호 찾기</span>
+
+        </div>
+
+        <button type="button" class="loginBtn">로그인</button>
+
+      </div>
+      <!-- login-normal-->
+
+      <div class="bottom-div">
+        <div class="sign-div clearfix">
+          <span class="is-visit-first">처음 오셨나요?</span>
+          <span class="sign-in">회원가입하기</span>
+        </div>
+      </div>
+
     </div>
-  </div> <!-- bottom_left -->
+    <!-- login-form-->
+  </div>
+  <!-- container -->
 
 
-  <div class="bottom_mid"></div>
 
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
 
-  <div class="bottom_right">
-    <span>이용약관</span><br>
-    <textarea class="form-control" name="content" rows="8" cols="40">
-    제 1조[목적]
-이 이용약관 쿠헐헐
-이 이용약관 쿠헐헐
-    </textarea>
-    
-    <div class="checkbox">
-      <label>
-        <input type="checkbox" value="">
-        약관에 동의합니다
-      </label>
-    </div>
-
-<button type="button" class="btn btn-primary btn-sm signBtn">회원가입</button>
-    
-    
-  </div> <!-- bottom_right -->
-  </form>
-</div><!-- bottom div -->
-
-</div><!-- container div -->
-
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-<script src="node_modules/jquery/dist/jquery.min.js"></script>
 
 
 
 </body>
+
 </html>

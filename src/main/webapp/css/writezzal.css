@@ -288,6 +288,8 @@
   .mobile-sub-btns .mbutton {
     color:white;
     font-size: 1.125rem;
+    border: none;
+    background: transparent;
   }
 
   .footer.writezzal-footer {

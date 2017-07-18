@@ -18,6 +18,7 @@
 
       $(".suggest-search").show();
       $(".inner-head").show();
+      $("body").css("overflow", "hidden");
     });
 
 
