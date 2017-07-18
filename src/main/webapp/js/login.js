@@ -7,5 +7,6 @@
     $.get("login.html", function(data) {
   	  $(".container").html(data);
     });
-
+  });
+  
 })(jQuery);
