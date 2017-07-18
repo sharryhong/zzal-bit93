@@ -95,7 +95,7 @@
   font-size: 1.125rem;
 }
 
-body {overflow-y:hidden; overflow-x:hidden;}
+/* body {overflow-y:hidden; overflow-x:hidden;} */
 }
 
 /*mobile*/
@@ -199,5 +199,5 @@ body {overflow-y:hidden; overflow-x:hidden;}
     font-size: 1.125rem;
   }
 
-  body {overflow-y:hidden; overflow-x:hidden;}
+/*   body {overflow-y:hidden; overflow-x:hidden;} */
 }

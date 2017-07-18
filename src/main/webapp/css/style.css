@@ -743,3 +743,169 @@ input::-moz-placeholder { color: #777; }
   background: none;
 }
 
+/* search.css합침 */
+@media (min-width: 766px) {
+.inner-head {
+  display: none;
+  line-height: 77px;
+}
+.suggest-search {
+  display: none;
+}
+.opacity-curtain {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.90;
+  background-color: #fff;
+  z-index: 10000;
+  display: none; 
+}
+.inner-head {
+  position: absolute;
+  height:66px;
+  width: 100%;
+  background-color: #F39C12;
+  border-bottom : solid 1px #ccc;
+}
+.search-left {
+  font-size: 30px;
+  width: 30px;
+  float:left;
+  width :5%;
+  color:white;
+  margin-left:10px;
+  margin-top: -8px;
+}
+.search-mid {
+  float:left;
+  margin-top: 20px;
+  width:80%;
+}
+.search-line {
+  float:left;
+  width:100%;
+  text-align: left;
+}
+.search-right {
+  float: right;
+  width : 10%;
+  margin-top:-4px;
+}
+.search-right .cancle-btn {
+  color: white;
+  font-size: 1.1rem;
+  background: transparent;
+  border: none;
+}
+.suggest-search {
+  margin:0 auto;
+  padding: 0 27px;
+  margin-top: 70px;
+}
+.suggest-all-line {
+  width:100%;
+}
+.suggest-one-line {
+  width :100%;
+  height: 50px;
+  border-bottom : 1px solid #ccc;
+}
+.suggest-one-line .link-search {
+  font-size: 1.125rem;
+  line-height: 50px;
+}
+.suggest-one-line .btn-key {
+  position: absolute;
+  right : 50px;
+  line-height: 50px;
+  font-size: 1.125rem;
+}
+}
+
+/*mobile*/
+@media (max-width: 765px) {
+  .suggest-search {
+    display: none;
+    /*z-index: 999;*/
+  }
+  .opacity-curtain {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.90;
+    background-color: #fff;
+    z-index: 899;
+    display: none;
+  }
+  .inner-head {
+    position: absolute;
+    height:50px;
+    width: 100%;
+    background-color: #F39C12;
+    border-bottom : solid 1px #ccc;
+    /*z-index: 9999;*/
+    display: none;
+    line-height: 58px;
+  }
+  .search-left {
+    font-size: 30px;
+    width: 30px;
+    float:left;
+    width :5%;
+    color:white;
+    margin-left:10px;
+    margin-top: -8px;
+  }
+  .search-mid {
+    position: absolute;
+    left: 7%;
+    float:left;
+    margin-top: 10px;
+    width:80%;
+    margin-left: 30px;
+  }
+  .search-line {
+    float:left;
+    width:80%;
+    text-align: center;
+    }
+  .search-right {
+    float: right;
+    width : 16%;
+    margin-top:-4px;
+  }
+  .search-right .cancle-btn {
+    color: white;
+    font-size: 1.1rem;
+    background: transparent;
+    border:none;
+  }
+  .suggest-search {
+    margin:0 auto;
+    padding: 0 27px;
+    margin-top: 70px;
+  }
+  .suggest-all-line {
+    width:100%;
+  }
+  .suggest-one-line {
+    width :100%;
+    height: 50px;
+    border-bottom : 1px solid #ccc;
+  }
+  .suggest-one-line .link-search {
+    font-size: 1.125rem;
+    line-height: 50px;
+  }
+  .suggest-one-line .btn-key {
+    position: absolute;
+    right : 50px;
+    line-height: 50px;
+    font-size: 1.125rem;
+  }
+}
