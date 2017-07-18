@@ -2,11 +2,10 @@
 	'use strict';
 	
 	// 메뉴선택시 on붙이기
-	let $navMenus = $('.nav .nav-menu')
-	$navMenus.click(function() {
-		$(navMenus).removeClass('on')
-		$(this).addClass('on')
-	})
+	let href = location.href;
+	let pageurl = href.substr(href.lastIndexOf('/') + 1);
+	$('.nav').find('a[href="' + pageurl + '"]').addClass('on');
+	$('.mobile-nav').find('a[href="' + pageurl + '"]').addClass('on');
 	
 	// 모바일화면 메뉴 swiper적용
 	let swiper = new Swiper('#header .swiper-container', {
