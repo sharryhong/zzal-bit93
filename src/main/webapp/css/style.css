@@ -97,7 +97,7 @@ input::-moz-placeholder { color: #777; }
 .header .page-right {
 	display: none;
 }
-.swiper-container-free-mode>.swiper-wrapper {
+.header .swiper-container-free-mode>.swiper-wrapper {
 	margin-top: 50px;
 }
 .bx-wrapper .bx-caption {
@@ -137,10 +137,10 @@ input::-moz-placeholder { color: #777; }
 	display: -webkit-box;
 	display: -moz-box;
 } */
-.swiper-slide {
+.header .swiper-slide {
 	width: initial;
 }
-.swiper-container {
+.header .swiper-container {
 	margin-top: 50px;
 }
 
