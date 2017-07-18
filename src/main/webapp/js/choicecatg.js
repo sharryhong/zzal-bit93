@@ -12,6 +12,7 @@ $.getJSON('choicecatg.json',function(result){
   console.log(generatedHTML1)
   choicecategorys1.text('')
   choicecategorys1.html(generatedHTML1)
+	
 	})
 
 
