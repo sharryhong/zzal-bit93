@@ -1,12 +1,10 @@
 (function($) {
-  'use strict';
+	$('.before-login').click(function() {
+		console.log('로그인!')
 
-  //로그인
-    $('.login').click(function() {
-    	console.log('로그인!')
-    $.get("login.html", function(data) {
-  	  $(".container").html(data);
-    });
-  });
-  
+		$.get("login.html", function(data) {
+			$(".container").html(data);
+
+		});
+	})
 })(jQuery);
