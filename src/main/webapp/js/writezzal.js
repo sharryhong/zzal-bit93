@@ -10,7 +10,6 @@
     // });
 
     let userpic1 = $('#user-pic1');
-
     $.getJSON('writezzal.json', function(result) {
 			console.log("hi")
 	  // 템플릿을 실행하는 함수 리턴
@@ -20,6 +19,13 @@
 	  userpic1.html(generatedHTML1)
 	})
 
+	
+	$(document).ready(function(){
+        $("#header").load("search.html")
+       /* id 지정을 통해서도 가능합니다. 
+        $("#header").load("header.html #navbar")
+        */       
+     })
 
 
 })(jQuery);
