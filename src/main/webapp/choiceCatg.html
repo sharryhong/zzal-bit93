@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/common.css">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/choicecatg.css">
+  <link rel="stylesheet" href="css/choiceCatg.css">
 </head>
 <body>
   <div id="con">
@@ -37,7 +37,30 @@
     </div> <!-- title-category -->
     <div class="choice-catg">
       <div class="catg-con">
-        <div class="categorys" id="choice-categorys"></div>
+        <div class="categorys" id="choice-categorys">
+          <div class="category-1">
+            <div class="music catg-choicer">
+              <input type="checkbox" id="music-catg" class="click-checkbox">
+              <label for="music-catg"><img src="image/music1.jpg" title="음악" class="music-img"></label>
+            </div>
+            <div class="girltalent catg-choicer">
+              <input type="checkbox" id="girltalent-catg" class="click-checkbox">
+              <label for="girltalent-catg"><img src="image/oh.jpg" title="여자연예인" class="girltalent-img"></label>
+            </div>
+            <div class="character catg-choicer">
+              <input type="checkbox" id="character-catg" class="click-checkbox">
+              <label for="character-catg"><img src="image/mini.gif" title="캐릭터" class="character-img"></label>
+            </div>
+            <div class="mantalent catg-choicer">
+              <input type="checkbox" id="mantalent-catg" class="click-checkbox">
+              <label for="mantalent-catg"><img src="image/user.jpg" title="남자 연예인" class="mantalent-img"></label>
+            </div>
+            <div class="cook catg-choicer">
+              <input type="checkbox" id="cook-catg" class="click-checkbox">
+              <label for="cook-catg"><img src="image/zzal03.jpg" title="요리" class="cook-img"></label>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div><!-- zzal -->
@@ -50,68 +73,26 @@
 <script id="choiceCategory-template1" type="text/x-handlebars-template">
 {{#each categoryList}}
 <div class="category-1">
-    <div class="music catg-choicer">
-      <input type="checkbox" id="music-catg" class="click-checkbox">
-      <label for="music-catg"><img src="{{category1}}" title="{{categoryTitle1}}" class="music-img"></label>
-    </div>
-    <div class="girltalent catg-choicer">
-      <input type="checkbox" id="girltalent-catg" class="click-checkbox">
-      <label for="girltalent-catg"><img src="{{category2}}" title="{{categoryTitle2}}" class="girltalent-img"></label>
-    </div>
-    <div class="character catg-choicer">
-      <input type="checkbox" id="character-catg" class="click-checkbox">
-      <label for="character-catg"><img src="{{category3}}" title="{{categoryTitle3}}" class="character-img"></label>
-    </div>
-    <div class="mantalent catg-choicer">
-      <input type="checkbox" id="mantalent-catg" class="click-checkbox">
-      <label for="mantalent-catg"><img src="{{category4}}" title="{{categoryTitle4}}" class="mantalent-img"></label>
-    </div>
-    <div class="cook catg-choicer">
-      <input type="checkbox" id="cook-catg" class="click-checkbox">
-      <label for="cook-catg"><img src="{{category5}}" title="{{categoryTitle5}}" class="cook-img"></label>
-    </div>
-
-    <div class="music catg-choicer">
-        <input type="checkbox" id="music-catg" class="click-checkbox">
-        <label for="music-catg"><img src="{{category1}}" title="{{categoryTitle1}}" class="music-img"></label>
-    </div>
-    <div class="girltalent catg-choicer">
-      <input type="checkbox" id="girltalent-catg" class="click-checkbox">
-      <label for="girltalent-catg"><img src="{{category2}}" title="{{categoryTitle2}}" class="girltalent-img"></label>
-    </div>
-    <div class="character catg-choicer">
-      <input type="checkbox" id="character-catg" class="click-checkbox">
-      <label for="character-catg"><img src="{{category3}}" title="{{categoryTitle3}}" class="character-img"></label>
-    </div>
-    <div class="mantalent catg-choicer">
-      <input type="checkbox" id="mantalent-catg" class="click-checkbox">
-      <label for="mantalent-catg"><img src="{{category4}}" title="{{categoryTitle4}}" class="mantalent-img"></label>
-    </div>
-    <div class="cook catg-choicer">
-      <input type="checkbox" id="cook-catg" class="click-checkbox">
-      <label for="cook-catg"><img src="{{category5}}" title="{{categoryTitle5}}" class="cook-img"></label>
-    </div>
-
-    <div class="music catg-choicer">
-        <input type="checkbox" id="music-catg" class="click-checkbox">
-        <label for="music-catg"><img src="{{category1}}" title="{{categoryTitle1}}" class="music-img"></label>
-    </div>
-    <div class="girltalent catg-choicer">
-      <input type="checkbox" id="girltalent-catg" class="click-checkbox">
-      <label for="girltalent-catg"><img src="{{category2}}" title="{{categoryTitle2}}" class="girltalent-img"></label>
-    </div>
-    <div class="character catg-choicer">
-      <input type="checkbox" id="character-catg" class="click-checkbox">
-      <label for="character-catg"><img src="{{category3}}" title="{{categoryTitle3}}" class="character-img"></label>
-    </div>
-    <div class="mantalent catg-choicer">
-      <input type="checkbox" id="mantalent-catg" class="click-checkbox">
-      <label for="mantalent-catg"><img src="{{category4}}" title="{{categoryTitle4}}" class="mantalent-img"></label>
-    </div>
-    <div class="cook catg-choicer">
-      <input type="checkbox" id="cook-catg" class="click-checkbox">
-      <label for="cook-catg"><img src="{{category5}}" title="{{categoryTitle5}}" class="cook-img"></label>
-    </div>
+  <div class="music catg-choicer">
+    <input type="checkbox" id="music-catg" class="click-checkbox">
+    <label for="music-catg"><img src="{{category1}}" title="{{categoryTitle1}}" class="music-img"></label>
+  </div>
+  <div class="girltalent catg-choicer">
+    <input type="checkbox" id="girltalent-catg" class="click-checkbox">
+    <label for="girltalent-catg"><img src="{{category2}}" title="{{categoryTitle2}}" class="girltalent-img"></label>
+  </div>
+  <div class="character catg-choicer">
+    <input type="checkbox" id="character-catg" class="click-checkbox">
+    <label for="character-catg"><img src="{{category3}}" title="{{categoryTitle3}}" class="character-img"></label>
+  </div>
+  <div class="mantalent catg-choicer">
+    <input type="checkbox" id="mantalent-catg" class="click-checkbox">
+    <label for="mantalent-catg"><img src="{{category4}}" title="{{categoryTitle4}}" class="mantalent-img"></label>
+  </div>
+  <div class="cook catg-choicer">
+    <input type="checkbox" id="cook-catg" class="click-checkbox">
+    <label for="cook-catg"><img src="{{category5}}" title="{{categoryTitle5}}" class="cook-img"></label>
+  </div>
 </div>
 {{/each}}
 </script>
