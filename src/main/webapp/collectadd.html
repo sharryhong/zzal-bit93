@@ -21,39 +21,44 @@
   <div id="header"></div>
 </div>
 <div class="main-content addpage">
-  <div class="collect-addpage">
+    <div class="collect-addpage">
       <div class="collect-photo-add" id="collectaddPhoto">
-        <div class="collect-photo" style="background-image: url('image/zzal03.jpg');">
+        <div class="collect-photo" style="background-image: url('image/collection01.jpg');">
           <a href="#" class="represent-photo"><i class="fa fa-camera" aria-hidden="true"></i></a><br>
         </div>
       </div>
     <div class="zzal-container">
       <div class="collect-add" id="collect-add1">
-        <div class="input-option">컬렉션 제목(필수)</div>
-          <input class="collect-input-name" placeholder=" 이름을 입력해주세요">
-        <div class="input-option">"컬렉션 설명"</div>
-          <input class="collect-input-exp" placeholder=" 내용을 입력해주세요">
-        <div class="input-option">공개 범위 설정</div>
-          <ul>비공개 컬렉션으로 설정하면 다른 Zzaler들에게 이컬렉션이 보이지 않습니다.</ul><br>
-      </div>
-      <hr color="gray" width=100%><br>
-      <span class="private-collect">비공개 컬렉션</span>
-      <div class="private-swich">
-        <div class="onoffswitch">
-          <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox"id="myonoffswitch" checked>
-          <label class="onoffswitch-label" for="myonoffswitch"></label>
+        <div class="input-form1">
+          <span class="input-option">컬렉션 제목(필수)</span><br>
+          <input class="collect-input-name" type=text placeholder=" 제목을 입력해주세요">
         </div>
-      </div><!-- 비공개 스위치 -->
+        <div class="input-form1">
+        <span class="input-option">컬렉션 설명</sapn>
+          <input class="collect-input-exp" placeholder=" 내용을 입력해주세요">
+        </div>
+        <div class="range-option">
+          <span class="input-option">공개 범위 설정</span>
+          <ul>비공개 컬렉션으로 설정하면 다른 Zzaler들에게 이컬렉션이 보이지 않습니다.</ul>
+        </div>
+      </div>
+    <div class="private-collectSwitch clearfix">
+        <span class="private-collect">비공개 컬렉션</span>
+        <div class="private-switch">
+          <div class="onoffswitch">
+            <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox"id="myonoffswitch" checked>
+            <label class="onoffswitch-label" for="myonoffswitch"></label>
+          </div>
+        </div><!-- 비공개 스위치 -->
     </div>
-    <ul class="clickbutton">
-      <button id="" type="button" class="clickadd-btn">취소</button>
-      <button id="" type="button" class="clickadd-btn">만들기</button>
-    </ul>
-  </div><!--zzal-container -->
+      <button id="" type="button" class="btn btn-cancle">취소</button>
+      <button id="" type="button" class="btn btn-make">만들기</button>
+    </div> <!--zzal-container -->
+  </div>
 </div><!--main content -->
 <footer id="footer"></footer>
 
-<script id="collectadd1-template1" type="text/x-handlebars-template">
+<!-- <script id="collectadd1-template1" type="text/x-handlebars-template">
   {{#each collectionPhoto}}
   <div class="collect-photo" style="background-image: url('{{collectphoTo}}');">
     <a href="#" class="represent-photo"><i class="fa fa-camera" aria-hidden="true"></i></a><br>
@@ -69,10 +74,10 @@
   <div class="input-option">{{collectionPrivate}}</div>
     <ul>{{PrivateAddition}}</ul><br>
   {{/each}}
-</script>
+</script> -->
 <script src="node_modules/jquery/dist/jquery.min.js"></script>
-<script src="node_modules/handlebars/dist/handlebars.min.js"></script>
-<script src="js/collectadd.js"></script>
+<!-- <script src="node_modules/handlebars/dist/handlebars.min.js"></script> -->
+<!-- <script src="js/collectadd.js"></script> -->
 <script src="js/load.js"></script>
 
 </body>

@@ -5,6 +5,9 @@
 
 /*desktop*/
 @media (min-width: 741px) {
+  .main-content.addpage {
+    margin-top: 66px;
+  }
   .collect-photo h2 {
     font-size: 2.5rem;
     margin: 0;
@@ -12,11 +15,9 @@
   .collect-add ul{
     font-size: 1rem;
     color: gray;
+    margin: 10px 0 0 0;
   }
-  .input-option {
-    margin-top: 30px;
-    font-size: 1.5rem;
-  }
+
   .collect-photo {
     z-index: 10;
     border: 2px solid gray;
@@ -29,55 +30,48 @@
     background-size: cover;
   }
   .collect-photo .fa-camera {
-    z-index: 20;
     font-size: 5rem;
     position: absolute;
     right: 50%;
-    top: 20%;
-    color: white;
+    top: 15%;
+    color: black;
+  }
+
+  .input-option {
+    font-size: 1.5rem;
   }
 
   .collect-add {
     margin-top: 50px;
   }
 
-  .clickadd-btn {
-    margin-top: 30px;
-    width: 150px;
-    height: 40px;
-    position: fixed;
-    position: relative;
-    left: 33%;
-    top: 50%;
-    cursor: pointer;
-    border-radius: 5px;
-    box-shadow:inset 0 0 5px;
+  .input-form1 {
+    border-bottom: 1px solid lightgray;
+    margin: 20px;
   }
-  /*.make-btn {
-    margin-top: 30px;
-    width: 150px;
-    height: 40px;
-    position: fixed;
-    position: relative;
-    left: 34%;
-    top: 50%;
-    background-color: #0064FF;
-    cursor: pointer;
-    border-radius: 5px;
-    box-shadow:inset 0 0 10px
+  .range-option {
+    margin: 20px;
   }
-  */
+
+  .private-collectSwitch {
+    margin: 20px;
+  }
+
   .collect-input-name {
     width: 100%;
     height: 50px;
-    border-radius: 5px;
-    font-size: 1.3rem;
+    border: none;
+    font-size: 1rem;
+    padding-left: 7px;
+    background: 0 0;
   }
   .collect-input-exp {
     width: 100%;
     height: 50px;
-    border-radius: 5px;
-    font-size: 1.3rem;
+    border: none;
+    font-size: 1rem;
+    padding-left: 7px;
+    background: 0 0;
   }
   .onoffswitch {
     position: relative;
@@ -127,78 +121,89 @@
     right: 0px;
   }
 
+    .btn-cancle {
+      width: 200px;
+      height: 50px;
+      font-size: 1.6rem;
+      float: right;
+    }
+
+    .btn-make{
+      width: 200px;
+      height: 50px;
+      font-size: 1.6rem;
+      float: right;
+    }
+
 }
 /*mobile*/
 @media (max-width: 740px) {
   .main-content.addpage {
     background-color: #DDDDDD;
+    height: 700px;
   }
 
   .collect-add ul{
     font-size: 0.7rem;
-    margin-bottom: 10px;
+  }
+  .collect-add {
+    height: 250px;
   }
 
   .collect-photo {
-    margin-top: 50px;
-    border: 1px solid gray;
+    border: 2px solid gray;
     width: 100%;
-    height: 180px;
-    background-color: #fff;
-    opacity: 0.95;
+    height: 250px;
+    margin-top: -50px;
+    background-color: black;
+    opacity: 0.5;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
   }
   .collect-photo .fa-camera {
-    z-index: 20;
-    font-size: 3rem;
+    font-size: 5rem;
     position: absolute;
-    right: 45%;
+    right: 49%;
     top: 15%;
     color: white;
   }
 
   .input-option {
-    margin-top: 5px;
+    margin: 30px 0 10px 0;
     font-size: 1rem;
   }
 
-  .clickadd-btn {
-    margin:30px 0 30px 25px;
-    width: 150px;
-    height: 40px;
-    cursor: pointer;
-    border-radius: 5px;
-    box-shadow:inset 0 0 5px;
+  .input-form1 {
+    border-bottom: 1px solid lightgray;
+    margin: 20px;
   }
-  /*.make-btn {
-    margin-top: 30px;
-    width: 150px;
-    height: 40px;
-    background-color: #0064FF;
-    cursor: pointer;
-    border-radius: 5px;
-    box-shadow:inset 0 0 10px
-  }*/
+  .range-option {
+    margin: 20px;
+  }
+
+  .private-collectSwitch {
+    margin: 20px;
+  }
+
   .collect-input-name {
-    width: 85%;
-    height: 35px;
-    border-radius: 6px;
+    width: 100%;
+    height: 50px;
+    border: none;
     font-size: 1rem;
-    margin:10px 10px 10px;
-
+    padding-left: 7px;
+    background: 0 0;
   }
+  
   .collect-input-exp {
-    width: 85%;
-    height: 35px;
-    border-radius: 6px;
+    width: 100%;
+    height: 50px;
+    border: none;
     font-size: 1rem;
-    margin:10px 10px 10px;
-
+    padding-left: 7px;
+    background: 0 0;
   }
-/*비공개 스위치*/
-
+  /*비공개 스위치*/
   .onoffswitch {
     position: relative;
     width: 50px;
@@ -249,4 +254,33 @@
     right: 0px;
   }
 
+    .btn-cancle {
+      width: 100px;
+      height: 35px;
+      font-size: 1rem;
+      float: right;
+    }
+
+    .btn-make{
+      width: 100px;
+      height: 35px;
+      font-size: 1rem;
+      float: right;
+    }
+}
+
+.btn-cancle {
+  color: white;
+  background-color: #444;
+  border-color: #ccc;
+}
+.btn-make{
+  color: white;
+  background-color: #F39C12;
+  border-color: #ccc;
+}
+.btn-default:active {
+	color: #333;
+  background-color: #e6e6e6;
+  border-color: #adadad;
 }
