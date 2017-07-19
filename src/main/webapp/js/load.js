@@ -4,6 +4,7 @@ $(document).ready(function(){
 	  $.getScript("./js/slide.js");
 	  $.getScript("./js/main.js");
 	  $.getScript("./js/search.js");
+	  $.getScript("./js/login.js");
 	});
 	$.get("footer.html", function(data) {
 	  $("#footer").html(data);

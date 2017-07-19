@@ -366,7 +366,7 @@ input::-moz-placeholder { color: #777; }
 	}
 	.nav {
 	  position: fixed;
-	  z-index: 1000;
+	  z-index: 500;
 	  top: 66px;
 	  left: 0px;
 	  width: 190px;
