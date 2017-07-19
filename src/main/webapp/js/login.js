@@ -20,7 +20,7 @@
 		console.log('sign-in click!!!')
 		$(".login-container").hide();
 		$(".signup-container").show();
-		$(".logo").hide();
+		$(".login-logo").hide();
 		$(".mini-logo").hide();
 
 

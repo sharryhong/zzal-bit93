@@ -161,13 +161,18 @@
 
   .title-collection {
     margin-top: 20px;
+    height: 30px;
+  }
+  
+  .title-line {
+    float: left;
+    width: 87%;
   }
 
+
   .title-linetext{
-    float:left;
-    width: 70%;
+    width: 100%;
     height: 100%;
-    /*width :100px;*/
     background-color: rbga(255,255,255,0);
     border-bottom: 1px solid #ccc;
     font-size:1.5rem;
@@ -175,6 +180,8 @@
 
   .select-collection {
     width:100 px;
+    height: 100%;
+    float: right;
   }
 
   .select {
@@ -224,10 +231,10 @@
 
   .nextpagebutton  {
     text-align: center;
+    font-size: 33px;
   }
 
   .nextpagebutton .fa {
-    font-size : 2.5rem;
     cursor:pointer;
   }
 
@@ -439,10 +446,8 @@
      border-bottom : solid 1px #ccc;
    }
 
-   .select-collection select{
+   .select-collection {
      float: right;
-     /*background: red;*/
-     width:100px;
      margin: 5px;
    }
 
