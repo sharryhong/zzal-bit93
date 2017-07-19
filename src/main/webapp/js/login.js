@@ -1,10 +1,11 @@
 (function($) {
-	$('.before-login').click(function() {
-		console.log('로그인!')
+	$('.login').click(function() {
+		console.log('lolol')
+		
+		$(".login-curtain").show();
+		$(".container").show();
+		
+	$("body").css("overflow", "hidden");
+	});
 
-		$.get("login.html", function(data) {
-			$(".container").html(data);
-
-		});
-	})
 })(jQuery);
