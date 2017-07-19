@@ -12,19 +12,7 @@
 </head>
 <body>
 <div id="con">
-  <div class="header">
-    <div class="left">
-      <a href="#" class="menu"><i class="fa fa-bars" aria-hidden="true"><span class="blind">메뉴버튼</span></i></a>
-      <h1 class="logo"><a href="#">Zzal School</a></h1>
-    </div>
-    <div class="right">
-      <span class="search">
-        <input type="text" class="input-line" id="search-btn" placeholder="짤강을 검색해 주세요">
-        <label for="search-btn" class="search-icon"><i class="fa fa-search" aria-hidden="true"><span class="blind">검색하기</span></i></label>
-      </span>
-      <a href="#" class="login">로그인</a>
-    </div>
-  </div>
+  <div id="header"></div>
 </div>
 <div class="main-content detailpage">
   <div class="collect-detailpage">
@@ -37,11 +25,7 @@
     </div> <!--zzal-container -->
   </div>
 </div><!--main content -->
-<footer class="footer">
-  <div class="container">
-    <h3>Zzal School</h3>
-  </div>
-</footer>
+<footer id="footer"></footer>
 
 <!-- zzal -->
 <script id="collectdetail-template1" type="text/x-handlebars-template">
@@ -105,5 +89,7 @@
 <script src="node_modules/jquery/dist/jquery.min.js"></script>
 <script src="node_modules/handlebars/dist/handlebars.min.js"></script>
 <script src="js/collectdetail.js"></script>
+<script src="js/load.js"></script>
+
 </body>
 </html>

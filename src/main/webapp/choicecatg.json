@@ -2,7 +2,7 @@
   "status" : "success",
   "data":
   {
-    "categoryList" :
+    "choicecatgList" :
     [
       {"category1":"image/music1.jpg","categoryTitle1":"음악",
         "category2":"image/oh.jpg","categoryTitle2":"여자연예인",

@@ -1,6 +1,6 @@
 .private-collect {
   float: left;
-  margin-bottom: 20px;
+  margin: 7px 7px 0 0;
 }
 
 /*desktop*/
@@ -28,7 +28,7 @@
     background-repeat: no-repeat;
     background-size: cover;
   }
-  .fa-camera {
+  .collect-photo .fa-camera {
     z-index: 20;
     font-size: 5rem;
     position: absolute;
@@ -41,7 +41,7 @@
     margin-top: 50px;
   }
 
-  .cancle-btn {
+  .clickadd-btn {
     margin-top: 30px;
     width: 150px;
     height: 40px;
@@ -53,7 +53,7 @@
     border-radius: 5px;
     box-shadow:inset 0 0 5px;
   }
-  .make-btn {
+  /*.make-btn {
     margin-top: 30px;
     width: 150px;
     height: 40px;
@@ -66,16 +66,17 @@
     border-radius: 5px;
     box-shadow:inset 0 0 10px
   }
+  */
   .collect-input-name {
-    width: 70%;
+    width: 100%;
     height: 50px;
-    border-radius: 10px;
+    border-radius: 5px;
     font-size: 1.3rem;
   }
   .collect-input-exp {
-    width: 70%;
+    width: 100%;
     height: 50px;
-    border-radius: 10px;
+    border-radius: 5px;
     font-size: 1.3rem;
   }
   .onoffswitch {
@@ -149,7 +150,7 @@
     background-repeat: no-repeat;
     background-size: cover;
   }
-  .fa-camera {
+  .collect-photo .fa-camera {
     z-index: 20;
     font-size: 3rem;
     position: absolute;

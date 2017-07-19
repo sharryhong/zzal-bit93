@@ -20,9 +20,7 @@
     border-radius: 5px;
   }
 
-  .music-img,.girltalent-img,
-  .character-img,.mantalent-img,
-  .cook-img {
+  .choosecatg {
     width: 200px;
     height: 200px;
     border-radius: 100px;
@@ -66,9 +64,7 @@
     border-radius: 5px;
   }
 
-  .music-img,.girltalent-img,
-  .character-img,.mantalent-img,
-  .cook-img {
+  .choosecatg{
     width: 100px;
     height: 100px;
     border-radius: 50px;
