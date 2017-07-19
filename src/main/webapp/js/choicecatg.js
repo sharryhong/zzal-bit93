@@ -16,9 +16,7 @@
 
 	$('.choice-btn').click(function() {
 		console.log('choice')
-		$('input:checkbox[id="music-catg"]').attr("checked", true);
-		console.log('checked')
-		$('input:checkbox[id="music-catg"]').val();
+		$('input:checkbox[clss="music-catg"]').val();
 		console.log("값 보내기")
 
 		// $(".chooosecatg").val();

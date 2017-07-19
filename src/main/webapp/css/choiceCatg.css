@@ -32,7 +32,7 @@
   .category-1 .catg-choicer {
     display: inline-block;
     position : relative;
-    margin-left: 5px;
+    margin-left: 10px;
   }
 
   .catg-choicer .click-checkbox{
@@ -64,7 +64,7 @@
     border-radius: 5px;
   }
 
-  .choosecatg{
+  .choosecatg {
     width: 100px;
     height: 100px;
     border-radius: 50px;
@@ -80,7 +80,7 @@
 
   .catg-choicer .click-checkbox{
 
-    width: 50px;
+    width: 30px;
     height: 20px;
     cursor: pointer;
     position: absolute;
