@@ -115,6 +115,9 @@
 	.category-special .zzal-lects02 li {
 	  padding: 5px 0;
 	}
+	.category-special .zzal-lects02 li:first-child {
+	  padding: 0;
+	}
 }
 @media (max-width: 440px) {
 	.bxslider .zzal-lect .zzal-img {

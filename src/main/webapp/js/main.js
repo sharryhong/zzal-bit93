@@ -6,7 +6,7 @@
 	let pageurl = href.substr(href.lastIndexOf('/') + 1);
 	var url = window.location.pathname, 
     urlRegExp = new RegExp(url.replace(/\/$/,'') + "$");
-	console.log(pageurl)
+	//console.log(pageurl)
     $('.nav a').each(function(){
         if(urlRegExp.test(this.href.replace(/\/$/,''))){
             $(this).addClass('on');
@@ -25,9 +25,8 @@
     
     // 모바일화면 헤더에 title 붙이기 
     var pageTitle = ''
-    if (pageurl.includes("notice")) {
-    	pageTitle = '알림'
-    }
+    if (pageurl.includes("notice")) { pageTitle = '알림' }
+    else if (pageurl.includes("mypage")) { pageTitle = '마이페이지' }
     $('.header .page-right .title').text(pageTitle)
 	
 	// 모바일화면 메뉴 swiper적용

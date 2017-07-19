@@ -1,5 +1,7 @@
 (function($) {
   'use strict';
+  
+  
 
   //$(window).on("load", function() {
 
@@ -11,7 +13,7 @@
 
       $(".suggest-search").show();
       $(".inner-head").show();
-      $("body").css("overflow", "hidden");
+     /* $("body").css("overflow", "hidden");*/
     });
 
 

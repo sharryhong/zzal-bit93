@@ -22,10 +22,7 @@
 		$(".signup-container").show();
 		$(".login-logo").hide();
 		$(".mini-logo").hide();
-
-
 		$("body").css("overflow", "hidden");
-
 	});
 	
 
