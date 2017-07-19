@@ -1,11 +1,22 @@
-(function($){
+(function($, window){
 	'use strict';
 	
-	// 메뉴선택시 on붙이기
+//window.pageTitle = '';
+//	console.log(window.pageTitle)
+	
+	// 모바일화면 헤더에 title 붙이기 
+	/*$('.header .notice').on('click', function() {
+		window.pageTitle = '알림'
+		console.log(window.pageTitle)
+	})
+	$('.header .page-right .title').text(window.pageTitle)*/
+		
+	// 메뉴선택시 on붙이기 (해당 url일때)
 	let href = location.href;
 	let pageurl = href.substr(href.lastIndexOf('/') + 1);
 	var url = window.location.pathname, 
     urlRegExp = new RegExp(url.replace(/\/$/,'') + "$");
+	console.log(pageurl)
     $('.nav a').each(function(){
         if(urlRegExp.test(this.href.replace(/\/$/,''))){
             $(this).addClass('on');
@@ -20,6 +31,13 @@
 		$('.nav .home').addClass('on');
 		$('.mobile-nav .home').addClass('on');
 	}
+    
+    // 모바일화면 헤더에 title 붙이기 
+    var pageTitle = ''
+    if (pageurl.includes("notice")) {
+    	pageTitle = '알림'
+    }
+    $('.header .page-right .title').text(pageTitle)
 	
 	// 모바일화면 메뉴 swiper적용
 	let swiper = new Swiper('#header .swiper-container', {
@@ -48,4 +66,20 @@
     	pager: false
 	});
     
-})(jQuery);
+    // incluses polyfill
+    if (!String.prototype.includes) {
+	  String.prototype.includes = function(search, start) {
+	    'use strict';
+	    if (typeof start !== 'number') {
+	      start = 0;
+	    }
+	    
+	    if (start + search.length > this.length) {
+	      return false;
+	    } else {
+	      return this.indexOf(search, start) !== -1;
+	    }
+	  };
+	}
+    
+})(jQuery, window);

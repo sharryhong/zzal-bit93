@@ -6,74 +6,15 @@
   <title>zzal school</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
-  <link rel="stylesheet" href="scrollbar/jquery.mCustomScrollbar.css">
+  <link rel="stylesheet" href="node_modules/swiper/dist/css/swiper.min.css">
   <link rel="stylesheet" href="css/common.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/notice.css">
 </head>
 <body>
 <div class="main-page">
-<div class="header change-header">
-  <div class="left">
-    <a href="#" class="menu"><i class="fa fa-bars" aria-hidden="true"><span class="blind">메뉴버튼</span></i></a>
-    <h1 class="logo"><a href="./">Zzal School</a></h1>
-  </div>
-  <div class="right">
-    <span class="search">
-      <input type="text" class="input-line" id="search-btn" placeholder="짤강을 검색해 보세요.">
-      <label for="search-btn" class="search-icon"><i class="fa fa-search" aria-hidden="true"></i></label>
-    </span>
-    <a href="#" class="login before-login">로그인</a>
-    <div class="after-login">
-      <a href="#" class="zzal-write"><i class="fa fa-pencil-square-o" aria-hidden="true"><span class="blind">짤강만들기</span></i></a>
-	    <a href="notice.html" class="notice"><i class="fa fa-bell-o" aria-hidden="true"><span class="blind">알림</span></i></a>
-	    <a href="mypage.html" class="mypage"><i class="fa fa-user-circle-o" aria-hidden="true"><span class="blind">마이페이지</span></i></a>
-    </div>
-  </div>
-  <div class="page-right">
-   	<h2 class="title">알림</h2>
-    <a href="#" class="close"><i class="fa fa-times" aria-hidden="true"><span class="blind">닫기</span></i></a>
-  </div>
-</div>
-
-<div class="nav">
-  <ul class="top-menu">
-    <li><a href="./"><span class="icon"><i class="fa fa-home" aria-hidden="true"></i></span> 홈</a></li>
-    <li><a href="category-new.html"><span class="new-icon icon">NEW</span> 새로운</a></li>
-    <li><a href="#"><span class="icon"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i></span> 추천순</a></li>
-    <li><a href="#"><span class="icon"><i class="fa fa-eye" aria-hidden="true"></i></span> 많이본</a></li>
-  </ul>
-  <div class="category">
-    <h3 class="title">카테고리</h3>
-	  <ul>
-	    <li><a href="category-music.html"><span class="icon"><i class="fa fa-music" aria-hidden="true"></i></span> 음악</a></li>
-	    <li><a href="#"><span class="icon"><i class="fa fa-camera" aria-hidden="true"></i></span> 사진, 여행</a></li>
-	    <li><a href="#"><span class="icon"><i class="fa fa-picture-o" aria-hidden="true"></i></span> 예술, 문화</a></li>
-	    <li><a href="#"><span class="icon"><i class="fa fa-gratipay" aria-hidden="true"></i></span> 연애, 가족</a></li>
-	    <li><a href="#"><span class="icon"><i class="fa fa-cutlery" aria-hidden="true"></i></span> 요리</a></li>
-	    <li><a href="#"><span class="icon"><i class="fa fa-usd" aria-hidden="true"></i></span> 경제</a></li>
-	    <li><a href="#"><span class="icon"><i class="fa fa-desktop" aria-hidden="true"></i></span> IT</a></li>
-	    <li><a href="#"><span class="icon"><i class="fa fa-comments-o" aria-hidden="true"></i></span> 직업, 진로</a></li>
-	    <li><a href="#"><span class="icon"><i class="fa fa-shopping-bag" aria-hidden="true"></i></span> 패션, 뷰티</a></li>
-	  </ul>
-  </div>
-</div>
-<ul class="mobile-nav">
-  <li><a href="./">홈</a></li>
-  <li><a href="category-new.html">새로운</a></li>
-  <li><a href="#">추천순</a></li>
-  <li><a href="#">많이본</a></li>
-  <li><a href="category-music.html">음악</a></li>
-  <li><a href="#">사진, 여행</a></li>
-  <li><a href="#">예술, 문화</a></li>
-  <li><a href="#">연애, 가족</a></li>
-  <li><a href="#">요리</a></li>
-  <li><a href="#">경제</a></li>
-  <li><a href="#">IT</a></li>
-  <li><a href="#">직업, 진로</a></li>
-  <li><a href="#">패션, 뷰티</a></li>
-</ul>
-<div class="main-content">
+<div id="header"></div>
+<div class="main-content notice-page">
 <div class="zzal-container">
 	<div class="titles-wrap">
 	  <h2 class="title">알림</h2>
@@ -98,15 +39,12 @@
 	</div>
 </div>
 </div>
-<div class="footer">
-    <p>zzal school</p>
-</div>
+<div id="footer"></div>
 </div>
 
 <script src="node_modules/jquery/dist/jquery.min.js"></script>
 <script src="node_modules/handlebars/dist/handlebars.min.js"></script>
-<script src="scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
-<script src="js/slide.js"></script>
-<script src="js/main.js"></script>
+<script src="node_modules/swiper/dist/js/swiper.min.js"></script>
+<script src="js/load.js"></script>
 </body>
 </html>

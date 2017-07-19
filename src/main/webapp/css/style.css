@@ -841,12 +841,12 @@ input::-moz-placeholder { color: #777; }
     left: 7%;
     float:left;
     margin-top: 10px;
-    width:80%;
+    width:65%;
     margin-left: 30px;
   }
   .search-line {
     float:left;
-    width:80%;
+    width:100%;
     text-align: center;
     }
   .search-right {

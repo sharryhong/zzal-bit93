@@ -1,3 +1,6 @@
+#header .swiper-container {
+	display: none;
+}
 .titles-wrap .notices {
 	width: 100%;
 	padding: 10px 10px;
