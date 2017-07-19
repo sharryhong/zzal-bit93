@@ -2,83 +2,65 @@
 <html lang="kr" class="bgBlur">
 
 <head>
-  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-  <meta charset="UTF-8">
-  <title>로그인</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="css/common.css">
-  <link rel="stylesheet" href="css/login.css">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta charset="UTF-8">
+<title>회원가입</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/login.css">
 </head>
 
 <body>
 
-  <div class="container">
-    <div class="logo">
-      <img src="images/facebook.png">
-    </div>
+	<div class="signup-container">
+		<div class="logo">Zzal school</div>
+		<div class="mini-logo">세상의 모든 얕은 지식</div>
+		<div class="login-form">
+			<div class="login-sns">
+				<span class="method1">소설 계정으로 회원가입</span>
+				<div class="close-btn">
+					<i class="fa fa-times" aria-hidden="true"></i>
+				</div>
+				<div class="sns-btn-group clearfix">
+					<a class="sns-btns fcbk-btn"><i class="fa fa-facebook"
+						aria-hidden="true"></i><span>Facebook</span></a> <a
+						class="sns-btns goog-btn"><i class="fa fa-google"
+						aria-hidden="true"></i><span>google</span></a>
+				</div>
+			</div>
 
-    <div class="login-form">
-      <div class="login-sns">
-        <span class="method1">방법1) 소셜계정으로 회원가입 하기</span>
-        <div class="sns-btn-group clearfix">
-          <div class="sns-btn-facebook"><img src="images/facebook.png"></div>
-          <div class="sns-btn-google"><img src="images/facebook.png"></div>
-        </div>
-      </div>
+			<div class="login-normal">
+				<span class="method2">이메일 계정으로 회원가입</span>
+				<div class="form-group">
+					<input class="input-login" type="email" placeholder="이메일을 입력하세요">
+				</div>
+				<div class="form-group">
+					<input class="input-login" type="password" placeholder="비밀번호">
+				</div>
+				<div class="form-group">
+					<input class="input-login" type="password" placeholder="비밀번호확인">
+				</div>
+				<div class="form-group">
+					<input class="input-login" type="nickname" placeholder="닉네임">
+				</div>
 
-      <div class="login-normal">
-        <span class="method2">간단하게 회원가입하기<br>
-        이메일, 닉네임, 비밀번호 끝 !</span>
+				<div class="form-group">
+					<textarea class="termsofuse" rows="5" cols="40"></textarea>
+				</div>
 
-        <div class="form-group">
-        <span class="email">이메일</span>
-          <input class="input-email" type="email" placeholder="이메일을 입력하세요">
-        </div>
-
-        <div class="form-group">
-        <span class="pwd">비밀번호</span>
-          <input class="input-pwd" type="password" placeholder="비밀번호">
-        </div>
-
-        <div class="form-group">
-        <span class="pwd">비밀번호확인</span>
-          <input class="input-pwd" type="password" placeholder="비밀번호확인">
-        </div>
-
-        <div class="form-group">
-        <span class="pwd">닉네임(한글가능)</span>
-          <input class="input-pwd" type="password" placeholder="닉네임">
-        </div>
-
-
-
-        <div class="remember-find clearfix">
-          <input type="checkbox" class="checkbox" value="">
-          <span class="rememberId">아이디 기억하기</span>
-          <span class="findId">비밀번호 찾기</span>
-
-        </div>
-
-        <button type="button" class="loginBtn">로그인</button>
-
-      </div>
-      <!-- login-normal-->
-
-      <div class="bottom-div">
-        <div class="sign-div clearfix">
-          <span class="is-visit-first">처음 오셨나요?</span>
-          <span class="sign-in">회원가입하기</span>
-        </div>
-      </div>
-
-    </div>
-    <!-- login-form-->
-  </div>
-  <!-- container -->
+				<div class="remember-find clearfix">
+					<input type="checkbox" class="checkbox" value=""> <span
+						class="rememberId">약관에 동의합니다.</span>
+				</div>
+				<button type="button" class="loginBtn">회원가입</button>
+			</div>
+		</div>
+	</div>
 
 
 
-    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+
+	<script src="node_modules/jquery/dist/jquery.min.js"></script>
 
 
 
