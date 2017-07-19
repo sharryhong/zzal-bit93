@@ -12,7 +12,7 @@
 	display: none;
 }
 
-.container {
+.login-container {
 	z-index: 2000;
 	width: 95%;
 	margin: 0 auto;
@@ -23,7 +23,7 @@
 	display: none;
 }
 
-.logo {
+.login-logo {
 	display:none;
 	text-shadow: 0 1px 0 rgba(255, 255, 255, .75);
 	color: rgba(255, 255, 255, 0.7);
@@ -253,8 +253,6 @@
 }
 
 
-
-
 .signup-container {
 	display : none; 
 	z-index: 2000;
@@ -270,7 +268,7 @@
 
 /*desktop*/
 @media ( min-width : 766px) {
-	.container {
+	.login-container {
 		width: 515px;
 	}
 	
@@ -278,10 +276,11 @@
 	 width:515px;
 	}
 	
-	.logo {
+	.login-logo {
   display:block;
 }
 
-.mini-logo {
+  .mini-logo {
   display:block;
+}
 }
