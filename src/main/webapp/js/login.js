@@ -9,7 +9,11 @@
 	});
 	
 	$('.close-btn').click(function() {
-		$(".login-curtain").show();
+		console.log('closebtn click!!!')
+		$(".login-curtain").hide();
+		$(".container").hide();
+	    $("body").css("overflow", "visible");
+
 
 	});
 	
