@@ -1,16 +1,6 @@
 (function($, window){
 	'use strict';
 	
-//window.pageTitle = '';
-//	console.log(window.pageTitle)
-	
-	// 모바일화면 헤더에 title 붙이기 
-	/*$('.header .notice').on('click', function() {
-		window.pageTitle = '알림'
-		console.log(window.pageTitle)
-	})
-	$('.header .page-right .title').text(window.pageTitle)*/
-		
 	// 메뉴선택시 on붙이기 (해당 url일때)
 	let href = location.href;
 	let pageurl = href.substr(href.lastIndexOf('/') + 1);
@@ -27,7 +17,8 @@
             $(this).addClass('on');
         }
     });
-    if (pageurl == '' || pageurl == "index.html") { // 홈인 경우
+    // 홈인 경우
+    if (pageurl == '' || pageurl == "index.html") { 
 		$('.nav .home').addClass('on');
 		$('.mobile-nav .home').addClass('on');
 	}
