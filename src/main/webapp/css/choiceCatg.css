@@ -66,7 +66,6 @@
     text-align: center;
   }
 
-
   .choice-btn {
     float: right;
     margin: 15px 15px;
@@ -83,6 +82,10 @@
     border: 2px solid gray;
     cursor: pointer;
     margin: 5px;
+  }
+  .category-1 {
+    padding: 8px;
+    text-align: center;
   }
 
   .category-1 .catg-choicer {

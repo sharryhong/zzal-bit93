@@ -23,8 +23,6 @@
     border: 2px solid gray;
     width: 100%;
     height: 250px;
-    background-color: black;
-    opacity: 0.5;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -34,7 +32,7 @@
     position: absolute;
     right: 50%;
     top: 15%;
-    color: black;
+    color: #fff;
   }
 
   .input-option {
@@ -150,56 +148,61 @@
     height: 250px;
   }
 
+  .collect-photo-add {
+    position: relative;
+  }
+
   .collect-photo {
     border: 2px solid gray;
     width: 100%;
     height: 250px;
     margin-top: -50px;
-    background-color: black;
-    opacity: 0.5;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
   }
-  .collect-photo .fa-camera {
-    font-size: 5rem;
+  .collect-photo a {
+    display: inline-block;
     position: absolute;
-    right: 49%;
-    top: 15%;
-    color: white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+  }
+  .collect-photo .fa-camera {
+    font-size: 4rem;
+    color: black;
   }
 
   .input-option {
-    margin: 30px 0 10px 0;
     font-size: 1rem;
   }
 
   .input-form1 {
     border-bottom: 1px solid lightgray;
-    margin: 20px;
+    margin: 10px;
   }
   .range-option {
-    margin: 20px;
+    margin: 10px;
   }
 
   .private-collectSwitch {
-    margin: 20px;
+    margin: 10px;
   }
 
   .collect-input-name {
     width: 100%;
     height: 50px;
     border: none;
-    font-size: 1rem;
+    font-size: 0.8rem;
     padding-left: 7px;
     background: 0 0;
   }
-  
+
   .collect-input-exp {
     width: 100%;
     height: 50px;
     border: none;
-    font-size: 1rem;
+    font-size: 0.8rem;
     padding-left: 7px;
     background: 0 0;
   }
