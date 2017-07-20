@@ -6,7 +6,7 @@ $(document).ready(function(){
 	  $.getScript("./js/main.js");
 	  $.getScript("./js/search.js");
 	  $.getScript("./js/login.js");
-	  
+	  $.getScript("./js/writezzal.js");
 	});
 	$.get("footer.html", function(data) {
 	  $("#footer").html(data);
