@@ -7,9 +7,13 @@ body {
 body *, body *::before, body *::after {
 	box-sizing: border-box;
 }
-
 button, input, select, textarea {
 	line-height: normal;
+}
+button {
+	border: none;
+  background: none;
+  cursor: pointer;
 }
 
 /*목록 초기화 스타일 모듈*/

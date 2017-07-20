@@ -1,20 +1,19 @@
 <!-- 검색 -->
 <div class="opacity-curtain">
-  <div class="inner-head">
-    <div class="search-left">
-      <i class="fa fa-search" aria-hidden="true"></i>
-    </div>
-    <div class="search-mid">
-      <input type="text" class="search-line input-line" id="search-btn" placeholder="짤강을 검색해 보세요.">
-    </div>
-    <div class="search-right">
-      <button class="cancle-btn">취소</button>
-    </div>
+  <div class="inner-head search-page">
+   <div class="zzal-container">
+     <label for="searchcon" class="searchicon"><i class="fa fa-search" aria-hidden="true"></i></label>
+     <input type="text" id="searchcon" class="search-line input-default" placeholder="짤강을 검색해 보세요" autofocus>
+     <button type="button" class="btn-delete"><i class="fa fa-times-circle" aria-hidden="true"></i></button>
+     <button type="button" class="cancle-btn">취소</button>
+   </div>
   </div>
   <div class="suggest-search">
-    <ul class="suggest-all-line">
-      <li class="suggest-one-line"><a href="#" class="link-search">케네데레 인테뷰</a><a href="#" class="btn-key"><i class="fa fa-rocket" aria-hidden="true"></i></a></li>
-    </ul>
+    <div class="zzal-container">
+	    <ul class="suggest-all-line">
+	      <li class="suggest-one-line"><a href="#" class="link-search">케네데레 인테뷰 케네데레 인테뷰케네데레 인테뷰케네데레 인테뷰케네데레 인테뷰케네데레 인테뷰케네데레 인테뷰케네데레 인테뷰케네데레 인테뷰케네데레 인테뷰케네데레 인테뷰케네데레 인테뷰케네데레 인테뷰케네데레 인테뷰케네데레 인테뷰케네데레 인테뷰</a><a href="#" class="btn-key"><i class="fa fa-rocket" aria-hidden="true"></i></a></li>
+	    </ul>
+	  </div>
   </div>
 </div> 
 
@@ -41,11 +40,11 @@
         <input class="input-login" type="password" placeholder="비밀번호">
       </div>
       <div class="remember-find clearfix">
-        <input type="checkbox" class="checkbox" value="">
-        <span class="rememberId">아이디 기억하기</span>
+        <input id="rememberid" type="checkbox" class="checkbox" value="">
+        <label for="rememberid" class="rememberId">아이디 기억하기</label>
         <span class="findId">비밀번호 찾기</span>
       </div>
-      <button type="button" class="loginBtn">로그인</button>
+      <a href="choicecategory.html" class="btn btn-info loginBtn">로그인</a>
     </div>
     <div class="bottom-div">
       <div class="sign-div clearfix">
@@ -96,7 +95,7 @@
       <div class="remember-find clearfix">
         <input type="checkbox" class="checkbox" value=""> <span class="rememberId">약관에 동의합니다.</span> 
       </div>
-      <button type="button" class="loginBtn">회원가입</button>
+      <button type="button" class="btn btn-info loginBtn">회원가입</button>
     </div>
   </div>
 </div>
