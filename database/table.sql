@@ -36,7 +36,7 @@ CREATE TABLE MEMB (
 	MNO   INTEGER      NOT NULL COMMENT '회원코드', -- 회원코드
 	NICK  VARCHAR(30)  NOT NULL COMMENT '닉네임', -- 닉네임
 	EMAIL VARCHAR(40)  NOT NULL COMMENT '이메일', -- 이메일
-	PWD   VARCHAR(30)  NOT NULL COMMENT '패스워드', -- 패스워드
+	PWD   VARCHAR(50)  NOT NULL COMMENT '패스워드', -- 패스워드
 	MTYPE VARCHAR(20)  NULL     COMMENT '회원유형', -- 회원유형
 	STYPE VARCHAR(20)  NULL     COMMENT '가입유형', -- 가입유형
 	PIC   VARCHAR(255) NULL     COMMENT '사진' -- 사진
