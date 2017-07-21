@@ -27,6 +27,8 @@
     var pageTitle = ''
     if (pageurl.includes("notice")) { pageTitle = '알림' }
     else if (pageurl.includes("mypage")) { pageTitle = '마이페이지' }
+    else if (pageurl.includes("collectadd")) { pageTitle = '컬렉션 만들기' }
+    else if (pageurl.includes("collectdetail")) { pageTitle = '내 컬렉션' }
     $('.header .page-right .title').text(pageTitle)
 	
 	// 모바일화면 메뉴 swiper적용
