@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>login tester</title>
+  </head>
+  <style media="screen">
+
+  </style>
+  <body>
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+
+    function checkLoginState() {
+      FB.getLoginStatus(function(response) {
+        statusChangeCallback(response);
+      });
+    }
+
+    function statusChangeCallback(response) {
+
+      console.log('statusChangeCallback');
+
+      if (response.status === 'connected') {
+          // testAPI();
+          console.log(response,"connected")
+          alert('접속했어')
+          FB.logout()
+
+      } else {
+        // The person is not logged into your app or we are unable to tell.
+        console.log(response,"undefined")
+        document.getElementById('status').innerHTML = 'Please log ' +
+          'into this app.';
+      }
+
+    }
+
+
+  window.fbAsyncInit = function() {
+
+  FB.init({
+        appId      : '1589125961139017',
+        cookie     : true,
+        xfbml      : true,
+        version    : 'v2.10'
+      });
+      FB.getLoginStatus(function(response) {
+      statusChangeCallback(response);
+      });
+  };
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v2.10&appId=1589125961139017";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+
+
+
+
+
+    </script>
+
+
+    <div id="fb-root"></div>
+
+    <div id="status"></div>
+
+    <button id="logout" onclick="checkLoginState()" type="button"  name="button">로그아웃</button>
+    <div class="fb-login-button" onlogin="checkLoginState()"
+    data-width="500px" data-max-rows="1"
+    data-size="large" data-button-type="login_with" data-show-faces="false"
+    data-auto-logout-link="false" data-use-continue-as="false"></div>
+
+
+
+
+  </body>
+</html>
