@@ -21,7 +21,7 @@
  .represent-photo {
    position: absolute;
    left: 50%;
-   top: 26%;
+   top: 24%;
    transform: translateX(-50%);
    width: 117px;
    height: 105px;
@@ -139,6 +139,64 @@
    display: inline-block;
  }
 
+.zzal-container.relative {
+	position: relative
+}
+.category-page .zzal-container {
+	text-align: center;
+} 
+.category-page .user-info-face {
+	display: block;
+	margin-top: 20px;
+}
+.profile-wrap {
+	display: inline-block;
+}
+.category-title {
+	font-size: 1.68rem;
+}
+.category-explain {
+	color: #999;
+}
+.category-page .buttons .btn {
+	width: inherit;
+	padding: 6px 25px;
+	border-radius: 30px;
+	position: absolute;
+  right: 15px;
+}
+.category-bottom {
+	background: #f2f2f2;
+}
+.category-bottom .gray-bg {
+	width: 100%;
+  height: 47px;
+  background: white;
+  background: -moz-linear-gradient(top, #fff 0%, #fff 0%, #f3f4f5 100%);
+  background: -webkit-linear-gradient(top, #fff 0%, #fff 0%, #f3f4f5 100%);
+  background: -o-linear-gradient(top, #fff 0%, #fff 0%, #f3f4f5 100%);
+  background: -ms-linear-gradient(top, #fff 0%, #fff 0%, #f3f4f5 100%);
+  background: linear-gradient(to bottom, #fff 0%, #fff 0%, #f3f4f5 100%);
+}
+.category-bottom .zzal-container {
+	text-align: left;
+}
+.category-bottom .list {
+	/* font-size: 0.875rem; */
+	padding-left: 5px;
+	margin: 20px 0 10px;
+}
+.category-bottom .list li {
+	float: left;
+	/* margin-right: 15px; */
+}
+.category-bottom .list li:first-child::after {
+	display: inline-block;
+	content: '|';
+	padding: 0 10px;
+	color: #aaa;
+}
+
 /*mobile*/
 @media (max-width: 766px) {
 	.collect-addpage {
@@ -157,143 +215,3 @@
     margin-right: 0;
 	}
 }
-/* @media (max-width: 766px) {
-  .main-content.addpage {
-    background-color: #DDDDDD;
-    height: 700px;
-  }
-  .collect-add ul{
-    font-size: 0.7rem;
-  }
-  .collect-add {
-    height: 250px;
-  }
-  .collect-photo-add {
-    position: relative;
-  }
-  .collect-photo {
-    border: 2px solid gray;
-    width: 100%;
-    height: 250px;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-  .collect-photo a {
-    display: inline-block;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-  }
-  .collect-photo .fa-camera {
-    font-size: 4rem;
-    color: black;
-  }
-  .input-option {
-    font-size: 1rem;
-  }
-  .input-form1 {
-    border-bottom: 1px solid lightgray;
-    margin: 10px;
-  }
-  .range-option {
-    margin: 10px;
-  }
-  .private-collectSwitch {
-    margin: 10px;
-  }
-  .collect-input-name {
-    width: 100%;
-    height: 50px;
-    border: none;
-    font-size: 0.8rem;
-    padding-left: 7px;
-    background: 0 0;
-  }
-  .collect-input-exp {
-    width: 100%;
-    height: 50px;
-    border: none;
-    font-size: 0.8rem;
-    padding-left: 7px;
-    background: 0 0;
-  }
-  
-  비공개 스위치
-  .onoffswitch {
-    position: relative;
-    width: 50px;
-    margin:0 100px 50px 0;
-    float: left;
-    -webkit-user-select:none;
-    -moz-user-select:none;
-    -ms-user-select: none;
-  }
-  .onoffswitch-checkbox {
-    display: none;
-  }
-  .onoffswitch-label {
-    display: block;
-    overflow: hidden;
-    cursor: pointer;
-    height: 26px;
-    padding: 0;
-    line-height: 26px;
-    border: 2px solid #E3E3E3;
-    border-radius: 26px;
-    background-color: #FFFFFF;
-    transition: background-color 0.3s ease-in;
-  }
-  .onoffswitch-label:before {
-    content: "";
-    display: block;
-    width: 26px;
-    margin: 0px;
-    background: #FFFFFF;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 22px;
-    border: 2px solid #E3E3E3;
-    border-radius: 26px;
-    transition: all 0.3s ease-in 0s;
-  }
-  .onoffswitch-checkbox:checked + .onoffswitch-label {
-    background-color: #49E845;
-  }
-  .onoffswitch-checkbox:checked + .onoffswitch-label,
-   .onoffswitch-checkbox:checked + .onoffswitch-label:before {
-    border-color: #49E845;
-  }
-  .onoffswitch-checkbox:checked + .onoffswitch-label:before {
-    right: 0px;
-  }
-    .btn-cancle {
-      width: 100px;
-      height: 35px;
-      font-size: 1rem;
-      float: right;
-    }
-    .btn-make{
-      width: 100px;
-      height: 35px;
-      font-size: 1rem;
-      float: right;
-    }
-} */
-/* .btn-cancle {
-  color: white;
-  background-color: #444;
-  border-color: #ccc;
-}
-.btn-make{
-  color: white;
-  background-color: #F39C12;
-  border-color: #ccc;
-}
-.btn-default:active {
-	color: #333;
-  background-color: #e6e6e6;
-  border-color: #adadad;
-} */

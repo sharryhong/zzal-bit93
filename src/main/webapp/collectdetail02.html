@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>컬렉션 상세페이지</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="node_modules/swiper/dist/css/swiper.min.css">
+  <link rel="stylesheet" href="css/jquery.bxslider.min.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/collectdetail.css">
+</head>
+<body>
+<div class="main-page">
+<div id="header"></div>
+<div class="main-content detailpage">
+  <div class="collect-detailpage">
+    <div class="zzal-container">
+      <div class="collect-main-photo" id="main-collectdetail1"></div>
+        <div class="collect-detail-title" id="main-collectdetail2"></div>
+      <div class="my-collect">
+        <div class="my-zzal-view" id="main-collectdetail3"></div>
+      </div>
+    </div> <!--zzal-container -->
+  </div>
+</div>  <!--main content -->
+</div>
+<footer id="footer"></footer>
+
+<!-- zzal -->
+<script id="collectdetail-template1" type="text/x-handlebars-template">
+  {{#each profilePhoto}}
+  <div class="collect-photo">
+      <div class="detail-photoImage" style="background-image: url('{{phoTo}}')">
+        <button type="button" class="edit-btn ">편집</button>
+      </div>
+  </div>
+  {{/each}}
+</script>
+
+<script id="collectdetail-template2" type="text/x-handlebars-template">
+{{#each colldetailList}}
+  <div class="collect-title">
+    <h2>{{collectionTitle}}</h2>
+    <div class="collect-main-profile" style="background-image: url('image/oh.jpg')">
+      <a href="#" class="collect-profile"><span class="main-nickname">{{userNickname}}</span></a>
+    </div>
+  </div>
+  <div class="vieWcount">
+    <hr color="gray" width=98%><br>
+    <span class="vieW">짤강</span><i><span class="vieW">{{vieWcount}}</span>
+    <span class="vieW">구독</span><i><span class="vieW">{{fallow}}</span>
+  </div>
+{{/each}}
+</script>
+<script id="collectdetail-template3" type="text/x-handlebars-template">
+{{#each ZzalList}}
+<li>
+  <div class="zzal-lect">
+    <div class="lect-top">
+      <span class="user-photo" style='background-image:url("{{profileImg}}")'></span>
+      <span class="user-name">{{nickName}}</span>
+    </div>
+    <div class="zzal">
+      <div class="zzal-img">
+        <img src="{{zzalImg}}" alt="">
+        <div class="for-title">
+          <h3 class="title">{{zzalTitle}}</h3>
+        </div>
+      </div>
+    </div>
+    <div class="bottom">
+      <div class="view">
+        <span>조회수</span><span> {{viewCount}}</span>
+      </div>
+      <div class="right">
+        <div class="like">
+          <span><i class="fa fa-heart-o" aria-hidden="true"><span class="blind">좋아요</span></i></span><span> {{likeCount}}</span>
+        </div>
+        <div class="like">
+          <span><i class="fa fa-commenting-o" aria-hidden="true"><span class="blind">댓글</span></i></span><span> {{commentCount}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</li>
+{{/each}}
+</script>
+<script src="node_modules/jquery/dist/jquery.min.js"></script>
+<script src="node_modules/handlebars/dist/handlebars.min.js"></script>
+<script src="node_modules/swiper/dist/js/swiper.min.js"></script>
+<script src="js/collectdetail.js"></script>
+<script src="js/load.js"></script>
+
+</body>
+</html>
