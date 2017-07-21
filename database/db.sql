@@ -7,4 +7,4 @@ CREATE DATABASE zzaldb
   DEFAULT COLLATE utf8_general_ci;
 
 /* 3) 사용자가 사용할 데이터베이스를 지정하고 사용 권한을 부여 */
-GRANT ALL ON webappdb.* TO 'zzal'@'localhost';
+GRANT ALL ON zzaldb.* TO 'zzal'@'localhost';

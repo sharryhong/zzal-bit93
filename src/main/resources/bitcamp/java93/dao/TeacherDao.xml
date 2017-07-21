@@ -4,7 +4,6 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="bitcamp.java93.dao.TeacherDao">
 <!--   
-
   <resultMap type="teacher" id="teacherMap">
     <id column="mno" property="no"/>
     <result column="email" property="email"/>
