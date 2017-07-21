@@ -4,6 +4,7 @@
 }
 .main-content {
   margin-top: 0;
+  padding-bottom: 0;
 }
 .collect-addpage {
  	position: relative;
@@ -167,6 +168,7 @@
 }
 .category-bottom {
 	background: #f2f2f2;
+	padding-bottom: 20px;
 }
 .category-bottom .gray-bg {
 	width: 100%;
