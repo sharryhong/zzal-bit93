@@ -33,16 +33,37 @@
    <div class="zzal-container">
      <!-- left-side-->
               <div class="detail-funcbtn">
-                <a href="#"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></a>
+                <a class="detail-funcbtn-a" href="#detail-layer-funcBtn"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></a>
+                  <!-- <div id="detail-layer-funcBtn" class="funclayer">
+                    <div class="later-wrraper">
+                      <div class="view-collcet">
+                        <a href="#">
+                          이 짤강 컬랙션보기
+                        </a>
+                      </div>
+                      <div class="report-zzal">
+                        <a href="#">
+                          <strong class="fa fa-ban" aria-hidden="true"></strong>신고하기
+                        </a>
+                      </div>
+                    </div>
+
+                    <div class="detail-funcBtn-close">
+                      <a href="#" class="btn-layerClose"><strong class="fa fa-times" aria-hidden="true"></strong></a>
+                    </div>
+                  </div> -->
               </div>
 
               <div class="detail-left">
                 <div class="left-upper-menu">
                   <ul>
                     <li>
-                      <div class="upper-upper like">
+                      <div id="like-btn" class="upper-upper like">
                         <a href="#">
-                          <div class="bigboy fa fa-heart-o" aria-hidden="true"></div>
+                          <div class="fa-stack fa-lg">
+                            <div class="bigboy changeH fa fa-heart fa-stack-1x" aria-hidden="true"></div>
+                            <div class="bigboy fa fa-heart-o fa-stack-1x" aria-hidden="true"></div>
+                          </div>
                           <div class="smallboy navinfo">좋아요</div>
                         </a>
                       </div>
@@ -196,6 +217,8 @@
                             </div>
                             <!-- Add Pagination -->
                             <div class="swiper-pagination"></div>
+                            <div class="web-swiper-smallbtn swiper-button-next"></div>
+                            <div class="web-swiper-smallbtn swiper-button-prev"></div>
                         </div>
                       </div>
                     </div>
@@ -476,8 +499,8 @@
            <!-- Add Pagination -->
            <div class="swiper-pagination main-disabled"></div>
            <!-- Add Arrows -->
-           <div class="swiper-button-next"></div>
-           <div class="swiper-button-prev"></div>
+           <div class="web-swiper-btn swiper-button-next"></div>
+           <div class="web-swiper-btn swiper-button-prev"></div>
        </div>
 <!-- detail-siwpe swiper-container -->
  </div>
@@ -515,36 +538,8 @@
 <script src="scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
 <script src="js/jquery.bxslider.min.js"></script>
 <script src="js/load.js"></script>
-
-<script>
-var swiper = new Swiper('.detail-siwpe.swiper-container', {
-    nextButton: '.swiper-button-next',
-    prevButton: '.swiper-button-prev',
-    pagination: '.swiper-pagination',
-    paginationType: 'fraction'
-});
-
-// function funLoad(){
-//   var Cheight = $('.contents-images-zzals').height();
-//   console.log(Cheight)
-//   $('#imagetest').css({'height':Cheight+'px'});
-// }
-// window.onload = funLoad;
-// window.onresize = funLoad;
+<script src="js/detailpage.js"></script>
 
 
-</script>
-<!-- <script src="js/slide.js"></script> -->
-
-<script>
-var swiper = new Swiper('.swiper-container.lects-units', {
-   pagination: '.swiper-pagination',
-   slidesPerView: 2.5,
-   paginationClickable: true,
-   setWrapperSize : true,
-   nested : true,
-   autoplay: 2500
-});
-    </script>
 </body>
 </html>

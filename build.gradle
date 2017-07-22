@@ -1,11 +1,11 @@
 apply plugin: 'java' // 자바 빌드 도구가 있는 플러그인
-// apply plugin: 'eclipse' // 이클립스 설정 파일을 다루는 도구가 있는 플러그인
+/apply plugin: 'eclipse' // 이클립스 설정 파일을 다루는 도구가 있는 플러그인
 apply plugin: 'eclipse-wtp' // 이클립스 설정 파일을 다루는 도구 + 웹 관련 설정 파일을 다루는 도구가 있는 플러그인
 apply plugin: 'war' // web 아카이브(ARchive) 배포 파일을 만드는 도구가 들어있는 플러그인
 
 compileJava {
     options.encoding = 'UTF-8'  // 소스 파일의 인코딩을 알려준다.
-    sourceCompatibility = '1.8' // 어떤 자바 버전의 문법을 사용했는지 알려준다. 
+    sourceCompatibility = '1.8' // 어떤 자바 버전의 문법을 사용했는지 알려준다.
 }
 
 // 외부 라이브러리를 다운로드 받을 서버정보
@@ -27,11 +27,10 @@ dependencies {
     compile group: 'org.springframework', name: 'spring-jdbc', version: '4.3.9.RELEASE'
 	compile group: 'org.springframework', name: 'spring-webmvc', version: '4.3.9.RELEASE'
     compile group: 'org.aspectj', name: 'aspectjweaver', version: '1.8.10'
-    
+
     // providedCompile : 빌드할 때만 사용. 배포에는 제외
     providedCompile group: 'javax.servlet', name: 'javax.servlet-api', version: '3.1.0'
-    
+
     // testCompile 옵션 : 단위 테스트 파일을 컴파일 할 때만 사용하는 라이브러리
     testCompile 'junit:junit:4.12'
 }
-

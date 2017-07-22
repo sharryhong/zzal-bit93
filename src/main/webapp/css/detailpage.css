@@ -3,6 +3,41 @@
   max-height: 900px;
 
  }
+
+
+/*.detail-funcbtn .funclayer {
+  display: none;
+  height: 100px;
+  width: 150px;
+  background-color: #eee;
+   position: relative;
+   float: left;
+   margin-top: 25px;
+
+  font-size: 15px;
+  line-height: 25px;
+  padding-left: 10px;
+
+}
+
+.detail-funcbtn .funclayer  .later-wrraper{
+  margin-top: 25px;
+
+}
+
+.detail-funcbtn .funclayer .detail-funcBtn-close {
+  position: absolute;
+  right: 10px;
+  top:0;
+}
+*/
+
+
+
+
+
+
+
  .swiper-button-prev.swiper-button-disabled {
     opacity: .1;
   }
@@ -98,6 +133,10 @@
 
 
 @media (min-width: 911px) {
+  .web-swiper-smallbtn{
+  height: 24px;
+ }
+
 
   .detail-m-header {
     display: none;
@@ -148,6 +187,7 @@
   .detail-left .left-down-menu .comuni{
     color: #3498db;
     font-size: 20px;
+    margin: 0;
   }
 
   .detail-right .left-info {
@@ -218,7 +258,7 @@
   .upper-contaniner .user-lects-units .lects-units-sliders {
     height: 160px;
     width:100%;
-  
+
     margin-top: 20px;
   }
 
@@ -247,6 +287,7 @@
   }
 
   .down-container .reply-inputer .input-con .inputer .input-reply,.submit-reply{
+    border: 1px solid #ccc;
     float:left;
     padding: 0px;
     height: 30px;
@@ -352,6 +393,12 @@
 
 
 @media (max-width: 910px) {
+
+
+
+  .web-swiper-btn, .web-swiper-smallbtn{
+    visibility: hidden;
+  }
 
   .detail-m-header {
     color: #fff;
@@ -570,7 +617,9 @@
     width:85%;
   }
   .down-container .reply-inputer .input-con .inputer .input-reply,.submit-reply{
-        margin-left: 5px;
+    border: 1px solid #ccc;
+    color: #ffffff;
+    margin-left: 5px;
     float:left;
     padding: 0px;
     height: 30px;

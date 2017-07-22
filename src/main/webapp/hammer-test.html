@@ -117,13 +117,12 @@
 <script src="node_modules/hammerjs/hammer.min.js"></script>
 <script src="node_modules/jquery-hammerjs/jquery.hammer.js"></script>
 <script>
-var myElement = document.getElementById('hitarea');
-Hammer(myElement).on("swipe", function() {
-	var el = $('.titles-wrap .title')
-	
-	el.animate({left: "+=100"}, 500)
-  console.log('ok')
-});
+
+      $.getJSON('category/list.json', function(result){
+        console.log(result)
+      })
+
+
 </script>
 </body>
 </html>
