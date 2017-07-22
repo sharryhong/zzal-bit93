@@ -99,7 +99,7 @@
 	width: 60px;
 	height: 94px;
 }
-.category-special .zzal-lects02 li:nth-child(1)::after {
+/* .category-special .zzal-lects02 li:nth-child(1)::after {
 	background: center url("../image/medal1.png");
 	background-size: 100%;
 }
@@ -110,7 +110,7 @@
 .category-special .zzal-lects02 li:nth-child(3)::after {
 	background: center url("../image/medal3.png");
 	background-size: 100%;
-}
+} */
 
 .titles-wrap .title {
 	font-weight: normal;
