@@ -1,8 +1,5 @@
--- 회원 : 그런데 password('1111') 가 안먹는다. 
+-- 회원 
 insert into memb(mno,nick,email,pwd) values(1,'zzal','zzal@test.com',password('1111'));
--- 이건 된다.
-insert into memb(mno,nick,email,pwd) values(1,'zzal','zzal@test.com','1111');
-
 
 
 -- 카테고리 
