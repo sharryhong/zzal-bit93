@@ -87,6 +87,29 @@
 }
 .category-special .zzal-lects02 li {
 	padding: 5px 20px;
+	position: relative;
+}
+
+.category-special .zzal-lects02 li::after {
+	display: inline-block;
+	position: absolute;
+	top: 4px;
+  left: 5px;
+	content: '';
+	width: 60px;
+	height: 94px;
+}
+.category-special .zzal-lects02 li:nth-child(1)::after {
+	background: center url("../image/medal1.png");
+	background-size: 100%;
+}
+.category-special .zzal-lects02 li:nth-child(2)::after {
+	background: center url("../image/medal2.png");
+	background-size: 100%;
+}
+.category-special .zzal-lects02 li:nth-child(3)::after {
+	background: center url("../image/medal3.png");
+	background-size: 100%;
 }
 
 .titles-wrap .title {
@@ -94,6 +117,9 @@
 }
 
 @media (max-width: 765px) {
+	.category-special .zzal-lects02 li::after {
+    top: 0px;
+	}
 	.bx-wrapper .bx-controls-direction a {
 	  margin-top: -40px;
 	}
