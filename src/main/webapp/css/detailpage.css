@@ -464,12 +464,10 @@
     position: absolute;
     top: 80px;
   }
-  /*.detail-siwpe .detail-page-swipe .swiper-pagination.main-disabled.swiper-pagination-fraction{
-    display: none;
-  }*/
-   .main-disabled.swiper-pagination-fraction{
-    display: none;
+  .swiper-container-horizontal>.swiper-pagination-bullets, .swiper-pagination-custom, .swiper-pagination-fraction{
+    visibility: hidden;
   }
+
   .detail-m-footer {
     position: fixed;
     z-index: 100000;

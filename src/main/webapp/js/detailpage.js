@@ -13,7 +13,7 @@ var swiper = new Swiper(detailSwipeBig,detailSwipeBigInfo)
 // <!-- <script src="js/slide.js"></script> -->
 var detailSwipeSmall='.swiper-container.lects-units';
 var detailSwipeSmallInfo={
-                             pagination: '.swiper-pagination',
+                            //  pagination: '.swiper-pagination',
                              slidesPerView: 2.5,
                              paginationClickable: true,
                              setWrapperSize : true,
@@ -45,4 +45,9 @@ $('.detail-funcbtn-a').on('click', function(e){
 })
 
 
-console.log($('.detail-siwpe'))
+//
+// var lstPagenOm = $('.detail-page-swipe .det-lect'),
+//     lstPagenUm= ($('.detail-page-swipe .det-lect').length)-1;
+
+// console.log($(lstPagenOm[lstPagenUm]))
+var testnum =$('.swiper-wrapper.detail-page-swipe .swiper-pagination.main-disabled.swiper-pagination-fraction')
