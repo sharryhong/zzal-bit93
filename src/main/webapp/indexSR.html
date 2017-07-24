@@ -10,8 +10,8 @@
   <link rel="stylesheet" href="css/jquery.bxslider.min.css">
   <link rel="stylesheet" href="css/common.css">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/search.css">
-  <link rel="stylesheet" href="css/login.css">
+  <link rel="stylesheet" href="css/findpassword.css">
+  
 </head>
 <body>
 <div class="main-page">
@@ -19,18 +19,15 @@
 <div class="main-content index-page">
   <div class="top clearfix">
     <div class="slider">
-	    <ul class="bxslider clearfix">
-	      <li>
-			    <img src="image/zzal02.jpg" title="떡볶이 국물로 만드는 빠바 스탈 떡볶이 빵">
-				</li>
-				<li>
-				  <img src="image/zzal03.jpg" title="놀러가자">
-				</li>
-				<li>
-				  <img src="image/zzal01.gif" title="놀러가자">
-				</li>
-	    </ul>
-	  </div>
+      <ul class="bxslider clearfix" id="main-slide">
+        <li>
+          <img src="image/zzal02.jpg" title="맛난거 해드세요">
+        </li>
+        <li>
+          <img src="image/zzal03.jpg" title="하하하핫">
+        </li>
+      </ul>
+    </div>
     <div class="best">
       <h3 class="title">BEST 짤에디터</h3>
       <ul>
@@ -45,15 +42,190 @@
   </div>
 <!-- zzal-lect -->
   <div class="zzal-container">
-    <ul class="zzal-lects clearfix" id="zzal-list1"></ul>
+    <ul class="zzal-lects clearfix">
+      <li>
+        <a href="detailpage.html" class="zzal-lect">
+          <div class="lect-top">
+            <span class="user-photo" style="background-image:url(&quot;image/user.jpg&quot;)"></span>
+            <span class="user-name">이완1</span>
+          </div>
+          <div class="zzal">
+            <div class="zzal-img">
+              <img src="image/zzal01.gif" alt="">
+              <div class="for-title">
+                <h3 class="title">우리 함께 브런치 할까요? 단돈 3000원에...</h3>
+              </div>
+            </div>
+          </div>
+          <div class="bottom">
+            <div class="view">
+              <span>조회수</span><span> 22242</span>
+            </div>
+            <div class="right">
+              <div class="like">
+                <span><i class="fa fa-heart-o" aria-hidden="true"><span class="blind">좋아요</span></i></span><span> 1222</span>
+              </div>
+              <div class="like">
+                <span><i class="fa fa-commenting-o" aria-hidden="true"><span class="blind">댓글</span></i></span><span> 3578</span>
+              </div>
+            </div>
+          </div>
+        </a>
+      </li>
+      <li>
+        <a href="detailpage.html" class="zzal-lect">
+          <div class="lect-top">
+            <span class="user-photo" style="background-image:url(&quot;image/oh.jpg&quot;)"></span>
+            <span class="user-name">오연서2</span>
+          </div>
+          <div class="zzal">
+            <div class="zzal-img">
+              <img src="image/zzal02.jpg" alt="">
+              <div class="for-title">
+                <h3 class="title">우리 함께 브런치 할까요? 단돈 3000원에...</h3>
+              </div>
+            </div>
+          </div>
+          <div class="bottom">
+            <div class="view">
+              <span>조회수</span><span> 22242</span>
+            </div>
+            <div class="right">
+              <div class="like">
+                <span><i class="fa fa-heart-o" aria-hidden="true"><span class="blind">좋아요</span></i></span><span> 1222</span>
+              </div>
+              <div class="like">
+                <span><i class="fa fa-commenting-o" aria-hidden="true"><span class="blind">댓글</span></i></span><span> 1222</span>
+              </div>
+            </div>
+          </div>
+        </a>
+      </li>
+      <li>
+        <a href="detailpage.html" class="zzal-lect">
+          <div class="lect-top">
+            <span class="user-photo" style="background-image:url(&quot;image/ohh.jpg&quot;)"></span>
+            <span class="user-name">오연서3</span>
+          </div>
+          <div class="zzal">
+            <div class="zzal-img">
+              <img src="image/zzal03.jpg" alt="">
+              <div class="for-title">
+                <h3 class="title">우리 함께 브런치 할까요? 단돈 3000원에...</h3>
+              </div>
+            </div>
+          </div>
+          <div class="bottom">
+            <div class="view">
+              <span>조회수</span><span> 22242</span>
+            </div>
+            <div class="right">
+              <div class="like">
+                <span><i class="fa fa-heart-o" aria-hidden="true"><span class="blind">좋아요</span></i></span><span> 1222</span>
+              </div>
+              <div class="like">
+                <span><i class="fa fa-commenting-o" aria-hidden="true"><span class="blind">댓글</span></i></span><span> 1222</span>
+              </div>
+            </div>
+          </div>
+        </a>
+      </li>
+      <li>
+        <a href="detailpage.html" class="zzal-lect">
+          <div class="lect-top">
+            <span class="user-photo" style="background-image:url(&quot;image/user.jpg&quot;)"></span>
+            <span class="user-name">이완4</span>
+          </div>
+          <div class="zzal">
+            <div class="zzal-img">
+              <img src="image/zzal02.jpg" alt="">
+              <div class="for-title">
+                <h3 class="title">우리 함께 브런치 할까요? 단돈 3000원에...</h3>
+              </div>
+            </div>
+          </div>
+          <div class="bottom">
+            <div class="view">
+              <span>조회수</span><span> 22242</span>
+            </div>
+            <div class="right">
+              <div class="like">
+                <span><i class="fa fa-heart-o" aria-hidden="true"><span class="blind">좋아요</span></i></span><span> 1222</span>
+              </div>
+              <div class="like">
+                <span><i class="fa fa-commenting-o" aria-hidden="true"><span class="blind">댓글</span></i></span><span> 1222</span>
+              </div>
+            </div>
+          </div>
+        </a>
+      </li>
+      <li>
+        <a href="detailpage.html" class="zzal-lect">
+          <div class="lect-top">
+            <span class="user-photo" style="background-image:url(&quot;image/user.jpg&quot;)"></span>
+            <span class="user-name">이완5</span>
+          </div>
+          <div class="zzal">
+            <div class="zzal-img">
+              <img src="image/zzal02.jpg" alt="">
+              <div class="for-title">
+                <h3 class="title">우리 함께 브런치 할까요? 단돈 3000원에...</h3>
+              </div>
+            </div>
+          </div>
+          <div class="bottom">
+            <div class="view">
+              <span>조회수</span><span> 22242</span>
+            </div>
+            <div class="right">
+              <div class="like">
+                <span><i class="fa fa-heart-o" aria-hidden="true"><span class="blind">좋아요</span></i></span><span> 1222</span>
+              </div>
+              <div class="like">
+                <span><i class="fa fa-commenting-o" aria-hidden="true"><span class="blind">댓글</span></i></span><span> 1222</span>
+              </div>
+            </div>
+          </div>
+        </a>
+      </li>
+      <li>
+        <a href="detailpage.html" class="zzal-lect">
+          <div class="lect-top">
+            <span class="user-photo" style="background-image:url(&quot;image/user.jpg&quot;)"></span>
+            <span class="user-name">이완6</span>
+          </div>
+          <div class="zzal">
+            <div class="zzal-img">
+              <img src="image/zzal02.jpg" alt="">
+              <div class="for-title">
+                <h3 class="title">우리 함께 브런치 할까요? 단돈 3000원에...</h3>
+              </div>
+            </div>
+          </div>
+          <div class="bottom">
+            <div class="view">
+              <span>조회수</span><span> 22242</span>
+            </div>
+            <div class="right">
+              <div class="like">
+                <span><i class="fa fa-heart-o" aria-hidden="true"><span class="blind">좋아요</span></i></span><span> 1222</span>
+              </div>
+              <div class="like">
+                <span><i class="fa fa-commenting-o" aria-hidden="true"><span class="blind">댓글</span></i></span><span> 1222</span>
+              </div>
+            </div>
+          </div>
+        </a>
+      </li>
+      </ul>
   </div>
   <div class="zzal-week-container">
     <div class="zzal-container">
-	    <div class="top-con clearfix">
-	      <h4 class="title">금주의 인기짤강</h4>
-	      <a href="#" class="more">더보기 <i class="fa fa-angle-right" aria-hidden="true"></i></a>
-	    </div>
-	    <ul class="zzal-lects02 clearfix" id="zzal-week-list"></ul>
+      <div class="top-con clearfix">
+        <h4 class="title">금주의 인기짤강</h4>
+        <a href="#" class="more">더보기 <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+      </div>
+      <ul class="zzal-lects02 clearfix" id="zzal-week-list"></ul>
     </div>
   </div>
   <div class="zzal-container">
@@ -63,10 +235,18 @@
 <div id="footer"></div>
 </div>
 
+<script id="main-slide-template" type="text/x-handlebars-template">
+{{#each list}}
+<li>
+  <img src="{{zzalImg}}" title="{{zzalTitle}}">
+</li>
+{{/each}}
+</script>
+
 <script id="main-template1" type="text/x-handlebars-template">
 {{#each mainList1}}
 <li>
-  <a href="detailpage-v01.html" class="zzal-lect">
+  <a href="detailpage.html" class="zzal-lect">
     <div class="lect-top">
       <span class="user-photo" style='background-image:url("{{profileImg}}")'></span>
       <span class="user-name">{{nickName}}</span>
@@ -151,5 +331,5 @@
 <script src="js/jquery.bxslider.min.js"></script>
 <script src="node_modules/swiper/dist/js/swiper.min.js"></script>
 <script src="js/loadSR.js"></script>
-</body>
+<script src="js/hbs.js"></script>
 </html>
