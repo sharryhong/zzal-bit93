@@ -1,5 +1,6 @@
 -- 회원 
 insert into memb(mno,nick,email,pwd) values(1,'zzal','zzal@test.com',password('1111'));
+insert into memb(mno,nick,email,pwd) values(2,'짤렉터','zzal02@test.com',password('1111'));
 
 
 -- 카테고리 
@@ -13,7 +14,6 @@ insert into catg(cno,name) values(7,'IT');
 insert into catg(cno,name) values(8,'직업, 진로');
 insert into catg(cno,name) values(9,'패션, 뷰티');
 
--- 짤강의
-insert into zzal_lect(zzno,mno,cno,titl,cdt) values(1,1,1,'짤강1','2017-01-31');
-
 -- 컬렉션 
+insert into colct(cono,mno,title,cont,pic,public) values(1,1,'요리모음집','요리를 모을 것이다.','collect01.jpeg',true);
+insert into colct(cono,mno,title,cont,pic,public) values(2,1,'기타를 배우고 싶다','하루 한 곡!','collect02.jpg',false);
