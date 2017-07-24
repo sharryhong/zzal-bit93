@@ -1,0 +1,179 @@
+#header .swiper-container {
+	display: none;
+}
+ .main-content {
+  margin-top: 0;
+  padding-bottom: 0;
+}
+ .main-content.changepage {
+	padding-bottom: 20px;
+}
+ .profile-photo-change {
+	margin: 0 0 20px 30%;
+}
+ .profile-photo-change .profile-picture {
+	margin-top: 100px;
+  display: inline-block;
+  background-image: url('../image/asd.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  display: inline-block;
+}
+ .change-photo {
+	 cursor: pointer;
+	 font-weight: bold;
+	 position: absolute;
+	 top: 150px;
+	 margin: 10px;
+ }
+
+ .zzal-container.middle .profile-changepage {
+ 	position: relative;
+  margin-top: 66px;
+}
+ .profile-change {
+	margin-top: 50px;
+}
+ .input-change {
+   font-size: 1.5rem;
+ }
+ .input-form {
+   border-bottom: 1px solid lightgray;
+   margin: 20px 0;
+   margin-bottom: 30px;
+ }
+ .profile-input-name {
+   width: 100%;
+   height: 40px;
+   border: none;
+   font-size: 1rem;
+   padding: 3px;
+   margin-top: 10px;
+ }
+ .change-button .btn {
+   width: 200px;
+   height: 50px;
+   font-size: 1.375rem;
+   margin-right: 5px;
+ }
+ .deletebtn .account-delete {
+	 float: left;
+	 color: #F39C12;
+   margin-bottom: 10px;
+	 font-size: 1rem;
+ }
+ .change-button {
+   text-align: right;
+ }
+ .change-button .btn {
+   display: inline-block;
+ }
+ /*.zzal-container.relative {
+ 	position: relative
+ }
+ .category-page .zzal-container {
+ 	text-align: center;
+ }
+ .category-page .user-info-face {
+ 	display: block;
+ 	margin-top: 20px;
+ }
+ .profile-wrap {
+ 	display: inline-block;
+ }
+ .category-title {
+ 	font-size: 1.68rem;
+ }
+ .category-explain {
+ 	color: #999;
+ }
+ .category-page .buttons .btn {
+ 	width: inherit;
+ 	padding: 6px 25px;
+ 	border-radius: 30px;
+ 	position: absolute;
+   right: 15px;
+ }
+ .category-bottom {
+ 	background: #f2f2f2;
+ 	padding-bottom: 20px;
+ }
+ .category-bottom .gray-bg {
+ 	width: 100%;
+   height: 47px;
+   background: white;
+   background: -moz-linear-gradient(top, #fff 0%, #fff 0%, #f3f4f5 100%);
+   background: -webkit-linear-gradient(top, #fff 0%, #fff 0%, #f3f4f5 100%);
+   background: -o-linear-gradient(top, #fff 0%, #fff 0%, #f3f4f5 100%);
+   background: -ms-linear-gradient(top, #fff 0%, #fff 0%, #f3f4f5 100%);
+   background: linear-gradient(to bottom, #fff 0%, #fff 0%, #f3f4f5 100%);
+ }
+ .category-bottom .zzal-container {
+ 	text-align: left;
+ }
+ .category-bottom .list {
+
+ 	padding-left: 5px;
+ 	margin: 20px 0 10px;
+ }
+ .category-bottom .list li {
+ 	float: left;
+
+ }
+ .category-bottom .list li:first-child::after {
+ 	display: inline-block;
+ 	content: '|';
+ 	padding: 0 10px;
+ 	color: #aaa;
+ }*/
+/*mobile*/
+@media (max-width: 765px) {
+	.header.change-header .right {
+	  display: none;
+	}
+	.header .page-right {
+	  display: inline-block;
+	  float: right;
+	}
+	.header .page-right .title {
+	  font-size: 1.125rem;
+	  float: left;
+	  line-height: 49px;
+	}
+	.header .page-right a {
+	  display: inline-block;
+	  padding: 0 5px;
+	  margin-left: 5px;
+	}
+	.header .page-right .fa {
+	  font-size: 1.875rem;
+	  line-height: 49px;
+	}
+	.mobile-nav {
+		display: none;
+	}
+	/*.profile-changepage {
+	margin-top: 10px;
+	}*/
+	.profile-change {
+    margin-top: 0;
+	}
+	.input-change {
+	  font-size: 1.375rem;
+	}
+	.change-button {
+    text-align: center;
+	}
+	.change-button .btn {
+    display: inline-block;
+    width: 49%;
+	  font-size: 1.125rem;
+    margin-right: 0;
+	}
+	.profile-photo-change {
+    margin: 0 0 20px 10%;
+	}
+}
