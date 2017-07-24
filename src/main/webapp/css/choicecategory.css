@@ -148,14 +148,14 @@
   .category-1 {
 	  margin-top: 20px;
 	}
-	.catg-choicer label {
+	.choosecatg  {
     width: 100px;
     height: 100px;
 	}
 	.category-1 .catg-choicer {
     margin-right: 0px;
 	}
-	.catg-choicer label {
+	.choosecatg {
     margin: 20px;
     width: 140px;
     height: 140px;
@@ -164,6 +164,10 @@
     font-size: 18px;
     z-index: 100;
     line-height: 100px;
+		width: 77%;
+    height: 77%;
+		left: 21px;
+    top: 22px;
 	}
 	.catg-choicer .click-checkbox {
     width: 40px;
@@ -171,10 +175,26 @@
     right: 10px;
     top: 10px;
 	}
+
+	.catg-choicer label:after {
+    width: 60px;
+    height: 42px;
+    top: 80px;
+    left: 64px;
+    border: 15px solid #F39C12;
+    border-top: none;
+    border-right: none;
+    background: transparent;
+    /*opacity: 0.2;
+    transform: rotate(-45deg);
+    z-index: 400;
+    border-radius: 10px;*/
+}
+
 }
 
 @media (max-width: 505px) {
-	.catg-choicer label {
+	.choosecatg {
     width: 95px;
     height: 95px;
     margin: 5px;
@@ -183,4 +203,23 @@
 	  right: 0px;
     top: -5px;
 	}
+
+	.catg-title {
+    width: 90%;
+    height: 90%;
+    left: 5px;
+    top: 5px;
+}
+
+.catg-choicer label:after {
+	width: 35px;
+	height: 25px;
+	top: 15px;
+	left: 38px;
+	border: 10px solid #F39C12;
+	border-top: none;
+	border-right: none;
+	background: transparent;
+}
+
 }
