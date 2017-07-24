@@ -19,13 +19,8 @@ public class CollectControl {
   @Autowired CollectService collectService;
   
   @RequestMapping("list")
-  public JsonResult list(
-      @RequestParam(defaultValue="1") int pageNo, 
-      @RequestParam(defaultValue="5") int pageSize) throws Exception {
     
     HashMap<String,Object> dataMap = new HashMap<>();
-    dataMap.put("list", collectService.list(pageNo, pageSize));
-    dataMap.put("totalCount", collectService.getSize());
     
     return new JsonResult(JsonResult.SUCCESS, dataMap);
   }

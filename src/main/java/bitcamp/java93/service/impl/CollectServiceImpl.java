@@ -1,6 +1,5 @@
 package bitcamp.java93.service.impl;
 
-import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,16 +16,14 @@ public class CollectServiceImpl implements CollectService {
   CollectDao collectDao;
 
   @Override
-  public List<Collect> list(int pageNo, int pageSize) throws Exception {
-    HashMap<String,Object> valueMap = new HashMap<>();
-    valueMap.put("startIndex", (pageNo - 1) * pageSize);
-    valueMap.put("pageSize", pageSize);
-    return collectDao.selectList(valueMap);
+  public List<Collect> list(int num) throws Exception {
+    return collectDao.selectList(num);
   }
 
   @Override
   public int getSize() throws Exception {
     return collectDao.countAll();
   }
+
 
 }

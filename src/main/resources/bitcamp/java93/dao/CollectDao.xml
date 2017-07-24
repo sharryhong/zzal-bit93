@@ -9,7 +9,7 @@
     <result column="title" property="title"/>
     <result column="cont" property="content"/>
     <result column="pic" property="picture"/>
-    <result column="public" property="publicBtn"/>
+    <result column="public" property="isPublic"/>
   </resultMap>
 
   <sql id="select1">
@@ -17,8 +17,9 @@
     from colct
   </sql>
   
-  <select id="selectList" resultMap="collectMap" parameterType="map">
+  <select id="selectList" resultMap="collectMap" parameterType="int">
     <include refid="select1"/>
+    where mno = #{memberNo} 
     order by cono desc 
   </select>
   

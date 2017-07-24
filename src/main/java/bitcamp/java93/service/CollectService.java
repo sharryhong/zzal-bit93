@@ -5,6 +5,6 @@ import java.util.List;
 import bitcamp.java93.domain.Collect;
 
 public interface CollectService {
-  List<Collect> list(int pageNo, int pageSize) throws Exception;
+  List<Collect> list(int num) throws Exception;
   int getSize() throws Exception;
 }
