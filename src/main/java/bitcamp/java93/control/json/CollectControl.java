@@ -19,8 +19,10 @@ public class CollectControl {
   @Autowired CollectService collectService;
   
   @RequestMapping("list")
+  public JsonResult list(int no) throws Exception {
     
     HashMap<String,Object> dataMap = new HashMap<>();
+    dataMap.put("list", collectService.list(no));
     
     return new JsonResult(JsonResult.SUCCESS, dataMap);
   }

@@ -16,8 +16,8 @@ public class CollectServiceImpl implements CollectService {
   CollectDao collectDao;
 
   @Override
-  public List<Collect> list(int num) throws Exception {
-    return collectDao.selectList(num);
+  public List<Collect> list(int no) throws Exception {
+    return collectDao.selectList(no);
   }
 
   @Override

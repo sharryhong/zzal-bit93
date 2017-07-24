@@ -30,13 +30,13 @@
 	})
   }
   
-  var num = 0
+  var no = 0
   try {
-    var num = location.href.split('?')[1].split('=')[1]
+    var no = location.href.split('?')[1].split('=')[1]
   } catch(err) {} // 에러가나도 멈추지 않게함
   
-  $.getJSON('collect/list.json', {"num": num}, function(result) {
-	  console.log(num)
+  $.getJSON('collect/list.json', {"no": no}, function(result) {
+	  console.log(no)
 	  console.log(result)
   })
   
