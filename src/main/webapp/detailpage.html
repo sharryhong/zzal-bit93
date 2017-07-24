@@ -58,11 +58,11 @@
                 <div class="left-upper-menu">
                   <ul>
                     <li>
-                      <div id="like-btn" class="upper-upper like">
+                      <div class="upper-upper like">
                         <a href="#">
-                          <div class="fa-stack fa-lg">
-                            <div class="bigboy changeH fa fa-heart fa-stack-1x" aria-hidden="true"></div>
-                            <div class="bigboy fa fa-heart-o fa-stack-1x" aria-hidden="true"></div>
+                          <div id="like-btn">
+                            <div class="bigboy fa fa-heart off-btn" aria-hidden="true"></div>
+                            <div class="bigboy fa fa-heart-o" aria-hidden="true"></div>
                           </div>
                           <div class="smallboy navinfo">좋아요</div>
                         </a>
@@ -71,15 +71,23 @@
                     <li>
                     <div class="upper-upper listen">
                       <a href="#">
-                        <div class="bigboy fa fa-volume-up" aria-hidden="true"></div><div class="fa fa-volume-off" aria-hidden="true" style="display:none"></div>
+                        <div id="volume-btn" class="">
+                          <div class="bigboy fa fa-volume-up off-btn" aria-hidden="true" ></div>
+                          <div class="bigboy fa fa-volume-off" aria-hidden="true" ></div>
+                        </div>
                         <div class="smallboy navinfo-four">음성듣기</div>
                       </a>
                     </div>
                     </li>
                     <li>
                       <div class="upper-upper auto-play">
-                        <div class="bigboy fa fa-play-circle" aria-hidden="true"></div>
+                        <a href="#">
+                        <div id="play-btn" class="">
+                            <div class="bigboy fa fa-play-circle off-btn" aria-hidden="true"></div>
+                            <div class="bigboy fa fa-pause" aria-hidden="true"></div>
+                        </div>
                         <div class="smallboy navinfo-four">자동재생</div>
+                        </a>
                       </div>
                     </li>
                   </ul>
@@ -120,15 +128,19 @@
                      <a href="#">
                        <div class="lect-user-phot thumbnail-phot-insert"></div>
                      </a>
+                    <!-- <script id="detailright-template" type="text/x-handlebars-template"> -->
                      <div class="zzal-lect-info">
                        <ul>
-                         <li><span class='left-1st user-name'>[유끼만두]</span><span class='right-1st'></span></li>
-                         <li><span class='left-1st viewcnt'>조회수</span><span class='right-1st viewnum'>2,000</span></li>
-                         <li><span class='left-1st likecnt'>좋아요</span><span class='right-1st likenum'>2,000</span></li>
-                         <li><span class='left-1st reply'>댓 글</span><span class='right-1st replynum'>2,000</span></li>
+                         <li><span class='left-1st user-name'><span>[</span>유끼만두냔<span>]</span></span><span class='right-1st'></span></li>
+                         <li><span class='left-1st viewcnt'>조회수</span><span class='right-1st viewnum'>20000</span></li>
+                         <li><span class='left-1st likecnt'>좋아요</span><span class='right-1st likenum'>20000</span></li>
+                         <li><span class='left-1st reply'>댓 글</span><span class='right-1st replynum'>20000</span></li>
                        </ul>
                      </div>
-                   </div>
+                   <!-- </script> -->
+                   <!--right handlebars template-->
+
+                   </div><!--left-info-->
                   <div class="write-date"><span class='date-num'>2017-07-07</span><span>작성</span></div>
                   </div>
                     <div class="user-lects-units">

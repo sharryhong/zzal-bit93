@@ -4,7 +4,33 @@
 
  }
 
+ .detail-left .left-upper-menu .upper-upper .bigboy:hover, .detail-left .left-upper-menu .upper-upper .bigboy:active{
+   font-size: 220%;
+   color: rgb(51,51,51);
+   -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+   /*background-color: yellow;*/
 
+ }
+
+ #like-btn .off-btn{
+   display: none
+ }
+
+ #like-btn .fa.fa-heart {
+   color : red;
+ }
+
+
+ #volume-btn .off-btn{
+   display:none
+ }
+ #play-btn .off-btn{
+   display:none
+ }
 /*.detail-funcbtn .funclayer {
   display: none;
   height: 100px;
@@ -169,6 +195,7 @@
      }
 
    .detail-left .upper-upper {
+     color: gray;
      margin: 30px 0;
    }
    .detail-left .upper-upper .bigboy{
@@ -402,10 +429,7 @@
 
   .detail-m-header {
     color: #fff;
-    text-shadow: -1px -1px 1px #eee,
-                  1px -1px 1px #eee,
-                  -1px 1px 1px #999,
-                  1px 1px 1px #999;
+    text-shadow: -1px -1px 1px rgba(0,0,0,0.2), 1px -1px 1px rgba(0,0,0,0.2), -1px 1px 1px rgba(0,0,0,0.7), 1px 1px 1px rgba(0,0,0,0.7);
     text-align: left;
     position: fixed;
     z-index: 10000;
@@ -474,10 +498,7 @@
     position: fixed;
     z-index: 100000;
     color:#fff;
-    text-shadow: -1px -1px 1px #eee,
-                  1px -1px 1px #eee,
-                  -1px 1px 1px #999,
-                  1px 1px 1px #999;
+    text-shadow: -1px -1px 1px rgba(0,0,0,0.2), 1px -1px 1px rgba(0,0,0,0.2), -1px 1px 1px rgba(0,0,0,0.7), 1px 1px 1px rgba(0,0,0,0.7);
     bottom:0;
     width:100%;
     font-size: 24px;
