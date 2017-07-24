@@ -107,7 +107,7 @@ ALTER TABLE PAGE
 -- 구독
 CREATE TABLE SUBS (
 	MNO  INTEGER NOT NULL COMMENT '회원코드', -- 회원코드
-	COLL INTEGER NOT NULL COMMENT '컬렉션일련번호' -- 컬렉션일련번호
+	CONO INTEGER NOT NULL COMMENT '컬렉션일련번호' -- 컬렉션일련번호
 )
 COMMENT '구독';
 
@@ -116,7 +116,7 @@ ALTER TABLE SUBS
 	ADD CONSTRAINT PK_SUBS -- 구독 기본키
 		PRIMARY KEY (
 			MNO,  -- 회원코드
-			COLL  -- 컬렉션일련번호
+			CONO  -- 컬렉션일련번호
 		);
 
 -- 카테고리
@@ -197,11 +197,12 @@ ALTER TABLE LIK
 
 -- 컬렉션
 CREATE TABLE COLCT (
-	COLL   INTEGER      NOT NULL COMMENT '컬렉션일련번호', -- 컬렉션일련번호
+	CONO   INTEGER      NOT NULL COMMENT '컬렉션일련번호', -- 컬렉션일련번호
 	MNO    INTEGER      NOT NULL COMMENT '회원코드', -- 회원코드
 	TITLE  VARCHAR(255) NOT NULL COMMENT '컬렉션제목', -- 컬렉션제목
-	PUBLIC BOOLEAN      NULL     COMMENT '비공개여부', -- 비공개여부
-	CONT   MEDIUMTEXT   NULL     COMMENT '컬렉션내용' -- 컬렉션내용
+	CONT   MEDIUMTEXT   NULL     COMMENT '컬렉션내용', -- 컬렉션내용
+	PIC    VARCHAR(255) NULL     COMMENT '컬렉션 사진', -- 컬렉션 사진
+	PUBLIC BOOLEAN      NULL     COMMENT '비공개여부' -- 비공개여부
 )
 COMMENT '컬렉션';
 
@@ -209,12 +210,12 @@ COMMENT '컬렉션';
 ALTER TABLE COLCT
 	ADD CONSTRAINT PK_COLCT -- 컬렉션 기본키
 		PRIMARY KEY (
-			COLL -- 컬렉션일련번호
+			CONO -- 컬렉션일련번호
 		);
 
 -- 컬렉션짤강
 CREATE TABLE ZZALCOLCT (
-	COLL INTEGER NOT NULL COMMENT '컬렉션일련번호', -- 컬렉션일련번호
+	CONO INTEGER NOT NULL COMMENT '컬렉션일련번호', -- 컬렉션일련번호
 	ZZNO INTEGER NOT NULL COMMENT '짤강의 코드' -- 짤강의 코드
 )
 COMMENT '컬렉션짤강';
@@ -223,7 +224,7 @@ COMMENT '컬렉션짤강';
 ALTER TABLE ZZALCOLCT
 	ADD CONSTRAINT PK_ZZALCOLCT -- 컬렉션짤강 기본키
 		PRIMARY KEY (
-			COLL, -- 컬렉션일련번호
+			CONO, -- 컬렉션일련번호
 			ZZNO  -- 짤강의 코드
 		);
 
@@ -292,10 +293,10 @@ ALTER TABLE SUBS
 ALTER TABLE SUBS
 	ADD CONSTRAINT FK_COLCT_TO_SUBS -- 컬렉션 -> 구독
 		FOREIGN KEY (
-			COLL -- 컬렉션일련번호
+			CONO -- 컬렉션일련번호
 		)
 		REFERENCES COLCT ( -- 컬렉션
-			COLL -- 컬렉션일련번호
+			CONO -- 컬렉션일련번호
 		);
 
 -- 댓글
@@ -372,10 +373,10 @@ ALTER TABLE COLCT
 ALTER TABLE ZZALCOLCT
 	ADD CONSTRAINT FK_COLCT_TO_ZZALCOLCT -- 컬렉션 -> 컬렉션짤강
 		FOREIGN KEY (
-			COLL -- 컬렉션일련번호
+			CONO -- 컬렉션일련번호
 		)
 		REFERENCES COLCT ( -- 컬렉션
-			COLL -- 컬렉션일련번호
+			CONO -- 컬렉션일련번호
 		);
 
 -- 컬렉션짤강
