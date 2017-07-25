@@ -9,7 +9,7 @@
 .user-info-face {
 	float: left;
 }
-.user-info-face .phot {
+/* .user-info-face .phot {
   float: left;
   display: inline-block;
   background-image: url('../image/user.jpg');
@@ -24,7 +24,7 @@
 	float: left;
   line-height: 75px;
   margin-left: 12px;
-}
+} */
 .user-info-face .setting-wrap {
 	font-size: 0.875rem;
 	margin-top: 10px;
