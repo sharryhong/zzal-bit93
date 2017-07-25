@@ -14,6 +14,7 @@ public class Member {
 	 String membtype;
 	 String signtype;
 	 String membpic;
+	 boolean Auto;
 	 
 	@Override
 	public String toString() {

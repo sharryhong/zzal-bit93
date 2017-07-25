@@ -39,6 +39,7 @@
   $.getJSON('member/detail.json',{'no':photUrl},function(result){
 	  let str = result.data.membpic
 	  console.log(str)
+	  console.log(result.data)
 	  $('.profile-wrap .phot').css('background-image','url('+str+')')
 	  
 	  console.log($('.profile-wrap .phot').css('background-image'))
