@@ -32,6 +32,12 @@
     where email=#{email} and pwd=password(#{password})
   </select>
   
+  <insert id="insert" parameterType="member" 
+          useGeneratedKeys="true" keyColumn="mno" keyProperty="mno">
+    insert into memb(nick,email,pwd,pic) 
+    values(#{nick},#{email},password(#{password}),#{membpic})
+  </insert>
+  
 <!--   
   <select id="selectList" resultMap="categoryMap" parameterType="map">
     <include refid="select1"/>

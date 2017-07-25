@@ -36,6 +36,11 @@ public class MemberServiceImpl implements MemberService {
     
     return memberDao.selectOneByEmailPassword(valueMap);
   }
+
+  @Override
+  public void add(Member member) throws Exception {
+    memberDao.insert(member);
+  }
 	  	
 
 

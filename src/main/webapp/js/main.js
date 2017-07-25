@@ -2,7 +2,10 @@
 	'use strict';
 	
 	var fiEmail = $('#fi-email'),
-		fiPassword = $('#fi-password');
+		fiPassword = $('#fi-password'),
+		joinEmail = $('#join-email'),
+		joinPw = $('#join-pw'),
+		joinNick = $('#join-nick')
 	
 	$('#login-btn').click(function() {
 		console.log('login-btn')
@@ -11,6 +14,19 @@
 	      'password': fiPassword.val()
 	    }, function(result) {
 	       location.href = 'index.html'
+	    }, 'json')
+	})
+	
+	$('#join-btn').click(function() {
+		console.log('join-btn')
+		$.post(contextRoot + '/member/add.json', {
+	      'email': joinEmail.val(),
+	      'password': joinPw.val(),
+	      'nick': joinNick.val(),
+	      'membpic': 'anonymous.png'
+	    }, function(result) {
+	    	console.log(result)
+	        location.href = 'index.html'
 	    }, 'json')
 	})
 	

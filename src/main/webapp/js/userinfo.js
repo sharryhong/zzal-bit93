@@ -3,8 +3,8 @@ $.getJSON(contextRoot + '/auth/userinfo.json', function(result) {
   if (result.data) {
 	  console.log(result.data)
                
-	  $('.header .before-login').css('display', 'none')
-	  $('.header .after-login').css('display', 'block')
+	  /*$('.header .before-login').css('display', 'none')
+	  $('.header .after-login').css('display', 'block')*/
   }
 }) // getJSON()
 
