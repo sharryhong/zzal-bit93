@@ -1,5 +1,6 @@
 package bitcamp.java93.service.impl;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,15 @@ public class MemberServiceImpl implements MemberService {
 		// TODO Auto-generated method stub
 		return memberDao.selectList();
 	}
+
+  @Override
+  public Member getByEmailPassword(String email, String password) throws Exception {
+    HashMap<String,Object> valueMap = new HashMap<>();
+    valueMap.put("email", email);
+    valueMap.put("password", password);
+    
+    return memberDao.selectOneByEmailPassword(valueMap);
+  }
 	  	
 
 

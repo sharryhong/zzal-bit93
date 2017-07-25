@@ -67,7 +67,7 @@ input::-moz-placeholder { color: #777; }
 	float: right;
 	font-size: 27px;
 	margin-left: 14px;
-	/* margin-top: 3px; */
+	/* display: none; */
 }
 .header .after-login a {
 	float: left;
@@ -792,7 +792,7 @@ input::-moz-placeholder { color: #777; }
 }
 .login-logo {
 	display:none;
-	text-shadow: 0 1px 0 rgba(255, 255, 255, .75);
+	/* text-shadow: 0 1px 0 rgba(255, 255, 255, .75); */
 	color: rgba(255, 255, 255, 0.7);
 	text-align: center;
 	/*margin-top: 55px;*/
@@ -802,7 +802,7 @@ input::-moz-placeholder { color: #777; }
 }
 .mini-logo {
 	display:none;
-	text-shadow: 0 1px 0 rgba(255, 255, 255, .75);
+	/* text-shadow: 0 1px 0 rgba(255, 255, 255, .75); */
 	color: rgba(255, 255, 255, 0.7);
 	text-align: center;
 	font-size: 15px;

@@ -27,6 +27,11 @@
     where mno = #{no};
   </select>
   
+  <select id="selectOneByEmailPassword" resultMap="memberMap" parameterType="map">
+    <include refid="select1"/> 
+    where email=#{email} and pwd=password(#{password})
+  </select>
+  
 <!--   
   <select id="selectList" resultMap="categoryMap" parameterType="map">
     <include refid="select1"/>

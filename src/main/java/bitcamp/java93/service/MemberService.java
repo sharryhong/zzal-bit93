@@ -8,4 +8,5 @@ public interface MemberService {
   
 	Member get(int no) throws Exception;
 	 List<Member> list() throws Exception;
+	 Member getByEmailPassword(String email, String password) throws Exception;
 }

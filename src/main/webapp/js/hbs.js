@@ -8,7 +8,7 @@
     let mainSlide = $('#main-slide');
     let templateFn = null;
     let generatedHTML = null;
-    
+   /* 
     $.getJSON('mainList.json', function(result) {
 	  // 템플릿을 실행하는 함수 리턴
       generateHandlebars(result, $('#main-template1'), zzalList1);
@@ -22,7 +22,7 @@
     $.getJSON('mainSlide.json', function(result) {
       generateHandlebars(result, $('#main-slide-template'), mainSlide);
     })
-    
+    */
     function generateHandlebars(result, el, target) {
       templateFn = Handlebars.compile(el.text())
   	  generatedHTML = templateFn(result.data)

@@ -1,6 +1,19 @@
 (function($, window){
 	'use strict';
 	
+	var fiEmail = $('#fi-email'),
+		fiPassword = $('#fi-password');
+	
+	$('#login-btn').click(function() {
+		console.log('login-btn')
+		$.post(contextRoot + '/auth/login.json', {
+	      'email': fiEmail.val(),
+	      'password': fiPassword.val()
+	    }, function(result) {
+	       location.href = 'index.html'
+	    }, 'json')
+	})
+	
 	// 메뉴선택시 on붙이기 (해당 url일때)
 	let href = location.href;
 	let pageurl = href.substr(href.lastIndexOf('/') + 1);
