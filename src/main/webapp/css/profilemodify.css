@@ -26,8 +26,13 @@
 	 cursor: pointer;
 	 font-weight: bold;
 	 position: absolute;
-	 top: 150px;
+	 top: 129px;
 	 margin: 10px;
+ }
+ .change-photo .fa {
+   font-size: 22px;
+   vertical-align: bottom;
+   color: rgba(0,0,0,0.3);
  }
  .zzal-container.middle .profile-changepage {
  	position: relative;
@@ -61,7 +66,7 @@
  .deletebtn .account-delete {
 	 float: left;
 	 color: #F39C12;
-   margin-bottom: 10px;
+   margin-bottom: 25px;
 	 font-size: 1rem;
  }
  .change-button {
@@ -70,66 +75,11 @@
  .change-button .btn {
    display: inline-block;
  }
- /*.zzal-container.relative {
- 	position: relative
- }
- .category-page .zzal-container {
- 	text-align: center;
- }
- .category-page .user-info-face {
- 	display: block;
- 	margin-top: 20px;
- }
- .profile-wrap {
- 	display: inline-block;
- }
- .category-title {
- 	font-size: 1.68rem;
- }
- .category-explain {
- 	color: #999;
- }
- .category-page .buttons .btn {
- 	width: inherit;
- 	padding: 6px 25px;
- 	border-radius: 30px;
- 	position: absolute;
-   right: 15px;
- }
- .category-bottom {
- 	background: #f2f2f2;
- 	padding-bottom: 20px;
- }
- .category-bottom .gray-bg {
- 	width: 100%;
-   height: 47px;
-   background: white;
-   background: -moz-linear-gradient(top, #fff 0%, #fff 0%, #f3f4f5 100%);
-   background: -webkit-linear-gradient(top, #fff 0%, #fff 0%, #f3f4f5 100%);
-   background: -o-linear-gradient(top, #fff 0%, #fff 0%, #f3f4f5 100%);
-   background: -ms-linear-gradient(top, #fff 0%, #fff 0%, #f3f4f5 100%);
-   background: linear-gradient(to bottom, #fff 0%, #fff 0%, #f3f4f5 100%);
- }
- .category-bottom .zzal-container {
- 	text-align: left;
- }
- .category-bottom .list {
-
- 	padding-left: 5px;
- 	margin: 20px 0 10px;
- }
- .category-bottom .list li {
- 	float: left;
-
- }
- .category-bottom .list li:first-child::after {
- 	display: inline-block;
- 	content: '|';
- 	padding: 0 10px;
- 	color: #aaa;
- }*/
 /*mobile*/
 @media (max-width: 765px) {
+	.profile-photo-change .profile-picture {
+    margin-top: 78px;
+	}
 	.header.change-header .right {
 	  display: none;
 	}
@@ -154,9 +104,6 @@
 	.mobile-nav {
 		display: none;
 	}
-	/*.profile-changepage {
-	margin-top: 10px;
-	}*/
 	.profile-change {
     margin-top: 0;
 	}

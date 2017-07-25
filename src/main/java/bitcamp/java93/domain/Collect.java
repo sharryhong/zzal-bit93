@@ -5,12 +5,11 @@ public class Collect {
   String title;
   String content;
   String picture;
-  Boolean publicBtn;
-  
+  Boolean isPublic;
   @Override
   public String toString() {
-    return "Collect [no=" + no + ", title=" + title + ", content=" + content + ", picture=" + picture + ", publicBtn="
-        + publicBtn + "]";
+    return "Collect [no=" + no + ", title=" + title + ", content=" + content + ", picture=" + picture + ", isPublic="
+        + isPublic + "]";
   }
   public int getNo() {
     return no;
@@ -36,13 +35,11 @@ public class Collect {
   public void setPicture(String picture) {
     this.picture = picture;
   }
-  public Boolean getPublicBtn() {
-    return publicBtn;
+  public Boolean getIsPublic() {
+    return isPublic;
   }
-  public void setPublicBtn(Boolean publicBtn) {
-    this.publicBtn = publicBtn;
+  public void setIsPublic(Boolean isPublic) {
+    this.isPublic = isPublic;
   }
-  
-  
   
 }
