@@ -36,10 +36,11 @@ CREATE TABLE MEMB (
 	MNO   INTEGER      NOT NULL COMMENT '회원코드', -- 회원코드
 	NICK  VARCHAR(30)  NOT NULL COMMENT '닉네임', -- 닉네임
 	EMAIL VARCHAR(40)  NOT NULL COMMENT '이메일', -- 이메일
+	STYPE VARCHAR(20)  NULL     COMMENT '가입유형', -- 가입유형
 	PWD   VARCHAR(50)  NOT NULL COMMENT '패스워드', -- 패스워드
 	MTYPE VARCHAR(20)  NULL     COMMENT '회원유형', -- 회원유형
-	STYPE VARCHAR(20)  NULL     COMMENT '가입유형', -- 가입유형
-	PIC   VARCHAR(255) NULL     COMMENT '사진' -- 사진
+	PIC   VARCHAR(255) NULL     COMMENT '사진', -- 사진
+	AUTH  BOOLEAN      NULL     COMMENT '가입여부' -- 가입여부
 )
 COMMENT '회원';
 
@@ -53,8 +54,14 @@ ALTER TABLE MEMB
 -- 회원 Unique Index
 CREATE UNIQUE INDEX UIX_MEMB
 	ON MEMB ( -- 회원
-		NICK ASC,  -- 닉네임
-		EMAIL ASC  -- 이메일
+		NICK ASC -- 닉네임
+	);
+
+-- 회원 유니크 인덱스
+CREATE UNIQUE INDEX UIX_MEMB2
+	ON MEMB ( -- 회원
+		EMAIL ASC, -- 이메일
+		STYPE ASC  -- 가입유형
 	);
 
 -- 회원 Index
