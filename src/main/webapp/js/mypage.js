@@ -30,14 +30,19 @@
 	})
   }
   
-  var no = 0
-  try {
-    var no = location.href.split('?')[1].split('=')[1]
-  } catch(err) {} // 에러가나도 멈추지 않게함
+  var photUrl = parseInt(document.location.href.split('?')[1].split('=')[1]);
+
+  console.log(typeof(photUrl))
+ 
   
-  $.getJSON('collect/list.json', {"no": no}, function(result) {
-	  console.log(no)
-	  console.log(result)
-  })
   
+  $.getJSON('member/detail.json',{'no':photUrl},function(result){
+	  let str = result.data.membpic
+	  console.log(str)
+	  $('.profile-wrap .phot').css('background-image','url('+str+')')
+	  
+	  console.log($('.profile-wrap .phot').css('background-image'))
+  });
+  //3 | 짤렉트라1 | zzal03@test.com | *89C6B530AA78695E257E55D63C00A6EC9AD3E977 | NULL  | NULL  | image/sul.jpg
+  //입력 방식은 이렇게 할것!
 })(jQuery);

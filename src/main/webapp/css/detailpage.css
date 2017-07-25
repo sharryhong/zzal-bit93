@@ -15,6 +15,18 @@
    /*background-color: yellow;*/
 
  }
+ .left-upper-menu li {
+   height:52px;
+ }
+
+ .left-upper-menu li .bigboy {
+   height:30px;
+ }
+
+ .left-upper-menu li .smallboy {
+   height: 12px;
+ }
+
 
  #like-btn .off-btn{
    display: none
