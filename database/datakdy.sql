@@ -17,3 +17,7 @@ insert into catg(cno,name) values(9,'패션, 뷰티');
 
 -- 짤강의
 insert into zzal_lect(zzno,mno,cno,titl,cdt) values(1,1,1,'짤강1','2017-01-31');
+
+
+-- 존재하는 칼럼에 추가해넣기 
+update memb set pic='sul.jpg' where mno='2';

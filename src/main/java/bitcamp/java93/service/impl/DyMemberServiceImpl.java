@@ -17,11 +17,9 @@ public class DyMemberServiceImpl implements DyMemberService {
   DyMemberDao dyMemberDao;
 
   @Override
-  public List<DyMember> list(int pageNo, int pageSize) throws Exception {
-    HashMap<String,Object> valueMap = new HashMap<>();
-    valueMap.put("startIndex", (pageNo - 1) * pageSize);
-    valueMap.put("pageSize", pageSize);
-    return dyMemberDao.selectList(valueMap);
+  public List<DyMember> list() throws Exception {
+
+    return dyMemberDao.selectList();
   }
   
   @Override
@@ -32,6 +30,11 @@ public class DyMemberServiceImpl implements DyMemberService {
   @Override
   public DyMember get(int no) throws Exception {
     return dyMemberDao.selectOne(no);
+  }
+
+  @Override
+  public String getPhotPath(String path) {
+    return dyMemberDao.updatePhot(path);
   }
 
 }

@@ -5,8 +5,8 @@ import java.util.List;
 import bitcamp.java93.domain.DyMember;
 
 public interface DyMemberService {
-  List<DyMember> list(int pageNo, int pageSize) throws Exception;
+  List<DyMember> list() throws Exception;
   int getSize() throws Exception;
   DyMember get(int no) throws Exception;
-
+  String getPhotPath(String path);
 }

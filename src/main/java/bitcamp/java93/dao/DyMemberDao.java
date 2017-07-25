@@ -6,7 +6,12 @@ import java.util.Map;
 import bitcamp.java93.domain.DyMember;
 
 public interface DyMemberDao {
-  List<DyMember> selectList(Map<String,Object> valueMap);
+  List<DyMember> selectList();
   int countAll();
   DyMember selectOne(int no);
+  String updatePhot(String url);
+  
+  
+  
+  
 }

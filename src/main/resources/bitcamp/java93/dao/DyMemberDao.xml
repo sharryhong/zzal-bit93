@@ -22,7 +22,7 @@
     from catg
   </select> -->
   
-  <select id="selectList" resultMap="dymemberMap" parameterType="map">
+  <select id="selectList" resultMap="dymemberMap">
     <include refid="select1"/>
     order by mno asc 
   </select>
@@ -36,6 +36,13 @@
     <include refid="select1"/> 
     where mno = #{no}
   </select>
+  
+  
+  <update id="updatePhot" resultType="String"  parameterType="String">
+    update memb set 
+      pic=#{daeyoun}
+    where mno=1;
+  </update>
   
 <!--   
   <select id="selectListByNames" resultMap="memberMap" parameterType="map">
