@@ -14,13 +14,13 @@
  .profile-photo-change .profile-picture {
 	margin-top: 100px;
   display: inline-block;
-  background-image: url('../image/asd.jpg');
   background-size: cover;
   background-position: center;
   height: 100px;
   width: 100px;
   border-radius: 50%;
   display: inline-block;
+  border: 1px solid rgba(0,0,0,0.1);
 }
  .change-photo {
 	 cursor: pointer;

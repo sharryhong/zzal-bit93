@@ -1,7 +1,7 @@
 package bitcamp.java93.domain;
 
 public class Member {
-	int mno;
+	int no;
   String nick;
   String email;
   String password;
@@ -9,17 +9,17 @@ public class Member {
   String signtype;
   String membpic;
   boolean auth;
-	 
+  
   @Override
   public String toString() {
-    return "Member [mno=" + mno + ", nick=" + nick + ", email=" + email + ", password=" + password + ", membtype="
+    return "Member [no=" + no + ", nick=" + nick + ", email=" + email + ", password=" + password + ", membtype="
         + membtype + ", signtype=" + signtype + ", membpic=" + membpic + ", auth=" + auth + "]";
   }
-  public int getMno() {
-    return mno;
+  public int getNo() {
+    return no;
   }
-  public void setMno(int mno) {
-    this.mno = mno;
+  public void setNo(int no) {
+    this.no = no;
   }
   public String getNick() {
     return nick;
@@ -63,4 +63,5 @@ public class Member {
   public void setAuth(boolean auth) {
     this.auth = auth;
   }
+	 
 }

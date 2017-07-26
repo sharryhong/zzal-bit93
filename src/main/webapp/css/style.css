@@ -1001,7 +1001,7 @@ input::-moz-placeholder { color: #777; }
 .user-info-face .phot {
     float: left;
     display: inline-block;
-    background-image: url(../image/anonymous.png);
+    /* background-image: url(../image/anonymous.png); */
     background-size: cover;
     background-position: center;
     height: 75px;

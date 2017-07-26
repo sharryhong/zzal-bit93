@@ -14,21 +14,9 @@ import bitcamp.java93.service.MemberService;
 public class MemberServiceImpl implements MemberService {
 	
 	@Autowired
-	  MemberDao memberDao;
-
+	MemberDao memberDao;
+	
 	@Override
-	public Member get(int no) throws Exception {
-	    return memberDao.selectOne(no);
-		
-	}
-
-	@Override
-	public List<Member> list() throws Exception {
-		// TODO Auto-generated method stub
-		return memberDao.selectList();
-	}
-
-  @Override
   public Member getByEmailPassword(String email, String password) throws Exception {
     HashMap<String,Object> valueMap = new HashMap<>();
     valueMap.put("email", email);
@@ -37,11 +25,22 @@ public class MemberServiceImpl implements MemberService {
     return memberDao.selectOneByEmailPassword(valueMap);
   }
 
-  @Override
+	@Override
+	public Member get(int no) throws Exception {
+	    return memberDao.selectOne(no);
+	}
+
+	/*@Override
+	public List<Member> list() throws Exception {
+		// TODO Auto-generated method stub
+		return memberDao.selectList();
+	}*/
+
+  
+
+  /*@Override
   public void add(Member member) throws Exception {
     memberDao.insert(member);
-  }
+  }*/
 	  	
-
-
 }

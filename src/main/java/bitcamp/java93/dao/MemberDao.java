@@ -6,8 +6,8 @@ import java.util.Map;
 import bitcamp.java93.domain.Member;
 
 public interface MemberDao {
-  List<Member> selectList();
-  Member selectOne(int no);
   Member selectOneByEmailPassword(Map<String,Object> valueMap);
-  int insert(Member member);
+  Member selectOne(int no);
+/*  List<Member> selectList();*/
+  /*int insert(Member member);*/
 }
