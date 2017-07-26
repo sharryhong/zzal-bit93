@@ -30,17 +30,23 @@ public class MemberServiceImpl implements MemberService {
 	    return memberDao.selectOne(no);
 	}
 
-	/*@Override
+	@Override
 	public List<Member> list() throws Exception {
 		// TODO Auto-generated method stub
 		return memberDao.selectList();
-	}*/
+	}
 
-  
-
-  /*@Override
+  @Override
   public void add(Member member) throws Exception {
     memberDao.insert(member);
-  }*/
+  }
+  
+  @Override
+  public void update(Member member) throws Exception {
+    int count = memberDao.update(member);
+    if (count < 1) {
+      throw new Exception(member.getNo() + "번 회원을 찾을 수 없습니다.");
+    }
+  }
 	  	
 }

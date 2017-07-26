@@ -30,18 +30,13 @@
 	})
   }
   
-//  var photUrl = parseInt(document.location.href.split('?')[1].split('=')[1]);
-
-//  console.log(typeof(photUrl))
- 
-  
-  
-  /*$.getJSON('member/detail.json',{'no':photUrl},function(result){
-	  let str = result.data.membpic
-	  console.log(str)
-	  console.log(result.data)
-	  $('.profile-wrap .phot').css('background-image','url('+str+')')
-	  
-	  console.log($('.profile-wrap .phot').css('background-image'))
-  });*/
+  var no = 0
+  try {
+    no = location.href.split('?')[1].split('=')[1]
+  } catch (err) {}
+	
+  $.getJSON('member/detail.json', {'no': no}, function(result) {
+	  $('.user-name').text(result.data.nick)
+    $('.profile-wrap .phot').css({"background-image": "url(image/"+result.data.membpic+")"});
+  })
 })(jQuery);

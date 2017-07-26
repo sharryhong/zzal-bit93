@@ -1,5 +1,7 @@
 package bitcamp.java93.control.json;
 
+import java.util.HashMap;
+
 import javax.servlet.ServletContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,17 +19,15 @@ public class MemberControl {
 	@Autowired ServletContext servletContext;
 	@Autowired MemberService memberService;
 	
-	
-	
-	/*@RequestMapping("list")
+	@RequestMapping("list")
 	  public JsonResult list() throws Exception {
 	    
 	    HashMap<String,Object> dataMap = new HashMap<>();
 	    dataMap.put("list", memberService.list());
 	    
 	    return new JsonResult(JsonResult.SUCCESS, dataMap);
-	  }*/
-	
+	  }
+
 	
 	@RequestMapping("detail")
 	public JsonResult detail(@RequestParam int no) throws Exception {
@@ -39,11 +39,18 @@ public class MemberControl {
 		return new JsonResult(JsonResult.SUCCESS, member);
 	}
 	
-	/*@RequestMapping("add")
+	@RequestMapping("add")
   public JsonResult add(Member member) throws Exception {
+	  System.out.println(member);
     memberService.add(member);
     return new JsonResult(JsonResult.SUCCESS, "ok");
-  }*/
+  }
+	
+	@RequestMapping("update")
+  public JsonResult update(Member member) throws Exception {
+	  memberService.update(member);
+    return new JsonResult(JsonResult.SUCCESS, "ok");
+  }
 
 }
 

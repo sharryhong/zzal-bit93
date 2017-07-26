@@ -29,16 +29,22 @@
     where mno = #{no};
   </select>
   
-  
-  <!-- <select id="selectList" resultMap="memberMap" >
-     <include refid="select1"/> 
-  </select> -->
-  <!-- <insert id="insert" parameterType="member" 
-          useGeneratedKeys="true" keyColumn="mno" keyProperty="mno">
+  <insert id="insert" parameterType="member" 
+          useGeneratedKeys="true" keyColumn="mno" keyProperty="no">
     insert into memb(nick,email,pwd,pic) 
     values(#{nick},#{email},password(#{password}),#{membpic})
-  </insert> -->
+  </insert> 
   
+  <select id="selectList" resultMap="memberMap" >
+     <include refid="select1"/> 
+  </select> 
+  
+  <update id="update" parameterType="member">
+    update memb set 
+      nick=#{nick}, 
+      pwd=password(#{password}) 
+    where mno=#{no}
+  </update>
 <!--   
   <select id="selectList" resultMap="categoryMap" parameterType="map">
     <include refid="select1"/>
