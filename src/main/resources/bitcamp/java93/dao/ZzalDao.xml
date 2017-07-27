@@ -6,16 +6,23 @@
   
   <resultMap type="zzal" id="zzalMap">
     <id column="zzno" property="zzno"/>
+    <result column="mno" property="mno"/>
+    <result column="cno" property="cno"/>
     <result column="titl" property="title"/>
     <result column="pic" property="mainPic"/>
     <result column="cdt" property="cdt"/>
   </resultMap>
-
-<!--   
   <sql id="select1">
     select zzno, mno, cno, titl, pic, cdt
     from zzal_lect
   </sql>
+
+<select id="selectList" resultMap="zzalMap" parameterType="int">
+    <include refid="select1"/>
+    where zzno = #{no} 
+  </select>
+
+<!--   
 	
   <select id="selectOneByEmailPassword" resultMap="memberMap" parameterType="map">
     <include refid="select1"/> 
@@ -43,10 +50,7 @@
       pwd=password(#{password}) 
     where mno=#{no}
   </update>
-  <select id="selectList" resultMap="categoryMap" parameterType="map">
-    <include refid="select1"/>
-    order by cno asc 
-  </select>
+  
   
   <select id="countAll" resultType="int">
     select count(*)

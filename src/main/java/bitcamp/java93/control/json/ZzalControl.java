@@ -20,37 +20,37 @@ public class ZzalControl {
 	@Autowired ZzalService zzalService;
 	
 	@RequestMapping("list")
-	  public JsonResult list() throws Exception {
+	  public JsonResult list(@RequestParam int zzno) throws Exception {
 	    
 	    HashMap<String,Object> dataMap = new HashMap<>();
-	    dataMap.put("list", memberService.list());
+	    dataMap.put("list", zzalService.list(zzno));
 	    
 	    return new JsonResult(JsonResult.SUCCESS, dataMap);
 	  }
 
-	
-	@RequestMapping("detail")
-	public JsonResult detail(@RequestParam int no) throws Exception {
-	  System.out.println(no);
-		Member member = memberService.get(no);
-		if (member == null) {
-			return new JsonResult(JsonResult.FAIL, no + "번 회원이 없습니다.");
-		}
-		return new JsonResult(JsonResult.SUCCESS, member);
-	}
-	
-	@RequestMapping("add")
-  public JsonResult add(Member member) throws Exception {
-	  System.out.println(member);
-    memberService.add(member);
-    return new JsonResult(JsonResult.SUCCESS, "ok");
-  }
-	
-	@RequestMapping("update")
-  public JsonResult update(Member member) throws Exception {
-	  memberService.update(member);
-    return new JsonResult(JsonResult.SUCCESS, "ok");
-  }
+//	
+//	@RequestMapping("detail")
+//	public JsonResult detail(@RequestParam int no) throws Exception {
+//	  System.out.println(no);
+//		Member member = memberService.get(no);
+//		if (member == null) {
+//			return new JsonResult(JsonResult.FAIL, no + "번 회원이 없습니다.");
+//		}
+//		return new JsonResult(JsonResult.SUCCESS, member);
+//	}
+//	
+//	@RequestMapping("add")
+//  public JsonResult add(Member member) throws Exception {
+//	  System.out.println(member);
+//    memberService.add(member);
+//    return new JsonResult(JsonResult.SUCCESS, "ok");
+//  }
+//	
+//	@RequestMapping("update")
+//  public JsonResult update(Member member) throws Exception {
+//	  memberService.update(member);
+//    return new JsonResult(JsonResult.SUCCESS, "ok");
+//  }
 
 }
 
