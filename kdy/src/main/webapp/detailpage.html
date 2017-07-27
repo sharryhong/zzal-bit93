@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>zzal school</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="scrollbar/jquery.mCustomScrollbar.css">
+  <link rel="stylesheet" href="css/jquery.bxslider.min.css">
+  <link rel="stylesheet" href="node_modules/swiper/dist/css/swiper.min.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/detailpage.css">
+
+</head>
+<body>
+   <!-- Swiper -->
+   <div class="detail-main main-page">
+
+
+    <div id="header"></div>
+    <div class="main-content">
+
+<!--mobile-header-->
+    <div class="detail-m-header">
+      <h1>
+        <a href="./">Zzal School</a>
+      </h1>
+    </div>
+<!--mobile-header-->
+
+   <div class="zzal-container">
+     <!-- left-side-->
+              <div class="detail-funcbtn">
+                <a class="detail-funcbtn-a" href="#detail-layer-funcBtn"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></a>
+                  <!-- <div id="detail-layer-funcBtn" class="funclayer">
+                    <div class="later-wrraper">
+                      <div class="view-collcet">
+                        <a href="#">
+                          이 짤강 컬랙션보기
+                        </a>
+                      </div>
+                      <div class="report-zzal">
+                        <a href="#">
+                          <strong class="fa fa-ban" aria-hidden="true"></strong>신고하기
+                        </a>
+                      </div>
+                    </div>
+
+                    <div class="detail-funcBtn-close">
+                      <a href="#" class="btn-layerClose"><strong class="fa fa-times" aria-hidden="true"></strong></a>
+                    </div>
+                  </div> -->
+              </div>
+
+              <div class="detail-left">
+                <div class="left-upper-menu">
+                  <ul>
+                    <li>
+                      <div class="upper-upper like">
+                        <a href="#">
+                          <div id="like-btn">
+                            <div class="bigboy fa fa-heart off-btn" aria-hidden="true"></div>
+                            <div class="bigboy fa fa-heart-o" aria-hidden="true"></div>
+                          </div>
+                          <div class="smallboy navinfo">좋아요</div>
+                        </a>
+                      </div>
+                    </li>
+                    <li>
+                    <div class="upper-upper listen">
+                      <a href="#">
+                        <div id="volume-btn" class="">
+                          <div class="bigboy fa fa-volume-up off-btn" aria-hidden="true" ></div>
+                          <div class="bigboy fa fa-volume-off" aria-hidden="true" ></div>
+                        </div>
+                        <div class="smallboy navinfo-four">음성듣기</div>
+                      </a>
+                    </div>
+                    </li>
+                    <li>
+                      <div class="upper-upper auto-play">
+                        <a href="#">
+                        <div id="play-btn" class="">
+                            <div class="bigboy fa fa-play-circle off-btn" aria-hidden="true"></div>
+                            <div class="bigboy fa fa-pause-circle" aria-hidden="true"></div>
+                        </div>
+                        <div class="smallboy navinfo-four">자동재생</div>
+                        </a>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <div class="left-down-menu">
+                 <ul>
+                  <li>
+                    <a href="#">
+                      <div class="down-down facebook-icon">
+                        <div class="fa fa-facebook comuni" aria-hidden="true"></div>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <div class="down-down listen">
+                        <div class="fa fa-camera-retro comuni" aria-hidden="true"></div>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <div class="down-down auto">
+                        <div class="fa fa-twitter comuni" aria-hidden="true"></div>
+                      </div>
+                   </a>
+                  </li>
+                  </ul>
+                </div>
+              </div>
+     <!-- left-side-->
+
+     <!-- right-side-->
+              <div class="detail-right">
+                <div class="upper-contaniner">
+                  <div class="user-lect-info">
+                   <div class="left-info">
+                     <a href="#">
+                       <div class="lect-user-phot thumbnail-phot-insert"></div>
+                     </a>
+                    <!-- <script id="detailright-template" type="text/x-handlebars-template"> -->
+                     <div class="zzal-lect-info">
+                       <ul>
+                         <li><span class='left-1st user-name'><span>[</span>유끼만두냔<span>]</span></span><span class='right-1st'></span></li>
+                         <li><span class='left-1st viewcnt'>조회수</span><span class='right-1st viewnum'>20000</span></li>
+                         <li><span class='left-1st likecnt'>좋아요</span><span class='right-1st likenum'>20000</span></li>
+                         <li><span class='left-1st reply'>댓 글</span><span class='right-1st replynum'>20000</span></li>
+                       </ul>
+                     </div>
+                   <!-- </script> -->
+                   <!--right handlebars template-->
+
+                   </div><!--left-info-->
+                  <div class="write-date"><span class='date-num'>2017-07-07</span><span>작성</span></div>
+                  </div>
+                    <div class="user-lects-units">
+                      <div class="title">
+                        <div class="other-lects">[<span>유끼만두</span>]의 다른짤강</div>
+                        <div class='more-view'><a href="#">더보기<i class="fa fa-plus" aria-hidden="true"></i></a></div>
+                      </div>
+                      <div class="lects-units-sliders">
+                        <div class="swiper-container lects-units">
+                            <div class="swiper-wrapper lects-units-wrapper">
+                                <div class="swiper-slide lects-unit">
+                                  <div id="imagetest" class="images-wrapper">
+                                    <img class= "contents-images-zzals"src="image/ohh.jpg">
+                                  </div>
+                                </div>
+                                <div class="swiper-slide lects-unit">
+                                  <div id="imagetest" class="images-wrapper">
+                                    <img class= "contents-images-zzals"src="image/ohh.jpg">
+                                  </div>
+                                </div>
+                                <div class="swiper-slide lects-unit">
+                                  <div id="imagetest" class="images-wrapper">
+                                    <img class= "contents-images-zzals"src="image/ohh.jpg">
+                                  </div>
+                                </div>
+                                <div class="swiper-slide lects-unit">
+                                  <div id="imagetest" class="images-wrapper">
+                                    <img class= "contents-images-zzals"src="image/ohh.jpg">
+                                  </div>
+                                </div>
+                                <div class="swiper-slide lects-unit">
+                                  <div id="imagetest" class="images-wrapper">
+                                    <img class= "contents-images-zzals"src="image/ohh.jpg">
+                                  </div>
+                                </div>
+                                <div class="swiper-slide lects-unit">
+                                  <div id="imagetest" class="images-wrapper">
+                                    <img class= "contents-images-zzals"src="image/ohh.jpg">
+                                  </div>
+                                </div>
+                                <div class="swiper-slide lects-unit">
+                                  <div id="imagetest" class="images-wrapper">
+                                    <img class= "contents-images-zzals"src="image/ohh.jpg">
+                                  </div>
+                                </div>
+                                <div class="swiper-slide lects-unit">
+                                  <div id="imagetest" class="images-wrapper">
+                                    <img class= "contents-images-zzals"src="image/ohh.jpg">
+                                  </div>
+                                </div>
+                                <div class="swiper-slide lects-unit">
+                                  <div id="imagetest" class="images-wrapper">
+                                    <img class= "contents-images-zzals"src="image/ohh.jpg">
+                                  </div>
+                                </div>
+                                <div class="swiper-slide lects-unit">
+                                  <div id="imagetest" class="images-wrapper">
+                                    <img class= "contents-images-zzals"src="image/ohh.jpg">
+                                  </div>
+                                </div>
+                                <div class="swiper-slide lects-unit">
+                                  <div id="imagetest" class="images-wrapper">
+                                    <img class= "contents-images-zzals"src="image/ohh.jpg">
+                                  </div>
+                                </div>
+                                <div class="swiper-slide lects-unit">
+                                  <div id="imagetest" class="images-wrapper">
+                                    <img class= "contents-images-zzals"src="image/ohh.jpg">
+                                  </div>
+                                </div>
+                                <div class="swiper-slide lects-unit">
+                                  <div id="imagetest" class="images-wrapper">
+                                    <img class= "contents-images-zzals"src="image/ohh.jpg">
+                                  </div>
+                                </div>
+                                <div class="swiper-slide lects-unit">
+                                  <div id="imagetest" class="images-wrapper">
+                                    <img class= "contents-images-zzals"src="image/ohh.jpg">
+                                  </div>
+                                </div>
+                                <div class="swiper-slide lects-unit">
+                                  <div id="imagetest" class="images-wrapper">
+                                    <img class= "contents-images-zzals"src="image/ohh.jpg">
+                                  </div>
+                                </div>
+                            </div>
+                            <!-- Add Pagination -->
+                            <div class="swiper-pagination"></div>
+                            <div class="web-swiper-smallbtn swiper-button-next"></div>
+                            <div class="web-swiper-smallbtn swiper-button-prev"></div>
+                        </div>
+                      </div>
+                    </div>
+                </div><!--upper-contaniner-->
+
+                <div class="down-container">
+                 <div class="reply-inputer">
+                    <a href="#">
+                      <div class="user-phot thumbnail-phot-insert"></div>
+                    </a>
+                    <div class="input-con">
+                      <div class="user-name">[<span class='name'>이완</span>]</div>
+                      <form class="inputer" action="index.html" method="post">
+                        <input class='input-reply' type="text" name="" value="" placeholder="덧글을 입력해 보세요!">
+                        <button class='submit-reply' type="button" name="button">입력</button>
+                      </form>
+                    </div>
+                 </div>
+                 <div class="reply-list">
+                  <div class="replycnt"><span>1</span><span>개의 댓글</span></div>
+                   <ul>
+                     <li>
+                       <div class="reply-unit-con">
+                         <a href="#">
+                           <div class="reply-user-phot thumbnail-phot-insert"></div>
+                         </a>
+                         <div class="reply-con">
+                           <div class="user-name"><span class='name'>이완</span></div>
+                           <div class="reply-text"><div class="text">아 예쁘다!</div></div>
+                         </div>
+                         <div class="reply-info">
+                           <div class="date"><span class='when'>하루전</span>
+                             <a href="#">
+                              <span class="re-reply">답글달기</span>
+                             </a>
+                           </div>
+                           <div class="press">
+                             <a href="#">
+                               <span class='like'>
+                                 <i class="fa fa-heart-o" aria-hidden="true"></i><span>200</span>
+                               </span>
+                             </a>
+                             <a href="#">
+                               <span class="added-reply">
+                                 <i class="fa fa-comment-o" aria-hidden="true"></i><span>200</span>
+                               </span>
+                             </a>
+                           </div>
+                         </div>
+                       </div>
+                     </li>
+                   </ul>
+                 </div>
+
+                </div><!--down-container-->
+              </div>
+     <!-- right-side-->
+<!-- detail-siwpe swiper-container -->
+       <div class="detail-siwpe swiper-container">
+           <div class="swiper-wrapper detail-page-swipe">
+               <div class="swiper-slide main">
+                 <div class="contents">
+                   <div class="type-main">
+
+                   <div class="title-info">
+                     <div class="write-date">2017.06.30 작성</div>
+                     <h3>포즈와 함께 DSLR 왕초보탈출! 8. DSLR 버튼 한큐에 파악하기</h3>
+                     <div class="left-info">
+                       <a href="#">
+                         <div class="lect-user-phot thumbnail-phot-insert"></div>
+                       </a>
+                       <div class="zzal-lect-info">
+                         <ul>
+                           <li><span class='left-1st user-name'>유끼만두</span><span class='right-1st'></span></li>
+                           <li><span class='left-1st viewcnt'>조회수</span><span class='right-1st viewnum'>2,000</span></li>
+                         </ul>
+                       </div>
+                     </div>
+                     <div class="mover-mover"><div class="fa fa-chevron-right" aria-hidden="true"></div>좌우로 넘겨 보아요!</div>
+                   </div>
+                     <!-- <div class="content-box">
+                       <div id="imagetest" class="images-wrapper">
+                         <img class= "contents-images-zzals"src="image/sul.jpg">
+                       </div>
+                     </div>
+                     <div class="text">
+                       <p>he border-radius property is used to add rounded corners to an element.
+                         The border-radius property is a shorthand property for setting the four border-*-radius properties.
+                       </p>
+                     </div> -->
+                   </div>
+                 </div>
+                </div>
+               <div class="swiper-slide sw-contents">
+                  <div class="contents">
+                     <div class="type-contents">
+                       <div  class="content-box">
+                         <div id="imagetest" class="images-wrapper">
+                           <img class= "contents-images-zzals"src="image/ohh.jpg">
+                         </div>
+                       </div>
+                       <div class="text">
+                         <p>he border-radius property is used to add rounded corners to an element.
+                           The border-radius property is a shorthand property for setting the four border-*-radius properties.
+                         </p>
+                       </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="swiper-slide">Slide 3</div>
+               <div class="swiper-slide">Slide 4</div>
+               <div class="swiper-slide sw-contents">
+                  <div class="contents">
+                     <div class="type-contents">
+                       <div  class="content-box">
+                         <div id="imagetest" class="images-wrapper">
+                           <img class= "contents-images-zzals"src="image/ohh.jpg">
+                         </div>
+                       </div>
+                       <div class="text">
+                         <p>he border-radius property is used to add rounded corners to an element.
+                           The border-radius property is a shorthand property for setting the four border-*-radius properties.
+                         </p>
+                       </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="swiper-slide">Slide 6</div>
+               <div class="swiper-slide">Slide 7</div>
+               <div class="swiper-slide">Slide 8</div>
+               <div class="swiper-slide">Slide 9</div>
+               <div class="swiper-slide last-user-reply">
+                  <div class="contents last-user-page">
+                    <div class="loca">
+
+                     <div class="type-contents">
+                       <div class="upper-contaniner">
+                         <div class="user-lect-info">
+                          <div class="left-info">
+                            <a href="#">
+                              <div class="lect-user-phot thumbnail-phot-insert"></div>
+                            </a>
+                            <div class="zzal-lect-info">
+                              <ul>
+                                <li><span class='left-1st user-name'>[유끼만두]</span><span class='right-1st'></span></li>
+                                <li><span class='left-1st viewcnt'>조회수</span><span class='right-1st viewnum'>2,000</span></li>
+                                <li><span class='left-1st likecnt'>좋아요</span><span class='right-1st likenum'>2,000</span></li>
+                                <li><span class='left-1st reply'>댓 글</span><span class='right-1st replynum'>2,000</span></li>
+                              </ul>
+                            </div>
+                          </div>
+                         <div class="write-date"><span class='date-num'>2017-07-07</span><span>작성</span></div>
+                         </div>
+                           <div class="user-lects-units">
+                             <div class="title">
+                               <div class="other-lects">[<span>유끼만두</span>]의 다른짤강</div>
+                               <div class='more-view'><a href="#">더보기<i class="fa fa-plus" aria-hidden="true"></i></a></div>
+                             </div>
+                             <div class="lects-units-sliders">
+                               <div class="swiper-container lects-units">
+                                   <div class="swiper-wrapper lects-units-wrapper">
+                                       <div class="swiper-slide lects-unit">
+                                         <div id="imagetest" class="images-wrapper">
+                                           <img class= "contents-images-zzals"src="image/ohh.jpg">
+                                         </div>
+                                       </div>
+                                       <div class="swiper-slide lects-unit">
+                                         <div id="imagetest" class="images-wrapper">
+                                           <img class= "contents-images-zzals"src="image/ohh.jpg">
+                                         </div>
+                                       </div>
+                                       <div class="swiper-slide lects-unit">
+                                         <div id="imagetest" class="images-wrapper">
+                                           <img class= "contents-images-zzals"src="image/ohh.jpg">
+                                         </div>
+                                       </div>
+                                       <div class="swiper-slide lects-unit">
+                                         <div id="imagetest" class="images-wrapper">
+                                           <img class= "contents-images-zzals"src="image/ohh.jpg">
+                                         </div>
+                                       </div>
+                                       <div class="swiper-slide lects-unit">
+                                         <div id="imagetest" class="images-wrapper">
+                                           <img class= "contents-images-zzals"src="image/ohh.jpg">
+                                         </div>
+                                       </div>
+                                       <div class="swiper-slide lects-unit">
+                                         <div id="imagetest" class="images-wrapper">
+                                           <img class= "contents-images-zzals"src="image/ohh.jpg">
+                                         </div>
+                                       </div>
+                                       <div class="swiper-slide lects-unit">
+                                         <div id="imagetest" class="images-wrapper">
+                                           <img class= "contents-images-zzals"src="image/ohh.jpg">
+                                         </div>
+                                       </div>
+                                       <div class="swiper-slide lects-unit">
+                                         <div id="imagetest" class="images-wrapper">
+                                           <img class= "contents-images-zzals"src="image/ohh.jpg">
+                                         </div>
+                                       </div>
+                                       <div class="swiper-slide lects-unit">
+                                         <div id="imagetest" class="images-wrapper">
+                                           <img class= "contents-images-zzals"src="image/ohh.jpg">
+                                         </div>
+                                       </div>
+                                       <div class="swiper-slide lects-unit">
+                                         <div id="imagetest" class="images-wrapper">
+                                           <img class= "contents-images-zzals"src="image/ohh.jpg">
+                                         </div>
+                                       </div>
+
+                                   </div>
+                                   <!-- Add Pagination -->
+                                   <div class="swiper-pagination"></div>
+                               </div>
+
+                             </div>
+                           </div>
+                       </div><!--upper-contaniner-->
+
+                       <div class="down-container">
+                        <div class="reply-inputer">
+                           <a href="#">
+                             <div class="user-phot thumbnail-phot-insert"></div>
+                           </a>
+                           <div class="input-con">
+                             <div class="user-name">[<span class='name'>이완</span>]</div>
+
+                             <form class="inputer" action="index.html" method="post">
+                               <input class='input-reply' type="text" name="" value="" placeholder="덧글을 입력해 보세요!">
+                               <button class='submit-reply' type="button" name="button">입력</button>
+                             </form>
+                           </div>
+                        </div>
+                        <div class="reply-list">
+                         <div class="replycnt"><span>1</span><span>개의 댓글</span></div>
+                          <ul>
+                            <li>
+                              <div class="reply-unit-con">
+                                <a href="#">
+                                  <div class="reply-user-phot thumbnail-phot-insert"></div>
+                                </a>
+                                <div class="reply-con">
+                                  <div class="user-name"><span class='name'>이완</span></div>
+                                  <div class="reply-text"><div class="text">아 예쁘다!</div></div>
+                                </div>
+                                <div class="reply-info">
+                                  <div class="date"><span class='when'>하루전</span>
+                                    <a href="#">
+                                     <span class="re-reply">답글달기</span>
+                                    </a>
+                                  </div>
+                                  <div class="press">
+                                    <a href="#">
+                                      <span class='like'>
+                                        <i class="fa fa-heart-o" aria-hidden="true"></i><span>200</span>
+                                      </span>
+                                    </a>
+                                    <a href="#">
+                                      <span class="added-reply">
+                                        <i class="fa fa-comment-o" aria-hidden="true"></i><span>200</span>
+                                      </span>
+                                    </a>
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                          </ul>
+                        </div>
+                       </div><!--down-container-->
+                     </div><!--loca-->
+                     </div>
+                  </div>
+
+               </div>
+           </div>
+           <!-- Add Pagination -->
+           <div class="swiper-pagination main-disabled"></div>
+           <!-- Add Arrows -->
+           <div class="web-swiper-btn swiper-button-next"></div>
+           <div class="web-swiper-btn swiper-button-prev"></div>
+       </div>
+<!-- detail-siwpe swiper-container -->
+ </div>
+</div>
+<!--main-content-->
+
+<div class="detail-m-footer">
+      <div class="mdetail-footer">
+        <div class="comment mfooter">
+          <a href="#">
+            <span class="fa fa-commenting-o name" aria-hidden="true"></span><span class="num">2,000</span>
+          </a>
+        </div>
+        <div class="like mfooter">
+          <a href="#">
+            <span class="fa fa-heart-o name" aria-hidden="true"></span><span class="num">2,000</span>
+          </a>
+        </div>
+        <div class="share mfooter">
+          <a href="#">
+            <span class="fa fa-share-alt name" aria-hidden="true"></span><span class="num">2,000</span>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div id="footer"></div>
+   <!-- Swiper JS -->
+
+   <!-- Initialize Swiper -->
+
+<script src="node_modules/jquery/dist/jquery.min.js"></script>
+<script src="node_modules/handlebars/dist/handlebars.min.js"></script>
+<script src="node_modules/swiper/dist/js/swiper.jquery.min.js"></script>
+<script src="scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="js/jquery.bxslider.min.js"></script>
+<script src="js/load.js"></script>
+<script src="js/detailpage.js"></script>
+
+
+</body>
+</html>

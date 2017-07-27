@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bitcamp.java93.dao.CollectDao">
+  
+  <resultMap type="collect" id="collectMap">
+    <id column="cono" property="no"/>
+    <result column="title" property="title"/>
+    <result column="cont" property="content"/>
+    <result column="pic" property="picture"/>
+    <result column="public" property="isPublic"/>
+  </resultMap>
+
+  <sql id="select1">
+    select cono, title, cont, pic, public 
+    from colct
+  </sql>
+  
+  <select id="selectList" resultMap="collectMap" parameterType="int">
+    <include refid="select1"/>
+    where mno = #{memberNo} 
+    order by cono desc 
+  </select>
+  
+  <select id="countAll" resultType="int">
+    select count(*)
+    from colct
+  </select>
+
+</mapper> 
+
+
+
+

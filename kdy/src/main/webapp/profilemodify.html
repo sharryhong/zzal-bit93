@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>개인정보 수정</title>
+  <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="node_modules/swiper/dist/css/swiper.min.css">
+  <link rel="stylesheet" href="css/jquery.bxslider.min.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/profilemodify.css">
+
+
+</head>
+<body>
+<div class="main-page">
+<div id="header"></div>
+<div class="main-content changepage">
+    <div class="profile-changepage">
+      <div class="zzal-container">
+        <div class="profile-photo-change">
+          <div class="profile-picture"></div>
+          <button type="button" class="btn btn-default change-photo"><i class="fa fa-camera" aria-hidden="ture">&nbsp;&nbsp;</i>프로필 사진 변경</button><br>
+        </div>
+      </div>
+      <hr class="hrstyle">
+    <div class="zzal-container middle">
+      <div class="profile-change">
+        <div class="input-form">
+          <span class="input-change">닉네임 변경</span><br>
+          <input class="profile-input-name" type=text placeholder=""  id="profile-name">
+        </div>
+        <div class="input-form">
+        <span class="input-change">현재 비밀번호</sapn>
+          <input class="profile-input-name" type=password placeholder="현재 비밀번호를 입력해주세요.">
+        </div>
+        <div class="input-form">
+        <span class="input-change">변경할 비밀번호</sapn>
+          <input class="profile-input-name" type=password placeholder="변경할 비밀번호를 입력해주세요.">
+        </div>
+        <div class="input-form">
+        <span class="input-change">변경할 비밀번호 확인</sapn>
+          <input class="profile-input-name" type=password placeholder="변경할 비밀번호를 다시한번 입력해주세요.">
+        </div>
+        <div class="deletebtn clearfix">
+          <a href="#" class="account-delete">계정삭제</a>
+        </div>
+      </div>
+    <div class="change-button clearfix">
+      <button id="" type="button" class="btn btn-info btn-make">저장</button>
+      <button id="" type="button" class="btn btn-default btn-cancle">취소</button>
+    </div>
+    </div> <!--zzal-container -->
+  </div>
+</div><!--main content -->
+<footer id="footer"></footer>
+</div>
+<script src="node_modules/jquery/dist/jquery.min.js"></script>
+<!-- <script src="node_modules/handlebars/dist/handlebars.min.js"></script> -->
+<script src="node_modules/swiper/dist/js/swiper.min.js"></script>
+<script src="js/load.js"></script>
+<script src="js/profilemodify.js"></script>
+
+</body>
+</html>

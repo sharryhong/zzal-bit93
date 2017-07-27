@@ -1,0 +1,11 @@
+{
+  "status" : "success",
+  "data":
+    {
+        "list" :
+        [
+          {"userNick":"javajoa", "userPhot": "image/sul.jpg", "viewCnt":135555, "likeCnt":135555,
+            "subsCnt":135555, "zzalLectCnt":154, "zzalCollecCnt":200, "myzzalLect":154}
+        ]
+    }
+}

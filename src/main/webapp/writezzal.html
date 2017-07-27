@@ -9,161 +9,180 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+
 <link rel="stylesheet"
-	href="node_modules/swiper/dist/css/swiper.min.css">
+  href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/codemirror.min.css">
+
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.6.3/css/froala_editor.pkgd.min.css"
+  rel="stylesheet" type="text/css" />
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.6.3/css/froala_style.min.css"
+  rel="stylesheet" type="text/css" />
+
+<link rel="stylesheet"
+  href="node_modules/swiper/dist/css/swiper.min.css">
 <link rel="stylesheet" href="css/jquery.bxslider.min.css">
 <link rel="stylesheet" href="css/common.css">
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/writezzal.css">
+
+
+
 </head>
 
 
 <body>
-	<div class="writezzal-con header">
-		<div class="left">
-			<a href="#" class="menu"><i class="fa fa-bars" aria-hidden="true"><span
-					class="blind">메뉴버튼</span></i></a>
-			<h1 class="logo">
-				<a href="./">Zzal School</a>
-			</h1>
-		</div>
-	  <div class="writezzal-header-right ">
-     <div class="mobile-write-upload-btn">올리기</div>
-     <div class="mobile-write-cancle-btn">취소</div>
+  <div class="writezzal-con header">
+    <div class="left">
+      <a href="#" class="menu"><i class="fa fa-bars" aria-hidden="true"><span
+          class="blind">메뉴버튼</span></i></a>
+      <h1 class="logo">
+        <a href="./">Zzal School</a>
+      </h1>
     </div>
-	</div>
-	
-	
-	<!-- header -->
-	<div id="con" class="writezzal-con-wrapper">
-		<div class="main-content write-wrap">
-			<div class="writezzal-container">
-				<div class="left-func-menu web">
-					<div class="photo">
-						<i class="fa fa-camera" aria-hidden="true"></i>
-						<p>사진</p>
-					</div>
-					<div class="video">
-						<i class="fa fa-link" aria-hidden="true"></i>
-						<p>동영상</p>
-					</div>
-					<div class="voice">
-						<i class="fa fa-headphones" aria-hidden="true"></i>
-						<p>음성</p>
-					</div>
-
-					<div class="buttons">
-						<button class="btn btn-info write-upload-btn">올리기</button>
-						<button class="btn write-cancle-btn">취소</button>
-					</div>
-				</div>
-
-				<div class="zzal-lect-detail-con clearfix">
-					<div class="write-con">
-						<div class="id-title-pic-con">
-							<div class="user-line" id="user-pic1"></div>
-							<div class="title-collection clearfix">
-								<div class="select-collection">
-									<select>
-										<option value="none">지정안함</option>
-										<option value="mycollection">내 컬렉션</option>
-									</select>
-								</div>
-								<div class="title-line clearfix">
-									<input class="title-linetext" type="text" placeholder="짤강제목">
-								</div>
-							</div>
-							<div class="picture-line">
-								<img src="image/zzal02.jpg">
-							</div>
-						</div>
-
-						<div class="text-pagebutton">
-							<div class="text">
-								<textarea maxlength="150" placeholder="내용을 입력해주세요"></textarea>
-							</div>
-
-							<div class="hide-when-mobile page-move-footer">
-								<div class="fa fa-chevron-left" aria-hidden="true"></div>
-								<span>1</span><span>/</span><span>100</span>
-								<div class="fa fa-chevron-right" aria-hidden="true"></div>
-							</div>
+    <div class="writezzal-header-right ">
+      <div class="mobile-write-upload-btn">올리기</div>
+      <div class="mobile-write-cancle-btn">취소</div>
+    </div>
+  </div>
 
 
+  <!-- header -->
+  <div id="con" class="writezzal-con-wrapper">
+    <div class="main-content write-wrap">
+      <div class="writezzal-container zzal-container">
+        <div class="left-func-menu web">
+          <div class="photo">
+            <i class="fa fa-camera" aria-hidden="true"></i>
+            <p>사진</p>
+          </div>
+          <div class="video">
+            <i class="fa fa-link" aria-hidden="true"></i>
+            <p>동영상</p>
+          </div>
+          <div class="voice">
+            <i class="fa fa-headphones" aria-hidden="true"></i>
+            <p>음성</p>
+          </div>
 
+          <div class="buttons">
+            <button class="btn btn-info write-upload-btn">올리기</button>
+            <button class="btn write-cancle-btn">취소</button>
+          </div>
+        </div>
 
+        <div class="zzal-lect-detail-con clearfix">
+          <div class="write-con">
+            <div class="id-title-pic-con">
+              <div class="user-line" id="user-pic1"></div>
+              <div class="title-collection clearfix">
+                <div class="select-collection">
+                  <select>
+                    <option value="none">지정안함</option>
+                    <option value="mycollection">내 컬렉션</option>
+                  </select>
+                </div>
+                <div class="title-line clearfix">
+                  <input class="title-linetext" type="text" placeholder="짤강제목">
+                </div>
+              </div>
+              <div class="picture-line">
+                <img src="image/zzal02.jpg">
+              </div>
+            </div>
 
-							<div class="mobile-attc-btns hide-when-mobile">
-								<div class="photo">
-									<i class="fa fa-camera" aria-hidden="true"></i>
-									<p>사진</p>
-								</div>
-								<div class="video">
-									<i class="fa fa-link" ar ia-hidden="true"></i>
-									<p>동영상</p>
-								</div>
-								<div class="voice">
-									<i class="fa fa-headphones" aria-hidden="true"></i>
-									<p>음성</p>
-								</div>
-							</div>
-						</div>
+            <div class="text-pagebutton">
 
-					</div>
+              <div class="hide-when-mobile page-move-footer">
+                <div class="fa fa-chevron-left" aria-hidden="true"></div>
+                <span>1</span><span>/</span><span>100</span>
+                <div class="fa fa-chevron-right" aria-hidden="true"></div>
+              </div>
 
-					<div class="prac-div"></div>
+              <textarea></textarea>
 
-				</div>
-				<!--.zzal-lect-detail-con-->
+              <div class="mobile-attc-btns hide-when-mobile">
+                <div class="photo">
+                  <i class="fa fa-camera" aria-hidden="true"></i>
+                  <p>사진</p>
+                </div>
+                <div class="video">
+                  <i class="fa fa-link" ar ia-hidden="true"></i>
+                  <p>동영상</p>
+                </div>
+                <div class="voice">
+                  <i class="fa fa-headphones" aria-hidden="true"></i>
+                  <p>음성</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="prac-div"></div>
+        </div>
+        <!--.zzal-lect-detail-con-->
 
-			</div>
-			<!-- zzal-container div-->
-		</div>
-		<!-- main-content -->
+      </div>
+      <!-- zzal-container div-->
+    </div>
+    <!-- main-content -->
 
-		<div class="mobile-bottom">
-			<div class="hide-when-web page-move-footer rrr">
-				<div class="fa fa-chevron-left" aria-hidden="true"></div>
-				<span>1</span><span>/</span><span>100</span>
-				<div class="fa fa-chevron-right" aria-hidden="true"></div>
-			</div>
+    <div class="mobile-bottom">
+      <div class="hide-when-web page-move-footer rrr">
+        <div class="fa fa-chevron-left" aria-hidden="true"></div>
+        <span>1</span><span>/</span><span>100</span>
+        <div class="fa fa-chevron-right" aria-hidden="true"></div>
+      </div>
 
-			<div class="mobile-attc-btns hide-when-web">
-				<div class="photo">
-					<i class="fa fa-camera" aria-hidden="true"></i>
-					<p>사진</p>
-				</div>
-				<div class="video">
-					<i class="fa fa-link" ar ia-hidden="true"></i>
-					<p>동영상</p>
-				</div>
-				<div class="voice">
-					<i class="fa fa-headphones" aria-hidden="true"></i>
-					<p>음성</p>
-				</div>
-			</div>
-		</div>
+      <div class="mobile-attc-btns hide-when-web">
+        <div class="photo">
+          <i class="fa fa-camera" aria-hidden="true"></i>
+          <p>사진</p>
+        </div>
+        <div class="video">
+          <i class="fa fa-link" ar ia-hidden="true"></i>
+          <p>동영상</p>
+        </div>
+        <div class="voice">
+          <i class="fa fa-headphones" aria-hidden="true"></i>
+          <p>음성</p>
+        </div>
+      </div>
+    </div>
 
-		<div class="footer writezzal-footer">
-			<p>zzal school</p>
-		</div>
-	</div>
+    <div class="footer writezzal-footer">
+      <p>zzal school</p>
+    </div>
+  </div>
 
 
 
-	<!-- 핸들바스 스크립트 -->
-	<script id="writeuser-template1" type="text/x-handlebars-template">
+  <!-- 핸들바스 스크립트 
+  <script id="writeuser-template1" type="text/x-handlebars-template">
     {{#each userinfo}}
     <div class="user-picture" style='background-image:url("{{profileImg}}")'></div><span class="user-id">{{nickName}}</span> {{/each}}
+  </script> -->
+
+  <script src="node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="node_modules/handlebars/dist/handlebars.min.js"></script>
+  <script src="js/jquery.bxslider.min.js"></script>
+  <script src="node_modules/swiper/dist/js/swiper.min.js"></script>
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/codemirror.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/mode/xml/xml.min.js"></script>
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.6.3/js/froala_editor.pkgd.min.js"></script>
+  <script> $(function() {
+    $('textarea').froalaEditor({charCounterMax: 25, toolbarButtons: 
+            ['bold', 'italic', 'underline', 'strikeThrough', '|','fontFamily', 'fontSize', 'color', '|', 'paragraphFormat', 'align', 'formatOL', 'formatUL', '|','insertLink', 'insertImage', 'insertVideo', 'insertFile', '|','emoticons', 'specialCharacters', 'insertHR', '|','spellChecker', 'html', '|','undo', 'redo']})
+    }); 
+  
+    console.log($('fr-view'))
+  
   </script>
+  <script src="js/loadSR.js"></script>
+  <script src="js/writezzal.js"></script>
 
-
-
-	<script src="node_modules/jquery/dist/jquery.min.js"></script>
-	<script src="node_modules/handlebars/dist/handlebars.min.js"></script>
-	<script src="js/jquery.bxslider.min.js"></script>
-	<script src="node_modules/swiper/dist/js/swiper.min.js"></script>
-	<script src="js/loadSR.js"></script>
 
 
 </body>
