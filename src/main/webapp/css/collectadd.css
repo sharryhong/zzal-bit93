@@ -36,6 +36,9 @@
    text-align: center;
    background: rgba(0,0,0,0.8);
  }
+ .represent-photo:hover {
+   background: rgba(0,0,0,9);
+ }
  .represent-photo .text {
     position: absolute;
     width: 100%;

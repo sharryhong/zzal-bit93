@@ -7,6 +7,7 @@ body {
 	color: #333;
 	overflow-y: scroll;
 }
+
 .main-page {
   min-width: 300px;
 }
@@ -87,7 +88,7 @@ input::-moz-placeholder { color: #777; }
 	position: absolute;
 	padding: 0 3px;
 	height: 18px;
-	background: #F83434;
+	background: #ec3c10;
 	color: white;
 	font-size: 0.75rem;
 	line-height: 18px;
@@ -1053,19 +1054,16 @@ input::-moz-placeholder { color: #777; }
 }
 .btn-info {
   color: #fff;
-  /* background-color: #5bc0de;  */
-  background: #0bbde2;
-  border-color: #46b8da;
+  background: #ec3c10;
+  border-color: #de3c13;
 }
 .btn-info:hover {
   color: #fff;
-  background-color: #31b0d5;
-  border-color: #269abc;
+  background-color: #d93a13;
 }
 .btn-info:active {
   color: #fff;
-  background-color: #31b0d5;
-  border-color: #269abc;
+  background-color: #ec3c10;
 }
 .loginBtn {
 	/* position: relative; */
