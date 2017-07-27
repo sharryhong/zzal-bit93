@@ -128,8 +128,11 @@ $('.detail-funcbtn-a').on('click', function(e){
 var zzno=1
 $.getJSON('zzal/list.json',{'zzno': zzno},function(result){
   console.log(result)
-  
-  
+  let usedata = result.data.list[0];
+  let str = usedata.cdt
+  let res = str.split(" "); 
+  console.log(res[0])
+//  console.log(typeof(str))
 //  let templateFn = Handlebars.compile($('#detailright-user-template').text())
 //  let generatedHTML = templateFn(result.data) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
 //  console.log(generatedHTML)

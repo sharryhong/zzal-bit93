@@ -223,12 +223,26 @@
    .detail-left .left-down-menu .down-down {
      padding: 20px 0;
    }
-  .detail-left .left-down-menu .comuni{
-    color: #3498db;
+   
+   
+   .detail-left .left-down-menu .down-down img{
+   	width : 21px;
+   }
+  
+  .detail-left .left-down-menu .comuni {
+    
     font-size: 20px;
     margin: 0;
+  } 
+  
+  .detail-left .left-down-menu .comuni.fa-twitter{
+    color: #3498db;
+    
   }
-
+	.detail-left .left-down-menu .comuni.fa-facebook {
+	color: #3b5998;
+	
+	}
   .detail-right .left-info {
     float: left;
   }

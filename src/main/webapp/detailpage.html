@@ -3,6 +3,16 @@
 <head>
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <meta charset="UTF-8">
+  
+<meta property="og:url"                content="http://192.168.0.57/zzal-bit93/detailpage.html" />
+<meta property="og:type"               content="zzal" />
+<meta property="og:title"              content="zzal" />
+<meta property="og:description"        content="creative thinking?" />
+<meta property="og:image"              content="http://192.168.0.57/zzal-bit93/image/sul.jpg" />
+  
+  
+  
+  
   <title>zzal school</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
@@ -95,25 +105,55 @@
                 <div class="left-down-menu">
                  <ul>
                   <li>
-                    <a href="#">
+					<a href="#">
                       <div class="down-down facebook-icon">
-                        <div class="fa fa-facebook comuni" aria-hidden="true"></div>
+                     <div id="fb-root"></div>
+							<script>(function(d, s, id) {
+							  var js, fjs = d.getElementsByTagName(s)[0];
+							  if (d.getElementById(id)) return;
+							  js = d.createElement(s); js.id = id;
+							  js.src = "//connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v2.10&appId=1589125961139017";
+							  fjs.parentNode.insertBefore(js, fjs);
+							}(document, 'script', 'facebook-jssdk'));</script>
+                      
+                     <!--  <div class="fb-share-button" data-href="http://192.168.0.57/zzal-bit93/detailpage.html" data-layout="button" data-size="small" 
+                      data-mobile-iframe="true">
+                      </div> -->
+                      <a class="fb-xfbml-parse-ignore" target="_blank" href="javascript:shareFacebook('http://192.168.0.57/zzal-bit93/detailpage.html')">
+                        <div class="fa fa-facebook comuni" data-layout="button" data-href="http://192.168.0.57/zzal-bit93/detailpage.html" 
+    					 aria-hidden="true"></div>
+                      <script>
+					  	function shareFacebook(url){
+                      		window.open("https://www.facebook.com/sharer/sharer.php?u="+url)
+                      	}
+                      </script>
+                      </a>
                       </div>
                     </a>
                   </li>
+                  
                   <li>
-                    <a href="#">
-                      <div class="down-down listen">
-                        <div class="fa fa-camera-retro comuni" aria-hidden="true"></div>
-                      </div>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
+                    <a href="#" onclick="javascript:window.open('https://twitter.com/intent/tweet?text=[%EA%B3%B5%EC%9C%A0]%20'
+					+encodeURIComponent(document.URL)+'%20-%20'+encodeURIComponent(document.title), 'twittersharedialog',
+ 					'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" target="_blank"
+					 alt="Share on Twitter" >
                       <div class="down-down auto">
                         <div class="fa fa-twitter comuni" aria-hidden="true"></div>
                       </div>
                    </a>
+                  </li>
+                  <li>
+                    <a href="#" onclick="javascript:window.open('http://share.naver.com/web/shareView.nhn?url='+encodeURIComponent(document.URL)+'&title='+encodeURIComponent(document.title),
+                    'naversharedialog', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" target="_blank" alt="Share on Naver" >
+                      <div class="down-down listen">
+                        <span>
+							<script type="text/javascript" src="//static.naver.net/blog/share/blog_sharebutton.js?v={0}"></script>
+							<script type="text/javascript">
+							new ShareBlog.makeButton({"type": "c"});
+							</script>
+						</span>
+                      </div>
+                    </a>
                   </li>
                   </ul>
                 </div>
