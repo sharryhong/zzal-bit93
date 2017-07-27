@@ -2,7 +2,7 @@ package bitcamp.java93.domain;
 
 public class Zzal {
 	int zzno;
-	String Title;
+	String title;
 	String mainPic;
 	String cdt;
 	
@@ -11,13 +11,10 @@ public class Zzal {
 	
 	
 	
-	
 	@Override
 	public String toString() {
-		return "Zzal [zzno=" + zzno + ", Title=" + Title + ", mainPic=" + mainPic + ", cdt=" + cdt + "]";
+		return "Zzal [zzno=" + zzno + ", title=" + title + ", mainPic=" + mainPic + ", cdt=" + cdt + "]";
 	}
-	
-	
 	public int getZzno() {
 		return zzno;
 	}
@@ -25,10 +22,10 @@ public class Zzal {
 		this.zzno = zzno;
 	}
 	public String getTitle() {
-		return Title;
+		return title;
 	}
 	public void setTitle(String title) {
-		Title = title;
+		this.title = title;
 	}
 	public String getMainPic() {
 		return mainPic;
@@ -44,6 +41,10 @@ public class Zzal {
 	}
 	
 	
+	
+	
+	
+
 	
 	
 }
