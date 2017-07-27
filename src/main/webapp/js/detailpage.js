@@ -6,7 +6,7 @@ var detailSwipeBigInfo = {
                           paginationType: 'fraction'
                          }
 
-var swiper = new Swiper(detailSwipeBig,detailSwipeBigInfo)
+var swiper1 = new Swiper(detailSwipeBig,detailSwipeBigInfo)
 
 
 
@@ -22,12 +22,38 @@ var detailSwipeSmallInfo={
                              nested : true,
                              autoplay: 2500
                           }
-var swiper = new Swiper(detailSwipeSmall,detailSwipeSmallInfo );
+var swiper2 = new Swiper(detailSwipeSmall,detailSwipeSmallInfo );
 
-var islike = false;
+
+
+
+//function leftBtnFunc(p,isBool){
+//	let up = $(p)[0].children[0]
+//	let off = $(p)[0].children[1]
+//	if(!isBool){
+//		console.log(isBool)
+//		$(up).removeClass('off-btn')
+//		$(off).addClass('off-btn')
+//		return isBool=true;
+//	}else{
+//		console.log(isBool)
+//		$(off).removeClass('off-btn')
+//		$(up).addClass('off-btn')
+//		return isBool=false;	
+//	} 
+//
+//}
+//
+
+
+
+let islike = false;
 
 $('#like-btn').on('click',function(event){
   console.log('좋아요 안이야! 114')
+  
+//  leftBtnFunc(this, islike);
+  
   let up = $(this)[0].children[0]
   let off = $(this)[0].children[1]
  if(!islike){
@@ -48,6 +74,8 @@ var isvolumeOn = false;
 
 console.log('재생 안이야! 117')
 $('#volume-btn').on('click',function(event){
+
+//	leftBtnFunc(isvolumeOn)
    let up = $(this)[0].children[0]
    let off = $(this)[0].children[1]
   if(!isvolumeOn){
@@ -66,6 +94,7 @@ $('#volume-btn').on('click',function(event){
 var isPlay = false
 
 $('#play-btn').on('click',function(event){
+//	leftBtnFunc(isPlay)
    let up = $(this)[0].children[0]
    let off = $(this)[0].children[1]
   if(!isPlay){
@@ -94,24 +123,24 @@ $('.detail-funcbtn-a').on('click', function(e){
 //     lstPagenUm= ($('.detail-page-swipe .det-lect').length)-1;
 
 // console.log($(lstPagenOm[lstPagenUm]))
-var testnum =$('.swiper-wrapper.detail-page-swipe .swiper-pagination.main-disabled.swiper-pagination-fraction')
+//var testnum =$('.swiper-wrapper.detail-page-swipe .swiper-pagination.main-disabled.swiper-pagination-fraction')
 
 
-$.getJSON('detailpage.json',function(result){
-  console.log(result)
-  let templateFn = Handlebars.compile($('#detailright-user-template').text())
-  let generatedHTML = templateFn(result.data) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
-  console.log(generatedHTML)
-  $('#detailright-info').text('') // tbody의 기존 tr 태그들을 지우고
-  $('#detailright-info').html(generatedHTML) // 새 tr 태그들로 설정한다.
-  //
-  // templateFn = Handlebars.compile($('#mypagemid-template').text())
-  // generatedHTML = templateFn(result.data)
-  // $('#mypage-mid').text('')
-  // $('#mypage-mid').html(generatedHTML)
-  //
-  // templateFn = Handlebars.compile($('#mypagebot-template').text())
-  // generatedHTML = templateFn(result.data)
-  // $('#mypage-bot').text('')
-  // $('#mypage-bot').html(generatedHTML)
-})
+//$.getJSON('',function(result){
+//  console.log(result)
+//  let templateFn = Handlebars.compile($('#detailright-user-template').text())
+//  let generatedHTML = templateFn(result.data) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
+//  console.log(generatedHTML)
+//  $('#detailright-info').text('') // tbody의 기존 tr 태그들을 지우고
+//  $('#detailright-info').html(generatedHTML) // 새 tr 태그들로 설정한다.
+//  //
+//  // templateFn = Handlebars.compile($('#mypagemid-template').text())
+//  // generatedHTML = templateFn(result.data)
+//  // $('#mypage-mid').text('')
+//  // $('#mypage-mid').html(generatedHTML)
+//  //
+//  // templateFn = Handlebars.compile($('#mypagebot-template').text())
+//  // generatedHTML = templateFn(result.data)
+//  // $('#mypage-bot').text('')
+//  // $('#mypage-bot').html(generatedHTML)
+//})
