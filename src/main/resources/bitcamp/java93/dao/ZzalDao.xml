@@ -7,6 +7,7 @@
   <resultMap type="zzal" id="zzalMap">
     <id column="zzno" property="zzno"/>
     <result column="mno" property="mno"/>
+    <result column="nick" property="nick"/>
     <result column="cno" property="cno"/>
     <result column="titl" property="title"/>
     <result column="pic" property="mainPic"/>
@@ -17,9 +18,10 @@
     from zzal_lect
   </sql>
 
-<select id="selectList" resultMap="zzalMap" parameterType="int">
-    <include refid="select1"/>
-    where zzno = #{no} 
+	<select id="selectList" resultMap="zzalMap" parameterType="int">
+    select z.zzno, z.mno, m.nick, z.cno, z.titl, z.pic, z.cdt
+    from zzal_lect z inner join memb m on z.mno = m.mno
+    where z.zzno = #{no} 
   </select>
 
 <!--   

@@ -47,9 +47,21 @@ var swiper2 = new Swiper(detailSwipeSmall,detailSwipeSmallInfo );
 
 var douSubscribe =false;
 var isPlay = false
-var islike = false;
+var islike;
+
+var no = location.href.split('?')[1].split('&')[0].split('=')[1]
+
+var zzno = location.href.split('?')[1].split('&')[1].split('=')[1]
+console.log(no)
+$.getJSON('zzallike/doulike.json',{'mno':no,'zzno':zzno},function(result){
+  islike=Boolean(result)
 
 buttonChecker();
+})
+console.log(islike)
+
+
+
 //
 function buttonChecker(){
   if(islike){
@@ -58,6 +70,9 @@ function buttonChecker(){
     $($('.heart')[1]).addClass('off-btn')
     // $('.heart')[0]
     // $('.heart')[1]
+  }else{
+    $($('.heart')[1]).removeClass('off-btn')
+    $($('.heart')[0]).addClass('off-btn')
   }
 
   // if(douSubscribe){
@@ -82,8 +97,10 @@ $('#like-btn').on('click',function(){
 
 
  if(!islike){
+   $.post({})
    console.log(islike)
    innerFuncion(up,off)
+
    return islike=true;
  }else{
    console.log(islike)
@@ -214,19 +231,30 @@ $('.detail-funcbtn-a').on('click', function(e){
 
 
 
-var zzno=1
-$.getJSON('zzal/list.json',{'zzno': zzno},function(result){
+
+$.getJSON('zzal/list.json',{'zzno': no},function(result){
   console.log(result)
+  console.log(result.data.list[0])
   let usedata = result.data.list[0];
   let str = usedata.cdt
   let res = str.split(" ");
   console.log(res[0])
-  generateHandlebars(result, el, target)
+  generateHandlebars(result, $('#detail-swipeslide-template'), $('#zzalswipe-tg'))
+
+  $(document).ready(function() {
+
+  		$('#main-date').text(res[0])
+
+  	});
+
+
+
 })
 
 function generateHandlebars(result, el, target) {
   templateFn = Handlebars.compile(el.text())
   generatedHTML = templateFn(result.data)
+  // console.log(generatedHTML)
   target.text('')
   target.html(generatedHTML)
 }

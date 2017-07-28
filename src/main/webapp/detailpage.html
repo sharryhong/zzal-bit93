@@ -351,34 +351,13 @@
 <!-- detail-siwpe swiper-container -->
        <div class="detail-siwpe swiper-container">
            <div class="swiper-wrapper detail-page-swipe">
-             <script id="detail-swipeslide-template" type="text/x-handlebars-template">
-             {{#list1}}
-               <div class="swiper-slide main">
-                 <div class="contents">
-                   <div class="type-main">
-                   <div class="title-info">
-                     <div class="write-date">2017.06.30 작성</div>
-                     <h3>{{title}}</h3>
-                     <div class="left-info">
-                       <a href="#">
-                         <div class="lect-user-phot thumbnail-phot-insert"></div>
-                       </a>
-                       <div class="zzal-lect-info">
-                         <ul>
-                           <li><span class='left-1st user-name'>{{nick}}</span><span class='right-1st'></span></li>
-                           <li><span class='left-1st viewcnt'>조회수</span><span class='right-1st viewnum'>2,000</span></li>
-                         </ul>
-                       </div>
-                     </div>
-                     <div class="mover-mover"><div class="fa fa-chevron-right" aria-hidden="true"></div>좌우로 넘겨 보아요!</div>
-                   </div>
 
-                   </div><!--typemain-->
-                 </div>
-                </div>
-              {{/list1}}
-              <!-- {{#each list2}} -->
-            </script>
+ <div id="zzalswipe-tg" class="swiper-slide main">
+ </div>
+
+
+
+            <!-- {{#each list2}} -->
                <div class="swiper-slide sw-contents">
                   <div class="contents">
                      <div class="type-contents">
@@ -584,8 +563,33 @@
 <script src="scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
 <script src="js/jquery.bxslider.min.js"></script>
 <script src="js/load.js"></script>
-<script src="js/detailpage.js"></script>
 
+<script id="detail-swipeslide-template" type="text/x-handlebars-template">
+{{#each list}}
+    <div class="contents">
+      <div class="type-main">
+      <div class="title-info">
+        <div class="write-date"><span id="main-date"></span><span>작성</span></div>
+        <h3>{{title}}</h3>
+        <div class="left-info">
+          <a href="#">
+            <div class="lect-user-phot thumbnail-phot-insert"></div>
+          </a>
+          <div class="zzal-lect-info">
+            <ul>
+              <li><span class='left-1st user-name'>{{nick}}</span><span class='right-1st'></span></li>
+              <li><span class='left-1st viewcnt'>조회수</span><span class='right-1st viewnum'>2,000</span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="mover-mover"><div class="fa fa-chevron-right" aria-hidden="true"></div>좌우로 넘겨 보아요!</div>
+      </div>
+      </div><!--typemain-->
+    </div>
+
+ {{/each}}
+</script>
+<script src="js/detailpage.js"></script>
 
 </body>
 </html>

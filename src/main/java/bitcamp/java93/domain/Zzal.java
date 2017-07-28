@@ -1,12 +1,20 @@
 package bitcamp.java93.domain;
 
+import java.util.List;
+
 public class Zzal {
 	int zzno;
 	int mno;
 	int cno;
+	
+	String nick;
 	String title;
-	String mainPic;
+	List<String> mainPic;
 	String cdt;
+	
+	
+	
+	
 	
 	
 	
@@ -15,8 +23,8 @@ public class Zzal {
 	
 	@Override
 	public String toString() {
-		return "Zzal [zzno=" + zzno + ", mno=" + mno + ", cno=" + cno + ", title=" + title + ", mainPic=" + mainPic
-				+ ", cdt=" + cdt + "]";
+		return "Zzal [zzno=" + zzno + ", mno=" + mno + ", cno=" + cno + ", nick=" + nick + ", title=" + title
+				+ ", mainPic=" + mainPic + ", cdt=" + cdt + "]";
 	}
 	public int getZzno() {
 		return zzno;
@@ -36,16 +44,22 @@ public class Zzal {
 	public void setCno(int cno) {
 		this.cno = cno;
 	}
+	public String getNick() {
+		return nick;
+	}
+	public void setNick(String nick) {
+		this.nick = nick;
+	}
 	public String getTitle() {
 		return title;
 	}
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public String getMainPic() {
+	public List<String> getMainPic() {
 		return mainPic;
 	}
-	public void setMainPic(String mainPic) {
+	public void setMainPic(List<String> mainPic) {
 		this.mainPic = mainPic;
 	}
 	public String getCdt() {
@@ -54,6 +68,13 @@ public class Zzal {
 	public void setCdt(String cdt) {
 		this.cdt = cdt;
 	}
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	

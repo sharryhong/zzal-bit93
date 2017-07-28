@@ -40,7 +40,18 @@ public class ZzalLikeControl {
 	    
 	    return new JsonResult(JsonResult.SUCCESS, dataMap);
 	  }
-
+	
+	@RequestMapping("loveu")
+	  public JsonResult loveu(@RequestParam int mno,
+			  				   @RequestParam int zzno) throws Exception {
+	    
+	    HashMap<String,Object> dataMap = new HashMap<>();
+	  
+	    	
+	   dataMap.put("doit",zzalLikeService.douLike(mno,zzno));
+	    
+	    return new JsonResult(JsonResult.SUCCESS, dataMap);
+	  }
 	
 //	
 //	@RequestMapping("detail")

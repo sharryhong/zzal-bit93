@@ -24,6 +24,10 @@
 	select zzno,mno,cdt  from lik
     where mno =#{mno} and zzno =#{zzno};
   </select>
+<insert id="loveu" resultMap="zzalLikeMap" parameterType="map">
+	select zzno,mno,cdt  from lik
+    where mno =#{mno} and zzno =#{zzno};
+  </insert>
 
 <!--   
 	

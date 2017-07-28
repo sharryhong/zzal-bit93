@@ -34,6 +34,17 @@ public class ZzalLikeServiceImpl implements ZzalLikeService {
 	    
 		return zzalLikeDao.douLike(valueMap);
 	}
+
+
+
+	@Override
+	public ZzalLike loveu(int mno, int zzno) {
+		HashMap<String,Object> valueMap = new HashMap<>();
+	    valueMap.put("mno", mno);
+	    valueMap.put("zzno", zzno);
+	    
+		return zzalLikeDao.loveu(valueMap);
+	}
 	
 	
 	
