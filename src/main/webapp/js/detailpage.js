@@ -221,5 +221,12 @@ $.getJSON('zzal/list.json',{'zzno': zzno},function(result){
   let str = usedata.cdt
   let res = str.split(" ");
   console.log(res[0])
-
+  generateHandlebars(result, el, target)
 })
+
+function generateHandlebars(result, el, target) {
+  templateFn = Handlebars.compile(el.text())
+  generatedHTML = templateFn(result.data)
+  target.text('')
+  target.html(generatedHTML)
+}
