@@ -97,18 +97,20 @@ $('#like-btn').on('click',function(){
 
 
  if(!islike){
-  //  $.post('zzallike/loveu.json',{'no':no, 'zzno':zzno},function(result){
-    //  console.log('success')
-  //  })
+   $.post('zzallike/loveu.json',{'mno':no, 'zzno':zzno},function(result){
+     console.log(result)
+   },"json")
    console.log(islike)
    innerFuncion(up,off)
-
+    event.preventDefault()
    return islike=true;
  }else{
    console.log(islike)
    innerFuncion(off,up)
+    event.preventDefault()
    return  islike=false;
  }
+
 })
 
 

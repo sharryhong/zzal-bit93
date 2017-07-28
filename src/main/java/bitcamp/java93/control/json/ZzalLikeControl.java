@@ -6,6 +6,7 @@ import javax.servlet.ServletContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -41,12 +42,13 @@ public class ZzalLikeControl {
 	    return new JsonResult(JsonResult.SUCCESS, dataMap);
 	  }
 	
-    @RequestMapping("loveu")
+    @RequestMapping(value="loveu", method = RequestMethod.POST)
 	  public JsonResult loveu(@RequestParam int mno,
 			  				   @RequestParam int zzno) throws Exception {
 	    
 	    HashMap<String,Object> dataMap = new HashMap<>();
-	  
+	  System.out.println(mno);
+	  System.out.println(zzno);
 	    	
 	   dataMap.put("doit",zzalLikeService.douLike(mno,zzno));
 	    

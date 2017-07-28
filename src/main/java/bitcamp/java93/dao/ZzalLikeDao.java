@@ -9,7 +9,7 @@ public interface ZzalLikeDao {
 //  Member selectOne(int no);
   int getcnt(int zzno);
   ZzalLike douLike(HashMap<String,Object> valueMap);
-  void loveu(HashMap<String,Object> valueMap);
+  void dloveu(HashMap<String,Object> valueMap);
 //  int insert(Member member);
 //  int update(Member member);
 }
