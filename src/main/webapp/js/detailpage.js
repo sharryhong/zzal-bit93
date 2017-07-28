@@ -50,15 +50,15 @@ var isPlay = false
 var islike;
 
 var no = location.href.split('?')[1].split('&')[0].split('=')[1]
-
 var zzno = location.href.split('?')[1].split('&')[1].split('=')[1]
 console.log(no)
+console.log(zzno)
 $.getJSON('zzallike/doulike.json',{'mno':no,'zzno':zzno},function(result){
-  islike=Boolean(result)
-
+  islike=Boolean(result.data.doit)
+  console.log(result.data.doit)
 buttonChecker();
 })
-console.log(islike)
+
 
 
 
@@ -97,7 +97,9 @@ $('#like-btn').on('click',function(){
 
 
  if(!islike){
-   $.post({})
+  //  $.post('zzallike/loveu.json',{'no':no, 'zzno':zzno},function(result){
+    //  console.log('success')
+  //  })
    console.log(islike)
    innerFuncion(up,off)
 
@@ -232,7 +234,7 @@ $('.detail-funcbtn-a').on('click', function(e){
 
 
 
-$.getJSON('zzal/list.json',{'zzno': no},function(result){
+$.getJSON('zzal/list.json',{'zzno': zzno},function(result){
   console.log(result)
   console.log(result.data.list[0])
   let usedata = result.data.list[0];

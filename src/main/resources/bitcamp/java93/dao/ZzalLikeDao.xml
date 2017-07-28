@@ -24,11 +24,11 @@
 	select zzno,mno,cdt  from lik
     where mno =#{mno} and zzno =#{zzno};
   </select>
-<!-- <insert id="loveu" parameterType="map">
+<insert id="loveu" parameterType="map">
 	insert into lik(zzno,mno) 
     values(#{zzno},#{mno});
 </insert>
- -->
+
 <!--   
 	
   <select id="selectOneByEmailPassword" resultMap="memberMap" parameterType="map">

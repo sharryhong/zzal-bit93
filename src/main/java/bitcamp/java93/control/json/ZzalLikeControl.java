@@ -41,7 +41,7 @@ public class ZzalLikeControl {
 	    return new JsonResult(JsonResult.SUCCESS, dataMap);
 	  }
 	
-	/*@RequestMapping("loveu")
+    @RequestMapping("loveu")
 	  public JsonResult loveu(@RequestParam int mno,
 			  				   @RequestParam int zzno) throws Exception {
 	    
@@ -52,7 +52,7 @@ public class ZzalLikeControl {
 	    
 	    return new JsonResult(JsonResult.SUCCESS, dataMap);
 	  }
-	*/
+
 //	
 //	@RequestMapping("detail")
 //	public JsonResult detail(@RequestParam int no) throws Exception {
