@@ -80,6 +80,9 @@ input::-moz-placeholder { color: #ccc; }
 	background: url("../image/img-bg1.gif");
 	overflow: hidden;
 }
+.writezzal-img .btns label {
+	display: inline-block;
+}
 .writezzal-cover {
 	height: calc(100vh - 300px);
 }

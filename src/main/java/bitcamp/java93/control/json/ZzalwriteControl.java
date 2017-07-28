@@ -30,7 +30,7 @@ public class ZzalwriteControl {
     for (String name : nameList) {
       photoList.add(name);
     }*/
-    System.out.println(filenames);
+    System.out.println(loginMember.getNick());
     String photoList = filenames;
     zzal.setMainPic(photoList);
     

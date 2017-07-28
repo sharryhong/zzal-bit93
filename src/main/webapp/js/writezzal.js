@@ -2,6 +2,13 @@
 	'use strict';
 	var fiFilenames = $('#fi-filenames')
 	
+	$.getJSON('/zzal-bit93/auth/userinfo.json', function(result) {
+	  if (result.data) {
+		  $('.user-name').text(result.data.nick)
+		  $('.profile-wrap .phot').css({"background-image": "url(image/"+result.data.membpic+")"});
+	  }
+	})
+	
 	/*$('#fi-photoupload').fileupload({
 	    url: '/zzal-bit93/zzal/upload.json',
 	    dataType: 'json',
