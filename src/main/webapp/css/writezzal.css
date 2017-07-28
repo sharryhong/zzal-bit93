@@ -216,7 +216,7 @@ input::-moz-placeholder { color: #ccc; }
 		height: calc(100vmax - 380px);
 	} */
 	.writezzal-cover {
-		height: calc(100vmax - 230px);
+		height: calc(100vmax - 250px);
 	}
 	/* .represent-photo {
 	  border-radius: 10px;

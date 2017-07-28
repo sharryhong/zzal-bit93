@@ -38,6 +38,7 @@ dependencies {
   compile group: 'org.springframework', name: 'spring-jdbc', version: '4.3.9.RELEASE'
   compile group: 'org.springframework', name: 'spring-webmvc', version: '4.3.9.RELEASE'
   compile group: 'org.aspectj', name: 'aspectjweaver', version: '1.8.10'
+  compile group: 'net.coobird', name: 'thumbnailator', version: '0.4.8'
   
   // providedCompile: 빌드 할 때만 사용한다. 배포에는 제외시킨다.
   providedCompile group: 'javax.servlet', name: 'javax.servlet-api', version: '3.1.0'

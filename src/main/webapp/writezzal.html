@@ -26,7 +26,7 @@
     <a href="#" class="close"><i class="fa fa-times" aria-hidden="true"><span class="blind">닫기</span></i></a>
   </div> -->
   <div class="writezzal-header-right ">
-    <a href="#" class="mobile-btn btn">올리기</a>
+    <a href="#" class="mobile-btn btn" id="add-btn">올리기</a>
     <a href="#" class="mobile-btn btn">취소</a>
   </div> 
 </div> 
@@ -52,8 +52,12 @@
 	  </div>
 	  <div class="writezzal-img writezzal-cover">
 	    <div class="btns">
-  	    <a href="#" class="represent-photo"><i class="fa fa-camera-retro" aria-hidden="true"></i><span class="text">커버 이미지</span></a>
+  	    <!-- <a href="#" class="represent-photo"><i class="fa fa-camera-retro" aria-hidden="true"></i><span class="text">커버 이미지</span></a> -->
+  	    <input id="fi-photoupload" class="form-control" type="file" name="files">
+      	<input id="fi-filenames" type="hidden" names="filenames">
+  	    <!-- <i class="fa fa-camera-retro" aria-hidden="true"></i><span class="text">커버 이미지</span> -->
 	    </div>
+	    <!-- <div id='images-div' style="border: 1px solid red;"></div> -->
 	    <!-- <img src="image/art.jpg"> -->
 	  </div>
 	  
@@ -85,6 +89,15 @@
 <script src="node_modules/handlebars/dist/handlebars.min.js"></script>
 <script src="js/jquery.bxslider.min.js"></script>
 <script src="node_modules/swiper/dist/js/swiper.min.js"></script>
+<script src="node_modules/blueimp-file-upload/js/vendor/jquery.ui.widget.js"></script>
+<script src="node_modules/blueimp-load-image/js/load-image.all.min.js"></script>
+<script src="node_modules/blueimp-canvas-to-blob/js/canvas-to-blob.js"></script>
+<script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+<script src="node_modules/blueimp-file-upload/js/jquery.iframe-transport.js"></script>
+<script src="node_modules/blueimp-file-upload/js/jquery.fileupload.js"></script>
+<script src="node_modules/blueimp-file-upload/js/jquery.fileupload-process.js"></script> 
+<script src="node_modules/blueimp-file-upload/js/jquery.fileupload-image.js"></script> 
 <script src="js/load.js"></script>
+<script src="js/writezzal.js"></script>
 </body>
 </html>

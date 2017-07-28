@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bitcamp.java93.dao.ZzalwriteDao">
+  
+  <resultMap type="zzal" id="zzalMap">
+    <id column="zzno" property="zzno"/>
+    <result column="mno" property="mno"/>
+    <result column="cno" property="cno"/>
+    <result column="titl" property="title"/>
+    <result column="pic" property="mainPic"/>
+    <result column="cdt" property="cdt"/>
+  </resultMap>
+  
+  <sql id="select1">
+    select zzno, mno, cno, titl, pic, cdt
+    from zzal_lect
+  </sql>
+  
+	<!-- <insert id="insert" parameterType="zzal">
+    insert into zzal_lect(zzno, mno, cno, titl, cdt) 
+    values(#{zzno}, #{mno}, #{cno}, #{title}, #{cdt})
+  </insert> -->
+  
+  <!-- <insert id="insert" parameterType="zzal">
+    insert into zzal_lect(zzno, mno, cno, titl, pic, cdt) 
+    values(#{zzno}, #{mno}, #{cno}, #{title}, #{mainPic}, #{cdt})
+  </insert> -->
+  
+  <insert id="insert" parameterType="zzal">
+    insert into zzal_lect(zzno, mno, cno, titl, pic, cdt) 
+    values(zzno, 1, 1, '짤강입니다5', #{mainPic}, curdate())
+  </insert>
+  
+ <!--  <insert id="insertPhoto" parameterType="map">
+    insert into zzal_lect(zzno, pic) 
+    values(#{zzno}, #{mainPic})
+  </insert> -->
+
+</mapper> 
+
+
+
+
