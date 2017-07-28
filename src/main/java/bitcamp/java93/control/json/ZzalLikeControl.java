@@ -18,15 +18,30 @@ public class ZzalLikeControl {
 	@Autowired ServletContext servletContext;
 	@Autowired ZzalLikeService zzalLikeService;
 	
+	
 	@RequestMapping("count")
-	  public JsonResult list(@RequestParam int zzno) throws Exception {
+	  public JsonResult count(@RequestParam int zzno) throws Exception {
 	    
 	    HashMap<String,Object> dataMap = new HashMap<>();
-	    dataMap.put("list", zzalLikeService.list(zzno));
+	    dataMap.put("cnt", zzalLikeService.getcount(zzno));
+	    
+	    return new JsonResult(JsonResult.SUCCESS, dataMap);
+	  }
+	
+	
+	@RequestMapping("doulike")
+	  public JsonResult isLike(@RequestParam int mno,
+			  				   @RequestParam int zzno) throws Exception {
+	    
+	    HashMap<String,Object> dataMap = new HashMap<>();
+	  
+	    	
+	   dataMap.put("doit",zzalLikeService.douLike(mno,zzno));
 	    
 	    return new JsonResult(JsonResult.SUCCESS, dataMap);
 	  }
 
+	
 //	
 //	@RequestMapping("detail")
 //	public JsonResult detail(@RequestParam int no) throws Exception {

@@ -1,6 +1,6 @@
 package bitcamp.java93.service.impl;
 
-import java.util.List;
+import java.util.HashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,10 +18,26 @@ public class ZzalLikeServiceImpl implements ZzalLikeService {
 
 
 	@Override
-	public List<ZzalLike> list(int zzno) throws Exception {
+	public int getcount(int zzno) throws Exception {
 		// TODO Auto-generated method stub
-		return zzalLikeDao.selectList(zzno);
+		return zzalLikeDao.getcnt(zzno);
 	}
+
+
+
+	@Override
+	public ZzalLike douLike(int mno, int zzno) {
+		// TODO Auto-generated method stub
+		HashMap<String,Object> valueMap = new HashMap<>();
+	    valueMap.put("mno", mno);
+	    valueMap.put("zzno", zzno);
+	    
+		return zzalLikeDao.douLike(valueMap);
+	}
+	
+	
+	
+	
 //	@Override
 //	public Member get(int no) throws Exception {
 //		return zzalDao.selectOne(no);

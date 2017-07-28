@@ -14,9 +14,15 @@
     from lik
   </sql>
 
-<select id="selectList" resultMap="zzalLikeMap" parameterType="int">
-    <include refid="select1"/>
-    where zzno = #{no};
+<select id="getcnt" resultType="int" parameterType="int">
+	select count(*) from lik
+    where zzno =#{no};
+  </select>
+
+
+<select id="douLike" resultMap="zzalLikeMap" parameterType="map">
+	select zzno,mno,cdt  from lik
+    where mno =#{mno} and zzno =#{zzno};
   </select>
 
 <!--   
