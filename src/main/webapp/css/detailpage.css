@@ -386,10 +386,16 @@
     width:80%;
   }
   .down-container .reply-con .user-name {
+    display: inline-block;
     padding-top: 10px;
     color:#7F7FFF;
     font-size: 14px;
   }
+  .down-container .reply-con  .cancle {
+    float: right;
+    color:#aaa;
+  }
+
   .down-container .reply-con .reply-text {
     border: 1px solid #ccc;
 
