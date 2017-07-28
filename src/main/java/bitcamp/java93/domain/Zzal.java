@@ -9,23 +9,8 @@ public class Zzal {
 	
 	String nick;
 	String title;
-	List<String> mainPic;
+	String mainPic;
 	String cdt;
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	@Override
-	public String toString() {
-		return "Zzal [zzno=" + zzno + ", mno=" + mno + ", cno=" + cno + ", nick=" + nick + ", title=" + title
-				+ ", mainPic=" + mainPic + ", cdt=" + cdt + "]";
-	}
 	public int getZzno() {
 		return zzno;
 	}
@@ -56,10 +41,10 @@ public class Zzal {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public List<String> getMainPic() {
+	public String getMainPic() {
 		return mainPic;
 	}
-	public void setMainPic(List<String> mainPic) {
+	public void setMainPic(String mainPic) {
 		this.mainPic = mainPic;
 	}
 	public String getCdt() {
@@ -68,11 +53,11 @@ public class Zzal {
 	public void setCdt(String cdt) {
 		this.cdt = cdt;
 	}
-	
-	
-	
-	
-	
+	@Override
+	public String toString() {
+		return "Zzal [zzno=" + zzno + ", mno=" + mno + ", cno=" + cno + ", nick=" + nick + ", title=" + title
+				+ ", mainPic=" + mainPic + ", cdt=" + cdt + "]";
+	}
 	
 	
 	
