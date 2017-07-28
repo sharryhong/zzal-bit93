@@ -1,0 +1,12 @@
+{
+  "status" : "success",
+  "data":
+    {
+      "list" :
+      [
+        {"zzalImg":"image/zzal01.gif", "zzalTitle":"우리 함께 브런치 할까요? 단돈 3000원에..."},
+        {"zzalImg":"image/zzal02.jpg", "zzalTitle":"밥주세요"},
+        {"zzalImg":"image/zzal03.jpg", "zzalTitle":"당일 여행"}
+      ]
+    }
+}

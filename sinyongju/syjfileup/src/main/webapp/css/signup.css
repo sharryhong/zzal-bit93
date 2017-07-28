@@ -1,0 +1,183 @@
+@CHARSET "UTF-8";
+body {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: url("../images/login.jpg")
+}
+
+  html {
+    background-color: #eee;
+  }
+
+  .container {
+    min-width: 300px;
+    max-width: 450px;
+    margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .logo {
+    text-align: center;
+    /*margin-top: 55px;*/
+    font-size: 30px;
+  }
+
+  .logo img {
+    width: 50%;
+  }
+
+  .login-form {
+    /*height: 77vmax;*/
+    padding: 12px;
+    border-radius: 2%;
+    background-color: rgba(255,255,255,0.6);
+
+  }
+
+.login-sns {
+  padding-left: 20px;
+  padding-right: 13px;
+}
+  .sns-btn-group {
+    margin-top: 10px;
+  }
+
+  .sns-btn-facebook {
+    display: inline-block;
+    width: 40%;
+    background: lightslategrey;
+
+  }
+
+  .sns-btn-google {
+    display: inline-block;
+    width: 40%;
+    background: darkgrey;
+    float: right;
+  }
+
+  .sns-btn-group img {
+    width: 100%;
+  }
+
+  .method1 {
+    font-size: 1.25rem;
+  }
+
+  .login-normal {
+    padding-right: 20px;
+    padding-left: 20px;
+    margin-top:28px;
+  }
+
+  .method2 {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1.25rem;
+  }
+
+  .form-group {
+    border-bottom: 1px solid #c4c5c4;
+    margin-bottom: 11px;
+  }
+
+  .email {
+    display: block;
+    width:90%;
+    /*font-size =1.0rem;*/
+  }
+
+  .input-email {
+  width: 100%;
+  height: 30px;
+  border:none;
+  }
+
+  .pwd {
+    display: block;
+    margin-top: 13px;
+  }
+
+  .input-pwd {
+    width: 100%;
+    height: 30px;
+    border:none;
+  }
+
+  .confirm_password {
+    display: inline-block;
+  }
+
+  .agreement {
+    display: inline-block;
+  }
+
+
+  .checkbox {
+    display: block;
+    float: left;
+  }
+
+  .remember-find {
+    width: 100%
+    float: left;
+    margin-top: 13px;
+    margin-bottom: 32px;
+  }
+
+  .rememberId {
+    display: block;
+    float: right;
+  }
+
+  .findId {
+    float: left;
+    cursor: pointer;
+  }
+
+  .loginBtn {
+    display: block;
+    position: relative;
+    width: 100%;
+    background: #00a1ff;
+    border: none;
+    line-height: 40px;
+    color: white;
+  }
+
+  .bottom-div {
+    /*position: absolute;*/
+    /*bottom: 7%;*/
+    /*width: 94%*/
+  }
+
+  .sign-div {
+    margin-top: 20px;
+    padding: 0px 30px 0px 30px;
+  }
+
+  .is-visit-first {
+    display: block;
+    float: left;
+  }
+
+  .sign-in {
+    display: block;
+    float: right;
+    cursor: pointer;
+  }
+
+  .find-div {
+    padding: 0px 5px 0px 5px;
+  }
+
+  .question-pwd {
+    display: block;
+    float: left;
+  }
+
+}

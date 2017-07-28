@@ -1,0 +1,15 @@
+{
+  "status" : "success",
+  "data":
+  {
+    "collectionPhoto" :
+    [
+      {"collectphoTo":"image/zzal03.jpg"}
+    ],
+    "collectionAdd" :
+    [
+      {"collectionName":"컬렉션 이름(필수)","collectionExplanation":"컬렉션 설명",
+      "collectionPrivate":"공개 범위 설정","PrivateAddition":"비공개 컬렉션으로 설정하면 다른 Zzaler들에게 이컬렉션이 보이지 않습니다."}
+    ]
+  }
+}

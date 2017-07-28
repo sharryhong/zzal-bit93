@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>zzal school</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="scrollbar/jquery.mCustomScrollbar.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/notice.css">
+</head>
+<style>
+.titles-wrap .title {
+  position: absolute;
+  left: 100px;
+}
+</style>
+<body>
+<div class="main-page">
+<div class="header change-header">
+  <div class="left">
+    <a href="#" class="menu"><i class="fa fa-bars" aria-hidden="true"><span class="blind">메뉴버튼</span></i></a>
+    <h1 class="logo"><a href="./">Zzal School</a></h1>
+  </div>
+  <div class="right">
+    <span class="search">
+      <input type="text" class="input-line" id="search-btn" placeholder="짤강을 검색해 보세요.">
+      <label for="search-btn" class="search-icon"><i class="fa fa-search" aria-hidden="true"></i></label>
+    </span>
+    <a href="#" class="login before-login">로그인</a>
+    <div class="after-login">
+      <a href="#" class="zzal-write"><i class="fa fa-pencil-square-o" aria-hidden="true"><span class="blind">짤강만들기</span></i></a>
+	    <a href="notice.html" class="notice"><i class="fa fa-bell-o" aria-hidden="true"><span class="blind">알림</span></i></a>
+	    <a href="mypage.html" class="mypage"><i class="fa fa-user-circle-o" aria-hidden="true"><span class="blind">마이페이지</span></i></a>
+    </div>
+  </div>
+  <div class="page-right">
+   	<h2 class="title">알림</h2>
+    <a href="#" class="close"><i class="fa fa-times" aria-hidden="true"><span class="blind">닫기</span></i></a>
+  </div>
+</div>
+
+<div class="nav">
+  <ul class="top-menu">
+    <li><a href="#" class="on"><span class="icon"><i class="fa fa-home" aria-hidden="true"></i></span> 홈</a></li>
+    <li><a href="#"><span class="new-icon icon">NEW</span> 새로운</a></li>
+    <li><a href="#"><span class="icon"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i></span> 추천순</a></li>
+    <li><a href="#"><span class="icon"><i class="fa fa-eye" aria-hidden="true"></i></span> 많이본</a></li>
+  </ul>
+  <div class="category">
+    <h3 class="title">카테고리</h3>
+	  <ul>
+	    <li><a href="#"><span class="icon"><i class="fa fa-music" aria-hidden="true"></i></span> 음악</a></li>
+	    <li><a href="#"><span class="icon"><i class="fa fa-camera" aria-hidden="true"></i></span> 사진, 여행</a></li>
+	    <li><a href="#"><span class="icon"><i class="fa fa-picture-o" aria-hidden="true"></i></span> 예술, 문화</a></li>
+	    <li><a href="#"><span class="icon"><i class="fa fa-gratipay" aria-hidden="true"></i></span> 연애, 가족</a></li>
+	    <li><a href="#"><span class="icon"><i class="fa fa-cutlery" aria-hidden="true"></i></span> 요리</a></li>
+	    <li><a href="#"><span class="icon"><i class="fa fa-usd" aria-hidden="true"></i></span> 경제</a></li>
+	    <li><a href="#"><span class="icon"><i class="fa fa-desktop" aria-hidden="true"></i></span> IT</a></li>
+	    <li><a href="#"><span class="icon"><i class="fa fa-comments-o" aria-hidden="true"></i></span> 직업, 진로</a></li>
+	    <li><a href="#"><span class="icon"><i class="fa fa-shopping-bag" aria-hidden="true"></i></span> 패션, 뷰티</a></li>
+	  </ul>
+  </div>
+</div>
+<ul class="mobile-nav">
+  <li><a href="#" class="on">홈</a></li>
+  <li><a href="#">새로운</a></li>
+  <li><a href="#">추천순</a></li>
+  <li><a href="#">많이본</a></li>
+  <li><a href="#">음악</a></li>
+  <li><a href="#">사진, 여행</a></li>
+  <li><a href="#">예술, 문화</a></li>
+  <li><a href="#">연애, 가족</a></li>
+  <li><a href="#">요리</a></li>
+  <li><a href="#">경제</a></li>
+  <li><a href="#">IT</a></li>
+  <li><a href="#">직업, 진로</a></li>
+  <li><a href="#">패션, 뷰티</a></li>
+</ul>
+<div class="main-content" id="hitarea">
+<div class="zzal-container">
+	<div class="titles-wrap">
+	  <h2 class="title">알림</h2>
+	  <div class="notices clearfix">
+	    <div class="left">
+	    	<span class="user-photo"></span>
+	    </div>
+	    <div class="contents">
+	      <span class="bold">유끼만두</span>님이 <span class="bold">초간단 영양요리</span> 컬렉션에 짤강을 추가하였습니다.
+	      <p class="date">2017-06-18 오전 11:40</p>
+	    </div>
+	  </div>
+	  <div class="notices clearfix">
+	    <div class="left">
+	    	<span class="user-photo"></span>
+	    </div>
+	    <div class="contents">
+	      <span class="bold">유끼만두</span>님이 <span class="bold">우리함께 브런치할까요? 단돈 3000원에 후훗</span> 짤강에 댓글을 남겼습니다.
+	      <p class="date">2017-06-18 오전 11:40</p>
+	    </div>
+	  </div>
+	  <div class="notices clearfix">
+      <div class="left">
+        <span class="user-photo"></span>
+      </div>
+      <div class="contents">
+        사진: <input id="fileupload" type="file" name="files"><br>
+        <button id='upload-btn' type='button' style="border:1px red solid">등록</button>
+        
+        
+        <div>
+        	 <a id="imgchecker" href="#">
+        	    <div id="definition"style="border:1px solid black">들어오나 볼꺼얌</div>
+        	 </a>
+        </div>
+        
+        
+      </div>
+    </div>
+	</div>
+	<div id='images-div' style="border:1px solid red"></div>
+</div>
+</div>
+
+<!-- <iframe width="854" height="480" src="https://www.youtube.com/embed/svyOhMy5IyQ" frameborder="0" allowfullscreen></iframe> -->
+
+<iframe width="854" height="480" src="https://www.youtube.com/embed/Ml5rs04uY04" frameborder="0" allowfullscreen></iframe>
+
+<div class="footer">
+    <p>zzal school</p>
+</div>
+</div>
+
+<script src="node_modules/jquery/dist/jquery.min.js"></script>
+<script src="node_modules/handlebars/dist/handlebars.min.js"></script>
+<script src="scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="js/slide.js"></script>
+<!-- <script src="js/main.js"></script> -->
+<!-- <script src="node_modules/hammerjs/hammer.min.js"></script>
+<script src="node_modules/jquery-hammerjs/jquery.hammer.js"></script>
+ -->
+
+<script src="node_modules/blueimp-file-upload/js/vendor/jquery.ui.widget.js"></script>
+<script src="node_modules/blueimp-load-image/js/load-image.all.min.js"></script>
+<script src="node_modules/blueimp-canvas-to-blob/js/canvas-to-blob.js"></script>
+<script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+<script src="node_modules/blueimp-file-upload/js/jquery.iframe-transport.js"></script>
+<script src="node_modules/blueimp-file-upload/js/jquery.fileupload.js"></script>
+<script src="node_modules/blueimp-file-upload/js/jquery.fileupload-process.js"></script> 
+<script src="node_modules/blueimp-file-upload/js/jquery.fileupload-image.js"></script> 
+
+
+
+<script>
+
+console.log('대연옹')
+"use strict"
+
+var no = parseInt(document.location.href.split('?')[1].split('=')[1]);
+
+console.log(no)
+
+$('#fileupload').fileupload({
+  url: '/zzal-bit93/dymember/upload.json',        // 서버에 요청할 URL
+  dataType: 'json',         // 서버가 보낸 응답이 JSON임을 지정하기
+  sequentialUploads: true,  // 여러 개의 파일을 업로드 할 때 순서대로 요청하기.
+  singleFileUploads: false, // 한 요청에 여러 개의 파일을 전송시키기.
+  autoUpload: false,        // 파일을 추가할 때 자동 업로딩 하지 않도록 설정.
+  disableImageResize: /Android(?!.*Chrome)|Opera/
+        .test(window.navigator && navigator.userAgent), // 안드로이드와 오페라 브라우저는 크기 조정 비활성 시키기
+  previewMaxWidth: 100,   // 미리보기 이미지 너비
+  previewMaxHeight: 100,  // 미리보기 이미지 높이 
+  previewCrop: true,      // 미리보기 이미지를 출력할 때 원본에서 지정된 크기로 자르기
+  processalways: function(e, data) {
+      console.log('fileuploadprocessalways()...요기얌');
+      console.log(data.files);
+     /*  var imagesDiv = $('#images-div');
+      imagesDiv.html("");
+      for (var i = 0; i < data.files.length; i++) {
+        try {
+          if (data.files[i].preview.toDataURL) {
+            $("<img>").attr('src', data.files[i].preview.toDataURL()).css('width', '100px').appendTo(imagesDiv);
+          }
+        } catch (err) {}
+      } */
+      $('#upload-btn').unbind("click");
+      $('#upload-btn').click(function() {
+          data.submit();
+      });
+  }, 
+  submit: function (e, data) { // 서버에 전송하기 직전에 호출된다.
+    console.log('submit()...');
+  console.log(data)
+     data.formData = {
+        'no': no
+    };
+  }, 
+  done: function (e, d) { // 서버에서 응답이 오면 호출된다. 각 파일 별로 호출된다.
+    console.log('done()...');
+    console.log(d);
+ /*   data.result 
+  {여부:success,data{}} */
+  var imlibsData = d.result;
+    console.log(imlibsData.data.fileList);
+    var file = imlibsData.data.fileList[0];
+    $.each(d.result.data.fileList, function(index, file) {
+      $('<p/>').text(file.filename + " : " + file.filesize).appendTo(document.body);
+    });
+  }
+});
+
+
+/* 
+$('#fileupload').fileupload({
+    url: '/zzal-bit93/dymember/upload.json',        // 서버에 요청할 URL
+    dataType: 'json', /* "서버가 보낸 데이터가 JSON 문자열이다. 자바스크립트 객체로 바꿔라." 라는 의미*/
+ /*     submit: function (e, data) { // 서버에 전송하기 직전에 호출된다.
+        console.log('submit()...');
+      console.log(data)
+        
+        },
+        processalways: function(e, data) {
+            console.log('fileuploadprocessalways()...요기얌');
+            console.log(data.files);
+            
+            $('#upload-btn').unbind("clickq1");
+            $('#upload-btn').click(function() {
+                data.submit();
+            });
+        },     
+    done: function (e, data) { // 서버에서 응답이 오면 호출된다. 각 파일 별로 호출된다.
+      console.log('done()...');
+      console.log(data.result.data.fileList,'호우');
+      var file = data.result.data.fileList[0];
+      $.each(data.result.data.fileList, function(index, file) {
+        $('<p/>').text(file.filename + " : " + file.filesize).appendTo(document.body);
+      });
+    }
+} *//*);
+ */
+ 
+ $('#imgchecker').on('click',function(event){
+	 $.getJSON('dymember/detail.json', {'no':no}, function(result){
+		 console.log(result)
+		 let str = result.data.userPic
+		 console.log(str)
+	 	$('<img>').css('width','200px').attr('src','upload/thumbnail/'+str+'_80.jpg').appendTo('#definition')
+		console.log($('img'))	 
+	 })
+ })
+</script>
+</body>
+</html>

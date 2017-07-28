@@ -1,0 +1,10 @@
+{
+  "status" : "success",
+  "data":
+    {
+      "userinfo" :
+      [
+        {"profileImg":"image/userpicture.jpg", "nickName":"강아지1"}
+      ]
+    }
+}
