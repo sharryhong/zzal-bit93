@@ -194,6 +194,10 @@ $('#fileupload').fileupload({
   }
 });
 
+var zzno = 1
+$.getJSON('zzallike/count.json',{'zzno':zzno},function(result){
+	console.log(result)
+})
 
 /* 
 $('#fileupload').fileupload({
