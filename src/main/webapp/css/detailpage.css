@@ -35,15 +35,12 @@
  #like-btn .fa.fa-heart {
    color : red;
  }
-#m-like-btn .off-btn{
+#m-subscribe-btn .off-btn{
    display: none
  }
 
- #m-like-btn .fa.fa-heart {
-   color : red;
- }
 
- #volume-btn .off-btn{
+ #subscribe-btn .off-btn{
    display:none
  }
  #play-btn .off-btn{
@@ -232,25 +229,25 @@
    .detail-left .left-down-menu .down-down {
      padding: 20px 0;
    }
-   
-   
+
+
    .detail-left .left-down-menu .down-down img{
    	width : 21px;
    }
-  
+
   .detail-left .left-down-menu .comuni {
-    
+
     font-size: 20px;
     margin: 0;
-  } 
-  
+  }
+
   .detail-left .left-down-menu .comuni.fa-twitter{
     color: #3498db;
-    
+
   }
 	.detail-left .left-down-menu .comuni.fa-facebook {
 	color: #3b5998;
-	
+
 	}
   .detail-right .left-info {
     float: left;
@@ -456,7 +453,7 @@
 
 @media (max-width: 910px) {
 
-	
+
 
   .web-swiper-btn, .web-swiper-smallbtn{
     visibility: hidden;
@@ -474,9 +471,9 @@
   .detail-m-header h1{
   display:inline-block;
   }
-  
+
   .detail-m-header .header-right {
-  
+
   float:right;
   }
   .detail-m-header .header-right .upper-right{
@@ -484,7 +481,7 @@
   float:right;
   margin:0 10px;
   }
-  
+
 
   .detail-main.main-content{
     position: relative;

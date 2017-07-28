@@ -39,84 +39,129 @@ var swiper2 = new Swiper(detailSwipeSmall,detailSwipeSmallInfo );
 //		console.log(isBool)
 //		$(off).removeClass('off-btn')
 //		$(up).addClass('off-btn')
-//		return isBool=false;	
-//	} 
+//		return isBool=false;
+//	}
 //
 //}
 //
 
+var douSubscribe =false;
+var isPlay = false
+var islike = false;
+
+buttonChecker();
+//
+function buttonChecker(){
+  if(islike){
+    console.log(islike)
+    $($('.heart')[0]).removeClass('off-btn')
+    $($('.heart')[1]).addClass('off-btn')
+    // $('.heart')[0]
+    // $('.heart')[1]
+  }
+
+  // if(douSubscribe){
+  //   $('#subscribe-btn')
+  //   $('#m-subscribe-btn')
+  // }
+  //
+  // if(isPlay){
+  //   $('#play-btn')
+  //   $('#m-play-btn')
+  // }
+}
 
 
-let islike = false;
+$('#like-btn').on('click',function(){
+  console.log('좋아요 안이야! buttonChecker')
 
-$('#like-btn').on('click',function(event){
-  console.log('좋아요 안이야! 114')
-  
 //  leftBtnFunc(this, islike);
-  
+
   let up = $(this)[0].children[0]
   let off = $(this)[0].children[1]
+
+
  if(!islike){
    console.log(islike)
-   $(up).removeClass('off-btn')
-   $(off).addClass('off-btn')
+   innerFuncion(up,off)
    return islike=true;
  }else{
    console.log(islike)
-   $(off).removeClass('off-btn')
-   $(up).addClass('off-btn')
-   return islike=false;
+   innerFuncion(off,up)
+   return  islike=false;
  }
-
-})
-
-
-$('#m-like-btn').on('click',function(event){
-  console.log('좋아요 안이야! 114')
-  
-//  leftBtnFunc(this, islike);
-  
-  let up = $(this)[0].children[0]
-  let off = $(this)[0].children[1]
- if(!islike){
-   console.log(islike)
-   $(up).removeClass('off-btn')
-   $(off).addClass('off-btn')
-   return islike=true;
- }else{
-   console.log(islike)
-   $(off).removeClass('off-btn')
-   $(up).addClass('off-btn')
-   return islike=false;
- }
-
 })
 
 
 
+function innerFuncion(up,off){
+  $(up).removeClass('off-btn')
+  $(off).addClass('off-btn')
 
-var isvolumeOn = false;
+}
+
+//
+// $('#m-like-btn').on('click',function(event){
+//   console.log('좋아요 안이야! 114')
+//
+// //  leftBtnFunc(this, islike);
+//
+//   let up = $(this)[0].children[0]
+//   let off = $(this)[0].children[1]
+//  if(!islike){
+//    console.log(islike)
+//    $(up).removeClass('off-btn')
+//    $(off).addClass('off-btn')
+//    return islike=true;
+//  }else{
+//    console.log(islike)
+//    $(off).removeClass('off-btn')
+//    $(up).addClass('off-btn')
+//    return islike=false;
+//  }
+//
+// })
+
+
+
+
 
 console.log('재생 안이야! 117')
-$('#volume-btn').on('click',function(event){
+$('#subscribe-btn').on('click',function(event){
 
 //	leftBtnFunc(isvolumeOn)
    let up = $(this)[0].children[0]
    let off = $(this)[0].children[1]
-  if(!isvolumeOn){
-    console.log(isvolumeOn)
+  if(!douSubscribe){
+    console.log(douSubscribe)
     $(up).removeClass('off-btn')
     $(off).addClass('off-btn')
-    return isvolumeOn=true;
+    return douSubscribe=true;
   }else{
-    console.log(isvolumeOn)
+    console.log(douSubscribe)
     $(off).removeClass('off-btn')
     $(up).addClass('off-btn')
-    return isvolumeOn=false;
+    return douSubscribe=false;
   }
 })
 
-var isPlay = false
+$('#m-subscribe-btn').on('click',function(event){
+
+//	leftBtnFunc(isvolumeOn)
+   let up = $(this)[0].children[0]
+   let off = $(this)[0].children[1]
+  if(!douSubscribe){
+    console.log(douSubscribe)
+    $(up).removeClass('off-btn')
+    $(off).addClass('off-btn')
+    return douSubscribe=true;
+  }else{
+    console.log(douSubscribe)
+    $(off).removeClass('off-btn')
+    $(up).addClass('off-btn')
+    return douSubscribe=false;
+  }
+})
 
 
 
@@ -174,7 +219,7 @@ $.getJSON('zzal/list.json',{'zzno': zzno},function(result){
   console.log(result)
   let usedata = result.data.list[0];
   let str = usedata.cdt
-  let res = str.split(" "); 
+  let res = str.split(" ");
   console.log(res[0])
 
 })
