@@ -31,15 +31,14 @@
   }
   
   var no = 0
-  try {
-    no = location.href.split('?')[1].split('=')[1]
-  } catch (err) {}
   
-	
-$.getJSON('member/detail.json', {'no': no}, function(result) {
-	  $('.user-name').text(result.data.nick)
-    $('.profile-wrap .phot').css({"background-image": "url(image/"+result.data.membpic+")"});
-  })
+  $.getJSON('/zzal-bit93/auth/userinfo.json', function(result) {
+	  if (result.data) {
+		  no = result.data.no
+		  $('.user-name').text(result.data.nick)
+		  $('.profile-wrap .phot').css({"background-image": "url(image/"+result.data.membpic+")"});
+	  }
+	})
   
   
   // collect.list
@@ -57,7 +56,6 @@ $.getJSON('member/detail.json', {'no': no}, function(result) {
 			mycollection.text('')
 			mycollection.html(generatedHTML)
     })
-	
   });
   
   $(document.body).on('click', '.mycollectlist', function(event) {
