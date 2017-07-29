@@ -65,11 +65,11 @@ input::-moz-placeholder { color: #777; }
 	display: none;
 }  */
 .header .after-login {
-	/* float: right; */
-  position: absolute;
-  top: 0px;
-  right: 15px;
-  width: 135px;
+   float: right;
+  /* position: absolute; */
+  /* top: 0px; */
+  /* right: 15px; */
+  width: 125px;
 	font-size: 27px;
 	margin-left: 14px;
 	display: none;
@@ -746,6 +746,9 @@ input::-moz-placeholder { color: #777; }
 }
 /*mobile*/
 @media (max-width: 765px) {
+	.header .user-info-face {
+    top: 6px;
+	}
 	.search-page .zzal-container {
     line-height: 44px;
 	}

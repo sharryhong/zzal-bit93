@@ -3,25 +3,21 @@ $(document).ready(function(){
 		profilePw = $('#profile-pw'),
 		profilePwNew = $('#profile-pw-new'),
 		profilePwRe = $('#profile-pw-re')
-	    
-	var no = 0
-	try {
-	  no = location.href.split('?')[1].split('=')[1]
-	} catch (err) {}
-
+		
 	$('#profile-modify-btn').click(function() {
       $.post(contextRoot + '/member/update.json', {
-        'no': no,
         'nick': profileName.val(),
         'password': profilePwNew.val()
       }, function(result) {
-    	  location.href = 'mypage.html?no=' + no 
+    	  location.href = 'mypage.html' 
       }, 'json')
     })
     
-    $.getJSON('member/detail.json', {'no': no}, function(result) {
-	    profileName.val(result.data.nick)
-	    $('.profile-picture').css({"background-image": "url(image/"+result.data.membpic+")"});
+    $.getJSON('/zzal-bit93/auth/userinfo.json', function(result) {
+	  if (result.data) {
+		  profileName.val(result.data.nick)
+		  $('.profile-picture').css({"background-image": "url(image/"+result.data.membpic+")"});
+	  }
 	})
 	
 });
