@@ -7,4 +7,5 @@ import bitcamp.java93.domain.Collect;
 public interface CollectDao {
   List<Collect> selectList(int no);
   int countAll();
+  Collect selectOne(int no); // selectOne()
 }

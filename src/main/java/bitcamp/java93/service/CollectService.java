@@ -7,4 +7,5 @@ import bitcamp.java93.domain.Collect;
 public interface CollectService {
   List<Collect> list(int no) throws Exception;
   int getSize() throws Exception;
+  Collect get(int no) throws Exception; // get()
 }

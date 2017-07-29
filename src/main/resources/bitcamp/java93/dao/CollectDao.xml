@@ -28,6 +28,10 @@
     from colct
   </select>
 
+  <select id="selectOne" resultMap="collectMap" parameterType="int">
+    <include refid="select1"/> 
+    where cono = #{no};
+  </select>
 </mapper> 
 
 

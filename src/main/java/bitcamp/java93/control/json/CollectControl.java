@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import bitcamp.java93.domain.Collect;
 import bitcamp.java93.service.CollectService;
 
 @RestController
@@ -26,6 +27,17 @@ public class CollectControl {
     
     return new JsonResult(JsonResult.SUCCESS, dataMap);
   }
+  
+  @RequestMapping("detail")
+  public JsonResult detail(@RequestParam int no) throws Exception {
+    System.out.println(no);
+    Collect collect = collectService.get(no);
+    /*if (collect == null) {
+      return new JsonResult(JsonResult.FAIL, no + "번 Collection이 없습니다.");
+    }*/
+    return new JsonResult(JsonResult.SUCCESS, collect);
+  }
+
 }
 
 

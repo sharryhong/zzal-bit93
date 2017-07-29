@@ -39,7 +39,7 @@ $.getJSON('collectdetail.json',function(result){
 	title = $('#collect-title'),
 	content = $('#collect-content')
 	
-	$.getJSON('collect/list.json', {'no': no}, function(result) {
+	$.getJSON('collect/detail.json', {'no': no}, function(result) {
 		var data = result.data
 		picture.val(data.picture)
 		title.val(data.title)
@@ -51,10 +51,7 @@ $.getJSON('member/detail.json', {'no': no}, function(result) {
     $('.profile-wrap .phot').css({"background-image": "url(image/"+result.data.membpic+")"});
 }) 
 
- $.getJSON('collect/list.json', {'no': no}, function(result) {
-		if (result.data) {
-			console.log(result.data)
-		}
+ $.getJSON('collect/detail.json', {'no': no}, function(result) {
 		$('.category-explain').text(result.data.content)
 		$('.category-title').text(result.data.title)
 	    $('.collect-photo').css({"background-image": "url(image/"+result.data.picture+")"})

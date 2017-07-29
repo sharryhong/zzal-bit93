@@ -25,5 +25,10 @@ public class CollectServiceImpl implements CollectService {
     return collectDao.countAll();
   }
 
+  @Override
+  public Collect get(int no) throws Exception {
+    return collectDao.selectOne(no);
+  } // get()
+
 
 }
