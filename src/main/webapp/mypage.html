@@ -51,7 +51,7 @@
     	<div class="zzal-container">
 		    <ul class="select_info clearfix">
 		      <li class="menu on"><a href="#">짤강관리</a></li>
-		      <li class="menu"><a href="#">컬렉션관리</a></li>
+		      <li class="menu" id="collect-setting"><a href="#">컬렉션관리</a></li>
 		      <li class="menu"><a href="#">관심 카테고리</a></li>
 		    </ul>
 	    	</div>
@@ -426,31 +426,33 @@
 			      <li class="menu"><a href="#">구독 컬렉션</a></li>
 			    </ul>
 			    <div class="zzal-con02">
-		  		  <ul class="collections clearfix">
+		  		   <ul class="collections clearfix">
 		  		    <li class="add clearfix">
 		  		      <a href="collectadd.html" class="img"></a>
 		  		      <a href="collectadd.html" class="right">
 			  		           새 컬렉션 만들기
 		  		      </a>
 		  		    </li>
-		  		    <li class="clearfix">
-		  		      <a href="collectdetail.html" class="img"></a>
-		  		      <div class="right">
-			  		      <a href="collectdetail.html" class="title">음식 모음.. 배고파 글자 긴거지롱캬캬ㅑ캬캬캬캬캬캬캬캬캬캬캬캬컄 허허허허허허허허</a>
-			  		      <span class="sfont">짤강 126772</span>
-			  		      <span class="sfont">구독자수 12234</span>
-			  		      <a href="#" class="btn btn-info">편집</a>
-		  		      </div>
-		  		    </li>
-		  		    <li class="clearfix">
-		  		      <a href="collectdetail.html" class="img"></a>
-		  		      <div class="right">
-			  		      <a href="collectdetail.html" class="title">음식 모음.. 배고파</a>
-			  		      <span class="sfont">짤강 126772</span>
-			  		      <span class="sfont">구독자수 12234</span>
-			  		      <a href="#" class="btn btn-info">편집</a>
-		  		      </div>
-		  		    </li>
+		  		   <div class="collection-view" id="my-collection">
+  		  		   <!-- <li class="clearfix">
+  		  		     <a href="" class="img"></a>
+  		  		      <div class="right">
+  			  		      <a href="" class="title">음식 모음.. 배고파 글자 긴거지롱캬캬ㅑ캬캬캬캬캬캬캬캬캬캬캬캬컄 허허허허허허허허</a>
+  			  		      <span class="sfont">짤강 126772</span>
+  			  		      <span class="sfont">구독자수 12234</span>
+  			  		      <a href="#" class="btn btn-info">편집</a>
+  		  		      </div>
+  		  		    </li>
+  		  		    <li class="clearfix">
+  		  		      <a href="" class="img"></a>
+  		  		      <div class="right">
+  			  		      <a href="" class="title">음식 모음.. 배고파</a>
+  			  		      <span class="sfont">짤강 126772</span>
+  			  		      <span class="sfont">구독자수 12234</span>
+  			  		      <a href="#" class="btn btn-info">편집</a>
+  		  		      </div>
+  		  		    </li> -->
+              		</div>
 		  		  </ul>
 		  		</div>
 		  		<div class="zzal-con02">
@@ -499,49 +501,49 @@
 		              <input type="checkbox" id="photo-trip-catg" class="click-checkbox">
 		              <label for="photo-trip-catg"><img src="image/category02.png" title="사진·여행" class="choosecatg"><span class="catg-title">사진·여행</span></label>
 		            </div>
-		          </li>  
+		          </li>
 		          <li>
 		            <div class="artculture catg-choicer">
 		              <input type="checkbox" id="art-culture-catg" class="click-checkbox">
 		              <label for="art-culture-catg"><img src="image/category03.jpg" title="예술·문화" class="choosecatg"><span class="catg-title">예술·문화</span></label>
 		            </div>
-		          </li>  
+		          </li>
 		          <li>
 		            <div class="family catg-choicer">
 		              <input type="checkbox" id="family-catg" class="click-checkbox">
 		              <label for="family-catg"><img src="image/category04.jpg" title="연예·가족" class="choosecatg"><span class="catg-title">연예·가족</span></label>
 		            </div>
-		          </li>  
+		          </li>
 		          <li>
 		            <div class="cook catg-choicer">
 		              <input type="checkbox" id="cook-catg" class="click-checkbox">
 		              <label for="cook-catg"><img src="image/category05.jpg" title="요리" class="choosecatg"><span class="catg-title">요리</span></label>
 		            </div>
-		          </li>  
+		          </li>
 		          <li>
 		            <div class="economy catg-choicer">
 		              <input type="checkbox" id="economy-catg" class="click-checkbox">
 		              <label for="economy-catg"><img src="image/category06.jpg" title="경제" class="choosecatg"><span class="catg-title">경제</span></label>
 		            </div>
-		          </li>  
+		          </li>
 		          <li>
 		            <div class="it catg-choicer">
 		              <input type="checkbox" id="it-catg" class="click-checkbox">
 		              <label for="it-catg"><img src="image/category07.jpg" title="IT" class="choosecatg"><span class="catg-title">IT</span></label>
 		            </div>
-		          </li>  
+		          </li>
 		          <li>
 		            <div class="job catg-choicer">
 		              <input type="checkbox" id="job-catg" class="click-checkbox">
 		              <label for="job-catg"><img src="image/category08.jpg" title="직업·진로" class="choosecatg"><span class="catg-title">직업·진로</span></label>
 		            </div>
-		          </li>  
+		          </li>
 		          <li>
 		            <div class="fashionbeauty catg-choicer">
 		              <input type="checkbox" id="fashion-beauty-catg" class="click-checkbox">
 		              <label for="fashion-beauty-catg"><img src="image/category09.jpg" title="패션·뷰티" class="choosecatg"><span class="catg-title">패션·뷰티</span></label>
 		            </div>
-		          </li>  
+		          </li>
 		        </ul>
 		      </div>
 	  		</div>
@@ -553,7 +555,19 @@
 	  <p>zzal school</p>
 	</div>
 </div>
-
+<script id="my-collection-template" type="text/x-handlebars-template">
+{{#each list}}
+<li class="clearfix">
+  <a href="collectdetail.html" class="img mycollectlist" data-no={{no}} style="background-image: url(image/{{picture}});"></a>
+   <div class="right">
+     <a href="collectdetail.html" class="title" id="collectview">{{title}}</a>
+     <span class="sfont">짤강 126772</span>
+     <span class="sfont">구독자수 12234</span>
+     <a href="#" class="btn btn-info">편집</a>
+   </div>
+ </li>
+{{/each}}
+</script>
 <script src="node_modules/jquery/dist/jquery.min.js"></script>
 <script src="node_modules/handlebars/dist/handlebars.min.js"></script>
 <script src="node_modules/swiper/dist/js/swiper.min.js"></script>
