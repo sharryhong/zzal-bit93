@@ -4,7 +4,7 @@
 	
 	$.getJSON('/zzal-bit93/auth/userinfo.json', function(result) {
 	  if (result.data) {
-		  $('.user-name').text(result.data.nick)
+		  $('.user-info-face .user-name').text(result.data.nick)
 		  $('.profile-wrap .phot').css({"background-image": "url(image/"+result.data.membpic+")"});
 	  }
 	})
