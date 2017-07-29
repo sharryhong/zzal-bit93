@@ -35,12 +35,18 @@
  #like-btn .fa.fa-heart {
    color : red;
  }
+#m-subscribe-btn .off-btn{
+   display: none
+ }
 
 
- #volume-btn .off-btn{
+ #subscribe-btn .off-btn{
    display:none
  }
  #play-btn .off-btn{
+   display:none
+ }
+ #m-play-btn .off-btn{
    display:none
  }
 /*.detail-funcbtn .funclayer {
@@ -223,12 +229,26 @@
    .detail-left .left-down-menu .down-down {
      padding: 20px 0;
    }
-  .detail-left .left-down-menu .comuni{
-    color: #3498db;
+
+
+   .detail-left .left-down-menu .down-down img{
+    width : 21px;
+   }
+
+  .detail-left .left-down-menu .comuni {
+
     font-size: 20px;
     margin: 0;
   }
 
+  .detail-left .left-down-menu .comuni.fa-twitter{
+    color: #3498db;
+
+  }
+  .detail-left .left-down-menu .comuni.fa-facebook {
+  color: #3b5998;
+
+  }
   .detail-right .left-info {
     float: left;
   }
@@ -366,10 +386,16 @@
     width:80%;
   }
   .down-container .reply-con .user-name {
+    display: inline-block;
     padding-top: 10px;
     color:#7F7FFF;
     font-size: 14px;
   }
+  .down-container .reply-con  .cancle {
+    float: right;
+    color:#aaa;
+  }
+
   .down-container .reply-con .reply-text {
     border: 1px solid #ccc;
 
@@ -440,12 +466,28 @@
   }
 
   .detail-m-header {
+
+  width:100%;
     color: #fff;
-    text-shadow: -1px -1px 1px rgba(0,0,0,0.2), 1px -1px 1px rgba(0,0,0,0.2), -1px 1px 1px rgba(0,0,0,0.7), 1px 1px 1px rgba(0,0,0,0.7);
+    text-shadow: -1px -1px 1px rgba(0,0,0,0.1), 1px -1px 1px rgba(0,0,0,0.1), -1px 1px 1px rgba(0,0,0,0.2), 1px 1px 1px rgba(0,0,0,0.2);
     text-align: left;
     position: fixed;
     z-index: 10000;
   }
+  .detail-m-header h1{
+  display:inline-block;
+  }
+
+  .detail-m-header .header-right {
+
+  float:right;
+  }
+  .detail-m-header .header-right .upper-right{
+  font-size: 40px;
+  float:right;
+  margin:0 10px;
+  }
+
 
   .detail-main.main-content{
     position: relative;
@@ -510,7 +552,7 @@
     position: fixed;
     z-index: 100000;
     color:#fff;
-    text-shadow: -1px -1px 1px rgba(0,0,0,0.2), 1px -1px 1px rgba(0,0,0,0.2), -1px 1px 1px rgba(0,0,0,0.7), 1px 1px 1px rgba(0,0,0,0.7);
+    text-shadow: -1px -1px 1px rgba(0,0,0,0.1), 1px -1px 1px rgba(0,0,0,0.1), -1px 1px 1px rgba(0,0,0,0.2), 1px 1px 1px rgba(0,0,0,0.2);
     bottom:0;
     width:100%;
     font-size: 24px;
