@@ -1,18 +1,6 @@
 (function($){
   'use strict';
-  
-  var no = 0;
-  
-  $.getJSON('/zzal-bit93/auth/userinfo.json', function(result) {
-	  if (result.data) {
-		  $('.user-name').text(result.data.nick)
-		  $('.profile-wrap .phot').css({"background-image": "url(image/"+result.data.membpic+")"});
-		  no = result.data.no
-		  console.log(no)	
-	  }
-	})
  
-	
   let index = null
   let $zzalWrap = $('.zzal-wrap')
   let $zzalCon01 = $('.zzal-con01')
@@ -42,7 +30,18 @@
 	})
   }
   
+  var no = 0
+  try {
+    no = location.href.split('?')[1].split('=')[1]
+  } catch (err) {}
+  
 	
+$.getJSON('member/detail.json', {'no': no}, function(result) {
+	  $('.user-name').text(result.data.nick)
+    $('.profile-wrap .phot').css({"background-image": "url(image/"+result.data.membpic+")"});
+  })
+  
+  
   // collect.list
   let mycollection = $('#my-collection');
   //내 컬렉션 title pic

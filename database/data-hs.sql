@@ -16,10 +16,10 @@ insert into catg(cno,name) values(8,'직업, 진로');
 insert into catg(cno,name) values(9,'패션, 뷰티');
 
 -- 컬렉션
-insert into colct(cono,mno,title,cont,pic,public) values(1,2,'요리모음집','요리를 모을 것이다.','collect01.jpeg',true);
-insert into colct(cono,mno,title,cont,pic,public) values(2,2,'기타를 배우고 싶다','하루 한 곡!','collect02.jpg',false);
-insert into colct(cono,mno,title,cont,pic,public) values(3,1,'English','자주쓰는 50문장',null,true);
-insert into colct(cono,mno,title,cont,pic,public) values(4,1,'코딩','C부터',null,true);
+insert into colct(cono,mno,title,cont,pic,public) values(1,1,'요리모음집','요리를 모을 것이다.','collect01.jpeg',true);
+insert into colct(cono,mno,title,cont,pic,public) values(2,1,'기타를 배우고 싶다','하루 한 곡!','collect02.jpg',false);
+insert into colct(cono,mno,title,cont,pic,public) values(3,2,'English','자주쓰는 50문장',null,true);
+insert into colct(cono,mno,title,cont,pic,public) values(4,2,'코딩','C부터',null,true);
 
 -- 짤강의
 insert into zzal_lect(zzno, mno, cno, titl, pic, cdt) values(1, 1, 1, '짤강입니다1', 'userpicture.jpg', '2017-01-01');

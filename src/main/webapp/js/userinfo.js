@@ -13,7 +13,7 @@ $.getJSON(contextRoot + '/auth/userinfo.json', function(result) {
 	  $('.header .after-login').css('display', 'block')
 	  
 	  
-	  /*$(document.body).on('click', '#header .mypage', function(event) {
+	  $(document.body).on('click', '#header .mypage', function(event) {
 		  location.href = 'mypage.html?no=' + result.data.no 
 		  event.preventDefault()
 		})
@@ -21,7 +21,7 @@ $.getJSON(contextRoot + '/auth/userinfo.json', function(result) {
 	  $(document.body).on('click', '.mypage .setting', function(event) {
 		  location.href = 'profilemodify.html?no=' + result.data.no 
 		  event.preventDefault()
-		})*/
+		})
 	  
   }
 }) 

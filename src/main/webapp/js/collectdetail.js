@@ -30,9 +30,9 @@ $.getJSON('collectdetail.json',function(result){
   maincollectdetail3.text('')
   maincollectdetail3.html(generatedHTML3)
 	})*/
-	var cono = 0
+	var no = 0
 	try {
-	  cono = location.href.split('?')[1].split('=')[1]
+	  no = location.href.split('?')[1].split('=')[1]
 	} catch (err) {}	
       	
 	/*var picture = $('#collectPhoto'),
@@ -46,12 +46,12 @@ $.getJSON('collectdetail.json',function(result){
 		content.val(data.content)   
 	});*/
 	
-$.getJSON('member/detail.json', {'cono': cono}, function(result) {
+$.getJSON('member/detail.json', {'no': no}, function(result) {
 	$('.user-name').text(result.data.nick)
     $('.profile-wrap .phot').css({"background-image": "url(image/"+result.data.membpic+")"});
-})
+}) 
 
- $.getJSON('collect/list.json', {'cono': cono}, function(result) {
+ $.getJSON('collect/list.json', {'no': no}, function(result) {
 		if (result.data) {
 			console.log(result.data)
 		}
