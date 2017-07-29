@@ -3,8 +3,10 @@ package bitcamp.java93.control.json;
 import java.util.HashMap;
 
 import javax.servlet.ServletContext;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -47,8 +49,15 @@ public class MemberControl {
   }
 	
 	@RequestMapping("update")
-  public JsonResult update(Member member) throws Exception {
+  public JsonResult update(Member member, HttpSession session) throws Exception {
+	  Member getMember = (Member)session.getAttribute("loginMember");
 	  memberService.update(member);
+	  System.out.println(member.getNick());
+	  String nick = member.getNick();
+	  String password = member.getPassword();
+	  getMember.setNick(nick);
+	  getMember.setPassword(password);
+	  session.setAttribute("loginMember", getMember);
     return new JsonResult(JsonResult.SUCCESS, "ok");
   }
 

@@ -748,6 +748,9 @@ input::-moz-placeholder { color: #777; }
 }
 /*mobile*/
 @media (max-width: 765px) {
+  /* .mypage .user-info-face .user-name {
+		width: calc(100% - 110px);
+	} */
 	.header .user-info-face {
     top: 6px;
 	}
@@ -1037,9 +1040,7 @@ input::-moz-placeholder { color: #777; }
     overflow: hidden;
     text-overflow: ellipsis;
 }
-.mypage .user-info-face .user-name {
-	width: calc(100% - 110px);
-}
+
 
 /*module*/
 .btn {
