@@ -65,7 +65,11 @@ input::-moz-placeholder { color: #777; }
 	display: none;
 }  */
 .header .after-login {
-	float: right;
+	/* float: right; */
+  position: absolute;
+  top: 0px;
+  right: 15px;
+  width: 135px;
 	font-size: 27px;
 	margin-left: 14px;
 	display: none;
@@ -77,6 +81,14 @@ input::-moz-placeholder { color: #777; }
 .header .after-login .fa {
 	height: 50px;
 	line-height: 48px;
+}
+.header .user-info-face {
+	position: absolute;
+  top: 15px;
+}
+.header .user-info-face .phot {
+  height: 35px;
+  width: 35px;
 }
 .header .zzal-write {
 	font-size: 30px;

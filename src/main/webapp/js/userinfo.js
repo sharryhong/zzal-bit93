@@ -3,12 +3,15 @@ $.getJSON(contextRoot + '/auth/userinfo.json', function(result) {
   if (result.data) {
 	  console.log(result.data)
 	  
+	  // 마이페이지 memb 사진, 닉네임 출력 
+	  if (result.data) {
+		  $('.profile-wrap .phot').css({"background-image": "url(image/"+result.data.membpic+")"});
+	  }
+	  
       // 로그인 전 후          
 	  $('.header .before-login').css('display', 'none')
 	  $('.header .after-login').css('display', 'block')
 	  
-	  // memb mno 저장
-//	  $('#header .mypage').attr('data-no', result.data.no)
 	  
 	  $(document.body).on('click', '#header .mypage', function(event) {
 		  location.href = 'mypage.html?no=' + result.data.no 
@@ -19,12 +22,6 @@ $.getJSON(contextRoot + '/auth/userinfo.json', function(result) {
 		  location.href = 'profilemodify.html?no=' + result.data.no 
 		  event.preventDefault()
 		})
-	  
-	  // 마이페이지 memb 사진, 닉네임 출력 
-	  /*var nickname = result.data.nick
-	  var userPic = result.data.membpic
-	  $('.profile-wrap .phot').css({"background-image": "url(image/"+userPic+")"});
-	  $('.user-name').text(nickname)*/
 	  
   }
 }) 
