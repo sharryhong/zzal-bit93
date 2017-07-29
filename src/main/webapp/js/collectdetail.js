@@ -46,10 +46,16 @@ $.getJSON('collectdetail.json',function(result){
 		content.val(data.content)   
 	});*/
 	
-$.getJSON('member/detail.json', {'no': no}, function(result) {
+/*$.getJSON('member/detail.json', {'no': no}, function(result) {
 	$('.user-name').text(result.data.nick)
     $('.profile-wrap .phot').css({"background-image": "url(image/"+result.data.membpic+")"});
-}) 
+}) */
+	$.getJSON('/zzal-bit93/auth/userinfo.json', function(result) {
+		  if (result.data) {
+			  $('.user-name').text(result.data.nick)
+			  $('.profile-wrap .phot').css({"background-image": "url(image/"+result.data.membpic+")"});
+		  }
+		})
 
  $.getJSON('collect/detail.json', {'no': no}, function(result) {
 		$('.category-explain').text(result.data.content)
