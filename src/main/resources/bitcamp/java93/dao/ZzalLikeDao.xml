@@ -26,10 +26,16 @@
   </select>
   
   
-<insert id="dloveu" useGeneratedKeys="true" keyColumn="mno" keyProperty="no" parameterType="map">
-	insert into lik(zzno,mno,cdt) 
-    values(#{zzno},#{mno}, curdate());
+<insert id="dloveu" parameterType="zzalLike">
+	insert into lik(mno,zzno,cdt) 
+    values(#{mno},#{zzno}, curdate());
 </insert>
+
+
+<delete id="notdloveu" parameterType="zzalLike">
+    delete from lik
+    where mno=#{mno} and zzno=#{zzno};
+</delete>
 
 <!--   
 	

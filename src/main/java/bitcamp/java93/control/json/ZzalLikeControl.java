@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import bitcamp.java93.domain.ZzalLike;
 import bitcamp.java93.service.ZzalLikeService;
 
 @RestController
@@ -44,17 +45,29 @@ public class ZzalLikeControl {
 	
     @RequestMapping(value="loveu", method = RequestMethod.POST)
 	  public JsonResult loveu(@RequestParam int mno,
-			  				   @RequestParam int zzno) throws Exception {
+			  				   @RequestParam int zzno
+			  				   ,ZzalLike zzalLike) throws Exception {
 	    
-	    HashMap<String,Object> dataMap = new HashMap<>();
-	  System.out.println(mno);
-	  System.out.println(zzno);
+	    zzalLike.setMno(mno);
+	    zzalLike.setZzno(zzno);
 	    	
-	   dataMap.put("doit",zzalLikeService.douLike(mno,zzno));
+	   zzalLikeService.loveu(zzalLike);
 	    
-	    return new JsonResult(JsonResult.SUCCESS, dataMap);
+	    return new JsonResult(JsonResult.SUCCESS, "ok");
 	  }
 
+    @RequestMapping(value="notloveu", method = RequestMethod.POST)
+	  public JsonResult notloveu(@RequestParam int mno,
+			  				   @RequestParam int zzno
+			  				   ,ZzalLike zzalLike) throws Exception {
+	    
+	    zzalLike.setMno(mno);
+	    zzalLike.setZzno(zzno);
+	    	
+	   zzalLikeService.notloveu(zzalLike);
+	    
+	    return new JsonResult(JsonResult.SUCCESS, "ok");
+	  }
 //	
 //	@RequestMapping("detail")
 //	public JsonResult detail(@RequestParam int no) throws Exception {
