@@ -24,6 +24,12 @@ public class ZzalwriteControl {
 	
 	@RequestMapping("add")
   public JsonResult add(Zzal zzal, String filenames) throws Exception {
+	  System.out.println(zzal.getCono());
+/*	  if (zzal.getCono() == 0) {
+	    Integer x = null;
+	    zzal.setCono((int)x);
+	  }
+	  System.out.println(zzal.getCono());*/
     zzal.setMainPic(filenames);
     zzalwriteService.add(zzal);
     return new JsonResult(JsonResult.SUCCESS, "ok");

@@ -32,15 +32,16 @@
 	}
 	
 	$('#add-btn').click(function() {
-	    $.post('/zzal-bit93/zzal/add.json', {
-	    	'mno': no,
-	    	'cno': fiCategory.val(),
-	    	'title': fiTitle.val(),
-	    	'filenames': fiFilenames.val()
-	    }, function(result) {
-	    	console.log(result)
-	     /* location.href = 'index.html'*/
-	    }, 'json')
+		$.post('/zzal-bit93/zzal/add.json', {
+			'mno': no,
+			'cno': fiCategory.val(),
+			'cono': fiCollect.val(),
+			'title': fiTitle.val(),
+			'filenames': fiFilenames.val()
+		}, function(result) {
+			console.log(result)
+			/* location.href = 'index.html'*/
+		}, 'json')
 	  })
 	  
 	  $('#fi-photoupload').fileupload({

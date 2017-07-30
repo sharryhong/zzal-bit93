@@ -8,13 +8,14 @@
     <id column="zzno" property="zzno"/>
     <result column="mno" property="mno"/>
     <result column="cno" property="cno"/>
+    <result column="cono" property="cono"/>
     <result column="titl" property="title"/>
     <result column="pic" property="mainPic"/>
     <result column="cdt" property="cdt"/>
   </resultMap>
   
   <sql id="select1">
-    select zzno, mno, cno, titl, pic, cdt
+    select zzno, mno, cno, cono, titl, pic, cdt
     from zzal_lect
   </sql>
   
@@ -29,8 +30,8 @@
   </insert> -->
   
   <insert id="insert" parameterType="zzal">
-    insert into zzal_lect(zzno, mno, cno, titl, pic, cdt) 
-    values(#{zzno}, #{mno}, #{cno}, #{title}, #{mainPic}, curdate())
+    insert into zzal_lect(zzno, mno, cno, cono, titl, pic, cdt) 
+    values(#{zzno}, #{mno}, #{cno}, Case When #{cono} = 0 then null else #{cono} end, #{title}, #{mainPic}, curdate())
   </insert>
   
  <!--  <insert id="insertPhoto" parameterType="map">

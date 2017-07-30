@@ -85,14 +85,14 @@
 </div>
 
 <script id="select-category-template" type="text/x-handlebars-template">
-<option>카테고리 선택</option>
+<option value="0">카테고리 (필수)</option>
 {{#each list}}
 <option value="{{no}}">{{name}}</option>
 {{/each}}
 </script>
 
 <script id="select-collect-template" type="text/x-handlebars-template">
-<option>컬렉션 선택</option>
+<option value="0">컬렉션 (선택)</option>
 {{#each list}}
 <option value="{{no}}">{{title}}</option>
 {{/each}}
