@@ -1,6 +1,5 @@
 package bitcamp.java93.service.impl;
 
-import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,11 +16,8 @@ public class CategoryServiceImpl implements CategoryService {
   CategoryDao categoryDao;
 
   @Override
-  public List<Category> list(int pageNo, int pageSize) throws Exception {
-    HashMap<String,Object> valueMap = new HashMap<>();
-    valueMap.put("startIndex", (pageNo - 1) * pageSize);
-    valueMap.put("pageSize", pageSize);
-    return categoryDao.selectList(valueMap);
+  public List<Category> list() throws Exception {
+    return categoryDao.selectList();
   }
   
   @Override

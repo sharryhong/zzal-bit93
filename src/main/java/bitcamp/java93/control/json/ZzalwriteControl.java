@@ -23,19 +23,10 @@ public class ZzalwriteControl {
 	@Autowired ZzalwriteService zzalwriteService;
 	
 	@RequestMapping("add")
-  public JsonResult add(Zzal zzal, String filenames, HttpSession session) throws Exception {
-	  Member loginMember = (Member)session.getAttribute("loginMember");
-    /*String[] nameList = filenames.split(",");*/
-    /*ArrayList<String> photoList = new ArrayList<>();
-    for (String name : nameList) {
-      photoList.add(name);
-    }*/
-    String photoList = filenames;
-    zzal.setMainPic(photoList);
-    
+  public JsonResult add(Zzal zzal, String filenames) throws Exception {
+    zzal.setMainPic(filenames);
     zzalwriteService.add(zzal);
-    /*return new JsonResult(JsonResult.SUCCESS, "ok");*/
-    return new JsonResult(JsonResult.SUCCESS, loginMember);
+    return new JsonResult(JsonResult.SUCCESS, "ok");
   }
 	
 	@RequestMapping("upload")

@@ -30,7 +30,7 @@
   
   <insert id="insert" parameterType="zzal">
     insert into zzal_lect(zzno, mno, cno, titl, pic, cdt) 
-    values(zzno, 1, 1, '짤강입니다5', #{mainPic}, curdate())
+    values(#{zzno}, #{mno}, #{cno}, #{title}, #{mainPic}, curdate())
   </insert>
   
  <!--  <insert id="insertPhoto" parameterType="map">

@@ -6,6 +6,6 @@ import java.util.Map;
 import bitcamp.java93.domain.Category;
 
 public interface CategoryDao {
-  List<Category> selectList(Map<String,Object> valueMap);
+  List<Category> selectList();
   int countAll();
 }

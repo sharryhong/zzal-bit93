@@ -1,3 +1,22 @@
+/* 핸들바스 사용시 사용 함수 
+ * 매개변수 el : 핸들바스 적용 id
+ * 매개변수 target : 들어갈 위치
+ * 사용 예 
+ * $.getJSON('mainSlide.json', function(result) {
+ *    generateHandlebars(result, $('#main-slide-template'), $('#mainSlide));
+ *  })
+ */
+var templateFn = null;
+var generatedHTML = null;
+ 
+function generateHandlebars(result, el, target) {
+  console.log('main.js')
+  templateFn = Handlebars.compile(el.text())
+  generatedHTML = templateFn(result.data)
+  target.text('')
+  target.html(generatedHTML)
+}
+
 (function($, window){
 	'use strict';
 	

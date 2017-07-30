@@ -19,12 +19,10 @@ public class CategoryControl {
   @Autowired CategoryService categoryService;
   
   @RequestMapping("list")
-  public JsonResult list(
-      @RequestParam(defaultValue="1") int pageNo, 
-      @RequestParam(defaultValue="5") int pageSize) throws Exception {
+  public JsonResult list() throws Exception {
     
     HashMap<String,Object> dataMap = new HashMap<>();
-    dataMap.put("list", categoryService.list(pageNo, pageSize));
+    dataMap.put("list", categoryService.list());
     dataMap.put("totalCount", categoryService.getSize());
     
     return new JsonResult(JsonResult.SUCCESS, dataMap);

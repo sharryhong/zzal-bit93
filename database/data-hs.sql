@@ -1,19 +1,19 @@
 -- 회원
-insert into memb(mno,nick,email,pwd,pic,stype,mtype,auth) values(1,'짤러1','zzal01@test.com',password('1111'),'user.jpg','zzal','admin',true);
-insert into memb(mno,nick,email,pwd,pic,stype,mtype,auth) values(2,'짤러2','zzal02@test.com',password('1111'),'oh.jpg','zzal','zzaler',true);
-insert into memb(mno,nick,email,pwd,pic,stype,mtype,auth) values(3,'짤러3','zzal03@test.com',password('1111'),'ohh.jpg','zzal','zzaler',false);
-insert into memb(mno,nick,email,pwd,pic,stype,mtype,auth) values(4,'짤러4','zzal04@test.com',password('1111'),'ohhh.jpg','zzal','zzaler',false);
+insert into memb(mno,nick,email,pwd,pic,stype,mtype,auth) values(1,'이완 맥그리거','zzal01@test.com',password('1111'),'user.jpg','zzal','admin',true);
+insert into memb(mno,nick,email,pwd,pic,stype,mtype,auth) values(2,'성룡여친','zzal02@test.com',password('1111'),'oh.jpg','zzal','zzaler',true);
+insert into memb(mno,nick,email,pwd,pic,stype,mtype,auth) values(3,'하핫','zzal03@test.com',password('1111'),'ohh.jpg','zzal','zzaler',false);
+insert into memb(mno,nick,email,pwd,pic,stype,mtype,auth) values(4,'아싸리','zzal04@test.com',password('1111'),'ohhh.jpg','zzal','zzaler',false);
 
 -- 카테고리
 insert into catg(cno,name) values(1,'음악');
-insert into catg(cno,name) values(2,'사진, 여행');
-insert into catg(cno,name) values(3,'예술, 문화');
-insert into catg(cno,name) values(4,'연예, 가족');
+insert into catg(cno,name) values(2,'사진·여행');
+insert into catg(cno,name) values(3,'예술·문화');
+insert into catg(cno,name) values(4,'연예·가족');
 insert into catg(cno,name) values(5,'요리');
 insert into catg(cno,name) values(6,'경제');
 insert into catg(cno,name) values(7,'IT');
-insert into catg(cno,name) values(8,'직업, 진로');
-insert into catg(cno,name) values(9,'패션, 뷰티');
+insert into catg(cno,name) values(8,'직업·진로');
+insert into catg(cno,name) values(9,'패션·뷰티');
 
 -- 컬렉션
 insert into colct(cono,mno,title,cont,pic,public) values(1,1,'요리모음집','요리를 모을 것이다.','collect01.jpeg',true);

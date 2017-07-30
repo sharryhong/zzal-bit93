@@ -23,11 +23,12 @@
       generateHandlebars(result, $('#main-slide-template'), mainSlide);
     })
     */
-    function generateHandlebars(result, el, target) {
+    /*function generateHandlebars(result, el, target) {
       templateFn = Handlebars.compile(el.text())
   	  generatedHTML = templateFn(result.data)
   	  target.text('')
   	  target.html(generatedHTML)
-    }
+    }*/
     
 })(jQuery);
+

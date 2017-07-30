@@ -1,33 +1,42 @@
 (function($){
 	'use strict';
-	var fiFilenames = $('#fi-filenames')
+	var fiFilenames = $('#fi-filenames'),
+	    fiTitle = $('#fi-title'),
+	    fiCollect = $('#select-collect'),
+	    fiCategory = $('#select-category')
 	
+	var no	
 	$.getJSON('/zzal-bit93/auth/userinfo.json', function(result) {
 	  if (result.data) {
+		  no = result.data.no
+		  console.log(no)
 		  $('.user-info-face .user-name').text(result.data.nick)
 		  $('.profile-wrap .phot').css({"background-image": "url(image/"+result.data.membpic+")"});
+		  getCollect(no)
 	  }
 	})
 	
-	/*$('#fi-photoupload').fileupload({
-	    url: '/zzal-bit93/zzal/upload.json',
-	    dataType: 'json',
-	    done: function (e, data) { 
-	      console.log('done()...');
-	      console.log(data.result); // 서버가 보낸 JSON 객체는 data.result 에 보관되어 있다.
-	      console.log(data.result.data);
-	      var filenames = data.result.data;
-	      for (var i = 0; i < filenames.length; i++) {
-	        var val = fiFilenames.val();
-	        if (val.length > 0) val += ",";
-	        fiFilenames.val(val + filenames[i]);
-	      }
-	    }
-	});*/
+	// 핸들바스. main.js에 있는 함수 사용 
+	// 카테고리 리스트 뿌려주기 
+	$.getJSON('/zzal-bit93/category/list.json', function(result) {
+        generateHandlebars(result, $('#select-category-template'), $('#select-category'));
+    })
+    
+    // 컬렉션 리스트 뿌리기 
+    function getCollect(no) {
+		$.getJSON('/zzal-bit93/collect/list.json', {'no': no}, function(result) {
+			if (result.data) {
+				generateHandlebars(result, $('#select-collect-template'), $('#select-collect'));
+			}
+		})
+	}
 	
 	$('#add-btn').click(function() {
 	    $.post('/zzal-bit93/zzal/add.json', {
-	      'filenames': fiFilenames.val()
+	    	'mno': no,
+	    	'cno': fiCategory.val(),
+	    	'title': fiTitle.val(),
+	    	'filenames': fiFilenames.val()
 	    }, function(result) {
 	    	console.log(result)
 	     /* location.href = 'index.html'*/
@@ -41,7 +50,7 @@
 		    singleFileUploads: false, // 한 요청에 여러 개의 파일을 전송시키기.  
 		    done: function (e, data) { 
 		      console.log('done()...');
-		      console.log(data.result); // 서버가 보낸 JSON 객체는 data.result 에 보관되어 있다.
+		      console.log(data.result); 
 		      var filenames = data.result.data;
 		      
 		      for (var i = 0; i < filenames.length; i++) {
