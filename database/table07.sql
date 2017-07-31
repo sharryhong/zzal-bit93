@@ -81,7 +81,8 @@ CREATE TABLE ZZAL_LECT (
 	CONO INTEGER      NULL     COMMENT '컬렉션일련번호', -- 컬렉션일련번호
 	TITL VARCHAR(255) NOT NULL COMMENT '짤강의제목', -- 짤강의제목
 	PIC  VARCHAR(255) NULL     COMMENT '대표 사진', -- 대표 사진
-	CDT  DATETIME     NOT NULL COMMENT '짤강의 게시날짜' -- 짤강의 게시날짜
+	CDT  DATETIME     NOT NULL COMMENT '짤강의 게시날짜', -- 짤강의 게시날짜
+	ZTMP BOOLEAN      NULL     COMMENT '임시저장여부' -- 임시저장여부
 )
 COMMENT '짤강의';
 

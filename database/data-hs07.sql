@@ -23,8 +23,7 @@ insert into colct(cono,mno,title,cont,pic,public) values(3,2,'English','자주�
 insert into colct(cono,mno,title,cont,pic,public) values(4,2,'코딩','C부터','category07.jpg',true);
 
 -- 짤강의
-insert into zzal_lect(zzno, mno, cno, cono, titl, pic, cdt) values(1, 1, 1, 1, '짤강입니다1', 'userpicture.jpg', '2017-01-01');
-insert into zzal_lect(zzno, mno, cno, cono, titl, pic, cdt) values(2, 2, 1, 1, '짤강입니다2', 'userpicture.jpg', '2017-01-01');
+insert into zzal_lect(zzno, mno, cno, cono, titl, pic, cdt, ztmp) values(1, 1, 1, 1, '짤강입니다1', 'userpicture.jpg', '2017-01-01', true);
+insert into zzal_lect(zzno, mno, cno, cono, titl, pic, cdt, ztmp) values(2, 2, 1, 1, '짤강입니다2', 'userpicture.jpg', '2017-01-01', false);
 
-insert into zzal_lect(zzno, mno, cno, cono, titl, pic, cdt) values(6, 1, 1, null, '테스트', 'userpicture.jpg', '2017-01-01');
 

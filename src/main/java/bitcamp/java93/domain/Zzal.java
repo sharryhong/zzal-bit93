@@ -11,11 +11,12 @@ public class Zzal {
 	String title;
 	String mainPic;
 	String cdt;
+	Boolean zzalTemporary;
 	
   @Override
   public String toString() {
     return "Zzal [zzno=" + zzno + ", mno=" + mno + ", cno=" + cno + ", cono=" + cono + ", nick=" + nick + ", title="
-        + title + ", mainPic=" + mainPic + ", cdt=" + cdt + "]";
+        + title + ", mainPic=" + mainPic + ", cdt=" + cdt + ", zzalTemporary=" + zzalTemporary + "]";
   }
 
   public int getZzno() {
@@ -82,4 +83,12 @@ public class Zzal {
     this.cdt = cdt;
   }
 
+  public Boolean getZzalTemporary() {
+    return zzalTemporary;
+  }
+
+  public void setZzalTemporary(Boolean zzalTemporary) {
+    this.zzalTemporary = zzalTemporary;
+  }
+	
 }

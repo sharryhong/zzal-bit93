@@ -52,6 +52,9 @@ input::-moz-placeholder { color: #ccc; }
   /* height: calc(100vh - 66px);  */
   box-shadow: 10px 0px 30px rgba(0,0,0,0.05), -10px 0px 30px rgba(0,0,0,0.05); 
 }
+.each-page {
+  padding-top: 20px;
+}
 .writezzal-page .top {
 	position: relative;
 	min-height: 30px;
@@ -98,8 +101,8 @@ input::-moz-placeholder { color: #ccc; }
 	position: absolute;
 	display: inline-block;
   border-radius: 50px;
-  width: 85px;
-  height: 85px;
+  width: 95px;
+  height: 95px;
   text-align: center;
   background: red;
   cursor: pointer;
@@ -121,12 +124,15 @@ input::-moz-placeholder { color: #ccc; }
 .writezzal-cover {
 	height: calc(100vh - 300px);
 }
+.writezzal-text {
+	padding: 0 80px;
+}
 .represent-photo {
 	position: absolute;
 	display: inline-block;
   border-radius: 50px;
-  width: 85px;
-  height: 85px;
+  width: 95px;
+  height: 95px;
   text-align: center;
   background: #444;
   border: 2px solid rgba(255,255,255,0.3);
