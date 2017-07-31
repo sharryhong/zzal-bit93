@@ -1,6 +1,6 @@
 (function($){
 	'use strict';
-
+	/*
 let	collectadd1 = $('#collectaddPhoto');
 let collectadd2 = $('#collect-add1');
 
@@ -21,5 +21,38 @@ $.getJSON('collectadd.json',function(result){
 	collectadd2.text('')
 	collectadd2.html(generatedHTML2)
 	})
+	 */
+var no = 0
+try {
+	no = location.href.split('?')[1].split('=')[1]
+} catch (err) {}
+
+if (no == 0){ // 새 학생 등록
+	var	picture = $('#collectPhoto'),
+	title = $('#collect-add-title'),
+	content = $('#collect-add-content')
+
+	var testNum = 0;
+	console.log(title.value)
+	$.getJSON('/zzal-bit93/auth/userinfo.json', function(result) {
+		console.log(result.data.no)
+		testNum= result.data.no;
+		console.log(testNum)
+		$('#collect-addbtn').click(function() {
+			console.log('collect-addbtn')
+			console.log($(title).val())
+			$.post(contextRoot + '/collect/add.json', {
+				'memNo' : testNum,
+				'title' : $(title).val(),
+				'content' : $(content).val(),
+				/*'isPublic' : myonoffSwitch.val(),*/
+				'picture' : 'anonymous.png'
+			}, function(result) {
+				console.log(result)
+				location.href = 'mypage.html'
+			},'json')
+		}) // add.click()
+	});
+}
 
 })(jQuery);

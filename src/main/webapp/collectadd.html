@@ -25,14 +25,15 @@
         </div>
       </div>
     <div class="zzal-container">
+    <form>
       <div class="collect-add" id="collect-add1">
         <div class="input-form1">
           <span class="input-option">컬렉션 제목(필수)</span><br>
-          <input class="collect-input-name" type=text placeholder="컬렉션에 멋진 이름을 지어주세요.">
+          <input class="collect-input-name" id="collect-add-title" type=text placeholder="컬렉션에 멋진 이름을 지어주세요.">
         </div>
         <div class="input-form1">
-        <span class="input-option">컬렉션 설명</sapn>
-          <input class="collect-input-name" placeholder="Zzaler들에게 컬렉션을 소개해주세요.">
+        <span class="input-option">컬렉션 설명</span>
+          <input class="collect-input-name" id="collect-add-content" placeholder="Zzaler들에게 컬렉션을 소개해주세요.">
         </div>
         <div class="range-option">
           <span class="input-option">공개 범위 설정</span>
@@ -49,9 +50,10 @@
         </div><!-- 비공개 스위치 -->
     </div>
     <div class="buttons clearfix">
-      <button id="" type="button" class="btn btn-info btn-make">만들기</button>
+      <button id="collect-addbtn" type="button" class="btn btn-info btn-make">만들기</button>
       <button id="" type="button" class="btn btn-default btn-cancle">취소</button>
     </div>
+   </form>  
     </div> <!--zzal-container -->
   </div>
 </div><!--main content -->
@@ -76,7 +78,7 @@
 </script> -->
 <script src="node_modules/jquery/dist/jquery.min.js"></script>
 <!-- <script src="node_modules/handlebars/dist/handlebars.min.js"></script> -->
-<!-- <script src="js/collectadd.js"></script> -->
+<script src="js/collectadd.js"></script>
 <script src="node_modules/swiper/dist/js/swiper.min.js"></script>
 <script src="js/load.js"></script>
 

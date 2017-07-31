@@ -39,7 +39,21 @@ public class CollectControl {
     }*/
     return new JsonResult(JsonResult.SUCCESS, collect);
   }
-
+  
+  @RequestMapping("add")
+  public JsonResult add(int memNo, 
+                        String title, 
+                        String content, 
+                        String picture,
+                        Collect collect) throws Exception {
+    collect.setNo(memNo);
+    collect.setContent(content);
+    collect.setTitle(title);
+    collect.setPicture(picture);
+    System.out.println(collect);
+    collectService.add(collect);
+    return new JsonResult(JsonResult.SUCCESS, "ok");
+  }
  /* 
   @RequestMapping(value="dousubs", method = RequestMethod.POST)
   public JsonResult DoUSubscribe(@RequestParam int cono,

@@ -64,4 +64,9 @@
 	  event.preventDefault()
   });
   
+  /*$(document.body).on('click', '.collect-in-addpage', function(event) {
+	  console.log($(this).attr('data-no'))
+	  location.href = 'collectadd.html?cono=' + $(this).attr('data-no')
+	  event.preventDefault()
+  });*/
 })(jQuery);

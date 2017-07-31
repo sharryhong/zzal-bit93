@@ -9,4 +9,5 @@ public interface CollectDao {
   int countAll();
   Collect selectOne(int no); // selectOne()
 //  void subslist(Collect collect);
+  int insert(Collect collect);
 }

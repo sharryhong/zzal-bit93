@@ -37,7 +37,10 @@ public class CollectServiceImpl implements CollectService {
 		collectDao.subslist(collect);
 	}
 */
-
+	@Override
+  public void add(Collect collect) throws Exception {
+    collectDao.insert(collect);
+  }
 
 
 

@@ -34,7 +34,11 @@
 		where cono = #{no};
 	</select>
 
-
+	<insert id="insert" parameterType="collect" 
+          useGeneratedKeys="true" keyColumn="cono" keyProperty="no">
+    insert into colct(mno,title,cont,pic) 
+    values(#{memNo},#{title},#{content},#{picture})
+  </insert>
 
 
 <!--

@@ -10,4 +10,5 @@ public interface CollectService {
   int getSize() throws Exception;
   Collect get(int no) throws Exception; // get()
  //  void subsList(Collect collect);	
+  void add(Collect collect) throws Exception;
 }
