@@ -213,7 +213,7 @@
     position: absolute;
     top: 30px;
     z-index: 10000;
-    right: 305px;
+    right: 345px;
   }
 
 
@@ -350,15 +350,22 @@
     background-image: url('../image/user.jpg');
   }
   .down-container .reply-inputer .input-con {
+    width: 75%;
     float:right;
     margin: 10px 5px;
 
   }
   .down-container .reply-inputer .input-con .inputer{
     float: left;
+    width: 100%;
+  }
+
+  .down-container .reply-inputer .input-con .inputer .input-reply{
+    width: 85%;
   }
 
   .down-container .reply-inputer .input-con .inputer .input-reply,.submit-reply{
+
     border: 1px solid #ccc;
     float:left;
     padding: 0px;

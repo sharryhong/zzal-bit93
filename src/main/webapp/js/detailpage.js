@@ -168,9 +168,28 @@ $.getJSON('auth/userinfo.json',function(result){
 
       //login 시에만
     } else {
+
+
       console.log(rulogin,'186')
       $('.upper-upper #like-btn, #subscribe-btn').on('click',function(){
         alert('로그인 하세요!')
+        $.getScript('js/login.js',function(data, textStatus, jqxhr){
+          console.log(data)
+          console.log(textStatus)
+          console.log(jqxhr)
+
+
+            console.log('lolols')
+
+            $(".login-curtain").show();
+            $(".login-container").show();
+            $("body").css("overflow", "hidden");
+
+            event.preventDefault()
+        })//getScript
+
+
+
         event.preventDefault()
       })
     }
