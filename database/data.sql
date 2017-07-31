@@ -36,3 +36,10 @@ insert into lik(zzno,mno,cdt) values(2,1,'2017-07-07');
 insert into lik(zzno,mno,cdt) values(1,4,'2017-07-08');
 insert into lik(zzno,mno,cdt) values(1,5,'2017-07-02');
 
+-- 새로운 댓글 추가(insert)
+insert into reply(cont, cdt, re_like,report,zzno,mno) values(3,'나는 3댓글 내용입니다 ', curdate(), true, false, 100, 1);
+insert into reply(cont, cdt, re_like,report,zzno,mno) values(4,'댓글4입니다. 정말 이쁜 사진이네요!', curdate(), true, false, 200, 1);
+
+-- 댓글 테이블 검색
+select rno, cont, date_format(cdt, '%Y-%m-%d %H:%i'), re_like, report, zzno, mno
+from reply
