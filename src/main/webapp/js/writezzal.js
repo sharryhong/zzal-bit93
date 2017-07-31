@@ -64,7 +64,6 @@
 	    }
 	});
   
-    /*$('#add-btn').click(function() {*/
     $(document).on('click', '#add-btn, #temp-save-btn', function() {
     	console.log(fiFilenames.val())
     	$.post('/zzal-bit93/zzal/add.json', {
@@ -77,7 +76,6 @@
     		console.log(result)
     		/* location.href = 'index.html'*/
     	}, 'json')
-    	
     })
     
     var swiper = new Swiper('.swiper-container', {
@@ -85,11 +83,13 @@
         prevButton: '.swiper-button-prev',
         pagination: '.swiper-pagination',
         paginationType: 'fraction',
-    	/*pagination: '.swiper-pagination',*/
-        paginationClickable: true,
-        /*nextButton: '.swiper-button-next',
-        prevButton: '.swiper-button-prev',*/
-        /*spaceBetween: 30*/
+        paginationClickable: true
     });
+    
+    $(document).on('click', '.append-slide', function(e) {
+    	e.preventDefault();
+    	templateFn = Handlebars.compile($('#addpage-template').text())
+    	swiper.appendSlide(templateFn())
+    })
 
 })(jQuery);
