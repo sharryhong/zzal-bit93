@@ -32,6 +32,7 @@
 	}
 	
 	$('#add-btn').click(function() {
+		console.log(fiFilenames.val())
 		$.post('/zzal-bit93/zzal/add.json', {
 			'mno': no,
 			'cno': fiCategory.val(),
@@ -42,13 +43,32 @@
 			console.log(result)
 			/* location.href = 'index.html'*/
 		}, 'json')
-	  })
+	  });
 	  
 	  $('#fi-photoupload').fileupload({
 		    url: '/zzal-bit93/zzal/upload.json',
 		    dataType: 'json',
-		    sequentialUploads: true,  // 여러 개의 파일을 업로드 할 때 순서대로 요청하기.
-		    singleFileUploads: false, // 한 요청에 여러 개의 파일을 전송시키기.  
+		    imageMaxWidth: 1000,
+		    disableImageResize: /Android(?!.)|Opera/
+		        .test(window.navigator && navigator.userAgent),
+			  previewMaxWidth: 670,   // 미리보기 이미지 너비
+			  previewMaxHeight: 500,  // 미리보기 이미지 높이 
+			  previewCrop: true,      // 미리보기 이미지를 출력할 때 원본에서 지정된 크기로 자르기
+			  processalways: function(e, data) {
+			      var imagesDiv = $('#images-div');
+			      imagesDiv.html("");
+			      for (var i = 0; i < data.files.length; i++) {
+			        try {
+			          if (data.files[i].preview.toDataURL) {
+			        	  imagesDiv.css("background-image", 'url(' + data.files[i].preview.toDataURL() +')');
+			          }
+			        } catch (err) {}
+			      }
+			      $('#upload-btn').unbind("click");
+			      $('#upload-btn').click(function() {
+			          data.submit();
+			      });
+			  },
 		    done: function (e, data) { 
 		      console.log('done()...');
 		      console.log(data.result); 

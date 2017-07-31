@@ -1,9 +1,10 @@
 -- 회원
-insert into memb(mno,nick,email,pwd,pic) values(1,'zzal','zzal@test.com',password('1111'),'image/user.jpg');
-insert into memb(mno,nick,email,pwd,pic) values(2,'짤렉터1','zzal02@test.com',password('1111'),'image/user01.jpg');
-insert into memb(mno,nick,email,pwd,pic) values(3,'짤렉터2','zzal02@test.com',password('1111'),'image/sul.jpg');
-insert into memb(mno,nick,email,pwd,pic) values(4,'짤렉트라','zzal02@test.com',password('1111'),'image/sul.jpg');
-insert into memb(mno,nick,email,pwd,pic) values(5,'짤렉트라젠','zzal02@test.com',password('1111'),'image/sul.jpg');
+insert into memb(mno,nick,email,pwd,pic,stype,mtype,auth) values(1,'이완 맥그리거','zzal01@test.com',password('1111'),'user.jpg','zzal','admin',true);
+insert into memb(mno,nick,email,pwd,pic,stype,mtype,auth) values(2,'성룡여친','zzal02@test.com',password('1111'),'oh.jpg','zzal','zzaler',true);
+insert into memb(mno,nick,email,pwd,pic,stype,mtype,auth) values(3,'하핫','zzal03@test.com',password('1111'),'ohh.jpg','zzal','zzaler',false);
+insert into memb(mno,nick,email,pwd,pic,stype,mtype,auth) values(4,'아싸리','zzal04@test.com',password('1111'),'ohhh.jpg','zzal','zzaler',false);
+insert into memb(mno,nick,email,pwd,pic,stype,mtype,auth) values(5,'아뵤','a',password('1111'),'ohhh.jpg','zzal','zzaler',false);
+insert into memb(mno,nick,email,pwd,pic,stype,mtype,auth) values(6,'김대연','kdy8982@naver.com',password('1111'), 'sul.jpg','zzal','zzaler',false);
 
 -- 카테고리
 insert into catg(cno,name) values(1,'음악');
@@ -21,3 +22,17 @@ insert into colct(cono,mno,title,cont,pic,public) values(1,1,'요리모음집','
 insert into colct(cono,mno,title,cont,pic,public) values(2,1,'기타를 배우고 싶다','하루 한 곡!','collect02.jpg',false);
 insert into colct(cono,mno,title,cont,pic,public) values(3,2,'English','자주쓰는 50문장',null,true);
 insert into colct(cono,mno,title,cont,pic,public) values(4,2,'코딩','C부터',null,true);
+
+-- 짤강의
+insert into zzal_lect(zzno, mno, cno, cono, titl, pic, cdt) values(1, 1, 1, 1, '짤강입니다1', 'userpicture.jpg', '2017-01-01');
+insert into zzal_lect(zzno, mno, cno, cono, titl, pic, cdt) values(2, 2, 1, 1, '짤강입니다2', 'userpicture.jpg', '2017-01-01');
+
+--좋아요!
+insert into lik(zzno,mno,cdt) values(1,1,'2017-07-02');
+insert into lik(zzno,mno,cdt) values(1,2,'2017-07-09');
+insert into lik(zzno,mno,cdt) values(1,3,'2017-07-04');
+insert into lik(zzno,mno,cdt) values(2,3,'2017-07-03');
+insert into lik(zzno,mno,cdt) values(2,1,'2017-07-07');
+insert into lik(zzno,mno,cdt) values(1,4,'2017-07-08');
+insert into lik(zzno,mno,cdt) values(1,5,'2017-07-02');
+

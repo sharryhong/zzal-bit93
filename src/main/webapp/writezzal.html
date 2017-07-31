@@ -48,10 +48,12 @@
 	  <div class="writezzal-title">
 	    <input type="text" placeholder="짤강의 제목" id="fi-title">
 	  </div>
-	  <div class="writezzal-img writezzal-cover">
+	  <div class="img-cover">
+		  <div class="writezzal-img writezzal-cover" id="images-div">
+		  </div>
 	    <div class="btns">
   	    <label for="fi-photoupload"><a href="#" class="represent-photo"><i class="fa fa-camera-retro" aria-hidden="true"></i><span class="text">커버 이미지</span></a></label> 
-  	    <input id="fi-photoupload" class="form-control" type="file" name="files">
+  	    <input id="fi-photoupload" class="form-control" type="file" name="files" accept="image/gif, image/png, image/jpg, image/jpeg">
       	<input id="fi-filenames" type="hidden" names="filenames">
   	    <!-- <i class="fa fa-camera-retro" aria-hidden="true"></i><span class="text">커버 이미지</span> -->
 	    </div>
@@ -92,7 +94,7 @@
 </script>
 
 <script id="select-collect-template" type="text/x-handlebars-template">
-<option value="0">컬렉션 (선택)</option>
+<option value="0">내컬렉션 (선택)</option>
 {{#each list}}
 <option value="{{no}}">{{title}}</option>
 {{/each}}
