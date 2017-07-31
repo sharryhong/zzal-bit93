@@ -65,6 +65,8 @@ public class ZzalwriteControl {
       thumbnail = new File(servletContext.getRealPath("/upload/" + newFilename + "_800"));
       Thumbnails.of(file).size(800, 800).toFile(thumbnail);
       
+      System.out.println(newFilename);
+      
       fileList.add(newFilename);
     }
     return new JsonResult(JsonResult.SUCCESS, fileList);

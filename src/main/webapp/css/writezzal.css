@@ -135,7 +135,7 @@ input::-moz-placeholder { color: #ccc; }
 .represent-photo .fa {
   font-size: 2rem;
   color: #fff;
-  margin: 14px 0 5px;
+  margin: -4px 0 5px;
 }
 .represent-photo .text {
   display: block;
