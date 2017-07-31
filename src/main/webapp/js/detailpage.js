@@ -27,23 +27,7 @@ var swiper2 = new Swiper(detailSwipeSmall,detailSwipeSmallInfo );
 
 
 
-//function leftBtnFunc(p,isBool){
-//	let up = $(p)[0].children[0]
-//	let off = $(p)[0].children[1]
-//	if(!isBool){
-//		console.log(isBool)
-//		$(up).removeClass('off-btn')
-//		$(off).addClass('off-btn')
-//		return isBool=true;
-//	}else{
-//		console.log(isBool)
-//		$(off).removeClass('off-btn')
-//		$(up).addClass('off-btn')
-//		return isBool=false;
-//	}
-//
-//}
-//
+
 
 var douSubscribe =false;
 var isPlay = false
@@ -146,17 +130,17 @@ $.getJSON('auth/userinfo.json',function(result){
       //	leftBtnFunc(isvolumeOn)
          let up = $(this)[0].children[0]
          let off = $(this)[0].children[1]
+         event.preventDefault()
         if(!douSubscribe){
           console.log(douSubscribe)
           $(up).removeClass('off-btn')
           $(off).addClass('off-btn')
-          event.preventDefault()
           return douSubscribe=true;
         }else{
           console.log(douSubscribe)
           $(off).removeClass('off-btn')
           $(up).addClass('off-btn')
-          event.preventDefault()
+          // event.preventDefault()
           return douSubscribe=false;
         }
       })

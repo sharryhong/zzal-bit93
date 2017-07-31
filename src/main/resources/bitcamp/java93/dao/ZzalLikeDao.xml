@@ -28,7 +28,7 @@
   
 <insert id="dloveu" parameterType="zzalLike">
 	insert into lik(mno,zzno,cdt) 
-    values(#{mno},#{zzno}, curdate());
+    values(#{mno},#{zzno}, current_date);
 </insert>
 
 
