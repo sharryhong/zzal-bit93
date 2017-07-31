@@ -32,16 +32,24 @@ input::-moz-placeholder { color: #ccc; }
 	background: #fbfbfb;
 }
 .main-content .top {
-    padding: 0 80px;
+  padding: 0 80px;
+}
+.writezzal-wrap {
+	max-width: 832px;
+  margin: 0 auto;
+  box-shadow: 10px 0px 30px rgba(0,0,0,0.05), -10px 0px 30px rgba(0,0,0,0.05);
+} 
+.swiper-wrapper {
+	max-width: 832px;
+  margin: 0 auto;
+  height: 100vh;
 }
 .writezzal-page {
   max-width: 832px; 
   margin: 0 auto; 
   margin-top: 66px;
-  /* padding: 20px 80px; */
-  /* padding: 20px 0; */
   background: white;
-  height: calc(100vh - 66px); 
+  /* height: calc(100vh - 66px);  */
   box-shadow: 10px 0px 30px rgba(0,0,0,0.05), -10px 0px 30px rgba(0,0,0,0.05); 
 }
 .writezzal-page .top {
@@ -169,6 +177,8 @@ input::-moz-placeholder { color: #ccc; }
 	outline: none;
 }
 .bottom-menu {
+  position: absolute;
+  bottom: 0;
 	width: 100%;
 	height: 57px;
 	text-align: center;
@@ -176,7 +186,8 @@ input::-moz-placeholder { color: #ccc; }
 	border-top: 5px solid #eee;
 }
 .selectpage {
-	position: relative;
+  width: 140px;
+  position: relative;
 	display: inline-block;
 	font-size: 20px;
 	margin-right: 10px;
@@ -192,25 +203,52 @@ input::-moz-placeholder { color: #ccc; }
 	color: #666;
   -webkit-text-stroke: 2px #666; 
 }
-/* .selectpage button {
-	width: 20px;
-	height: 30px;
-} */
+
+.swiper-pagination-fraction {
+	bottom: -18px;
+}
 .selectpage .fa {
 	/* position: absolute;
 	top: 12px; */
 	font-size: 20px;
 }
-/* .present-num {
-	margin-left: 7px;
-} */
 .selectpage .plus-btn,
 .selectpage .plus-btn .fa  {
 	font-size: 14px;
 }
- 
+
+@media (min-width : 766px) {
+	.selectpage {
+	  position: absolute;
+	  left: 80px;
+	  top: 17px;
+    width: 115px;
+    font-size: 14px;
+    margin-right: 0px; 
+	}
+	.bottom-menu .btns-right {
+	  position: absolute;
+	  right: 80px;
+	  bottom: 17px;
+	  z-index: 100;
+	}
+}
+
 /*mobile*/
-@media ( max-width : 765px) {
+@media (max-width : 765px) {
+	.selectpage {
+	  position: absolute;
+	  left: 0px;
+    width: 115px;
+    font-size: 14px;
+    margin-right: 0px; 
+	}
+	.bottom-menu .btns-right {
+	  position: absolute;
+	  right: 10px;
+	  bottom: 34px;
+	  z-index: 100;
+	}
 	.main-content .top {
     padding: 10px 0px 0 0px;
 	}
@@ -232,5 +270,8 @@ input::-moz-placeholder { color: #ccc; }
 	}
 	.img-cover {
 		padding: 0;
+	}
+	.selectpage {
+	  margin-bottom: 5px;
 	}
 }
