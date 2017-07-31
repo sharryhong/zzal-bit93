@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import bitcamp.java93.service.CategoryService;
 
 @RestController
-@RequestMapping("/category/")
+@RequestMapping("/subscribe/")
 public class SubscribeControl {
   
   @Autowired ServletContext servletContext;
