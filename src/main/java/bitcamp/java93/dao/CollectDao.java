@@ -8,4 +8,5 @@ public interface CollectDao {
   List<Collect> selectList(int no);
   int countAll();
   Collect selectOne(int no); // selectOne()
+//  void subslist(Collect collect);
 }

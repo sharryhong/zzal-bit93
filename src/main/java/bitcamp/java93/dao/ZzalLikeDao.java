@@ -11,6 +11,7 @@ public interface ZzalLikeDao {
   ZzalLike douLike(HashMap<String,Object> valueMap);
   void dloveu(ZzalLike zzalLike);
   void notdloveu(ZzalLike zzalLike);
+  
 //  int insert(Member member);
 //  int update(Member member);
 }

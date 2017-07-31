@@ -25,7 +25,7 @@ var detailSwipeSmallInfo={
 var swiper2 = new Swiper(detailSwipeSmall,detailSwipeSmallInfo );
 
 
-
+$.ajaxPrefilter(function( options, originalOptions, jqXHR ) { options.async = true; });
 
 
 

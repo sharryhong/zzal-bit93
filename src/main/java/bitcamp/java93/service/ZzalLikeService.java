@@ -10,6 +10,7 @@ public interface ZzalLikeService {
 	ZzalLike douLike(int mno, int zzno);
 	void loveu(ZzalLike zzalLike);
 	void notloveu(ZzalLike zzalLike);
+
 //	void add(Member member) throws Exception;
 //	void update(Member member) throws Exception;
 }

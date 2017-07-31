@@ -68,6 +68,8 @@ public class ZzalLikeControl {
 	    
 	    return new JsonResult(JsonResult.SUCCESS, "ok");
 	  }
+    
+   
 //	
 //	@RequestMapping("detail")
 //	public JsonResult detail(@RequestParam int no) throws Exception {

@@ -6,10 +6,12 @@ import javax.servlet.ServletContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import bitcamp.java93.domain.Collect;
+import bitcamp.java93.domain.ZzalLike;
 import bitcamp.java93.service.CollectService;
 
 @RestController
@@ -38,6 +40,25 @@ public class CollectControl {
     return new JsonResult(JsonResult.SUCCESS, collect);
   }
 
+ /* 
+  @RequestMapping(value="dousubs", method = RequestMethod.POST)
+  public JsonResult DoUSubscribe(@RequestParam int cono,
+		  				   @RequestParam int mno
+		  				   ,Collect collect) throws Exception {
+    
+    collect.setNo(cono);
+    collect.setMemNo(mno);;
+    	
+   collectService.subsList(collect);
+    
+    return new JsonResult(JsonResult.SUCCESS, "ok");
+  }
+*/
+  
+  
+  
+  
+  
 }
 
 

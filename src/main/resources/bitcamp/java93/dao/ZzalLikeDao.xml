@@ -24,7 +24,7 @@
 	select zzno,mno,cdt  from lik
     where mno =#{mno} and zzno =#{zzno};
   </select>
-  
+
   
 <insert id="dloveu" parameterType="zzalLike">
 	insert into lik(mno,zzno,cdt) 
