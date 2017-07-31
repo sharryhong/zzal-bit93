@@ -1,3 +1,6 @@
+
+
+
  .detail-main .zzal-container {
   padding: 0 0;
   max-height: 900px;
@@ -176,7 +179,16 @@
   }
 
 
-@media (min-width: 911px) {
+@media (min-width: 926px) {
+
+  .detailpage-body {
+    overflow: hidden;
+  }
+
+  .detail-main .main-content{
+    margin-top: 66px;
+  }
+
   .web-swiper-smallbtn{
   height: 24px;
  }
@@ -193,6 +205,7 @@
     display: none;
   }
   .detail-main .zzal-container {
+    max-width: 1350px;
     position: relative;
   }
   .detail-main .detail-funcbtn{
@@ -300,7 +313,7 @@
 
   .upper-contaniner .user-lects-units{
     margin-top: 30px;
-    height: 240px;
+    height: 200px;
     width:100%;
     padding: 10px;
   }
@@ -426,15 +439,17 @@
   }
 
   .detail-left {
+
     float:left;
     border-right:solid 1px #ccc;
     width: 90px;
     height: 84.9vh;
   }
   .detail-right {
+    overflow-y: auto;
     float:right;
     border-left:solid 1px #ccc;
-    width: 280px;
+    width: 295px;
     height: 84.9vh;
   }
 
@@ -457,7 +472,7 @@
 }
 
 
-@media (max-width: 910px) {
+@media (max-width: 925px) {
 
 
 

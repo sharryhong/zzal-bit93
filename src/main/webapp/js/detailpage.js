@@ -22,7 +22,7 @@ var detailSwipeSmallInfo={
                              nested : true,
                              autoplay: 2500
                           }
-var swiper2 = new Swiper(detailSwipeSmall,detailSwipeSmallInfo );
+var swiper2 = new Swiper(detailSwipeSmall,detailSwipeSmallInfo);
 
 
 $.ajaxPrefilter(function( options, originalOptions, jqXHR ) { options.async = true; });
@@ -55,7 +55,7 @@ $.getJSON('auth/userinfo.json',function(result){
     console.log(zzno)
     $.getJSON('zzallike/doulike.json',{'mno':memberno,'zzno':zzno},function(result){
       islike=Boolean(result.data.doit)
-      console.log(result.data.doit)
+      // console.log(result.data.doit)
     buttonChecker();
     })
 
