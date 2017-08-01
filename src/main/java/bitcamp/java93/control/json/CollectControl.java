@@ -6,12 +6,10 @@ import javax.servlet.ServletContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import bitcamp.java93.domain.Collect;
-import bitcamp.java93.domain.ZzalLike;
 import bitcamp.java93.service.CollectService;
 
 @RestController
@@ -41,11 +39,8 @@ public class CollectControl {
   }
   
   @RequestMapping("add")
-  public JsonResult add(int memNo, 
-                        String title, 
-                        String content, 
-                        String picture,
-                        Collect collect) throws Exception {
+  public JsonResult add(
+      int memNo, String title, String content, String picture,Collect collect) throws Exception {
     collect.setNo(memNo);
     collect.setContent(content);
     collect.setTitle(title);
@@ -69,7 +64,13 @@ public class CollectControl {
   }
 */
   
-  
+  @RequestMapping("delete")
+  public JsonResult delete(int no) throws Exception {
+    collectService.remove(no);
+    
+    return new JsonResult(JsonResult.SUCCESS, "ok");
+    
+  }
   
   
   

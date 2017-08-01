@@ -59,9 +59,18 @@ $.getJSON('collectdetail.json',function(result){
 	})
 
 	$.getJSON('collect/detail.json', {'no': no}, function(result) {
-			$('.category-explain').text(result.data.content)
-			$('.category-title').text(result.data.title)
+			$("#collect-add-title").attr("placeholder", result.data.title);
+			$('#collect-add-content').attr("placeholder", result.data.content);
+			/*$('#collect-add-title').text(result.data.title)
+			$('#collect-add-content').text(result.data.content) 값은 들어오는데 input 태그에 입력이안됨*/
+			console.log(result.data.title)
+			console.log(result.data.content)
 			$('.collect-photo').css({"background-image": "url(image/"+result.data.picture+")"})
 	 });
-
+	
+	$('#collect-delete').click(function() {
+		  $.getJSON('collect/delete.json', {'no': no}, function(result) {
+		    location.href= 'mypage.html'
+		  })
+		})
 })(jQuery);

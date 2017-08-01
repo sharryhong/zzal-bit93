@@ -40,7 +40,9 @@
     values(#{memNo},#{title},#{content},#{picture})
   </insert>
 
-
+  <delete id="delete" parameterType="int">
+	delete from colct where cono=#{cono}
+</delete>
 <!--
 
 	<select id="subslist" resultMap="zzalLikeMap" parameterType="collect">

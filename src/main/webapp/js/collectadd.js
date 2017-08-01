@@ -33,7 +33,6 @@ if (no == 0){ // 새 학생 등록
 	content = $('#collect-add-content')
 
 	var testNum = 0;
-	console.log(title.value)
 	$.getJSON('/zzal-bit93/auth/userinfo.json', function(result) {
 		console.log(result.data.no)
 		testNum= result.data.no;

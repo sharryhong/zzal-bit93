@@ -7,4 +7,6 @@ import bitcamp.java93.domain.Category;
 public interface CategoryService {
   List<Category> list() throws Exception;
   int getSize() throws Exception;
+  
+  void remove(int no) throws Exception; // remove()
 }
