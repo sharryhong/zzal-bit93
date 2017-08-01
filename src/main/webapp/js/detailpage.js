@@ -29,7 +29,7 @@ $.ajaxPrefilter(function( options, originalOptions, jqXHR ) { options.async = tr
 
 
 
-var douSubscribe =false;
+var douSubscribe;
 var isPlay = false
 var islike;
 var rulogin;
@@ -37,7 +37,8 @@ var rulogin;
 var zzno = location.href.split('?')[1].split('=')[1]
 
 
-var memberno =0 ;
+var memberno = 0 ;
+var collectno = 0;
 console.log(memberno)
 $.getJSON('auth/userinfo.json',function(result){
 // console.log(typeof(result.data.no),"auth")
@@ -47,6 +48,7 @@ $.getJSON('auth/userinfo.json',function(result){
      console.log(rulogin,'63')
    }
    memberno=result.data.no
+   collectno =4;
  }catch(e){
    rulogin = false;
  }
@@ -58,7 +60,12 @@ $.getJSON('auth/userinfo.json',function(result){
       // console.log(result.data.doit)
     buttonChecker();
     })
-
+    $.getJSON('subs/list.json',{'mno':memberno,'cono':collectno},function(result){
+      console.log(result.data.list)
+      douSubscribe =Boolean(result.data.list)
+      console.log(douSubscribe)
+    buttonChecker();
+    })
 
     if (rulogin) {
       $('#like-btn').on('click',function(){
@@ -98,31 +105,6 @@ $.getJSON('auth/userinfo.json',function(result){
 
       }
 
-      //
-      // $('#m-like-btn').on('click',function(event){
-      //   console.log('좋아요 안이야! 114')
-      //
-      // //  leftBtnFunc(this, islike);
-      //
-      //   let up = $(this)[0].children[0]
-      //   let off = $(this)[0].children[1]
-      //  if(!islike){
-      //    console.log(islike)
-      //    $(up).removeClass('off-btn')
-      //    $(off).addClass('off-btn')
-      //    return islike=true;
-      //  }else{
-      //    console.log(islike)
-      //    $(off).removeClass('off-btn')
-      //    $(up).addClass('off-btn')
-      //    return islike=false;
-      //  }
-      //
-      // })
-
-
-
-
 
       console.log('재생 안이야! 117')
       $('#subscribe-btn').on('click',function(event){
@@ -131,18 +113,23 @@ $.getJSON('auth/userinfo.json',function(result){
          let up = $(this)[0].children[0]
          let off = $(this)[0].children[1]
          event.preventDefault()
-        if(!douSubscribe){
-          console.log(douSubscribe)
-          $(up).removeClass('off-btn')
-          $(off).addClass('off-btn')
-          return douSubscribe=true;
-        }else{
-          console.log(douSubscribe)
-          $(off).removeClass('off-btn')
-          $(up).addClass('off-btn')
-          // event.preventDefault()
-          return douSubscribe=false;
-        }
+         if(!douSubscribe){
+           $.post('subs/insert.json',{'mno':memberno, 'cono':collectno},function(result){
+             console.log(result)
+           },"json")
+           console.log(islike)
+           innerFuncion(up,off)
+            event.preventDefault()
+           return douSubscribee=true;
+         }else{
+           $.post('subs/delete.json',{'mno':memberno, 'cono':collectno},function(result){
+             console.log(result)
+           },"json")
+           console.log(islike)
+           innerFuncion(off,up)
+            event.preventDefault()
+           return  douSubscribe=false;
+         }
       })
 
       $('#m-subscribe-btn').on('click',function(event){
@@ -216,6 +203,19 @@ function buttonChecker(){
     $($('.heart')[0]).addClass('off-btn')
   }
 
+  if(douSubscribe){
+    console.log(douSubscribe,'buttonChecker')
+    $($('.subs')[2]).removeClass('off-btn')
+    $($('.subs')[3]).addClass('off-btn')
+    console.log($('.subs'))
+    // $('.heart')[0]
+    // $('.heart')[1]
+
+  }else{
+    $($('.subs')[3]).removeClass('off-btn')
+    $($('.subs')[2]).addClass('off-btn')
+  }
+
   // if(douSubscribe){
   //   $('#subscribe-btn')
   //   $('#m-subscribe-btn')
@@ -279,23 +279,25 @@ $('#m-play-btn').on('click',function(event){
 
 
 
+$(document).on('ready',function(e){
+  $.getJSON('zzal/list.json',{'zzno': zzno},function(result){
+    console.log(result)
+    console.log(result.data.list[0])
+    let usedata = result.data.list[0];
+    let str = usedata.cdt
+    let res = str.split(" ");
+    console.log(res[0])
+    generateHandlebars(result, $('#detail-swipeslide-template'), $('#zzalswipe-tg'))
 
-$.getJSON('zzal/list.json',{'zzno': zzno},function(result){
-  console.log(result)
-  console.log(result.data.list[0])
-  let usedata = result.data.list[0];
-  let str = usedata.cdt
-  let res = str.split(" ");
-  console.log(res[0])
-  generateHandlebars(result, $('#detail-swipeslide-template'), $('#zzalswipe-tg'))
+    $(document).ready(function() {
 
-  $(document).ready(function() {
+      $('#main-date').text(res[0])
 
-  		$('#main-date').text(res[0])
-
-  	});
+    });
 
 
+
+  })
 
 })
 

@@ -25,6 +25,9 @@ public void setCollectNo(int collectNo) {
 public String toString() {
 	return "Subscribe [memberno=" + memberno + ", collectNo=" + collectNo + "]";
 }
+
+  
+  
   
   
   

@@ -24,6 +24,22 @@ insert into colct(cono,mno,title,cont,pic,public) values(4,2,'코딩','C부터',
 
 -- 짤강의
 insert into zzal_lect(zzno, mno, cno, cono, titl, pic, cdt, ztmp) values(1, 1, 1, 1, '짤강입니다1', 'userpicture.jpg', '2017-01-01', true);
-insert into zzal_lect(zzno, mno, cno, cono, titl, pic, cdt, ztmp) values(2, 2, 1, 1, '짤강입니다2', 'userpicture.jpg', '2017-01-01', false);
+insert into zzal_lect(zzno, mno, cno, cono, titl, pic, cdt, ztmp) values(2, 2, 1, 2, '짤강입니다2', 'userpicture.jpg', '2017-01-01', false);
+insert into zzal_lect(zzno, mno, cno, cono, titl, pic, cdt, ztmp) values(3, 2, 4, 1, '짤강3','sul.jpg','2017-01-31', true);
+insert into zzal_lect(zzno, mno, cno, cono, titl, pic, cdt, ztmp) values(4, 2, 8, 3, '짤강4','ohh.jpg','2017-01-31', false);
+insert into zzal_lect(zzno, mno, cno, cono, titl, pic, cdt, ztmp) values(5, 1, 2, 2, '짤강5','userpicture.jpg','2017-01-31', true);
+insert into zzal_lect(zzno, mno, cno, cono, titl, pic, cdt, ztmp) values(6, 3, 5, 4, '짤강6','userpicture.jpg','2017-01-31', false);
+insert into zzal_lect(zzno, mno, cno, cono, titl, pic, cdt, ztmp) values(7, 3, 6, 2, '짤강7','userpicture.jpg','2017-01-31', true);
+insert into zzal_lect(zzno, mno, cno, cono, titl, pic, cdt, ztmp) values(8, 1, 3, 3, '짤강8','userpicture.jpg','2017-01-31', false);
+insert into zzal_lect(zzno, mno, cno, cono, titl, pic, cdt, ztmp) values(9, 4, 7, 2, '짤강9','sul.jpg','2017-01-31', true);
+insert into zzal_lect(zzno, mno, cno, cono, titl, pic, cdt, ztmp) values(10,5, 2, 4, '짤강10','ohh.jpg','2017-01-31', false);
 
 
+--좋아요!
+insert into lik(zzno,mno,cdt) values(1,1,'2017-07-02');
+insert into lik(zzno,mno,cdt) values(1,2,'2017-07-09');
+insert into lik(zzno,mno,cdt) values(1,3,'2017-07-04');
+insert into lik(zzno,mno,cdt) values(2,3,'2017-07-03');
+insert into lik(zzno,mno,cdt) values(2,1,'2017-07-07');
+insert into lik(zzno,mno,cdt) values(1,4,'2017-07-08');
+insert into lik(zzno,mno,cdt) values(1,5,'2017-07-02');

@@ -1,22 +1,34 @@
 package bitcamp.java93.service.impl;
 
-import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+import bitcamp.java93.dao.SubscribeDao;
 import bitcamp.java93.domain.Subscribe;
 import bitcamp.java93.service.SubscribeService;
-
+@Service
 public class SubscribeServiceImpl implements SubscribeService {
-
+	@Autowired SubscribeDao subscribeDao;
 	@Override
-	public Subscribe list() throws Exception {
+	public Subscribe list(Subscribe subscribe) throws Exception {
 		// TODO Auto-generated method stub
-		return null;
+		return subscribeDao.getList(subscribe);
 	}
 
 	@Override
-	public int getSize() throws Exception {
+	public void addCollec(Subscribe subscribe) {
 		// TODO Auto-generated method stub
-		return 0;
+		subscribeDao.insertColct(subscribe);
 	}
+
+	@Override
+	public void deleteCollec(Subscribe subscribe) {
+		// TODO Auto-generated method stub
+		subscribeDao.deleteColct(subscribe);
+	}
+
+	
+	
+
 
 }
