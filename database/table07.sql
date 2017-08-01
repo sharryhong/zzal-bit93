@@ -210,12 +210,12 @@ ALTER TABLE LIK
 
 -- 컬렉션
 CREATE TABLE COLCT (
-	CONO   INTEGER      NOT NULL COMMENT '컬렉션일련번호', -- 컬렉션일련번호
-	MNO    INTEGER      NOT NULL COMMENT '회원코드', -- 회원코드
-	TITLE  VARCHAR(255) NOT NULL COMMENT '컬렉션제목', -- 컬렉션제목
-	CONT   MEDIUMTEXT   NULL     COMMENT '컬렉션내용', -- 컬렉션내용
-	PIC    VARCHAR(255) NULL     COMMENT '컬렉션 사진', -- 컬렉션 사진
-	PUBLIC BOOLEAN      NULL     COMMENT '비공개여부' -- 비공개여부
+	CONO  INTEGER      NOT NULL COMMENT '컬렉션일련번호', -- 컬렉션일련번호
+	MNO   INTEGER      NOT NULL COMMENT '회원코드', -- 회원코드
+	TITLE VARCHAR(255) NOT NULL COMMENT '컬렉션제목', -- 컬렉션제목
+	CONT  MEDIUMTEXT   NULL     COMMENT '컬렉션내용', -- 컬렉션내용
+	PIC   VARCHAR(255) NULL     COMMENT '컬렉션 사진', -- 컬렉션 사진
+	PUB   BOOLEAN      NULL     COMMENT '비공개여부' -- 비공개여부
 )
 COMMENT '컬렉션';
 
