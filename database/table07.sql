@@ -80,7 +80,7 @@ CREATE TABLE ZZAL_LECT (
 	CNO  INTEGER      NOT NULL COMMENT '카테고리 코드', -- 카테고리 코드
 	CONO INTEGER      NULL     COMMENT '컬렉션일련번호', -- 컬렉션일련번호
 	TITL VARCHAR(255) NOT NULL COMMENT '짤강의제목', -- 짤강의제목
-	ZPIC VARCHAR(255) NOT NULL COMMENT '대표 사진', -- 대표 사진
+	PIC  VARCHAR(255) NOT NULL COMMENT '대표 사진', -- 대표 사진
 	CDT  DATETIME     NOT NULL COMMENT '짤강의 게시날짜', -- 짤강의 게시날짜
 	ZTMP BOOLEAN      NULL     COMMENT '임시저장여부' -- 임시저장여부
 )
@@ -98,12 +98,12 @@ ALTER TABLE ZZAL_LECT
 
 -- 짤강의 페이지
 CREATE TABLE PAGE (
-	ZPNO  INTEGER      NOT NULL COMMENT '짤강의페이지일련번호', -- 짤강의페이지일련번호
-	ZZNO  INTEGER      NOT NULL COMMENT '짤강의 코드', -- 짤강의 코드
-	PGNO  INTEGER      NOT NULL COMMENT '페이지번호', -- 페이지번호
-	TYPE  VARCHAR(20)  NULL     COMMENT '유형', -- 유형
-	ZPPIC VARCHAR(255) NULL     COMMENT '이미지/동영상', -- 이미지/동영상
-	CONT  MEDIUMTEXT   NOT NULL COMMENT '내용' -- 내용
+	ZPNO INTEGER      NOT NULL COMMENT '짤강의페이지일련번호', -- 짤강의페이지일련번호
+	ZZNO INTEGER      NOT NULL COMMENT '짤강의 코드', -- 짤강의 코드
+	PGNO INTEGER      NOT NULL COMMENT '페이지번호', -- 페이지번호
+	TYPE VARCHAR(20)  NULL     COMMENT '유형', -- 유형
+	PIC  VARCHAR(255) NULL     COMMENT '이미지/동영상', -- 이미지/동영상
+	CONT MEDIUMTEXT   NOT NULL COMMENT '내용' -- 내용
 )
 COMMENT '짤강의 페이지';
 
