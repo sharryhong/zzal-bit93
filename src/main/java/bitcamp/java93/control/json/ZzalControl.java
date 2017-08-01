@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import bitcamp.java93.service.ZzalLikeService;
 import bitcamp.java93.service.ZzalService;
 
 @RestController

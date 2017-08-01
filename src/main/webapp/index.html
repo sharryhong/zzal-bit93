@@ -242,8 +242,8 @@
 
 <script id="main-template" type="text/x-handlebars-template">
 {{#each zzalList}}
-<li>
-  <a href="detailpage.html" class="zzal-lect">
+<li data-zzno="{{zzno}}" class="zzal-li">
+  <a href="#" class="zzal-lect">
     <div class="lect-top">
       <span class="user-photo" style='background-image:url("image/{{member.membpic}}")'></span>
       <span class="user-name">{{member.nick}}</span>
@@ -262,7 +262,7 @@
       </div>
       <div class="right">
         <div class="like">
-          <span><i class="fa fa-heart-o" aria-hidden="true"><span class="blind">좋아요</span></i></span><span> </span>
+          <span><i class="fa fa-heart-o" aria-hidden="true"><span class="blind">좋아요</span></i></span><span class="like-count"> </span>
         </div>
         <div class="like">
           <span><i class="fa fa-commenting-o" aria-hidden="true"><span class="blind">댓글</span></i></span><span> </span>
