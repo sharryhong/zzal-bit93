@@ -72,7 +72,7 @@ $(document).on("click", '.reply-info .re-reply', function(){
 	that.closest(".reply-li").find(".re-reply-inputer").css('display','block')
 //	$('.re-reply-inputer').css('display','block')
 	
-	$.getJSON('/zzal-bit93-backup-29saturday/auth/userinfo.json', function(result) {
+	$.getJSON('/zzal-bit93/auth/userinfo.json', function(result) {
         $('.re-reply-inputer .user-phot').css({"background-image": "url(image/"+result.data.membpic+")"});
 	})
 })
