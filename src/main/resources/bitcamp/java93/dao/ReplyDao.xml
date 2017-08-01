@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bitcamp.java93.dao.ReplyDao">
+  
+  <resultMap type="reply" id="replyMap">
+    <id column="rno" property="replyNumber"/>
+    <result column="mno" property="memberNumber"/>
+    <result column="nick" property="nickName"/>
+    <result column="pic" property="membPic"/>
+
+    <result column="cont" property="content"/>
+    <result column="date_format(cdt, '%Y-%m-%d %p %h:%i')" property="createDate"/>
+    <result column="re_like" property="replyLike"/>
+    <result column="report" property="report"/>
+    <result column="zzno" property="zzalnumber"/>
+  </resultMap>
+
+
+  <select id="selectList"  resultMap="replyMap">
+    select r.rno, m.nick, r.cont, date_format(cdt, '%Y-%m-%d %p %h:%i'), r.re_like, r.report, r.mno, m.pic
+    from memb m
+    join reply r
+    on m.mno = r.mno
+    order by rno desc;
+  </select>
+
+
+<!--   <select id="selectList"  resultMap="replyMap">
+    select r.rno, m.nick, r.cont, date_format(cdt, '%Y-%m-%d %p%h:%i'), r.re_like, r.report, r.mno, m.pic
+    from memb m
+		join reply r
+		on m.mno = r.mno
+		order by rno desc;
+  </select> -->
+  
+  
+  <!-- 전체 댓글 갯수 조회 -->
+  <select id="countReply" resultType="int">
+    select count(*)
+    from reply;
+  </select>
+  
+  <!--  새 댓글 추가 -->
+  <update id="insert" parameterType="reply" useGeneratedKeys="true" keyColumn="rno" keyProperty="replyNumber">  
+    insert into reply(cont, cdt, re_like, report, zzno, mno) 
+    values(#{content}, current_timestamp(), #{replyLike}, #{report}, #{zzalnumber}, #{memberNumber})
+  </update>
+  
+  <!-- 댓글 삭제 -->
+  <delete id="delete" parameterType="int">
+    delete from reply where rno=#{rno}
+  </delete>
+</mapper> 
