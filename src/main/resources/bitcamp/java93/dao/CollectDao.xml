@@ -10,11 +10,11 @@
 		<result column="title" property="title" />
 		<result column="cont" property="content" />
 		<result column="pic" property="picture" />
-		<result column="public" property="isPublic" />
+		<result column="pub" property="isPublic" />
 	</resultMap>
 
 	<sql id="select1">
-		select cono, title, cont, pic, public
+		select cono, title, cont, pic, pub
 		from colct
 	</sql>
 
@@ -36,8 +36,8 @@
 
 	<insert id="insert" parameterType="collect" 
           useGeneratedKeys="true" keyColumn="cono" keyProperty="no">
-    insert into colct(mno,title,cont,pic) 
-    values(#{memNo},#{title},#{content},#{picture})
+    insert into colct(mno,title,cont,pic,pub) 
+    values(#{memNo},#{title},#{content},#{picture},#{isPublic})
   </insert>
 
   <delete id="delete" parameterType="int">

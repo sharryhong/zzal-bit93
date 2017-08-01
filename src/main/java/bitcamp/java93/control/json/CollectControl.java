@@ -40,11 +40,12 @@ public class CollectControl {
   
   @RequestMapping("add")
   public JsonResult add(
-      int memNo, String title, String content, String picture,Collect collect) throws Exception {
+      int memNo, String title, String content, String picture, Boolean isPublic, Collect collect) throws Exception {
     collect.setNo(memNo);
     collect.setContent(content);
     collect.setTitle(title);
     collect.setPicture(picture);
+    collect.setIsPublic(isPublic);
     System.out.println(collect);
     collectService.add(collect);
     return new JsonResult(JsonResult.SUCCESS, "ok");

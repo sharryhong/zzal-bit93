@@ -30,7 +30,8 @@ try {
 if (no == 0){ // 새 학생 등록
 	var	picture = $('#collectPhoto'),
 	title = $('#collect-add-title'),
-	content = $('#collect-add-content')
+	content = $('#collect-add-content'),
+	isPublic =$('#myonoffswitch')
 
 	var testNum = 0;
 	$.getJSON('/zzal-bit93/auth/userinfo.json', function(result) {
@@ -40,11 +41,12 @@ if (no == 0){ // 새 학생 등록
 		$('#collect-addbtn').click(function() {
 			console.log('collect-addbtn')
 			console.log($(title).val())
+			console.log($(isPublic).val())
 			$.post(contextRoot + '/collect/add.json', {
 				'memNo' : testNum,
 				'title' : $(title).val(),
 				'content' : $(content).val(),
-				/*'isPublic' : myonoffSwitch.val(),*/
+				'isPublic' : $(isPublic).prop("checked"),
 				'picture' : 'anonymous.png'
 			}, function(result) {
 				console.log(result)
