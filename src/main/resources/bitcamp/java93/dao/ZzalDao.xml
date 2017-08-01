@@ -7,102 +7,47 @@
   <resultMap type="zzal" id="zzalMap">
     <id column="zzno" property="zzno"/>
     <result column="mno" property="mno"/>
-    <result column="nick" property="nick"/>
     <result column="cno" property="cno"/>
     <result column="titl" property="title"/>
-    <result column="pic" property="mainPic"/>
+    <result column="pic2" property="mainPic"/>
     <result column="cdt" property="cdt"/>
+    <association property="member" javaType="Member">
+	    <id column="mno" property="no"/>
+	    <result column="nick" property="nick"/>
+	    <result column="email" property="email"/>
+	    <result column="pwd" property="password"/>
+	    <result column="mtype" property="membtype"/>
+	    <result column="stype" property="signtype"/>
+	    <result column="pic1" property="membpic"/>
+	  </association>
   </resultMap>
+  
   <sql id="select1">
-    select zzno, mno, cno, titl, pic, cdt
+    select zzno, mno, cno, titl, zpic, cdt
     from zzal_lect
   </sql>
 
 	<select id="selectList" resultMap="zzalMap" parameterType="int">
-    select z.zzno, z.mno, m.nick, z.cno, z.titl, z.pic, z.cdt
+    select z.zzno, z.mno, m.nick, z.cno, z.titl, z.zpic, z.cdt
     from zzal_lect z inner join memb m on z.mno = m.mno
     where z.zzno = #{no} 
   </select>
 
-<!--   
-	
-  <select id="selectOneByEmailPassword" resultMap="memberMap" parameterType="map">
-    <include refid="select1"/> 
-    where email=#{email} and pwd=password(#{password})
+  <select id="zzalList" resultMap="zzalMap" parameterType="map">
+    select z.zzno, z.mno, m.nick, m.pic as pic1, z.cno, z.titl, z.pic as pic2, z.cdt
+    from zzal_lect z inner join memb m on z.mno = m.mno
   </select>
-  
-  <select id="selectOne" resultMap="memberMap" parameterType="int">
-    <include refid="select1"/> 
-    where mno = #{no};
-  </select>
-  
-  <insert id="insert" parameterType="member" 
-          useGeneratedKeys="true" keyColumn="mno" keyProperty="no">
-    insert into memb(nick,email,pwd,pic) 
-    values(#{nick},#{email},password(#{password}),#{membpic})
-  </insert> 
-  
-  <select id="selectList" resultMap="memberMap" >
-     <include refid="select1"/> 
-  </select> 
-  
-  <update id="update" parameterType="member">
-    update memb set 
-      nick=#{nick}, 
-      pwd=password(#{password}) 
-    where mno=#{no}
-  </update>
-  
+  <!-- <select id="zzalList" resultMap="zzalMap" parameterType="map">
+    select z.zzno, z.mno, m.nick, m.pic, z.cno, z.titl, z.pic, z.cdt
+    from zzal_lect z inner join memb m on z.mno = m.mno
+    limit #{startIndex}, #{pageSize}
+  </select> -->
   
   <select id="countAll" resultType="int">
     select count(*)
-    from catg
+    from zzal_lect
   </select>
   
-  <select id="selectListByNames" resultMap="memberMap" parameterType="map">
-    <include refid="select1"/>
-    <if test="names != null">
-      <where>
-        name in 
-        <foreach collection="names" item="name" open="(" close=")" separator=",">
-          #{name}
-        </foreach>
-      </where> 
-    </if>    
-    order by name asc 
-    limit #{startIndex}, #{pageSize}
-  </select>
-  
-  <select id="selectOne" resultMap="memberMap" parameterType="int">
-    <include refid="select1"/> 
-    where mno = #{memberNo}
-  </select>
-  
-  <select id="selectOneByEmailPassword" resultMap="memberMap" parameterType="map">
-    <include refid="select1"/> 
-    where email=#{email} and pwd=password(#{password})
-  </select>
-  
-  <insert id="insert" parameterType="member" 
-          useGeneratedKeys="true" keyColumn="mno" keyProperty="no">
-    insert into memb(name,tel,email,pwd) 
-    values(#{name},#{tel},#{email},password(#{password}))
-  </insert>
-  
-  <update id="update" parameterType="member">
-    update memb set 
-      name=#{name}, 
-      tel=#{tel}, 
-      email=#{email}, 
-      pwd=password(#{password}) 
-    where mno=#{no}
-  </update>
-  
-  <delete id="delete" parameterType="int">
-    delete from memb 
-    where mno=#{memberNo}
-  </delete>-->
-
 </mapper> 
 
 

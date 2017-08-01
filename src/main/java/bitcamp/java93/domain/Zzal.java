@@ -1,22 +1,20 @@
 package bitcamp.java93.domain;
 
-import java.util.List;
-
 public class Zzal {
 	int zzno;
 	int mno;
 	int cno;
 	int cono;
-	String nick;
 	String title;
 	String mainPic;
 	String cdt;
 	Boolean zzalTemporary;
+	Member member;
 	
   @Override
   public String toString() {
-    return "Zzal [zzno=" + zzno + ", mno=" + mno + ", cno=" + cno + ", cono=" + cono + ", nick=" + nick + ", title="
-        + title + ", mainPic=" + mainPic + ", cdt=" + cdt + ", zzalTemporary=" + zzalTemporary + "]";
+    return "Zzal [zzno=" + zzno + ", mno=" + mno + ", cno=" + cno + ", cono=" + cono + ", title=" + title + ", mainPic="
+        + mainPic + ", cdt=" + cdt + ", zzalTemporary=" + zzalTemporary + ", member=" + member + "]";
   }
 
   public int getZzno() {
@@ -51,14 +49,6 @@ public class Zzal {
     this.cono = cono;
   }
 
-  public String getNick() {
-    return nick;
-  }
-
-  public void setNick(String nick) {
-    this.nick = nick;
-  }
-
   public String getTitle() {
     return title;
   }
@@ -90,5 +80,13 @@ public class Zzal {
   public void setZzalTemporary(Boolean zzalTemporary) {
     this.zzalTemporary = zzalTemporary;
   }
-	
+
+  public Member getMember() {
+    return member;
+  }
+
+  public void setMember(Member member) {
+    this.member = member;
+  }
+  
 }

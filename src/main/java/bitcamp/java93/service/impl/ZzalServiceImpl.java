@@ -1,5 +1,6 @@
 package bitcamp.java93.service.impl;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,38 +16,23 @@ public class ZzalServiceImpl implements ZzalService {
 	@Autowired
 	ZzalDao zzalDao;
 	
-
-
 	@Override
 	public List<Zzal> list(int zzno) throws Exception {
-		// TODO Auto-generated method stub
 		return zzalDao.selectList(zzno);
 	}
-//	@Override
-//	public Member get(int no) throws Exception {
-//		return zzalDao.selectOne(no);
-//	}
-	
-//	@Override
-//	public Member getByEmailPassword(String email, String password) throws Exception {
-//		HashMap<String,Object> valueMap = new HashMap<>();
-//		valueMap.put("email", email);
-//		valueMap.put("password", password);
-//		
-//		return memberDao.selectOneByEmailPassword(valueMap);
-//	}
-//
-//  @Override
-//  public void add(Member member) throws Exception {
-//    memberDao.insert(member);
-//  }
-//  
-//  @Override
-//  public void update(Member member) throws Exception {
-//    int count = memberDao.update(member);
-//    if (count < 1) {
-//      throw new Exception(member.getNo() + "번 회원을 찾을 수 없습니다.");
-//    }
-//  }
+
+  @Override
+  public List<Zzal> zzalList(int pageNo, int pageSize) throws Exception {
+    HashMap<String,Object> valueMap = new HashMap<>();
+    valueMap.put("startIndex", (pageNo - 1) * pageSize);
+    valueMap.put("pageSize", pageSize);
+    
+    return zzalDao.zzalList(valueMap);
+  }
+
+  @Override
+  public int getSize() throws Exception {
+    return zzalDao.countAll();
+  }
 	  	
 }

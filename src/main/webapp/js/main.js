@@ -25,7 +25,7 @@ function generateHandlebars(result, el, target) {
 		joinEmail = $('#join-email'),
 		joinPw = $('#join-pw'),
 		joinNick = $('#join-nick')
-	
+		
 	$('#login-btn').click(function() {
 		console.log('login-btn')
 		$.post(contextRoot + '/auth/login.json', {

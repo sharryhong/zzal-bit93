@@ -38,10 +38,9 @@
       </ul>
     </div>
   </div>
-<!-- zzal-lect -->
   <div class="zzal-container">
-    <ul class="zzal-lects clearfix">
-			<li>
+    <ul class="zzal-lects clearfix" id="zzal-list">
+			<!-- <li>
 			  <a href="detailpage.html?zzno=2" class="zzal-lect">
 			    <div class="lect-top">
 			      <span class="user-photo" style="background-image:url(&quot;image/user.jpg&quot;)"></span>
@@ -214,10 +213,10 @@
 			      </div>
 			    </div>
 			  </a>
-			</li>
+			</li> -->
 			</ul>
   </div>
-  <div class="zzal-week-container">
+  <!-- <div class="zzal-week-container">
     <div class="zzal-container">
 	    <div class="top-con clearfix">
 	      <h4 class="title">금주의 인기짤강</h4>
@@ -228,7 +227,7 @@
   </div>
   <div class="zzal-container">
       <ul class="zzal-lects clearfix" id="zzal-list2"></ul>
-</div> <!-- main-content -->
+	</div> --> 
 </div>
 <div id="footer"></div>
 </div>
@@ -239,34 +238,34 @@
   <img src="{{zzalImg}}" title="{{zzalTitle}}">
 </li>
 {{/each}}
-</script>
+</script> -->
 
-<script id="main-template1" type="text/x-handlebars-template">
-{{#each mainList1}}
+<script id="main-template" type="text/x-handlebars-template">
+{{#each zzalList}}
 <li>
   <a href="detailpage.html" class="zzal-lect">
     <div class="lect-top">
-      <span class="user-photo" style='background-image:url("{{profileImg}}")'></span>
-      <span class="user-name">{{nickName}}</span>
+      <span class="user-photo" style='background-image:url("image/{{member.membpic}}")'></span>
+      <span class="user-name">{{member.nick}}</span>
     </div>
     <div class="zzal">
       <div class="zzal-img">
-        <img src="{{zzalImg}}" alt="">
+        <img src="image/{{mainPic}}" alt="">
         <div class="for-title">
-          <h3 class="title">{{zzalTitle}}</h3>
+          <h3 class="title">{{title}}</h3>
         </div>
       </div>
     </div>
     <div class="bottom">
       <div class="view">
-        <span>조회수</span><span> {{viewCount}}</span>
+        <span>조회수</span><span> </span>
       </div>
       <div class="right">
         <div class="like">
-          <span><i class="fa fa-heart-o" aria-hidden="true"><span class="blind">좋아요</span></i></span><span> {{likeCount}}</span>
+          <span><i class="fa fa-heart-o" aria-hidden="true"><span class="blind">좋아요</span></i></span><span> </span>
         </div>
         <div class="like">
-          <span><i class="fa fa-commenting-o" aria-hidden="true"><span class="blind">댓글</span></i></span><span> {{commentCount}}</span>
+          <span><i class="fa fa-commenting-o" aria-hidden="true"><span class="blind">댓글</span></i></span><span> </span>
         </div>
       </div>
     </div>
@@ -274,6 +273,7 @@
 </li>
 {{/each}}
 </script>
+<!-- 
 <script id="main-template2" type="text/x-handlebars-template">
 {{#each mainList2}}
 <li>
@@ -329,7 +329,7 @@
 <script src="js/jquery.bxslider.min.js"></script>
 <script src="node_modules/swiper/dist/js/swiper.min.js"></script>
 <script src="js/load.js"></script>
-<script src="js/hbs.js"></script>
+<script src="js/index.js"></script>
 <script src="js/bxslider.js"></script>
 
 </html>
