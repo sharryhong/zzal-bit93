@@ -29,8 +29,8 @@ insert into zzal_lect (zzno, mno, cno, titl, pic, cdt) values(100, 1, 1, '댓글
 insert into zzal_lect (zzno, mno, cno, titl, pic, cdt) values(200, 2, 2, '사진 잘 찍기 강의', 'sul.jpg', '2017-05-26');
 
 -- 새로운 댓글 추가(insert)
-insert into reply(cont, cdt, re_like,report,zzno,mno) values(3,'나는 3댓글 내용입니다 ', curdate(), true, false, 100, 1);
-insert into reply(cont, cdt, re_like,report,zzno,mno) values(4,'댓글4입니다. 정말 이쁜 사진이네요!', curdate(), true, false, 200, 1);
+insert into reply(cont, cdt, re_like,report,zzno,mno) values('나는 3댓글 내용입니다 ', current_timestamp(), true, false, 100, 1);
+insert into reply(cont, cdt, re_like,report,zzno,mno) values('댓글4입니다. 정말 이쁜 사진이네요!', current_timestamp(), true, false, 200, 1);
 
 
 -- 댓글 테이블 검색

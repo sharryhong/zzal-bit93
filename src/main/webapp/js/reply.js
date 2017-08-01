@@ -25,7 +25,7 @@ $('.submit-reply').click(function() {
 	$.ajax({
 		type: 'POST',
 		url: 'reply/add.json',
-		data: {content : $('.input-reply').val(), zzalnumber : "200"}, 
+//		data: {content : $('.input-reply').val(), zzalnumber : "200"}, 
 		async: false,
 		success: function(data) {
 			$.getJSON('reply/list.json',function(result){
