@@ -7,14 +7,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import bitcamp.java93.dao.ZzalDao;
+import bitcamp.java93.dao.ZzalLikeDao;
 import bitcamp.java93.domain.Zzal;
 import bitcamp.java93.service.ZzalService;
 
 @Service
 public class ZzalServiceImpl implements ZzalService {
 	
-	@Autowired
-	ZzalDao zzalDao;
+	@Autowired ZzalDao zzalDao;
+	@Autowired ZzalLikeDao zzalLikeDao;
 	
 	@Override
 	public List<Zzal> list(int zzno) throws Exception {
@@ -22,13 +23,24 @@ public class ZzalServiceImpl implements ZzalService {
 	}
 
   @Override
-  public List<Zzal> zzalList(int pageNo, int pageSize) throws Exception {
+  public List<Zzal> zzalListWithCount(int pageNo, int pageSize) throws Exception {
     HashMap<String,Object> valueMap = new HashMap<>();
     valueMap.put("startIndex", (pageNo - 1) * pageSize);
     valueMap.put("pageSize", pageSize);
-    
-    return zzalDao.zzalList(valueMap);
+    return zzalDao.zzalListWithCount(valueMap);
   }
+  
+  /*@Override // DB에서 서브쿼리 사용하지 않을 때 
+  public List<Zzal> zzalListWithCount(int pageNo, int pageSize) throws Exception {
+    HashMap<String,Object> valueMap = new HashMap<>();
+    valueMap.put("startIndex", (pageNo - 1) * pageSize);
+    valueMap.put("pageSize", pageSize);
+    List<Zzal> list = zzalDao.zzalListWithCount(valueMap);
+    for (Zzal zzal : list) {
+      zzal.setLikeCount(zzalLikeDao.getcnt(zzal.getZzno()));
+    }
+    return list;
+  }*/
 
   @Override
   public int getSize() throws Exception {

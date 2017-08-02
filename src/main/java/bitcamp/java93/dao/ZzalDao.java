@@ -7,6 +7,6 @@ import bitcamp.java93.domain.Zzal;
 
 public interface ZzalDao {
   List<Zzal> selectList(int zzno);
-  List<Zzal> zzalList(Map<String,Object> valueMap);
+  List<Zzal> zzalListWithCount(Map<String,Object> valueMap);
   int countAll();
 }

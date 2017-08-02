@@ -262,7 +262,7 @@
       </div>
       <div class="right">
         <div class="like">
-          <span><i class="fa fa-heart-o" aria-hidden="true"><span class="blind">좋아요</span></i></span><span class="like-count"> </span>
+          <span><i class="fa fa-heart-o" aria-hidden="true"><span class="blind">좋아요</span></i></span><span class="like-count"> {{likeCount}}</span>
         </div>
         <div class="like">
           <span><i class="fa fa-commenting-o" aria-hidden="true"><span class="blind">댓글</span></i></span><span> </span>
@@ -272,6 +272,10 @@
   </a>
 </li>
 {{/each}}
+</script>
+
+<script id="like-template" type="text/x-handlebars-template">
+<span>{{cnt}}</span>
 </script>
 <!-- 
 <script id="main-template2" type="text/x-handlebars-template">

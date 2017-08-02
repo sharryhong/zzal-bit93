@@ -28,13 +28,13 @@ public class ZzalControl {
 	    return new JsonResult(JsonResult.SUCCESS, dataMap);
 	  }
 	
-	@RequestMapping("zzalList")
+	@RequestMapping("zzalListWithCount")
 	public JsonResult zzalList(
       @RequestParam(defaultValue="1") int pageNo, 
       @RequestParam(defaultValue="5") int pageSize) throws Exception {
     
     HashMap<String,Object> dataMap = new HashMap<>();
-    dataMap.put("zzalList", zzalService.zzalList(pageNo, pageSize));
+    dataMap.put("zzalList", zzalService.zzalListWithCount(pageNo, pageSize));
     dataMap.put("totalCount", zzalService.getSize());
     
     return new JsonResult(JsonResult.SUCCESS, dataMap);
