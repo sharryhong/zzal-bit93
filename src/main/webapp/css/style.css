@@ -164,8 +164,8 @@ input::-moz-placeholder { color: #777; }
   border-bottom: 1px solid #54BAE6;
 }
 .main-content .best li {
-  height: 32px;
-  line-height: 32px;
+  height: 33px;
+  line-height: 33px;
 }
 .main-content .best .ranking {
   color: #54BAE6;
@@ -341,11 +341,20 @@ input::-moz-placeholder { color: #777; }
 .slider-zzal img {
   width: 100%;
 }
-.slider li {
+.slider .swiper-container-slide,
+.slider .swiper-container-slide img {
+	width: 100%;
+}
+ .slider li {
 	height: 237px;
 	overflow: hidden;
 	background: black;
+} 
+.index-page .swiper-wrapper {
+  height: 237px;
+  overflow: hidden;
 }
+
 .bx-wrapper img {
 	width: 100%;
 }
@@ -456,6 +465,7 @@ input::-moz-placeholder { color: #777; }
     float: right;
     width: 33%;
     height: 250px;
+    overflow: hidden;
   }
   .main-content .slider {
 	  float: left;

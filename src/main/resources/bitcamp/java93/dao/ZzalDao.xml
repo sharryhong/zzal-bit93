@@ -50,12 +50,21 @@
     order by like_cnt + reply_cnt desc
   </select>
   
-  <select id="zzalBestList" resultMap="zzalMap" parameterType="map">
-    select z.zzno, z.mno, z.titl, z.pic as pic2, l.cdt as cdt1,
+  <!-- 되는지 알았는데 ㅠㅠㅠ
+   <select id="zzalBestList" resultMap="zzalMap" parameterType="map">
+    select z.zzno, z.mno, z.titl, z.pic as pic2, l.cdt as cdt1, m.nick,
 	  (select count(*) from lik l where l.zzno=z.zzno) as like_cnt
-	  from zzal_lect z inner join lik l on l.zzno = z.zzno
+	  from zzal_lect z inner join memb m on z.mno = m.mno inner join lik l on l.zzno = z.zzno
 	  where z.ztmp=true AND	l.cdt between adddate(now(),-7) and now()
 	  order by like_cnt desc
+  </select> -->
+  
+  <select id="zzalBestList" resultMap="zzalMap" parameterType="map">
+    select z.zzno, z.mno, m.nick, m.pic as pic1, z.cno, z.titl, z.pic as pic2, z.cdt as cdt2,
+    (select count(*) from lik where zzno=z.zzno) as like_cnt
+    from zzal_lect z inner join memb m on z.mno = m.mno
+    where z.ztmp=true
+    order by like_cnt desc
   </select>
   
   <!-- <select id="zzalListWeek" resultMap="zzalMap" parameterType="map">

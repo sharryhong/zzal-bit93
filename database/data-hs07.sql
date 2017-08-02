@@ -56,6 +56,11 @@ insert into lik(zzno,mno,cdt) values(5,1,curdate());
 insert into lik(zzno,mno,cdt) values(9,2,curdate());
 insert into lik(zzno,mno,cdt) values(9,3,curdate());
 insert into lik(zzno,mno,cdt) values(14,2,curdate());
+insert into lik(zzno,mno,cdt) values(14,5,curdate());
+insert into lik(zzno,mno,cdt) values(14,1,curdate());
+insert into lik(zzno,mno,cdt) values(1,1,curdate());
+insert into lik(zzno,mno,cdt) values(2,4,curdate());
+insert into lik(zzno,mno,cdt) values(4,4,curdate());
 
 -- 새로운 댓글 추가(insert)
 insert into reply(cont, cdt, re_like,report,zzno,mno) values('덧글1 ', current_timestamp(), false, false, 1, 1);

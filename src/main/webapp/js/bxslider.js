@@ -12,12 +12,12 @@
         controls: false
 	});
     // 메인페이지 상단 슬라이더
-    $('.index-page .bxslider').bxSlider({
+    /*$('.index-page .bxslider').bxSlider({
     	auto: true,
     	mode: 'fade',
     	speed: 300,
     	captions: true,
     	pager: false
-	});
+	});*/
     
 })(jQuery, window);
