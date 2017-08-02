@@ -50,19 +50,21 @@ public class ZzalwriteControl {
 	
 	@RequestMapping(path="upload")
   public JsonResult upload(MultipartFile[] files) throws Exception {
-	  ArrayList<String> fileList = new ArrayList<>();
+	  
+	
+		ArrayList<String> fileList = new ArrayList<>();
     for (int i = 0; i < files.length; i++) {
       if (files[i].isEmpty()) 
         continue;
       
-      String newFilename = this.getNewFilename();
+      String newFilename = files[i].getOriginalFilename();
       File file = new File(servletContext.getRealPath("/upload/" + newFilename));
       files[i].transferTo(file);
       
-      File thumbnail = new File(servletContext.getRealPath("/upload/" + newFilename + "_500"));
+      File thumbnail = new File(servletContext.getRealPath("/upload/"  +"500_"+ newFilename));
       Thumbnails.of(file).size(500, 500).toFile(thumbnail); 
 
-      thumbnail = new File(servletContext.getRealPath("/upload/" + newFilename + "_800"));
+      thumbnail = new File(servletContext.getRealPath("/upload/" + "800_"+ newFilename));
       Thumbnails.of(file).size(800, 800).toFile(thumbnail);
       
       System.out.println(newFilename);
@@ -71,14 +73,14 @@ public class ZzalwriteControl {
     }
     return new JsonResult(JsonResult.SUCCESS, fileList);
   }
-  
-  int count = 0;
-  synchronized private String getNewFilename() {
-    if (count > 100) {
-      count = 0;
-    }
-    return String.format("%d_%d", System.currentTimeMillis(), ++count); 
-  }
+//  
+//  int count = 0;
+//  synchronized private String getNewFilename() {
+//    if (count > 100) {
+//      count = 0;
+//    }
+//    return String.format("%d_%d", System.currentTimeMillis(), ++count); 
+//  }
 
 }
 

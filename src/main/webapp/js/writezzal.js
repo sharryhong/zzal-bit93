@@ -1,6 +1,6 @@
 (function($){
 	'use strict';
-	var fiFilenames = $('.fi-filenames'),
+	var fiFilenames,
 	    fiTitle = $('#fi-title'),
 	    fiCollect = $('#select-collect'),
 	    fiCategory = $('#select-category')
@@ -30,9 +30,20 @@
 			}
 		})
 	}
+	window.onload = swiper;
 
+	var swiper = new Swiper('.swiper-container', {
+		nextButton: '.swiper-button-next',
+			prevButton: '.swiper-button-prev',
+			pagination: '.swiper-pagination',
+			paginationType: 'fraction',
+			paginationClickable: true,
+			onSlideChangeEnd: function(swiper){
+				numberDone();
+			}
+	});
 
-
+var indexNum=swiper.realIndex;
 
 
 	//
@@ -48,18 +59,15 @@
 	// 	// console.log($('.swiper-pagination-current')[0].innerHTML)
 	// })
 
-var indexNum=0;
-
-	function clickDone(){
-    console.log($('.images-div'))
-		indexNum = parseInt(swiper.realIndex);
-		return indexNum;
-	}
-
-var imagesDi;
 
 
-  $('.photo-upload-btn').fileupload({
+
+
+var imagesDiv,
+		photoUpLoad;
+
+
+  	$('.photo-upload-btn').fileupload({
 	    url: '/zzal-bit93/zzal/upload.json',
 	    dataType: 'json',
 	    imageMaxWidth: 670,
@@ -69,8 +77,10 @@ var imagesDi;
 			previewMaxHeight: 720,  // 미리보기 이미지 높이
 			previewCrop: true,      // 미리보기 이미지를 출력할 때 원본에서 지정된 크기로 자르기
 			processalways: function(e, data) {
+				console.log(this)
 					// var inNum = parseInt(indexNum);
 					// console.log(filenames,'processalways안이얌')
+					numberDone();
 					imagesDiv = $('.images-div')[indexNum];
 					console.log(imagesDiv,indexNum)
 		      for (var i = 0; i < data.files.length; i++) {
@@ -98,12 +108,14 @@ var imagesDi;
 		},
 	    done: function (e, data) {
 	      console.log('done()...');
+				console.log(fiFilenames,"done.......")
 	      // console.log(data.result,'data-result얌');
 	      var filenames = data.result.data;
 				// console.log(filenames,'filenames얌');
 	      for (var i = 0; i < filenames.length; i++) {
 	        var val = fiFilenames.val();
 	        if (val.length > 0) val += ",";
+
 	        fiFilenames.val(val + filenames[i]);
 	      }
 	    }
@@ -112,10 +124,14 @@ var imagesDi;
     $(document).on('click', '#add-btn, #temp-save-btn', function() {
     	console.log(fiFilenames.val())
     	$.post('/zzal-bit93/zzal/add.json', {
-    		'mno': no,
-    		'cno': fiCategory.val(),
-    		'cono': fiCollect.val(),
-    		'title': fiTitle.val(),
+    		// 'mno': no,
+    		// 'cno': fiCategory.val(),
+    		// 'cono': fiCollect.val(),
+    		// 'title': fiTitle.val(),
+				'mno': 1,
+    		'cno': 2,
+    		'cono': 2,
+    		'title': "난 연습용!",
     		'filenames': fiFilenames.val()
     	}, function(result) {
     		console.log(result)
@@ -123,16 +139,23 @@ var imagesDi;
     	}, 'json')
     })
 
-		var swiper = new Swiper('.swiper-container', {
-			nextButton: '.swiper-button-next',
-				prevButton: '.swiper-button-prev',
-				pagination: '.swiper-pagination',
-				paginationType: 'fraction',
-				paginationClickable: true
-		});
+		function numberDone(event){
+			// console.log(swiper.onSlideChangeEnd(swiper))
+
+				console.log(event)
+		    console.log($('.images-div'))
+				indexNum = parseInt(swiper.realIndex);
+				fiFilenames = $('.fi-filenames')
+				
+				console.log(indexNum)
+				return indexNum;
+
+
+		}
 
 
 		$('.test-btn').on('click',function(e){
+			clickDone(event)
 			console.log(indexNum)
 			console.log($('.images-div'))
 		})
@@ -146,8 +169,11 @@ var ssl=0;
     	swiper.appendSlide(templateFn())
 			var ssl = parseInt($('.swiper-slide').length-1)
 			console.log(ssl)
+			var fifileNam = $('.fi-filenames').attr('value')
 		  $($('.swiper-slide')[ssl]).attr('data-no',(ssl+1))
+			$($('.fi-filenames')[ssl]).attr('value', fifileNam)
 			// $('.swiper-slide')[ssl-1].attr('data-no',ssl-1)
+			console.log('done')
 		})
 
 })(jQuery);
