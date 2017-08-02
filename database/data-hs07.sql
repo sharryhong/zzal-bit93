@@ -4,6 +4,7 @@ insert into memb(mno,nick,email,pwd,pic,stype,mtype,auth) values(2,'성룡여친
 insert into memb(mno,nick,email,pwd,pic,stype,mtype,auth) values(3,'하핫','zzal03@test.com',password('1111'),'ohh.jpg','zzal','zzaler',false);
 insert into memb(mno,nick,email,pwd,pic,stype,mtype,auth) values(4,'아싸리','zzal04@test.com',password('1111'),'ohhh.jpg','zzal','zzaler',false);
 insert into memb(mno,nick,email,pwd,pic,stype,mtype,auth) values(5,'아뵤','a',password('1111'),'ohhh.jpg','zzal','zzaler',false);
+insert into memb(mno,nick,email,pwd,pic,stype,mtype,auth) values(6,'김대연','kdy8982@test.com',password('1111'), 'sul.jpg','zzal','zzaler',false);
 
 -- 카테고리
 insert into catg(cno,name) values(1,'음악');
@@ -20,19 +21,24 @@ insert into catg(cno,name) values(9,'패션·뷰티');
 insert into colct(cono,mno,title,cont,pic,pub) values(1,1,'요리모음집','요리를 모을 것이다.','collect01.jpeg',true);
 insert into colct(cono,mno,title,cont,pic,pub) values(2,1,'기타를 배우고 싶다','하루 한 곡!','collect02.jpg',false);
 insert into colct(cono,mno,title,cont,pic,pub) values(3,2,'English','자주쓰는 50문장','co-bg.png',true);
-insert into colct(cono,mno,title,cont,pic,pub values(4,2,'코딩','C부터','category07.jpg',true);
+insert into colct(cono,mno,title,cont,pic,pub) values(4,2,'코딩','C부터','category07.jpg',true);
 
 -- 짤강의
-insert into zzal_lect(zzno, mno, cno, cono, titl, pic, cdt, ztmp) values(1, 1, 1, 1, '짤강입니다1', 'userpicture.jpg', '2017-01-01', true);
-insert into zzal_lect(zzno, mno, cno, cono, titl, pic, cdt, ztmp) values(2, 2, 1, 2, '짤강입니다2', 'userpicture.jpg', '2017-01-01', false);
-insert into zzal_lect(zzno, mno, cno, cono, titl, pic, cdt, ztmp) values(3, 2, 4, 1, '짤강3','sul.jpg','2017-01-31', true);
-insert into zzal_lect(zzno, mno, cno, cono, titl, pic, cdt, ztmp) values(4, 2, 8, 3, '짤강4','ohh.jpg','2017-01-31', false);
-insert into zzal_lect(zzno, mno, cno, cono, titl, pic, cdt, ztmp) values(5, 1, 2, 2, '짤강5','userpicture.jpg','2017-01-31', true);
-insert into zzal_lect(zzno, mno, cno, cono, titl, pic, cdt, ztmp) values(6, 3, 5, 4, '짤강6','userpicture.jpg','2017-01-31', false);
-insert into zzal_lect(zzno, mno, cno, cono, titl, pic, cdt, ztmp) values(7, 3, 6, 2, '짤강7','userpicture.jpg','2017-01-31', true);
-insert into zzal_lect(zzno, mno, cno, cono, titl, pic, cdt, ztmp) values(8, 1, 3, 3, '짤강8','userpicture.jpg','2017-01-31', false);
-insert into zzal_lect(zzno, mno, cno, cono, titl, pic, cdt, ztmp) values(9, 4, 7, 2, '짤강9','sul.jpg','2017-01-31', true);
-insert into zzal_lect(zzno, mno, cno, cono, titl, pic, cdt, ztmp) values(10,5, 2, 4, '짤강10','ohh.jpg','2017-01-31', false);
+insert into zzal_lect(zzno, mno, cno, cono, titl, pic, cdt, ztmp) values(1, 1, 1, 1, '짤강입니다1', '1501469040779_1.gif', '2017-01-01', true);
+insert into zzal_lect(zzno, mno, cno, cono, titl, pic, cdt, ztmp) values(2, 2, 1, 2, '짤강입니다2', '1501469078803_2_800.png', '2017-01-01', false);
+insert into zzal_lect(zzno, mno, cno, cono, titl, pic, cdt, ztmp) values(3, 2, 4, 1, '짤강3','1501470860079_4_800.JPEG','2017-01-31', true);
+insert into zzal_lect(zzno, mno, cno, cono, titl, pic, cdt, ztmp) values(4, 2, 8, 3, '짤강4','1501478737086_2.gif','2017-01-31', false);
+insert into zzal_lect(zzno, mno, cno, cono, titl, pic, cdt, ztmp) values(5, 1, 2, 2, '짤강5','1501499886546_2_800.JPEG','2017-01-31', true);
+insert into zzal_lect(zzno, mno, cno, cono, titl, pic, cdt, ztmp) values(6, 3, 5, 4, '짤강6','1501469040779_1.gif','2017-01-31', false);
+insert into zzal_lect(zzno, mno, cno, cono, titl, pic, cdt, ztmp) values(7, 3, 6, 2, '짤강7','1501469078803_2_800.png','2017-01-31', true);
+insert into zzal_lect(zzno, mno, cno, cono, titl, pic, cdt, ztmp) values(8, 1, 3, 3, '짤강8','1501470860079_4_800.JPEG','2017-01-31', false);
+insert into zzal_lect(zzno, mno, cno, cono, titl, pic, cdt, ztmp) values(9, 4, 7, 2, '짤강9','1501478737086_2.gif','2017-01-31', true);
+insert into zzal_lect(zzno, mno, cno, cono, titl, pic, cdt, ztmp) values(10,5, 2, 4, '짤강10','1501577830969_1_800.JPEG','2017-01-31', false);
+insert into zzal_lect(mno, cno, cono, titl, pic, cdt, ztmp) values(1, 1, 1, '짤강입니다', '1501577830969_1_800.JPEG', curdate(), false);
+insert into zzal_lect(mno, cno, cono, titl, pic, cdt, ztmp) values(1, 1, 1, '짤강입니다', '1501469078803_2_800.png', curdate(), true);
+insert into zzal_lect(mno, cno, cono, titl, pic, cdt, ztmp) values(1, 1, 1, '짤강입니다', '1501478737086_2.gif', curdate(), true);
+insert into zzal_lect(mno, cno, cono, titl, pic, cdt, ztmp) values(1, 1, 1, '짤강입니다', '1501469040779_1.gif', curdate(), true);
+insert into zzal_lect(mno, cno, cono, titl, pic, cdt, ztmp) values(1, 1, 1, '짤강입니다', '1501577830969_1_800.JPEG', curdate(), true);
 
 
 --좋아요!
@@ -43,3 +49,15 @@ insert into lik(zzno,mno,cdt) values(2,3,'2017-07-03');
 insert into lik(zzno,mno,cdt) values(2,1,'2017-07-07');
 insert into lik(zzno,mno,cdt) values(1,4,'2017-07-08');
 insert into lik(zzno,mno,cdt) values(1,5,'2017-07-02');
+insert into lik(zzno,mno,cdt) values(3,5,curdate());
+
+-- 새로운 댓글 추가(insert)
+insert into reply(cont, cdt, re_like,report,zzno,mno) values('덧글1 ', current_timestamp(), false, false, 1, 1);
+insert into reply(cont, cdt, re_like,report,zzno,mno) values('나는 2댓글 내용입니다 ', current_timestamp(), true, false, 1, 2);
+insert into reply(cont, cdt, re_like,report,zzno,mno) values('댓글3입니다. 정말 이쁜 사진이네요!', current_timestamp(), true, false, 1, 3);
+insert into reply(cont, cdt, re_like,report,zzno,mno) values('댓글4', current_timestamp(), true, false, 2, 3);
+insert into reply(cont, cdt, re_like,report,zzno,mno) values('댓글5', current_timestamp(), true, false, 2, 2);
+
+-- 댓글 테이블 검색
+select rno, cont, date_format(cdt, '%Y-%m-%d %H:%i'), re_like, report, zzno, mno
+from reply

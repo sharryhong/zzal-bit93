@@ -11,6 +11,7 @@
     <result column="titl" property="title"/>
     <result column="pic2" property="mainPic"/>
     <result column="cdt" property="cdt"/>
+    <result column="ztmp" property="zzalTemporary"/>
     <result column="like_cnt" property="likeCount"/>
     <association property="member" javaType="Member">
 	    <id column="mno" property="no"/>
@@ -38,6 +39,7 @@
     select z.zzno, z.mno, m.nick, m.pic as pic1, z.cno, z.titl, z.pic as pic2, z.cdt,
     (select count(*) from lik where zzno=z.zzno) as like_cnt 
     from zzal_lect z inner join memb m on z.mno = m.mno
+    where z.ztmp=true
   </select>
   
   <select id="countAll" resultType="int">
