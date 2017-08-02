@@ -205,6 +205,14 @@
 	color: #aaa;
 }
 
+.collect-deletebtn .collect-delete {
+ float: left;
+ color: #F39C12;
+ margin-bottom: 25px;
+ padding: 5px;
+ font-size: 1rem;
+}
+
 /*mobile*/
 @media (max-width: 765px) {
 	.header.change-header .right {
