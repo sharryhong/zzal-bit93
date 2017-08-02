@@ -60,18 +60,93 @@
   </select> -->
   
   <select id="zzalBestList" resultMap="zzalMap" parameterType="map">
-    select z.zzno, z.mno, m.nick, m.pic as pic1, z.cno, z.titl, z.pic as pic2, z.cdt as cdt2,
-    (select count(*) from lik where zzno=z.zzno) as like_cnt
-    from zzal_lect z inner join memb m on z.mno = m.mno
-    where z.ztmp=true
-    order by like_cnt desc
+    select *
+		from 
+		    (SELECT z.zzno, z.titl, z.pic as pic2, m.nick FROM zzal_lect z INNER JOIN memb m ON z.mno = m.mno) t1
+		left join
+		    (SELECT zzno, cdt, count(*) AS week_like FROM lik WHERE cdt between adddate(now(),-7) and now() GROUP BY zzno) t2
+		on
+		    t1.zzno = t2.zzno
+		where week_like is not null
+		order by week_like desc
+		limit 10
   </select>
   
-  <!-- <select id="zzalListWeek" resultMap="zzalMap" parameterType="map">
+  <!-- 
+  // 되려고한다. 1
+    select *
+		from 
+		    (SELECT zzno, titl FROM zzal_lect) t1
+		left join
+		    (SELECT zzno, cdt, count(*) AS week_like FROM lik WHERE cdt between adddate(now(),-7) and now() GROUP BY zzno) t2
+		on
+		    t1.zzno = t2.zzno
+		where week_like is not null
+		order by week_like desc
+		
+		// 되려고한다. (memb 테이블이랑 조인해서 nick을 가져와야한다.)
+    select *
+		from 
+		    (SELECT z.zzno, z.titl, m.nick FROM zzal_lect z INNER JOIN memb m ON z.mno = m.mno) t1
+		left join
+		    (SELECT zzno, cdt, count(*) AS week_like FROM lik WHERE cdt between adddate(now(),-7) and now() GROUP BY zzno) t2
+		on
+		    t1.zzno = t2.zzno
+		where week_like is not null
+		order by week_like desc
+  
+  
+  
+  
+  
+  <select id="zzalListWeek" resultMap="zzalMap" parameterType="map">
     select *
 		from lik l 
 		where l.cdt between adddate(now(),-7) and now()
   </select> -->
+  
+    <!-- select z.zzno, 
+    (select l.cdt
+    from lik l
+    where l.cdt between adddate(now(),-7) and now()) -->
+    
+    <!-- select z.zzno, l.cdt,
+    (select count(*) from lik l where l.zzno=z.zzno) as like_week_cnt
+    from zzal_lect as z, lik as l
+    where l.zzno=z.zzno
+    AND l.cdt between adddate(now(),-7) and now()
+    
+    select count(*) 
+    from
+    (
+      select *
+      from lik
+      where cdt between adddate(now(),-7) and now()
+    ) dl
+    
+   우선 지금으로부터 7일의 실제 좋아요 수 획득한 zzno를 찾았다!
+    select zzno, count(*)  
+    from
+    (
+      select *
+      from lik l
+      where cdt between adddate(now(),-7) and now()
+    ) as like_week 
+    group by zzno
+    
+    select *
+    from
+    (SELECT zzno, count(*) AS '# week_like' FROM lik WHERE cdt between adddate(now(),-7) and now() GROUP BY zzno) t2
+     
+    
+    select t1.ks, t1.[# Tasks], coalesce(t2.[# Late], 0) as [# Late]
+		from 
+		    (SELECT ks, COUNT(*) AS '# Tasks' FROM Table GROUP BY ks) t1
+		left join
+		    (SELECT ks, COUNT(*) AS '# Late' FROM Table WHERE Age > Palt GROUP BY ks) t2
+		on
+		    t1.ks = t2.ks
+     -->
 
   <!-- <select id="zzalBestList" resultMap="zzalMap" parameterType="map">
     select *,
