@@ -39,7 +39,12 @@
     insert into colct(mno,title,cont,pic,pub) 
     values(#{memNo},#{title},#{content},#{picture},#{isPublic})
   </insert>
-
+  
+  <update id="update" parameterType="collect">
+	update colct set title=#{title}, cont=#{content}, pub=#{isPublic}, pic=#{picture} 
+	where cono=#{no}
+  </update>
+  
   <delete id="delete" parameterType="int">
 	delete from colct where cono=#{cono}
 </delete>

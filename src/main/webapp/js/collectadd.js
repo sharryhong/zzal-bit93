@@ -33,17 +33,17 @@ if (no == 0){ // 새 학생 등록
 	content = $('#collect-add-content'),
 	isPublic =$('#myonoffswitch')
 
-	var testNum = 0;
+	var addNum = 0;
 	$.getJSON('/zzal-bit93/auth/userinfo.json', function(result) {
 		console.log(result.data.no)
-		testNum= result.data.no;
-		console.log(testNum)
+		addNum= result.data.no;
+		console.log(addNum)
 		$('#collect-addbtn').click(function() {
 			console.log('collect-addbtn')
 			console.log($(title).val())
 			console.log($(isPublic).val())
 			$.post(contextRoot + '/collect/add.json', {
-				'memNo' : testNum,
+				'memNo' : addNum,
 				'title' : $(title).val(),
 				'content' : $(content).val(),
 				'isPublic' : $(isPublic).prop("checked"),

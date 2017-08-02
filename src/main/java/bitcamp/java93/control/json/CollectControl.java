@@ -64,6 +64,18 @@ public class CollectControl {
     return new JsonResult(JsonResult.SUCCESS, "ok");
   }
 */
+  @RequestMapping("update")
+  public JsonResult update(
+      int no, String title, String content, String picture, Boolean isPublic, Collect collect) throws Exception {
+    collect.setNo(no);
+    collect.setContent(content);
+    collect.setTitle(title);
+    collect.setPicture(picture);
+    collect.setIsPublic(isPublic);
+    System.out.println(collect);
+    collectService.update(collect);
+    return new JsonResult(JsonResult.SUCCESS, "ok");
+  }
   
   @RequestMapping("delete")
   public JsonResult delete(int no) throws Exception {

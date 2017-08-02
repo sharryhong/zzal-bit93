@@ -10,5 +10,6 @@ public interface CollectService {
   Collect get(int no) throws Exception; // get()
  //  void subsList(Collect collect);	
   void add(Collect collect) throws Exception;
+  void update(Collect collect) throws Exception; // update()
   void remove(int no) throws Exception; // remove()
 }

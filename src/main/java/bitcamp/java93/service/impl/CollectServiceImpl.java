@@ -42,9 +42,17 @@ public class CollectServiceImpl implements CollectService {
   public void add(Collect collect) throws Exception {
     collectDao.insert(collect);
   }
+	
+	@Override
+  public void update(Collect collect) throws Exception {
+    int count = collectDao.update(collect);
+    if (count < 1) {
+      throw new Exception(collect.getNo() + "번 회원을 찾을 수 없습니다.");
+    }
+  }
 
-
-	@Transactional(propagation=Propagation.REQUIRED)
+	/*@Transactional(propagation=Propagation.REQUIRED)*/
+	@Override
   public void remove(int no) throws Exception {
     /*collectDao.deletePhoto(no);*/
     

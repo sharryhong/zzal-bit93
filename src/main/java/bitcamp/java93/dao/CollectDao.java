@@ -11,4 +11,5 @@ public interface CollectDao {
 //  void subslist(Collect collect);
   int insert(Collect collect);
   int delete(int no); // delete()
+  int update(Collect collect);
 }
