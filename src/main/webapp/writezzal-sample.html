@@ -51,12 +51,13 @@
 	    <input type="text" placeholder="짤강의 제목" id="fi-title">
 	  </div>
 	  <div class="img-cover">
-		  <div class="writezzal-img writezzal-cover" id="images-div">
+		  <div class="writezzal-img writezzal-cover images-div">
 		  </div>
+			 <!-- id="fi-photoupload"  -->
 	    <div class="btns">
   	    <button type="button" href="#" class="represent-photo"><i class="fa fa-camera-retro" aria-hidden="true"></i><span class="text">커버 이미지</span></button>
-  	    <input id="fi-photoupload" class="photo-upload-btn" type="file" name="files" accept="image/gif, image/png, image/jpg, image/jpeg">
-      	<input id="fi-filenames" type="hidden" names="filenames">
+  	    <input class="photo-upload-btn" type="file" name="files" accept="image/gif, image/png, image/jpg, image/jpeg">
+      	<input class="fi-filenames" type="hidden" names="filenames">
 	    </div>
 	    <!-- <div id='images-div' style="border: 1px solid red;"></div> -->
 	    <!-- <img src="image/art.jpg"> -->
@@ -76,13 +77,13 @@
 
 		<div class="writezzal-page swiper-slide each-page " data-no="2">
 		  <div class="img-cover">
-			  <div class="writezzal-img writezzal-cover">
-					<span class="tester">호우!</span>
+			  <div class="writezzal-img writezzal-cover images-div">
+
 			  </div>
 		    <div class="btns">
 	  	    <button type="button" href="#" class="represent-photo"><i class="fa fa-camera-retro" aria-hidden="true"></i><span class="text">이미지 업로드</span></button>
 	  	    <input class="photo-upload-btn" type="file" name="files" accept="image/gif, image/png, image/jpg, image/jpeg">
-	      	<input type="hidden" names="filenames">
+	      	<input class="fi-filenames" type="hidden" names="filenames">
 		    </div>
 		  </div>
 	  	<div class="writezzal-text">
@@ -101,13 +102,13 @@
 		</div>
 		<div class="writezzal-page swiper-slide each-page " data-no="3">
 		  <div class="img-cover">
-			  <div class="writezzal-img writezzal-cover">
+			  <div class="writezzal-img writezzal-cover images-div">
 					<span class="tester">호우!</span>
 			  </div>
 		    <div class="btns">
 	  	    <button type="button" href="#" class="represent-photo"><i class="fa fa-camera-retro" aria-hidden="true"></i><span class="text">이미지 업로드</span></button>
 	  	    <input class="photo-upload-btn" type="file" name="files" accept="image/gif, image/png, image/jpg, image/jpeg">
-	      	<input type="hidden" names="filenames">
+	      	<input class="fi-filenames" type="hidden" names="filenames">
 		    </div>
 		  </div>
 	  	<div class="writezzal-text">
@@ -141,7 +142,7 @@
 				  <span class="total-num">/ 1</span> -->
 				  <!-- <a href="#" class="after-btn page-btn swiper-pagination"><i class="fa fa-caret-right" aria-hidden="true"></i></a> -->
 				</div>
-				<div class="btns-right">
+				<div class="btns-right"><button type="button" class="test-btn btn btn-default">확인용</button>
 				  <button type="button" class="append-slide plus-btn btn btn-default"><i class="fa fa-plus-circle" aria-hidden="true"></i> 페이지 추가</button>
 				  <button type="button" class="plus-btn btn btn-default" id="temp-save-btn">임시저장</button>
 				</div>
@@ -167,12 +168,12 @@
 <script id="addpage-template" type="text/x-handlebars-template">
 <div class="writezzal-page swiper-slide each-page">
   <div class="img-cover">
-	  <div class="writezzal-img writezzal-cover">
+	  <div class="writezzal-img writezzal-cover images-div">
 	  </div>
     <div class="btns">
  	    <button type="button" href="#" class="represent-photo"><i class="fa fa-camera-retro" aria-hidden="true"></i><span class="text">이미지 업로드</span></button>
  	    <input class="photo-upload-btn" type="file" name="files" accept="image/gif, image/png, image/jpg, image/jpeg">
-     	<input type="hidden" names="filenames">
+     	<input class="fi-filenames" type="hidden" names="filenames">
     </div>
   </div>
  	<div class="writezzal-text">
