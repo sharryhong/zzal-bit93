@@ -29,7 +29,7 @@ public class CollectControl {
   }
   
   @RequestMapping("detail")
-  public JsonResult detail(@RequestParam int no) throws Exception {
+  public JsonResult detail(int no) throws Exception {
     System.out.println(no);
     Collect collect = collectService.get(no);
     /*if (collect == null) {
@@ -50,20 +50,6 @@ public class CollectControl {
     collectService.add(collect);
     return new JsonResult(JsonResult.SUCCESS, "ok");
   }
- /* 
-  @RequestMapping(value="dousubs", method = RequestMethod.POST)
-  public JsonResult DoUSubscribe(@RequestParam int cono,
-		  				   @RequestParam int mno
-		  				   ,Collect collect) throws Exception {
-    
-    collect.setNo(cono);
-    collect.setMemNo(mno);;
-    	
-   collectService.subsList(collect);
-    
-    return new JsonResult(JsonResult.SUCCESS, "ok");
-  }
-*/
   @RequestMapping("update")
   public JsonResult update(
       int no, String title, String content, String picture, Boolean isPublic, Collect collect) throws Exception {
@@ -85,6 +71,20 @@ public class CollectControl {
     
   }
   
+  /* 
+  @RequestMapping(value="dousubs", method = RequestMethod.POST)
+  public JsonResult DoUSubscribe(@RequestParam int cono,
+		  				   @RequestParam int mno
+		  				   ,Collect collect) throws Exception {
+    
+    collect.setNo(cono);
+    collect.setMemNo(mno);;
+    	
+   collectService.subsList(collect);
+    
+    return new JsonResult(JsonResult.SUCCESS, "ok");
+  }
+   */
   
   
 }

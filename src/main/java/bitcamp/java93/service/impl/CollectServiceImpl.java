@@ -32,12 +32,6 @@ public class CollectServiceImpl implements CollectService {
 		return collectDao.selectOne(no);
 	} // get()
 
-	/*@Override
-	public void subsList(Collect collect) {
-		// TODO Auto-generated method stub
-		collectDao.subslist(collect);
-	}
-*/
 	@Override
   public void add(Collect collect) throws Exception {
     collectDao.insert(collect);
@@ -62,4 +56,11 @@ public class CollectServiceImpl implements CollectService {
       throw new Exception(no + "번 회원을 삭제하지 못했습니다.");
     }
   } // remove()
+	
+	/*@Override
+	public void subsList(Collect collect) {
+		// TODO Auto-generated method stub
+		collectDao.subslist(collect);
+	}
+	 */
 }

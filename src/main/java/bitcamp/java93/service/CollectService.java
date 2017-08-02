@@ -8,8 +8,8 @@ public interface CollectService {
   List<Collect> list(int no) throws Exception;
   int getSize() throws Exception;
   Collect get(int no) throws Exception; // get()
- //  void subsList(Collect collect);	
   void add(Collect collect) throws Exception;
   void update(Collect collect) throws Exception; // update()
   void remove(int no) throws Exception; // remove()
+  //  void subsList(Collect collect);	
 }
