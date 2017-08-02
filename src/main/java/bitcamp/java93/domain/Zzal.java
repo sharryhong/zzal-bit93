@@ -11,6 +11,7 @@ public class Zzal {
 	Boolean zzalTemporary;
 	Member member;
 	int likeCount;
+	int replyCount;
 	
   @Override
   public String toString() {

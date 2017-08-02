@@ -38,7 +38,9 @@ insert into zzal_lect(mno, cno, cono, titl, pic, cdt, ztmp) values(1, 1, 1, '짤
 insert into zzal_lect(mno, cno, cono, titl, pic, cdt, ztmp) values(1, 1, 1, '짤강입니다', '1501469078803_2_800.png', curdate(), true);
 insert into zzal_lect(mno, cno, cono, titl, pic, cdt, ztmp) values(1, 1, 1, '짤강입니다', '1501478737086_2.gif', curdate(), true);
 insert into zzal_lect(mno, cno, cono, titl, pic, cdt, ztmp) values(1, 1, 1, '짤강입니다', '1501469040779_1.gif', curdate(), true);
-insert into zzal_lect(mno, cno, cono, titl, pic, cdt, ztmp) values(1, 1, 1, '짤강입니다', '1501577830969_1_800.JPEG', curdate(), true);
+insert into zzal_lect(mno, cno, cono, titl, pic, cdt, ztmp) values(3, 2, 1, '짤강입니다', '1501577830969_1_800.JPEG', curdate(), true);
+insert into zzal_lect(mno, cno, cono, titl, pic, cdt, ztmp) values(4, 3, 2, '폭염특보 문자를 절대 무시하면 안 되는 이유!', '1501478737086_2.gif', curdate(), true);
+insert into zzal_lect(mno, cno, cono, titl, pic, cdt, ztmp) values(5, 4, 2, '체지방을 불태우는 러닝머신 활용법', '1501469040779_1.gif', curdate(), true);
 
 
 --좋아요!
@@ -50,13 +52,20 @@ insert into lik(zzno,mno,cdt) values(2,1,'2017-07-07');
 insert into lik(zzno,mno,cdt) values(1,4,'2017-07-08');
 insert into lik(zzno,mno,cdt) values(1,5,'2017-07-02');
 insert into lik(zzno,mno,cdt) values(3,5,curdate());
+insert into lik(zzno,mno,cdt) values(5,1,curdate());
+insert into lik(zzno,mno,cdt) values(9,2,curdate());
+insert into lik(zzno,mno,cdt) values(9,3,curdate());
+insert into lik(zzno,mno,cdt) values(14,2,curdate());
 
 -- 새로운 댓글 추가(insert)
 insert into reply(cont, cdt, re_like,report,zzno,mno) values('덧글1 ', current_timestamp(), false, false, 1, 1);
 insert into reply(cont, cdt, re_like,report,zzno,mno) values('나는 2댓글 내용입니다 ', current_timestamp(), true, false, 1, 2);
 insert into reply(cont, cdt, re_like,report,zzno,mno) values('댓글3입니다. 정말 이쁜 사진이네요!', current_timestamp(), true, false, 1, 3);
 insert into reply(cont, cdt, re_like,report,zzno,mno) values('댓글4', current_timestamp(), true, false, 2, 3);
-insert into reply(cont, cdt, re_like,report,zzno,mno) values('댓글5', current_timestamp(), true, false, 2, 2);
+insert into reply(cont, cdt, re_like,report,zzno,mno) values('댓글5', current_timestamp(), false, false, 2, 2);
+insert into reply(cont, cdt, re_like,report,zzno,mno) values('댓글6', current_timestamp(), false, false, 3, 4);
+insert into reply(cont, cdt, re_like,report,zzno,mno) values('댓글7', current_timestamp(), false, false, 3, 1);
+insert into reply(cont, cdt, re_like,report,zzno,mno) values('댓글8', current_timestamp(), false, false, 7, 5);
 
 -- 댓글 테이블 검색
 select rno, cont, date_format(cdt, '%Y-%m-%d %H:%i'), re_like, report, zzno, mno

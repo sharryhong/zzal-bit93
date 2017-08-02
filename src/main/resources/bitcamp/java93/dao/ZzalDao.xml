@@ -13,6 +13,7 @@
     <result column="cdt" property="cdt"/>
     <result column="ztmp" property="zzalTemporary"/>
     <result column="like_cnt" property="likeCount"/>
+    <result column="reply_cnt" property="replyCount"/>
     <association property="member" javaType="Member">
 	    <id column="mno" property="no"/>
 	    <result column="nick" property="nick"/>
@@ -37,9 +38,11 @@
 
   <select id="zzalListWithCount" resultMap="zzalMap" parameterType="map">
     select z.zzno, z.mno, m.nick, m.pic as pic1, z.cno, z.titl, z.pic as pic2, z.cdt,
-    (select count(*) from lik where zzno=z.zzno) as like_cnt 
+    (select count(*) from lik where zzno=z.zzno) as like_cnt, 
+    (select count(*) from reply where zzno=z.zzno) as reply_cnt
     from zzal_lect z inner join memb m on z.mno = m.mno
     where z.ztmp=true
+    order by like_cnt + reply_cnt desc
   </select>
   
   <select id="countAll" resultType="int">
