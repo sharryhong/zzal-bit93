@@ -9,9 +9,10 @@ public class Zzal {
 	String mainPic;
 	String cdt;
 	Boolean zzalTemporary;
-	Member member;
 	int likeCount;
 	int replyCount;
+	Member member;
+	ZzalLike zzallike;
 	
   @Override
   public String toString() {

@@ -30,6 +30,12 @@ public class ZzalServiceImpl implements ZzalService {
     return zzalDao.zzalListWithCount(valueMap);
   }
   
+  @Override
+  public List<Zzal> zzalBestList() throws Exception {
+    HashMap<String,Object> valueMap = new HashMap<>();
+    return zzalDao.zzalBestList(valueMap);
+  }
+  
   /*@Override // DB에서 서브쿼리 사용하지 않을 때 
   public List<Zzal> zzalListWithCount(int pageNo, int pageSize) throws Exception {
     HashMap<String,Object> valueMap = new HashMap<>();

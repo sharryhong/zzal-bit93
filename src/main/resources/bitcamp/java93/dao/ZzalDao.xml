@@ -10,7 +10,7 @@
     <result column="cno" property="cno"/>
     <result column="titl" property="title"/>
     <result column="pic2" property="mainPic"/>
-    <result column="cdt" property="cdt"/>
+    <result column="cdt2" property="cdt"/>
     <result column="ztmp" property="zzalTemporary"/>
     <result column="like_cnt" property="likeCount"/>
     <result column="reply_cnt" property="replyCount"/>
@@ -23,21 +23,26 @@
 	    <result column="stype" property="signtype"/>
 	    <result column="pic1" property="membpic"/>
 	  </association>
+	  <association property="zzallike" javaType="Zzallike">
+	    <id column="zzno" property="zzno"/>
+	    <result column="mno" property="mno"/>
+	    <result column="cdt1" property="cdt"/>
+	  </association>
   </resultMap>
   
-  <sql id="select1">
+<!--   <sql id="select1">
     select zzno, mno, cno, titl, zpic, cdt
     from zzal_lect
   </sql>
-
+ -->
 	<select id="selectList" resultMap="zzalMap" parameterType="int">
-    select z.zzno, z.mno, m.nick, z.cno, z.titl, z.zpic, z.cdt
+    select z.zzno, z.mno, m.nick, z.cno, z.titl, z.zpic, z.cdt as cdt2
     from zzal_lect z inner join memb m on z.mno = m.mno
     where z.zzno = #{no} 
   </select>
 
   <select id="zzalListWithCount" resultMap="zzalMap" parameterType="map">
-    select z.zzno, z.mno, m.nick, m.pic as pic1, z.cno, z.titl, z.pic as pic2, z.cdt,
+    select z.zzno, z.mno, m.nick, m.pic as pic1, z.cno, z.titl, z.pic as pic2, z.cdt as cdt2,
     (select count(*) from lik where zzno=z.zzno) as like_cnt, 
     (select count(*) from reply where zzno=z.zzno) as reply_cnt
     from zzal_lect z inner join memb m on z.mno = m.mno
@@ -45,6 +50,66 @@
     order by like_cnt + reply_cnt desc
   </select>
   
+  <select id="zzalBestList" resultMap="zzalMap" parameterType="map">
+    select z.zzno, z.mno, z.titl, z.pic as pic2, l.cdt as cdt1,
+	  (select count(*) from lik l where l.zzno=z.zzno) as like_cnt
+	  from zzal_lect z inner join lik l on l.zzno = z.zzno
+	  where z.ztmp=true AND	l.cdt between adddate(now(),-7) and now()
+	  order by like_cnt desc
+  </select>
+  
+  <!-- <select id="zzalListWeek" resultMap="zzalMap" parameterType="map">
+    select *
+		from lik l 
+		where l.cdt between adddate(now(),-7) and now()
+  </select> -->
+
+  <!-- <select id="zzalBestList" resultMap="zzalMap" parameterType="map">
+    select *,
+	  (select count(*) from lik l where l.zzno=z.zzno) as like_cnt
+	  from zzal_lect z 
+	  where z.ztmp=true
+	  order by like_cnt desc
+  </select>  -->
+  
+ <!--  
+ 		select *,
+	  (select count(*) from lik l where l.zzno=z.zzno) as like_cnt
+	  from zzal_lect z inner join lik l on l.zzno = z.zzno
+	  where z.ztmp=true AND	l.cdt between adddate(now(),-7) and now()
+	  order by like_cnt desc
+	  
+	  
+	  
+		select *,
+	  (select count(*) from lik l where l.zzno=z.zzno) as like_cnt
+	  from zzal_lect z 
+	  where z.ztmp=true AND	cdt between adddate(now(),-7) and now()
+	  order by like_cnt desc
+		
+		select *,
+		(select l.zzno
+		from lik l 
+		where l.cdt between adddate(now(),-7) and now()) as like_week
+		from zzal_lect z inner join lik l on l.zzno = z.zzno
+		
+		select *,
+		(select count(*) from lik l where l.zzno=z.zzno) as like_cnt
+		from zzal_lect z 
+		from (
+		  select *
+			from lik l 
+			where l.cdt between adddate(now(),-7) and now()
+		) as aaa
+		order by; -->
+		
+<!--   select z.zzno, z.titl, z.pic, z.ztmp, z.cdt,
+  (select count(*) from lik where zzno=z.zzno) as like_cnt
+  from zzal_lect z
+  where z.ztmp=true AND	cdt between adddate(now(),-7) and now()
+  order by like_cnt desc -->
+
+   
   <select id="countAll" resultType="int">
     select count(*)
     from zzal_lect

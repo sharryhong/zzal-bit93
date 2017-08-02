@@ -8,5 +8,6 @@ public interface ZzalService {
 	List<Zzal> list(int zzno) throws Exception;
 	/*List<Zzal> zzalList(int pageNo, int pageSize) throws Exception;*/
 	List<Zzal> zzalListWithCount(int pageNo, int pageSize) throws Exception;
+	List<Zzal> zzalBestList() throws Exception;
 	int getSize() throws Exception;
 }

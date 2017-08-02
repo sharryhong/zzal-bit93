@@ -27,14 +27,14 @@
 	    </ul>
 	  </div>
     <div class="best">
-      <h3 class="title">BEST 짤에디터</h3>
-      <ul>
-        <li><a href="#"><span class="ranking">1</span><span class="user-name"> [유끼만두] </span><span class="zzal-title">영화 단 한줄 영어</span></a></li>
+      <h3 class="title">금주의 인기짤강</h3>
+      <ul id="best-week-zzal">
+        <!-- <li><a href="#"><span class="ranking">1</span><span class="user-name"> [유끼만두] </span><span class="zzal-title">영화 단 한줄 영어</span></a></li>
         <li><a href="#"><span class="ranking">2</span><span class="user-name"> [유끼만두] </span><span class="zzal-title">영화 단 한줄 영어</span></a></li>
         <li><a href="#"><span class="ranking">3</span><span class="user-name"> [유끼만두] </span><span class="zzal-title">영화 단 한줄 영어</span></a></li>
         <li><a href="#"><span class="ranking">4</span><span class="user-name"> [유끼만두] </span><span class="zzal-title">영화 단 한줄 영어</span></a></li>
         <li><a href="#"><span class="ranking">5</span><span class="user-name"> [유끼만두] </span><span class="zzal-title">영화 단 한줄 영어</span></a></li>
-        <li><a href="#"><span class="ranking">6</span><span class="user-name"> [유끼만두] </span><span class="zzal-title">영화 단 한줄 영어 제목 긴거 올 때 이렇게 됩니다.</span></a></li>
+        <li><a href="#"><span class="ranking">6</span><span class="user-name"> [유끼만두] </span><span class="zzal-title">영화 단 한줄 영어 제목 긴거 올 때 이렇게 됩니다.</span></a></li> -->
       </ul>
     </div>
   </div>
@@ -274,9 +274,12 @@
 {{/each}}
 </script>
 
-<script id="like-template" type="text/x-handlebars-template">
-<span>{{cnt}}</span>
+<script id="best-week-template" type="text/x-handlebars-template">
+{{#each zzalList}}
+	<li><a href="#"><span class="ranking"></span><span class="user-name"> [{{name}}] </span><span class="zzal-title">{{title}}</span></a></li>
+{{/each}}
 </script>
+
 <!-- 
 <script id="main-template2" type="text/x-handlebars-template">
 {{#each mainList2}}
