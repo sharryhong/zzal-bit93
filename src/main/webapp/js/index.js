@@ -1,9 +1,42 @@
 $(document).ready(function(){ 
 	// index.html 짤강의 리스트뿌리기
-	$.getJSON('zzal/zzalListWithCount.json', function(result) {
-		console.log(result)
-		generateHandlebars(result, $('#main-template'), $('#zzal-list'));
-	})
+	var pageNo = 1
+	    pageSize = 6
+	var checkLast = true
+	zzalListMain(pageNo, pageSize)
+	function zzalListMain(pageNo, pageSize) {
+		/*$('#zzal-list').append('<i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>') */
+		$.getJSON('zzal/zzalListWithCount.json',{'pageNo': pageNo, 'pageSize': pageSize}, function(result) {
+			var totalCount = result.data.totalCount
+			var lastPageNo = parseInt(totalCount / pageSize) + (totalCount % pageSize > 0 ? 1 : 0)
+			console.log('pageNo', pageNo)
+			console.log('totalCount', totalCount)
+			console.log('lastPageNo', lastPageNo)
+			var templateFn = Handlebars.compile($('#main-template').text())
+		    var generatedHTML = templateFn(result.data) 
+		    $('#zzal-list').append(generatedHTML) 
+		    
+		    if (pageNo < lastPageNo) { // 마지막 이후에는 무한스크롤 실행되지 않게 하기 
+		       checkLast = true
+		    }
+		})
+	}
+	
+	/*무한 스크롤*/
+	$(document).scroll(function() {
+		/*
+		 * $(window).scrollTop() : scroll의 top위치  
+		 * $(window).height() : 현재 보이는 window의 height 
+		 * $(document).height() : 현재 document전체 height
+		 */
+	    
+	    if (checkLast == true && ($(window).scrollTop() + 10) >= $(document).height() - $(window).height()) {
+	      checkLast = false
+	      ++pageNo
+	      console.log(pageNo)
+	      zzalListMain(pageNo, pageSize)
+	    }
+	});
 	
 	// index.html 금주의 인기짤강 & 슬라이드에 뿌리기 
 	$.getJSON('zzal/zzalBestList.json', function(result) {

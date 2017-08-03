@@ -29,9 +29,7 @@ public class ZzalControl {
 	  }
 	
 	@RequestMapping("zzalListWithCount")
-	public JsonResult zzalList(
-      @RequestParam(defaultValue="1") int pageNo, 
-      @RequestParam(defaultValue="5") int pageSize) throws Exception {
+	public JsonResult zzalList(int pageNo, int pageSize) throws Exception {
     
     HashMap<String,Object> dataMap = new HashMap<>();
     dataMap.put("zzalList", zzalService.zzalListWithCount(pageNo, pageSize));

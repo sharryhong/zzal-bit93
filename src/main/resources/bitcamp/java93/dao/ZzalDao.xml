@@ -41,8 +41,9 @@
     (SELECT count(*) FROM lik WHERE zzno=z.zzno) as like_cnt, 
     (SELECT count(*) FROM reply WHERE zzno=z.zzno) as reply_cnt
     FROM zzal_lect z INNER JOIN memb m on z.mno = m.mno
-    WHERE z.ztmp=true
+    WHERE z.ztmp=false
     ORDER BY like_cnt + reply_cnt desc
+    LIMIT #{startIndex}, #{pageSize}
   </select>
   
   <select id="zzalBestList" resultMap="zzalMap" parameterType="map">

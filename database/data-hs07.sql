@@ -41,6 +41,31 @@ insert into zzal_lect(mno, cno, cono, titl, pic, cdt, ztmp) values(1, 1, 1, '짤
 insert into zzal_lect(mno, cno, cono, titl, pic, cdt, ztmp) values(3, 2, 1, '짤강입니다', '1501577830969_1_800.JPEG', curdate(), true);
 insert into zzal_lect(mno, cno, cono, titl, pic, cdt, ztmp) values(4, 3, 2, '폭염특보 문자를 절대 무시하면 안 되는 이유!', '1501478737086_2.gif', curdate(), true);
 insert into zzal_lect(mno, cno, cono, titl, pic, cdt, ztmp) values(5, 4, 2, '체지방을 불태우는 러닝머신 활용법', '1501469040779_1.gif', curdate(), true);
+insert into zzal_lect(mno, cno, cono, titl, pic, cdt, ztmp) values(1, 9, NULL, '체지방을 불태우는 러닝머신 활용법', '1501469504309_3_500.JPEG', curdate(), false);
+insert into zzal_lect(mno, cno, cono, titl, pic, cdt, ztmp) values(2, 8, NULL, '체지방을 불태우는 러닝머신 활용법', '1501577830969_1_500.JPEG', curdate(), false);
+insert into zzal_lect(mno, cno, cono, titl, pic, cdt, ztmp) values(3, 7, NULL, '체지방을 불태우는 러닝머신 활용법', '1501478737086_2.gif', curdate(), false);
+insert into zzal_lect(mno, cno, cono, titl, pic, cdt, ztmp) values(4, 6, NULL, '체지방을 불태우는 러닝머신 활용법', '1501469040779_1.gif', curdate(), false);
+insert into zzal_lect(mno, cno, cono, titl, pic, cdt, ztmp) values(5, 5, NULL, '체지방을 불태우는 러닝머신 활용법', '1501470860079_4_500.JPEG', curdate(), false);
+insert into zzal_lect(mno, cno, cono, titl, pic, cdt, ztmp) values(5, 4, NULL, '체지방을 불태우는 러닝머신 활용법', '1501472352922_1_500.JPEG', curdate(), false);
+
+insert into zzal_lect(mno, cno, cono, titl, pic, cdt, ztmp) values(1, 9, NULL, '짤스쿨 홧팅!!!', '1501469504309_3_500.JPEG', curdate(), false);
+insert into zzal_lect(mno, cno, cono, titl, pic, cdt, ztmp) values(2, 8, NULL, '짤스쿨 홧팅!!!', '1501577830969_1_500.JPEG', curdate(), false);
+insert into zzal_lect(mno, cno, cono, titl, pic, cdt, ztmp) values(3, 7, NULL, '짤스쿨 홧팅!!!', '1501478737086_2.gif', curdate(), false);
+insert into zzal_lect(mno, cno, cono, titl, pic, cdt, ztmp) values(4, 6, NULL, '인기짤강을 향하여', '1501469040779_1.gif', curdate(), false);
+insert into zzal_lect(mno, cno, cono, titl, pic, cdt, ztmp) values(5, 5, NULL, '체지방을 불태우는 러닝머신 활용법', '1501470860079_4_500.JPEG', curdate(), false);
+insert into zzal_lect(mno, cno, cono, titl, pic, cdt, ztmp) values(5, 4, NULL, '체지방을 불태우는 러닝머신 활용법', '1501472352922_1_500.JPEG', curdate(), false);
+insert into zzal_lect(mno, cno, cono, titl, pic, cdt, ztmp) values(1, 9, NULL, '체지방을 불태우는 러닝머신 활용법', '1501469504309_3_500.JPEG', curdate(), false);
+insert into zzal_lect(mno, cno, cono, titl, pic, cdt, ztmp) values(2, 8, NULL, '체지방을 불태우는 러닝머신 활용법', '1501577830969_1_500.JPEG', curdate(), false);
+insert into zzal_lect(mno, cno, cono, titl, pic, cdt, ztmp) values(3, 7, NULL, '체지방을 불태우는 러닝머신 활용법', '1501478737086_2.gif', curdate(), false);
+insert into zzal_lect(mno, cno, cono, titl, pic, cdt, ztmp) values(4, 6, NULL, '인기짤강을 향하여', '1501469040779_1.gif', curdate(), false);
+insert into zzal_lect(mno, cno, cono, titl, pic, cdt, ztmp) values(5, 5, NULL, '체지방을 불태우는 러닝머신 활용법', '1501470860079_4_500.JPEG', curdate(), false);
+insert into zzal_lect(mno, cno, cono, titl, pic, cdt, ztmp) values(5, 4, NULL, '체지방을 불태우는 러닝머신 활용법', '1501472352922_1_500.JPEG', curdate(), false);
+insert into zzal_lect(mno, cno, cono, titl, pic, cdt, ztmp) values(1, 9, NULL, '인기짤강을 향하여', '1501469504309_3_500.JPEG', curdate(), false);
+insert into zzal_lect(mno, cno, cono, titl, pic, cdt, ztmp) values(2, 8, NULL, '체지방을 불태우는 러닝머신 활용법', '1501577830969_1_500.JPEG', curdate(), false);
+insert into zzal_lect(mno, cno, cono, titl, pic, cdt, ztmp) values(3, 7, NULL, '체지방을 불태우는 러닝머신 활용법', '1501478737086_2.gif', curdate(), false);
+insert into zzal_lect(mno, cno, cono, titl, pic, cdt, ztmp) values(4, 6, NULL, '체지방을 불태우는 러닝머신 활용법', '1501469040779_1.gif', curdate(), false);
+insert into zzal_lect(mno, cno, cono, titl, pic, cdt, ztmp) values(5, 5, NULL, '체지방을 불태우는 러닝머신 활용법', '1501470860079_4_500.JPEG', curdate(), false);
+insert into zzal_lect(mno, cno, cono, titl, pic, cdt, ztmp) values(5, 4, NULL, '체지방을 불태우는 러닝머신 활용법', '1501472352922_1_500.JPEG', curdate(), false);
 
 
 --좋아요!
