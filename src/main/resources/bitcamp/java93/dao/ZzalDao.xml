@@ -30,173 +30,37 @@
 	  </association>
   </resultMap>
   
-<!--   <sql id="select1">
-    select zzno, mno, cno, titl, zpic, cdt
-    from zzal_lect
-  </sql>
- -->
 	<select id="selectList" resultMap="zzalMap" parameterType="int">
-    select z.zzno, z.mno, m.nick, z.cno, z.titl, z.zpic, z.cdt as cdt2
-    from zzal_lect z inner join memb m on z.mno = m.mno
-    where z.zzno = #{no} 
+    SELECT z.zzno, z.mno, m.nick, z.cno, z.titl, z.zpic, z.cdt as cdt2
+    FROM zzal_lect z INNER JOIN memb m ON z.mno = m.mno
+    WHERE z.zzno = #{no} 
   </select>
 
   <select id="zzalListWithCount" resultMap="zzalMap" parameterType="map">
-    select z.zzno, z.mno, m.nick, m.pic as pic1, z.cno, z.titl, z.pic as pic2, z.cdt as cdt2,
-    (select count(*) from lik where zzno=z.zzno) as like_cnt, 
-    (select count(*) from reply where zzno=z.zzno) as reply_cnt
-    from zzal_lect z inner join memb m on z.mno = m.mno
-    where z.ztmp=true
-    order by like_cnt + reply_cnt desc
+    SELECT z.zzno, z.mno, m.nick, m.pic as pic1, z.cno, z.titl, z.pic as pic2, z.cdt as cdt2,
+    (SELECT count(*) FROM lik WHERE zzno=z.zzno) as like_cnt, 
+    (SELECT count(*) FROM reply WHERE zzno=z.zzno) as reply_cnt
+    FROM zzal_lect z INNER JOIN memb m on z.mno = m.mno
+    WHERE z.ztmp=true
+    ORDER BY like_cnt + reply_cnt desc
   </select>
-  
-  <!-- 되는지 알았는데 ㅠㅠㅠ
-   <select id="zzalBestList" resultMap="zzalMap" parameterType="map">
-    select z.zzno, z.mno, z.titl, z.pic as pic2, l.cdt as cdt1, m.nick,
-	  (select count(*) from lik l where l.zzno=z.zzno) as like_cnt
-	  from zzal_lect z inner join memb m on z.mno = m.mno inner join lik l on l.zzno = z.zzno
-	  where z.ztmp=true AND	l.cdt between adddate(now(),-7) and now()
-	  order by like_cnt desc
-  </select> -->
   
   <select id="zzalBestList" resultMap="zzalMap" parameterType="map">
-    select *
-		from 
+    SELECT *
+		FROM 
 		    (SELECT z.zzno, z.titl, z.pic as pic2, m.nick FROM zzal_lect z INNER JOIN memb m ON z.mno = m.mno) t1
-		left join
-		    (SELECT zzno, cdt, count(*) AS week_like FROM lik WHERE cdt between adddate(now(),-7) and now() GROUP BY zzno) t2
-		on
+		LEFT JOIN
+		    (SELECT zzno, cdt, count(*) as week_like FROM lik WHERE cdt Between AddDate(Now(),-7) AND Now() GROUP BY zzno) t2
+		ON
 		    t1.zzno = t2.zzno
-		where week_like is not null
-		order by week_like desc
-		limit 10
+		WHERE week_like IS NOT NULL
+		ORDER BY week_like DESC
+		LIMIT 10
   </select>
   
-  <!-- 
-  // 되려고한다. 1
-    select *
-		from 
-		    (SELECT zzno, titl FROM zzal_lect) t1
-		left join
-		    (SELECT zzno, cdt, count(*) AS week_like FROM lik WHERE cdt between adddate(now(),-7) and now() GROUP BY zzno) t2
-		on
-		    t1.zzno = t2.zzno
-		where week_like is not null
-		order by week_like desc
-		
-		// 되려고한다. (memb 테이블이랑 조인해서 nick을 가져와야한다.)
-    select *
-		from 
-		    (SELECT z.zzno, z.titl, m.nick FROM zzal_lect z INNER JOIN memb m ON z.mno = m.mno) t1
-		left join
-		    (SELECT zzno, cdt, count(*) AS week_like FROM lik WHERE cdt between adddate(now(),-7) and now() GROUP BY zzno) t2
-		on
-		    t1.zzno = t2.zzno
-		where week_like is not null
-		order by week_like desc
-  
-  
-  
-  
-  
-  <select id="zzalListWeek" resultMap="zzalMap" parameterType="map">
-    select *
-		from lik l 
-		where l.cdt between adddate(now(),-7) and now()
-  </select> -->
-  
-    <!-- select z.zzno, 
-    (select l.cdt
-    from lik l
-    where l.cdt between adddate(now(),-7) and now()) -->
-    
-    <!-- select z.zzno, l.cdt,
-    (select count(*) from lik l where l.zzno=z.zzno) as like_week_cnt
-    from zzal_lect as z, lik as l
-    where l.zzno=z.zzno
-    AND l.cdt between adddate(now(),-7) and now()
-    
-    select count(*) 
-    from
-    (
-      select *
-      from lik
-      where cdt between adddate(now(),-7) and now()
-    ) dl
-    
-   우선 지금으로부터 7일의 실제 좋아요 수 획득한 zzno를 찾았다!
-    select zzno, count(*)  
-    from
-    (
-      select *
-      from lik l
-      where cdt between adddate(now(),-7) and now()
-    ) as like_week 
-    group by zzno
-    
-    select *
-    from
-    (SELECT zzno, count(*) AS '# week_like' FROM lik WHERE cdt between adddate(now(),-7) and now() GROUP BY zzno) t2
-     
-    
-    select t1.ks, t1.[# Tasks], coalesce(t2.[# Late], 0) as [# Late]
-		from 
-		    (SELECT ks, COUNT(*) AS '# Tasks' FROM Table GROUP BY ks) t1
-		left join
-		    (SELECT ks, COUNT(*) AS '# Late' FROM Table WHERE Age > Palt GROUP BY ks) t2
-		on
-		    t1.ks = t2.ks
-     -->
-
-  <!-- <select id="zzalBestList" resultMap="zzalMap" parameterType="map">
-    select *,
-	  (select count(*) from lik l where l.zzno=z.zzno) as like_cnt
-	  from zzal_lect z 
-	  where z.ztmp=true
-	  order by like_cnt desc
-  </select>  -->
-  
- <!--  
- 		select *,
-	  (select count(*) from lik l where l.zzno=z.zzno) as like_cnt
-	  from zzal_lect z inner join lik l on l.zzno = z.zzno
-	  where z.ztmp=true AND	l.cdt between adddate(now(),-7) and now()
-	  order by like_cnt desc
-	  
-	  
-	  
-		select *,
-	  (select count(*) from lik l where l.zzno=z.zzno) as like_cnt
-	  from zzal_lect z 
-	  where z.ztmp=true AND	cdt between adddate(now(),-7) and now()
-	  order by like_cnt desc
-		
-		select *,
-		(select l.zzno
-		from lik l 
-		where l.cdt between adddate(now(),-7) and now()) as like_week
-		from zzal_lect z inner join lik l on l.zzno = z.zzno
-		
-		select *,
-		(select count(*) from lik l where l.zzno=z.zzno) as like_cnt
-		from zzal_lect z 
-		from (
-		  select *
-			from lik l 
-			where l.cdt between adddate(now(),-7) and now()
-		) as aaa
-		order by; -->
-		
-<!--   select z.zzno, z.titl, z.pic, z.ztmp, z.cdt,
-  (select count(*) from lik where zzno=z.zzno) as like_cnt
-  from zzal_lect z
-  where z.ztmp=true AND	cdt between adddate(now(),-7) and now()
-  order by like_cnt desc -->
-
-   
   <select id="countAll" resultType="int">
-    select count(*)
-    from zzal_lect
+    SELECT count(*)
+    FROM zzal_lect
   </select>
   
 </mapper> 
