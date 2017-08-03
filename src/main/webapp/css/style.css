@@ -147,7 +147,8 @@ input::-moz-placeholder { color: #777; }
 .main-content .slider {
   width: 66%;
   height: 250px;
-  border: 1px solid #ccc;
+  padding: 5px;
+  box-shadow: 1px 1px 5px rgba(0,0,0,0.2), -1px -1px 5px rgba(0,0,0,0.1);
 }
 .main-content .best {
   width: 33%;
@@ -341,20 +342,42 @@ input::-moz-placeholder { color: #777; }
 .slider-zzal img {
   width: 100%;
 }
-.slider .swiper-container-slide,
-.slider .swiper-container-slide img {
+.slider .swiper-container {
 	width: 100%;
 }
- .slider li {
-	height: 237px;
-	overflow: hidden;
-	background: black;
-} 
-.index-page .swiper-wrapper {
-  height: 237px;
-  overflow: hidden;
+.slider .swiper-container img {
+	width: 100%;
 }
-
+.slider .swiper-container li {
+	position: relative;
+	background: black;
+}
+.slider .swiper-container .title {
+	position: absolute;
+	text-align: right;
+	width: 90%;
+	right: 22px;
+	bottom: 12px;
+	color: white;
+	font-size: 20px;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 1);
+}
+.slider .swiper-container .rank {
+	font-family: 'Arial', sans-serif;
+	position: absolute;
+	width: 40px;
+	height: 30px;
+	top: 0;
+	left: 0;
+	color: white;
+	text-align: center;
+	line-height: 30px;
+	background: #de3c13;
+	opacity: 0.9;
+}
+.slider .swiper-wrapper {
+	height: 241px;
+}
 .bx-wrapper img {
 	width: 100%;
 }
@@ -619,16 +642,18 @@ input::-moz-placeholder { color: #777; }
 	.titles-wrap .title {
 	  display: none;
 	}
-	.user-info-face .user-name {
+	.slider .swiper-wrapper {
+	  height: 239px;
 	}
 }
 
 @media (max-width: 540px) {
-	.slider li {
-		height: 200px;
-	}
 	.main-content .slider {
-	  max-height: 212px;
+	  max-height: 200px;
+	  overflow: hidden;
+	}
+	.slider .swiper-wrapper {
+	  height: 189px;
 	}
 }
 @media (max-width: 440px) {
