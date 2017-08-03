@@ -47,10 +47,36 @@ var indexNum=swiper.realIndex,
     imagesDiv,
 		photoUpLoad;
 
+var zzalCon = function(){
+																	this.memberNo=1,
+																	this.catgCo = fiCollect.value,
+																	this.colctNo = 1,
+																	this.titl = fiTitle.value,
+																	this.mainPicNam
+																}
+
+var pageCon = function(){
+																	this.zzalNo=1,
+																	this.pageNo,
+																	this.type,
+																	this.pagePic,
+																	this.conText
+
+																}
+var pageArray = [];
 
 
+slideNumberring()
 
-		function writefuncDone(){
+function slideNumberring(){
+		let buddys = $('.swiper-slide')
+		for (let i = 0; i < buddys.length; i++ ){
+			$(buddys[i]).attr('data-no',i)
+		}
+}
+
+function writefuncDone(){
+
 			// console.log(swiper.onSlideChangeEnd(swiper))
 
 
@@ -61,69 +87,68 @@ var indexNum=swiper.realIndex,
 				// return indexNum;
 
 						$(photoUpLoad).on('click',function(){
-							console.log(this,'clickbox')
 
-							$(this).fileupload({
-								url: '/zzal-bit93/zzal/upload.json',
-								dataType: 'json',
-								imageMaxWidth: 670,
-								disableImageResize: /Android(?!.)|Opera/
-										.test(window.navigator && navigator.userAgent),
-								previewMaxWidth: 670,   // 미리보기 이미지 너비
-								previewMaxHeight: 720,  // 미리보기 이미지 높이
-								previewCrop: true,      // 미리보기 이미지를 출력할 때 원본에서 지정된 크기로 자르기
-								processalways: function(e, data) {
+							let curslide = $(this).closest(".swiper-slide")
+							let curSlideNo = $(this).closest(".swiper-slide").attr('data-no')
 
 
-										writefuncDone();
-										imagesDiv = $('.images-div')[indexNum];
-										console.log(imagesDiv,indexNum)
-										for (var i = 0; i < data.files.length; i++) {
-											try {
-												// console.log($(imagesDiv))
 
-													if (data.files[i].preview.toDataURL) {
-																$(imagesDiv).html("");
+								$(this).fileupload({
+									url: '/zzal-bit93/zzal/upload.json',
+									dataType: 'json',
+									imageMaxWidth: 670,
+									disableImageResize: /Android(?!.)|Opera/
+											.test(window.navigator && navigator.userAgent),
+									previewMaxWidth: 670,   // 미리보기 이미지 너비
+									previewMaxHeight: 720,  // 미리보기 이미지 높이
+									previewCrop: true,      // 미리보기 이미지를 출력할 때 원본에서 지정된 크기로 자르기
+									processalways: function(e, data) {
 
 
-															if(indexNum>0){
-																		// console.log(imagesDiv,indexNum)
-																		console.log(data.files[i])
-																		$('<img>').attr('src',data.files[i].preview.toDataURL())
-																							.css({"max-width" : '670',
-																										"max-height" :"720"})
-																							.appendTo($(imagesDiv))
-															}else{
-																		$(imagesDiv).css("background-image", 'url(' + data.files[i].preview.toDataURL() +')');
-															}
-													}//if data
+											writefuncDone();
+											imagesDiv = $('.images-div')[indexNum];
 
-											} catch (err) {}
-										}
-							},
-								done: function (e, data) {
-									console.log('done()...');
-									console.log(fiFilenames,"done.......")
-									// console.log(data.result,'data-result얌');
-									var filenames = data.result.data;
-									// console.log(filenames,'filenames얌');
-									for (var i = 0; i < filenames.length; i++) {
-										var val = fiFilenames.val();
-										if (val.length > 0) val += ",";
+											for (var i = 0; i < data.files.length; i++) {
+												try {
 
-										fiFilenames.val(val + filenames[i]);
+
+														if (data.files[i].preview.toDataURL) {
+																	$(imagesDiv).html("");
+																if(indexNum>0){
+
+																			$('<img>').attr('src',data.files[i].preview.toDataURL())
+																								.css({"max-width" : '670',
+																											"max-height" :"720"})
+																								.appendTo($(imagesDiv))
+																}else{
+																			$(imagesDiv).css("background-image", 'url(' + data.files[i].preview.toDataURL() +')');
+
+
+																}
+														}//if data
+
+												} catch (err) {}
+											}
+								},
+									done: function (e, data) {
+										console.log('done()...');
+
+											var filenames = data.result.data;
+											for (var i = 0; i < filenames.length; i++) {
+												$($("input[type=hidden]")[curSlideNo]).val(filenames[i]);
+
+											}
+
 									}
-								}
-						 });
+							 });
 						})
 
-		}
+		}//
 
 // I'm test God
 		$('.test-btn').on('click',function(e){
-			clickDone(event)
-			console.log(indexNum)
-			console.log($('.images-div'))
+			dataGarage()
+			console.log(pageArray)
 		})
 // I'm test God
 
@@ -133,46 +158,69 @@ var ssl=0;
     	e.preventDefault();
     	templateFn = Handlebars.compile($('#addpage-template').text())
     	swiper.appendSlide(templateFn())
-			var swiperSlideTotNumber = parseInt($('.swiper-slide').length-1)
-			var SwiperSlidesSelect = $('.swiper-slide')
-			var fifileNam = $('.fi-filenames').attr('value')
+			let swiperSlideTotNumber = parseInt($('.swiper-slide').length-1)
+			let SwiperSlidesSelect = $('.swiper-slide')
+			//let fifileNam = $('.fi-filenames').attr('value')
 			// console.log(ssl)
-		  $(SwiperSlidesSelect[swiperSlideTotNumber]).attr('data-no',(swiperSlideTotNumber+1))
-			$($('.fi-filenames')[swiperSlideTotNumber]).attr('value', fifileNam)
+		  slideNumberring()
+			//$($('.fi-filenames')[swiperSlideTotNumber]).attr('value', fifileNam)
 
 			console.log('done')
-		})
+		})//add page
+
+
 
 
 		$(document).on('click', '#add-btn, #temp-save-btn', function() {
-			console.log(fiFilenames.val())
-			$.post('/zzal-bit93/zzal/add.json', {
-				// 'mno': no,
-				// 'cno': fiCategory.val(),
-				// 'cono': fiCollect.val(),
-				// 'title': fiTitle.val(),
-				'mno': 1,
-				'cno': 2,
-				'cono': 2,
-				'title': "난 연습용!",
-				'filenames': fiFilenames.val()
-			}, function(result) {
-				console.log(result)
-				/* location.href = 'index.html'*/
-			}, 'json')
+
+			// $.ajax({
+			// 	url:'/zzal-bit93/zzal/add.json',
+			// 	method:'POST',
+			// 	data: pageArray
+			//
+			// 	// 'mno': no,
+			// 	// 'cno': fiCategory.val(),
+			// 	// 'cono': fiCollect.val(),
+			// 	// // 'title': fiTitle.val(),
+			// 	// 'mno': 1,
+			// 	// 'cno': 2,
+			// 	// 'cono': 2,
+			// 	// 'title': "난 연습용!",
+			// 	// 'filenames': fiFilenames.val()
+			// }, function(result) {
+			// 	console.log(result)
+			// 	/* location.href = 'index.html'*/
+			// }, 'json')
 		})
 
 
 
 
 
+function dataGarage(){
 
 
+	pageArray.length = $('.swiper-slide').length
 
 
+	pageArray[0] = new zzalCon();
+	pageArray[0].memberNo=1
+	pageArray[0].catgCo = $(fiCollect).val()
+	pageArray[0].colctNo = 1
+	pageArray[0].titl = $(fiTitle).val()
+	pageArray[0].mainPicNam =$($("input[type=hidden]")[0])[0].value
 
 
-
+	for(let i =1; i < pageArray.length; i++){
+		pageArray[i]=new pageCon()
+		pageArray[i].zzalNo=1
+		pageArray[i].pageNo=i
+		pageArray[i].type='image'
+		pageArray[i].pagePic=$($("input[type=hidden]")[i])[0].value
+		pageArray[i].conText=$($('textarea')[i-1])[0].value
+	}
+	return pageArray;
+}
 
 
 

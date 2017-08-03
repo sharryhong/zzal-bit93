@@ -23,15 +23,15 @@ public class ZzalwriteControl {
 	@Autowired ZzalwriteService zzalwriteService;
 	
 	@RequestMapping("add")
-  public JsonResult add(Zzal zzal, String filenames) throws Exception {
-	  System.out.println(zzal.getCono());
+  public JsonResult add(Object obj, String filenames) throws Exception {
+//	  System.out.println(zzal.getCono());
 /*	  if (zzal.getCono() == 0) {
 	    Integer x = null;
 	    zzal.setCono((int)x);
 	  }
 	  System.out.println(zzal.getCono());*/
-    zzal.setMainPic(filenames);
-    zzalwriteService.add(zzal);
+//    zzal.setMainPic(filenames);
+//    zzalwriteService.add(zzal);
     return new JsonResult(JsonResult.SUCCESS, "ok");
   }
 	
@@ -57,7 +57,7 @@ public class ZzalwriteControl {
       if (files[i].isEmpty()) 
         continue;
       
-      String newFilename = files[i].getOriginalFilename();
+      String newFilename = this.getNewFilename()+files[i].getOriginalFilename();
       File file = new File(servletContext.getRealPath("/upload/" + newFilename));
       files[i].transferTo(file);
       
@@ -73,14 +73,14 @@ public class ZzalwriteControl {
     }
     return new JsonResult(JsonResult.SUCCESS, fileList);
   }
-//  
-//  int count = 0;
-//  synchronized private String getNewFilename() {
-//    if (count > 100) {
-//      count = 0;
-//    }
-//    return String.format("%d_%d", System.currentTimeMillis(), ++count); 
-//  }
+  
+  int count = 0;
+  synchronized private String getNewFilename() {
+    if (count > 100) {
+      count = 0;
+    }
+    return String.format("%d_%d", System.currentTimeMillis(), ++count); 
+  }
 
 }
 
