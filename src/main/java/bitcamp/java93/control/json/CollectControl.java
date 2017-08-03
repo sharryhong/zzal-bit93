@@ -1,16 +1,19 @@
 package bitcamp.java93.control.json;
 
+import java.io.File;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import javax.servlet.ServletContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import bitcamp.java93.domain.Collect;
 import bitcamp.java93.service.CollectService;
+import net.coobird.thumbnailator.Thumbnails;
 
 @RestController
 @RequestMapping("/collect/")
@@ -40,10 +43,10 @@ public class CollectControl {
   
   @RequestMapping("add")
   public JsonResult add(
-      int memNo, String title, String content, String picture, Boolean isPublic, Collect collect) throws Exception {
+      int memNo, String title, String content, String picture, Boolean isPublic,String filename, Collect collect) throws Exception {
     collect.setNo(memNo);
-    collect.setContent(content);
     collect.setTitle(title);
+    collect.setContent(content);
     collect.setPicture(picture);
     collect.setIsPublic(isPublic);
     System.out.println(collect);
@@ -54,8 +57,8 @@ public class CollectControl {
   public JsonResult update(
       int no, String title, String content, String picture, Boolean isPublic, Collect collect) throws Exception {
     collect.setNo(no);
-    collect.setContent(content);
     collect.setTitle(title);
+    collect.setContent(content);
     collect.setPicture(picture);
     collect.setIsPublic(isPublic);
     System.out.println(collect);
@@ -69,6 +72,26 @@ public class CollectControl {
     
     return new JsonResult(JsonResult.SUCCESS, "ok");
     
+  }
+  
+  @RequestMapping(path="upload")
+  public JsonResult upload(MultipartFile[] files) throws Exception {
+    ArrayList<String> fileList = new ArrayList<>();
+    for (int i = 0; i < files.length; i++) {
+      if (files[i].isEmpty()) 
+        continue;
+      String newFilename = this.getNewFilename()+files[i].getOriginalFilename();
+      File file = new File(servletContext.getRealPath("/upload/" + newFilename));
+      System.out.println(file.getCanonicalPath());
+      files[i].transferTo(file);
+      File thumbnail = new File(servletContext.getRealPath("/upload/"  +"500_"+ newFilename));
+      Thumbnails.of(file).size(500, 500).toFile(thumbnail); 
+      thumbnail = new File(servletContext.getRealPath("/upload/" + "800_"+ newFilename));
+      Thumbnails.of(file).size(800, 800).toFile(thumbnail);
+      System.out.println(newFilename);
+      fileList.add(newFilename);
+    }
+    return new JsonResult(JsonResult.SUCCESS, fileList);
   }
   
   /* 
@@ -85,7 +108,13 @@ public class CollectControl {
     return new JsonResult(JsonResult.SUCCESS, "ok");
   }
    */
-  
+  int count = 0;
+  synchronized private String getNewFilename() {
+    if (count > 100) {
+      count = 0;
+    }
+    return String.format("%d_%d", System.currentTimeMillis(), ++count); 
+  }
   
 }
 

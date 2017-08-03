@@ -22,32 +22,32 @@ $.getJSON('collectadd.json',function(result){
 	collectadd2.html(generatedHTML2)
 	})
 	 */
+var fififilename = $('.fifi-filename');	
 var no = 0
 try {
 	no = location.href.split('?')[1].split('=')[1]
 } catch (err) {}
 
 if (no == 0){ // 새 학생 등록
-	var	picture = $('#collectPhoto'),
+	var	picture = $('#collect-cover-picture'),
 	title = $('#collect-add-title'),
 	content = $('#collect-add-content'),
-	isPublic =$('#myonoffswitch')
-
-	var addNum = 0;
+	isPublic =$('#myonoffswitch'),
+	collectNum = 0;
 	$.getJSON('/zzal-bit93/auth/userinfo.json', function(result) {
 		console.log(result.data.no)
-		addNum= result.data.no;
-		console.log(addNum)
+		collectNum = result.data.no;
+		console.log(collectNum)
 		$('#collect-addbtn').click(function() {
 			console.log('collect-addbtn')
 			console.log($(title).val())
 			console.log($(isPublic).val())
 			$.post(contextRoot + '/collect/add.json', {
-				'memNo' : addNum,
+				'memNo' : collectNum,
 				'title' : $(title).val(),
 				'content' : $(content).val(),
 				'isPublic' : $(isPublic).prop("checked"),
-				'picture' : 'anonymous.png'
+				'picture' : $(fififilename).val()
 			}, function(result) {
 				console.log(result)
 				location.href = 'mypage.html'
@@ -55,5 +55,37 @@ if (no == 0){ // 새 학생 등록
 		}) // add.click()
 	});
 }
+
+$.getJSON()
+
+var collectPhotoUpLoad
+
+collectPhotoUpLoad = $('.collectPhoto-upload-btn')
+
+$(collectPhotoUpLoad).on('click',function(){
+	console.log(this,'clickbox')
+
+	$(this).fileupload({
+		url: '/zzal-bit93/collect/upload.json',
+		dataType: 'json',
+		imageMaxWidth: 1127,
+		disableImageResize: /Android(?!.)|Opera/
+			.test(window.navigator && navigator.userAgent),
+			previewMaxWidth: 1127,   // 미리보기 이미지 너비
+			previewMaxHeight: 250,  // 미리보기 이미지 높이
+			previewCrop: true,      // 미리보기 이미지를 출력할 때 원본에서 지정된 크기로 자르기
+			done: function (e, data) {
+				console.log('done()...');
+				console.log(data.result,'data-result얌');
+				var filenames = data.result.data;
+				console.log(filenames,'filenames얌');
+				$(fififilename).val(filenames)
+				for (var i = 0; i < filenames.length; i++) {
+		$('.collect-photo').css("background-image", 'url(' + data.files[i].preview.toDataURL() +')');
+				}
+			}
+	});
+});
+
 
 })(jQuery);
