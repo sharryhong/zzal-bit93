@@ -12,7 +12,7 @@
 .down-container .reply-inputer .input-con {
 	float: right;
   margin: 22px 5px 10px 5px;
-  width : 200px;
+  width : 76%;
 }
 
 .zzal-container .detail-right {
@@ -35,18 +35,15 @@
 	width: 30px;
 	height : 30px;
 	float : left;
-	margin-left : 40px;
+	margin-left: 25px;
+  margin-right: 13px;
 }
-
-
 
 .reply-unit-con .re-reply-inputer {
   margin-top:9px;
 }
 
-
  .input-con .inputer {
-	float : right;
 	margin-right :3px;
 	width : 73%:
 } 
@@ -59,7 +56,46 @@
 	width : 159px;
 }
 
-
 .cancle-re-reply {
 	float : right;
+}
+
+.down-container .reply-info .date span {
+	margin-left: 0px;
+  margin-right: 0px;
+}
+
+.down-container .reply-info .date {
+	margin-left: 8px;
+}
+
+.down-container .reply-list .re-reply-con  {
+	padding-left: 35px;
+}
+
+.down-container .reply-con .reply-text {
+	 border : none;
+	}
+	
+.down-container .reply-list .reply-unit-con {
+	border : none;
+	padding-bottom: 10px;
+}
+
+.down-container .reply-info {
+	border-top : none;
+	border-bottom: 1px solid #ccc;
+}
+
+.down-container .reply-con {
+	line-height :20px;
+}
+
+.down-container .reply-con  .cancle {
+	 margin-top: 10px;
+}
+
+textarea.input-re-reply {
+	width: 170px;
+	float: left;
 }

@@ -7,7 +7,7 @@ package bitcamp.java93.domain;
 
 
 public class Reply {
-  String replyNumber;
+  int replyNumber;
   String content;
   String createDate;
   Boolean replyLike;
@@ -17,141 +17,84 @@ public class Reply {
   String nickName;
   String membPic;
   
-  String reparent;
-  String redepth;
-  int reorder;
+  String rereplyParentNumber;
+  String replyOrderNumber;
   
-  
-  
-  public String getReparent() {
-    return reparent;
-  }
-
-
-  public String getRedepth() {
-    return redepth;
-  }
-
-
-  public int getReorder() {
-    return reorder;
-  }
-
-
-  public void setReparent(String reparent) {
-    this.reparent = reparent;
-  }
-
-
-  public void setRedepth(String redepth) {
-    this.redepth = redepth;
-  }
-
-
-  public void setReorder(int reorder) {
-    this.reorder = reorder;
-  }
-
-
   @Override
   public String toString() {
     return "Reply [replyNumber=" + replyNumber + ", content=" + content + ", createDate=" + createDate + ", replyLike="
         + replyLike + ", report=" + report + ", zzalnumber=" + zzalnumber + ", memberNumber=" + memberNumber
-        + ", nickName=" + nickName + ", membPic=" + membPic + ", reparent=" + reparent + ", redepth=" + redepth
-        + ", reorder=" + reorder + "]";
+        + ", nickName=" + nickName + ", membPic=" + membPic + ", rereplyParentNumber=" + rereplyParentNumber
+        + ", replyOrderNumber=" + replyOrderNumber + "]";
   }
-
-
-  public String getReplyNumber() {
+  
+  public int getReplyNumber() {
     return replyNumber;
   }
-
-
   public String getContent() {
     return content;
   }
-
-
   public String getCreateDate() {
     return createDate;
   }
-
-
   public Boolean getReplyLike() {
     return replyLike;
   }
-
-
   public Boolean getReport() {
     return report;
   }
-
-
   public int getZzalnumber() {
     return zzalnumber;
   }
-
-
   public int getMemberNumber() {
     return memberNumber;
   }
-
-
   public String getNickName() {
     return nickName;
   }
-
-
   public String getMembPic() {
     return membPic;
   }
-
-
-  public void setReplyNumber(String replyNumber) {
+  public String getRereplyParentNumber() {
+    return rereplyParentNumber;
+  }
+  public String getReplyOrderNumber() {
+    return replyOrderNumber;
+  }
+  public void setReplyNumber(int replyNumber) {
     this.replyNumber = replyNumber;
   }
-
-
   public void setContent(String content) {
     this.content = content;
   }
-
-
   public void setCreateDate(String createDate) {
     this.createDate = createDate;
   }
-
-
   public void setReplyLike(Boolean replyLike) {
     this.replyLike = replyLike;
   }
-
-
   public void setReport(Boolean report) {
     this.report = report;
   }
-
-
   public void setZzalnumber(int zzalnumber) {
     this.zzalnumber = zzalnumber;
   }
-
-
   public void setMemberNumber(int memberNumber) {
     this.memberNumber = memberNumber;
   }
-
-
   public void setNickName(String nickName) {
     this.nickName = nickName;
   }
-
-
   public void setMembPic(String membPic) {
     this.membPic = membPic;
   }
+  public void setRereplyParentNumber(String rereplyParentNumber) {
+    this.rereplyParentNumber = rereplyParentNumber;
+  }
+  public void setReplyOrderNumber(String replyOrderNumber) {
+    this.replyOrderNumber = replyOrderNumber;
+  }
+ 
   
-  
-  
-  
+ 
 }

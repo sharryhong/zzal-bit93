@@ -25,16 +25,17 @@ public class ReplyControl {
 
   
   @RequestMapping("list")
-  public JsonResult list() throws Exception {
+  public JsonResult list(int zzalnumber) throws Exception {
     HashMap<String,Object> dataMap = new HashMap<>();
-    dataMap.put("list", replyService.list());
+    dataMap.put("list", replyService.list(zzalnumber));
+
     return new JsonResult(JsonResult.SUCCESS, dataMap);
   }
   
   @RequestMapping("countreply")
-  public JsonResult countReply() throws Exception {
+  public JsonResult countReply(int zzalnumber) throws Exception {
     HashMap<String,Object> dataMap = new HashMap<>();
-    dataMap.put("countReply", replyService.getSize());
+    dataMap.put("countReply", replyService.getSize(zzalnumber));
     System.out.println();
     
     return new JsonResult(JsonResult.SUCCESS, dataMap);
@@ -42,21 +43,26 @@ public class ReplyControl {
   
   
   @RequestMapping("add")
-  public JsonResult update(Reply reply, HttpSession session) throws Exception {
+  public JsonResult add(Reply reply, HttpSession session, int zzalnumber) throws Exception {
     Member getMember = (Member)session.getAttribute("loginMember");
     int MemberNo = getMember.getNo();
     reply.setMemberNumber(MemberNo);
+    reply.setZzalnumber(zzalnumber);
     replyService.add(reply);
     return new JsonResult(JsonResult.SUCCESS, reply);
   }
 
-/*  @RequestMapping("add")
-  public JsonResult update(Reply reply) throws Exception {
-    replyService.add(reply);
+  @RequestMapping("rerepadd")
+  public JsonResult rereplyadd(Reply reply, HttpSession session, int zzalnumber) throws Exception {
+    Member getMember = (Member)session.getAttribute("loginMember");
+    int MemberNo = getMember.getNo();
+    reply.setMemberNumber(MemberNo);
+    reply.setZzalnumber(zzalnumber);
+
     System.out.println(reply);
+    replyService.rerepadd(reply);
     return new JsonResult(JsonResult.SUCCESS, reply);
-  }*/
-  
+  }
   
   
   @RequestMapping("update")
@@ -71,21 +77,40 @@ public class ReplyControl {
      session.setAttribute("loginMember", getMember); // ㄴ "loginMember" 세션객체에 넣는다. 
     return new JsonResult(JsonResult.SUCCESS, "ok");
   }
-  
-  
+
   
   @RequestMapping("delete")
-  public int delete(@RequestParam int rno, @RequestParam int mno, HttpSession session) throws Exception {
+  public int delete(Reply reply, @RequestParam int rno, @RequestParam int mno, int zzalnumber, HttpSession session) throws Exception {
     Member getMember = (Member)session.getAttribute("loginMember");
     int MemberNo = getMember.getNo();
+    reply.setReplyNumber(rno);
+    reply.setMemberNumber(mno);
+    reply.setZzalnumber(zzalnumber);
     if (MemberNo == mno) {
-    replyService.remove(rno);
+    replyService.remove(reply);
     } else {
       System.out.println("삭제 실패");
       return 0;
     }
     return 1;
   }
+  
+  @RequestMapping("deletesonreply")
+  public int deleteSon(Reply reply, @RequestParam int rno, @RequestParam int mno,  int zzalnumber, HttpSession session) throws Exception {    Member getMember = (Member)session.getAttribute("loginMember");
+  int MemberNo = getMember.getNo();
+  reply.setReplyNumber(rno);
+  reply.setMemberNumber(mno);
+  reply.setZzalnumber(zzalnumber);
+  if (MemberNo == mno) {
+  replyService.removeSonReply(reply);
+  } else {
+    System.out.println("삭제 실패");
+    return 0;
+  }
+  return 1;
+}
+  
+  
 }
 
 

@@ -16,8 +16,8 @@ public class ReplyServiceImpl implements ReplyService {
   ReplyDao replyDao;
 
   @Override
-  public List<Reply> list() throws Exception {
-    return replyDao.selectList();
+  public List<Reply> list(int zzalnumber) throws Exception  {
+    return replyDao.selectList(zzalnumber);
   }
 
 /*  @Override
@@ -26,8 +26,9 @@ public class ReplyServiceImpl implements ReplyService {
   }*/
 
   @Override
-  public int getSize() {
-    return replyDao.countReply();
+  public int getSize(int zzalnumber) {
+    System.out.println(zzalnumber+"daogetsize");
+    return replyDao.countReply(zzalnumber);
   }
 
 //  @Override
@@ -38,16 +39,23 @@ public class ReplyServiceImpl implements ReplyService {
   public void add(Reply reply) throws Exception {
     replyDao.insert(reply);
   }
-
+  
   @Override
-  public void remove(int no) throws Exception {
-    replyDao.delete(no);
-    
+  public void rerepadd(Reply reply) throws Exception {
+    replyDao.rerepinsert(reply);
   }
 
-//  @Override
-//  public void update(Reply reply) throws Exception {
-//    // TODO Auto-generated method stub
-//    
-//  }
+  @Override
+  public void remove(Reply reply) throws Exception {
+    replyDao.deleteParentRep(reply);
+  }
+
+  @Override
+  public void removeSonReply(Reply reply) throws Exception {
+    replyDao.deleteSonRep(reply);
+  }
+  
+  
+  
+  
 } 
