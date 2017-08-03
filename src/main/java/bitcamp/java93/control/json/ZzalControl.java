@@ -34,7 +34,7 @@ public class ZzalControl {
     HashMap<String,Object> dataMap = new HashMap<>();
     dataMap.put("zzalList", zzalService.zzalListWithCount(pageNo, pageSize));
     dataMap.put("totalCount", zzalService.getSize());
-    
+    dataMap.put("foundRows", zzalService.foundRows());
     return new JsonResult(JsonResult.SUCCESS, dataMap);
   }
 	
@@ -43,6 +43,15 @@ public class ZzalControl {
     
     HashMap<String,Object> dataMap = new HashMap<>();
     dataMap.put("zzalList", zzalService.zzalBestList());
+    
+    return new JsonResult(JsonResult.SUCCESS, dataMap);
+  }
+	
+	@RequestMapping("zzalLikeRank")
+  public JsonResult zzalLikeRank() throws Exception {
+    
+    HashMap<String,Object> dataMap = new HashMap<>();
+    dataMap.put("zzalList", zzalService.zzalLikeRank());
     
     return new JsonResult(JsonResult.SUCCESS, dataMap);
   }

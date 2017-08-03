@@ -9,5 +9,7 @@ public interface ZzalDao {
   List<Zzal> selectList(int zzno);
   List<Zzal> zzalListWithCount(Map<String,Object> valueMap);
   List<Zzal> zzalBestList(Map<String,Object> valueMap);
+  List<Zzal> zzalLikeRank(Map<String,Object> valueMap);
   int countAll();
+  int foundRows();
 }

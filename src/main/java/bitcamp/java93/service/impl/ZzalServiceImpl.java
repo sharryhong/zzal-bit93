@@ -22,7 +22,14 @@ public class ZzalServiceImpl implements ZzalService {
 		return zzalDao.selectList(zzno);
 	}
 
-  @Override
+  /*@Override
+  public List<Zzal> zzalListWithCount(int pageNo, int pageSize) throws Exception {
+    HashMap<String,Object> valueMap = new HashMap<>();
+    valueMap.put("startIndex", (pageNo - 1) * pageSize);
+    valueMap.put("pageSize", pageSize);
+    return zzalDao.zzalListWithCount(valueMap);
+  }*/
+	@Override
   public List<Zzal> zzalListWithCount(int pageNo, int pageSize) throws Exception {
     HashMap<String,Object> valueMap = new HashMap<>();
     valueMap.put("startIndex", (pageNo - 1) * pageSize);
@@ -34,6 +41,12 @@ public class ZzalServiceImpl implements ZzalService {
   public List<Zzal> zzalBestList() throws Exception {
     HashMap<String,Object> valueMap = new HashMap<>();
     return zzalDao.zzalBestList(valueMap);
+  }
+  
+  @Override
+  public List<Zzal> zzalLikeRank() throws Exception {
+    HashMap<String,Object> valueMap = new HashMap<>();
+    return zzalDao.zzalLikeRank(valueMap);
   }
   
   /*@Override // DB에서 서브쿼리 사용하지 않을 때 
@@ -51,6 +64,10 @@ public class ZzalServiceImpl implements ZzalService {
   @Override
   public int getSize() throws Exception {
     return zzalDao.countAll();
+  }
+  @Override
+  public int foundRows() throws Exception {
+    return zzalDao.foundRows();
   }
 	  	
 }

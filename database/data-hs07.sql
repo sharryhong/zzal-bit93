@@ -66,7 +66,7 @@ insert into zzal_lect(mno, cno, cono, titl, pic, cdt, ztmp) values(3, 7, NULL, '
 insert into zzal_lect(mno, cno, cono, titl, pic, cdt, ztmp) values(4, 6, NULL, '체지방을 불태우는 러닝머신 활용법', '1501469040779_1.gif', curdate(), false);
 insert into zzal_lect(mno, cno, cono, titl, pic, cdt, ztmp) values(5, 5, NULL, '체지방을 불태우는 러닝머신 활용법', '1501470860079_4_500.JPEG', curdate(), false);
 insert into zzal_lect(mno, cno, cono, titl, pic, cdt, ztmp) values(5, 4, NULL, '체지방을 불태우는 러닝머신 활용법', '1501472352922_1_500.JPEG', curdate(), false);
-
+insert into zzal_lect(mno, cno, cono, titl, pic, cdt, ztmp) values(1, 1, NULL, '헤헷', '1501478737086_2.gif', curdate(), false);
 
 --좋아요!
 insert into lik(zzno,mno,cdt) values(1,1,'2017-07-02');
@@ -86,6 +86,8 @@ insert into lik(zzno,mno,cdt) values(14,1,curdate());
 insert into lik(zzno,mno,cdt) values(1,1,curdate());
 insert into lik(zzno,mno,cdt) values(2,4,curdate());
 insert into lik(zzno,mno,cdt) values(4,4,curdate());
+insert into lik(zzno,mno,cdt) values(42,1,curdate());
+insert into lik(zzno,mno,cdt) values(42,2,curdate());
 
 -- 새로운 댓글 추가(insert)
 insert into reply(cont, cdt, re_like,report,zzno,mno) values('덧글1 ', current_timestamp(), false, false, 1, 1);
@@ -96,6 +98,7 @@ insert into reply(cont, cdt, re_like,report,zzno,mno) values('댓글5', current_
 insert into reply(cont, cdt, re_like,report,zzno,mno) values('댓글6', current_timestamp(), false, false, 3, 4);
 insert into reply(cont, cdt, re_like,report,zzno,mno) values('댓글7', current_timestamp(), false, false, 3, 1);
 insert into reply(cont, cdt, re_like,report,zzno,mno) values('댓글8', current_timestamp(), false, false, 7, 5);
+insert into reply(cont, cdt, re_like,report,zzno,mno) values('헤헷댓글', current_timestamp(), false, false, 42, 3);
 
 -- 댓글 테이블 검색
 select rno, cont, date_format(cdt, '%Y-%m-%d %H:%i'), re_like, report, zzno, mno

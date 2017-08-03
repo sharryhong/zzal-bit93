@@ -11,16 +11,15 @@ public class Zzal {
 	Boolean zzalTemporary;
 	int likeCount;
 	int replyCount;
+	int rowCount;
 	Member member;
 	ZzalLike zzallike;
-	
   @Override
   public String toString() {
     return "Zzal [zzno=" + zzno + ", mno=" + mno + ", cno=" + cno + ", cono=" + cono + ", title=" + title + ", mainPic="
-        + mainPic + ", cdt=" + cdt + ", zzalTemporary=" + zzalTemporary + ", member=" + member + ", likeCount="
-        + likeCount + "]";
+        + mainPic + ", cdt=" + cdt + ", zzalTemporary=" + zzalTemporary + ", likeCount=" + likeCount + ", replyCount="
+        + replyCount + ", rowCount=" + rowCount + ", member=" + member + ", zzallike=" + zzallike + "]";
   }
-  
   public int getZzno() {
     return zzno;
   }
@@ -69,18 +68,36 @@ public class Zzal {
   public void setZzalTemporary(Boolean zzalTemporary) {
     this.zzalTemporary = zzalTemporary;
   }
-  public Member getMember() {
-    return member;
-  }
-  public void setMember(Member member) {
-    this.member = member;
-  }
   public int getLikeCount() {
     return likeCount;
   }
   public void setLikeCount(int likeCount) {
     this.likeCount = likeCount;
   }
+  public int getReplyCount() {
+    return replyCount;
+  }
+  public void setReplyCount(int replyCount) {
+    this.replyCount = replyCount;
+  }
+  public int getRowCount() {
+    return rowCount;
+  }
+  public void setRowCount(int rowCount) {
+    this.rowCount = rowCount;
+  }
+  public Member getMember() {
+    return member;
+  }
+  public void setMember(Member member) {
+    this.member = member;
+  }
+  public ZzalLike getZzallike() {
+    return zzallike;
+  }
+  public void setZzallike(ZzalLike zzallike) {
+    this.zzallike = zzallike;
+  }
 	
-    
+      
 }

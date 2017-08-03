@@ -6,10 +6,11 @@ $(document).ready(function(){
 	zzalListMain(pageNo, pageSize)
 	function zzalListMain(pageNo, pageSize) {
 		$.getJSON('zzal/zzalListWithCount.json',{'pageNo': pageNo, 'pageSize': pageSize}, function(result) {
-			var totalCount = result.data.totalCount
-			var lastPageNo = parseInt(totalCount / pageSize) + (totalCount % pageSize > 0 ? 1 : 0)
+			console.log(result.data)
+			var foundRows = result.data.foundRows
+			var lastPageNo = parseInt(foundRows / pageSize) 
 			console.log('pageNo', pageNo)
-			console.log('totalCount', totalCount)
+			console.log('foundRows', foundRows)
 			console.log('lastPageNo', lastPageNo)
 			/*var templateFn = Handlebars.compile($('#main-template').text())
 		    var generatedHTML = templateFn(result.data) 

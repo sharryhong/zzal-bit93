@@ -14,6 +14,7 @@
     <result column="ztmp" property="zzalTemporary"/>
     <result column="like_cnt" property="likeCount"/>
     <result column="reply_cnt" property="replyCount"/>
+    <result column="rCount" property="rowCount"/>
     <association property="member" javaType="Member">
 	    <id column="mno" property="no"/>
 	    <result column="nick" property="nick"/>
@@ -37,7 +38,7 @@
   </select>
 
   <select id="zzalListWithCount" resultMap="zzalMap" parameterType="map">
-    SELECT z.zzno, z.mno, m.nick, m.pic as pic1, z.cno, z.titl, z.pic as pic2, z.cdt as cdt2,
+    SELECT z.zzno, z.mno, m.nick, m.pic as pic1, z.cno, z.titl, z.pic as pic2, z.cdt as cdt2, 
     (SELECT count(*) FROM lik WHERE zzno=z.zzno) as like_cnt, 
     (SELECT count(*) FROM reply WHERE zzno=z.zzno) as reply_cnt
     FROM zzal_lect z INNER JOIN memb m on z.mno = m.mno
@@ -45,6 +46,39 @@
     ORDER BY like_cnt + reply_cnt desc
     LIMIT #{startIndex}, #{pageSize}
   </select>
+  
+  <select id="zzalLikeRank" resultMap="zzalMap" parameterType="map">
+    SELECT z.zzno, z.mno, m.nick, m.pic as pic1, z.cno, z.titl, z.pic as pic2, z.cdt as cdt2,
+    (SELECT count(*) FROM lik WHERE zzno=z.zzno) as like_cnt
+    FROM zzal_lect z INNER JOIN memb m on z.mno = m.mno
+    WHERE z.ztmp=false
+    ORDER BY like_cnt desc
+    LIMIT 30
+  </select>
+
+<!-- 몇개인지 알아내기  
+  SELECT SQL_CALC_FOUND_ROWS z.zzno, z.mno, m.nick, m.pic as pic1, z.cno, z.titl, z.pic as pic2, z.cdt as cdt2, FOUND_ROWS() as rCount,
+  (SELECT count(*) FROM lik WHERE zzno=z.zzno) as like_cnt, 
+    (SELECT count(*) FROM reply WHERE zzno=z.zzno) as reply_cnt
+    FROM zzal_lect z INNER JOIN memb m on z.mno = m.mno
+    WHERE z.ztmp=false
+    ORDER BY like_cnt + reply_cnt desc -->
+<!-- order결과를 순위로 나타내기  
+select zzno, mno, 
+(select count(*) + 1 from zzal_lect where mno > z.mno) as rank
+from zzal_lect z
+order by rank asc; -->
+    
+  
+  <!-- <select id="zzalListWithCount" resultMap="zzalMap" parameterType="map">
+    SELECT z.zzno, z.mno, m.nick, m.pic as pic1, z.cno, z.titl, z.pic as pic2, z.cdt as cdt2,
+    (SELECT count(*) FROM lik WHERE zzno=z.zzno) as like_cnt, 
+    (SELECT count(*) FROM reply WHERE zzno=z.zzno) as reply_cnt
+    FROM zzal_lect z INNER JOIN memb m on z.mno = m.mno
+    WHERE z.ztmp=false
+    ORDER BY like_cnt + reply_cnt desc
+    LIMIT #{startIndex}, #{pageSize}
+  </select> -->
   
   <select id="zzalBestList" resultMap="zzalMap" parameterType="map">
     SELECT *
@@ -62,6 +96,17 @@
   <select id="countAll" resultType="int">
     SELECT count(*)
     FROM zzal_lect
+  </select>
+  
+  <!-- index.html에서 짤강의 리스트 뿌릴 때, 해당 조건에 맞는 짤강의가 몇개인지 알아내기  -->
+  <select id="foundRows" resultType="int">
+    SELECT count(*) FROM(
+    SELECT zzno,
+    (SELECT count(*) FROM lik WHERE zzno=z.zzno) as like_cnt, 
+    (SELECT count(*) FROM reply WHERE zzno=z.zzno) as reply_cnt
+    FROM zzal_lect z INNER JOIN memb m on z.mno = m.mno
+    WHERE z.ztmp=false
+    ORDER BY like_cnt + reply_cnt desc) as rowCount
   </select>
   
 </mapper> 
