@@ -5,16 +5,16 @@ $(document).ready(function(){
 	var checkLast = true
 	zzalListMain(pageNo, pageSize)
 	function zzalListMain(pageNo, pageSize) {
-		/*$('#zzal-list').append('<i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>') */
 		$.getJSON('zzal/zzalListWithCount.json',{'pageNo': pageNo, 'pageSize': pageSize}, function(result) {
 			var totalCount = result.data.totalCount
 			var lastPageNo = parseInt(totalCount / pageSize) + (totalCount % pageSize > 0 ? 1 : 0)
 			console.log('pageNo', pageNo)
 			console.log('totalCount', totalCount)
 			console.log('lastPageNo', lastPageNo)
-			var templateFn = Handlebars.compile($('#main-template').text())
+			/*var templateFn = Handlebars.compile($('#main-template').text())
 		    var generatedHTML = templateFn(result.data) 
-		    $('#zzal-list').append(generatedHTML) 
+		    $('#zzal-list').append(generatedHTML) */
+			generateHandlebars(result, $('#main-template'), $('#zzal-list'))
 		    
 		    if (pageNo < lastPageNo) { // 마지막 이후에는 무한스크롤 실행되지 않게 하기 
 		       checkLast = true
@@ -82,6 +82,11 @@ $(document).ready(function(){
 	        loop: true
 	    });
 	}
+	
+	$(document.body).on('click', '#zzal-list .zzal-lect', function(event) {
+	  location.href = 'reply.html?zzno=' + $(this).attr('data-zzno') 
+	  event.preventDefault()
+	})
 	
 });
 

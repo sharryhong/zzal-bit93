@@ -21,8 +21,8 @@
 	  <h2 class="title">추천순</h2>
 	</div>
 	<div class="best-contents">
-	  <ul class="zzal-lects02 clearfix">
-			<li>
+	  <ul id="zzal-like-list" class="zzal-lects02 clearfix">
+			<!-- <li>
 			  <a href="detailpage-v01.html" class="zzal-lect">
 			    <div class="zzal">
 			      <div class="zzal-img">
@@ -99,7 +99,7 @@
 			      <h3 class="title">우리 함께 브런치 할까요?</h3>
 			    </div>
 			  </a>
-			</li>
+			</li> -->
 		</ul>
 	</div>
 </div>
@@ -107,10 +107,29 @@
 <div id="footer"></div>
 </div>
 
+<script id="like-template" type="text/x-handlebars-template">
+{{#each zzalList}}
+		<li>
+			  <a href="#" class="zzal-lect">
+			    <div class="zzal">
+			      <div class="zzal-img">
+			        <img src="upload/{{mainPic}}" alt="">
+			      </div>
+			    </div>
+			    <div class="bottom">
+			      <span class="ranking">1</span>
+			      <h3 class="title">{{title}}</h3>
+			    </div>
+			  </a>
+			</li>
+{{/each}}
+</script>
+
 <script src="node_modules/jquery/dist/jquery.min.js"></script>
 <script src="node_modules/handlebars/dist/handlebars.min.js"></script>
 <script src="js/jquery.bxslider.min.js"></script>
 <script src="node_modules/swiper/dist/js/swiper.min.js"></script>
 <script src="js/load.js"></script>
+<script src="js/category-like.js"></script>
 </body>
 </html>

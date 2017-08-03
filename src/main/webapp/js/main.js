@@ -8,13 +8,18 @@
  */
 var templateFn = null;
 var generatedHTML = null;
- 
+// 일반 핸들바스사용 
 function generateHandlebars(result, el, target) {
-  console.log('main.js')
   templateFn = Handlebars.compile(el.text())
   generatedHTML = templateFn(result.data)
   target.text('')
   target.html(generatedHTML)
+}
+// 무한 스크롤시 핸들바스 사용
+function generateHandlebars(result, el, target) {
+  templateFn = Handlebars.compile(el.text())
+  generatedHTML = templateFn(result.data)
+  target.append(generatedHTML)
 }
 
 (function($, window){
