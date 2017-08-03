@@ -157,13 +157,15 @@ ALTER TABLE CATG
 
 -- 댓글
 CREATE TABLE REPLY (
-	RNO     INTEGER    NOT NULL COMMENT '댓글 코드', -- 댓글 코드
-	CONT    MEDIUMTEXT NOT NULL COMMENT '내용', -- 내용
-	CDT     DATETIME   NOT NULL COMMENT '게시 날짜', -- 게시 날짜
-	RE_LIKE BOOLEAN    NULL     COMMENT '댓글좋아요', -- 댓글좋아요
-	REPORT  BOOLEAN    NULL     COMMENT '신고', -- 신고
-	ZZNO    INTEGER    NOT NULL COMMENT '짤강의 코드', -- 짤강의 코드
-	MNO     INTEGER    NOT NULL COMMENT '회원코드' -- 회원코드
+	RNO      INTEGER    NOT NULL COMMENT '댓글 코드', -- 댓글 코드
+	CONT     MEDIUMTEXT NOT NULL COMMENT '내용', -- 내용
+	CDT      DATETIME   NOT NULL COMMENT '게시 날짜', -- 게시 날짜
+	RE_LIKE  BOOLEAN    NULL     COMMENT '댓글좋아요', -- 댓글좋아요
+	REPORT   BOOLEAN    NULL     COMMENT '신고', -- 신고
+	REPARENT INTEGER    NULL     COMMENT '대댓글번호', -- 대댓글번호
+	REORDER  INTEGER    NULL     COMMENT '순서', -- 순서
+	ZZNO     INTEGER    NOT NULL COMMENT '짤강의 코드', -- 짤강의 코드
+	MNO      INTEGER    NOT NULL COMMENT '회원코드' -- 회원코드
 )
 COMMENT '댓글';
 
