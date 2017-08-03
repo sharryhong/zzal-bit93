@@ -3,14 +3,25 @@ package bitcamp.java93.control.json;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
 
 import javax.servlet.ServletContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+
+import bitcamp.java93.domain.Page;
 import bitcamp.java93.domain.Zzal;
 import bitcamp.java93.service.ZzalwriteService;
 import net.coobird.thumbnailator.Thumbnails;
@@ -22,16 +33,61 @@ public class ZzalwriteControl {
 	@Autowired ServletContext servletContext;
 	@Autowired ZzalwriteService zzalwriteService;
 	
-	@RequestMapping("add")
-  public JsonResult add(Object obj, String filenames) throws Exception {
-//	  System.out.println(zzal.getCono());
-/*	  if (zzal.getCono() == 0) {
-	    Integer x = null;
-	    zzal.setCono((int)x);
-	  }
-	  System.out.println(zzal.getCono());*/
-//    zzal.setMainPic(filenames);
-//    zzalwriteService.add(zzal);
+	@RequestMapping(value="add", method=RequestMethod.POST)
+  public JsonResult add(@RequestParam HashMap<String, Object> map,
+		  							Zzal zzal,
+		  							Page page) throws Exception {
+
+		
+		String json = (String) map.get("zzal").toString();
+		
+		HashMap<String, Object> attributes = new HashMap<>();
+		
+		JsonParser jsonParser = new JsonParser();
+		
+		JsonObject jsonObject = (JsonObject) jsonParser.parse(json);
+		
+		Set<Entry<String, JsonElement>> entrySet = jsonObject.entrySet();
+        
+		for(Map.Entry<String,JsonElement> entry : entrySet){
+          attributes.put(entry.getKey(), jsonObject.get(entry.getKey()));
+        }
+       
+
+        System.out.println("--------------------------");
+        System.out.println(attributes);
+        
+        System.out.println("--------------------------");
+        
+//        for ( String key : attributes.keySet() ) {
+//            System.out.println("방법1) key : " + key +" / value : " + attributes.get(key));
+//        }
+//        	
+        zzal.setCno((int)Integer.parseInt(attributes.get("cno").toString()));
+        zzal.setCono((int)Integer.parseInt(attributes.get("cono").toString()));
+        zzal.setMno((int)Integer.parseInt(attributes.get("mno").toString()));
+        zzal.setMainPic(attributes.get("mainPic").toString());
+        zzal.setTitle(attributes.get("title").toString());
+        System.out.println(zzal);
+      zzalwriteService.add(zzal);
+        
+        String json2 = (String) map.get("zzalpage").toString();
+       
+         JsonArray arr = (JsonArray)jsonParser.parse(json2);
+         System.out.println("====================");
+        
+        for(int i =0; i< arr.size(); i++){
+        	JsonObject tmp = (JsonObject)arr.get(i);
+        	
+        	page.setZzalNo((int)Integer.parseInt(tmp.get("zzno").toString()));
+        	page.setPageNo((int)Integer.parseInt(tmp.get("pageNo").toString()));
+        	page.setConTypeZ(tmp.get("pagePic").toString());
+        	page.setConTextZ(tmp.get("conText").toString());
+        	
+        	zzalwriteService.pageAdd(page);
+        }
+
+
     return new JsonResult(JsonResult.SUCCESS, "ok");
   }
 	
@@ -57,7 +113,7 @@ public class ZzalwriteControl {
       if (files[i].isEmpty()) 
         continue;
       
-      String newFilename = this.getNewFilename()+files[i].getOriginalFilename();
+      String newFilename = this.getNewFilename()+"_"+files[i].getOriginalFilename();
       File file = new File(servletContext.getRealPath("/upload/" + newFilename));
       files[i].transferTo(file);
       

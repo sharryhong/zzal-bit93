@@ -14,6 +14,15 @@
     <result column="cdt" property="cdt"/>
   </resultMap>
   
+  
+  <resultMap type="page" id="pageMap">
+    <id column="zno" property="zzalpageNo"/>
+    <result column="zzno" property="zzalNo"/>
+    <result column="pgno" property="pageNo"/>
+    <result column="type" property="conTypez"/>
+    <result column="cont" property="ConTextz"/>
+  </resultMap>
+  
   <sql id="select1">
     select zzno, mno, cno, cono, titl, pic, cdt
     from zzal_lect
@@ -34,6 +43,10 @@
     values(#{zzno}, #{mno}, #{cno}, Case When #{cono} = 0 then null else #{cono} end, #{title}, #{mainPic}, curdate())
   </insert>
   
+  <insert id="insertPage" parameterType="page">
+    insert into page(zzno, pgno, type, cont) 
+    values(#{zzalNo}, #{pageNo}, #{conTypeZ},#{ConTextZ});
+  </insert>
  <!--  <insert id="insertPhoto" parameterType="map">
     insert into zzal_lect(zzno, pic) 
     values(#{zzno}, #{mainPic})

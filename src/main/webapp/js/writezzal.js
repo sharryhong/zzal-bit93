@@ -48,15 +48,15 @@ var indexNum=swiper.realIndex,
 		photoUpLoad;
 
 var zzalCon = function(){
-																	this.memberNo=1,
-																	this.catgCo = fiCollect.value,
-																	this.colctNo = 1,
-																	this.titl = fiTitle.value,
-																	this.mainPicNam
+																	this.mno=1,
+																	this.cono,
+																	this.cno = 1,
+																	this.title,
+																	this.mainPic
 																}
 
 var pageCon = function(){
-																	this.zzalNo=1,
+																	this.zzno=1,
 																	this.pageNo,
 																	this.type,
 																	this.pagePic,
@@ -147,6 +147,7 @@ function writefuncDone(){
 
 // I'm test God
 		$('.test-btn').on('click',function(e){
+			dataPlant()
 			dataGarage()
 			console.log(pageArray)
 		})
@@ -169,30 +170,54 @@ var ssl=0;
 		})//add page
 
 
+		//
+		var writeData
 
 
 		$(document).on('click', '#add-btn, #temp-save-btn', function() {
-
-			// $.ajax({
-			// 	url:'/zzal-bit93/zzal/add.json',
-			// 	method:'POST',
-			// 	data: pageArray
+			dataGarage()
+			dataPlant()
+			// dataPlant()
+			// writeData = {maindata:
+			// 										{"mno" : pageArray[0].mno=1,
+			// 											"catgNo" : pageArray[0].cno,
+			// 											"cno" : pageArray[0].cno,
+			// 											"title" : pageArray[0].title,
+			// 												"mpic" : pageArray[0].mainPic
+			// 										},
+			// 						mainPdata :jsonPageArray
+			// 					 }
 			//
-			// 	// 'mno': no,
-			// 	// 'cno': fiCategory.val(),
-			// 	// 'cono': fiCollect.val(),
-			// 	// // 'title': fiTitle.val(),
-			// 	// 'mno': 1,
-			// 	// 'cno': 2,
-			// 	// 'cono': 2,
-			// 	// 'title': "난 연습용!",
-			// 	// 'filenames': fiFilenames.val()
-			// }, function(result) {
-			// 	console.log(result)
-			// 	/* location.href = 'index.html'*/
-			// }, 'json')
+			// let zzals = pageArray[0]
+			// let zzals =
+			console.log(pageArray[0])
+			console.log(jsonPageArray)
+			$.ajax({
+				url:'/zzal-bit93/zzal/add.json',
+				method:'POST',
+				data: {"zzal":JSON.stringify(pageArray[0]),"zzalpage":JSON.stringify(jsonPageArray)},
+				success : function(data){console.log('success')},
+				// 'mno': no,
+				// 'cno': fiCategory.val(),
+				// 'cono': fiCollect.val(),
+				// // 'title': fiTitle.val(),
+				// 'mno': 1,
+				// 'cno': 2,
+				// 'cono': 2,
+				// 'title': "난 연습용!",
+				// 'filenames': fiFilenames.val()
+			  dataType: 'json'})
 		})
 
+var jsonPageArray =[];
+
+
+function dataPlant(){
+	for(let i=1; i < pageArray.length; i++){
+    jsonPageArray[i-1]  = pageArray[i]
+	}
+	return jsonPageArray;
+}
 
 
 
@@ -204,16 +229,16 @@ function dataGarage(){
 
 
 	pageArray[0] = new zzalCon();
-	pageArray[0].memberNo=1
-	pageArray[0].catgCo = $(fiCollect).val()
-	pageArray[0].colctNo = 1
-	pageArray[0].titl = $(fiTitle).val()
-	pageArray[0].mainPicNam =$($("input[type=hidden]")[0])[0].value
+	pageArray[0].mno=1
+	pageArray[0].cono =1
+	pageArray[0].cno = parseInt($(fiCategory).val())
+	pageArray[0].title = $(fiTitle).val()
+	pageArray[0].mainPic =$($("input[type=hidden]")[0])[0].value
 
 
 	for(let i =1; i < pageArray.length; i++){
 		pageArray[i]=new pageCon()
-		pageArray[i].zzalNo=1
+		pageArray[i].zzno=1
 		pageArray[i].pageNo=i
 		pageArray[i].type='image'
 		pageArray[i].pagePic=$($("input[type=hidden]")[i])[0].value
@@ -221,6 +246,8 @@ function dataGarage(){
 	}
 	return pageArray;
 }
+
+
 
 
 
