@@ -27,7 +27,7 @@ import bitcamp.java93.service.ZzalwriteService;
 import net.coobird.thumbnailator.Thumbnails;
 
 @RestController
-@RequestMapping("/zzal/")
+@RequestMapping("/write/")
 public class ZzalwriteControl {
 
 	@Autowired ServletContext servletContext;
