@@ -5,10 +5,8 @@ public class Page {
 	int zzalNo;
 	int pageNo;
 	String conTypeZ;
+	String pagePic;
 	String ConTextZ;
-	
-	
-	
 	public int getZaalpapeNo() {
 		return zaalpapeNo;
 	}
@@ -33,20 +31,23 @@ public class Page {
 	public void setConTypeZ(String conTypeZ) {
 		this.conTypeZ = conTypeZ;
 	}
+	public String getPagePic() {
+		return pagePic;
+	}
+	public void setPagePic(String pagePic) {
+		this.pagePic = pagePic;
+	}
 	public String getConTextZ() {
 		return ConTextZ;
 	}
 	public void setConTextZ(String conTextZ) {
 		ConTextZ = conTextZ;
 	}
-	
-	
 	@Override
 	public String toString() {
 		return "Page [zaalpapeNo=" + zaalpapeNo + ", zzalNo=" + zzalNo + ", pageNo=" + pageNo + ", conTypeZ=" + conTypeZ
-				+ ", ConTextZ=" + ConTextZ + "]";
+				+ ", pagePic=" + pagePic + ", ConTextZ=" + ConTextZ + "]";
 	}
-	
 	
 	
 

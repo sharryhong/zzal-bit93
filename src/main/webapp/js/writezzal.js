@@ -51,15 +51,17 @@ var indexNum=swiper.realIndex,
 		photoUpLoad;
 
 var zzalCon = function(){
-																	this.mno=1,
+																	this.mno,
 																	this.cono,
-																	this.cno = 1,
+																	this.cno,
 																	this.title,
-																	this.mainPic
+																	this.mainPic,
+																	this.publicType
+
 																}
 
 var pageCon = function(){
-																	this.zzno=1,
+
 																	this.pageNo,
 																	this.type,
 																	this.pagePic,
@@ -103,7 +105,7 @@ function writefuncDone(){
 
 
 								$(this).fileupload({
-									url: '/zzal-bit93/zzal/upload.json',
+									url: '/zzal-bit93/write/upload.json',
 									dataType: 'json',
 									imageMaxWidth: 670,
 									disableImageResize: /Android(?!.)|Opera/
@@ -164,14 +166,27 @@ function writefuncDone(){
 				console.log('is event nested?')
 				if(indexNum>1){
 					swiper.removeSlide([indexNum])
-					dataPlant()
-					dataGarage()
+					slideNumberring()
+					setTimeout(deleteSync(),150);
+
+					// youSonOfBitch(pageArray[0],jsonPageArray)
 					console.log($('.swiper-slide'))
 				}else {
 					alert("메인과 첫페이지는 삭제 불가임! 희희!")
 				}
 			})
+function deleteSync(){
+	dataGarage()
+	// dataPlant()
+	// 	$.ajax({
+	// 		url:'/zzal-bit93/write/delete.json',
+	// 		method:'POST',
+	// 		data: {"zzno":indexNum},
+	// 		success : function(data){console.log(data)},
+	// 	  dataType: 'json'})
+	//  //delete
 
+}
 
 
 var ssl=0;
@@ -192,24 +207,45 @@ var ssl=0;
 
 
 		$(document).on('click', '#add-btn, #temp-save-btn', function() {
+			console.log($(this).attr("data-tmppub"))
 			dataGarage()
-			dataPlant()
 
-			console.log(pageArray[0])
-			console.log(jsonPageArray)
-			$.ajax({
-				url:'/zzal-bit93/zzal/add.json',
-				method:'POST',
-				data: {"zzal":JSON.stringify(pageArray[0]),"zzalpage":JSON.stringify(jsonPageArray)},
-				success : function(data){console.log(data)},
-			  dataType: 'json'})
+			if($(this).attr("data-tmppub")=="true"){
+				console.log("true데스")
+				console.log(this)
+				pageArray[0].publicType = true;
+			}else{
+				pageArray[0].publicType = false;
+			}
+			dataPlant()
+			console.log(pageArray[0],"나 zzal")
+			console.log(jsonPageArray,"나 zzalpage")
+			youJSonSender(pageArray[0],jsonPageArray)
+
 		})
+
+
+		function youJSonSender(obj,jsonObj){
+			$.ajax({
+				url:'/zzal-bit93/write/add.json',
+				method:'POST',
+				data: {"zzal":JSON.stringify(obj), "zzalpage":JSON.stringify(jsonObj)},
+				success : function(data){console.log(data)},
+				dataType: 'json'
+			})
+		}
+
+
+
+
 
 /*json 생성 array 만드는 곳*/
 var jsonPageArray =[];
 
 
 function dataPlant(){
+	jsonPageArray = [];
+	console.log(jsonPageArray)
 	for(let i=1; i < pageArray.length; i++){
     jsonPageArray[i-1]  = pageArray[i]
 	}
@@ -220,26 +256,29 @@ function dataPlant(){
 
 
 function dataGarage(){
+	pageArray=[];
+	console.log(pageArray,'들어갉때')
 
-	pageArray.length = $('.swiper-slide').length
+	pageArray.length=$('.swiper-slide').length
 
 	pageArray[0] = new zzalCon();
-	pageArray[0].mno=1
-	pageArray[0].cono =1
+	pageArray[0].mno=no
+	pageArray[0].cono =parseInt($(fiCollect).val())
 	pageArray[0].cno = parseInt($(fiCategory).val())
 	pageArray[0].title = $(fiTitle).val()
 	pageArray[0].mainPic =$($("input[type=hidden]")[0])[0].value
-
+	pageArray[0].publicType;
 
 	for(let i =1; i < pageArray.length; i++){
 		pageArray[i]=new pageCon()
-		pageArray[i].zzno=1
+
 		pageArray[i].pageNo=i
-		pageArray[i].type='image'
+		pageArray[i].type='img'
 		pageArray[i].pagePic=$($("input[type=hidden]")[i])[0].value
 		pageArray[i].conText=$($('textarea')[i-1])[0].value
 	}
 
+	console.log(pageArray,'나올때')
 	return pageArray;
 }
 

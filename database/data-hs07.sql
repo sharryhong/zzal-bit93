@@ -5,6 +5,7 @@ insert into memb(mno,nick,email,pwd,pic,stype,mtype,auth) values(3,'하핫','zza
 insert into memb(mno,nick,email,pwd,pic,stype,mtype,auth) values(4,'아싸리','zzal04@test.com',password('1111'),'ohhh.jpg','zzal','zzaler',false);
 insert into memb(mno,nick,email,pwd,pic,stype,mtype,auth) values(5,'아뵤','a',password('1111'),'ohhh.jpg','zzal','zzaler',false);
 insert into memb(mno,nick,email,pwd,pic,stype,mtype,auth) values(6,'김대연','kdy8982@test.com',password('1111'), 'sul.jpg','zzal','zzaler',false);
+insert into memb(mno,nick,email,pwd,pic,stype,mtype,auth) values(7,'zico','zico8982@test.com',password('1111'), 'sul.jpg','zzal','zzaler',false);
 
 -- 카테고리
 insert into catg(cno,name) values(1,'음악');
