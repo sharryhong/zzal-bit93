@@ -72,14 +72,15 @@ ALTER TABLE MEMB
 
 -- 짤강의
 CREATE TABLE ZZAL_LECT (
-	ZZNO INTEGER      NOT NULL COMMENT '짤강의 코드', -- 짤강의 코드
-	MNO  INTEGER      NOT NULL COMMENT '회원코드', -- 회원코드
-	CNO  INTEGER      NOT NULL COMMENT '카테고리 코드', -- 카테고리 코드
-	CONO INTEGER      NULL     COMMENT '컬렉션일련번호', -- 컬렉션일련번호
-	TITL VARCHAR(255) NOT NULL COMMENT '짤강의제목', -- 짤강의제목
-	PIC  VARCHAR(255) NOT NULL COMMENT '대표 사진', -- 대표 사진
-	CDT  DATETIME     NOT NULL COMMENT '짤강의 게시날짜', -- 짤강의 게시날짜
-	ZTMP BOOLEAN      NULL     COMMENT '임시저장여부' -- 임시저장여부
+	ZZNO   INTEGER      NOT NULL COMMENT '짤강의 코드', -- 짤강의 코드
+	MNO    INTEGER      NOT NULL COMMENT '회원코드', -- 회원코드
+	CNO    INTEGER      NOT NULL COMMENT '카테고리 코드', -- 카테고리 코드
+	CONO   INTEGER      NULL     COMMENT '컬렉션일련번호', -- 컬렉션일련번호
+	TITL   VARCHAR(255) NOT NULL COMMENT '짤강의제목', -- 짤강의제목
+	PIC    VARCHAR(255) NOT NULL COMMENT '대표 사진', -- 대표 사진
+	CDT    DATETIME     NOT NULL COMMENT '짤강의 게시날짜', -- 짤강의 게시날짜
+	ZTMP   BOOLEAN      NULL     COMMENT '임시저장여부', -- 임시저장여부
+	HITCNT INTEGER      NULL     COMMENT '조회수' -- 조회수
 )
 COMMENT '짤강의';
 
