@@ -43,7 +43,7 @@ public class CollectControl {
   
   @RequestMapping("add")
   public JsonResult add(
-      int memNo, String title, String content, String picture, Boolean isPublic,String filename, Collect collect) throws Exception {
+      int memNo, String title, String content, String picture, Boolean isPublic, Collect collect) throws Exception {
     collect.setNo(memNo);
     collect.setTitle(title);
     collect.setContent(content);

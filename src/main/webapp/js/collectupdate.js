@@ -1,18 +1,19 @@
 (function($){
 	'use strict';
-
+	
+	var fififilename = $('.fifi-filename');	
 	var no = 0
 	try {
 	  no = location.href.split('?')[1].split('=')[1]
 	} catch (err) {}	
       	
 
-	$.getJSON('/zzal-bit93/auth/userinfo.json', function(result) {
+	/*$.getJSON('/zzal-bit93/auth/userinfo.json', function(result) {
 		 if (result.data) {
 			 $('.user-info-face .user-name').text(result.data.nick)
 			 $('.profile-wrap .phot').css({"background-image": "url(image/"+result.data.membpic+")"});
 		 }
-	})
+	})*/
 
 	$.getJSON('collect/detail.json', {'no': no}, function(result) {
 			$("#collect-add-title").attr("value", result.data.title);
@@ -23,7 +24,7 @@
 			console.log(result.data.title)
 			console.log(result.data.content)
 			console.log(result.data.isPublic)
-			$('.collect-photo').css({"background-image": "url(image/"+result.data.picture+")"})
+			$('.collect-photo').css({"background-image": "url(upload/"+result.data.picture+")"})
 	 });
 	
 	$('#collect-delete').click(function() {
@@ -32,7 +33,7 @@
 		  })
 	})
 	
-	var	picture = $('#collectPhoto'),
+	var	picture = $('#collect-cover-picture'),
 	title = $('#collect-add-title'),
 	content = $('#collect-add-content'),
 	isPublic =$('#myonoffswitch'),
@@ -48,13 +49,41 @@
 				'title' : $(title).val(),
 				'content' : $(content).val(),
 				'isPublic' : $(isPublic).prop("checked"),
-				'picture' : 'anonymous.png'
+				'picture' : $(fififilename).val()
 			}, function(result) {
 				console.log(result)
 				location.href = 'mypage.html'
 			},'json')
 		}) 
 	});
-	
+
+	var collectPhotoUpLoad
+
+	collectPhotoUpLoad = $('.collectPhoto-upload-btn')
+
+	$(collectPhotoUpLoad).on('click',function(){
+		console.log(this,'clickbox')
+
+		$(this).fileupload({
+			url: '/zzal-bit93/collect/upload.json',
+			dataType: 'json',
+			imageMaxWidth: 1127,
+			disableImageResize: /Android(?!.)|Opera/
+				.test(window.navigator && navigator.userAgent),
+				previewMaxWidth: 1127,   // 미리보기 이미지 너비
+				previewMaxHeight: 250,  // 미리보기 이미지 높이
+				previewCrop: true,      // 미리보기 이미지를 출력할 때 원본에서 지정된 크기로 자르기
+				done: function (e, data) {
+					console.log('done()...');
+					console.log(data.result,'data-result얌');
+					var filenames = data.result.data;
+					console.log(filenames,'filenames얌');
+					$(fififilename).val(filenames)
+					for (var i = 0; i < filenames.length; i++) {
+			$('.collect-photo').css("background-image", 'url(' + data.files[i].preview.toDataURL() +')');
+					}
+				}
+		});
+	});
 	
 })(jQuery);

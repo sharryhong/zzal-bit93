@@ -20,8 +20,10 @@
 <div class="main-content addpage">
     <div class="collect-addpage">
       <div class="collect-photo-add" id="collectaddPhoto">
-        <div class="collect-photo" style="background-image: url('image/co-bg.png');">
-          <a href="#" class="represent-photo"><i class="fa fa-camera-retro" aria-hidden="true"></i><span class="text">이미지 업로드</span></a><br>
+        <div class="collect-photo" id="collect-cover-picture" style="background-image: url('image/co-bg.png');">
+          <a href="#" class="represent-photo"><i class="fa fa-camera-retro" aria-hidden="true"></i><span class="text">이미지 업로드</span></a>
+          <input class="collectPhoto-upload-btn" type="file" name="files" accept="image/gif, image/png, image/jpg, image/jpeg">
+	      <input class="fifi-filename" type="hidden" names="filenames">	
         </div>
       </div>
     <div class="zzal-container">
@@ -81,9 +83,17 @@
 </script> -->
 <script src="node_modules/jquery/dist/jquery.min.js"></script>
 <!-- <script src="node_modules/handlebars/dist/handlebars.min.js"></script> -->
-<script src="js/collectupdate.js"></script>
 <script src="node_modules/swiper/dist/js/swiper.min.js"></script>
+<script src="node_modules/blueimp-file-upload/js/vendor/jquery.ui.widget.js"></script>
+<script src="node_modules/blueimp-load-image/js/load-image.all.min.js"></script>
+<script src="node_modules/blueimp-canvas-to-blob/js/canvas-to-blob.js"></script>
+<script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+<script src="node_modules/blueimp-file-upload/js/jquery.iframe-transport.js"></script>
+<script src="node_modules/blueimp-file-upload/js/jquery.fileupload.js"></script>
+<script src="node_modules/blueimp-file-upload/js/jquery.fileupload-process.js"></script> 
+<script src="node_modules/blueimp-file-upload/js/jquery.fileupload-image.js"></script> 
 <script src="js/load.js"></script>
+<script src="js/collectupdate.js"></script>
 
 </body>
 </html>
