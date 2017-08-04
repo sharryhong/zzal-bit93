@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import bitcamp.java93.dao.ZzalDao;
 import bitcamp.java93.dao.ZzalLikeDao;
+import bitcamp.java93.domain.Member;
 import bitcamp.java93.domain.Zzal;
 import bitcamp.java93.service.ZzalService;
 
@@ -47,6 +48,20 @@ public class ZzalServiceImpl implements ZzalService {
   public List<Zzal> zzalLikeRank() throws Exception {
     HashMap<String,Object> valueMap = new HashMap<>();
     return zzalDao.zzalLikeRank(valueMap);
+  }
+  
+  @Override
+  public List<Zzal> zzalViewRank() throws Exception {
+    HashMap<String,Object> valueMap = new HashMap<>();
+    return zzalDao.zzalViewRank(valueMap);
+  }
+  
+  @Override
+  public void hitCountUpdate(Zzal zzal) throws Exception {
+    int count = zzalDao.hitCountUpdate(zzal);
+    if (count < 1) {
+      throw new Exception(zzal.getZzno() + "번 짤강을 찾을 수 없습니다.");
+    }
   }
   
   /*@Override // DB에서 서브쿼리 사용하지 않을 때 

@@ -10,6 +10,8 @@ public interface ZzalDao {
   List<Zzal> zzalListWithCount(Map<String,Object> valueMap);
   List<Zzal> zzalBestList(Map<String,Object> valueMap);
   List<Zzal> zzalLikeRank(Map<String,Object> valueMap);
+  List<Zzal> zzalViewRank(Map<String,Object> valueMap);
+  int hitCountUpdate(Zzal zzal);
   int countAll();
   int foundRows();
 }

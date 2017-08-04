@@ -10,6 +10,8 @@ public interface ZzalService {
 	List<Zzal> zzalListWithCount(int pageNo, int pageSize) throws Exception;
 	List<Zzal> zzalBestList() throws Exception;
 	List<Zzal> zzalLikeRank() throws Exception;
+	List<Zzal> zzalViewRank() throws Exception;
+	void hitCountUpdate(Zzal zzal) throws Exception;
 	int getSize() throws Exception;
 	int foundRows() throws Exception;
 }

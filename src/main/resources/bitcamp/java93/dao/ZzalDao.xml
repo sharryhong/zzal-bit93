@@ -12,6 +12,7 @@
     <result column="pic2" property="mainPic"/>
     <result column="cdt2" property="cdt"/>
     <result column="ztmp" property="zzalTemporary"/>
+    <result column="hitcnt" property="hitCount"/>
     <result column="like_cnt" property="likeCount"/>
     <result column="reply_cnt" property="replyCount"/>
     <result column="rCount" property="rowCount"/>
@@ -37,25 +38,34 @@
     WHERE z.zzno = #{no} 
   </select>
 
-  <select id="zzalListWithCount" resultMap="zzalMap" parameterType="map">
-    SELECT z.zzno, z.mno, m.nick, m.pic as pic1, z.cno, z.titl, z.pic as pic2, z.cdt as cdt2, 
+  <!-- <select id="zzalListWithCount" resultMap="zzalMap" parameterType="map">
+    SELECT z.zzno, z.mno, m.nick, m.pic as pic1, z.cno, z.titl, z.pic as pic2, z.cdt as cdt2, z.hitcnt,
     (SELECT count(*) FROM lik WHERE zzno=z.zzno) as like_cnt, 
     (SELECT count(*) FROM reply WHERE zzno=z.zzno) as reply_cnt
     FROM zzal_lect z INNER JOIN memb m on z.mno = m.mno
     WHERE z.ztmp=false
-    ORDER BY like_cnt + reply_cnt desc
+    ORDER BY (like_cnt * 10) + reply_cnt + z.hitcnt desc
+    LIMIT #{startIndex}, #{pageSize}
+  </select> -->
+  
+  <select id="zzalListWithCount" resultMap="zzalMap" parameterType="map">
+    SELECT z.zzno, z.mno, m.nick, m.pic as pic1, z.cno, z.titl, z.pic as pic2, z.cdt as cdt2, z.hitcnt,
+    (SELECT count(*) FROM lik WHERE zzno=z.zzno) as like_cnt, 
+    (SELECT count(*) FROM reply WHERE zzno=z.zzno) as reply_cnt
+    FROM zzal_lect z INNER JOIN memb m on z.mno = m.mno
+    WHERE z.ztmp=false
+    ORDER BY (like_cnt * 10) + reply_cnt + z.hitcnt desc
     LIMIT #{startIndex}, #{pageSize}
   </select>
   
-  <select id="zzalLikeRank" resultMap="zzalMap" parameterType="map">
-    SELECT z.zzno, z.mno, m.nick, m.pic as pic1, z.cno, z.titl, z.pic as pic2, z.cdt as cdt2,
-    (SELECT count(*) FROM lik WHERE zzno=z.zzno) as like_cnt
+  	<!-- SELECT z.zzno, z.mno, m.nick, m.pic as pic1, z.cno, z.titl, z.pic as pic2, z.cdt as cdt2, z.hitcnt,
+    (SELECT count(*) FROM lik WHERE zzno=z.zzno) as like_cnt, 
+    (SELECT count(*) FROM reply WHERE zzno=z.zzno) as reply_cnt
     FROM zzal_lect z INNER JOIN memb m on z.mno = m.mno
     WHERE z.ztmp=false
-    ORDER BY like_cnt desc
-    LIMIT 30
-  </select>
-
+    ORDER BY (like_cnt * 10) + reply_cnt + z.hitcnt desc, cdt desc -->
+  
+  <!-- index.html 한주간 좋아요 많이 받은 랭킹 10 -->
   <select id="zzalBestList" resultMap="zzalMap" parameterType="map">
     SELECT *
 		FROM 
@@ -67,6 +77,28 @@
 		WHERE week_like IS NOT NULL
 		ORDER BY week_like DESC
 		LIMIT 10
+  </select>
+  
+  <!-- 추천순 페이지. 한 주간 좋아요 많이 받은 랭킹 30 -->
+  <select id="zzalLikeRank" resultMap="zzalMap" parameterType="map">
+    SELECT *
+		FROM 
+		    (SELECT z.zzno, z.titl, z.pic as pic2, m.nick FROM zzal_lect z INNER JOIN memb m ON z.mno = m.mno) t1
+		LEFT JOIN
+		    (SELECT zzno, cdt, count(*) as week_like FROM lik WHERE cdt Between AddDate(Now(),-7) AND Now() GROUP BY zzno) t2
+		ON
+		    t1.zzno = t2.zzno
+		ORDER BY week_like DESC
+		LIMIT 30
+  </select>
+  
+  <!-- 많이본 페이지. 한 주간 조회수 많은 랭킹 30 -->
+  <select id="zzalViewRank" resultMap="zzalMap" parameterType="map">
+    SELECT zzno, titl, pic as pic2, hitcnt, cdt as cdt2
+		FROM zzal_lect
+		WHERE ztmp=false AND cdt Between AddDate(Now(),-7) AND Now() GROUP BY zzno
+		ORDER BY hitcnt desc
+		LIMIT 30
   </select>
   
   <select id="countAll" resultType="int">
@@ -84,6 +116,13 @@
     WHERE z.ztmp=false
     ORDER BY like_cnt + reply_cnt desc) as rowCount
   </select>
+  
+  <!-- 짤강 클릭시 조회수 증가 -->
+  <update id="hitCountUpdate" parameterType="zzal">
+    UPDATE zzal_lect SET 
+      hitcnt = hitcnt + 1
+    WHERE zzno=#{zzno}
+  </update>
   
 </mapper> 
 

@@ -22,6 +22,16 @@ function generateHandlebars(result, el, target) {
   target.append(generatedHTML)
 }
 
+// 짤강 클릭시 조회수 
+if ($('.zzal-lect')) {
+	$(document).on("click", ".zzal-lect", function() {
+		console.log($(this).attr('data-zzno'))
+		$.post('zzal/hitCountUpdate.json', {'zzno': $(this).attr('data-zzno')}, function(result) {
+	      /*location.href = 'index.html'*/
+	    }, 'json')
+	})
+}
+
 (function($, window){
 	'use strict';
 	

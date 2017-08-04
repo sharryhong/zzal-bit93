@@ -9,9 +9,6 @@ $(document).ready(function(){
 			console.log(result.data)
 			var foundRows = result.data.foundRows
 			var lastPageNo = parseInt(foundRows / pageSize) 
-			console.log('pageNo', pageNo)
-			console.log('foundRows', foundRows)
-			console.log('lastPageNo', lastPageNo)
 			generateHandlebars(result, $('#main-template'), $('#zzal-list'))
 		    
 		    if (pageNo < lastPageNo) { // 마지막 이후에는 무한스크롤 실행되지 않게 하기 
@@ -70,13 +67,6 @@ $(document).ready(function(){
 	})
 	
 	function swiperFn() {
-		/*$('.index-page .bxslider').bxSlider({
-	    	auto: true,
-	    	mode: 'fade',
-	    	speed: 300,
-	    	captions: true,
-	    	pager: false
-		});*/
 		var swiper = new Swiper('.slider .swiper-container', {
 	        pagination: '.swiper-pagination',
 	        nextButton: '.swiper-button-next',

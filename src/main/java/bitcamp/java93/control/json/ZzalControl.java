@@ -3,13 +3,14 @@ package bitcamp.java93.control.json;
 import java.util.HashMap;
 
 import javax.servlet.ServletContext;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import bitcamp.java93.service.ZzalLikeService;
+import bitcamp.java93.domain.Zzal;
 import bitcamp.java93.service.ZzalService;
 
 @RestController
@@ -54,6 +55,21 @@ public class ZzalControl {
     dataMap.put("zzalList", zzalService.zzalLikeRank());
     
     return new JsonResult(JsonResult.SUCCESS, dataMap);
+  }
+	
+	@RequestMapping("zzalViewRank")
+  public JsonResult zzalViewRank() throws Exception {
+    
+    HashMap<String,Object> dataMap = new HashMap<>();
+    dataMap.put("zzalList", zzalService.zzalViewRank());
+    
+    return new JsonResult(JsonResult.SUCCESS, dataMap);
+  }
+	
+	@RequestMapping("hitCountUpdate")
+  public JsonResult hitCountUpdate(Zzal zzal, HttpSession session) throws Exception {
+    zzalService.hitCountUpdate(zzal);
+    return new JsonResult(JsonResult.SUCCESS, "ok");
   }
 
 }

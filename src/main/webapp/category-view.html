@@ -18,11 +18,11 @@
 <div class="main-content category-special">
 <div class="zzal-container">
 	<div class="titles-wrap">
-	  <h2 class="title">추천순</h2>
-	  <span class="explain">한 주간 <i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 많이 받은 짤강!</span>
+	  <h2 class="title">많이본</h2>
+	  <span class="explain">한 주간 조회수 가장 많은 짤강!</span>
 	</div>
 	<div class="best-contents">
-	  <ul id="zzal-like-list" class="zzal-lects02 clearfix">
+	  <ul id="zzal-view-list" class="zzal-lects02 clearfix">
 		</ul>
 	</div>
 </div>
@@ -30,29 +30,11 @@
 <div id="footer"></div>
 </div>
 
-<script id="like-template" type="text/x-handlebars-template">
-{{#each zzalList}}
-		<li>
-			  <a href="#" class="zzal-lect">
-			    <div class="zzal">
-			      <div class="zzal-img">
-			        <img src="upload/{{mainPic}}" alt="">
-			      </div>
-			    </div>
-			    <div class="bottom">
-			      <span class="ranking">{{counter @index}}</span>
-			      <h3 class="title">{{title}}</h3>
-			    </div>
-			  </a>
-			</li>
-{{/each}}
-</script>
-
 <script src="node_modules/jquery/dist/jquery.min.js"></script>
 <script src="node_modules/handlebars/dist/handlebars.min.js"></script>
 <script src="js/jquery.bxslider.min.js"></script>
 <script src="node_modules/swiper/dist/js/swiper.min.js"></script>
 <script src="js/load.js"></script>
-<script src="js/category-like.js"></script>
+<script src="js/category-view.js"></script>
 </body>
 </html>
