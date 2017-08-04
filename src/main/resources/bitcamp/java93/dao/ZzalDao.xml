@@ -56,30 +56,6 @@
     LIMIT 30
   </select>
 
-<!-- 몇개인지 알아내기  
-  SELECT SQL_CALC_FOUND_ROWS z.zzno, z.mno, m.nick, m.pic as pic1, z.cno, z.titl, z.pic as pic2, z.cdt as cdt2, FOUND_ROWS() as rCount,
-  (SELECT count(*) FROM lik WHERE zzno=z.zzno) as like_cnt, 
-    (SELECT count(*) FROM reply WHERE zzno=z.zzno) as reply_cnt
-    FROM zzal_lect z INNER JOIN memb m on z.mno = m.mno
-    WHERE z.ztmp=false
-    ORDER BY like_cnt + reply_cnt desc -->
-<!-- order결과를 순위로 나타내기  
-select zzno, mno, 
-(select count(*) + 1 from zzal_lect where mno > z.mno) as rank
-from zzal_lect z
-order by rank asc; -->
-    
-  
-  <!-- <select id="zzalListWithCount" resultMap="zzalMap" parameterType="map">
-    SELECT z.zzno, z.mno, m.nick, m.pic as pic1, z.cno, z.titl, z.pic as pic2, z.cdt as cdt2,
-    (SELECT count(*) FROM lik WHERE zzno=z.zzno) as like_cnt, 
-    (SELECT count(*) FROM reply WHERE zzno=z.zzno) as reply_cnt
-    FROM zzal_lect z INNER JOIN memb m on z.mno = m.mno
-    WHERE z.ztmp=false
-    ORDER BY like_cnt + reply_cnt desc
-    LIMIT #{startIndex}, #{pageSize}
-  </select> -->
-  
   <select id="zzalBestList" resultMap="zzalMap" parameterType="map">
     SELECT *
 		FROM 

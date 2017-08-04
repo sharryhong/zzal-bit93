@@ -12,9 +12,6 @@ $(document).ready(function(){
 			console.log('pageNo', pageNo)
 			console.log('foundRows', foundRows)
 			console.log('lastPageNo', lastPageNo)
-			/*var templateFn = Handlebars.compile($('#main-template').text())
-		    var generatedHTML = templateFn(result.data) 
-		    $('#zzal-list').append(generatedHTML) */
 			generateHandlebars(result, $('#main-template'), $('#zzal-list'))
 		    
 		    if (pageNo < lastPageNo) { // 마지막 이후에는 무한스크롤 실행되지 않게 하기 
@@ -24,13 +21,18 @@ $(document).ready(function(){
 	}
 	
 	/*무한 스크롤*/
+	var $scrollToTop = $('.scroll-to-top')
 	$(document).scroll(function() {
 		/*
 		 * $(window).scrollTop() : scroll의 top위치  
 		 * $(window).height() : 현재 보이는 window의 height 
 		 * $(document).height() : 현재 document전체 height
 		 */
-	    
+		if ($(window).scrollTop() > 300) {
+			$scrollToTop.fadeIn()
+		} else {
+			$scrollToTop.fadeOut()
+		}
 	    if (checkLast == true && ($(window).scrollTop() + 10) >= $(document).height() - $(window).height()) {
 	      checkLast = false
 	      ++pageNo
@@ -38,6 +40,10 @@ $(document).ready(function(){
 	      zzalListMain(pageNo, pageSize)
 	    }
 	});
+	$scrollToTop.click(function() {
+		$('html, body').animate({scrollTop: 0}, 200)
+		return false
+	})
 	
 	// index.html 금주의 인기짤강 & 슬라이드에 뿌리기 
 	$.getJSON('zzal/zzalBestList.json', function(result) {

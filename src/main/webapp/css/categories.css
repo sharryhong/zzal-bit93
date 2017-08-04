@@ -99,21 +99,12 @@
 	width: 60px;
 	height: 94px;
 }
-/* .category-special .zzal-lects02 li:nth-child(1)::after {
-	background: center url("../image/medal1.png");
-	background-size: 100%;
-}
-.category-special .zzal-lects02 li:nth-child(2)::after {
-	background: center url("../image/medal2.png");
-	background-size: 100%;
-}
-.category-special .zzal-lects02 li:nth-child(3)::after {
-	background: center url("../image/medal3.png");
-	background-size: 100%;
-} */
-
 .titles-wrap .title {
 	font-weight: normal;
+	display: inline-block;
+}
+.titles-wrap .explain {
+	color: #999;
 }
 
 @media (max-width: 765px) {
@@ -123,10 +114,17 @@
 	.bx-wrapper .bx-controls-direction a {
 	  margin-top: -40px;
 	}
-	.titles-wrap {
+	/* .titles-wrap {
 	  display: none;
+	} */
+	.category-special .titles-wrap {
+	  border: none;
+	  margin-top: 15px;
+	  margin-bottom: 13px;
+	  text-align: center;
 	}
 	.titles-wrap .title {
+		display: none;
 	  margin-bottom: 0;
 	}
 	.best-contents {

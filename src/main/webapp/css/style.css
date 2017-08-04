@@ -381,12 +381,20 @@ input::-moz-placeholder { color: #777; }
 .bx-wrapper img {
 	width: 100%;
 }
+.main-page .scroll-to-top {
+	display: none;
+	position:fixed;
+	bottom:35px;
+	right:30px;
+	padding: 5px 14px 9px 12px;
+  border-radius: 80px;
+	opacity: 0.8;
+}
 
 .footer {
   font-family: 'Arial', sans-serif;
   width: 100%;
   padding: 15px;
-  /* margin-top: 20px; */
   text-align: center;
   background-color: #F0F0F0;
 }
@@ -644,6 +652,10 @@ input::-moz-placeholder { color: #777; }
 	}
 	.slider .swiper-wrapper {
 	  height: 239px;
+	}
+	.main-page .scroll-to-top {
+		bottom:25px;
+		right:20px;
 	}
 }
 
