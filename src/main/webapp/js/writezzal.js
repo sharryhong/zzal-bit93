@@ -221,6 +221,7 @@ var ssl=0;
 			console.log(pageArray[0],"나 zzal")
 			console.log(jsonPageArray,"나 zzalpage")
 			youJSonSender(pageArray[0],jsonPageArray)
+			location.href="mypage.html"
 
 		})
 

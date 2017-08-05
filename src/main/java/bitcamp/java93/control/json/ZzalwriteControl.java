@@ -87,7 +87,7 @@ public class ZzalwriteControl {
         	page.setPagePic(tmp.get("pagePic").toString());
         	page.setConTextZ(tmp.get("conText").toString());
         	
-        	zzalwriteService.pageAdd(page);
+        	System.out.println(zzalwriteService.pageAdd(page));
         }
 
     

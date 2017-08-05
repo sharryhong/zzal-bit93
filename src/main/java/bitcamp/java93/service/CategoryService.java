@@ -8,5 +8,5 @@ public interface CategoryService {
   List<Category> list() throws Exception;
   int getSize() throws Exception;
   
-  void remove(int no) throws Exception; // remove()
+//  void remove(int no) throws Exception; // remove()
 }

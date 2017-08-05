@@ -12,6 +12,7 @@
     <result column="titl" property="title"/>
     <result column="pic" property="mainPic"/>
     <result column="cdt" property="cdt"/>
+    <result column="ztmp" property="zzalTemporary"/>
   </resultMap>
   
   
@@ -40,18 +41,19 @@
   </insert> -->
   
   <insert id="insert" parameterType="zzal">
-    insert into zzal_lect(mno, cno, cono, titl, pic, cdt) 
-    values(#{mno}, #{cno}, Case When #{cono} = 0 then null else #{cono} end, #{title}, #{mainPic}, curdate())
+    insert into zzal_lect(mno, cno, cono, titl, pic, cdt, ztmp) 
+    values(#{mno}, #{cno}, Case When #{cono} = 0 then null else #{cono} end, #{title}, #{mainPic}, curdate(), #{zzalTemporary})
  
   </insert>
   
-  <insert id="insertPage" parameterType="page">
-    <selectKey resultType="int" keyProperty="zzalNo" order="BEFORE">
+  <insert id="insertPage" keyColumn="zzno" parameterType="page">
+    <selectKey  resultType="int" keyProperty="zzalNo" order="BEFORE">
         SELECT MAX(last_insert_id(z.zzno)) FROM zzal_lect z       
     </selectKey>
     insert into page(zzno, pgno, pic, cont) 
     values(#{zzalNo}, #{pageNo}, #{pagePic},#{ConTextZ});
   </insert>
+
  <!--  <insert id="insertPhoto" parameterType="map">
     insert into zzal_lect(zzno, pic) 
     values(#{zzno}, #{mainPic})

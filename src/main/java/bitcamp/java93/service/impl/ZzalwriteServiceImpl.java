@@ -23,8 +23,8 @@ public class ZzalwriteServiceImpl implements ZzalwriteService {
 	}
 
 	@Override
-	public void pageAdd(Page page) throws Exception {
-		zzalwriteDao.insertPage(page);
+	public int pageAdd(Page page) throws Exception {
+		return zzalwriteDao.insertPage(page);
 
 	}
 
