@@ -6,7 +6,6 @@ $(document).ready(function(){
 	zzalListMain(pageNo, pageSize)
 	function zzalListMain(pageNo, pageSize) {
 		$.getJSON('zzal/zzalListWithCount.json',{'pageNo': pageNo, 'pageSize': pageSize}, function(result) {
-			console.log(result.data)
 			var foundRows = result.data.foundRows
 			var lastPageNo = parseInt(foundRows / pageSize) 
 			generateHandlebars(result, $('#main-template'), $('#zzal-list'))
@@ -80,8 +79,9 @@ $(document).ready(function(){
 	    });
 	}
 	
+	// 클릭시 해당 짤강 페이지로 
 	$(document.body).on('click', '#zzal-list .zzal-lect', function(event) {
-	  location.href = 'reply.html?zzno=' + $(this).attr('data-zzno') 
+	  location.href = 'reply.html?zzno=' + $(this).attr('data-zzno') // 짤강 detail 완성 후  링크수정
 	  event.preventDefault()
 	})
 	
