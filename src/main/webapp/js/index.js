@@ -6,9 +6,10 @@ $(document).ready(function(){
 	zzalListMain(pageNo, pageSize)
 	function zzalListMain(pageNo, pageSize) {
 		$.getJSON('zzal/zzalListWithCount.json',{'pageNo': pageNo, 'pageSize': pageSize}, function(result) {
+			console.log(result.data)
 			var foundRows = result.data.foundRows
 			var lastPageNo = parseInt(foundRows / pageSize) 
-			generateHandlebars(result, $('#main-template'), $('#zzal-list'))
+			generateHandlebarsInfinity(result, $('#main-template'), $('#zzal-list'))
 		    
 		    if (pageNo < lastPageNo) { // 마지막 이후에는 무한스크롤 실행되지 않게 하기 
 		       checkLast = true
@@ -29,7 +30,7 @@ $(document).ready(function(){
 		} else {
 			$scrollToTop.fadeOut()
 		}
-	    if (checkLast == true && ($(window).scrollTop() + 10) >= $(document).height() - $(window).height()) {
+	    if (checkLast == true && ($(window).scrollTop() + 50) >= $(document).height() - $(window).height()) {
 	      checkLast = false
 	      ++pageNo
 	      console.log(pageNo)

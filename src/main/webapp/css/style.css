@@ -382,8 +382,10 @@ input::-moz-placeholder { color: #777; }
 	width: 100%;
 }
 .main-page .scroll-to-top {
+	font-family: 'Arial', sans-serif;
 	display: none;
 	position:fixed;
+	z-index: 20000;
 	bottom:35px;
 	right:30px;
 	padding: 5px 14px 9px 12px;

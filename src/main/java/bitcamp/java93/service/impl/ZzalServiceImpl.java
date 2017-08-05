@@ -37,6 +37,14 @@ public class ZzalServiceImpl implements ZzalService {
     valueMap.put("pageSize", pageSize);
     return zzalDao.zzalListWithCount(valueMap);
   }
+	
+	public List<Zzal> zzalListCategory(int pageNo, int pageSize, int cno) throws Exception {
+    HashMap<String,Object> valueMap = new HashMap<>();
+    valueMap.put("startIndex", (pageNo - 1) * pageSize);
+    valueMap.put("pageSize", pageSize);
+    valueMap.put("cno", cno);
+    return zzalDao.zzalListCategory(valueMap);
+  }
   
   @Override
   public List<Zzal> zzalBestList() throws Exception {
@@ -83,6 +91,10 @@ public class ZzalServiceImpl implements ZzalService {
   @Override
   public int foundRows() throws Exception {
     return zzalDao.foundRows();
+  }
+  @Override
+  public int foundRowsCatetory(int cno) throws Exception {
+    return zzalDao.foundRowsCatetory(cno);
   }
 	  	
 }
