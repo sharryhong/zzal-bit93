@@ -4,7 +4,7 @@ $(document).ready(function(){
 	  cno = location.href.split('?')[1].split('=')[1]
 	} catch (err) {}
 	
-	$categoryTitle = $('.category-con .title')
+	$categoryTitle = $('.category-con .titles-wrap .title')
 	if (cno == 1) { $categoryTitle.text('음악') }
 	if (cno == 2) { $categoryTitle.text('사진 · 여행') }
 	if (cno == 3) { $categoryTitle.text('예술 · 문화') }
@@ -14,6 +14,49 @@ $(document).ready(function(){
 	if (cno == 7) { $categoryTitle.text('IT') }
 	if (cno == 8) { $categoryTitle.text('직업 · 진로') }
 	if (cno == 9) { $categoryTitle.text('패션 · 뷰티') }
+	
+	// 상단 슬라이드 
+	$.getJSON('zzal/zzalBestCategoryList.json', {'cno': cno}, function(result) {
+		console.log(result.data)
+		generateHandlebars(result, $('#category-slide-template'), $('.category-con .swiper-wrapper'))
+		
+		var slidesPer = null,
+			checkMobile = true
+		if(window.innerWidth > 766){
+			slidesPer = 4
+			swiperFn(slidesPer)
+			checkMobile = false
+		} else {
+			slidesPer = 2
+			swiperFn(slidesPer)
+			checkMobile = true
+		}
+		
+		$(window).resize(function(){
+			var slidesPer = null
+			if(window.innerWidth > 766 && checkMobile == false){
+				checkMobile = true
+				console.log('>>>')
+				slidesPer = 4
+				swiperFn(slidesPer)
+			} else if(window.innerWidth < 766 && checkMobile == true) {
+				checkMobile = false
+				console.log('<<<')
+				slidesPer = 2
+				swiperFn(slidesPer)
+			}
+		});
+	})
+	
+	function swiperFn(slidesPer) {
+		var swiper = new Swiper('.category-con .swiper-container', {
+			pagination: '.swiper-pagination',
+			slidesPerView: slidesPer,
+			paginationClickable: true,
+			autoplay: 2500,
+			autoplayDisableOnInteraction: false
+		});
+	}
 	
 	// category-music.html 짤강의 리스트뿌리기
 	var pageNo = 1

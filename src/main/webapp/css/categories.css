@@ -1,59 +1,9 @@
-.bx-wrapper {
-	margin: 0 auto 40px auto;
-	border: none;
-	-moz-box-shadow: none;
-  -webkit-box-shadow: none;
-  box-shadow: none;
+.swiper-container {
+	padding-bottom: 10px;
+	margin-bottom: 10px;
 }
-.bx-wrapper .bx-controls.bx-has-controls-auto.bx-has-pager .bx-pager {
-	text-align: center;
-  width: 100%;
-}
-.bxslider.zzal-lects02 li {
-	padding: 0;
-}
-.bx-wrapper .bx-controls-direction a {
-  margin-top: -47px;
-}
-.bxslider .zzal-lect .zzal {
-	position: static;
-}
-.bxslider .zzal-lects02 .zzal-lect {
-  padding-bottom: 63%;
-}
-.bxslider .zzal-lect .for-title {
-	/* bottom: 68px; */
-	right: 15px;
-  width: 83%;
-  text-align: right;
-  background-color: rgba(0,0,0,0);
-}
-.bx-wrapper .bx-pager {
-	bottom: -15px;
-}
-.bxslider .zzal-lect .zzal-img {
-	width: 140%;
-}
-.bxslider .zzal-lect .zzal img {
-  transform: translateX(-14%);
-}
-/* .bxslider .zzal-lect .zzal-img:after {
-	display: block;
-	content: '';
-	width: 100%;
-	height: 100%;
-	position: absolute;
-	background: rgba(0,0,0,0.2)
-} */
-/* .bx-wrapper .bx-pager {
-	position: absolute;
-  top: 131px;
-} */
-.bx-wrapper .bx-pager.bx-default-pager a {
-	background: #aaa;
-}
-.bx-wrapper .bx-pager.bx-default-pager a.active {
-	background: #eee;	
+.swiper-container-horizontal>.swiper-pagination-bullets {
+	bottom: 0px;
 }
 .titles-wrap {
 	padding: 0 10px;
@@ -108,15 +58,17 @@
 }
 
 @media (max-width: 765px) {
+	.zzal-lects02 li {
+	  padding: 0;
+	}
+	.zzal-lect .zzal img {
+	  width: 140%;
+	  transform: translateX(-15%);
+	}
+	
 	.category-special .zzal-lects02 li::after {
     top: 0px;
 	}
-	.bx-wrapper .bx-controls-direction a {
-	  margin-top: -40px;
-	}
-	/* .titles-wrap {
-	  display: none;
-	} */
 	.category-special .titles-wrap {
 	  border: none;
 	  margin-top: 15px;
@@ -144,17 +96,11 @@
 	}
 }
 @media (max-width: 440px) {
-	.bxslider .zzal-lect .zzal-img {
-		width: 160%;
-	}
 	.zzal-lect .zzal-img {
 	  padding-bottom: 100%;
 	}
 	.zzal-lects02 .zzal-lect {
-    padding-bottom: 100%;
-	}
-	.bx-wrapper .bx-controls-direction a {
-	  margin-top: -30px;
+    padding-bottom: 111%;
 	}
 	.category-special .zzal-lects02 .zzal-lect {
 	  padding-bottom: 60%;

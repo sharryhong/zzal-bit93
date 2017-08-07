@@ -57,6 +57,15 @@ public class ZzalControl {
     return new JsonResult(JsonResult.SUCCESS, dataMap);
   }
 	
+	@RequestMapping("zzalBestCategoryList")
+  public JsonResult zzalBestCategoryList(int cno) throws Exception {
+    
+    HashMap<String,Object> dataMap = new HashMap<>();
+    dataMap.put("zzalList", zzalService.zzalBestCategoryList(cno));
+    
+    return new JsonResult(JsonResult.SUCCESS, dataMap);
+  }
+	
 	@RequestMapping("zzalLikeRank")
   public JsonResult zzalLikeRank() throws Exception {
     
