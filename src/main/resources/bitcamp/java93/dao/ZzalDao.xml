@@ -116,6 +116,17 @@
 		LIMIT 30
   </select>
   
+  <!-- 새로운 페이지. 무한스크롤 -->
+  <select id="zzalListNew" resultMap="zzalMap" parameterType="map">
+    SELECT z.zzno, z.mno, m.nick, m.pic as pic1, z.cno, z.titl, z.pic as pic2, z.cdt as cdt2, z.hitcnt,
+    (SELECT count(*) FROM lik WHERE zzno=z.zzno) as like_cnt, 
+    (SELECT count(*) FROM reply WHERE zzno=z.zzno) as reply_cnt
+    FROM zzal_lect z INNER JOIN memb m on z.mno = m.mno
+    WHERE z.ztmp=false 
+    ORDER BY z.cdt desc
+    LIMIT #{startIndex}, #{pageSize}
+  </select>
+  
   <select id="countAll" resultType="int">
     SELECT count(*)
     FROM zzal_lect

@@ -6,7 +6,6 @@
   <title>zzal school</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
-  <link rel="stylesheet" href="css/jquery.bxslider.min.css">
   <link rel="stylesheet" href="node_modules/swiper/dist/css/swiper.min.css">
   <link rel="stylesheet" href="css/common.css">
   <link rel="stylesheet" href="css/style.css">
@@ -20,7 +19,11 @@
 	<div class="titles-wrap">
 	  <h2 class="title">새로운</h2>
 	</div>
-	<div class="best-contents">
+	<div class="zzal-container">
+    <ul class="zzal-lects clearfix" id="zzal-list">
+		</ul>
+  </div>
+	<!-- <div class="best-contents">
 	  <ul class="zzal-lects02 clearfix">
 			<li>
 			  <a href="detailpage-v01.html" class="zzal-lect">
@@ -101,16 +104,51 @@
 			  </a>
 			</li>
 		</ul>
-	</div>
+	</div> -->
 </div>
 </div>
+<a href="#" class="scroll-to-top btn btn-info"><i class="fa fa-arrow-up" aria-hidden="true"></i> Top</a>
 <div id="footer"></div>
 </div>
 
+<script id="main-template" type="text/x-handlebars-template">
+{{#each zzalList}}
+<li class="zzal-li">
+  <a href="#" class="zzal-lect" data-zzno="{{zzno}}">
+    <div class="lect-top">
+      <span class="user-photo" style='background-image:url("image/{{member.membpic}}")'></span>
+      <span class="user-name">{{member.nick}}</span>
+    </div>
+    <div class="zzal">
+      <div class="zzal-img">
+        <img src="upload/{{mainPic}}" alt="">
+        <div class="for-title">
+          <h3 class="title">{{title}}</h3>
+        </div>
+      </div>
+    </div>
+    <div class="bottom">
+      <div class="view">
+        <span>조회수</span><span> {{hitCount}}</span>
+      </div>
+      <div class="right">
+        <div class="like">
+          <span><i class="fa fa-heart-o" aria-hidden="true"><span class="blind">좋아요</span></i></span><span class="like-count"> {{likeCount}}</span>
+        </div>
+        <div class="like">
+          <span><i class="fa fa-commenting-o" aria-hidden="true"><span class="blind">댓글</span></i></span><span> {{replyCount}}</span>
+        </div>
+      </div>
+    </div>
+  </a>
+</li>
+{{/each}}
+</script>
+
 <script src="node_modules/jquery/dist/jquery.min.js"></script>
 <script src="node_modules/handlebars/dist/handlebars.min.js"></script>
-<script src="js/jquery.bxslider.min.js"></script>
 <script src="node_modules/swiper/dist/js/swiper.min.js"></script>
 <script src="js/load.js"></script>
+<script src="js/category-new.js"></script>
 </body>
 </html>

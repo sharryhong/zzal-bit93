@@ -1,4 +1,4 @@
-.swiper-container {
+.category-con .swiper-container {
 	padding-bottom: 10px;
 	margin-bottom: 10px;
 }
@@ -56,8 +56,16 @@
 .titles-wrap .explain {
 	color: #999;
 }
+.swiper-button-next, 
+.swiper-button-prev {
+  top: 75px;
+}
 
 @media (max-width: 765px) {
+	.swiper-button-next, 
+	.swiper-button-prev {
+	  display: none;
+	}
 	.zzal-lects02 li {
 	  padding: 0;
 	}

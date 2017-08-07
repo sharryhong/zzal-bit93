@@ -53,11 +53,11 @@ $(document).ready(function(){
 		    newSlideEl = ''
 		for (let i = 0; i < result.data.zzalList.length; i++) {
 			newEl += [
-				'<li data-zzno="'+zzal[i].zzno+'"><a href="#"><span class="ranking">'+(i+1)+'</span><span class="user-name"> ['+zzal[i].member.nick+'] </span><span class="zzal-title">'+zzal[i].title+'</span></a></li>'
+				'<li><a href="#" class="zzal-lect" data-zzno="'+zzal[i].zzno+'"><span class="ranking">'+(i+1) +'</span><span class="user-name"> ['+zzal[i].member.nick+'] </span><span class="zzal-title">'+zzal[i].title+'</span></a></li>'
 			].join('')
 			
 			newSlideEl += [
-				'<li class="swiper-slide"><img src="upload/'+zzal[i].mainPic+'"><p class="title">'+zzal[i].title+'</p><span class="rank">'+(i+1)+'</span></li>'
+				'<li class="swiper-slide"><a href="#" class="zzal-lect" data-zzno="'+zzal[i].zzno+'"><img src="upload/'+zzal[i].mainPic+'"><p class="title">'+zzal[i].title+'</p><span class="rank">'+(i+1)+'</span></a></li>'
 			]
 		}
 		$target.html(newEl)
@@ -81,7 +81,7 @@ $(document).ready(function(){
 	}
 	
 	// 클릭시 해당 짤강 페이지로 
-	$(document.body).on('click', '#zzal-list .zzal-lect', function(event) {
+	$(document.body).on('click', '.zzal-lect', function(event) {
 	  location.href = 'reply.html?zzno=' + $(this).attr('data-zzno') // 짤강 detail 완성 후  링크수정
 	  event.preventDefault()
 	})

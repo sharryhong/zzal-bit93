@@ -4,8 +4,9 @@ $(document).ready(function(){
 	  cno = location.href.split('?')[1].split('=')[1]
 	} catch (err) {}
 	
-	$categoryTitle = $('.category-con .titles-wrap .title')
-	if (cno == 1) { $categoryTitle.text('음악') }
+	var $categoryTitle = $('.category-con .titles-wrap .title')
+	var selectedMenu = null
+	if (cno == 1) { $categoryTitle.text('음악'); }
 	if (cno == 2) { $categoryTitle.text('사진 · 여행') }
 	if (cno == 3) { $categoryTitle.text('예술 · 문화') }
 	if (cno == 4) { $categoryTitle.text('연애 · 가족') }
@@ -15,13 +16,14 @@ $(document).ready(function(){
 	if (cno == 8) { $categoryTitle.text('직업 · 진로') }
 	if (cno == 9) { $categoryTitle.text('패션 · 뷰티') }
 	
+	
 	// 상단 슬라이드 
 	$.getJSON('zzal/zzalBestCategoryList.json', {'cno': cno}, function(result) {
 		console.log(result.data)
 		generateHandlebars(result, $('#category-slide-template'), $('.category-con .swiper-wrapper'))
 		
 		var slidesPer = null,
-			checkMobile = true
+			checkMobile = null
 		if(window.innerWidth > 766){
 			slidesPer = 4
 			swiperFn(slidesPer)
@@ -54,7 +56,10 @@ $(document).ready(function(){
 			slidesPerView: slidesPer,
 			paginationClickable: true,
 			autoplay: 2500,
-			autoplayDisableOnInteraction: false
+			autoplayDisableOnInteraction: false,
+			nextButton: '.swiper-button-next',
+	        prevButton: '.swiper-button-prev',
+	        loop: true
 		});
 	}
 	

@@ -10,7 +10,7 @@ var templateFn = null;
 var generatedHTML = null;
 // 일반 핸들바스사용 
 function generateHandlebars(result, el, target) {
-	console.log('generateHandlebars()')
+//	console.log('generateHandlebars()')
     templateFn = Handlebars.compile(el.text())
     generatedHTML = templateFn(result.data)
     target.text('')
@@ -18,7 +18,7 @@ function generateHandlebars(result, el, target) {
 }
 // 무한 스크롤시 핸들바스 사용
 function generateHandlebarsInfinity(result, el, target) {
-	console.log('generateHandlebarsInfinity()')
+//	console.log('generateHandlebarsInfinity()')
     templateFn = Handlebars.compile(el.text())
     generatedHTML = templateFn(result.data)
     target.append(generatedHTML)
@@ -74,13 +74,20 @@ $(document).ready(function() {
 	let pageurl = href.substr(href.lastIndexOf('/') + 1);
 	var url = window.location.pathname, 
     urlRegExp = new RegExp(url.replace(/\/$/,'') + "$");
-	//console.log(pageurl)
+	// console.log(pageurl)
+	var cno = 0
+	try {
+	  cno = location.href.split('?')[1].split('=')[1]
+	} catch (err) {}
+	
     $('.nav a').each(function(){
+    	$('.nav-menu[data-cno="'+cno+'"]').addClass('on')
         if(urlRegExp.test(this.href.replace(/\/$/,''))){
             $(this).addClass('on');
         }
     });
     $('.mobile-nav a').each(function(){
+    	$('.nav-menu[data-cno="'+cno+'"]').addClass('on')
         if(urlRegExp.test(this.href.replace(/\/$/,''))){
             $(this).addClass('on');
         }

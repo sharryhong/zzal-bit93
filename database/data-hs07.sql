@@ -26,7 +26,12 @@ insert into colct(cono,mno,title,cont,pic,pub) values(4,2,'코딩','C부터','ca
 
 -- 짤강의
 insert into zzal_lect(zzno, mno, cno, cono, titl, pic, cdt, ztmp, hitcnt) values(1, 1, 1, 1, '짤강입니다1', '500_1501947979874_11_1-4.jpg', '2017-01-01', true, 0);
-insert into zzal_lect(zzno, mno, cno, cono, titl, pic, cdt, ztmp, hitcnt) values(2, 2, 2, 2, '짤강입니다2', '1501947991282_15_2-2.gif', '2017-01-01', false, 10);
+insert into zzal_lect(zzno, mno, cno, cono, titl, pic, cdt, ztmp, hitcnt) values(2, 2, 2, 2, '짤강입니다2', '1501947988622_14_2-1.jpg', '2017-02-01', false, 50);
+insert into zzal_lect(zzno, mno, cno, cono, titl, pic, cdt, ztmp, hitcnt) values(3, 3, 3, null, '짤강입니다3', '500_1501948011845_22_3-3.jpg', '2017-03-01', false, 3);
+insert into zzal_lect(zzno, mno, cno, cono, titl, pic, cdt, ztmp, hitcnt) values(4, 4, 4, null, '짤강입니다4', '500_1501948017114_24_4-1.jpg', '2017-04-01', false, 5);
+insert into zzal_lect(zzno, mno, cno, cono, titl, pic, cdt, ztmp, hitcnt) values(5, 5, 5, null, '짤강입니다5', '500_1501999446798_50_cooking01.jpg', '2017-05-01', false, 12);
+insert into zzal_lect(zzno, mno, cno, cono, titl, pic, cdt, ztmp, hitcnt) values(6, 2, 6, null, '짤강입니다6', '500_1501948028023_28_6-1.jpeg', '2017-06-01', false, 15);
+
 insert into zzal_lect(mno, cno, cono, titl, pic, cdt, ztmp, hitcnt) values(1, 1, null, '음악 짤강~^^', '1501947957350_4_1-1.gif', current_timestamp(), false,22);
 insert into zzal_lect(mno, cno, cono, titl, pic, cdt, ztmp, hitcnt) values(2, 1, null, '음악 짤강~^^', '500_1501947960591_5_1-1.jpg', current_timestamp(), false,4);
 insert into zzal_lect(mno, cno, cono, titl, pic, cdt, ztmp, hitcnt) values(3, 1, null, '음악 짤강~^^', '1501947962863_6_1-2.gif', current_timestamp(), false,5);
@@ -121,6 +126,5 @@ insert into reply (cont, cdt, re_like, report, zzno, mno, reparent, reorder) val
 insert into reply (cont, cdt, re_like, report, zzno, mno, reparent, reorder) values('오늘 모임에 나오시나요.', current_timestamp(), true, false, 2, 5, 5, 3);
 insert into reply (cont, cdt, re_like, report, zzno, mno, reparent, reorder) values('아니요. 오늘은 못나갑니다.', current_timestamp(), true, false, 2, 6, 5, 4);
 
--- 댓글 테이블 검색
-select rno, cont, date_format(cdt, '%Y-%m-%d %H:%i'), re_like, report, zzno, mno
-from reply
+insert into reply (cont, cdt, re_like, report, zzno, mno, reparent, reorder) values('^0^!', current_timestamp(), false, false, 23, 2, null, 1);
+
