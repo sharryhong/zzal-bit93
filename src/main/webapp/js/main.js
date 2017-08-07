@@ -10,16 +10,18 @@ var templateFn = null;
 var generatedHTML = null;
 // 일반 핸들바스사용 
 function generateHandlebars(result, el, target) {
-  templateFn = Handlebars.compile(el.text())
-  generatedHTML = templateFn(result.data)
-  target.text('')
-  target.html(generatedHTML)
+	console.log('generateHandlebars()')
+    templateFn = Handlebars.compile(el.text())
+    generatedHTML = templateFn(result.data)
+    target.text('')
+    target.html(generatedHTML)
 }
 // 무한 스크롤시 핸들바스 사용
-function generateHandlebars(result, el, target) {
-  templateFn = Handlebars.compile(el.text())
-  generatedHTML = templateFn(result.data)
-  target.append(generatedHTML)
+function generateHandlebarsInfinity(result, el, target) {
+	console.log('generateHandlebarsInfinity()')
+    templateFn = Handlebars.compile(el.text())
+    generatedHTML = templateFn(result.data)
+    target.append(generatedHTML)
 }
 
 // 짤강 클릭시 조회수 + 1
@@ -30,9 +32,14 @@ if ($('.zzal-lect')) {
 	})
 }
 
-(function($, window){
-	'use strict';
+$(document).ready(function() { 
+	//각 카테고리 클릭시 
+	$(document.body).on('click', '.nav-menu', function(event) {
+	  location.href = 'category.html?cno=' + $(this).attr('data-cno') 
+	  event.preventDefault()
+	})
 	
+	// 로그인, 회원가입
 	var fiEmail = $('#fi-email'),
 		fiPassword = $('#fi-password'),
 		joinEmail = $('#join-email'),
@@ -116,4 +123,4 @@ if ($('.zzal-lect')) {
 	  };
 	}
     
-})(jQuery, window);
+});

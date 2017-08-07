@@ -38,7 +38,7 @@
     WHERE z.zzno = #{no} 
   </select>
 
-  <!-- <select id="zzalListWithCount" resultMap="zzalMap" parameterType="map">
+  <select id="zzalListWithCount" resultMap="zzalMap" parameterType="map">
     SELECT z.zzno, z.mno, m.nick, m.pic as pic1, z.cno, z.titl, z.pic as pic2, z.cdt as cdt2, z.hitcnt,
     (SELECT count(*) FROM lik WHERE zzno=z.zzno) as like_cnt, 
     (SELECT count(*) FROM reply WHERE zzno=z.zzno) as reply_cnt
@@ -46,14 +46,15 @@
     WHERE z.ztmp=false
     ORDER BY (like_cnt * 10) + reply_cnt + z.hitcnt desc
     LIMIT #{startIndex}, #{pageSize}
-  </select> -->
+  </select>
   
-  <select id="zzalListWithCount" resultMap="zzalMap" parameterType="map">
+  <!-- 각 카테고리 페이지 짤강의 리스트 -->
+  <select id="zzalListCategory" resultMap="zzalMap" parameterType="map">
     SELECT z.zzno, z.mno, m.nick, m.pic as pic1, z.cno, z.titl, z.pic as pic2, z.cdt as cdt2, z.hitcnt,
     (SELECT count(*) FROM lik WHERE zzno=z.zzno) as like_cnt, 
     (SELECT count(*) FROM reply WHERE zzno=z.zzno) as reply_cnt
     FROM zzal_lect z INNER JOIN memb m on z.mno = m.mno
-    WHERE z.ztmp=false
+    WHERE z.ztmp=false AND z.cno = #{cno}
     ORDER BY (like_cnt * 10) + reply_cnt + z.hitcnt desc
     LIMIT #{startIndex}, #{pageSize}
   </select>
@@ -79,7 +80,7 @@
 		LIMIT 10
   </select>
   
-  <!-- 추천순 페이지. 한 주간 좋아요 많이 받은 랭킹 30 -->
+  <!-- 추천순 페이지 : 한 주간 좋아요 많이 받은 랭킹 30 -->
   <select id="zzalLikeRank" resultMap="zzalMap" parameterType="map">
     SELECT *
 		FROM 
@@ -113,8 +114,16 @@
     (SELECT count(*) FROM lik WHERE zzno=z.zzno) as like_cnt, 
     (SELECT count(*) FROM reply WHERE zzno=z.zzno) as reply_cnt
     FROM zzal_lect z INNER JOIN memb m on z.mno = m.mno
-    WHERE z.ztmp=false
-    ORDER BY like_cnt + reply_cnt desc) as rowCount
+    WHERE z.ztmp=false) as rowCount
+  </select>
+  
+  <select id="foundRowsCatetory" resultType="int">
+    SELECT count(*) FROM(
+    SELECT zzno,
+    (SELECT count(*) FROM lik WHERE zzno=z.zzno) as like_cnt, 
+    (SELECT count(*) FROM reply WHERE zzno=z.zzno) as reply_cnt
+    FROM zzal_lect z INNER JOIN memb m on z.mno = m.mno
+    WHERE z.ztmp=false AND z.cno = #{cno}) as rowCount
   </select>
   
   <!-- 짤강 클릭시 조회수 증가 -->
