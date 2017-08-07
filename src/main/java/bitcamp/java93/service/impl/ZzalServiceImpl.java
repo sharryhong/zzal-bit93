@@ -23,13 +23,6 @@ public class ZzalServiceImpl implements ZzalService {
 		return zzalDao.selectList(zzno);
 	}
 
-  /*@Override
-  public List<Zzal> zzalListWithCount(int pageNo, int pageSize) throws Exception {
-    HashMap<String,Object> valueMap = new HashMap<>();
-    valueMap.put("startIndex", (pageNo - 1) * pageSize);
-    valueMap.put("pageSize", pageSize);
-    return zzalDao.zzalListWithCount(valueMap);
-  }*/
 	@Override
   public List<Zzal> zzalListWithCount(int pageNo, int pageSize) throws Exception {
     HashMap<String,Object> valueMap = new HashMap<>();
@@ -75,6 +68,14 @@ public class ZzalServiceImpl implements ZzalService {
     if (count < 1) {
       throw new Exception(zzal.getZzno() + "번 짤강을 찾을 수 없습니다.");
     }
+  }
+  
+  @Override
+  public List<Zzal> zzalListNew(int pageNo, int pageSize) throws Exception {
+    HashMap<String,Object> valueMap = new HashMap<>();
+    valueMap.put("startIndex", (pageNo - 1) * pageSize);
+    valueMap.put("pageSize", pageSize);
+    return zzalDao.zzalListNew(valueMap);
   }
   
   /*@Override // DB에서 서브쿼리 사용하지 않을 때 

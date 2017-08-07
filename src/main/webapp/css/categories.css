@@ -1,3 +1,11 @@
+.timeago.wide-view {
+	float: right;
+  height: 30px;
+  line-height: 30px;
+}
+.timeago.mobile-view {
+	display: none;
+}
 .category-con .swiper-container {
 	padding-bottom: 10px;
 	margin-bottom: 10px;
@@ -62,6 +70,12 @@
 }
 
 @media (max-width: 765px) {
+	.timeago.wide-view {
+	  display: none;
+	}
+	.timeago.mobile-view {
+	  display: inline-block;
+	}
 	.swiper-button-next, 
 	.swiper-button-prev {
 	  display: none;

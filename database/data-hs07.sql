@@ -71,6 +71,7 @@ insert into zzal_lect(mno, cno, cono, titl, pic, cdt, ztmp, hitcnt) values(3, 8,
 insert into zzal_lect(mno, cno, cono, titl, pic, cdt, ztmp, hitcnt) values(4, 9, null, '패션, 뷰티 :)', '1501998963147_46_ohzzal.gif', current_timestamp(), false,32);
 insert into zzal_lect(mno, cno, cono, titl, pic, cdt, ztmp, hitcnt) values(5, 9, null, '패션, 뷰티 :)', '500_1501999438603_49_sul.jpg', current_timestamp(), false,27);
 insert into zzal_lect(mno, cno, cono, titl, pic, cdt, ztmp, hitcnt) values(1, 9, null, '패션, 뷰티 :)', '500_1501948065936_38_9-2.jpg', current_timestamp(), false,7);
+insert into zzal_lect(mno, cno, cono, titl, pic, cdt, ztmp, hitcnt) values(3, 9, null, '패션, 뷰티 :)', '1501948069272_39_9-3.jpg', current_timestamp(), false,7);
 
 
 --좋아요!

@@ -13,6 +13,7 @@ public interface ZzalService {
 	List<Zzal> zzalBestCategoryList(int cno) throws Exception;
 	List<Zzal> zzalLikeRank() throws Exception;
 	List<Zzal> zzalViewRank() throws Exception;
+	List<Zzal> zzalListNew(int pageNo, int pageSize) throws Exception;
 	void hitCountUpdate(Zzal zzal) throws Exception;
 	int getSize() throws Exception;
 	int foundRows() throws Exception;

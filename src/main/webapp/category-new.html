@@ -23,88 +23,6 @@
     <ul class="zzal-lects clearfix" id="zzal-list">
 		</ul>
   </div>
-	<!-- <div class="best-contents">
-	  <ul class="zzal-lects02 clearfix">
-			<li>
-			  <a href="detailpage-v01.html" class="zzal-lect">
-			    <div class="zzal">
-			      <div class="zzal-img">
-			        <img src="image/zzal01.gif" alt="">
-			      </div>
-			    </div>
-			    <div class="bottom">
-			      <span class="ranking">1</span>
-			      <h3 class="title">우리 함께 브런치 할까요? 단돈 3000원에...</h3>
-			    </div>
-			  </a>
-			</li>
-			<li>
-			  <a href="detailpage-v01.html" class="zzal-lect">
-			    <div class="zzal">
-			      <div class="zzal-img">
-			        <img src="image/zzal02.jpg" alt="">
-			      </div>
-			    </div>
-			    <div class="bottom">
-			      <span class="ranking">2</span>
-			      <h3 class="title">우리 함께 브런치 할까요? 단돈 3000원에...</h3>
-			    </div>
-			  </a>
-			</li>
-			<li>
-			  <a href="detailpage-v01.html" class="zzal-lect">
-			    <div class="zzal">
-			      <div class="zzal-img">
-			        <img src="image/zzal03.jpg" alt="">
-			      </div>
-			    </div>
-			    <div class="bottom">
-			      <span class="ranking">3</span>
-			      <h3 class="title">우리 함께 브런치 할까요?</h3>
-			    </div>
-			  </a>
-			</li>
-			<li>
-			  <a href="detailpage-v01.html" class="zzal-lect">
-			    <div class="zzal">
-			      <div class="zzal-img">
-			        <img src="image/zzal03.jpg" alt="">
-			      </div>
-			    </div>
-			    <div class="bottom">
-			      <span class="ranking">4</span>
-			      <h3 class="title">우리 함께 브런치 할까요?</h3>
-			    </div>
-			  </a>
-			</li>
-			<li>
-			  <a href="detailpage-v01.html" class="zzal-lect">
-			    <div class="zzal">
-			      <div class="zzal-img">
-			        <img src="image/zzal03.jpg" alt="">
-			      </div>
-			    </div>
-			    <div class="bottom">
-			      <span class="ranking">5</span>
-			      <h3 class="title">우리 함께 브런치 할까요?</h3>
-			    </div>
-			  </a>
-			</li>
-			<li>
-			  <a href="detailpage-v01.html" class="zzal-lect">
-			    <div class="zzal">
-			      <div class="zzal-img">
-			        <img src="image/zzal03.jpg" alt="">
-			      </div>
-			    </div>
-			    <div class="bottom">
-			      <span class="ranking">6</span>
-			      <h3 class="title">우리 함께 브런치 할까요?</h3>
-			    </div>
-			  </a>
-			</li>
-		</ul>
-	</div> -->
 </div>
 </div>
 <a href="#" class="scroll-to-top btn btn-info"><i class="fa fa-arrow-up" aria-hidden="true"></i> Top</a>
@@ -116,8 +34,9 @@
 <li class="zzal-li">
   <a href="#" class="zzal-lect" data-zzno="{{zzno}}">
     <div class="lect-top">
-      <span class="user-photo" style='background-image:url("image/{{member.membpic}}")'></span>
+      <span class="user-photo" style='background-image:url("upload/{{member.membpic}}")'></span>
       <span class="user-name">{{member.nick}}</span>
+			<time class="timeago wide-view" datetime="{{cdt}}"></time>
     </div>
     <div class="zzal">
       <div class="zzal-img">
@@ -128,6 +47,7 @@
       </div>
     </div>
     <div class="bottom">
+      <time class="timeago mobile-view" datetime="{{cdt}}"></time>
       <div class="view">
         <span>조회수</span><span> {{hitCount}}</span>
       </div>
@@ -146,6 +66,8 @@
 </script>
 
 <script src="node_modules/jquery/dist/jquery.min.js"></script>
+<script src="js/jquery.timeago.js"></script>
+<script src="js/jquery.timeago.ko.js"></script>
 <script src="node_modules/handlebars/dist/handlebars.min.js"></script>
 <script src="node_modules/swiper/dist/js/swiper.min.js"></script>
 <script src="js/load.js"></script>

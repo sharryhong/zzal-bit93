@@ -1,10 +1,10 @@
 $(document).ready(function(){ 
 	var pageNo = 1
-    pageSize = 6
+    pageSize = 12
 	var checkLast = true
 	zzalListMain(pageNo, pageSize)
 	function zzalListMain(pageNo, pageSize) {
-		$.getJSON('zzal/zzalListWithCount.json',{'pageNo': pageNo, 'pageSize': pageSize}, function(result) {
+		$.getJSON('zzal/zzalListNew.json',{'pageNo': pageNo, 'pageSize': pageSize}, function(result) {
 			console.log(result.data)
 			var foundRows = result.data.foundRows
 			var lastPageNo = parseInt(foundRows / pageSize) 
@@ -13,6 +13,7 @@ $(document).ready(function(){
 		    if (pageNo < lastPageNo) { // 마지막 이후에는 무한스크롤 실행되지 않게 하기 
 		       checkLast = true
 		    }
+			$("time.timeago").timeago();
 		})
 	}
 	

@@ -225,6 +225,7 @@ input::-moz-placeholder { color: #777; }
   position: absolute;
   left: 10px;
   top: 5px;
+  width: 93%;
   font-size: 0.875rem; /* 14/16 */
 }
 .zzal-lect .user-photo {

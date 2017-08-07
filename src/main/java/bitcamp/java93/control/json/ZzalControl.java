@@ -84,6 +84,16 @@ public class ZzalControl {
     return new JsonResult(JsonResult.SUCCESS, dataMap);
   }
 	
+	@RequestMapping("zzalListNew")
+  public JsonResult zzalListNew(int pageNo, int pageSize) throws Exception {
+    
+    HashMap<String,Object> dataMap = new HashMap<>();
+    dataMap.put("zzalList", zzalService.zzalListNew(pageNo, pageSize));
+    dataMap.put("totalCount", zzalService.getSize());
+    dataMap.put("foundRows", zzalService.foundRows());
+    return new JsonResult(JsonResult.SUCCESS, dataMap);
+  }
+	
 	@RequestMapping("hitCountUpdate")
   public JsonResult hitCountUpdate(Zzal zzal, HttpSession session) throws Exception {
     zzalService.hitCountUpdate(zzal);
