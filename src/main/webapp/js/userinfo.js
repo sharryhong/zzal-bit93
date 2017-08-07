@@ -5,7 +5,7 @@ $.getJSON(contextRoot + '/auth/userinfo.json', function(result) {
 	  
 	  // 마이페이지 memb 사진, 닉네임 출력 
 	  if (result.data) {
-		  $('.profile-wrap .phot').css({"background-image": "url(image/"+result.data.membpic+")"});
+		  $('.profile-wrap .phot').css({"background-image": "url(upload/"+result.data.membpic+")"});
 	  }
 	  
       // 로그인 전 후          

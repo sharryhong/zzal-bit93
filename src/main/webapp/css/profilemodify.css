@@ -63,6 +63,15 @@
    font-size: 1.375rem;
    margin-right: 5px;
  }
+ .memberPhoto-upload-btn {
+   position: absolute;
+   top: 15%;
+   left: 42%;
+   opacity: 0;
+   cursor: pointer;
+   width: 150px;
+   height: 30px;
+ }
  .deletebtn .account-delete {
 	 float: left;
 	 color: #F39C12;

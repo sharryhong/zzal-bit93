@@ -41,8 +41,9 @@
   
   <update id="update" parameterType="member">
     update memb set 
-      nick=#{nick}, 
-      pwd=password(#{password}) 
+      nick=#{nick},
+      pwd=password(#{password}), 
+      pic=#{membpic}
     where mno=#{no}
   </update>
 <!--   

@@ -43,24 +43,24 @@ public class CollectControl {
   
   @RequestMapping("add")
   public JsonResult add(
-      int memNo, String title, String content, String picture, Boolean isPublic, Collect collect) throws Exception {
-    collect.setNo(memNo);
+      /*int memNo, String title, String content, String picture, Boolean isPublic,*/ Collect collect) throws Exception {
+    /*collect.setNo(memNo);
     collect.setTitle(title);
     collect.setContent(content);
     collect.setPicture(picture);
-    collect.setIsPublic(isPublic);
+    collect.setIsPublic(isPublic);*/
     System.out.println(collect);
     collectService.add(collect);
     return new JsonResult(JsonResult.SUCCESS, "ok");
   }
   @RequestMapping("update")
   public JsonResult update(
-      int no, String title, String content, String picture, Boolean isPublic, Collect collect) throws Exception {
-    collect.setNo(no);
+      /* int no, String title, String content, String picture, Boolean isPublic,*/ Collect collect) throws Exception {
+    /*collect.setNo(no);
     collect.setTitle(title);
     collect.setContent(content);
     collect.setPicture(picture);
-    collect.setIsPublic(isPublic);
+    collect.setIsPublic(isPublic);*/
     System.out.println(collect);
     collectService.update(collect);
     return new JsonResult(JsonResult.SUCCESS, "ok");

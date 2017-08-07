@@ -1,5 +1,7 @@
 package bitcamp.java93.control.json;
 
+import java.io.File;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import javax.servlet.ServletContext;
@@ -10,9 +12,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import bitcamp.java93.domain.Member;
 import bitcamp.java93.service.MemberService;
+import net.coobird.thumbnailator.Thumbnails;
 
 @RestController
 @RequestMapping("/member/")
@@ -55,12 +59,41 @@ public class MemberControl {
 	  System.out.println(member.getNick());
 	  String nick = member.getNick();
 	  String password = member.getPassword();
+	  String membpic = member.getMembpic();
 	  getMember.setNick(nick);
 	  getMember.setPassword(password);
+	  getMember.setMembpic(membpic);
 	  session.setAttribute("loginMember", getMember);
     return new JsonResult(JsonResult.SUCCESS, "ok");
   }
-
+   
+	@RequestMapping(path="upload")
+  public JsonResult upload(MultipartFile[] files) throws Exception {
+    ArrayList<String> fileList = new ArrayList<>();
+    for (int i = 0; i < files.length; i++) {
+      if (files[i].isEmpty()) 
+        continue;
+      String newFilename = this.getNewFilename()+files[i].getOriginalFilename();
+      File file = new File(servletContext.getRealPath("/upload/" + newFilename));
+      System.out.println(file.getCanonicalPath());
+      files[i].transferTo(file);
+      File thumbnail = new File(servletContext.getRealPath("/upload/"  +"200_"+ newFilename));
+      Thumbnails.of(file).size(200, 200).toFile(thumbnail); 
+      /*thumbnail = new File(servletContext.getRealPath("/upload/" + "800_"+ newFilename));
+      Thumbnails.of(file).size(800, 800).toFile(thumbnail);*/
+      System.out.println(newFilename);
+      fileList.add(newFilename);
+    }
+    return new JsonResult(JsonResult.SUCCESS, fileList);
+  }
+  
+  int count = 0;
+  synchronized private String getNewFilename() {
+    if (count > 100) {
+      count = 0;
+    }
+    return String.format("%d_%d", System.currentTimeMillis(), ++count); 
+  }
 }
 
 
