@@ -16,6 +16,14 @@
 	  }
 	})
 
+
+
+
+
+
+
+
+
 	// 핸들바스. main.js에 있는 함수 사용
 	// 카테고리 리스트 뿌려주기
 	$.getJSON('/zzal-bit93/category/list.json',{"mno":no}, function(result) {
@@ -168,7 +176,6 @@ function writefuncDone(){
 					swiper.removeSlide([indexNum])
 					slideNumberring()
 					setTimeout(deleteSync(),150);
-
 					// youSonOfBitch(pageArray[0],jsonPageArray)
 					console.log($('.swiper-slide'))
 				}else {
@@ -177,14 +184,6 @@ function writefuncDone(){
 			})
 function deleteSync(){
 	dataGarage()
-	// dataPlant()
-	// 	$.ajax({
-	// 		url:'/zzal-bit93/write/delete.json',
-	// 		method:'POST',
-	// 		data: {"zzno":indexNum},
-	// 		success : function(data){console.log(data)},
-	// 	  dataType: 'json'})
-	//  //delete
 
 }
 
@@ -207,6 +206,17 @@ var ssl=0;
 
 
 		$(document).on('click', '#add-btn, #temp-save-btn', function() {
+			if($(fiCategory).val()==0){
+				alert("카테고리를 입력해주세요")
+				return
+			}
+			if(!$(fiTitle).val()){
+				alert("제목을 입력해주세요")
+				return
+			}
+
+
+
 			console.log($(this).attr("data-tmppub"))
 			dataGarage()
 
@@ -214,8 +224,13 @@ var ssl=0;
 				console.log("true데스")
 				console.log(this)
 				pageArray[0].publicType = true;
+
 			}else{
 				pageArray[0].publicType = false;
+				if(pageArray[1].pagePic==""){
+					alert("2페이지에 사진은 꼭꼭!!해주세욤!");
+					return
+				}
 			}
 			dataPlant()
 			console.log(pageArray[0],"나 zzal")
@@ -231,7 +246,7 @@ var ssl=0;
 				url:'/zzal-bit93/write/add.json',
 				method:'POST',
 				data: {"zzal":JSON.stringify(obj), "zzalpage":JSON.stringify(jsonObj)},
-				success : function(data){console.log(data)},
+				success : function(data){console.log(data,"성공 객체임")},
 				dataType: 'json'
 			})
 		}

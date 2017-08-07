@@ -1,7 +1,5 @@
 package bitcamp.java93.service.impl;
 
-import java.util.HashMap;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,14 +15,17 @@ public class ZzalwriteServiceImpl implements ZzalwriteService {
 	ZzalwriteDao zzalwriteDao;
 
 	@Override
-	public void add(Zzal zzal) throws Exception {
+	public Zzal add(Zzal zzal) throws Exception {
 		zzalwriteDao.insert(zzal);
 		/*this.insertPhoto(zzal.getZzno(), zzal.getMainPic()); */
+		return zzalwriteDao.getZzalNo();
 	}
 
 	@Override
-	public int pageAdd(Page page) throws Exception {
-		return zzalwriteDao.insertPage(page);
+	public void pageAdd(Page page) throws Exception {
+		zzalwriteDao.insertPage(page);
+		
+		
 
 	}
 

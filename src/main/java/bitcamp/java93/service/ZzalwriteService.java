@@ -4,6 +4,6 @@ import bitcamp.java93.domain.Page;
 import bitcamp.java93.domain.Zzal;
 
 public interface ZzalwriteService {
-  void add(Zzal zzal) throws Exception;
-  int pageAdd(Page page) throws Exception;
+  Zzal add(Zzal zzal) throws Exception;
+  void pageAdd(Page page) throws Exception;
 }

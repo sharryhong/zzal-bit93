@@ -72,13 +72,21 @@ public class ZzalwriteControl {
         zzal.setTitle(attributes.get("title").toString());
         zzal.setZzalTemporary((Boolean)Boolean.parseBoolean(attributes.get("publicType").toString()));
         System.out.println(zzal);
-      zzalwriteService.add(zzal);
+      
+      
+      
+      
+      HashMap<String, Object> lectMap = new HashMap<String, Object>();  
+      
+      lectMap.put("lectMap", zzalwriteService.add(zzal));
         
         String json2 = (String) map.get("zzalpage").toString();
        
          JsonArray arr = (JsonArray)jsonParser.parse(json2);
          System.out.println("====================");
         
+       
+         
         for(int i =0; i< arr.size(); i++){
         	JsonObject tmp = (JsonObject)arr.get(i);
         	
@@ -87,26 +95,26 @@ public class ZzalwriteControl {
         	page.setPagePic(tmp.get("pagePic").toString());
         	page.setConTextZ(tmp.get("conText").toString());
         	
-        	System.out.println(zzalwriteService.pageAdd(page));
+        	zzalwriteService.pageAdd(page);
         }
 
     
-    return new JsonResult(JsonResult.SUCCESS, "ok");
+    return new JsonResult(JsonResult.SUCCESS, lectMap);
   }
 	
-	/*@RequestMapping("upload")
-  public JsonResult upload(MultipartFile[] files) throws Exception {
-    ArrayList<String> fileList = new ArrayList<>();
-    for (MultipartFile file : files) {
-      if (file.isEmpty())
-        continue;
-      String filename = getNewFilename();
-      file.transferTo(new File(servletContext.getRealPath("/upload/" + filename)));
-      fileList.add(filename);
-    }
-    return new JsonResult(JsonResult.SUCCESS, fileList);
-  }*/
-	
+// @RequestMapping("upload")
+//  public JsonResult upload(MultipartFile[] files) throws Exception {
+//    ArrayList<String> fileList = new ArrayList<>();
+//    for (MultipartFile file : files) {
+//      if (file.isEmpty())
+//        continue;
+//      String filename = getNewFilename();
+//      file.transferTo(new File(servletContext.getRealPath("/upload/" + filename)));
+//      fileList.add(filename);
+//    }
+//    return new JsonResult(JsonResult.SUCCESS, fileList);
+//  }
+//	
 	@RequestMapping(path="upload")
   public JsonResult upload(MultipartFile[] files) throws Exception {
 	  

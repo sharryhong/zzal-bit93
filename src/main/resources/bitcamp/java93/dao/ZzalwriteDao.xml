@@ -54,10 +54,9 @@
     values(#{zzalNo}, #{pageNo}, #{pagePic},#{ConTextZ});
   </insert>
 
- <!--  <insert id="insertPhoto" parameterType="map">
-    insert into zzal_lect(zzno, pic) 
-    values(#{zzno}, #{mainPic})
-  </insert> -->
+ <select id="getZzalNo" resultType="zzal">
+ 	select zzno, mno, cno, cono from zzal_lect where zzno=(SELECT MAX(last_insert_id(z.zzno)) FROM zzal_lect z); 
+ </select>
 
 </mapper> 
 

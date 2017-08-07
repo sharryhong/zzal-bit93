@@ -5,6 +5,7 @@ import bitcamp.java93.domain.Zzal;
 
 public interface ZzalwriteDao {
   int insert(Zzal zzal);
-  int insertPage(Page page);
+  void insertPage(Page page);
+  Zzal getZzalNo();
   /*void insertPhoto(Map<String,Object> valueMap);*/
 }

@@ -92,6 +92,17 @@
 	      <p class="date">2017-06-18 오전 11:40</p>
 	    </div>
 	  </div>
+    <div class="notices clearfix">
+      <a href="writezzal.html?zzno=93" data-zzno="93">
+	    <div class="left">
+	    	<span class="user-photo"></span>
+	    </div>
+	    <div class="contents">
+	      <span class="bold">유끼만두</span>님이 <span class="bold">우리함께 브런치할까요? 단돈 3000원에 후훗</span> 짤강에 댓글을 남겼습니다.
+	      <p class="date">2017-06-18 오전 11:40</p>
+	    </div>
+    </a>
+	  </div>
 	  <div class="notices clearfix">
 	    <div class="left">
 	    	<span class="user-photo"></span>
@@ -134,9 +145,9 @@
 <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
 <script src="node_modules/blueimp-file-upload/js/jquery.iframe-transport.js"></script>
 <script src="node_modules/blueimp-file-upload/js/jquery.fileupload.js"></script>
-<script src="node_modules/blueimp-file-upload/js/jquery.fileupload-process.js"></script> 
-<script src="node_modules/blueimp-file-upload/js/jquery.fileupload-image.js"></script> 
-
+<script src="node_modules/blueimp-file-upload/js/jquery.fileupload-process.js"></script>
+<script src="node_modules/blueimp-file-upload/js/jquery.fileupload-image.js"></script>
+<script type="js/writezzal.js"></script>
 <script>
 
 console.log('대연옹')
@@ -151,7 +162,7 @@ $('#fileupload').fileupload({
   disableImageResize: /Android(?!.*Chrome)|Opera/
         .test(window.navigator && navigator.userAgent), // 안드로이드와 오페라 브라우저는 크기 조정 비활성 시키기
   previewMaxWidth: 100,   // 미리보기 이미지 너비
-  previewMaxHeight: 100,  // 미리보기 이미지 높이 
+  previewMaxHeight: 100,  // 미리보기 이미지 높이
   previewCrop: true,      // 미리보기 이미지를 출력할 때 원본에서 지정된 크기로 자르기
   processalways: function(e, data) {
       console.log('fileuploadprocessalways()...요기얌');
@@ -169,7 +180,7 @@ $('#fileupload').fileupload({
       $('#upload-btn').click(function() {
           data.submit();
       });
-  }, 
+  },
   submit: function (e, data) { // 서버에 전송하기 직전에 호출된다.
     console.log('submit()...');
   console.log(data)
@@ -177,11 +188,11 @@ $('#fileupload').fileupload({
         name: $('#name').val(),
         age: $('#age').val()
     };
-  }, 
+  },
   done: function (e, d) { // 서버에서 응답이 오면 호출된다. 각 파일 별로 호출된다.
     console.log('done()...');
     console.log(d);*/
- /*   data.result 
+ /*   data.result
   {여부:success,data{}} */
   var imlibsData = d.result;
     console.log(imlibsData.data.fileList);
@@ -197,24 +208,24 @@ $.getJSON('zzallike/count.json',{'zzno':zzno},function(result){
 	console.log(result)
 })
 
-/* 
+/*
 $('#fileupload').fileupload({
     url: '/zzal-bit93/dymember/upload.json',        // 서버에 요청할 URL
     dataType: 'json', /* "서버가 보낸 데이터가 JSON 문자열이다. 자바스크립트 객체로 바꿔라." 라는 의미*/
  /*     submit: function (e, data) { // 서버에 전송하기 직전에 호출된다.
         console.log('submit()...');
       console.log(data)
-        
+
         },
         processalways: function(e, data) {
             console.log('fileuploadprocessalways()...요기얌');
             console.log(data.files);
-            
+
             $('#upload-btn').unbind("clickq1");
             $('#upload-btn').click(function() {
                 data.submit();
             });
-        },     
+        },
     done: function (e, data) { // 서버에서 응답이 오면 호출된다. 각 파일 별로 호출된다.
       console.log('done()...');
       console.log(data.result.data.fileList,'호우');
