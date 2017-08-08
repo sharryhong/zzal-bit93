@@ -10,4 +10,5 @@ public interface ZzalwriteService {
   Zzal add(Zzal zzal) throws Exception;
   void pageAdd(Page page) throws Exception;
   HashMap<String, Object> findTmplist(HashMap<String, Object> map)throws Exception;
+  void deteleInition(HashMap<String, Object> map) throws Exception;
 }

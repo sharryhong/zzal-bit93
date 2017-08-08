@@ -40,7 +40,7 @@ public class ZzalwriteControl {
 
 		
 		System.out.println(map);
-		
+		System.out.println("--------------------");
 		String json = (String) map.get("zzal").toString();
 		
 		HashMap<String, Object> attributes = new HashMap<>();
@@ -114,6 +114,26 @@ public class ZzalwriteControl {
 	 
 	 return new JsonResult(JsonResult.SUCCESS, tmplist);
   }
+ 
+ 
+ @RequestMapping("delete")
+ public JsonResult delete(int no, int zzno) throws Exception {
+	 System.out.println(no);
+	 System.out.println(zzno);
+
+	 HashMap<String, Object> findMap = new HashMap<>();
+	 findMap.put("zzno", zzno);
+	 findMap.put("mno", no);
+	 zzalwriteService.deteleInition(findMap);
+	 HashMap<String, Object> tmplist = new HashMap<>();
+//	 
+//	 tmplist.put("tmplist",zzalwriteService.findTmplist(findMap));
+	 
+	 return new JsonResult(JsonResult.SUCCESS,"ok");
+ }
+ 
+ 
+ 
 //	
 	@RequestMapping(path="upload")
   public JsonResult upload(MultipartFile[] files) throws Exception {

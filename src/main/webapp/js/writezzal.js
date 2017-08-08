@@ -16,12 +16,17 @@
 			justInit(no)
 	  }
 	})
+var initWrite;
+
+
 
 function justInit(no){
 
 	try{
 		console.log(no)
-		var initWrite =window.location.href.split("?")[1]
+		initWrite =window.location.href.split("?")[1]
+
+		console.log(initWrite)
 				if(initWrite.split("=")[0]=="zzno"){
 					$.ajax({
 						url:'/zzal-bit93/write/tmplist.json',
@@ -37,40 +42,76 @@ function justInit(no){
 	}catch(e){}
 }
 
+/*날라오는 값이 "" ""이러무로 잘라줄 필요 있음
+replace를 쓰려고 햇으나 타이틀 및 컨텍스에도 적용 시키려고 함  */
+function StringMaker(obj){
+	let changer = String(obj)
+
+	return obj = changer.substring(1,changer.length-1)
+}
+
+
 	function tmpMaker(data) {
-		console.log(data)
+
 		let tmpMcoNo = data.zzal.cono
 		let tmpMCno = data.zzal.cno
 		let tmpMtitl = data.zzal.title
-		let tmpMpic = String(data.zzal.mainPic).replace(/"/g,"")
+		let tmpMpic = StringMaker(data.zzal.mainPic)
 
+		// .substring(0,1)
+		let arrpic=[]
+		let arrcontext=[]
+		let arrpicname=[]
+		let k=0;
+		for(let pageroom of data.page){
+			arrpicname[k] = StringMaker(pageroom.pagePic)
+			arrpic[k] = './upload/'+StringMaker(pageroom.pagePic)
+			arrcontext[k] =	StringMaker(pageroom.ConTextZ)
+			console.log(pageroom)
+			k++
+		}
 
-
-		let tmpPpic = data.page.pagePic
-
+		// console.log(arr2)
 
 
 	 $("#select-collect > option[value="+tmpMcoNo+"]").attr("selected", true)
 	 $("#select-category > option[value="+tmpMCno+"]").attr("selected", true)
-	 $(fiTitle).val(tmpMtitl)
-	// console.log((tmptitl==null)?"호우":"똬씨!")
+	 $(fiTitle).val(StringMaker(tmpMtitl))
+
+
+
+
 		var templatetmpFn = Handlebars.compile($('#tmppage-template').text())
-	// let pagedata;
-	// for(let i = 1; i < (data.page.length); i++){
-	// 	pagedata[i-1] =data.page[i-1]
-	// console.log(pagedata)
+
+
+
 	swiper.appendSlide(templatetmpFn(data))
 	let tmpPageSelect = $(".swiper-slide .images-div")
 
-	let tmpstr = './upload/'+tmpMpic
-	console.log(tmpPageSelect)
+	let tmpstr1 = String('./upload/'+tmpMpic)
 
-  $(tmpPageSelect[0]).css("background-image", 'url('+tmpstr+')')
+	let tmpfiinput = $("input[type=hidden]")
+
+
+	console.log(tmpfiinput)
+
+	tmpfiinput[0].value=tmpMpic
+	// console.log(tmpPageSelect)
+	// console.log($(".swiper-slide textarea"))
+	console.log(tmpstr1)
+  $(tmpPageSelect[0]).css("background-image", 'url("'+tmpstr1+'")')
+
+
+	for (let i=1; i < tmpPageSelect.length; i++ ){
+		$(tmpfiinput[i]).val(arrpicname[i-1])
+		$("<img>").attr("src",arrpic[i-1]).appendTo(tmpPageSelect[i])
+		$(".swiper-slide textarea")[i-1].value=arrcontext[i-1]
+	}
 
 	slideNumberring()
 
 
-	}
+}
 
 
 	// 핸들바스. main.js에 있는 함수 사용
@@ -80,13 +121,13 @@ function justInit(no){
     })
 
     // 컬렉션 리스트 뿌리기
-    function getCollect(no) {
+  function getCollect(no) {
 		$.getJSON('/zzal-bit93/collect/list.json', {'no': no}, function(result) {
 			if (result.data) {
 				generateHandlebars(result, $('#select-collect-template'), $('#select-collect'));
 			}
 		})
-	 }
+	} //category,collect list ㅋ
 
 
 
@@ -111,23 +152,23 @@ var indexNum=swiper.realIndex,
 		photoUpLoad;
 
 var zzalCon = function(){
-																	this.mno,
-																	this.cono,
-																	this.cno,
-																	this.title,
-																	this.mainPic,
-																	this.publicType
+													this.mno,
+													this.cono,
+													this.cno,
+													this.title,
+													this.mainPic,
+													this.publicType
 
-																}
+												}
 
 var pageCon = function(){
 
-																	this.pageNo,
-																	this.type,
-																	this.pagePic,
-																	this.conText
+													this.pageNo,
+													this.type,
+													this.pagePic,
+													this.conText
 
-																}
+												}
 var pageArray = [];
 
 
@@ -233,11 +274,10 @@ function writefuncDone(){
 				}else {
 					alert("메인과 첫페이지는 삭제 불가임! 희희!")
 				}
-			})
-function deleteSync(){
-	dataGarage()
-
-}
+			 })
+				function deleteSync(){
+					dataGarage()
+        }
 
 
 var ssl=0;
@@ -254,10 +294,11 @@ var ssl=0;
 
 
 		//
-		var writeData
+		// var writeData
 
 
 		$(document).on('click', '#add-btn, #temp-save-btn', function() {
+
 			if($(fiCategory).val()==0){
 				alert("카테고리를 입력해주세요")
 				return
@@ -268,10 +309,24 @@ var ssl=0;
 			}
 
 
+			if(initWrite){
+				console.log("지금zzno없어요")
+				$.ajax({
+					url:'/zzal-bit93/write/delete.json',
+					method:'POST',
+					data:{"no" : no ,"zzno" : parseInt(initWrite.split("=")[1])},
+					//data: {"zzal":JSON.stringify(obj), "zzalpage":JSON.stringify(jsonObj)},
+					success : function(data){console.log(data,"성공 객체임")},
+					dataType: 'json'
+				})
+			}
+
+
+
 
 			console.log($(this).attr("data-tmppub"))
-			dataGarage()
 
+			dataGarage()
 			if($(this).attr("data-tmppub")=="true"){
 				console.log("true데스")
 				console.log(this)

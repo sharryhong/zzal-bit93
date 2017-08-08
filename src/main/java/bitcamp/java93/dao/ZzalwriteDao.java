@@ -13,4 +13,6 @@ public interface ZzalwriteDao {
   Zzal findtmpZzal(HashMap<String, Object>map);
   List<Page> findtmpPage(HashMap<String, Object>map);
   /*void insertPhoto(Map<String,Object> valueMap);*/
+  void deletePage(HashMap<String, Object>map) throws Exception;
+  void deleteZzal(HashMap<String, Object>map) throws Exception;
 }

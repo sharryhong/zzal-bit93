@@ -40,6 +40,12 @@ public class ZzalwriteServiceImpl implements ZzalwriteService {
 		return resultMap;
 	}
 
+	@Override
+	public void deteleInition(HashMap<String, Object> map) throws Exception {
+		zzalwriteDao.deletePage(map);
+		zzalwriteDao.deleteZzal(map);	
+	}
+
 
 	/*private void insertPhoto(int zzno, String mainPic) {
     if (mainPic == null)
