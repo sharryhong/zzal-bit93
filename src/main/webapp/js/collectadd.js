@@ -7,13 +7,13 @@ try {
 	no = location.href.split('?')[1].split('=')[1]
 } catch (err) {}
 
-if (no == 0){ // 새 학생 등록
+if (no == 0){ // 새 컬렉션 등록
 	var	picture = $('#collect-cover-picture'),
 	title = $('#collect-add-title'),
 	content = $('#collect-add-content'),
 	isPublic =$('#myonoffswitch'),
 	collectNum = 0;
-	
+	// member 번호 구분  컬렉션 등록 사진파일 업로드,제목,설명, 공개/비공개
 	$.getJSON('/zzal-bit93/auth/userinfo.json', function(result) {
 		console.log(result.data.no)
 		collectNum = result.data.no;
@@ -33,9 +33,7 @@ if (no == 0){ // 새 학생 등록
 		}) // add.click()
 	});
 }
-
-/*$.getJSON()*/
-
+// 파일업로드
 var collectPhotoUpLoad
 
 collectPhotoUpLoad = $('.collectPhoto-upload-btn')
