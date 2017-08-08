@@ -46,7 +46,6 @@ function justInit(no){
 replace를 쓰려고 햇으나 타이틀 및 컨텍스에도 적용 시키려고 함  */
 function StringMaker(obj){
 	let changer = String(obj)
-
 	return obj = changer.substring(1,changer.length-1)
 }
 
@@ -321,9 +320,6 @@ var ssl=0;
 				})
 			}
 
-
-
-
 			console.log($(this).attr("data-tmppub"))
 
 			dataGarage()
@@ -343,7 +339,7 @@ var ssl=0;
 			console.log(pageArray[0],"나 zzal")
 			console.log(jsonPageArray,"나 zzalpage")
 			youJSonSender(pageArray[0],jsonPageArray)
-			location.href="mypage.html"
+			// location.href="mypage.html"
 
 		})
 
