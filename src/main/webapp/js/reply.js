@@ -1,6 +1,6 @@
 $('.input-con .input-reply').prop('readonly', true);
 
-/* 전체 댓글 select 목록 받아오기*/
+/* 1. 전체 댓글 목록 받아오기 (select) */
 $(document).on('ready',function(result){
 	
 	  $.getJSON('reply/list.json', {'zzalnumber': zzno}, function(result) {
@@ -15,16 +15,18 @@ $(document).on('ready',function(result){
 				$('.replycnt span:first-child').html(result.data.countReply);
 			})
 	  })
-})
-/*한 짤강의에 대한, 총 댓글 갯수*/
+}) // 1.
+
+
+/* 2. 한 짤강의에 대한, 총 댓글 갯수 (count) */
 $.getJSON('reply/countreply.json', {'zzalnumber': zzno}, function(result) {
 	console.log(result.data.countReply)
 	$('.replycnt span:first-child').html(result.data.countReply);
-})
+}) //2
 
-/* 댓글 insert. 좋아요와 신고는 아직 적용못함.*/
+
+/* 3. 댓글 추가 (insert. 좋아요와 신고는 아직 적용못했습니다). */
 $('.submit-reply').click(function() {
-	
 	$.ajax({
 		type: 'POST',
 		url: 'reply/add.json',
@@ -46,10 +48,10 @@ $('.submit-reply').click(function() {
 			  })
 		}
 	});
-	
 })
 
-/* 부모 댓글 삭제. delete (짤강no는 고려안함)*/
+
+/* 4. 부모 댓글 삭제. delete (짤강no는 고려안함)*/
 $(document).on("click", '.reply-unit-con .cancle', function(){
 	var that = $(this)
 	
@@ -77,9 +79,10 @@ $(document).on("click", '.reply-unit-con .cancle', function(){
 			}
 		}
 	})
-})
+}) // 4.
 
-/*자식 댓글 삭제*/
+
+/* 5.자식 댓글 삭제 */
 $(document).on("click", '.reply-unit-con .cancle .re-reply-delete', function(){
 	var that = $(this)
 	
@@ -109,10 +112,10 @@ $(document).on("click", '.reply-unit-con .cancle .re-reply-delete', function(){
 			}
 		}
 	})
-})
+}) // 5 
 
 
-/* 대댓글 보이기 숨기기 버튼 */
+/* 6. 대댓글 보이기 숨기기 버튼 */
 $(document).on("click", '.reply-info .re-reply', function(){
 	var that = $(this)
 	console.log(that)
@@ -121,15 +124,17 @@ $(document).on("click", '.reply-info .re-reply', function(){
 	$.getJSON('/zzal-bit93/auth/userinfo.json', function(result) {
         $('.re-reply-inputer .user-phot').css({"background-image": "url(upload/"+result.data.membpic+")"});
 	})
-})
+}) // 6  
 
+
+/* 7. x버튼 클릭시 css 없애기 */
 $(document).on("click", '.cancle-re-reply', function(){
 	var that = $(this)
 	that.closest(".reply-li").find(".re-reply-inputer").css('display','none')
-})
+}) // 7
 
 
-/* 대댓글 insert */
+/* 8. 대댓글 insert */
 $(document).on("click", '.submit-re-reply', function(){
 	console.log($(this).closest(".inputer").find(".input-re-reply").val())
 	var that = $(this).attr('data-rno')
@@ -157,8 +162,7 @@ $(document).on("click", '.submit-re-reply', function(){
 		}
 	});
 	
-});
-
+}); // 8
 
 
 
