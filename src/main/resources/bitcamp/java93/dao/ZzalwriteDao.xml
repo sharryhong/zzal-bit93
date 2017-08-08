@@ -17,12 +17,12 @@
   
   
   <resultMap type="page" id="pageMap">
-    <id column="zno" property="zzalpageNo"/>
+    <id column="zpno" property="zzalpageNo"/>
     <result column="zzno" property="zzalNo"/>
     <result column="pgno" property="pageNo"/>
-    <result column="type" property="conTypez"/>
+    <result column="type" property="conTypeZ"/>
     <result column="pic" property="pagePic"/>
-    <result column="cont" property="ConTextz"/>
+    <result column="cont" property="ConTextZ"/>
   </resultMap>
   
   <sql id="select1">
@@ -30,15 +30,15 @@
     from zzal_lect
   </sql>
   
-	<!-- <insert id="insert" parameterType="zzal">
-    insert into zzal_lect(zzno, mno, cno, titl, cdt) 
-    values(#{zzno}, #{mno}, #{cno}, #{title}, #{cdt})
-  </insert> -->
+	<select id="findtmpZzal" resultMap="zzalMap" parameterType="map">
+	 <include refid="select1"></include>
+	 where zzno=#{zzno} and mno=#{mno};
+	</select>
   
-  <!-- <insert id="insert" parameterType="zzal">
-    insert into zzal_lect(zzno, mno, cno, titl, pic, cdt) 
-    values(#{zzno}, #{mno}, #{cno}, #{title}, #{mainPic}, #{cdt})
-  </insert> -->
+  	<select id="findtmpPage" resultMap="pageMap" parameterType="map">
+	 select ZPNO, ZZNO ,PGNO,TYPE,PIC,CONT from page 
+	 where zzno=#{zzno}; 
+	</select>
   
   <insert id="insert" parameterType="zzal">
     insert into zzal_lect(mno, cno, cono, titl, pic, cdt, ztmp) 

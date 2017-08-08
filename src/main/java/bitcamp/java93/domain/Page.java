@@ -1,17 +1,17 @@
 package bitcamp.java93.domain;
 
 public class Page {
-	int zaalpapeNo;
+	int zzalpageNo;
 	int zzalNo;
 	int pageNo;
 	String conTypeZ;
 	String pagePic;
 	String ConTextZ;
-	public int getZaalpapeNo() {
-		return zaalpapeNo;
+	public int getZzalpageNo() {
+		return zzalpageNo;
 	}
-	public void setZaalpapeNo(int zaalpapeNo) {
-		this.zaalpapeNo = zaalpapeNo;
+	public void setZzalpageNo(int zzalpageNo) {
+		this.zzalpageNo = zzalpageNo;
 	}
 	public int getZzalNo() {
 		return zzalNo;
@@ -45,10 +45,10 @@ public class Page {
 	}
 	@Override
 	public String toString() {
-		return "Page [zaalpapeNo=" + zaalpapeNo + ", zzalNo=" + zzalNo + ", pageNo=" + pageNo + ", conTypeZ=" + conTypeZ
+		return "Page [zzalpageNo=" + zzalpageNo + ", zzalNo=" + zzalNo + ", pageNo=" + pageNo + ", conTypeZ=" + conTypeZ
 				+ ", pagePic=" + pagePic + ", ConTextZ=" + ConTextZ + "]";
 	}
-	
-	
+
+
 
 }	
