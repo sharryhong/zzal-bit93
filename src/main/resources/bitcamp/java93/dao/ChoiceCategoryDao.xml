@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bitcamp.java93.dao.ChoiceCategoryDao">
+  
+  <resultMap type="choiceCategory" id="choiceCategoryMap">
+    <id column="cno" property="categoryNumber"/>
+    <result column="mno" property="memberNumber"/>
+  </resultMap>
+
+  <!-- 관심카테고리 목록 -->
+  <select id="selectList"  resultType="string">
+    select cno from favor_catg 
+    where mno = #{memberNumber}
+  </select>
+
+  <!-- 관심카테고리 추가 -->
+	<insert id="insert" parameterType="choiceCategory">
+	  insert into favor_catg(mno, cno)
+	  values 
+			<foreach collection='categoryNumberArray' item='item' separator=','>
+			  (
+			    #{memberNumber},
+			    #{item}
+			  )
+			</foreach>
+	</insert>
+
+  <!-- 카테고리 삭제 -->
+  <delete id="deleteCategory" parameterType="ChoiceCategory">
+      delete from
+      favor_catg 
+      where mno=#{memberNumber} and cno = #{categoryNumber}
+        <!-- <foreach collection='unCategoryNumberArray' item='item'>
+          mno=#{memberNumber} and cno=#{item}
+        </foreach> -->
+  </delete>
+
+
+
+</mapper> 
+
+
+
+

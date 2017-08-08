@@ -60,7 +60,6 @@ $(document).on("click", '.reply-unit-con .cancle', function(){
 		async: false,
 		success: function(data) {
 			if (data == 1) {
-//				that.closest(".reply-li").remove();
 				  $.getJSON('reply/list.json', {'zzalnumber': zzno}, function(result) {
 						console.log(result)
 					  	let templateFn = Handlebars.compile($('#reply-list-template').text())
@@ -73,7 +72,6 @@ $(document).on("click", '.reply-unit-con .cancle', function(){
 							$('.replycnt span:first-child').html(result.data.countReply);
 						})
 				  })
-					
 			} else {
 				alert("본인의 댓글만 삭제하실 수 있습니다")
 			}
@@ -121,7 +119,7 @@ $(document).on("click", '.reply-info .re-reply', function(){
 	that.closest(".reply-li").find(".re-reply-inputer").css('display','block')
 	
 	$.getJSON('/zzal-bit93/auth/userinfo.json', function(result) {
-        $('.re-reply-inputer .user-phot').css({"background-image": "url(image/"+result.data.membpic+")"});
+        $('.re-reply-inputer .user-phot').css({"background-image": "url(upload/"+result.data.membpic+")"});
 	})
 })
 
@@ -138,11 +136,10 @@ $(document).on("click", '.submit-re-reply', function(){
 	var repathat = $(this).attr('data-reparent')
 	
 	$.ajax({
-		type: 'POST',
+		type: 'GET',
 		url: 'reply/rerepadd.json',
 		data: {content : $(this).closest(".inputer").find(".input-re-reply").val(), replyNumber : that, 'zzalnumber' : zzno}, 
 		async: false,
-		
 		
 		success: function(data) {
 			  $.getJSON('reply/list.json', {'zzalnumber': zzno}, function(result) {
@@ -169,8 +166,8 @@ $(document).on("click", '.submit-re-reply', function(){
 $.getJSON('/zzal-bit93/auth/userinfo.json', function(result) {
      if (result.data) {
         $('.user-name').text(result.data.nick)
-        $('.profile-wrap .phot').css({"background-image": "url(image/"+result.data.membpic+")"});
-        $('.reply-inputer .user-phot').css({"background-image": "url(image/"+result.data.membpic+")"});
+        $('.profile-wrap .phot').css({"background-image": "url(upload/"+result.data.membpic+")"});
+        $('.reply-inputer .user-phot').css({"background-image": "url(upload/"+result.data.membpic+")"});
         
         $('.input-con .input-reply').prop('readonly', false); //로그인 후 inputtext라인 활성화
         $('.down-container .reply-inputer .input-con').css("margin", "10px 5px 10px 5px")

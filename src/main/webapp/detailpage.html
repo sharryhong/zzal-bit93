@@ -22,6 +22,7 @@
   <link rel="stylesheet" href="css/common.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/detailpage.css">
+  <link rel="stylesheet" href="css/reply.css">
 
 </head>
 <body class="detailpage-body">
@@ -299,49 +300,16 @@
                       <div class="user-phot thumbnail-phot-insert"></div>
                     </a>
                     <div class="input-con">
-                      <div class="user-name">[<span class='name'>이완</span>]</div>
+                      <div class="user-name"><span class='name'>로그인을 해주세요 </span></div>
                       <form class="inputer" action="index.html" method="post">
-                        <input class='input-reply' type="text" name="" value="" placeholder="덧글을 입력해 보세요!">
+                        <textarea class='input-reply' name="" value="" placeholder="덧글을 입력해 보세요!"></textarea>
                         <button class='submit-reply' type="button" name="button">입력</button>
                       </form>
                     </div>
                  </div>
                  <div class="reply-list">
-                  <div class="replycnt"><span>1</span><span>개의 댓글</span></div>
+                  <div class="replycnt"><span></span><span>개의 댓글</span></div>
                    <ul>
-                     <li>
-                       <div class="reply-unit-con">
-                         <a href="#">
-                           <div class="reply-user-phot thumbnail-phot-insert"></div>
-                         </a>
-                         <div class="reply-con">
-                           <div class="user-name"><span class='name'>이완</span></div>
-                           <a href="#">
-                             <div class="cancle"><i class="fa fa-times" aria-hidden="true"></i></div>
-                           </a>
-                           <div class="reply-text"><div class="text">아 예쁘다!</div></div>
-                         </div>
-                         <div class="reply-info">
-                           <div class="date"><span class='when'>하루전</span>
-                             <a href="#">
-                              <span class="re-reply">답글달기</span>
-                             </a>
-                           </div>
-                           <div class="press">
-                             <a href="#">
-                               <span class='like'>
-                                 <i class="fa fa-heart-o" aria-hidden="true"></i><span>200</span>
-                               </span>
-                             </a>
-                             <a href="#">
-                               <span class="added-reply">
-                                 <i class="fa fa-comment-o" aria-hidden="true"></i><span>200</span>
-                               </span>
-                             </a>
-                           </div>
-                         </div>
-                       </div>
-                     </li>
 
                    </ul>
                  </div>
@@ -594,7 +562,139 @@
 
  {{/each}}
 </script>
+<!--  reply 핸들바스 script문 -->
+ <script id="reply-list-template" type="text/x-handlebars-template">
+{{#each list}}
+{{#if rereplyParentNumber}}
+<li class='reply-li re-reply-li'>
+<div class='reply-unit-con re-reply-con'>
+    <a href='#'>
+      <div class='reply-user-phot thumbnail-phot-insert' style="background-image:url('image/{{membPic}}')"></div>
+    </a>
+  <div class='reply-con'>
+    <div class='user-name'><span class='name'>{{nickName}}</span></div>
+      <a href="#">
+       <div class="cancle re-reply-delete" data-rno='{{replyNumber}}' data-mno='{{memberNumber}}' data-reparent='{{rereplyParentNumber}}'><i class="fa fa-times" aria-hidden="true"></i></div>
+      </a>
+    <div class='reply-text'><div class='text'>{{content}}</div></div>
+  </div>
+  <div class='reply-info'>
+    <div class='date'><span class='when'>{{createDate}}</span>
+    </div>
+    <div class='press'>
+        <a href='#'>
+          <span class='like'>
+            <i class='fa fa-heart-o' aria-hidden='true'></i><span>200</span>
+          </span>
+        </a>
+    </div>
+  </div>
+</div>
+</li>
+{{else}}
+  <li class='reply-li'>
+    <div class='reply-unit-con'>
+      <a href='#'>
+        <div class='reply-user-phot thumbnail-phot-insert' style="background-image:url('image/{{membPic}}')"></div>
+      </a>
+      <div class='reply-con'>
+        <div class='user-name'><span class='name'>{{nickName}}</span></div>
+          <a href="#">
+           <div class="cancle" data-rno='{{replyNumber}}' data-mno='{{memberNumber}}' data-reparent='{{rereplyParentNumber}}'><i class="fa fa-times" aria-hidden="true"></i></div>
+          </a>  
+        <div class='reply-text'><div class='text'>{{content}}</div></div>
+      </div>
+      <div class='reply-info'>
+        <div class='date'><span class='when'>{{createDate}}</span>
+          <a href='#'>
+           <span class='re-reply'>답글달기</span>
+          </a>
+      </div>
+      <div class='press'>
+          <a href='#'>
+            <span class='like'>
+              <i class='fa fa-heart-o' aria-hidden='true'></i><span>200</span>
+            </span>
+          </a>
+          <a href='#'>
+            <span class='added-reply'>
+              <i class='fa fa-comment-o' aria-hidden='true'></i><span>200</span>
+            </span>
+          </a>
+      </div>
+    </div>
+                    <div class="re-reply-inputer clearfix" style="display:none">
+                       <a href="#">
+                         <div class="user-phot thumbnail-phot-insert">
+                         </div>
+                       </a>
+                       <div class="input-con">
+                         <form class="inputer" action="index.html" method="post">
+                           <textarea class='input-re-reply' name="" value="" placeholder="대댓글을 입력해 보세요!"></textarea>
+                           <button class='cancle-re-reply' type="button" name="button">취소</button>
+                           <button class='submit-re-reply' type="button" name="button" data-rno='{{replyNumber}}'>입력</button>
+                         </form>
+                       </div>
+                    </div>
+    </div>
+
+  </li>
+  {{/if}}
+
+{{/each}}
+</script>
+
+<!-- 부모댓글 입력후 리스트에 바로추가해주는 핸들바스 -->
+<script id="reply-insert-template" type="text/x-handlebars-template">
+  <li class='reply-li'>
+    <div class='reply-unit-con'>
+      <a href='#'>
+        <div class='reply-user-phot thumbnail-phot-insert' style="background-image:url('image/{{membPic}}')"></div>
+      </a>
+      <div class='reply-con'>
+        <div class='user-name'><span class='name'>{{nickName}}</span></div>
+          <a href="#">
+           <div class="cancle" data-rno='{{replyNumber}}' data-mno='{{memberNumber}}' data-reparent='{{rereplyParentNumber}}'><i class="fa fa-times" aria-hidden="true"></i></div>
+          </a>  
+        <div class='reply-text'><div class='text'>{{content}}</div></div>
+      </div>
+      <div class='reply-info'>
+        <div class='date'><span class='when'>{{createDate}}</span>
+          <a href='#'>
+           <span class='re-reply'>답글달기</span>
+          </a>
+        </div>
+        <div class='press'>
+          <a href='#'>
+            <span class='like'>
+              <i class='fa fa-heart-o' aria-hidden='true'></i><span>200</span>
+            </span>
+          </a>  
+          <a href='#'>
+            <span class='added-reply'>
+              <i class='fa fa-comment-o' aria-hidden='true'></i><span>200</span>
+            </span>
+          </a>
+        </div>
+      </div>
+                    <div class="re-reply-inputer clearfix" style="display:none">
+                       <a href="#">
+                         <div class="user-phot thumbnail-phot-insert">
+                         </div>
+                       </a>
+                       <div class="input-con">
+                         <form class="inputer" action="index.html" method="post">
+                           <input class='input-re-reply' type="text" name="" value="" placeholder="대댓글을 입력해 보세요!">
+                           <button class='cancle-re-reply' type="button" name="button">취소</button>
+                           <button class='submit-re-reply' type="button" name="button" data-rno='{{replyNumber}}'>입력</button>
+                         </form>
+                       </div>
+                    </div>
+    </div>
+  </li>
+</script>
 <script src="js/detailpage.js"></script>
+<script src="js/reply.js"></script>
 
 </body>
 </html>

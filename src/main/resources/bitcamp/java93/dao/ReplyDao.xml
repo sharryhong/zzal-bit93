@@ -28,9 +28,6 @@
 	  where zzno = #{zzalnumber}
 	  order by if(isnull(reparent), rno, reparent) desc, reorder
 
-<!--   ALTER TABLE reply AUTO_INCREMENT=1;
-  SET @CNT = 0;
-  UPDATE reply SET reply.rno = @CNT:=@CNT+1; -->
   </select>
   
   <!-- 전체 댓글 갯수 조회 -->

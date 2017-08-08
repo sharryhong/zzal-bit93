@@ -11,7 +11,7 @@
 }
 .title-category  {
 	/* position: relative; */
-  font-size: 1.5rem;
+  font-size: 1.1rem;
   text-align: right;
  /*  padding: 20px 0; */
 }
@@ -129,6 +129,19 @@
 
 /*mobile*/
 @media (max-width: 765px) {
+	.main-content.choicecategory-page {
+	   margin-top : 67px;
+	}
+	
+#all-category-title .choice-btn {
+  position: static;
+  margin : 0 auto;
+  display : block;
+  margin-bottom: 5px;
+  width: 87%;
+  }
+
+	
 	.choosecatg {
     height: 95px;
 	}
