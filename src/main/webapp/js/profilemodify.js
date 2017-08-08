@@ -17,7 +17,7 @@ $(document).ready(function(){
 		  $('.profile-picture').css({"background-image": "url(upload/"+result.data.membpic+")"});
 	  }
 	})
-
+	// 유저 프로필 , 닉네임, 패스워드 변경
 	$('#profile-modify-btn').click(function() {
       $.post(contextRoot + '/member/update.json', {
         'no': no,
@@ -34,6 +34,7 @@ $(document).ready(function(){
 	    $('.profile-picture').css({"background-image": "url(image/"+result.data.membpic+")"});
 	})*/
     
+    // member 프로필 업로드 사진크기200
     var memberPhotoUpLoad
 
     memberPhotoUpLoad = $('.memberPhoto-upload-btn')

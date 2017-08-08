@@ -11,14 +11,14 @@ var no = 0
 	try {
 		no = location.href.split('?')[1].split('=')[1]
 	} catch (err) {}	
-	
+	// 유저 닉네임 프로필 사진
 	$.getJSON('/zzal-bit93/auth/userinfo.json', function(result) {
 		 if (result.data) {
 			 $('.user-info-face .user-name').text(result.data.nick)
 			 $('.profile-wrap .phot').css({"background-image": "url(image/"+result.data.membpic+")"});
 		 }
 	})
-
+	// 컬렉션 디테일페이지 편집 버튼 클릭시 업데이트 페이지로 이동후 사진,제목,설명 보이기
 	$.getJSON('collect/detail.json', {'no': no}, function(result) {
 			$('.category-explain').text(result.data.content)
 			$('.category-title').text(result.data.title)

@@ -41,7 +41,7 @@
 	})
   
   
-  // collect.list
+  // collect.list 내컬렉션 클릭시 컬렉션 리스트 가져오기
   let mycollection = $('#my-collection');
   //내 컬렉션 title pic
   $(document.body).on('click', '.select_info #collect-setting', function(event) {
@@ -57,13 +57,14 @@
 			mycollection.html(generatedHTML)
     })
   });
-  
+  //내컬렉션 컬렉션  클릭시 컬렉션 data-no
   $(document.body).on('click', '.mycollectlist', function(event) {
 	  /*console.log($(this).attr('data-no'))*/
 	  location.href = 'collectdetail.html?cono=' + $(this).attr('data-no')
 	  event.preventDefault()
   });
   
+  // 편집 버튼 클릭시 컬렉션 data-no
   $(document.body).on('click', '.btn-info', function(event) {
 	  /*console.log($(this).attr('data-no'))*/
 	  location.href = 'collectupdate.html?cono=' + $(this).attr('data-no')
