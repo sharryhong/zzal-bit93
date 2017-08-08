@@ -181,14 +181,7 @@
 .mypage_mid.space {
 	margin-bottom: 20px;
 }
-.zzal-collection .someon-ctitle {
-	display: inline-block;
-	margin-bottom: 40px;
-	width: 100%;
-	white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
+
 
 /*desktop*/
 @media (min-width: 766px) {
