@@ -13,15 +13,62 @@
 		  $('.user-info-face .user-name').text(result.data.nick)
 		  $('.profile-wrap .phot').css({"background-image": "url(image/"+result.data.membpic+")"});
 		  getCollect(no)
+			justInit(no)
 	  }
 	})
 
+function justInit(no){
+
+	try{
+		console.log(no)
+		var initWrite =window.location.href.split("?")[1]
+				if(initWrite.split("=")[0]=="zzno"){
+					$.ajax({
+						url:'/zzal-bit93/write/tmplist.json',
+						method:'GET',
+						data: {"no":no, "zzno":parseInt(initWrite.split("=")[1])},
+						success : function(data){console.log(data,"성공 객체임")
+						l
+
+						tmpMaker(data.data.tmplist);
+					}
+
+				})
+		}
+	}catch(e){}
+}
+
+	function tmpMaker(data) {
+		console.log(data)
+		let tmpMcoNo = data.zzal.cono
+		let tmpMCno = data.zzal.cno
+		let tmpMtitl = data.zzal.title
+		let tmpMpic = data.zzal.mainPic
+
+		let tmpPpic = data.page.pagePic
 
 
+	 $("#select-collect > option[value="+tmpMcoNo+"]").attr("selected", true)
+	 $("#select-category > option[value="+tmpMCno+"]").attr("selected", true)
+	 $(fiTitle).val(tmpMtitl)
+	// console.log((tmptitl==null)?"호우":"똬씨!")
+		var templatetmpFn = Handlebars.compile($('#tmppage-template').text())
+	// let pagedata;
+	// for(let i = 1; i < (data.page.length); i++){
+	// 	pagedata[i-1] =data.page[i-1]
+	// console.log(pagedata)
+	swiper.appendSlide(templatetmpFn(data))
+	let tmpPageSelect = $(".swiper-slide .images-div")
+
+	// let tmpstr = './upload/'.concat(tmpMpic.split)
+	console.log(tmpPageSelect)
+	console.log(typeof(tmpPpic))
+    // $(tmpPageSelect[0]).css("background-image", 'url('+tmpstr+')')
+
+	slideNumberring()
 
 
-
-
+	}
 
 
 	// 핸들바스. main.js에 있는 함수 사용
@@ -37,7 +84,10 @@
 				generateHandlebars(result, $('#select-collect-template'), $('#select-collect'));
 			}
 		})
-	}
+	 }
+
+
+
 	window.onload = swiper;
 
 	var swiper = new Swiper('.swiper-container', {

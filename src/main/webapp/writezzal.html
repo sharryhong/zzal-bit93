@@ -63,11 +63,9 @@
 	    </div>
 
 	  </div>
+	</div>
 
-
-		</div>
-
-		<div class="writezzal-page swiper-slide each-page ">
+		<!-- <div class="writezzal-page swiper-slide each-page ">
 		  <div class="img-cover">
 			  <div class="writezzal-img writezzal-cover images-div">
 
@@ -85,8 +83,10 @@
 		</div>
 
 
+</div>
+-->
+<!--slide-wrapper-->
 
-</div><!--slide-wrapper-->
 	  <div class="bottom-menu">
 			  <div class="selectpage">
 				  <div class="swiper-pagination"></div>
@@ -117,6 +117,7 @@
 </script>
 
 <script id="addpage-template" type="text/x-handlebars-template">
+
 <div class="writezzal-page swiper-slide each-page">
   <div class="img-cover">
 	  <div class="writezzal-img writezzal-cover images-div">
@@ -131,7 +132,32 @@
     <textarea placeholder="짤강의 내용을 입력해 주세요" maxlength="180"></textarea>
   </div>
 </div>
+
 </script>
+
+
+<script id="tmppage-template" type="text/x-handlebars-template">
+	{{#each page}}
+<div class="writezzal-page swiper-slide each-page">
+  <div class="img-cover">
+	  <div class="writezzal-img writezzal-cover images-div">
+	  </div>
+		<div class="btns">
+			<button type="button" href="#" class="represent-photo"><i class="fa fa-camera-retro" aria-hidden="true"></i><span class="text">이미지 업로드</span></button>
+			<input class="photo-upload-btn" type="file" name="files" accept="image/gif, image/png, image/jpg, image/jpeg">
+			<input class="fi-filenames" type="hidden" names="filenames">
+		</div>
+  </div>
+ 	<div class="writezzal-text">
+    <textarea placeholder="짤강의 내용을 입력해 주세요" maxlength="180">{{ConTextZ}}</textarea>
+  </div>
+</div>
+{{/each}}
+</script>
+
+
+
+
 
 <script src="node_modules/jquery/dist/jquery.min.js"></script>
 <script src="node_modules/handlebars/dist/handlebars.min.js"></script>

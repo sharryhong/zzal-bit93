@@ -23,16 +23,16 @@ var detailSwipeSmallInfo={
                              autoplay: 2500
                           }
 var swiper2 = new Swiper(detailSwipeSmall,detailSwipeSmallInfo);
-
+/*swiper 초기화들*/
 
 $.ajaxPrefilter(function( options, originalOptions, jqXHR ) { options.async = true; });
+// 구함수 디프리케이트 오류문구 안올라 오게 함
 
 
-
-var douSubscribe;
-var isPlay = false
-var islike;
-var rulogin;
+var douSubscribe; // 구독 하냐?! 묻는 플레그
+var isPlay = false  // 자동 재생 스와이퍼에 프로퍼티 추가 오어 함수 있음
+var islike;       // 좋아요 하냐?! 묻는 플레그
+var rulogin;      // 로긴햇냥 ?! 묻는 플레그
 
 var zzno = location.href.split('?')[1].split('=')[1]
 
@@ -40,6 +40,7 @@ var zzno = location.href.split('?')[1].split('=')[1]
 var memberno = 0 ;
 var collectno = 0;
 console.log(memberno)
+
 $.getJSON('auth/userinfo.json',function(result){
 // console.log(typeof(result.data.no),"auth")
  try{
@@ -55,11 +56,15 @@ $.getJSON('auth/userinfo.json',function(result){
 
     console.log(memberno)
     console.log(zzno)
+
+    //좋아요임?!
     $.getJSON('zzallike/doulike.json',{'mno':memberno,'zzno':zzno},function(result){
       islike=Boolean(result.data.doit)
       // console.log(result.data.doit)
     buttonChecker();
     })
+
+    //구독하심?
     $.getJSON('subs/list.json',{'mno':memberno,'cono':collectno},function(result){
       console.log(result.data.list)
       douSubscribe =Boolean(result.data.list)
@@ -98,7 +103,7 @@ $.getJSON('auth/userinfo.json',function(result){
       })
 
 
-
+      // inner 버튼 체인저
       function innerFuncion(up,off){
         $(up).removeClass('off-btn')
         $(off).addClass('off-btn')
@@ -190,6 +195,7 @@ $.getJSON('auth/userinfo.json',function(result){
 
 
 //
+//버튼 상태를 체크하는 함수
 function buttonChecker(){
   if(islike){
     console.log(islike)
@@ -226,7 +232,6 @@ function buttonChecker(){
   //   $('#m-play-btn')
   // }
 }
-
 
 
 
@@ -278,7 +283,7 @@ $('#m-play-btn').on('click',function(event){
 // })
 
 
-
+// 메인 화면ㅇ 뿌려주던 함수
 $(document).on('ready',function(e){
   $.getJSON('zzal/list.json',{'zzno': zzno},function(result){
     console.log(result)
@@ -294,8 +299,6 @@ $(document).on('ready',function(e){
       $('#main-date').text(res[0])
 
     });
-
-
 
   })
 

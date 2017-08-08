@@ -102,18 +102,18 @@ public class ZzalwriteControl {
     return new JsonResult(JsonResult.SUCCESS, lectMap);
   }
 	
-// @RequestMapping("upload")
-//  public JsonResult upload(MultipartFile[] files) throws Exception {
-//    ArrayList<String> fileList = new ArrayList<>();
-//    for (MultipartFile file : files) {
-//      if (file.isEmpty())
-//        continue;
-//      String filename = getNewFilename();
-//      file.transferTo(new File(servletContext.getRealPath("/upload/" + filename)));
-//      fileList.add(filename);
-//    }
-//    return new JsonResult(JsonResult.SUCCESS, fileList);
-//  }
+ @RequestMapping("tmplist")
+  public JsonResult getzzallectlist(int no, int zzno) throws Exception {
+	 HashMap<String, Object> findMap = new HashMap<>();
+	 findMap.put("zzno", zzno);
+	 findMap.put("mno", no);
+	 HashMap<String, Object> tmplist = new HashMap<>();
+	 
+	 tmplist.put("tmplist",zzalwriteService.findTmplist(findMap));
+	 
+	 
+	 return new JsonResult(JsonResult.SUCCESS, tmplist);
+  }
 //	
 	@RequestMapping(path="upload")
   public JsonResult upload(MultipartFile[] files) throws Exception {
