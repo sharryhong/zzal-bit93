@@ -87,7 +87,10 @@
 	  width: 140%;
 	  transform: translateX(-15%);
 	}
-	
+	.category-special .zzal-lect .zzal img {
+	  width: 140%;
+	  transform: translate(-15%, -20%);
+	}
 	.category-special .zzal-lects02 li::after {
     top: 0px;
 	}

@@ -33,7 +33,7 @@
   </resultMap>
   
 	<select id="selectList" resultMap="zzalMap" parameterType="int">
-    SELECT z.zzno, z.mno, m.nick, z.cno, z.titl, z.zpic, z.cdt as cdt2
+    SELECT z.zzno, z.mno, m.nick, m.pic as pic1, z.cno, z.titl, z.pic as pic2, z.cdt as cdt2
     FROM zzal_lect z INNER JOIN memb m ON z.mno = m.mno
     WHERE z.zzno = #{no} 
   </select>

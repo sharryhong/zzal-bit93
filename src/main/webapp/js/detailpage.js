@@ -1,3 +1,14 @@
+var templateFn = null;
+var generatedHTML = null;
+// 일반 핸들바스사용 
+function generateHandlebars(result, el, target) {
+//	console.log('generateHandlebars()')
+    templateFn = Handlebars.compile(el.text())
+    generatedHTML = templateFn(result.data)
+    target.text('')
+    target.html(generatedHTML)
+}
+
 /*swiper 초기화들*/
 // 짤강의 swiper
 var detailSwipeBig = '.detail-siwpe.swiper-container';
@@ -218,21 +229,29 @@ $('#m-play-btn').on('click',function(event){
 })
 
 
-// 메인 화면 뿌려주던 함수
+// 메인 화면 뿌려주는 함수
+var zzalmno = 0
 $(document).on('ready',function(e){
   $.getJSON('zzal/list.json',{'zzno': zzno},function(result){
-    console.log(result)
-    console.log(result.data.list[0])
-    let usedata = result.data.list[0];
-    let str = usedata.cdt
-    let res = str.split(" ");
-    console.log(res[0])
-    generateHandlebars(result, $('#detail-swipeslide-template'), $('#zzalswipe-tg'))
-
-    $(document).ready(function() {
+	if (result.data) {
+	    console.log(result.data.list[0])
+	    /*let usedata = result.data.list[0];
+	    let str = usedata.cdt
+	    let res = str.split(" ");
+	    console.log(res[0])*/
+	    zzalmno = result.data.list[0].mno
+    	generateHandlebars(result, $('#detail-swipeslide-template'), $('#zzalswipe-tg'))
+    	generateHandlebars(result, $('#writer-info-template'), $('#writer-info'))
+    }
+    /*$(document).ready(function() {
       $('#main-date').text(res[0])
-    });
+    });*/
   })
+})
+
+// 짤강 작성자 클릭시 
+$(document).on('click', '.zzalwriternick', function() {
+	location.href = 'someonepage.html?writer=' + zzalmno
 })
 
 // 오른쪽 스크롤바
@@ -243,3 +262,4 @@ $(window).on("load",function(){
     	scrollButtons: { enable: true }
     });
 });
+

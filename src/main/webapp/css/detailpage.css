@@ -1,6 +1,7 @@
 textarea {
     resize: none;
 }
+
 .nav,
 .nav.sliding {
 	display: none;
@@ -87,7 +88,12 @@ textarea {
    border: 0;
    text-align: center;
    font-size: 18px;
-   background: #fff;
+   /* background: #fff; */
+}
+.swiper-slide.main {
+   /* background-image: url('../upload/800_1501999438603_49_sul.jpg'); */
+   background-repeat: no-repeat;
+   background-position: center;
 }
  .detail-page-swip .content-box .text {
    padding-bottom: 20px;
@@ -255,7 +261,8 @@ textarea {
   .detail-right .lect-user-phot {
     width: 60px;
     height: 60px;
-    background-image: url('../image/ohh.jpg');
+    /* background-image: url('../image/ohh.jpg'); */
+    border: 1px solid #ccc;
   }
   .upper-contaniner .user-lect-info {
     height: 80px;
@@ -391,8 +398,8 @@ textarea {
     height: calc(100vh - 66px);
   }
   .detail-page-swipe .contents .type-main{
-    height: 900px;
-    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url(../image/ohh.jpg);
+    height: 93vh;
+    /* background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url(../image/ohh.jpg); */
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
