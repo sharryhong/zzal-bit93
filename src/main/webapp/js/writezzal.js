@@ -28,7 +28,6 @@ function justInit(no){
 						method:'GET',
 						data: {"no":no, "zzno":parseInt(initWrite.split("=")[1])},
 						success : function(data){console.log(data,"성공 객체임")
-						l
 
 						tmpMaker(data.data.tmplist);
 					}
@@ -43,9 +42,12 @@ function justInit(no){
 		let tmpMcoNo = data.zzal.cono
 		let tmpMCno = data.zzal.cno
 		let tmpMtitl = data.zzal.title
-		let tmpMpic = data.zzal.mainPic
+		let tmpMpic = String(data.zzal.mainPic).replace(/"/g,"")
+
+
 
 		let tmpPpic = data.page.pagePic
+
 
 
 	 $("#select-collect > option[value="+tmpMcoNo+"]").attr("selected", true)
@@ -60,10 +62,10 @@ function justInit(no){
 	swiper.appendSlide(templatetmpFn(data))
 	let tmpPageSelect = $(".swiper-slide .images-div")
 
-	// let tmpstr = './upload/'.concat(tmpMpic.split)
+	let tmpstr = './upload/'+tmpMpic
 	console.log(tmpPageSelect)
-	console.log(typeof(tmpPpic))
-    // $(tmpPageSelect[0]).css("background-image", 'url('+tmpstr+')')
+
+  $(tmpPageSelect[0]).css("background-image", 'url('+tmpstr+')')
 
 	slideNumberring()
 
