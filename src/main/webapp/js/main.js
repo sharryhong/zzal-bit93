@@ -39,6 +39,12 @@ $(document).ready(function() {
 	  event.preventDefault()
 	})
 	
+	// 클릭시 해당 짤강 페이지로 
+	$(document.body).on('click', '.zzal-lect', function(event) {
+	  location.href = 'detailpage.html?zzno=' + $(this).attr('data-zzno') // 짤강 detail 완성 후  링크수정
+	  event.preventDefault()
+	})
+	
 	// 로그인, 회원가입
 	var fiEmail = $('#fi-email'),
 		fiPassword = $('#fi-password'),

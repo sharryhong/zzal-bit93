@@ -198,6 +198,9 @@ input::-moz-placeholder { color: #777; }
 .bx-wrapper .bx-controls-direction a {
 	z-index: 333;
 }
+.main-page .main-content {
+	transition: .3s ease-in-out;
+}
 
 /*zzal*/
 .swiper-slide .zzal-lect {

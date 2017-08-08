@@ -11,7 +11,9 @@ $(document).on('ready',function(result){
 			$('.reply-list ul').html(generatedHTML) // 새 tr 태그들로 설정한다.
 			
 			$.getJSON('reply/countreply.json', {'zzalnumber': zzno}, function(result) {
-				console.log(result.data.countReply)
+				if (result.data.countReply == 0) {
+					$('.replycnt span:first-child').html('0');
+				}
 				$('.replycnt span:first-child').html(result.data.countReply);
 			})
 	  })
@@ -41,7 +43,6 @@ $('.submit-reply').click(function() {
 					$('.reply-list ul').html(generatedHTML) // 새 tr 태그들로 설정한다.
 					
 					$.getJSON('reply/countreply.json', {'zzalnumber': zzno}, function(result) {
-						console.log(result.data.countReply)
 						$('.replycnt span:first-child').html(result.data.countReply);
 					})
 
@@ -169,11 +170,11 @@ $(document).on("click", '.submit-re-reply', function(){
 /*회원정보 세션*/
 $.getJSON('/zzal-bit93/auth/userinfo.json', function(result) {
      if (result.data) {
-        $('.user-name').text(result.data.nick)
+        $('.reply-inputer .user-name').text(result.data.nick)
         $('.profile-wrap .phot').css({"background-image": "url(upload/"+result.data.membpic+")"});
         $('.reply-inputer .user-phot').css({"background-image": "url(upload/"+result.data.membpic+")"});
         
         $('.input-con .input-reply').prop('readonly', false); //로그인 후 inputtext라인 활성화
-        $('.down-container .reply-inputer .input-con').css("margin", "10px 5px 10px 5px")
+        /*$('.down-container .reply-inputer .input-con').css("margin", "10px 5px 10px 5px")*/
      }
    })

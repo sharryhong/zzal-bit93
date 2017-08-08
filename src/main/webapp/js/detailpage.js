@@ -1,3 +1,5 @@
+/*swiper 초기화들*/
+// 짤강의 swiper
 var detailSwipeBig = '.detail-siwpe.swiper-container';
 var detailSwipeBigInfo = {
                           nextButton: '.swiper-button-next',
@@ -8,9 +10,7 @@ var detailSwipeBigInfo = {
 
 var swiper1 = new Swiper(detailSwipeBig,detailSwipeBigInfo)
 
-
-
-// <!-- <script src="js/slide.js"></script> -->
+// zzaler의 다른짤강 swiper
 var detailSwipeSmall='.swiper-container.lects-units';
 var detailSwipeSmallInfo={
                             //  pagination: '.swiper-pagination',
@@ -23,11 +23,9 @@ var detailSwipeSmallInfo={
                              autoplay: 2500
                           }
 var swiper2 = new Swiper(detailSwipeSmall,detailSwipeSmallInfo);
-/*swiper 초기화들*/
 
-$.ajaxPrefilter(function( options, originalOptions, jqXHR ) { options.async = true; });
 // 구함수 디프리케이트 오류문구 안올라 오게 함
-
+$.ajaxPrefilter(function( options, originalOptions, jqXHR ) { options.async = true; });
 
 var douSubscribe; // 구독 하냐?! 묻는 플레그
 var isPlay = false  // 자동 재생 스와이퍼에 프로퍼티 추가 오어 함수 있음
@@ -36,13 +34,11 @@ var rulogin;      // 로긴햇냥 ?! 묻는 플레그
 
 var zzno = location.href.split('?')[1].split('=')[1]
 
-
 var memberno = 0 ;
 var collectno = 0;
-console.log(memberno)
 
+// 컬렉션 넘버 받기 위함 (나중에 수정)
 $.getJSON('auth/userinfo.json',function(result){
-// console.log(typeof(result.data.no),"auth")
  try{
    if(result.data.no){
      rulogin=true;
@@ -54,47 +50,33 @@ $.getJSON('auth/userinfo.json',function(result){
    rulogin = false;
  }
 
-    console.log(memberno)
-    console.log(zzno)
-
     //좋아요임?!
     $.getJSON('zzallike/doulike.json',{'mno':memberno,'zzno':zzno},function(result){
       islike=Boolean(result.data.doit)
-      // console.log(result.data.doit)
-    buttonChecker();
+      buttonChecker();
     })
 
     //구독하심?
     $.getJSON('subs/list.json',{'mno':memberno,'cono':collectno},function(result){
-      console.log(result.data.list)
       douSubscribe =Boolean(result.data.list)
-      console.log(douSubscribe)
-    buttonChecker();
+      buttonChecker();
     })
 
     if (rulogin) {
       $('#like-btn').on('click',function(){
-        console.log('좋아요 안이야! buttonChecker')
-
-      //  leftBtnFunc(this, islike);
 
         let up = $(this)[0].children[0]
         let off = $(this)[0].children[1]
 
-
        if(!islike){
          $.post('zzallike/loveu.json',{'mno':memberno, 'zzno':zzno},function(result){
-           console.log(result)
          },"json")
-         console.log(islike)
          innerFuncion(up,off)
           event.preventDefault()
          return islike=true;
        }else{
          $.post('zzallike/notloveu.json',{'mno':memberno, 'zzno':zzno},function(result){
-           console.log(result)
          },"json")
-         console.log(islike)
          innerFuncion(off,up)
           event.preventDefault()
          return  islike=false;
@@ -102,19 +84,14 @@ $.getJSON('auth/userinfo.json',function(result){
 
       })
 
-
       // inner 버튼 체인저
       function innerFuncion(up,off){
         $(up).removeClass('off-btn')
         $(off).addClass('off-btn')
-
       }
-
-
-      console.log('재생 안이야! 117')
+      
       $('#subscribe-btn').on('click',function(event){
 
-      //	leftBtnFunc(isvolumeOn)
          let up = $(this)[0].children[0]
          let off = $(this)[0].children[1]
          event.preventDefault()
@@ -139,7 +116,6 @@ $.getJSON('auth/userinfo.json',function(result){
 
       $('#m-subscribe-btn').on('click',function(event){
 
-      //	leftBtnFunc(isvolumeOn)
          let up = $(this)[0].children[0]
          let off = $(this)[0].children[1]
         if(!douSubscribe){
@@ -156,8 +132,6 @@ $.getJSON('auth/userinfo.json',function(result){
           return douSubscribe=false;
         }
       })
-
-
       //login 시에만
     } else {
 
@@ -166,12 +140,6 @@ $.getJSON('auth/userinfo.json',function(result){
       $('.upper-upper #like-btn, #subscribe-btn').on('click',function(){
         alert('로그인 하세요!')
         $.getScript('js/login.js',function(data, textStatus, jqxhr){
-          console.log(data)
-          console.log(textStatus)
-          console.log(jqxhr)
-
-
-            console.log('lolols')
 
             $(".login-curtain").show();
             $(".login-container").show();
@@ -179,30 +147,17 @@ $.getJSON('auth/userinfo.json',function(result){
 
             event.preventDefault()
         })//getScript
-
-
-
         event.preventDefault()
       })
     }
-
-
 })
 
-
-
-
-
-
-//
 //버튼 상태를 체크하는 함수
 function buttonChecker(){
   if(islike){
     console.log(islike)
     $($('.heart')[0]).removeClass('off-btn')
     $($('.heart')[1]).addClass('off-btn')
-    // $('.heart')[0]
-    // $('.heart')[1]
 
   }else{
     $($('.heart')[1]).removeClass('off-btn')
@@ -213,24 +168,12 @@ function buttonChecker(){
     console.log(douSubscribe,'buttonChecker')
     $($('.subs')[2]).removeClass('off-btn')
     $($('.subs')[3]).addClass('off-btn')
-    console.log($('.subs'))
-    // $('.heart')[0]
-    // $('.heart')[1]
 
   }else{
     $($('.subs')[3]).removeClass('off-btn')
     $($('.subs')[2]).addClass('off-btn')
   }
 
-  // if(douSubscribe){
-  //   $('#subscribe-btn')
-  //   $('#m-subscribe-btn')
-  // }
-  //
-  // if(isPlay){
-  //   $('#play-btn')
-  //   $('#m-play-btn')
-  // }
 }
 
 
@@ -275,15 +218,7 @@ $('#m-play-btn').on('click',function(event){
 })
 
 
-
-//
-// $('.detail-funcbtn-a').on('click', function(e){
-//     let layer =$(this).attr('href')
-//     $(layer).fadeIn()
-// })
-
-
-// 메인 화면ㅇ 뿌려주던 함수
+// 메인 화면 뿌려주던 함수
 $(document).on('ready',function(e){
   $.getJSON('zzal/list.json',{'zzno': zzno},function(result){
     console.log(result)
@@ -295,19 +230,16 @@ $(document).on('ready',function(e){
     generateHandlebars(result, $('#detail-swipeslide-template'), $('#zzalswipe-tg'))
 
     $(document).ready(function() {
-
       $('#main-date').text(res[0])
-
     });
-
   })
-
 })
 
-function generateHandlebars(result, el, target) {
-  templateFn = Handlebars.compile(el.text())
-  generatedHTML = templateFn(result.data)
-  // console.log(generatedHTML)
-  target.text('')
-  target.html(generatedHTML)
-}
+// 오른쪽 스크롤바
+$(window).on("load",function(){
+    $(".detail-right").mCustomScrollbar({
+    	theme: "dark-thin",
+    	scrollInertia: 1000,
+    	scrollButtons: { enable: true }
+    });
+});

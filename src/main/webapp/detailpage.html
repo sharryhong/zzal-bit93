@@ -4,20 +4,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <meta charset="UTF-8">
 
-<meta property="og:url"                content="http://192.168.0.57/zzal-bit93/detailpage.html" />
-<meta property="og:type"               content="zzal" />
-<meta property="og:title"              content="zzal" />
-<meta property="og:description"        content="creative thinking?" />
-<meta property="og:image"              content="http://192.168.0.57/zzal-bit93/image/sul.jpg" />
-
-
-
+	<meta property="og:url"                content="http://192.168.0.57/zzal-bit93/detailpage.html" />
+	<meta property="og:type"               content="zzal" />
+	<meta property="og:title"              content="zzal" />
+	<meta property="og:description"        content="creative thinking?" />
+	<meta property="og:image"              content="http://192.168.0.57/zzal-bit93/image/sul.jpg" />
 
   <title>zzal school</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
   <link rel="stylesheet" href="scrollbar/jquery.mCustomScrollbar.css">
-  <link rel="stylesheet" href="css/jquery.bxslider.min.css">
   <link rel="stylesheet" href="node_modules/swiper/dist/css/swiper.min.css">
   <link rel="stylesheet" href="css/common.css">
   <link rel="stylesheet" href="css/style.css">
@@ -60,8 +56,8 @@
 
    <div class="zzal-container">
      <!-- left-side-->
-              <div class="detail-funcbtn">
-                <a class="detail-funcbtn-a" href="#detail-layer-funcBtn"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></a>
+              <!-- <div class="detail-funcbtn">
+                <a class="detail-funcbtn-a" href="#detail-layer-funcBtn"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></a> -->
                   <!-- <div id="detail-layer-funcBtn" class="funclayer">
                     <div class="later-wrraper">
                       <div class="view-collcet">
@@ -80,7 +76,7 @@
                       <a href="#" class="btn-layerClose"><strong class="fa fa-times" aria-hidden="true"></strong></a>
                     </div>
                   </div> -->
-              </div>
+              <!-- </div> -->
 
               <div class="detail-left">
                 <div class="left-upper-menu">
@@ -373,7 +369,7 @@
                        <div class="user-lects-units">
                          <div class="title">
                            <div class="other-lects">[<span>유끼만두</span>]의 다른짤강</div>
-                           <div class='more-view'><a href="#">더보기<i class="fa fa-plus" aria-hidden="true"></i></a></div>
+                           <div class='more-view'><a href="#">더보기 <i class="fa fa-plus" aria-hidden="true"></i></a></div>
                          </div>
                          <div class="lects-units-sliders">
                            <div class="swiper-container lects-units">
@@ -455,7 +451,7 @@
                     <div class="reply-list">
                      <div class="replycnt"><span>1</span><span>개의 댓글</span></div>
                       <ul>
-                        <li>
+                        <!-- <li>
                           <div class="reply-unit-con">
                             <a href="#">
                               <div class="reply-user-phot thumbnail-phot-insert"></div>
@@ -464,7 +460,7 @@
                               <div class="user-name"><span class='name'>이완</span></div>
                               <div class="reply-text"><div class="text">아 예쁘다!</div></div>
                             </div>
-                            <div class="reply-info">
+                            <div class="reply-info ">
                               <div class="date"><span class='when'>하루전</span>
                                 <a href="#">
                                  <span class="re-reply">답글달기</span>
@@ -484,7 +480,7 @@
                               </div>
                             </div>
                           </div>
-                        </li>
+                        </li> -->
                       </ul>
                     </div>
                    </div><!--down-container-->
@@ -525,7 +521,7 @@
       </div>
 </div>
 
-<div id="footer"></div>
+<!-- <div id="footer"></div> -->
    <!-- Swiper JS -->
 
    <!-- Initialize Swiper -->
@@ -569,7 +565,7 @@
 <li class='reply-li re-reply-li'>
 <div class='reply-unit-con re-reply-con'>
     <a href='#'>
-      <div class='reply-user-phot thumbnail-phot-insert' style="background-image:url('image/{{membPic}}')"></div>
+      <div class='reply-user-phot thumbnail-phot-insert' style="background-image:url('upload/{{membPic}}')"></div>
     </a>
   <div class='reply-con'>
     <div class='user-name'><span class='name'>{{nickName}}</span></div>
@@ -578,7 +574,7 @@
       </a>
     <div class='reply-text'><div class='text'>{{content}}</div></div>
   </div>
-  <div class='reply-info'>
+  <div class='reply-info clearfix'>
     <div class='date'><span class='when'>{{createDate}}</span>
     </div>
     <div class='press'>
@@ -595,7 +591,7 @@
   <li class='reply-li'>
     <div class='reply-unit-con'>
       <a href='#'>
-        <div class='reply-user-phot thumbnail-phot-insert' style="background-image:url('image/{{membPic}}')"></div>
+        <div class='reply-user-phot thumbnail-phot-insert' style="background-image:url('upload/{{membPic}}')"></div>
       </a>
       <div class='reply-con'>
         <div class='user-name'><span class='name'>{{nickName}}</span></div>
@@ -604,7 +600,7 @@
           </a>  
         <div class='reply-text'><div class='text'>{{content}}</div></div>
       </div>
-      <div class='reply-info'>
+      <div class='reply-info clearfix'>
         <div class='date'><span class='when'>{{createDate}}</span>
           <a href='#'>
            <span class='re-reply'>답글달기</span>
@@ -649,7 +645,7 @@
   <li class='reply-li'>
     <div class='reply-unit-con'>
       <a href='#'>
-        <div class='reply-user-phot thumbnail-phot-insert' style="background-image:url('image/{{membPic}}')"></div>
+        <div class='reply-user-phot thumbnail-phot-insert' style="background-image:url('upload/{{membPic}}')"></div>
       </a>
       <div class='reply-con'>
         <div class='user-name'><span class='name'>{{nickName}}</span></div>
@@ -658,7 +654,7 @@
           </a>  
         <div class='reply-text'><div class='text'>{{content}}</div></div>
       </div>
-      <div class='reply-info'>
+      <div class='reply-info clearfix'>
         <div class='date'><span class='when'>{{createDate}}</span>
           <a href='#'>
            <span class='re-reply'>답글달기</span>
@@ -695,6 +691,7 @@
 </script>
 <script src="js/detailpage.js"></script>
 <script src="js/reply.js"></script>
+<script src="scrollber/jquery.mCustomScrollbar.concat.min.js"></script>
 
 </body>
 </html>

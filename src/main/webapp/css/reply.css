@@ -1,34 +1,38 @@
 /* reply.css 는 detailpage.css 를 수정하는 녀석입니다*/
-
+.submit-re-reply, 
+.cancle-re-reply {
+	padding: 3px;
+	border: 1px solid #ccc;
+}
 .down-container .reply-inputer .user-phot {
 	width: 50px;
 	height: 50px;
-	padding: 10px;
-	margin: 10px 0 0 10px;
 	float: left;
 	background-image: url('../image/anonymous.png');
 }
 
 .down-container .reply-inputer .input-con {
 	float: right;
-  margin: 22px 5px 10px 5px;
-  width : 76%;
 }
 
 .zzal-container .detail-right {
-	width: 340px;
+	width: 360px;
+	padding: 5px 0;
+	color: #555;
 }
 
 .zzal-container .detail-funcbtn {
 	right:360px;
 }
-
+.reply-info .date .when {
+	color: #999;
+}
 .reply-unit-con .reply-con .user-name {
 	margin-left:7px;
 }
 
 .reply-list .reply-unit-con .reply-user-phot {
-	margin : 18px 0px 0px 7px;
+	margin : 14px 0px 0px 10px;
 }
 
 .re-reply-inputer .user-phot {
@@ -45,7 +49,7 @@
 
  .input-con .inputer {
 	margin-right :3px;
-	width : 73%:
+	width : 95%;
 } 
 
 .input-con .inputer .submit-re-reply {
@@ -79,10 +83,10 @@
 	
 .down-container .reply-list .reply-unit-con {
 	border : none;
-	padding-bottom: 10px;
 }
 
 .down-container .reply-info {
+  padding: 3px 0 5px;
 	border-top : none;
 	border-bottom: 1px solid #ccc;
 }
@@ -96,6 +100,7 @@
 }
 
 textarea.input-re-reply {
-	width: 170px;
-	float: left;
+  width: 178px;
+  height: 30px;
+  padding: 7px 3px 0 3px;
 }

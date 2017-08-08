@@ -25,13 +25,13 @@
 		var objThis = this;
 		// 햄버거 버튼 클릭시 toggleMenu메소드 실행
 		this.$toggleBtn.on('click', function(){
-			console.log('ok')
 			objThis.toggleMenu();
 		});
 		if(window.innerWidth > objThis.$deskWidthPx && objThis.$deskWidth == false){
 			objThis.toggleMenu();
 			objThis.$deskWidth = true;
 		}
+		
 		// 브라우저 창 크기 바뀔 때
 		$(window).resize(function(){
 			// 데스크탑이 아니면 (or 창이 줄어들면)
