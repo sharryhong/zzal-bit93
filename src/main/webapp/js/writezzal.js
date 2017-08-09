@@ -198,9 +198,9 @@ function writefuncDone(){
 				photoUpLoad = $('.swiper-slide-active .photo-upload-btn')
 
 				// return indexNum;
-
+				console.log(photoUpLoad)
 						$(photoUpLoad).on('click',function(){
-
+							console.log("호우")
 							let curslide = $(this).closest(".swiper-slide")
 							let curSlideNo = $(this).closest(".swiper-slide").attr('data-no')
 

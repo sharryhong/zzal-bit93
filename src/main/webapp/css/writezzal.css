@@ -216,7 +216,7 @@ input::-moz-placeholder { color: #ccc; }
 	position: absolute;
 	left: 50%;
 	top: 50%;
-	width: 85px;
+	width: 120px;
   height: 85px;
 	transform: translate(-50%, -50%);
 }
