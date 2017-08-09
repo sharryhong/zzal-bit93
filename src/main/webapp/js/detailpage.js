@@ -215,19 +215,22 @@ $('#m-play-btn').on('click',function(event){
 })
 
 
-// 메인 화면 뿌려주는 함수
+// 짤강의 커버
 var zzalmno = 0
 $(document).on('ready',function(e){
   $.getJSON('zzal/list.json',{'zzno': zzno},function(result){
 	if (result.data) {
 	    console.log(result.data.list[0])
-	    var date = new Date(result.data.list[0].cdt)
+	    var cdt = result.data.list[0].cdt
+	    var date = new Date(cdt.replace(/ /g,'T'))
+	    console.log('cdt :', cdt, 'date : ', date)
 	    zzalDate = date.getFullYear()+'-'+(date.getMonth()+1)+'-'+date.getDate()+' '+date.getHours()+':'+date.getMinutes()
 	    zzalmno = result.data.list[0].mno
-    	generateHandlebars(result, $('#detail-swipeslide-template'), $('#zzalswipe-tg'))
+    	generateHandlebars(result, $('#detail-swipeslide-template'), $('.zzalswipe-tg'))
     	generateHandlebars(result, $('#writer-info-template'), $('#writer-info'))
     	$('#main-date').text(zzalDate)
     	$('.date-num').text(zzalDate)
+    	$('.writer').text(result.data.list[0].member.nick)
     }
   })
 })

@@ -8,6 +8,7 @@ public class Zzal {
 	String title;
 	String mainPic;
 	String cdt;
+	String categoryName;
 	Boolean zzalTemporary;
 	int hitCount;
 	int likeCount;
@@ -19,9 +20,9 @@ public class Zzal {
   @Override
   public String toString() {
     return "Zzal [zzno=" + zzno + ", mno=" + mno + ", cno=" + cno + ", cono=" + cono + ", title=" + title + ", mainPic="
-        + mainPic + ", cdt=" + cdt + ", zzalTemporary=" + zzalTemporary + ", hitCount=" + hitCount + ", likeCount="
-        + likeCount + ", replyCount=" + replyCount + ", rowCount=" + rowCount + ", member=" + member + ", zzallike="
-        + zzallike + "]";
+        + mainPic + ", cdt=" + cdt + ", categoryName=" + categoryName + ", zzalTemporary=" + zzalTemporary
+        + ", hitCount=" + hitCount + ", likeCount=" + likeCount + ", replyCount=" + replyCount + ", rowCount="
+        + rowCount + ", member=" + member + ", zzallike=" + zzallike + "]";
   }
 
   public int getZzno() {
@@ -135,5 +136,13 @@ public class Zzal {
   public void setZzallike(ZzalLike zzallike) {
     this.zzallike = zzallike;
   }
-      
+
+  public String getCategoryName() {
+    return categoryName;
+  }
+
+  public void setCategoryName(String categoryName) {
+    this.categoryName = categoryName;
+  }
+  
 }

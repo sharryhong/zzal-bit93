@@ -25,12 +25,12 @@ function generateHandlebarsInfinity(result, el, target) {
 }
 
 // 짤강 클릭시 조회수 + 1
-/*if ($('.zzal-lect')) {
+if ($('.zzal-lect')) {
 	$(document).on("click", ".zzal-lect", function() {
 		$.post('zzal/hitCountUpdate.json', {'zzno': $(this).attr('data-zzno')}, function(result) {
 	    }, 'json')
 	})
-}*/
+}
 
 // <a href="#"> 방지 
 function prevent_a() {
