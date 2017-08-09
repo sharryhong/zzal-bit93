@@ -43,11 +43,11 @@
 		
 		/* 4. 관심카테고리를 추가 또는 삭제 후, 최종적으로 서버에 보내는 '선택완료' 버튼 */
 			$(document).on("click", '.catg-submitBtn', function() {
-				/*console.log('checkCatgNumber', checkCatgNumber)
-				console.log('saveListArray', saveListArray)*/
-//				checkCatgNumber = saveListArray
+				console.log('checkCatgNumber', checkCatgNumber)
+				console.log('unCheckCatgNumber', unCheckCatgNumber)
+				console.log('saveListArray', saveListArray)
 				
-				if(checkCatgNumber.length > 0 || saveListArray.length > 0) {
+				if(checkCatgNumber.length > 0 || saveListArray.length > 0) { // 카테고리 추가
 					$.ajax({
 						type: 'POST',
 						url: 'choicecategory/add.json',
@@ -66,15 +66,22 @@
 								},
 								async: false,
 								success: function(data) {
-									alert('변경완료')
 								}
-							})						
+							})
+							
+							swal({
+								  title: "변경완료!",
+								  text: "관심 카테고리를 변경했습니다.",
+//								  imageUrl: "images/thumbs-up.jpg",
+								});						
+							checkCatgNumber = [];
+							console.log(checkCatgNumber)
+//							location.href = 'index.html'
 						}
-						
-					}).fail(function(){alert('하나라도 골라주세요 T^T')})
+					})
 				} 
 				
-				if (unCheckCatgNumber.length > 0  && saveListArray.length > 0) {
+				if (unCheckCatgNumber.length > 0  && saveListArray.length > 0) { //카테고리 삭제
 					$.ajax({
 						type: 'POST',
 						url: 'choicecategory/delete.json',
@@ -84,11 +91,17 @@
 						},
 						async: false,
 						success: function(data) {
-							alert('변경완료')
-
-						}
-					})
-				} /*else {
+							swal({
+								  title: "변경완료!",
+								  text: "관심 카테고리를 변경했습니다.",
+//								  imageUrl: "images/thumbs-up.jpg"
+								});						}
+					})/*.fail(function(){alert('하나라도 골라주세요 T^T')})*/
+				} 
+				
+				if (saveListArray.length < 1){sweetAlert("변경 실패", "관심카테고리를 하나라도 설정하셔야 합니다!", "error");}
+				
+				/*else {
 					alert('unCheckCatgNumber none T^T')
 				}*/
 			}) // 4.서버로 보내는 확인버튼
