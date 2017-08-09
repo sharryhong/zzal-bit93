@@ -2,7 +2,6 @@ var templateFn = null;
 var generatedHTML = null;
 // 일반 핸들바스사용 
 function generateHandlebars(result, el, target) {
-//	console.log('generateHandlebars()')
     templateFn = Handlebars.compile(el.text())
     generatedHTML = templateFn(result.data)
     target.text('')
@@ -53,7 +52,6 @@ $.getJSON('auth/userinfo.json',function(result){
  try{
    if(result.data.no){
      rulogin=true;
-     console.log(rulogin,'63')
    }
    memberno=result.data.no
    collectno =4;
@@ -110,7 +108,6 @@ $.getJSON('auth/userinfo.json',function(result){
            $.post('subs/insert.json',{'mno':memberno, 'cono':collectno},function(result){
              console.log(result)
            },"json")
-           console.log(islike)
            innerFuncion(up,off)
             event.preventDefault()
            return douSubscribee=true;
@@ -118,7 +115,6 @@ $.getJSON('auth/userinfo.json',function(result){
            $.post('subs/delete.json',{'mno':memberno, 'cono':collectno},function(result){
              console.log(result)
            },"json")
-           console.log(islike)
            innerFuncion(off,up)
             event.preventDefault()
            return  douSubscribe=false;
@@ -130,13 +126,11 @@ $.getJSON('auth/userinfo.json',function(result){
          let up = $(this)[0].children[0]
          let off = $(this)[0].children[1]
         if(!douSubscribe){
-          console.log(douSubscribe)
           $(up).removeClass('off-btn')
           $(off).addClass('off-btn')
           event.preventDefault()
           return douSubscribe=true;
         }else{
-          console.log(douSubscribe)
           $(off).removeClass('off-btn')
           $(up).addClass('off-btn')
           event.preventDefault()
@@ -146,8 +140,6 @@ $.getJSON('auth/userinfo.json',function(result){
       //login 시에만
     } else {
 
-
-      console.log(rulogin,'186')
       $('.upper-upper #like-btn, #subscribe-btn').on('click',function(){
         alert('로그인 하세요!')
         $.getScript('js/login.js',function(data, textStatus, jqxhr){
@@ -166,7 +158,6 @@ $.getJSON('auth/userinfo.json',function(result){
 //버튼 상태를 체크하는 함수
 function buttonChecker(){
   if(islike){
-    console.log(islike)
     $($('.heart')[0]).removeClass('off-btn')
     $($('.heart')[1]).addClass('off-btn')
 
@@ -176,7 +167,6 @@ function buttonChecker(){
   }
 
   if(douSubscribe){
-    console.log(douSubscribe,'buttonChecker')
     $($('.subs')[2]).removeClass('off-btn')
     $($('.subs')[3]).addClass('off-btn')
 
@@ -194,13 +184,11 @@ $('#play-btn').on('click',function(event){
    let up = $(this)[0].children[0]
    let off = $(this)[0].children[1]
   if(!isPlay){
-    console.log(isPlay)
     $(up).removeClass('off-btn')
     $(off).addClass('off-btn')
     event.preventDefault()
     return isPlay=true;
   }else{
-    console.log(isPlay)
     $(off).removeClass('off-btn')
     $(up).addClass('off-btn')
     event.preventDefault()
@@ -214,13 +202,11 @@ $('#m-play-btn').on('click',function(event){
    let up = $(this)[0].children[0]
    let off = $(this)[0].children[1]
   if(!isPlay){
-    console.log(isPlay)
     $(up).removeClass('off-btn')
     $(off).addClass('off-btn')
     event.preventDefault()
     return isPlay=true;
   }else{
-    console.log(isPlay)
     $(off).removeClass('off-btn')
     $(up).addClass('off-btn')
     event.preventDefault()
@@ -235,17 +221,14 @@ $(document).on('ready',function(e){
   $.getJSON('zzal/list.json',{'zzno': zzno},function(result){
 	if (result.data) {
 	    console.log(result.data.list[0])
-	    /*let usedata = result.data.list[0];
-	    let str = usedata.cdt
-	    let res = str.split(" ");
-	    console.log(res[0])*/
+	    var date = new Date(result.data.list[0].cdt)
+	    zzalDate = date.getFullYear()+'-'+(date.getMonth()+1)+'-'+date.getDate()+' '+date.getHours()+':'+date.getMinutes()
 	    zzalmno = result.data.list[0].mno
     	generateHandlebars(result, $('#detail-swipeslide-template'), $('#zzalswipe-tg'))
     	generateHandlebars(result, $('#writer-info-template'), $('#writer-info'))
+    	$('#main-date').text(zzalDate)
+    	$('.date-num').text(zzalDate)
     }
-    /*$(document).ready(function() {
-      $('#main-date').text(res[0])
-    });*/
   })
 })
 

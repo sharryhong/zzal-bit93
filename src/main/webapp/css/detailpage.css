@@ -1,6 +1,13 @@
 textarea {
     resize: none;
 }
+#main-date {
+	margin-right: 5px;
+}
+.zzal-lect-info .zzalwriternick {
+	color: #5656b1;
+	font-weight: bold;
+}
 
 .nav,
 .nav.sliding {
@@ -12,7 +19,7 @@ textarea {
 .upper-contaniner {
 	padding: 10px 10px 0 10px;
 }
-.detail-main .zzal-container {
+.detail-main .main-content .zzal-container {
 	height: 100vh;
 	padding: 0;
 	padding-top: 66px;
@@ -120,7 +127,7 @@ textarea {
   margin-left: 20px;
   color: #fff;
   position:absolute;
-  top:50%;
+  top:60%;
   text-align: left;
   width:60%;
 }
@@ -128,12 +135,13 @@ textarea {
   font-size: 14px;
 }
 .detail-page-swipe .contents .type-main .mover-mover {
-  font-size: 18px;
+  font-size: 14px;
   margin-top: 40px;
   color: rgba(255,255,255,0.7);
 }
-.detail-page-swipe .contents .type-main .title-info h3{
-  display: inline-block;
+.detail-page-swipe .zzal-title{
+  font-size: 1.625rem;
+  margin: 5px 0 5px -5px;
 }
 .detail-page-swipe .contents .type-main  .left-info {
   width: 100%;
@@ -143,13 +151,12 @@ textarea {
 .detail-page-swipe .contents .type-main  .left-info .lect-user-phot{
   width: 30px;
   height: 30px;
-  background-image: url('../image/user.jpg');
+  border: 1px solid rgba(0,0,0,0.2);
 }
 .detail-page-swipe .contents .type-main  .left-info .zzal-lect-info{
   margin-left: 10px;
 }
 .detail-page-swipe .contents .type-main  .left-info .zzal-lect-info li {
-  width:90px;
   height: 18px;
   font-size: 13px;
   border: none;
@@ -242,7 +249,6 @@ textarea {
     border-bottom: 1px solid #ccc;
     height: 23px;
     line-height: 23px;
-    width: 110px;
   }
   .zzal-lect-info li .left-1st {
     float:left;
