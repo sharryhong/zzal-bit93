@@ -36,7 +36,6 @@ public class ReplyControl {
   public JsonResult countReply(int zzalnumber) throws Exception {
     HashMap<String,Object> dataMap = new HashMap<>();
     dataMap.put("countReply", replyService.getSize(zzalnumber));
-    System.out.println();
     
     return new JsonResult(JsonResult.SUCCESS, dataMap);
   }
@@ -59,7 +58,6 @@ public class ReplyControl {
     reply.setMemberNumber(MemberNo);
     reply.setZzalnumber(zzalnumber);
 
-    System.out.println(reply);
     replyService.rerepadd(reply);
     return new JsonResult(JsonResult.SUCCESS, reply);
   }
@@ -69,7 +67,6 @@ public class ReplyControl {
   public JsonResult update(Member member, HttpSession session) throws Exception { // 여기서의 Member member는 클라이언트에서 post요청으로 받은 값을 담고있다. 
      Member getMember = (Member)session.getAttribute("loginMember"); //getMember객체에 session 속성명이 "loginMember"인 속성의 값을 Object(member) 타입으로 리턴하여 넣는다. 
      memberService.update(member); // memberService의 update메서드에 파라미터로 받은 member객체를 넘겨준다. 
-     System.out.println(member.getNick());
      String nick = member.getNick(); // post요청으로 받은 member 객체의 nick 프로퍼티 값을, String nick에 저장한다(주소를 연결한다). 
      String password = member.getPassword(); // post요청으로 받은 member 객체의 password 프로퍼티 값을, String password에 저장한다(주소를 연결한다).
      getMember.setNick(nick); // 처음에 선언한(세션에서 얻은) getMember 객체에 nick과  

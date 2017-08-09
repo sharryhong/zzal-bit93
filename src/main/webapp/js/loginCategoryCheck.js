@@ -18,6 +18,16 @@
 		    			location.href = 'index.html'
 		    		}
 		    	})
+		    	if (result.data == "fail") {
+		    		swal({
+		    			  title: "로그인 실패",
+		    			  text: "아이디와 비밀번호를 확인해주세요",
+		    			  type: "error",
+		    			  confirmButtonText: "확인",
+		    			  customClass: 'login-failed'
+		    			});
+		    		} else {
 		    	location.href = 'index.html'
+		    		}
 		    }, 'json')
 		})
