@@ -181,7 +181,14 @@
 .mypage_mid.space {
 	margin-bottom: 20px;
 }
-
+.users-info-paper {
+	height: 80px;
+	float: right;
+}
+.users-info-paper .user-border div{
+	border-bottom: solid 1px #ccc;
+	padding: 3px;
+}
 
 /*desktop*/
 @media (min-width: 766px) {
@@ -247,6 +254,19 @@
 	}
 	.mypage_bottom .zzal-menu li {
 		width: 50%;
+	}
+	
+	/*someone.css*/
+	.profile-wrap.someone {
+		margin-top: 0px;
+	}
+	.mypage_mid.space li {
+		width: 50%;
+		text-align: center;
+	}
+	.users-info-paper .user-border div{
+	  	border-bottom: solid 1px #ccc;
+	  	padding: 0;
 	}
 }
 
