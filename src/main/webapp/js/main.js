@@ -32,6 +32,14 @@ if ($('.zzal-lect')) {
 	})
 }
 
+// <a href="#"> 방지 
+function prevent_a() {
+    $(document).on('click', 'a[href="#"]', function(e){
+        e.preventDefault();
+    });
+}
+prevent_a()
+
 $(document).ready(function() { 
 	//각 카테고리 클릭시 
 	$(document.body).on('click', '.nav-menu', function(event) {
