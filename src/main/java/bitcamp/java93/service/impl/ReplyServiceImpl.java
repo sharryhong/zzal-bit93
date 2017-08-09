@@ -20,21 +20,11 @@ public class ReplyServiceImpl implements ReplyService {
     return replyDao.selectList(zzalnumber);
   }
 
-/*  @Override
-  public List<Reply> replyOne() throws Exception {
-    return replyDao.replyOne();
-  }*/
-
   @Override
   public int getSize(int zzalnumber) {
-    System.out.println(zzalnumber+"daogetsize");
     return replyDao.countReply(zzalnumber);
   }
 
-//  @Override
-//  public List<Reply> add(Reply reply) throws Exception {
-//    return replyDao.insert(reply);
-//  }
   @Override
   public void add(Reply reply) throws Exception {
     replyDao.insert(reply);

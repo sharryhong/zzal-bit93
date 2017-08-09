@@ -42,8 +42,6 @@ public class ChoiceCategoryControl {
     String no;
     for (int i=0; i < arrNum.length; i++) {
       no = arrNum[i];
-      System.out.println(no);
-     /* System.out.println(choiceCategory.toString());*/
       choiceCategory.setCategoryNumber(Integer.parseInt(no));
       choiceCategoryService.remove(choiceCategory);
     }
