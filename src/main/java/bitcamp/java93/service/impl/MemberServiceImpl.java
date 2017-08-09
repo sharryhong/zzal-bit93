@@ -48,5 +48,13 @@ public class MemberServiceImpl implements MemberService {
       throw new Exception(member.getNo() + "번 회원을 찾을 수 없습니다.");
     }
   }
+  
+  @Override
+  public void updateCatgAuth(Member member) throws Exception {
+    int count = memberDao.updateCatgAuth(member);
+    if (count < 1) {
+      throw new Exception(member.getNo() + "번 회원을 찾을 수 없습니다.");
+    }
+  }
 	  	
 }

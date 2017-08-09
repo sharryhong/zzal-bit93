@@ -11,4 +11,6 @@ public interface MemberService {
 	List<Member> list() throws Exception;
 	void add(Member member) throws Exception;
 	void update(Member member) throws Exception;
+	void updateCatgAuth(Member member) throws Exception;
+
 }

@@ -12,10 +12,11 @@
     <result column="mtype" property="membtype"/>
     <result column="stype" property="signtype"/>
     <result column="pic" property="membpic"/>
+    <result column="auth" property="auth"/>
   </resultMap>
 
   <sql id="select1">
-    select mno, nick, email, pic
+    select mno, nick, email, pic , auth
     from memb
   </sql>
 	
@@ -46,6 +47,15 @@
       pic=#{membpic}
     where mno=#{no}
   </update>
+  
+    <!-- 카테고리 추가 시, 회원 auth 변경 (true or false) -->
+  <update id="updateCatgAuth" parameterType="member">
+    update memb set 
+    auth = #{auth}
+    where mno=#{no}
+  </update>
+  
+  
 <!--   
   <select id="selectList" resultMap="categoryMap" parameterType="map">
     <include refid="select1"/>
