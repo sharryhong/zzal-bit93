@@ -86,7 +86,7 @@ input::-moz-placeholder { color: #777; }
 	position: absolute;
   top: 15px;
 }
-.header .user-info-face .phot {
+.header .user-info-face .profile-wrap .phot {
   height: 35px;
   width: 35px;
 }
@@ -1110,11 +1110,11 @@ input::-moz-placeholder { color: #777; }
   .mini-logo {
   display:block;
 	}
-	.user-info-face .phot {
+	.mypage .user-info-face .phot {
 	  height: 120px;
     width: 120px;
 	}
-	.user-info-face .user-name {
+	.mypage .user-name {
 	  line-height: 110px;
 	}
 }
