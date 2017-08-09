@@ -65,7 +65,7 @@
   });
   
   // 편집 버튼 클릭시 컬렉션 data-no
-  $(document.body).on('click', '.btn-info', function(event) {
+  $(document.body).on('click', '#my-collection.collection-view .btn-info', function(event) {
 	  /*console.log($(this).attr('data-no'))*/
 	  location.href = 'collectupdate.html?cono=' + $(this).attr('data-no')
 	  event.preventDefault()

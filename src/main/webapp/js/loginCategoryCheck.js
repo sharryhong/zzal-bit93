@@ -18,6 +18,7 @@
 		    			location.href = 'index.html'
 		    		}
 		    	})
+		    	
 		    	if (result.data == "fail") {
 		    		swal({
 		    			  title: "로그인 실패",
@@ -27,7 +28,7 @@
 		    			  customClass: 'login-failed'
 		    			});
 		    		} else {
-		    	location.href = 'index.html'
+		    			location.href = 'index.html'
 		    		}
 		    }, 'json')
 		})
