@@ -192,7 +192,7 @@
                      </div> -->
 
                    </div><!--left-info-->
-                  <div class="write-date"><span class='date-num'>2017-07-07</span><span>작성</span></div>
+                  <div class="write-date"><span class='date-num'></span><span>작성</span></div>
                   </div>
                     <div class="user-lects-units">
                       <div class="title">
@@ -530,12 +530,10 @@
     <div class="contents">
       <div class="type-main" style='background-image:url("upload/{{mainPic}}")'>
       <div class="title-info">
-        <div class="write-date"><span id="main-date">{{cdt}}</span><span>작성</span></div>
-        <h3>{{title}}</h3>
+        <div class="write-date"><span id="main-date"></span><span>작성</span></div>
+        <h3 class="zzal-title">{{title}}</h3>
         <div class="left-info">
-          <a href="#">
-            <div class="lect-user-phot thumbnail-phot-insert"></div>
-          </a>
+          <div class="lect-user-phot thumbnail-phot-insert" style='background-image:url("upload/{{member.membpic}}")'></div>
           <div class="zzal-lect-info">
             <ul>
               <li><span class='left-1st user-name'>{{member.nick}}</span><span class='right-1st'></span></li>
@@ -543,7 +541,7 @@
             </ul>
           </div>
         </div>
-        <div class="mover-mover"><div class="fa fa-chevron-right" aria-hidden="true"></div>좌우로 넘겨 보아요!</div>
+        <div class="mover-mover"><div class="fa fa-chevron-right" aria-hidden="true"></div> 좌우로 넘겨 보아요!</div>
       </div>
       </div><!--typemain-->
     </div>

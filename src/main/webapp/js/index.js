@@ -1,3 +1,28 @@
+/* 핸들바스 사용시 사용 함수 
+ * 매개변수 el : 핸들바스 적용 id
+ * 매개변수 target : 들어갈 위치
+ * 사용 예 
+ * $.getJSON('mainSlide.json', function(result) {
+ *    generateHandlebars(result, $('#main-slide-template'), $('#mainSlide));
+ *  })
+ */
+var templateFn = null;
+var generatedHTML = null;
+// 일반 핸들바스사용 
+function generateHandlebars(result, el, target) {
+//	console.log('generateHandlebars()')
+    templateFn = Handlebars.compile(el.text())
+    generatedHTML = templateFn(result.data)
+    target.text('')
+    target.html(generatedHTML)
+}
+// 무한 스크롤시 핸들바스 사용
+function generateHandlebarsInfinity(result, el, target) {
+//	console.log('generateHandlebarsInfinity()')
+    templateFn = Handlebars.compile(el.text())
+    generatedHTML = templateFn(result.data)
+    target.append(generatedHTML)
+}
 $(document).ready(function(){ 
 	// index.html 짤강의 리스트뿌리기
 	var pageNo = 1

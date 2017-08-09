@@ -22,7 +22,6 @@ $(document).on('ready',function(result){
 
 /* 2. 한 짤강의에 대한, 총 댓글 갯수 (count) */
 $.getJSON('reply/countreply.json', {'zzalnumber': zzno}, function(result) {
-	console.log(result.data.countReply)
 	$('.replycnt span:first-child').html(result.data.countReply);
 }) //2
 
@@ -71,7 +70,6 @@ $(document).on("click", '.reply-unit-con .cancle', function(){
 						$('.reply-list ul').html(generatedHTML) // 새 tr 태그들로 설정한다.
 						
 						$.getJSON('reply/countreply.json', {'zzalnumber': zzno}, function(result) {
-							console.log(result.data.countReply)
 							$('.replycnt span:first-child').html(result.data.countReply);
 						})
 				  })
@@ -103,7 +101,6 @@ $(document).on("click", '.reply-unit-con .cancle .re-reply-delete', function(){
 						$('.reply-list ul').html(generatedHTML) // 새 tr 태그들로 설정한다.
 						
 						$.getJSON('reply/countreply.json', {'zzalnumber': zzno}, function(result) {
-							console.log(result.data.countReply)
 							$('.replycnt span:first-child').html(result.data.countReply);
 						})
 				  })
@@ -119,7 +116,6 @@ $(document).on("click", '.reply-unit-con .cancle .re-reply-delete', function(){
 /* 6. 대댓글 보이기 숨기기 버튼 */
 $(document).on("click", '.reply-info .re-reply', function(){
 	var that = $(this)
-	console.log(that)
 	that.closest(".reply-li").find(".re-reply-inputer").css('display','block')
 	
 	$.getJSON('/zzal-bit93/auth/userinfo.json', function(result) {
@@ -137,7 +133,6 @@ $(document).on("click", '.cancle-re-reply', function(){
 
 /* 8. 대댓글 insert */
 $(document).on("click", '.submit-re-reply', function(){
-	console.log($(this).closest(".inputer").find(".input-re-reply").val())
 	var that = $(this).attr('data-rno')
 	var repathat = $(this).attr('data-reparent')
 	
@@ -156,7 +151,6 @@ $(document).on("click", '.submit-re-reply', function(){
 					$('.reply-list ul').html(generatedHTML) // 새 tr 태그들로 설정한다.
 					
 					$.getJSON('reply/countreply.json', {'zzalnumber': zzno}, function(result) {
-						console.log(result.data.countReply)
 						$('.replycnt span:first-child').html(result.data.countReply);
 					})
 			  })
