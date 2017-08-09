@@ -62,7 +62,7 @@ textarea {
  max-height: 900px;
 } */
 .detail-left .left-upper-menu .upper-upper .bigboy:hover, .detail-left .left-upper-menu .upper-upper .bigboy:active{
-  font-size: 220%;
+  font-size: 200%;
   color: rgb(51,51,51);
   -moz-transform: rotate(360deg);
   -webkit-transform: rotate(360deg);

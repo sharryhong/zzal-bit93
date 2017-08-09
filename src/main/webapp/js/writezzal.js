@@ -175,8 +175,10 @@ slideNumberring()
 
 function slideNumberring(){
 		let buddys = $('.swiper-slide')
+		// let inputbuddys
 		for (let i = 0; i < buddys.length; i++ ){
 			$(buddys[i]).attr('data-no',i)
+			$(buddys[i]).addClass('number-'+i)
 		}
 }
 
@@ -252,9 +254,70 @@ function writefuncDone(){
 
 									}
 							 });
-						})
+						})// upload btn
+
+			$(document).on('click',".swiper-slide-active.number-"+indexNum+" .repre-video",function(e){
+				// console.log(indexNum)
+				let inputNo =$(this).closest(".swiper-slide").attr('data-no')
+				let curinput=$('input[class*=url][name^=url]')[inputNo-1]
+				// console.log($(this).closest(".swiper-slide input[class*=url][name^=url]"))
+				console.log($('.images-div')[inputNo])
+				wrapWindowByMask()
+
+				$(".url-inputer").css("display","block")
+
+				$("<div>").addClass("fake-dvd").appendTo(".write-mask")
+
+				$(".veido-check-btn").on('click',function(){
+					let ifstr = ($("#fi-url-inputer").val()).replace(/"/g, "'")
+
+					$(ifstr).css({'width':670, 'height':370}).appendTo($($('.images-div')[inputNo]))
+					// .attr('src',$("#fi-url-inputer").val())
+					$(curinput).val("")
+				  $(curinput).val($("#fi-url-inputer").val())
+					$(".url-inputer").css("display","none")
+					$('.write-mask').fadeOut(1000);
+					$('.write-mask').fadeTo("slow",0.8);
+					e.preventDefault();
+			  })
+				e.preventDefault();
+			})
+
+
+// <iframe width="854" height="480" src="https://www.youtube.com/embed/SPTRzjVy804" frameborder="0" allowfullscreen></iframe>
+
+
+
+			$(".url-btns").on('click',function(e){
+				console.log(this)
+				e.preventDefault();
+				$(".url-inputer").css("display","none")
+				$('.write-mask').fadeOut(1000);
+        $('.write-mask').fadeTo("slow",0.8);
+
+			})
+
 
 		}//
+function iframeMaker(){
+
+}
+
+function wrapWindowByMask(){
+        //화면의 높이와 너비를 구한다.
+        let maskHeight = $(document).height();
+        let maskWidth = $(window).width();
+				console.log(maskWidth,maskHeight)
+
+        //마스크의 높이와 너비를 화면 것으로 만들어 전체 화면을 채운다.
+        $('.write-mask').css({'width':maskWidth,'height':maskHeight});
+
+        //애니메이션 효과
+        $('.write-mask').fadeIn(1000);
+        $('.write-mask').fadeTo("slow",0.8);
+}
+
+
 
 
 
@@ -313,6 +376,7 @@ var ssl=0;
 				$.ajax({
 					url:'/zzal-bit93/write/delete.json',
 					method:'POST',
+
 					data:{"no" : no ,"zzno" : parseInt(initWrite.split("=")[1])},
 					//data: {"zzal":JSON.stringify(obj), "zzalpage":JSON.stringify(jsonObj)},
 					success : function(data){console.log(data,"성공 객체임")},

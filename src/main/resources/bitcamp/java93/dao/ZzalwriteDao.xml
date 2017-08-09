@@ -67,6 +67,7 @@
   delete from zzal_lect
     where zzno=#{zzno}
   </delete>
+  
   <select id="">
   </select>
 
