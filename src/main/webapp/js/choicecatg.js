@@ -69,11 +69,8 @@
 								}
 							})
 							
-							swal({
-								  title: "변경완료!",
-								  text: "관심 카테고리를 변경했습니다.",
-//								  imageUrl: "images/thumbs-up.jpg",
-								});						
+							swal("변경완료", "관심 카테고리를 변경했습니다.", "success")
+							
 							checkCatgNumber = [];
 							console.log(checkCatgNumber)
 //							location.href = 'index.html'
@@ -91,11 +88,8 @@
 						},
 						async: false,
 						success: function(data) {
-							swal({
-								  title: "변경완료!",
-								  text: "관심 카테고리를 변경했습니다.",
-//								  imageUrl: "images/thumbs-up.jpg"
-								});						}
+							swal("변경완료", "관심 카테고리를 변경했습니다.", "success")
+						}
 					})/*.fail(function(){alert('하나라도 골라주세요 T^T')})*/
 				} 
 				
