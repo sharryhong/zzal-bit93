@@ -32,8 +32,8 @@
   
   <insert id="insert" parameterType="member" 
           useGeneratedKeys="true" keyColumn="mno" keyProperty="no">
-    insert into memb(nick,email,pwd,pic) 
-    values(#{nick},#{email},password(#{password}),#{membpic})
+  insert into memb(nick, email, stype, pwd, mtype, pic, auth)
+  values(#{nick},#{email},'zzal',password(#{password}),'zzaler',#{membpic},'0')
   </insert> 
   
   <select id="selectList" resultMap="memberMap" >

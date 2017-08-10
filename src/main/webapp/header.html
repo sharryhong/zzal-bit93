@@ -1,4 +1,5 @@
 <link rel="stylesheet" type="text/css" href="css/sweetalert.css">
+<link rel="stylesheet" href="css/login.css">
 
 <!-- 검색 -->
 <div class="opacity-curtain">
@@ -81,25 +82,32 @@
 	      <span class="method2">이메일 계정으로 회원가입</span>
 	      <div class="form-group">
 	        <input class="input-login" type="email" placeholder="이메일을 입력하세요 (필수)" id="join-email">
+	        <div class="input-wrong wrong-email"></div>
 	      </div>
 	      <div class="form-group">
 	        <input class="input-login" type="password" placeholder="비밀번호 (필수)" id="join-pw">
+          <div class="input-wrong wrong-password"></div>
+	        
 	      </div>
 	      <div class="form-group">
 	        <input class="input-login" type="password" placeholder="비밀번호확인 (필수)" id="join-pw-re">
+	        <div class="input-wrong wrong-password-re"></div>
+	        
 	      </div>
 	      <div class="form-group">
 	        <input class="input-login" type="nickname" placeholder="닉네임 (필수)" id="join-nick">
-	      </div>        
+	        <div class="input-wrong wrong-nick"></div>
+	      </div>
 	      
 	      <div class ="form-group3">
 	       <span class="method3">이용약관</span> 
-	      <textarea class="termsofuse" rows="5" cols="40">짤 스쿨</textarea> 
+	      <textarea class="termsofuse" rows="5" cols="40" readonly>짤 스쿨</textarea> 
 	      </div>
 	      
 	      <div class="remember-find clearfix">
 	        <input type="checkbox" class="checkbox" id="agree-chk"> 
 	        <label for="agree-chk" class="rememberId">약관에 동의합니다.</label> 
+	        <div class="input-wrong wrong-agree"></div>
 	      </div>
 	      <button type="button" class="btn btn-info loginBtn" id="join-btn">회원가입</button>
 	    </div>
@@ -184,5 +192,4 @@
 <script src="js/login.js"></script>
 <script src="js/app-context.js"></script>
 <script src="js/userinfo.js"></script> 
-<script src="js/loginCategoryCheck.js"></script>
 <script src="js/sweetalert.min.js"></script>
