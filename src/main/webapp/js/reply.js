@@ -15,7 +15,7 @@ $(document).on('ready',function(result){
 					$('.replycnt span:first-child').html('0');
 				}
 				$('.replycnt span:first-child').html(result.data.countReply);
-				$('.zzal-lect-info .replynum').html(result.data.countReply);
+				$('.replynum').html(result.data.countReply);
 			})
 	  })
 }) // 1.

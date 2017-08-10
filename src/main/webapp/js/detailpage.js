@@ -224,7 +224,7 @@ $(document).on('ready',function(e){
 	    console.log(realData)
 	    var cdt = realData.cdt
 	    var date = new Date(cdt.replace(/ /g,'T'))
-	    console.log('cdt :', cdt, 'date : ', date)
+	    /*console.log('cdt :', cdt, 'date : ', date)*/
 	    zzalDate = date.getFullYear()+'-'+(date.getMonth()+1)+'-'+date.getDate()+' '+date.getHours()+':'+date.getMinutes()
 	    zzalmno = realData.mno
     	generateHandlebars(result, $('#detail-swipeslide-template'), $('.zzalswipe-tg'))
@@ -232,12 +232,13 @@ $(document).on('ready',function(e){
     	$('#main-date').text(zzalDate)
     	$('.date-num').text(zzalDate)
     	$('.writer').text(realData.member.nick)
+    	$('.likenumber').text(realData.likeCount)
     }
   })
 })
 
 // 짤강 작성자 클릭시 
-$(document).on('click', '.zzalwriternick', function() {
+$(document).on('click', '.zzalwriternick, .more-view', function() {
 	location.href = 'someonepage.html?writer=' + zzalmno
 })
 
