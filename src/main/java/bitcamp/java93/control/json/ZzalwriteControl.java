@@ -93,8 +93,10 @@ public class ZzalwriteControl {
 //        	page.setZzalNo((int)Integer.parseInt(tmp.get("zzno").toString()));
         	page.setPageNo((int)Integer.parseInt(tmp.get("pageNo").toString()));
         	page.setPagePic(tmp.get("pagePic").toString());
+        	page.setConTypeZ(tmp.get("type").toString());
         	page.setConTextZ(tmp.get("conText").toString());
         	
+        	System.out.println(page);
         	zzalwriteService.pageAdd(page);
         }
 

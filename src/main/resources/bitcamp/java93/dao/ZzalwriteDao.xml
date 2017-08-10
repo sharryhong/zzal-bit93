@@ -50,8 +50,8 @@
     <selectKey  resultType="int" keyProperty="zzalNo" order="BEFORE">
         SELECT MAX(last_insert_id(z.zzno)) FROM zzal_lect z       
     </selectKey>
-    insert into page(zzno, pgno, pic, cont) 
-    values(#{zzalNo}, #{pageNo}, #{pagePic},#{ConTextZ});
+    insert into page(zzno, pgno, type, pic, cont) 
+    values(#{zzalNo}, #{pageNo},#{conTypeZ}, #{pagePic},#{ConTextZ});
   </insert>
 
  <select id="getZzalNo" resultType="zzal">

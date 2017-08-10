@@ -16,17 +16,18 @@
 			justInit(no)
 	  }
 	})
+
+
+// writezzal page의 구동 방식을 결정 짓는 메서드
+// param에 zzno가 있을 경우  임시 저장에서 온경우
 var initWrite;
-
-
-
 function justInit(no){
 
 	try{
 		console.log(no)
 		initWrite =window.location.href.split("?")[1]
 
-		console.log(initWrite)
+		console.log(initWrite,"zzno 없엉")
 				if(initWrite.split("=")[0]=="zzno"){
 					$.ajax({
 						url:'/zzal-bit93/write/tmplist.json',
@@ -61,7 +62,10 @@ function StringMaker(obj){
 		let arrpic=[]
 		let arrcontext=[]
 		let arrpicname=[]
+		let arrvideo=[]
+
 		let k=0;
+
 		for(let pageroom of data.page){
 			arrpicname[k] = StringMaker(pageroom.pagePic)
 			arrpic[k] = './upload/'+StringMaker(pageroom.pagePic)
@@ -91,7 +95,7 @@ function StringMaker(obj){
 
 	let tmpfiinput = $("input[type=hidden]")
 
-
+	console.log(tmpPageSelect)
 	console.log(tmpfiinput)
 
 	tmpfiinput[0].value=tmpMpic
@@ -102,6 +106,7 @@ function StringMaker(obj){
 
 
 	for (let i=1; i < tmpPageSelect.length; i++ ){
+		data.page.type
 		$(tmpfiinput[i]).val(arrpicname[i-1])
 		$("<img>").attr("src",arrpic[i-1]).appendTo(tmpPageSelect[i])
 		$(".swiper-slide textarea")[i-1].value=arrcontext[i-1]
@@ -110,7 +115,7 @@ function StringMaker(obj){
 	slideNumberring()
 
 
-}
+}//tmpmaker
 
 
 	// 핸들바스. main.js에 있는 함수 사용
@@ -168,6 +173,8 @@ var pageCon = function(){
 													this.conText
 
 												}
+
+
 var pageArray = [];
 
 
@@ -247,10 +254,8 @@ function writefuncDone(){
 										console.log('done()...');
 
 											var filenames = data.result.data;
-											for (var i = 0; i < filenames.length; i++) {
-												$($("input[type=hidden]")[curSlideNo]).val(filenames[i]);
-
-											}
+											let isimg = 1;
+											dataMaker(curSlideNo,filenames,isimg)
 
 									}
 							 });
@@ -259,22 +264,27 @@ function writefuncDone(){
 			$(document).on('click',".swiper-slide-active.number-"+indexNum+" .repre-video",function(e){
 				// console.log(indexNum)
 				let inputNo =$(this).closest(".swiper-slide").attr('data-no')
-				let curinput=$('input[class*=url][name^=url]')[inputNo-1]
+
+				// let curinput=$('input[class*=url][name^=url]')[inputNo-1]
 				// console.log($(this).closest(".swiper-slide input[class*=url][name^=url]"))
 				console.log($('.images-div')[inputNo])
 				wrapWindowByMask()
 
 				$(".url-inputer").css("display","block")
-
+				$("#fi-url-inputer").val("")
 				$("<div>").addClass("fake-dvd").appendTo(".write-mask")
 
 				$(".veido-check-btn").on('click',function(){
-					let ifstr = ($("#fi-url-inputer").val()).replace(/"/g, "'")
 
-					$(ifstr).css({'width':670, 'height':370}).appendTo($($('.images-div')[inputNo]))
-					// .attr('src',$("#fi-url-inputer").val())
-					$(curinput).val("")
-				  $(curinput).val($("#fi-url-inputer").val())
+					let ifstr=[]
+					let isimg = 0;
+
+					ifstr[0] = ($("#fi-url-inputer").val()).replace(/"/g, "'")
+
+
+					$($('.images-div')[inputNo]).html("");
+					$(ifstr[0]).css({'width':670, 'height':370}).appendTo($($('.images-div')[inputNo]))
+					dataMaker(inputNo,ifstr,isimg)
 					$(".url-inputer").css("display","none")
 					$('.write-mask').fadeOut(1000);
 					$('.write-mask').fadeTo("slow",0.8);
@@ -298,9 +308,12 @@ function writefuncDone(){
 			})
 
 
-		}//
-function iframeMaker(){
-
+}// writefuncDone
+function dataMaker(curSlideNo,obj,bool){
+	for (var i = 0; i < obj.length; i++) {
+		$($("input[type=hidden]")[curSlideNo]).val(obj[i]);
+		$($("input[type=hidden]")[curSlideNo]).attr("data-type",bool)
+	}
 }
 
 function wrapWindowByMask(){
@@ -372,7 +385,7 @@ var ssl=0;
 
 
 			if(initWrite){
-				console.log("지금zzno없어요")
+				console.log("지금zzno있어요")
 				$.ajax({
 					url:'/zzal-bit93/write/delete.json',
 					method:'POST',
@@ -403,7 +416,7 @@ var ssl=0;
 			console.log(pageArray[0],"나 zzal")
 			console.log(jsonPageArray,"나 zzalpage")
 			youJSonSender(pageArray[0],jsonPageArray)
-			// location.href="mypage.html"
+			location.href="mypage.html"
 
 		})
 
@@ -456,7 +469,7 @@ function dataGarage(){
 		pageArray[i]=new pageCon()
 
 		pageArray[i].pageNo=i
-		pageArray[i].type='img'
+		pageArray[i].type=(($($("input[type=hidden]")[i]).attr("data-type"))==1 ? true : false);
 		pageArray[i].pagePic=$($("input[type=hidden]")[i])[0].value
 		pageArray[i].conText=$($('textarea')[i-1])[0].value
 	}

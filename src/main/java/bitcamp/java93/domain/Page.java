@@ -7,6 +7,11 @@ public class Page {
 	String conTypeZ;
 	String pagePic;
 	String ConTextZ;
+	@Override
+	public String toString() {
+		return "Page [zzalpageNo=" + zzalpageNo + ", zzalNo=" + zzalNo + ", pageNo=" + pageNo + ", conTypeZ=" + conTypeZ
+				+ ", pagePic=" + pagePic + ", ConTextZ=" + ConTextZ + "]";
+	}
 	public int getZzalpageNo() {
 		return zzalpageNo;
 	}
@@ -43,12 +48,7 @@ public class Page {
 	public void setConTextZ(String conTextZ) {
 		ConTextZ = conTextZ;
 	}
-	@Override
-	public String toString() {
-		return "Page [zzalpageNo=" + zzalpageNo + ", zzalNo=" + zzalNo + ", pageNo=" + pageNo + ", conTypeZ=" + conTypeZ
-				+ ", pagePic=" + pagePic + ", ConTextZ=" + ConTextZ + "]";
-	}
-
-
+	
+	
 
 }	
