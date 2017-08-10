@@ -15,15 +15,20 @@ $(document).on('ready',function(result){
 					$('.replycnt span:first-child').html('0');
 				}
 				$('.replycnt span:first-child').html(result.data.countReply);
+				$('.zzal-lect-info .replynum').html(result.data.countReply);
 			})
 	  })
 }) // 1.
 
 
 /* 2. 한 짤강의에 대한, 총 댓글 갯수 (count) */
-$.getJSON('reply/countreply.json', {'zzalnumber': zzno}, function(result) {
-	$('.replycnt span:first-child').html(result.data.countReply);
-}) //2
+/*function replyCount() {
+	$.getJSON('reply/countreply.json', {'zzalnumber': zzno}, function(result) {
+		var countReply = result.data.countReply
+		$('.replycnt span:first-child').html(countReply);
+		$('.zzal-lect-info .replynum').html(countReply);
+	}) //2
+}*/
 
 
 /* 3. 댓글 추가 (insert. 좋아요와 신고는 아직 적용못했습니다). */

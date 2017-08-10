@@ -514,9 +514,9 @@
 <div class="zzal-lect-info">
   <ul>
     <li><a href="#" class="zzalwriternick"><span class='left-1st user-name'>[{{member.nick}}]</span><span class='right-1st'></span></a></li>
-    <li><span class='left-1st viewcnt'>조회수</span><span class='right-1st viewnum'>2,000</span></li>
-    <li><span class='left-1st likecnt'>좋아요</span><span class='right-1st likenum'>2,000</span></li>
-    <li><span class='left-1st reply'>댓 글</span><span class='right-1st replynum'>2,000</span></li>
+    <li><span class='left-1st left-width viewcnt'>조회수</span><span class='right-1st viewnum'>{{hitCount}}</span></li>
+    <li><span class='left-1st left-width likecnt'>좋아요</span><span class='right-1st likenum'>{{likeCount}}</span></li>
+    <li><span class='left-1st left-width reply'>댓 글</span><span class='right-1st replynum'></span></li>
   </ul>
 </div>
 {{/each}}
@@ -526,7 +526,7 @@
 <script id="detail-swipeslide-template" type="text/x-handlebars-template">
 {{#each list}}
     <div class="contents">
-      <div class="type-main" style='background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url("upload/{{mainPic}}")'>
+      <div class="type-main" style='background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.5)), url("upload/{{mainPic}}")'>
       <div class="title-info">
 				<div class="zzal-caterogy">{{categoryName}}</div>
         <div class="write-date"><span id="main-date"></span><span>작성</span></div>

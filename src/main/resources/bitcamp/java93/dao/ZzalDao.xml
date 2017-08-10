@@ -34,20 +34,30 @@
   </resultMap>
   
 	<select id="selectList" resultMap="zzalMap" parameterType="int">
-    SELECT zz.zzno, zz.mno, zz.nick, zz.pic1, zz.cno, zz.titl, zz.pic2, zz.cdt2, zz.hitcnt, c.name as cName
+    SELECT zz.zzno, zz.mno, zz.nick, zz.pic1, zz.cno, zz.titl, zz.pic2, zz.cdt2, zz.hitcnt, c.name as cName, zz.like_cnt
     FROM
-    (SELECT z.zzno, z.mno, m.nick, m.pic as pic1, z.cno, z.titl, z.pic as pic2, z.cdt as cdt2, z.hitcnt
-    FROM zzal_lect z INNER JOIN memb m ON z.mno = m.mno 
+    (SELECT z.zzno, z.mno, m.nick, m.pic as pic1, z.cno, z.titl, z.pic as pic2, z.cdt as cdt2, z.hitcnt,
+    (SELECT count(*) FROM lik WHERE zzno=z.zzno) as like_cnt
+    FROM zzal_lect z INNER JOIN memb m ON z.mno = m.mno  
     WHERE z.zzno = #{no} ) as zz
     LEFT JOIN catg c
     ON zz.cno = c.cno
   </select>
   
-  	<!-- SELECT zz.zzno, zz.mno, zz.nick, zz.pic1, zz.cno, zz.titl, zz.pic2, zz.cdt2, c.name as cName
+  	<!-- SELECT zz.zzno, zz.mno, zz.nick, zz.pic1, zz.cno, zz.titl, zz.pic2, zz.cdt2, zz.hitcnt, c.name as cName, zz.like_cnt
     FROM
-    (SELECT z.zzno, z.mno, m.nick, m.pic as pic1, z.cno, z.titl, z.pic as pic2, z.cdt as cdt2
+    (SELECT z.zzno, z.mno, m.nick, m.pic as pic1, z.cno, z.titl, z.pic as pic2, z.cdt as cdt2, z.hitcnt,
+    (SELECT count(*) FROM lik WHERE zzno=z.zzno) as like_cnt
     FROM zzal_lect z INNER JOIN memb m ON z.mno = m.mno 
-    WHERE z.zzno = 1 ) as zz
+    WHERE z.zzno = 2 ) as zz
+    LEFT JOIN catg c
+    ON zz.cno = c.cno -->
+    
+    <!-- SELECT zz.zzno, zz.mno, zz.nick, zz.pic1, zz.cno, zz.titl, zz.pic2, zz.cdt2, zz.hitcnt, c.name as cName
+    FROM
+    (SELECT z.zzno, z.mno, m.nick, m.pic as pic1, z.cno, z.titl, z.pic as pic2, z.cdt as cdt2, z.hitcnt
+    FROM zzal_lect z INNER JOIN memb m ON z.mno = m.mno 
+    WHERE z.zzno = #{no} ) as zz
     LEFT JOIN catg c
     ON zz.cno = c.cno -->
 

@@ -1,6 +1,12 @@
 textarea {
     resize: none;
 }
+.zzal-lect-info li .left-1st {
+	margin-right: 3px;
+}
+.zzal-lect-info li .left-width {
+	width: 50px;
+} 
 .zzal-caterogy {
   font-size: 14px;
   margin-bottom: 5px;
@@ -62,7 +68,7 @@ textarea {
  max-height: 900px;
 } */
 .detail-left .left-upper-menu .upper-upper .bigboy:hover, .detail-left .left-upper-menu .upper-upper .bigboy:active{
-  font-size: 200%;
+  font-size: 220%;
   color: rgb(51,51,51);
   -moz-transform: rotate(360deg);
   -webkit-transform: rotate(360deg);
@@ -138,11 +144,8 @@ textarea {
   top:57%;
   text-align: left;
   width: 97%;
-  /* background: rgba(0,0,0,0.1); */
   padding: 12px 20px;
-  /* border-bottom-right-radius: 15px;
-  border-top-right-radius: 15px;
-  text-shadow: 1px 1px 6px rgba(0,0,0,0.5), 1px 1px 1px rgba(0,0,0,0.3); */
+  text-shadow: 0 0 3px rgba(0,0,0,0.5);
 }
 .detail-page-swipe .contents .type-main .write-date {
   font-size: 14px;
@@ -182,7 +185,7 @@ textarea {
   height: 100%;
 }
 
-@media (min-width: 926px) {
+@media (min-width: 926px) { 
   .detailpage-body {
     overflow: hidden;
   }
@@ -270,9 +273,6 @@ textarea {
   }
   .zzal-lect-info li .left-1st.reply {
     text-align: justify;
-  }
-  .zzal-lect-info li .right-1st{
-    float:right;
   }
   .detail-right .write-date {
     position: absolute;
@@ -432,9 +432,6 @@ textarea {
 }
 
 @media (max-width: 925px) {
-	.viewcnt {
-	  margin-right: 3px;
-	}
 	.detail-page-swipe .zzal-title {
 	  margin: 5px 0;
 	}
@@ -576,9 +573,6 @@ textarea {
   }
   .zzal-lect-info li .left-1st.reply {
     text-align: justify;
-  }
-  .zzal-lect-info li .right-1st{
-    float:right;
   }
   .last-user-page .loca .upper-contaniner .write-date {
     position: absolute;
