@@ -1,13 +1,28 @@
  @CHARSET "UTF-8";
  
-/*  .redPlaceHolder::-webkit-input-placeholder {
-    color: #ff0000
-} */
-
 .form-group .input-login {
 	width:50%;
 	outline: none;
 }
+
+.form-group #fi-email.input-login {
+  width:100%;
+  outline: none;
+}
+
+.form-group #fi-password.input-login {
+  width:100%;
+  outline: none;
+}
+
+
+.form-group .input-login {
+  width:50%;
+  outline: none;
+}
+
+
+
 
 .form-group #join-pw.input-login {
   width:32%;
@@ -29,6 +44,10 @@
 .login-normal .input-wrong.wrong-agree {
 	line-height: 1.5;
 }
+
+
+
+
 
 /*
 .login-curtain {

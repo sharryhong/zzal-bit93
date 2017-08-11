@@ -60,7 +60,7 @@ $(document).ready(function() {
 		joinPw = $('#join-pw'),
 		joinNick = $('#join-nick')
 		
-	$('#login-btn').click(function() {
+/*	$('#login-btn').click(function() {
 		console.log('login-btn')
 		$.post(contextRoot + '/auth/login.json', {
 	      'email': fiEmail.val(),
@@ -68,9 +68,9 @@ $(document).ready(function() {
 	    }, function(result) {
 	       location.href = 'index.html'
 	    }, 'json')
-	})
+	})*/
 	
-	$('#join-btn').click(function() {
+/*	$('#join-btn').click(function() {
 		console.log('join-btn')
 		$.post(contextRoot + '/member/add.json', {
 	      'email': joinEmail.val(),
@@ -81,7 +81,7 @@ $(document).ready(function() {
 	    	console.log(result)
 	        location.href = 'index.html'
 	    }, 'json')
-	})
+	})*/
 	
 	// 메뉴선택시 on붙이기 (해당 url일때)
 	let href = location.href;
