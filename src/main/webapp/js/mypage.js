@@ -50,7 +50,6 @@
 		if (result.data) {
 			console.log(result.data)
 		}
-			// 템플릿을 실행하는 함수 리턴
 			let templateFn = Handlebars.compile($('#my-collection-template').text())
 			let generatedHTML = templateFn(result.data)
 			mycollection.text('')
@@ -70,4 +69,34 @@
 	  location.href = 'collectupdate.html?cono=' + $(this).attr('data-no')
 	  event.preventDefault()
   });
+  
+  //detailpage.html 에서 다른유저 프로필 클릭시 프로필 닉네임 가져오기
+  var zzno = location.href.split('?')[1].split('=')[1]
+  
+	  $.getJSON('zzal/list.json',{'zzno': zzno}, function(result){
+	  if (result.data) {
+		  var someone = result.data.list[0]
+		  /*console.log(someone)*/
+		  var sodata = someone.member
+		  console.log(sodata)
+		  $('.user-info-face .user-name').text(sodata.nick)
+		  $('.profile-wrap .someone-phot').css({"background-image": "url(upload/"+ sodata.membpic +")"});
+		  // someonepage.html phot -> someone-phot로 변경후 css 적용했음
+	  }
+  })
+  
+  let someonecollection = $('#someone-collection');
+  //다른유저 컬렉션
+  $(document.body).on('click', '#someone-collect-btn', function(event) {
+	$.getJSON(contextRoot + '/collect/list.json', {'no': zzno}, function(result) {
+		if (result.data) {
+			console.log(result.data)
+		}
+			let templateFn = Handlebars.compile($('#someone-collection-template').text())
+			let generatedHTML = templateFn(result.data)
+			someonecollection.text('')
+			someonecollection.html(generatedHTML)
+    })
+  });
+  
 })(jQuery);

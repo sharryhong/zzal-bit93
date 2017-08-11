@@ -9,6 +9,7 @@
 .user-info-face {
 	float: left;
 }
+
 /* .user-info-face .phot {
   float: left;
   display: inline-block;
@@ -189,6 +190,17 @@
 	border-bottom: solid 1px #ccc;
 	padding: 3px;
 }
+.profile-wrap .someone-phot {
+	float: left;
+    display: inline-block;
+    background-size: cover;
+    background-position: center;
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    display: inline-block;
+    border: 1px solid rgba(0,0,0,0.1);
+} 
 
 /*desktop*/
 @media (min-width: 766px) {
@@ -268,6 +280,10 @@
 	  	border-bottom: solid 1px #ccc;
 	  	padding: 0;
 	}
+	.profile-wrap .someone-phot {
+    	height: 75px;
+    	width: 75px;
+	} 
 }
 
 .main-content.mypage .btn {

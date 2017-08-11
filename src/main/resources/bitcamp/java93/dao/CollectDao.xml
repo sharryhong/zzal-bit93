@@ -6,7 +6,7 @@
 
 	<resultMap type="collect" id="collectMap">
 		<id column="cono" property="no" />
-		<result column="mno" property="membno" />
+		<result column="mno" property="memNo" />
 		<result column="title" property="title" />
 		<result column="cont" property="content" />
 		<result column="pic" property="picture" />
