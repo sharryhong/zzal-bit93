@@ -5,8 +5,18 @@
 } */
 
 .form-group .input-login {
-	width:60%;
+	width:50%;
 	outline: none;
+}
+
+.form-group #join-pw.input-login {
+  width:32%;
+  outline: none;
+}
+
+.form-group #join-pw-re.input-login {
+  width:32%;
+  outline: none;
 }
 
 .login-normal .input-wrong {

@@ -49,7 +49,7 @@ public class MemberControl {
 	  System.out.println(member);
     memberService.add(member);
     return new JsonResult(JsonResult.SUCCESS, "ok");
-  }
+  } 
 	
 	@RequestMapping("update")
   public JsonResult update(Member member, HttpSession session) throws Exception {

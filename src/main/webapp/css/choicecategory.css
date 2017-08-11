@@ -4,11 +4,11 @@
 .zzal-container .choice-catg {
   width: 100%;
 }
-.choice-btn {
+/* .choice-btn {
 	position: static;
 	bottom: 0;
 	right: 20px;
-}
+} */
 .title-category  {
 	/* position: relative; */
   font-size: 1.1rem;
@@ -18,12 +18,18 @@
 .choiceone {
 	text-align: center;
 }
-.choice-btn {
-    margin-left: 73%;
-    margin-top: 14px;
-    font-size: 1.7rem;
-    border-radius: 5px;
-    width: 200px;
+#all-category-title .choice-btn {
+  margin-left: 70%;
+  margin-top: 14px;
+  margin-bottom : 10px;
+  margin-right: 94px;
+  font-size: 1.7rem;
+  border-radius: 5px;
+  width: 200px;
+    
+  position: static;
+  bottom: 0;
+  right: 20px;
 }
 /*2).마진을 준다*/
 .catg-choicer {

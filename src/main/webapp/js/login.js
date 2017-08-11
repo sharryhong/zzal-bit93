@@ -2,31 +2,41 @@
 	var that;
 	var dbNick = new Array();
 	var dbEmail = new Array();
+	var regex_id=/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/;
+	var regex_pwd = /^.*(?=.{6,20})(?=.*[0-9])(?=.*[a-zA-Z]).*$/;
 	var isOk="yes";
 	
+	
 	function wrongValueChecker () {
-		console.log("다시 함수 재시작2")
 		/*  1단계. 공백여부 검증*/
 		// 회원가입 시 이메일 입력 여부 검증.
 		if ($("#join-email").val()=="") {
 			$(".wrong-email").text('이메일을 입력해주세요.')
 			isOk = "no";
-			} else {
-				$(".wrong-email").empty()
-			}
+			} else if(regex_id.test($("#join-email").val()) === false) {
+			$(".wrong-email").text('잘못된 이메일 형식입니다.')
+			isOk="no"
+		} else {
+			$(".wrong-email").empty()
+		}
 		
 		// 회원가입 시 암호 입력 여부 검증.
 		if ($("#join-pw").val()=="") {
 			$(".wrong-password").text('암호를 입력해주세요.')
 			isOk = "no";
+		} else if (regex_pwd.test($("#join-pw").val()) === false) {
+			$(".wrong-password").text('비밀번호를 확인하세요(영문,숫자 혼합 6~20자 이내)')
 		} else {
 			$(".wrong-password").empty()
 		}
 		
 		// 회원가입 시 재확인 암호 입력 여부 검증.
 		if ($("#join-pw-re").val()=="") {
-			$(".wrong-password-re").text('암호를 입력해주세요.')
+			$(".wrong-password-re").text('재확인 암호를 입력해주세요.')
 			isOk = "no";
+		} else if ($("#join-pw").val() != $("#join-pw-re").val()){
+			$(".wrong-password-re").text('재확인 암호가 일치하지 않습니다')
+			isOk="no"
 		} else {
 			$(".wrong-password-re").empty()
 		}
@@ -48,7 +58,7 @@
 				confirmButtonText: "확인",
 				customClass: 'login-failed'
 			});*/
-			$(".wrong-agree").text('약관에 동의해야 회원가입 할 수 있습니다.')
+			$(".wrong-agree").text('약관에 동의해야 가입할 수 있습니다.')
 			isOk = "no";
 		} else {
 			$(".wrong-agree").empty()
@@ -76,14 +86,11 @@
 
 	
 	
-	
-	/*회원가입 검증 버튼 실행 */
+	/* 3단계 최종 DB저장 */ 
 	$(document).on("click", '#join-btn', function() {
 		that = $(this)
 		wrongValueChecker ()
-		console.log(isOk)
 		if (isOk=="yes") {
-			/* 3단계 최종 DB저장 */ 
 			$.ajax ({
 				type: 'POST',
 				url: contextRoot + '/member/add.json',
@@ -125,15 +132,21 @@
 		$("body").css("overflow", "hidden");
 	});
 	
-	$('.close-btn').click(function() {
+	$('.login-form .close-btn').click(function() {
 		console.log('closebtn click!!!')
 		$(".login-curtain").hide();
 		$(".login-container").hide();
 		$(".signup-container").hide();
 		$(".findId-container").hide();
 		$(".findId-sendEmail-container").hide();
-
 	    $("body").css("overflow", "visible");
+	    
+		$(".wrong-email").empty()
+		$(".wrong-password").empty()
+		$(".wrong-password-re").empty()
+		$(".wrong-nick").empty()
+		$(".wrong-agree").empty()
+
 	});
 	
 	$('.sign-in').click(function() {
@@ -182,7 +195,7 @@
 
 	});
 	
-			/* 로그인, 회원가입 */
+			/* 로그인 */
 	var fiEmail = $('#fi-email'),
 		fiPassword = $('#fi-password'),
 		joinEmail = $('#join-email'),
