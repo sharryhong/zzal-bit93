@@ -1,6 +1,5 @@
 (function($){
 	'use strict';
-	console.log("시험 36")
 	var checkCatgNumber = new Array();
 	var unCheckCatgNumber = new Array();
 	var membNo;
@@ -12,14 +11,12 @@
 	$.getJSON('/zzal-bit93/auth/userinfo.json', function(result) {
 		  if (result.data) {
 		  	membNo = result.data.no
-		  	console.log(membNo)
 		  }
 	
 		  
 		/* 2. 회원이 기존에 저장한 카테고리를 불러오는 부분입니다. */
 			  $.getJSON('choicecategory/list.json', {'memberNumber': membNo}, function(result) {
 				  saveListArray = result.data.list
-				  console.log('saveListArray', saveListArray)
 				 for (var i = 0 ; i < (result.data.list).length; i++)
 				 $("input:checkbox[value ="+result.data.list[i]+"]").prop("checked", true);
 			  }) // 2
@@ -66,14 +63,21 @@
 								},
 								async: false,
 								success: function(data) {
+									swal({
+										title: "변경완료",
+										text: "관심 카테고리를 추가했습니다.",
+										type: "success",
+										showCancelButton: false,
+										closeOnConfirm: false,
+//										  showLoaderOnConfirm: true,
+									},
+									function(){
+										setTimeout(function(){
+											location.href="index.html"
+										});
+									});
 								}
 							})
-							
-							swal("변경완료", "관심 카테고리를 변경했습니다.", "success")
-							
-							checkCatgNumber = [];
-							console.log(checkCatgNumber)
-//							location.href = 'index.html'
 						}
 					})
 				} 
@@ -88,12 +92,24 @@
 						},
 						async: false,
 						success: function(data) {
-							swal("변경완료", "관심 카테고리를 변경했습니다.", "success")
+								swal({
+									title: "변경완료",
+									text: "관심 카테고리를 변경했습니다.",
+									type: "success",
+									showCancelButton: false,
+									closeOnConfirm: false,
+//									  showLoaderOnConfirm: true,
+								},
+								function(){
+									setTimeout(function(){
+										location.href="index.html"
+									});
+								});
 						}
 					})/*.fail(function(){alert('하나라도 골라주세요 T^T')})*/
 				} 
 				
-				if (saveListArray.length < 1){sweetAlert("변경 실패", "관심카테고리를 하나라도 설정하셔야 합니다!", "error");}
+				if (saveListArray.length < 1){sweetAlert("변경 실패", "관심카테고리를 하나라도 설정해야 합니다!", "error");}
 				
 				/*else {
 					alert('unCheckCatgNumber none T^T')

@@ -4,11 +4,7 @@
 .zzal-container .choice-catg {
   width: 100%;
 }
-/* .choice-btn {
-	position: static;
-	bottom: 0;
-	right: 20px;
-} */
+
 .title-category  {
 	/* position: relative; */
   font-size: 1.1rem;
@@ -134,6 +130,18 @@
   z-index: 400;
 	border-radius: 10px;
 }
+
+
+
+.choice-btn.catg-submitBtn {
+	    font-size: 1.4rem;
+    /* float: right; */
+    margin-left: 77%;
+    margin-top: 16px;
+}
+
+
+
 
 /*mobile*/
 @media (max-width: 765px) {
