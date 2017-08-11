@@ -11,6 +11,7 @@ public interface ZzalDao {
   List<Zzal> zzalListCategory(Map<String,Object> valueMap);
   List<Zzal> zzalBestList(Map<String,Object> valueMap);
   List<Zzal> zzalBestCategoryList(int cno);
+  List<Zzal> zzalListOthers(int mno);
   List<Zzal> zzalLikeRank(Map<String,Object> valueMap);
   List<Zzal> zzalViewRank(Map<String,Object> valueMap);
   List<Zzal> zzalListNew(Map<String,Object> valueMap);

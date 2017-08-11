@@ -51,6 +51,11 @@ public class ZzalServiceImpl implements ZzalService {
   }
   
   @Override
+  public List<Zzal> zzalListOthers(int mno) throws Exception {
+    return zzalDao.zzalListOthers(mno);
+  }
+  
+  @Override
   public List<Zzal> zzalLikeRank() throws Exception {
     HashMap<String,Object> valueMap = new HashMap<>();
     return zzalDao.zzalLikeRank(valueMap);

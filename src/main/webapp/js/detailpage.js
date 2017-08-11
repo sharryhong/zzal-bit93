@@ -20,20 +20,6 @@ var detailSwipeBigInfo = {
 
 var swiper1 = new Swiper(detailSwipeBig,detailSwipeBigInfo)
 
-// zzaler의 다른짤강 swiper
-var detailSwipeSmall='.swiper-container.lects-units';
-var detailSwipeSmallInfo={
-                            //  pagination: '.swiper-pagination',
-                             slidesPerView: 2.5,
-                             paginationClickable: true,
-                             setWrapperSize : true,
-                             nextButton: '.swiper-button-next',
-                             prevButton: '.swiper-button-prev',
-                             nested : true,
-                             autoplay: 2500
-                          }
-var swiper2 = new Swiper(detailSwipeSmall,detailSwipeSmallInfo);
-
 // 구함수 디프리케이트 오류문구 안올라 오게 함
 $.ajaxPrefilter(function( options, originalOptions, jqXHR ) { options.async = true; });
 
@@ -215,7 +201,6 @@ $('#m-play-btn').on('click',function(event){
 })
 
 
-// 짤강의 커버
 var zzalmno = 0
 $(document).on('ready',function(e){
   $.getJSON('zzal/list.json',{'zzno': zzno},function(result){
@@ -233,9 +218,31 @@ $(document).on('ready',function(e){
     	$('.date-num').text(zzalDate)
     	$('.writer').text(realData.member.nick)
     	$('.likenumber').text(realData.likeCount)
+    	otherZzals()
     }
   })
 })
+
+// zzaler의 다른짤강
+function otherZzals() {
+	console.log('zzalmno', zzalmno)
+  $.getJSON('zzal/zzalListOthers.json', {"mno" : zzalmno}, function(result){
+	  console.log(result.data)
+	  generateHandlebars(result, $('#writer-otherzzal-template'), $('#writer-otherzzal'))
+	// zzaler의 다른짤강 swiper
+	  var detailSwipeSmall='.swiper-container.lects-units';
+	  var detailSwipeSmallInfo={
+	                              //  pagination: '.swiper-pagination',
+	                               slidesPerView: 2,
+	                               paginationClickable: true,
+	                               nextButton: '.swiper-button-next',
+	                               prevButton: '.swiper-button-prev',
+	                               autoplay: 2500,
+	                               loop: true
+	                            }
+	  var swiper2 = new Swiper(detailSwipeSmall,detailSwipeSmallInfo);
+  })
+}
 
 // 짤강 작성자 클릭시 
 $(document).on('click', '.zzalwriternick, .more-view', function() {

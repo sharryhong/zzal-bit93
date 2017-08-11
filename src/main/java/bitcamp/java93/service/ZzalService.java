@@ -11,6 +11,7 @@ public interface ZzalService {
 	List<Zzal> zzalListCategory(int pageNo, int pageSize, int cno) throws Exception;
 	List<Zzal> zzalBestList() throws Exception;
 	List<Zzal> zzalBestCategoryList(int cno) throws Exception;
+	List<Zzal> zzalListOthers(int mno) throws Exception;
 	List<Zzal> zzalLikeRank() throws Exception;
 	List<Zzal> zzalViewRank() throws Exception;
 	List<Zzal> zzalListNew(int pageNo, int pageSize) throws Exception;

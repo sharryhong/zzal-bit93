@@ -66,6 +66,15 @@ public class ZzalControl {
     return new JsonResult(JsonResult.SUCCESS, dataMap);
   }
 	
+	@RequestMapping("zzalListOthers")
+  public JsonResult zzalListOthers(int mno) throws Exception {
+    
+    HashMap<String,Object> dataMap = new HashMap<>();
+    dataMap.put("zzalList", zzalService.zzalListOthers(mno));
+    
+    return new JsonResult(JsonResult.SUCCESS, dataMap);
+  }
+	
 	@RequestMapping("zzalLikeRank")
   public JsonResult zzalLikeRank() throws Exception {
     

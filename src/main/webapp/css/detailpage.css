@@ -1,6 +1,9 @@
 textarea {
     resize: none;
 }
+#writer-otherzzal{
+	width: 100px;
+}
 .zzal-lect-info li .left-1st {
 	margin-right: 3px;
 }
@@ -121,13 +124,27 @@ textarea {
  .detail-page-swip .content-box .text {
    padding-bottom: 20px;
  }
+ .other-title {
+		position: absolute;
+		color: white;
+		bottom: 10px;
+		font-size: 14px;
+		background: rgba(0,0,0,0.5);
+		margin: 5px;
+		padding: 0 3px;
+		width: 93%;
+	  overflow: hidden;
+	  white-space: nowrap;
+	  text-overflow: ellipsis;
+	}
  .images-wrapper {
-   max-height: 143px;
+   position: relative;
+   height: 143px;
    overflow: hidden;
  }
  .images-wrapper img{
-   width:120%;
-   height:auto;
+   height: 100%;
+   transform: translateX(-15%);
  }
  .detail-left{
    text-align: center;
@@ -539,9 +556,8 @@ textarea {
     width:100%;
     font-size: 22px;
     margin-bottom: 10px;
-  }
-  .detail-m-footer .mdetail-footer{
-    text-align: center
+    text-align: right;
+    padding-right: 5px;
   }
   .detail-m-footer .mdetail-footer .mfooter{
     display:inline-block;

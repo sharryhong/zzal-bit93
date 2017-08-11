@@ -150,6 +150,15 @@
     LIMIT #{startIndex}, #{pageSize}
   </select>
   
+  <!-- detailpage.html : zzaler의 다른짤강 -->
+  <select id="zzalListOthers" resultMap="zzalMap" parameterType="map">
+    SELECT z.zzno, z.mno, m.nick, m.pic as pic1, z.cno, z.titl, z.pic as pic2, z.cdt as cdt2
+    FROM zzal_lect z INNER JOIN memb m on z.mno = m.mno AND z.mno = #{mno}
+    WHERE z.ztmp=false 
+    ORDER BY z.cdt desc
+    LIMIT 10
+  </select>
+  
   <select id="countAll" resultType="int">
     SELECT count(*)
     FROM zzal_lect
