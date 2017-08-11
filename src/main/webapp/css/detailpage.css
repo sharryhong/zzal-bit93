@@ -127,12 +127,11 @@ textarea {
  .other-title {
 		position: absolute;
 		color: white;
-		bottom: 10px;
+		bottom: 0px;
 		font-size: 14px;
 		background: rgba(0,0,0,0.5);
-		margin: 5px;
-		padding: 0 3px;
-		width: 93%;
+		padding: 5px;
+		width: 100%;
 	  overflow: hidden;
 	  white-space: nowrap;
 	  text-overflow: ellipsis;
@@ -141,9 +140,10 @@ textarea {
    position: relative;
    height: 143px;
    overflow: hidden;
+   background: black;
  }
  .images-wrapper img{
-   height: 100%;
+   width: 140%;
    transform: translateX(-15%);
  }
  .detail-left{
@@ -341,8 +341,8 @@ textarea {
     width: 100%;
     height: 80px;
     padding: 10px;
-    border-top: 1px solid #ccc;
-    border-bottom: 2px solid #ccc;
+    border-top: 3px solid #ccc;
+    border-bottom: 1px solid #ccc;
   }
   .down-container .reply-inputer .user-phot {
     width: 50px;

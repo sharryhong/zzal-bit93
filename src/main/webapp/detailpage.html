@@ -71,7 +71,6 @@
                         </a>
                       </div>
                     </div>
-
                     <div class="detail-funcBtn-close">
                       <a href="#" class="btn-layerClose"><strong class="fa fa-times" aria-hidden="true"></strong></a>
                     </div>
@@ -199,9 +198,7 @@
 
                 <div class="down-container">
                  <div class="reply-inputer">
-                    <a href="#">
-                      <div class="user-phot thumbnail-phot-insert"></div>
-                    </a>
+                    <div class="user-phot thumbnail-phot-insert"></div>
                     <div class="input-con">
                       <div class="user-name"><span class='name'>로그인을 해주세요 </span></div>
                       <form class="inputer" action="index.html" method="post">
@@ -345,36 +342,6 @@
                     <div class="reply-list">
                      <div class="replycnt"><span>1</span><span>개의 댓글</span></div>
                       <ul>
-                        <!-- <li>
-                          <div class="reply-unit-con">
-                            <a href="#">
-                              <div class="reply-user-phot thumbnail-phot-insert"></div>
-                            </a>
-                            <div class="reply-con">
-                              <div class="user-name"><span class='name'>이완</span></div>
-                              <div class="reply-text"><div class="text">아 예쁘다!</div></div>
-                            </div>
-                            <div class="reply-info ">
-                              <div class="date"><span class='when'>하루전</span>
-                                <a href="#">
-                                 <span class="re-reply">답글달기</span>
-                                </a>
-                              </div>
-                              <div class="press">
-                                <a href="#">
-                                  <span class='like'>
-                                    <i class="fa fa-heart-o" aria-hidden="true"></i><span>200</span>
-                                  </span>
-                                </a>
-                                <a href="#">
-                                  <span class="added-reply">
-                                    <i class="fa fa-comment-o" aria-hidden="true"></i><span>200</span>
-                                  </span>
-                                </a>
-                              </div>
-                            </div>
-                          </div>
-                        </li> -->
                       </ul>
                     </div>
                    </div><!--down-container-->
@@ -476,10 +443,10 @@
 <li class='reply-li re-reply-li'>
 <div class='reply-unit-con re-reply-con'>
     <a href='#'>
-      <div class='reply-user-phot thumbnail-phot-insert' style="background-image:url('upload/{{membPic}}')"></div>
+      <div data-mno='{{memberNumber}}' class='reply-user-phot thumbnail-phot-insert' style="background-image:url('upload/{{membPic}}')"></div>
     </a>
   <div class='reply-con'>
-    <div class='user-name'><span class='name'>{{nickName}}</span></div>
+    <div class='user-name'><span class='name' data-mno='{{memberNumber}}'>{{nickName}}</span></div>
       <a href="#">
        <div class="cancle re-reply-delete" data-rno='{{replyNumber}}' data-mno='{{memberNumber}}' data-reparent='{{rereplyParentNumber}}'><i class="fa fa-times" aria-hidden="true"></i></div>
       </a>
@@ -499,13 +466,13 @@
 </div>
 </li>
 {{else}}
-  <li class='reply-li'>
+  <li class='reply-li' data-mno='{{memberNumber}}'>
     <div class='reply-unit-con'>
       <a href='#'>
-        <div class='reply-user-phot thumbnail-phot-insert' style="background-image:url('upload/{{membPic}}')"></div>
+        <div data-mno='{{memberNumber}}' class='reply-user-phot thumbnail-phot-insert' style="background-image:url('upload/{{membPic}}')"></div>
       </a>
       <div class='reply-con'>
-        <div class='user-name'><span class='name'>{{nickName}}</span></div>
+        <div class='user-name'><span class='name' data-mno='{{memberNumber}}'>{{nickName}}</span></div>
           <a href="#">
            <div class="cancle" data-rno='{{replyNumber}}' data-mno='{{memberNumber}}' data-reparent='{{rereplyParentNumber}}'><i class="fa fa-times" aria-hidden="true"></i></div>
           </a>  
@@ -554,10 +521,10 @@
   <li class='reply-li'>
     <div class='reply-unit-con'>
       <a href='#'>
-        <div class='reply-user-phot thumbnail-phot-insert' style="background-image:url('upload/{{membPic}}')"></div>
+        <div data-mno='{{memberNumber}}' class='reply-user-phot thumbnail-phot-insert' style="background-image:url('upload/{{membPic}}')"></div>
       </a>
       <div class='reply-con'>
-        <div class='user-name'><span class='name'>{{nickName}}</span></div>
+        <div class='user-name'><span class='name' data-mno='{{memberNumber}}'>{{nickName}}</span></div>
           <a href="#">
            <div class="cancle" data-rno='{{replyNumber}}' data-mno='{{memberNumber}}' data-reparent='{{rereplyParentNumber}}'><i class="fa fa-times" aria-hidden="true"></i></div>
           </a>  

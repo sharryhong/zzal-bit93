@@ -249,6 +249,12 @@ $(document).on('click', '.zzalwriternick, .more-view', function() {
 	location.href = 'someonepage.html?writer=' + zzalmno
 })
 
+// 댓글 작성자 클릭시 
+$(document).on('click', '.reply-user-phot, .reply-con .name', function() {
+	var replymno = $(this).attr('data-mno')
+	location.href = 'someonepage.html?writer=' + replymno
+})
+
 // 오른쪽 스크롤바
 $(window).on("load",function(){
     $(".detail-right").mCustomScrollbar({
