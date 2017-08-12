@@ -139,7 +139,7 @@
 		LIMIT 30
   </select>
   
-  <!-- 새로운 페이지. 무한스크롤 -->
+  <!-- NEW 페이지. 무한스크롤 -->
   <select id="zzalListNew" resultMap="zzalMap" parameterType="map">
     SELECT z.zzno, z.mno, m.nick, m.pic as pic1, z.cno, z.titl, z.pic as pic2, z.cdt as cdt2, z.hitcnt,
     (SELECT count(*) FROM lik WHERE zzno=z.zzno) as like_cnt, 

@@ -403,10 +403,12 @@
 <script id="writer-otherzzal-template" type="text/x-handlebars-template">
 {{#each zzalList}}
 <div class="swiper-slide lects-unit otherzzals">
+<a href="#" class="zzal-lect" data-zzno="{{zzno}}">
   <div class="images-wrapper">
     <img class="contents-images-zzals"src="upload/{{mainPic}}">
 		<h3 class="other-title">{{title}}</h3>
   </div>
+</a>
 </div>
 {{/each}}
 </script>
