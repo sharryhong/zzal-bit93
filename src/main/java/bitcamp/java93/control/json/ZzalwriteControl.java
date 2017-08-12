@@ -64,12 +64,15 @@ public class ZzalwriteControl {
 //        for ( String key : attributes.keySet() ) {
 //            System.out.println("방법1) key : " + key +" / value : " + attributes.get(key));
 //        }
+        
+        String newsMainPic = attributes.get("mainPic").toString();
+        String newTitle = attributes.get("title").toString();
 //        	
         zzal.setCno((int)Integer.parseInt(attributes.get("cno").toString()));
         zzal.setCono((int)Integer.parseInt(attributes.get("cono").toString()));
         zzal.setMno((int)Integer.parseInt(attributes.get("mno").toString()));
-        zzal.setMainPic(attributes.get("mainPic").toString());
-        zzal.setTitle(attributes.get("title").toString());
+        zzal.setMainPic(newsMainPic.replaceAll("^\"+|\"+$", ""));
+        zzal.setTitle(newTitle.replaceAll("^\"+|\"+$", ""));
         zzal.setZzalTemporary((Boolean)Boolean.parseBoolean(attributes.get("publicType").toString()));
         System.out.println(zzal);
       
@@ -90,11 +93,14 @@ public class ZzalwriteControl {
         for(int i =0; i< arr.size(); i++){
         	JsonObject tmp = (JsonObject)arr.get(i);
         	
+        	
+        	String newsPagePic = tmp.get("pagePic").toString();
+        	String newConText = tmp.get("conText").toString();
 //        	page.setZzalNo((int)Integer.parseInt(tmp.get("zzno").toString()));
         	page.setPageNo((int)Integer.parseInt(tmp.get("pageNo").toString()));
-        	page.setPagePic(tmp.get("pagePic").toString());
+        	page.setPagePic(newsPagePic.replaceAll("^\"+|\"+$", ""));
         	page.setConTypeZ(tmp.get("type").toString());
-        	page.setConTextZ(tmp.get("conText").toString());
+        	page.setConTextZ(newConText.replaceAll("^\"+|\"+$", ""));
         	
         	System.out.println(page);
         	zzalwriteService.pageAdd(page);

@@ -102,7 +102,7 @@ function StringMaker(obj){
 	// console.log(tmpPageSelect)
 	// console.log($(".swiper-slide textarea"))
 	console.log(tmpstr1)
-  $(tmpPageSelect[0]).css("background-image", 'url("'+tmpstr1+'")')
+  $(tmpPageSelect[0]).css("background-image", 'url('+tmpstr1+')')
 
 
 	for (let i=1; i < tmpPageSelect.length; i++ ){

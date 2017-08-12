@@ -42,7 +42,7 @@
   
   <insert id="insert" parameterType="zzal">
     insert into zzal_lect(mno, cno, cono, titl, pic, cdt, ztmp) 
-    values(#{mno}, #{cno}, Case When #{cono} = 0 then null else #{cono} end, #{title}, #{mainPic}, curdate(), #{zzalTemporary})
+    values(#{mno}, #{cno}, Case When #{cono} = 0 then null else #{cono} end, #{title}, #{mainPic}, current_timestamp(), #{zzalTemporary})
  
   </insert>
   

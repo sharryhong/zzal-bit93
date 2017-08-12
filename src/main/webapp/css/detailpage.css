@@ -1,5 +1,11 @@
 textarea {
-    resize: none;
+  resize: none;
+}
+.detailpage-body .header .menu {
+	display: none;
+}
+.reply-li .name {
+	cursor: pointer;
 }
 #writer-otherzzal{
 	width: 100px;
@@ -333,7 +339,7 @@ textarea {
     margin-left: 3px;
   }
   .upper-contaniner .user-lects-units .lects-units-sliders {
-    height: 160px;
+    height: 143px;
     width: 100%;
     margin-top: 10px;
   }
