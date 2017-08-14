@@ -9,7 +9,6 @@
 	$.getJSON('/zzal-bit93/auth/userinfo.json', function(result) {
 	  if (result.data) {
 		  no = result.data.no
-		  console.log(no)
 		  $('.user-info-face .user-name').text(result.data.nick)
 		  $('.profile-wrap .phot').css({"background-image": "url(image/"+result.data.membpic+")"});
 		  getCollect(no)
@@ -24,10 +23,8 @@ var initWrite;
 function justInit(no){
 
 	try{
-		console.log(no)
 		initWrite =window.location.href.split("?")[1]
 
-		console.log(initWrite,"zzno 없엉")
 				if(initWrite.split("=")[0]=="zzno"){
 					$.ajax({
 						url:'/zzal-bit93/write/tmplist.json',
@@ -182,7 +179,6 @@ slideNumberring()
 
 function slideNumberring(){
 		let buddys = $('.swiper-slide')
-		// let inputbuddys
 		for (let i = 0; i < buddys.length; i++ ){
 			$(buddys[i]).attr('data-no',i)
 			$(buddys[i]).addClass('number-'+i)
@@ -190,8 +186,6 @@ function slideNumberring(){
 }
 
 function writefuncDone(){
-
-			// console.log(swiper.onSlideChangeEnd(swiper))
 
 				indexNum = parseInt(swiper.realIndex);
 
@@ -207,7 +201,6 @@ function writefuncDone(){
 				// return indexNum;
 				console.log(photoUpLoad)
 						$(photoUpLoad).on('click',function(){
-							console.log("호우")
 							let curslide = $(this).closest(".swiper-slide")
 							let curSlideNo = $(this).closest(".swiper-slide").attr('data-no')
 
@@ -251,7 +244,6 @@ function writefuncDone(){
 											}
 								},
 									done: function (e, data) {
-										console.log('done()...');
 
 											var filenames = data.result.data;
 											let isimg = 1;
@@ -262,7 +254,6 @@ function writefuncDone(){
 						})// upload btn
 
 			$(document).on('click',".swiper-slide-active.number-"+indexNum+" .repre-video",function(e){
-				// console.log(indexNum)
 				let inputNo =$(this).closest(".swiper-slide").attr('data-no')
 
 				// let curinput=$('input[class*=url][name^=url]')[inputNo-1]
@@ -347,7 +338,7 @@ function wrapWindowByMask(){
 					// youSonOfBitch(pageArray[0],jsonPageArray)
 					console.log($('.swiper-slide'))
 				}else {
-					alert("메인과 첫페이지는 삭제 불가임! 희희!")
+					alert("메인과 첫페이지는 삭제가 되지 않습니다.")
 				}
 			 })
 				function deleteSync(){
@@ -363,14 +354,16 @@ var ssl=0;
 			let swiperSlideTotNumber = parseInt($('.swiper-slide').length-1)
 			let SwiperSlidesSelect = $('.swiper-slide')
 		  slideNumberring()
+			
+		  window.setTimeout(goNextPage(), 100);
 
-			console.log('done')
 		})//add page
 
-
-		//
-		// var writeData
-
+		
+		// 페이지 추가 후 추가된 페이지가 보이게 하기 
+		function goNextPage() {
+			$('.swiper-button-next')[0].click()
+		}
 
 		$(document).on('click', '#add-btn, #temp-save-btn', function() {
 
