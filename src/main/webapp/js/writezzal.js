@@ -181,8 +181,6 @@ function writefuncDone(){
 							let curslide = $(this).closest(".swiper-slide")
 							let curSlideNo = $(this).closest(".swiper-slide").attr('data-no')
 
-
-
 								$(this).fileupload({
 									url: '/zzal-bit93/write/upload.json',
 									dataType: 'json',

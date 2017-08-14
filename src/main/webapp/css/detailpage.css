@@ -1,6 +1,21 @@
 textarea {
   resize: none;
 }
+.re-reply-inputer {
+	margin-top: 5px;
+}
+.down-container .reply-list .reply-unit-con {
+  position: relative;
+}
+.down-container .cancle-wrap {
+  position: absolute;
+  top: 0px;
+  right: 10px;
+}
+.down-container .reply-con  .cancle {
+  float: right;
+  color:#aaa;
+}
 .detailpage-body .header .menu {
 	display: none;
 }
@@ -407,10 +422,7 @@ textarea {
     color:#5656b1;
     font-size: 14px;
   }
-  .down-container .reply-con  .cancle {
-    float: right;
-    color:#aaa;
-  }
+  
   .down-container .reply-con .reply-text {
     border: 1px solid #ccc;
     margin: 5px 3px 5px 6px;
@@ -481,6 +493,7 @@ textarea {
 	}
 	.detail-main .main-content .zzal-container {
 	  padding: 0;
+	  background: #333;
 	}
 	.detail-page-swipe .contents .type-main .title-info {
 	  top: 30%;
@@ -496,6 +509,7 @@ textarea {
     text-align: left;
     position: fixed;
     z-index: 10000;
+    height: 53px;
   }
   .detail-m-header h1{
   	display:inline-block;
@@ -573,16 +587,17 @@ textarea {
   }
   .swiper-slide.last-user-reply .last-user-page.contents {
     background-color: #333;
-    height:100vmax;
+    height: calc(100vmax - 50px);
+    padding-top: 38px;
+    padding-bottom: 50px;
   }
-
   .last-user-reply .last-user-page .loca{
-    position: absolute;
+    /* position: absolute; */
     width: 100%;
     top: 30px;
   }
   .last-user-page .loca .upper-contaniner{
-    padding-top: 10px
+    padding-top: 10px;
     padding: 0 10px;
     position: relative;
   }
@@ -608,8 +623,7 @@ textarea {
     text-align: justify;
   }
   .last-user-page .loca .upper-contaniner .write-date {
-    position: absolute;
-    right:0;
+    float: right;
     font-size: 14px;
   }
   .last-user-page .loca .upper-contaniner .lect-user-phot {
@@ -647,8 +661,8 @@ textarea {
   }
   .upper-contaniner .user-lects-units .lects-units-sliders {
     height: 142px;
-    width:100%;
-    margin-top: 20px;
+    width: 100%;
+    margin-top: 10px;
   }
   .down-container .reply-inputer {
     width: 100%;
@@ -712,18 +726,15 @@ textarea {
     float: left;
     background-image: url('../image/user.jpg');
   }
-  .down-container .reply-list .reply-unit-con {
-    border: 1px solid #ccc;
-  }
   .down-container .reply-con {
     margin-left: 50px;
     line-height: 25px;
-    width:80%;
+    width: calc(100% - 55px);
   }
   .down-container .reply-con .user-name {
     text-align: left;
     padding-top: 10px;
-    color:#7F7FFF;
+    color:#c3c3e3;
     font-size: 14px;
   }
   .down-container .reply-con .reply-text {

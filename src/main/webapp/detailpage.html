@@ -55,27 +55,6 @@
 <!--mobile-header-->
 
    <div class="zzal-container">
-     <!-- left-side-->
-              <!-- <div class="detail-funcbtn">
-                <a class="detail-funcbtn-a" href="#detail-layer-funcBtn"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></a> -->
-                  <!-- <div id="detail-layer-funcBtn" class="funclayer">
-                    <div class="later-wrraper">
-                      <div class="view-collcet">
-                        <a href="#">
-                          이 짤강 컬랙션보기
-                        </a>
-                      </div>
-                      <div class="report-zzal">
-                        <a href="#">
-                          <strong class="fa fa-ban" aria-hidden="true"></strong>신고하기
-                        </a>
-                      </div>
-                    </div>
-                    <div class="detail-funcBtn-close">
-                      <a href="#" class="btn-layerClose"><strong class="fa fa-times" aria-hidden="true"></strong></a>
-                    </div>
-                  </div> -->
-              <!-- </div> -->
 
               <div class="detail-left">
                 <div class="left-upper-menu">
@@ -290,26 +269,6 @@
                  </div>
                 </div><!--down-container-->
                 
-                   <!-- <div class="down-container">
-                    <div class="reply-inputer">
-                       <a href="#">
-                         <div class="user-phot thumbnail-phot-insert"></div>
-                       </a>
-                       <div class="input-con">
-                         <div class="user-name">[<span class='name'>이완</span>]</div>
-
-                         <form class="inputer" action="index.html" method="post">
-                           <input class='input-reply' type="text" name="" value="" placeholder="덧글을 입력해 보세요!">
-                           <button class='submit-reply' type="button" name="button">입력</button>
-                         </form>
-                       </div>
-                    </div>
-                    <div class="reply-list">
-                     <div class="replycnt"><span>1</span><span>개의 댓글</span></div>
-                      <ul>
-                      </ul>
-                    </div>
-                   </div> --><!--down-container-->
                  </div><!--loca-->
                  </div>
               </div>
@@ -414,7 +373,7 @@
     </a>
   <div class='reply-con'>
     <div class='user-name'><span class='name' data-mno='{{memberNumber}}'>{{nickName}}</span></div>
-      <a href="#">
+      <a href="#" class="cancle-wrap">
        <div class="cancle re-reply-delete" data-rno='{{replyNumber}}' data-mno='{{memberNumber}}' data-reparent='{{rereplyParentNumber}}'><i class="fa fa-times" aria-hidden="true"></i></div>
       </a>
     <div class='reply-text'><div class='text'>{{content}}</div></div>
@@ -440,7 +399,7 @@
       </a>
       <div class='reply-con'>
         <div class='user-name'><span class='name' data-mno='{{memberNumber}}'>{{nickName}}</span></div>
-          <a href="#">
+          <a href="#" class="cancle-wrap">
            <div class="cancle" data-rno='{{replyNumber}}' data-mno='{{memberNumber}}' data-reparent='{{rereplyParentNumber}}'><i class="fa fa-times" aria-hidden="true"></i></div>
           </a>  
         <div class='reply-text'><div class='text'>{{content}}</div></div>
@@ -492,7 +451,7 @@
       </a>
       <div class='reply-con'>
         <div class='user-name'><span class='name' data-mno='{{memberNumber}}'>{{nickName}}</span></div>
-          <a href="#">
+          <a href="#" class="cancle-wrap">
            <div class="cancle" data-rno='{{replyNumber}}' data-mno='{{memberNumber}}' data-reparent='{{rereplyParentNumber}}'><i class="fa fa-times" aria-hidden="true"></i></div>
           </a>  
         <div class='reply-text'><div class='text'>{{content}}</div></div>

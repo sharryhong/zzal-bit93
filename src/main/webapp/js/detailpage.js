@@ -15,8 +15,16 @@ var detailSwipeBigInfo = {
                           nextButton: '.swiper-button-next',
                           prevButton: '.swiper-button-prev',
                           pagination: '.swiper-pagination',
-                          paginationType: 'fraction'
-                         }
+                          paginationType: 'fraction',
+                          onSlideChangeEnd: function(swiper){
+                        	let indexNum = parseInt(swiper.realIndex);
+              				let swiperConLength = $('.swiper-slide .contents').length
+              				$('.swiper-slide .contents').css('height', '100vmax')
+              				if (indexNum == swiperConLength-1) {
+              					$('.swiper-slide .last-user-page').css('height', 'inherit')
+              				}
+              			  }
+                       }
 
 var swiper1 = new Swiper(detailSwipeBig,detailSwipeBigInfo)
 
