@@ -98,22 +98,19 @@
 		if (result.data) {
 			console.log(result.data)
 		}
-			let templateFn = Handlebars.compile($('#someone-collection-template').text())
-			let generatedHTML = templateFn(result.data)
-			someonecollection.text('')
-			someonecollection.html(generatedHTML)
-			
+		let templateFn = Handlebars.compile($('#someone-collection-template').text())
+		let generatedHTML = templateFn(result.data)
+		someonecollection.text('')
+		someonecollection.html(generatedHTML)
     })
   });
-//다른유저 컬렉션 클릭시 디테일 
- /* $(document.body).on('click', '.mycollectlist', function(event) {
-	  console.log($(this).attr('data-no'))
-	  location.href = 'someonedetail.html?cono=' + $(this).attr('data-no')
-	  event.preventDefault()
-  });*/
   
-  $(document.body).on('click', '.mycollectlist', function() {
-	  location.href = 'someonedetail.html?writercono=' + somno 
-  });
+	//다른유저 컬렉션 클릭시 디테일  
+	 $(document.body).on('click', '.mycollectlist', function(event) {
+		  console.log($(this).attr('data-no'))
+		  console.log(somno)
+		  location.href = 'someonedetail.html?cono=' + $(this).attr('data-no') + '&mno=' + somno
+		  event.preventDefault()
+	  });
   
 })(jQuery);
