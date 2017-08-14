@@ -18,5 +18,10 @@ public class NoticeServiceImpl implements NoticeService {
 		// TODO Auto-generated method stub
 		return noticeDao.noticeList(no);
 	}
+	@Override
+	public int getcount(int mno) {
+		// TODO Auto-generated method stub
+		return noticeDao.getCnt(mno);
+	}
 
 }

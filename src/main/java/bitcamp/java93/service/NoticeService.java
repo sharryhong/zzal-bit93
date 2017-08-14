@@ -6,5 +6,5 @@ import bitcamp.java93.domain.Notice;
 
 public interface NoticeService {
   List<Notice> list(int no) throws Exception;
-  	
+  int getcount(int mno);
 }
