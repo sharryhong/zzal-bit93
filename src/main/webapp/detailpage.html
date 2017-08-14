@@ -203,9 +203,9 @@
 
 						 <div class="zzalswipe-tg swiper-slide main">
 						 </div>
-
+		
             <!-- {{#each list2}} -->
-               <div class="swiper-slide sw-contents">
+               <!-- <div class="swiper-slide sw-contents">
                   <div class="contents">
                      <div class="type-contents">
                        <div  class="content-box">
@@ -218,9 +218,9 @@
                            The border-radius property is a shorthand property for setting the four border-*-radius properties.
                          </p>
                        </div>
-                     </div>
+                     </div> 
                   </div>
-               </div>
+               </div> -->
               <!-- {{/list2}} -->
 
             <div class="swiper-slide last-user-reply">
@@ -360,6 +360,26 @@
       </div>
     </div>
  {{/each}}
+</script>
+
+<!-- 짤강의 페이지들 -->
+<script id="pages-swipeslide-template" type="text/x-handlebars-template">
+{{#each list}}
+<div class="swiper-slide sw-contents">
+<div class="contents">
+<div class="type-contents">
+  <div  class="content-box">
+    <div id="imagetest" class="images-wrapper">
+      <img class= "contents-images-zzals" src="upload/{{page.pagePic}}">
+    </div>
+  </div>
+  <div class="text">
+    <p>{{page.ConTextZ}}</p>
+  </div>
+</div>
+</div>
+</div>
+{{/each}}
 </script>
 
 <!--  reply 핸들바스 script문 -->

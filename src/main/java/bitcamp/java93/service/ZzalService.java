@@ -6,7 +6,7 @@ import bitcamp.java93.domain.Zzal;
 
 public interface ZzalService {
 	List<Zzal> list(int zzno) throws Exception;
-	/*List<Zzal> zzalList(int pageNo, int pageSize) throws Exception;*/
+	List<Zzal> selectListPages(int zzno) throws Exception;
 	List<Zzal> zzalListWithCount(int pageNo, int pageSize) throws Exception;
 	List<Zzal> zzalListCategory(int pageNo, int pageSize, int cno) throws Exception;
 	List<Zzal> zzalBestList() throws Exception;

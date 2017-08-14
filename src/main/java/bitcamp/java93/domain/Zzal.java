@@ -16,13 +16,22 @@ public class Zzal {
 	int rowCount;
 	Member member;
 	ZzalLike zzallike;
+	Page page;
 	
   @Override
   public String toString() {
     return "Zzal [zzno=" + zzno + ", mno=" + mno + ", cno=" + cno + ", cono=" + cono + ", title=" + title + ", mainPic="
         + mainPic + ", cdt=" + cdt + ", categoryName=" + categoryName + ", zzalTemporary=" + zzalTemporary
         + ", hitCount=" + hitCount + ", likeCount=" + likeCount + ", replyCount=" + replyCount + ", rowCount="
-        + rowCount + ", member=" + member + ", zzallike=" + zzallike + "]";
+        + rowCount + ", member=" + member + ", zzallike=" + zzallike + ", page=" + page + "]";
+  }
+
+  public Page getPage() {
+    return page;
+  }
+
+  public void setPage(Page page) {
+    this.page = page;
   }
 
   public int getZzno() {

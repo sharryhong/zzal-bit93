@@ -22,6 +22,11 @@ public class ZzalServiceImpl implements ZzalService {
 	public List<Zzal> list(int zzno) throws Exception {
 		return zzalDao.selectList(zzno);
 	}
+	
+	@Override
+  public List<Zzal> selectListPages(int zzno) throws Exception {
+    return zzalDao.selectListPages(zzno);
+  }
 
 	@Override
   public List<Zzal> zzalListWithCount(int pageNo, int pageSize) throws Exception {

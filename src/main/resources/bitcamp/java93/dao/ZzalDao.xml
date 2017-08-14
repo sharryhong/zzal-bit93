@@ -31,7 +31,24 @@
 	    <result column="mno" property="mno"/>
 	    <result column="cdt1" property="cdt"/>
 	  </association>
+	  <association property="page" javaType="Page">
+	    <id column="zpno" property="zzalpageNo"/>
+	    <result column="zzno" property="zzalNo"/>
+	    <result column="pgno" property="pageNo"/>
+	    <result column="type" property="conTypeZ"/>
+	    <result column="pic3" property="pagePic"/>
+	    <result column="cont" property="ConTextZ"/>
+	  </association>
   </resultMap>
+  
+  <!-- SELECT p.pic as pic3, p.cont 
+  FROM page p INNER JOIN zzal_lect z ON p.zzno = z.zzno 
+  WHERE p.zzno = 47 -->
+  <select id="selectListPages" resultMap="zzalMap" parameterType="int">
+    SELECT p.pic as pic3, p.cont 
+  	FROM page p INNER JOIN zzal_lect z ON p.zzno = z.zzno 
+ 		WHERE p.zzno = #{zzno}
+  </select>
   
 	<select id="selectList" resultMap="zzalMap" parameterType="int">
     SELECT zz.zzno, zz.mno, zz.nick, zz.pic1, zz.cno, zz.titl, zz.pic2, zz.cdt2, zz.hitcnt, c.name as cName, zz.like_cnt
@@ -44,23 +61,6 @@
     ON zz.cno = c.cno
   </select>
   
-  	<!-- SELECT zz.zzno, zz.mno, zz.nick, zz.pic1, zz.cno, zz.titl, zz.pic2, zz.cdt2, zz.hitcnt, c.name as cName, zz.like_cnt
-    FROM
-    (SELECT z.zzno, z.mno, m.nick, m.pic as pic1, z.cno, z.titl, z.pic as pic2, z.cdt as cdt2, z.hitcnt,
-    (SELECT count(*) FROM lik WHERE zzno=z.zzno) as like_cnt
-    FROM zzal_lect z INNER JOIN memb m ON z.mno = m.mno 
-    WHERE z.zzno = 2 ) as zz
-    LEFT JOIN catg c
-    ON zz.cno = c.cno -->
-    
-    <!-- SELECT zz.zzno, zz.mno, zz.nick, zz.pic1, zz.cno, zz.titl, zz.pic2, zz.cdt2, zz.hitcnt, c.name as cName
-    FROM
-    (SELECT z.zzno, z.mno, m.nick, m.pic as pic1, z.cno, z.titl, z.pic as pic2, z.cdt as cdt2, z.hitcnt
-    FROM zzal_lect z INNER JOIN memb m ON z.mno = m.mno 
-    WHERE z.zzno = #{no} ) as zz
-    LEFT JOIN catg c
-    ON zz.cno = c.cno -->
-
   <!-- index.html 짤강의 리스트 순서 : (좋아요 * 10) + 덧글 수 + 조회수  -->
   <select id="zzalListWithCount" resultMap="zzalMap" parameterType="map">
     SELECT z.zzno, z.mno, m.nick, m.pic as pic1, z.cno, z.titl, z.pic as pic2, z.cdt as cdt2, z.hitcnt,

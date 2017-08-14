@@ -1,6 +1,9 @@
 textarea {
   resize: none;
 }
+.detail-siwpe .images-wrapper img {
+	width: 100%;
+}
 .re-reply-inputer {
 	margin-top: 5px;
 }
@@ -156,9 +159,13 @@ textarea {
 	}
  .images-wrapper {
    position: relative;
-   height: 143px;
    overflow: hidden;
-   background: black;
+ }
+ .user-lects-units .images-wrapper {
+   height: 143px; 
+ }
+ .swiper-pagination {
+   color: #ccc;
  }
  .images-wrapper img{
    width: 140%;

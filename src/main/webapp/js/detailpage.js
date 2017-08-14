@@ -224,14 +224,28 @@ $(document).on('ready',function(e){
     	$('.date-num').text(zzalDate)
     	$('.writer').text(realData.member.nick)
     	$('.likenumber').text(realData.likeCount)
+    	ZzalPages(zzno)
     	otherZzals()
     }
   })
 })
 
+// 짤강의 페이지들
+function ZzalPages(zzno) {
+	console.log(zzno)
+  $.getJSON('zzal/selectListPages.json', {'zzno': zzno}, function(result){
+	  console.log(result.data)
+//	  generateHandlebarsInfinity(result, $('#pages-swipeslide-template'), $('.swiper-wrapper.detail-page-swipe'))
+	  /*templateFn = Handlebars.compile($('#pages-swipeslide-template').text())
+	  generatedHTML = templateFn(result.data)
+	  $('.swiper-wrapper.detail-page-swipe').prepend(generatedHTML)*/
+	  var templatetmpFn = Handlebars.compile($('#pages-swipeslide-template').text())
+	  swiper1.appendSlide(templatetmpFn(result.data))
+  })
+}
+
 // zzaler의 다른짤강
 function otherZzals() {
-	console.log('zzalmno', zzalmno)
   $.getJSON('zzal/zzalListOthers.json', {"mno" : zzalmno}, function(result){
 	  console.log(result.data)
 	  generateHandlebars(result, $('#writer-otherzzal-template'), $('#writer-otherzzal'))

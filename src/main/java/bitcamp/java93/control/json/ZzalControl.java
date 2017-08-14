@@ -29,6 +29,15 @@ public class ZzalControl {
 	    return new JsonResult(JsonResult.SUCCESS, dataMap);
 	  }
 	
+	@RequestMapping("selectListPages")
+  public JsonResult selectListPages(@RequestParam int zzno) throws Exception {
+    
+    HashMap<String,Object> dataMap = new HashMap<>();
+    dataMap.put("list", zzalService.selectListPages(zzno));
+    
+    return new JsonResult(JsonResult.SUCCESS, dataMap);
+  }
+	
 	@RequestMapping("zzalListWithCount")
 	public JsonResult zzalList(int pageNo, int pageSize) throws Exception {
     
