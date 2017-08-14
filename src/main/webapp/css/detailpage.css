@@ -119,11 +119,8 @@ textarea {
 .detail-siwpe .detail-page-swipe .swiper-slide {
    border: 0;
    text-align: center;
-   font-size: 18px;
-   /* background: #fff; */
 }
 .swiper-slide.main {
-   /* background-image: url('../upload/800_1501999438603_49_sul.jpg'); */
    background-repeat: no-repeat;
    background-position: center;
 }
@@ -464,6 +461,9 @@ textarea {
 }
 
 @media (max-width: 925px) {
+	.zzal-lect-info .zzalwriternick {
+		color: #c3c3e3;
+	}
 	.detail-page-swipe .zzal-title {
 	  margin: 5px 0;
 	}
@@ -572,7 +572,7 @@ textarea {
     margin: 0 5px;
   }
   .swiper-slide.last-user-reply .last-user-page.contents {
-    background-color: #001;
+    background-color: #333;
     height:100vmax;
   }
 
@@ -582,6 +582,7 @@ textarea {
     top: 30px;
   }
   .last-user-page .loca .upper-contaniner{
+    padding-top: 10px
     padding: 0 10px;
     position: relative;
   }
@@ -601,6 +602,7 @@ textarea {
   }
   .zzal-lect-info li .left-1st {
     float:left;
+    text-align: justify;
   }
   .zzal-lect-info li .left-1st.reply {
     text-align: justify;
@@ -621,35 +623,38 @@ textarea {
   .upper-contaniner .user-lect-info {
     height: 80px;
     padding-top: 20px;
-    padding-left: 10px;
     margin-bottom: 20px;
     position: relative;
   }
   .upper-contaniner .user-lects-units{
     margin-top: 30px;
-    height: 250px;
     width:100%;
-    padding: 10px;
+    padding: 10px 0;
   }
   .upper-contaniner .user-lects-units .title {
     text-align: left;
+    font-size: 16px;
   }
   .upper-contaniner .user-lects-units .other-lects{
     display: inline-block;
   }
   .upper-contaniner .user-lects-units .more-view {
     float: right;
+    font-size: 14px;
+  }
+  .upper-contaniner .more-view .fa {
+    margin-left: 3px;
   }
   .upper-contaniner .user-lects-units .lects-units-sliders {
-    height: 180px;
+    height: 142px;
     width:100%;
     margin-top: 20px;
   }
   .down-container .reply-inputer {
     width: 100%;
     height: 80px;
-    border-top: 1px solid #ccc;
-    border-bottom: 2px solid #ccc;
+    border-top: 3px solid #999;
+    border-bottom: 1px solid #999;
   }
   .down-container .reply-inputer .user-phot {
     width: 50px;
@@ -661,27 +666,31 @@ textarea {
   }
   .down-container .reply-inputer .input-con {
     margin: 10px 5px;
-    width: 100%;
+    width: calc(100% - 70px);
     height: 60px;
   }
   .down-container .reply-inputer .input-con .inputer{
     float: left;
-    width: 80%;
+    width: 100%;
   }
   .down-container .reply-inputer .input-con .inputer .input-reply{
-    width:85%;
+    width:calc(100% - 55px);
   }
   .down-container .reply-inputer .input-con .inputer .input-reply,.submit-reply{
-    border: 1px solid #ccc;
-    color: #ffffff;
+    border: 1px solid #999;
     margin-left: 5px;
     float:left;
-    padding: 0px;
+    padding: 5px;
     height: 30px;
+  }
+  .submit-reply {
+    background: #eee;
   }
   .down-container .reply-inputer .input-con .user-name {
     text-align: left;
     font-size: 14px;
+    margin-left: 5px;
+    margin-bottom: 5px;
   }
   .down-container .reply-list {
     border-top: #ccc solid 1px;
@@ -724,7 +733,6 @@ textarea {
   }
   .down-container .reply-info {
     border-top: 1px solid #ccc;
-    height: 20px;
   }
   .down-container .reply-info div{
     display: inline-block;

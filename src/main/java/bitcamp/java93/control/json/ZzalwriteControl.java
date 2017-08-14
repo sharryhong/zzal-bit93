@@ -39,8 +39,6 @@ public class ZzalwriteControl {
 		  							Page page) throws Exception {
 
 		
-		System.out.println(map);
-		System.out.println("--------------------");
 		String json = (String) map.get("zzal").toString();
 		
 		HashMap<String, Object> attributes = new HashMap<>();
@@ -54,30 +52,17 @@ public class ZzalwriteControl {
 		for(Map.Entry<String,JsonElement> entry : entrySet){
           attributes.put(entry.getKey(), jsonObject.get(entry.getKey()));
         }
-       
-
-        System.out.println("--------------------------");
-        System.out.println(attributes);
-        
-        System.out.println("--------------------------");
-        
-//        for ( String key : attributes.keySet() ) {
-//            System.out.println("방법1) key : " + key +" / value : " + attributes.get(key));
-//        }
         
         String newsMainPic = attributes.get("mainPic").toString();
         String newTitle = attributes.get("title").toString();
-//        	
+        int hitCount = 0;
         zzal.setCno((int)Integer.parseInt(attributes.get("cno").toString()));
         zzal.setCono((int)Integer.parseInt(attributes.get("cono").toString()));
         zzal.setMno((int)Integer.parseInt(attributes.get("mno").toString()));
         zzal.setMainPic(newsMainPic.replaceAll("^\"+|\"+$", ""));
         zzal.setTitle(newTitle.replaceAll("^\"+|\"+$", ""));
         zzal.setZzalTemporary((Boolean)Boolean.parseBoolean(attributes.get("publicType").toString()));
-        System.out.println(zzal);
-      
-      
-      
+        zzal.setHitCount(hitCount);
       
       HashMap<String, Object> lectMap = new HashMap<String, Object>();  
       
@@ -86,9 +71,6 @@ public class ZzalwriteControl {
         String json2 = (String) map.get("zzalpage").toString();
        
          JsonArray arr = (JsonArray)jsonParser.parse(json2);
-         System.out.println("====================");
-        
-       
          
         for(int i =0; i< arr.size(); i++){
         	JsonObject tmp = (JsonObject)arr.get(i);
@@ -96,13 +78,11 @@ public class ZzalwriteControl {
         	
         	String newsPagePic = tmp.get("pagePic").toString();
         	String newConText = tmp.get("conText").toString();
-//        	page.setZzalNo((int)Integer.parseInt(tmp.get("zzno").toString()));
         	page.setPageNo((int)Integer.parseInt(tmp.get("pageNo").toString()));
         	page.setPagePic(newsPagePic.replaceAll("^\"+|\"+$", ""));
         	page.setConTypeZ(tmp.get("type").toString());
         	page.setConTextZ(newConText.replaceAll("^\"+|\"+$", ""));
         	
-        	System.out.println(page);
         	zzalwriteService.pageAdd(page);
         }
 
@@ -126,16 +106,11 @@ public class ZzalwriteControl {
  
  @RequestMapping("delete")
  public JsonResult delete(int no, int zzno) throws Exception {
-	 System.out.println(no);
-	 System.out.println(zzno);
-
 	 HashMap<String, Object> findMap = new HashMap<>();
 	 findMap.put("zzno", zzno);
 	 findMap.put("mno", no);
 	 zzalwriteService.deteleInition(findMap);
 	 HashMap<String, Object> tmplist = new HashMap<>();
-//	 
-//	 tmplist.put("tmplist",zzalwriteService.findTmplist(findMap));
 	 
 	 return new JsonResult(JsonResult.SUCCESS,"ok");
  }
@@ -161,8 +136,6 @@ public class ZzalwriteControl {
 
       thumbnail = new File(servletContext.getRealPath("/upload/" + "800_"+ newFilename));
       Thumbnails.of(file).size(800, 800).toFile(thumbnail);
-      
-      System.out.println(newFilename);
       
       fileList.add(newFilename);
     }

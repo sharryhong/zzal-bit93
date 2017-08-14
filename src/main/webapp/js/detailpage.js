@@ -166,7 +166,6 @@ function buttonChecker(){
 
 
 $('#play-btn').on('click',function(event){
-//	leftBtnFunc(isPlay)
    let up = $(this)[0].children[0]
    let off = $(this)[0].children[1]
   if(!isPlay){
@@ -184,7 +183,6 @@ $('#play-btn').on('click',function(event){
 
 
 $('#m-play-btn').on('click',function(event){
-//	leftBtnFunc(isPlay)
    let up = $(this)[0].children[0]
    let off = $(this)[0].children[1]
   if(!isPlay){
@@ -209,11 +207,11 @@ $(document).on('ready',function(e){
 	    console.log(realData)
 	    var cdt = realData.cdt
 	    var date = new Date(cdt.replace(/ /g,'T'))
-	    /*console.log('cdt :', cdt, 'date : ', date)*/
 	    zzalDate = date.getFullYear()+'-'+(date.getMonth()+1)+'-'+date.getDate()+' '+date.getHours()+':'+date.getMinutes()
 	    zzalmno = realData.mno
     	generateHandlebars(result, $('#detail-swipeslide-template'), $('.zzalswipe-tg'))
     	generateHandlebars(result, $('#writer-info-template'), $('#writer-info'))
+    	generateHandlebars(result, $('#writer-info-template'), $('#writer-info2'))
     	$('#main-date').text(zzalDate)
     	$('.date-num').text(zzalDate)
     	$('.writer').text(realData.member.nick)
@@ -229,10 +227,10 @@ function otherZzals() {
   $.getJSON('zzal/zzalListOthers.json', {"mno" : zzalmno}, function(result){
 	  console.log(result.data)
 	  generateHandlebars(result, $('#writer-otherzzal-template'), $('#writer-otherzzal'))
+	  generateHandlebars(result, $('#writer-otherzzal-template'), $('#writer-otherzzal2'))
 	// zzaler의 다른짤강 swiper
 	  var detailSwipeSmall='.swiper-container.lects-units';
 	  var detailSwipeSmallInfo={
-	                              //  pagination: '.swiper-pagination',
 	                               slidesPerView: 2,
 	                               paginationClickable: true,
 	                               nextButton: '.swiper-button-next',

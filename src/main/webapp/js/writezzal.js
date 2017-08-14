@@ -9,7 +9,6 @@
 	$.getJSON('/zzal-bit93/auth/userinfo.json', function(result) {
 	  if (result.data) {
 		  no = result.data.no
-		  console.log(no)
 		  $('.user-info-face .user-name').text(result.data.nick)
 		  $('.profile-wrap .phot').css({"background-image": "url(image/"+result.data.membpic+")"});
 		  getCollect(no)
@@ -24,10 +23,8 @@ var initWrite;
 function justInit(no){
 
 	try{
-		console.log(no)
 		initWrite =window.location.href.split("?")[1]
 
-		console.log(initWrite,"zzno 없엉")
 				if(initWrite.split("=")[0]=="zzno"){
 					$.ajax({
 						url:'/zzal-bit93/write/tmplist.json',
@@ -43,13 +40,10 @@ function justInit(no){
 	}catch(e){}
 }
 
-/*날라오는 값이 "" ""이러무로 잘라줄 필요 있음
-replace를 쓰려고 햇으나 타이틀 및 컨텍스에도 적용 시키려고 함  */
 function StringMaker(obj){
 	let changer = String(obj)
 	return obj = changer.substring(1,changer.length-1)
 }
-
 
 	function tmpMaker(data) {
 
@@ -58,7 +52,6 @@ function StringMaker(obj){
 		let tmpMtitl = data.zzal.title
 		let tmpMpic = StringMaker(data.zzal.mainPic)
 
-		// .substring(0,1)
 		let arrpic=[]
 		let arrcontext=[]
 		let arrpicname=[]
@@ -70,23 +63,14 @@ function StringMaker(obj){
 			arrpicname[k] = StringMaker(pageroom.pagePic)
 			arrpic[k] = './upload/'+StringMaker(pageroom.pagePic)
 			arrcontext[k] =	StringMaker(pageroom.ConTextZ)
-			console.log(pageroom)
 			k++
 		}
-
-		// console.log(arr2)
-
 
 	 $("#select-collect > option[value="+tmpMcoNo+"]").attr("selected", true)
 	 $("#select-category > option[value="+tmpMCno+"]").attr("selected", true)
 	 $(fiTitle).val(StringMaker(tmpMtitl))
 
-
-
-
 		var templatetmpFn = Handlebars.compile($('#tmppage-template').text())
-
-
 
 	swiper.appendSlide(templatetmpFn(data))
 	let tmpPageSelect = $(".swiper-slide .images-div")
@@ -99,11 +83,7 @@ function StringMaker(obj){
 	console.log(tmpfiinput)
 
 	tmpfiinput[0].value=tmpMpic
-	// console.log(tmpPageSelect)
-	// console.log($(".swiper-slide textarea"))
-	console.log(tmpstr1)
   $(tmpPageSelect[0]).css("background-image", 'url('+tmpstr1+')')
-
 
 	for (let i=1; i < tmpPageSelect.length; i++ ){
 		data.page.type
@@ -114,9 +94,7 @@ function StringMaker(obj){
 
 	slideNumberring()
 
-
 }//tmpmaker
-
 
 	// 핸들바스. main.js에 있는 함수 사용
 	// 카테고리 리스트 뿌려주기
@@ -133,8 +111,6 @@ function StringMaker(obj){
 		})
 	} //category,collect list ㅋ
 
-
-
 	window.onload = swiper;
 
 	var swiper = new Swiper('.swiper-container', {
@@ -147,7 +123,6 @@ function StringMaker(obj){
 				writefuncDone();
 			}
 	});
-
 
 writefuncDone();
 
@@ -177,12 +152,10 @@ var pageCon = function(){
 
 var pageArray = [];
 
-
 slideNumberring()
 
 function slideNumberring(){
 		let buddys = $('.swiper-slide')
-		// let inputbuddys
 		for (let i = 0; i < buddys.length; i++ ){
 			$(buddys[i]).attr('data-no',i)
 			$(buddys[i]).addClass('number-'+i)
@@ -190,8 +163,6 @@ function slideNumberring(){
 }
 
 function writefuncDone(){
-
-			// console.log(swiper.onSlideChangeEnd(swiper))
 
 				indexNum = parseInt(swiper.realIndex);
 
@@ -207,7 +178,6 @@ function writefuncDone(){
 				// return indexNum;
 				console.log(photoUpLoad)
 						$(photoUpLoad).on('click',function(){
-							console.log("호우")
 							let curslide = $(this).closest(".swiper-slide")
 							let curSlideNo = $(this).closest(".swiper-slide").attr('data-no')
 
@@ -224,13 +194,11 @@ function writefuncDone(){
 									previewCrop: true,      // 미리보기 이미지를 출력할 때 원본에서 지정된 크기로 자르기
 									processalways: function(e, data) {
 
-
 											writefuncDone();
 											imagesDiv = $('.images-div')[indexNum];
 
 											for (var i = 0; i < data.files.length; i++) {
 												try {
-
 
 														if (data.files[i].preview.toDataURL) {
 																	$(imagesDiv).html("");
@@ -243,7 +211,6 @@ function writefuncDone(){
 																}else{
 																			$(imagesDiv).css("background-image", 'url(' + data.files[i].preview.toDataURL() +')');
 
-
 																}
 														}//if data
 
@@ -251,7 +218,6 @@ function writefuncDone(){
 											}
 								},
 									done: function (e, data) {
-										console.log('done()...');
 
 											var filenames = data.result.data;
 											let isimg = 1;
@@ -262,11 +228,8 @@ function writefuncDone(){
 						})// upload btn
 
 			$(document).on('click',".swiper-slide-active.number-"+indexNum+" .repre-video",function(e){
-				// console.log(indexNum)
 				let inputNo =$(this).closest(".swiper-slide").attr('data-no')
 
-				// let curinput=$('input[class*=url][name^=url]')[inputNo-1]
-				// console.log($(this).closest(".swiper-slide input[class*=url][name^=url]"))
 				console.log($('.images-div')[inputNo])
 				wrapWindowByMask()
 
@@ -281,7 +244,6 @@ function writefuncDone(){
 
 					ifstr[0] = ($("#fi-url-inputer").val()).replace(/"/g, "'")
 
-
 					$($('.images-div')[inputNo]).html("");
 					$(ifstr[0]).css({'width':670, 'height':370}).appendTo($($('.images-div')[inputNo]))
 					dataMaker(inputNo,ifstr,isimg)
@@ -293,11 +255,6 @@ function writefuncDone(){
 				e.preventDefault();
 			})
 
-
-// <iframe width="854" height="480" src="https://www.youtube.com/embed/SPTRzjVy804" frameborder="0" allowfullscreen></iframe>
-
-
-
 			$(".url-btns").on('click',function(e){
 				console.log(this)
 				e.preventDefault();
@@ -306,7 +263,6 @@ function writefuncDone(){
         $('.write-mask').fadeTo("slow",0.8);
 
 			})
-
 
 }// writefuncDone
 function dataMaker(curSlideNo,obj,bool){
@@ -330,24 +286,16 @@ function wrapWindowByMask(){
         $('.write-mask').fadeTo("slow",0.8);
 }
 
-
-
-
-
-
 		  $('.delete-btn').on('click',function(e){
 				e.preventDefault();
-				// console.log($("div[data-no="+indexNum+"]"))
-				// $("div[data-no="+indexNum+"]").remove()
 				console.log('is event nested?')
 				if(indexNum>1){
 					swiper.removeSlide([indexNum])
 					slideNumberring()
 					setTimeout(deleteSync(),150);
-					// youSonOfBitch(pageArray[0],jsonPageArray)
 					console.log($('.swiper-slide'))
 				}else {
-					alert("메인과 첫페이지는 삭제 불가임! 희희!")
+					alert("메인과 첫페이지는 삭제가 되지 않습니다.")
 				}
 			 })
 				function deleteSync(){
@@ -363,14 +311,15 @@ var ssl=0;
 			let swiperSlideTotNumber = parseInt($('.swiper-slide').length-1)
 			let SwiperSlidesSelect = $('.swiper-slide')
 		  slideNumberring()
+			
+		  window.setTimeout(goNextPage(), 100);
 
-			console.log('done')
 		})//add page
-
-
-		//
-		// var writeData
-
+		
+		// 페이지 추가 후 추가된 페이지가 보이게 하기 
+		function goNextPage() {
+			$('.swiper-button-next')[0].click()
+		}
 
 		$(document).on('click', '#add-btn, #temp-save-btn', function() {
 
@@ -383,7 +332,6 @@ var ssl=0;
 				return
 			}
 
-
 			if(initWrite){
 				console.log("지금zzno있어요")
 				$.ajax({
@@ -391,13 +339,10 @@ var ssl=0;
 					method:'POST',
 
 					data:{"no" : no ,"zzno" : parseInt(initWrite.split("=")[1])},
-					//data: {"zzal":JSON.stringify(obj), "zzalpage":JSON.stringify(jsonObj)},
 					success : function(data){console.log(data,"성공 객체임")},
 					dataType: 'json'
 				})
 			}
-
-			console.log($(this).attr("data-tmppub"))
 
 			dataGarage()
 			if($(this).attr("data-tmppub")=="true"){
@@ -420,7 +365,6 @@ var ssl=0;
 
 		})
 
-
 		function youJSonSender(obj,jsonObj){
 			$.ajax({
 				url:'/zzal-bit93/write/add.json',
@@ -430,10 +374,6 @@ var ssl=0;
 				dataType: 'json'
 			})
 		}
-
-
-
-
 
 /*json 생성 array 만드는 곳*/
 var jsonPageArray =[];
@@ -448,12 +388,8 @@ function dataPlant(){
 	return jsonPageArray;
 }
 
-
-
-
 function dataGarage(){
 	pageArray=[];
-	console.log(pageArray,'들어갉때')
 
 	pageArray.length=$('.swiper-slide').length
 
@@ -474,13 +410,7 @@ function dataGarage(){
 		pageArray[i].conText=$($('textarea')[i-1])[0].value
 	}
 
-	console.log(pageArray,'나올때')
 	return pageArray;
 }
-
-
-
-
-
 
 })(jQuery);
