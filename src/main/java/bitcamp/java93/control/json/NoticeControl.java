@@ -28,6 +28,17 @@ public class NoticeControl {
     
     return new JsonResult(JsonResult.SUCCESS, dataMap);
   }
+  
+  @RequestMapping("count")
+  public JsonResult noticeCnt(int mno) throws Exception {
+    
+	 System.out.println(mno);
+    
+    
+//    dataMap.put("totalCount", categoryService.getSize());
+    
+    return new JsonResult(JsonResult.SUCCESS, noticeService.getcount(mno));
+  }
 }
 
 

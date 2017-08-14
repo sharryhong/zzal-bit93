@@ -72,10 +72,12 @@
 	n.ynn,
 	n.dmno,
 	n.cdt
-  from notice n where n.mno=#{mno};
+  from notice n where n.mno=#{mno} and n.ynn=0;
 	</select>
 	
-	
+	<select id="getCnt" parameterType="int" resultType="int">
+		select count(*) from notice where mno=#{mno}
+	</select>
 </mapper> 
 
 

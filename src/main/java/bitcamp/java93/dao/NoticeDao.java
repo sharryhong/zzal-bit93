@@ -13,4 +13,5 @@ public interface NoticeDao {
   void insLikNotice(ZzalLike zzallike);
   void insReplyNotice(Reply reply);
   void insSubsNotice(Subscribe subscribe);
+  int getCnt(int mno);
 }
