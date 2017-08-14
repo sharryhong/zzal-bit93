@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bitcamp.java93.dao.NoticeDao">
+
+	<resultMap type="notice" id="noticeMap">
+		<id column="nono" property="nono" />
+		<result column="mno" property="ownerNo" />
+		<result column="zzno" property="zzalNono" />
+		<result column="rno" property="reNono" />
+		<result column="cono" property="conono" />
+		<result column="ynn" property="ynn" />
+		<result column="notype" property="Notype" />
+		<result column="dmno" property="who" />
+	</resultMap>
+	
+	
+	 
+  <resultMap type="zzallike" id="zzalLikeMap">
+    <id column="zzno" property="zzno"/>
+    <result column="mno" property="mno"/>
+    <result column="cdt" property="cdt"/>
+  </resultMap>
+	
+  
+  <resultMap type="reply" id="replyMap">
+    <id column="rno" property="replyNumber"/>
+    <result column="mno" property="memberNumber"/>
+    <result column="nick" property="nickName"/>
+    <result column="pic" property="membPic"/>
+
+    <result column="cont" property="content"/>
+    <result column="date_format(cdt, '%Y-%m-%d %p %h:%i')" property="createDate"/>
+    <result column="re_like" property="replyLike"/>
+    <result column="report" property="report"/>
+    <result column="zzno" property="zzalnumber"/>
+    <result column="reparent" property="rereplyParentNumber"/>
+    <result column="reorder" property="replyOrderNumber"/>
+  </resultMap>
+  
+   <resultMap type="subscribe" id="subsMap">
+    <id column="mno" property="memberno"/>
+    <result column="cono" property="collectNo"/>
+  </resultMap>
+  
+	<insert id="insLikNotice" parameterType="zzallike">
+	insert into notice(mno,zzno,notype,dmno,cdt) 
+	values ((select z.mno from zzal_lect z where z.zzno=#{zzno}),#{zzno},'lik',#{mno},current_timestamp())
+	</insert>
+
+	<insert id="insReplyNotice" parameterType="reply">
+	 <selectKey  resultType="int" keyProperty="replyNumber" order="BEFORE">
+        SELECT MAX(last_insert_id(r.rno)) FROM reply r       
+    </selectKey>
+	insert into notice(mno,zzno,rno,notype,dmno,cdt) 
+	values ((select z.mno from zzal_lect z where z.zzno=#{zzalnumber}),#{zzalnumber},#{replyNumber},'reply',#{memberNumber},current_timestamp())
+	</insert>
+	
+	<insert id="insSubsNotice" parameterType="subscribe">
+	insert into notice(mno,cono,notype,dmno,cdt) 
+	values ((select c.mno from colct c where c.cono=#{collectNo}),#{collectNo},'subs',#{memberno},current_timestamp())
+	</insert>
+	
+	<select id="noticeList" parameterType="int" resultType="notice">
+  select n.mno,
+        (select m.nick from memb m where m.mno= n.dmno) as who_nick,
+	ifnull ((select z.titl from zzal_lect z where z.zzno=n.zzno),0) as zzal_title,
+	ifnull ((select c.title from colct c where c.cono=n.cono),0) as colct_title,
+	ifnull ((select r.cont from reply r where r.rno=n.rno),0) as reply_con,
+	n.notype,
+	n.ynn,
+	n.dmno,
+	n.cdt
+  from notice n where n.mno=#{mno};
+	</select>
+	
+	
+</mapper> 
+
+
+
+

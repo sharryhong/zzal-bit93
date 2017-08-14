@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import bitcamp.java93.dao.NoticeDao;
 import bitcamp.java93.dao.ReplyDao;
 import bitcamp.java93.domain.Reply;
 import bitcamp.java93.service.ReplyService;
@@ -15,6 +16,9 @@ public class ReplyServiceImpl implements ReplyService {
   @Autowired
   ReplyDao replyDao;
 
+  @Autowired
+	NoticeDao noticeDao;	
+  
   @Override
   public List<Reply> list(int zzalnumber) throws Exception  {
     return replyDao.selectList(zzalnumber);
@@ -28,6 +32,7 @@ public class ReplyServiceImpl implements ReplyService {
   @Override
   public void add(Reply reply) throws Exception {
     replyDao.insert(reply);
+    noticeDao.insReplyNotice(reply);
   }
   
   @Override

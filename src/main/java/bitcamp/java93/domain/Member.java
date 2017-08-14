@@ -1,7 +1,7 @@
 package bitcamp.java93.domain;
 
 public class Member {
-	int no;
+  int no;
   String nick;
   String email;
   String password;

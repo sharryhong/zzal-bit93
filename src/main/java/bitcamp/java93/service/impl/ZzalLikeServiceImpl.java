@@ -5,6 +5,7 @@ import java.util.HashMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import bitcamp.java93.dao.NoticeDao;
 import bitcamp.java93.dao.ZzalLikeDao;
 import bitcamp.java93.domain.ZzalLike;
 import bitcamp.java93.service.ZzalLikeService;
@@ -14,7 +15,8 @@ public class ZzalLikeServiceImpl implements ZzalLikeService {
 	
 	@Autowired
 	ZzalLikeDao zzalLikeDao;
-	
+	@Autowired
+	NoticeDao noticeDao;
 
 
 	@Override
@@ -43,6 +45,7 @@ public class ZzalLikeServiceImpl implements ZzalLikeService {
 	    valueMap.put("zzzno",zzno);*/
 	    
 		zzalLikeDao.dloveu(zzalLike);
+		noticeDao.insLikNotice(zzalLike);
 	}
 	@Override
 	public void notloveu(ZzalLike zzalLike) {
