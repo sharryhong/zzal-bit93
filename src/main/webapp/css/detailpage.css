@@ -3,6 +3,7 @@ textarea {
 }
 .detail-siwpe .images-wrapper img {
 	width: 100%;
+	/* margin-left: 108px; */
 }
 .re-reply-inputer {
 	margin-top: 5px;
@@ -167,7 +168,7 @@ textarea {
  .swiper-pagination {
    color: #ccc;
  }
- .images-wrapper img{
+ .user-lects-units .images-wrapper img{
    width: 140%;
    transform: translateX(-15%);
  }
@@ -552,13 +553,13 @@ textarea {
     display: none;
   }
   .detail-page-swipe .content-box {
-    max-height: 400px;
+    max-height: calc(100vmax - 250px);
     margin: 0 auto;
-    width: 90%;
+    width: 100%;
   }
   .detail-page-swipe .content-box img {
-    max-height: 400px;
-     width:auto;
+   /*  max-height: 400px;
+     width:auto; */
   }
   .detail-main .footer {
     display: none;
@@ -568,7 +569,8 @@ textarea {
   }
   .detail-main .sw-contents .type-contents {
     position: absolute;
-    top: 80px;
+    top: 53px;
+    width: 100%;
   }
    .main-disabled.swiper-pagination-fraction{
     display: none;
