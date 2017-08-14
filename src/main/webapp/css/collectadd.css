@@ -224,6 +224,18 @@
  font-size: 1rem;
 }
 
+.profile-wrap .someone-phot {
+	float: left;
+    display: inline-block;
+    background-size: cover;
+    background-position: center;
+    height: 75px;
+    width: 75px;
+    border-radius: 50%;
+    display: inline-block;
+    border: 1px solid rgba(0,0,0,0.1);
+} 
+
 /*mobile*/
 @media (max-width: 765px) {
 	.header.change-header .right {
@@ -275,4 +287,5 @@
 	  top: 11%;
 	  left: 34%;
 	}
+
 }

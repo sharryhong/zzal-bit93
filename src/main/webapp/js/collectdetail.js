@@ -18,7 +18,7 @@ var no = 0
 			 $('.profile-wrap .phot').css({"background-image": "url(image/"+result.data.membpic+")"});
 		 }
 	})
-	// 컬렉션 디테일페이지 편집 버튼 클릭시 업데이트 페이지로 이동후 사진,제목,설명 보이기
+	// 컬렉션 디테일페이지/편집 버튼 클릭시 업데이트 페이지로 이동후 사진,제목,설명 보이기
 	$.getJSON('collect/detail.json', {'no': no}, function(result) {
 			$('.category-explain').text(result.data.content)
 			$('.category-title').text(result.data.title)
@@ -30,4 +30,17 @@ var no = 0
 		});
 	 });
 	
+	var somcollect = location.href.split('?')[1].split('=')[1]
+	
+	$.getJSON('zzal/list.json',{'zzno': somcollect}, function(result){
+	  if (result.data) {
+		  var someone = result.data.list[0]
+		  console.log(someone)
+		  var sodata = someone.member
+		  console.log(sodata)
+		  $('.user-info-face .user-names').text(sodata.nick)
+		  $('.profile-wrap .someone-phot').css({"background-image": "url(upload/"+ sodata.membpic +")"});
+	  }
+	 
+	})
 })(jQuery);

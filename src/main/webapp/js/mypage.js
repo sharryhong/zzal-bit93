@@ -56,6 +56,7 @@
 			mycollection.html(generatedHTML)
     })
   });
+  
   //내컬렉션 컬렉션  클릭시 컬렉션 data-no
   $(document.body).on('click', '.mycollectlist', function(event) {
 	  /*console.log($(this).attr('data-no'))*/
@@ -70,25 +71,30 @@
 	  event.preventDefault()
   });
   
-  //detailpage.html 에서 다른유저 프로필 클릭시 프로필 닉네임 가져오기
-  var zzno = location.href.split('?')[1].split('=')[1]
   
-	  $.getJSON('zzal/list.json',{'zzno': zzno}, function(result){
+  //someonepage.html
+  //detailpage.html 에서 다른유저 프로필 클릭시 프로필이미지, 닉네임, 가져오기
+  var someoneNo = location.href.split('?')[1].split('=')[1]
+  var somno = 0;
+	  $.getJSON('zzal/list.json',{'zzno': someoneNo}, function(result){
 	  if (result.data) {
 		  var someone = result.data.list[0]
 		  /*console.log(someone)*/
 		  var sodata = someone.member
+		  somno = someone.mno
+		  console.log(somno,'memberNo')
 		  console.log(sodata)
 		  $('.user-info-face .user-name').text(sodata.nick)
 		  $('.profile-wrap .someone-phot').css({"background-image": "url(upload/"+ sodata.membpic +")"});
-		  // someonepage.html phot -> someone-phot로 변경후 css 적용했음
+		  // someonepage.html phot -> someone-phot로 변경후 css추가/적용했음
 	  }
   })
   
-  let someonecollection = $('#someone-collection');
   //다른유저 컬렉션
+  let someonecollection = $('#someone-collection');
+  
   $(document.body).on('click', '#someone-collect-btn', function(event) {
-	$.getJSON(contextRoot + '/collect/list.json', {'no': zzno}, function(result) {
+	$.getJSON(contextRoot + '/collect/list.json', {'no': someoneNo}, function(result) {
 		if (result.data) {
 			console.log(result.data)
 		}
@@ -96,7 +102,18 @@
 			let generatedHTML = templateFn(result.data)
 			someonecollection.text('')
 			someonecollection.html(generatedHTML)
+			
     })
+  });
+//다른유저 컬렉션 클릭시 디테일 
+ /* $(document.body).on('click', '.mycollectlist', function(event) {
+	  console.log($(this).attr('data-no'))
+	  location.href = 'someonedetail.html?cono=' + $(this).attr('data-no')
+	  event.preventDefault()
+  });*/
+  
+  $(document.body).on('click', '.mycollectlist', function() {
+	  location.href = 'someonedetail.html?writercono=' + somno 
   });
   
 })(jQuery);
