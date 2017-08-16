@@ -13,7 +13,10 @@ textarea {
 }
 .detail-siwpe .images-wrapper img {
 	width: 100%;
-	/* margin-left: 108px; */
+}
+.detail-siwpe .images-wrapper iframe {
+	width: 100%;
+	height: 480px;
 }
 .re-reply-inputer {
 	margin-top: 5px;
@@ -85,6 +88,7 @@ textarea {
   overflow: hidden;
 }
 .detail-siwpe .text {
+	margin: 0 10px;
 	max-height: 136px;
   overflow: hidden;
 }
@@ -177,6 +181,8 @@ textarea {
  }
  .swiper-pagination {
    color: #ccc;
+   padding-left: 15px;
+   text-align: left;
  }
  .user-lects-units .images-wrapper img{
    width: 140%;
@@ -247,7 +253,7 @@ textarea {
     margin-top: 0px;
   }
   .web-swiper-smallbtn{
-	  height: 24px;
+	  height: 26px;
 	 }
   .detail-m-header {
     display: none;
@@ -491,6 +497,12 @@ textarea {
 }
 
 @media (max-width: 925px) {
+	.detail-siwpe .images-wrapper {
+	  max-height: calc(100vmax - 250px);
+	}
+	.detail-siwpe .images-wrapper iframe {
+		height: calc(100vmax - 250px);
+	}
 	.zzal-lect-info .zzalwriternick {
 		color: #c3c3e3;
 	}
@@ -567,10 +579,6 @@ textarea {
     margin: 0 auto;
     width: 100%;
   }
-  .detail-page-swipe .content-box img {
-   /*  max-height: 400px;
-     width:auto; */
-  }
   .detail-main .footer {
     display: none;
   }
@@ -581,9 +589,6 @@ textarea {
     position: absolute;
     top: 53px;
     width: 100%;
-  }
-   .main-disabled.swiper-pagination-fraction{
-    display: none;
   }
   .detail-m-footer {
   	font-family: 'Arial', sans-serif;
@@ -782,9 +787,3 @@ textarea {
   }
 }
 
-/* @media (max-width: 500px) {
-  .detail-page-swipe .content-box img {
-    max-height: 400px;
-     width:100%;
-  }
-} */

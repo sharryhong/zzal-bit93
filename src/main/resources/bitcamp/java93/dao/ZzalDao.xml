@@ -41,11 +41,9 @@
 	  </association>
   </resultMap>
   
-  <!-- SELECT p.pic as pic3, p.cont 
-  FROM page p INNER JOIN zzal_lect z ON p.zzno = z.zzno 
-  WHERE p.zzno = 47 -->
+  <!-- 해당 짤강의의 페이지들  -->
   <select id="selectListPages" resultMap="zzalMap" parameterType="int">
-    SELECT p.pic as pic3, p.cont 
+    SELECT p.pic as pic3, p.cont, p.type 
   	FROM page p INNER JOIN zzal_lect z ON p.zzno = z.zzno 
  		WHERE p.zzno = #{zzno}
   </select>
