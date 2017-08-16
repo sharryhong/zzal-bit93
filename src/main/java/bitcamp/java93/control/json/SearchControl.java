@@ -14,44 +14,34 @@ import bitcamp.java93.domain.Zzal;
 import bitcamp.java93.service.SearchService;
 import bitcamp.java93.service.ZzalService;
 
-//@RestController
-//@RequestMapping("/search/")
+@RestController
+@RequestMapping("/search/")
 public class SearchControl {
 
-//	@Autowired ServletContext servletContext;
-//	@Autowired SearchService searchService;
-	
-//	@RequestMapping("list")
-//	  public JsonResult list(@RequestParam int zzno) throws Exception {
-//	    
-//	    HashMap<String,Object> dataMap = new HashMap<>();
-//	    dataMap.put("list", zzalService.list(zzno));
-//	    
-//	    return new JsonResult(JsonResult.SUCCESS, dataMap);
-//	  }
-//	
-//	@RequestMapping("zzalListWithCount")
-//	public JsonResult zzalList(int pageNo, int pageSize) throws Exception {
-//    
-//    HashMap<String,Object> dataMap = new HashMap<>();
-//    dataMap.put("zzalList", zzalService.zzalListWithCount(pageNo, pageSize));
-//    dataMap.put("totalCount", zzalService.getSize());
-//    dataMap.put("foundRows", zzalService.foundRows());
-//    return new JsonResult(JsonResult.SUCCESS, dataMap);
-//  }
-//	
+	@Autowired ServletContext servletContext;
+	@Autowired SearchService searchService;
+
+
+	//	
 	@RequestMapping("found")
-  public JsonResult zzalSearch(@RequestParam(defaultValue="") String keyword) throws Exception {
-    
+	public JsonResult zzalSearch(@RequestParam(defaultValue="")String keyword) throws Exception {
 		
 		HashMap<String,Object> dataMap = new HashMap<>();
-    dataMap.put("zzalList", searchService.searchlist(keyword));
-    
-    return new JsonResult(JsonResult.SUCCESS, dataMap);
-  }
-	
-	
-	
+		dataMap.put("zzalList", searchService.searchlist(keyword));
+
+		return new JsonResult(JsonResult.SUCCESS, dataMap);
+	}
+	@RequestMapping("autosearch")
+	public JsonResult zzalSearch() throws Exception {
+		
+		HashMap<String,Object> dataMap = new HashMap<>();
+		dataMap.put("zzalList", searchService.getAutoList());
+		
+
+		return new JsonResult(JsonResult.SUCCESS, dataMap);
+	}
+
+
 }
 
 

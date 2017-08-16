@@ -1,10 +1,12 @@
 package bitcamp.java93.dao;
 
 import java.util.List;
-import java.util.Map;
 
-import bitcamp.java93.domain.Category;
+import bitcamp.java93.domain.Search;
 
 public interface SearchDao {
-  List<Search> getSearchList(String keyword);
+  List<Search> searchList(String keyword);
+  List<String> getNick();
+  List<String> getTitl();
+  List<String> getCont();
 }

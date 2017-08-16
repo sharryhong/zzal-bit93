@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bitcamp.java93.dao.SearchDao">
+
+	<resultMap type="Search" id="SearchMap">
+		<id column="zzno" property="szzalno" />
+		<result column="name" property="scategoryName" />
+		<result column="titl" property="stitle" />
+		<result column="cont" property="scont" />
+		<result column="nick" property="snick" />
+		
+	</resultMap>
+	<sql id="selectsql">
+	select z.zzno,
+		m.nick,
+		c.name,
+		z.titl,
+		p.cont
+		from zzal_lect z left join memb m on z.mno=m.mno
+		left join catg c on c.cno = z.cno
+		left join page p on p.zzno = z.zzno
+	</sql>
+
+	<select id="searchList" resultMap="SearchMap" parameterType="String">
+	 	select z.zzno,
+		m.nick,
+		c.name,
+		z.titl,
+		p.cont
+		from zzal_lect z left join memb m on z.mno=m.mno
+		left join catg c on c.cno = z.cno
+		left join page p on p.zzno = z.zzno where m.nick like CONCAT('%',#{keyword},'%')
+		 											or z.titl like CONCAT('%',#{keyword},'%') 
+		 											or p.cont like CONCAT('%',#{keyword},'%');
+		</select>
+  <select id="getNick" resultType="String" >
+  	select nick from memb;
+  </select>
+  <select id="getTitl" resultType="String" >
+  	select titl from zzal_lect ;
+  </select>
+  <select id="getCont" resultType="String" >
+  select cont from page;
+  </select>
+  
+  
+
+</mapper> 
+
+
+
