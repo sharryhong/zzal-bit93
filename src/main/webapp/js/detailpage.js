@@ -25,9 +25,9 @@ Handlebars.registerHelper('isImage', function(isImg, options) {
 // 짤강의 swiper
 var detailSwipeBig = '.detail-siwpe.swiper-container';
 var detailSwipeBigInfo = {
-                          nextButton: '.swiper-button-next',
-                          prevButton: '.swiper-button-prev',
-                          pagination: '.swiper-pagination',
+                          nextButton: '.detail-siwpe.swiper-container .swiper-button-next',
+                          prevButton: '.detail-siwpe.swiper-container .swiper-button-prev',
+                          pagination: '.detail-siwpe.swiper-container .swiper-pagination',
                           paginationType: 'fraction',
                           onSlideChangeEnd: function(swiper){
                         	let indexNum = parseInt(swiper.realIndex);
@@ -325,36 +325,49 @@ $(window).on("load",function(){
 function autoPlayZzal() {
 	var autoPlay = '',
 	    toFirst = '',
+	    faPause = $('.auto-play .fa-pause'),
+	    faPlay = $('.auto-play .fa-play'),
 		isLast = false,
-		swiperBtn = $('.detail-siwpe .swiper-button-next')[0],
-		swiperLeftBtn = $('.detail-siwpe .swiper-button-prev')[0]
+		swiperBtn = $('.detail-siwpe.swiper-container .swiper-button-next')[0],
+		swiperLeftBtn = $('.detail-siwpe.swiper-container .swiper-button-prev')[0]
 	  
 	function autoZzalPlay() {
 		var zzals = $('.swiper-pagination-total').text() - $('.swiper-pagination-current').text() - 1
 		console.log(zzals)
 		swiperBtn.click()
-		if (zzals < 1) {
-			$('.auto-play .fa-pause').addClass('off-btn')
-			$('.auto-play .fa-play').removeClass('off-btn')
+		if (zzals <= 0) {
+			faPause.addClass('off-btn')
+			faPlay.removeClass('off-btn')
 			clearInterval(autoPlay)
 			isLast = true
 		}
 		zzals--
 	}
 	
+	var goFirst = $('.swiper-pagination-total').text() - 2
 	function toFirstZzal() {
+		console.log(goFirst)
 		swiperLeftBtn.click()
+		if (goFirst <= 0) {
+			clearInterval(toFirst)
+			clearInterval(autoPlay)
+		}
+		goFirst--
 	}
 	
 	$('.auto-play .fa-play').on('click', function() {
 		swiperBtn.click()
-		if (isLast) {
-			toFirst = window.setInterval(toFirstZzal, 300)
+		if (isLast) { // 마지막 페이지 일 때, 커버로 가기 
+			toFirst = window.setInterval(toFirstZzal, 50)
+			isLast = false
 		}
 		autoPlay = window.setInterval(autoZzalPlay, 3000)
 	})
 	$('.auto-play .fa-pause').on('click', function() {
 		clearInterval(autoPlay)
+	})
+	swiperLeftBtn.on('click', function() {
+		isLast = false
 	})
 }
 

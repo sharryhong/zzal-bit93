@@ -188,7 +188,7 @@ function writefuncDone(){
 									disableImageResize: /Android(?!.)|Opera/
 											.test(window.navigator && navigator.userAgent),
 									previewMaxWidth: 670,   // 미리보기 이미지 너비
-									previewMaxHeight: 720,  // 미리보기 이미지 높이
+									previewMaxHeight: 450,  // 미리보기 이미지 높이
 									previewCrop: true,      // 미리보기 이미지를 출력할 때 원본에서 지정된 크기로 자르기
 									processalways: function(e, data) {
 
@@ -203,8 +203,6 @@ function writefuncDone(){
 																if(indexNum>0){
 
 																			$('<img>').attr('src',data.files[i].preview.toDataURL())
-																								.css({"max-width" : '670',
-																											"max-height" :"720"})
 																								.appendTo($(imagesDiv))
 																}else{
 																			$(imagesDiv).css("background-image", 'url(' + data.files[i].preview.toDataURL() +')');
