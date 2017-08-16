@@ -1,6 +1,16 @@
 textarea {
   resize: none;
 }
+.images-wrapper.pages {
+	position: relative;
+}
+.forimage {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 50px;
+	background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.5));
+}
 .detail-siwpe .images-wrapper img {
 	width: 100%;
 	/* margin-left: 108px; */
@@ -63,7 +73,7 @@ textarea {
 	padding: 10px 10px 0 10px;
 }
 .detail-main .main-content .zzal-container {
-	height: 100vh;
+	/* height: 100vh; */
 	padding: 0;
 	padding-top: 66px;
 	background: white;

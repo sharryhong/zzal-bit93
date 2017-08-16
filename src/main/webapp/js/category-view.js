@@ -6,7 +6,7 @@ $(document).ready(function(){
 		for (i=0; i < result.data.zzalList.length ; i++) {
 			newEl += [
 				'<li>'+
-				  '<a href="#" class="zzal-lect">'+
+				  '<a href="#" class="zzal-lect" data-zzno="'+ zzal[i].zzno +'">'+
 				    '<div class="zzal">'+
 				      '<div class="zzal-img">'+
 				        '<img src="upload/'+zzal[i].mainPic+'">'+
