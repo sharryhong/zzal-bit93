@@ -54,8 +54,12 @@
   </insert>
   
   <!-- 부모 댓글 삭제 -->
+  <delete id="deleteNoticeParentRep" parameterType="reply">
+    delete from notice where rno=#{replyNumber};
+  </delete>
+  
   <delete id="deleteParentRep" parameterType="reply">
-    delete from reply where (rno=#{replyNumber} or reparent = #{replyNumber}) and zzno = #{zzalnumber};
+    delete from reply where rno=#{replyNumber} or reparent=#{replyNumber}; 
   </delete>
   
   <!-- 자식 댓글 삭제 -->

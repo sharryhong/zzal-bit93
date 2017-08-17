@@ -47,6 +47,7 @@ public class ReplyControl {
     int MemberNo = getMember.getNo();
     reply.setMemberNumber(MemberNo);
     reply.setZzalnumber(zzalnumber);
+    System.out.println(reply);
     replyService.add(reply);
     return new JsonResult(JsonResult.SUCCESS, reply);
   }
@@ -77,12 +78,11 @@ public class ReplyControl {
 
   
   @RequestMapping("delete")
-  public int delete(Reply reply, @RequestParam int rno, @RequestParam int mno, int zzalnumber, HttpSession session) throws Exception {
+  public int delete(Reply reply, @RequestParam int rno, @RequestParam int mno, HttpSession session) throws Exception {
     Member getMember = (Member)session.getAttribute("loginMember");
     int MemberNo = getMember.getNo();
     reply.setReplyNumber(rno);
     reply.setMemberNumber(mno);
-    reply.setZzalnumber(zzalnumber);
     if (MemberNo == mno) {
     replyService.remove(reply);
     } else {
@@ -109,12 +109,3 @@ public class ReplyControl {
   
   
 }
-
-
-
-
-
-
-
-
-

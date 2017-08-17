@@ -42,6 +42,7 @@ public class ReplyServiceImpl implements ReplyService {
 
   @Override
   public void remove(Reply reply) throws Exception {
+    replyDao.deleteNoticeParentRep(reply);
     replyDao.deleteParentRep(reply);
   }
 
@@ -49,8 +50,4 @@ public class ReplyServiceImpl implements ReplyService {
   public void removeSonReply(Reply reply) throws Exception {
     replyDao.deleteSonRep(reply);
   }
-  
-  
-  
-  
 } 
