@@ -10,6 +10,11 @@
 		<result column="titl" property="stitle" />
 		<result column="cont" property="scont" />
 		<result column="nick" property="snick" />
+		<result column="hitcnt" property="shitcnt" />
+		<result column="lcnt" property="slcnt" />
+		<result column="pic" property="smpic" />
+		<result column="zpic" property="szmpic" />
+		<result column="replcnt" property="sreplcnt" />
 		
 	</resultMap>
 	<sql id="selectsql">
@@ -26,14 +31,22 @@
 	<select id="searchList" resultMap="SearchMap" parameterType="String">
 	 	select z.zzno,
 		m.nick,
+		m.pic,
+		z.pic as zpic,
 		c.name,
 		z.titl,
-		p.cont
+		p.cont,
+		z.hitcnt,
+		(select count(*) from lik l where l.zzno=z.zzno ) as lcnt,
+		(select count(*) from reply r where r.zzno=z.zzno ) as replcnt
 		from zzal_lect z left join memb m on z.mno=m.mno
 		left join catg c on c.cno = z.cno
-		left join page p on p.zzno = z.zzno where m.nick like CONCAT('%',#{keyword},'%')
-		 											or z.titl like CONCAT('%',#{keyword},'%') 
-		 											or p.cont like CONCAT('%',#{keyword},'%');
+		left join page p on p.zzno = z.zzno
+		left join reply r on r.zzno = z.zzno
+		left join lik l on l.zzno = z.zzno where m.nick like CONCAT('%','강','%')
+		 											or z.titl like CONCAT('%','강','%') 
+		 											or p.cont like CONCAT('%','강','%')
+		 											group by z.zzno;
 		</select>
   <select id="getNick" resultType="String" >
   	select nick from memb;
@@ -44,8 +57,41 @@
   <select id="getCont" resultType="String" >
   select cont from page;
   </select>
-  
-  
+  <!-- 
+  select z.zzno,
+		m.nick,
+		m.pic,
+		z.pic as zpic,
+		c.name,
+		
+		(select count(*) from lik l where l.zzno=z.zzno ) as lcnt,
+		(select count(*) from reply r where r.zzno=z.zzno ) as replcnt
+		from zzal_lect z left join memb m on z.mno=m.mno
+		left join catg c on c.cno = z.cno
+		left join page p on p.zzno = z.zzno
+		left join reply r on r.zzno = z.zzno
+		left join lik l on l.zzno = z.zzno
+		
+		
+			select z.zzno,
+		m.nick,
+		m.pic,
+		z.pic as zpic,
+		c.name,
+		z.titl,
+		p.cont,
+		z.hitcnt,
+		(select count(*) from lik l where l.zzno=z.zzno ) as lcnt,
+		(select count(*) from reply r where r.zzno=z.zzno ) as replcnt
+		from zzal_lect z left join memb m on z.mno=m.mno
+		left join catg c on c.cno = z.cno
+		left join page p on p.zzno = z.zzno
+		left join reply r on r.zzno = z.zzno
+		left join lik l on l.zzno = z.zzno where m.nick like CONCAT('%','강','%')
+		 											or z.titl like CONCAT('%','강','%') 
+		 											or p.cont like CONCAT('%','강','%')
+		 											group by z.zzno;
+   -->
 
 </mapper> 
 
