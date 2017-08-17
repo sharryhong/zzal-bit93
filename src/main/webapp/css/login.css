@@ -21,16 +21,23 @@
   outline: none;
 }
 
-
-
+.kakao-btn {
+	font-family: 'Arial', sans-serif;
+	background-color: #FFDC00;
+	text-align: center;
+	width: 48%;
+	color: #3B3B3B;
+	font-weight: bold;
+	margin-left: 5px;
+}
 
 .form-group #join-pw.input-login {
-  width:32%;
+	width: 49%;
   outline: none;
 }
 
 .form-group #join-pw-re.input-login {
-  width:32%;
+	width: 49%;
   outline: none;
 }
 

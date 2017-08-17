@@ -24,12 +24,12 @@ public class AuthControl {
   MemberService memberService;
 
   @RequestMapping(path="login", method=RequestMethod.POST)
-  public JsonResult login(String userType, String email, String password, String saveEmail, 
+  public JsonResult login(String userType, String email, String password, String saveEmail, String signtype, 
       Model model, HttpServletResponse response) throws Exception {
 
     Member member = null;
 //    if (userType.equals("zzaler")) {
-      member = memberService.getByEmailPassword(email, password);
+    member = memberService.getByEmailPassword(email, password, signtype);
 //    }
     
     System.out.println("로그인했다!");
@@ -67,10 +67,18 @@ public class AuthControl {
     Member loginMember = (Member)session.getAttribute("loginMember");
     return new JsonResult(JsonResult.SUCCESS, loginMember);
   }
+  @RequestMapping(path="loginoverlap", method=RequestMethod.POST)
+  public JsonResult logins(String email, String signtype) throws Exception {
+    Member member = memberService.findOverLap(email, signtype);
+    System.out.println(member);
+    if (member != null) {
+      return new JsonResult(JsonResult.SUCCESS, member);
+    } else {
+      return new JsonResult(JsonResult.FAIL, "fail");
 }
+  }
 
-
-
+}
 
 
 
