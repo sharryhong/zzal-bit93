@@ -17,11 +17,10 @@ public class MemberServiceImpl implements MemberService {
 	MemberDao memberDao;
 	
 	@Override
-  public Member getByEmailPassword(String email, String password, String signtype) throws Exception {
+  public Member getByEmailPassword(String email, String password) throws Exception {
     HashMap<String,Object> valueMap = new HashMap<>();
     valueMap.put("email", email);
     valueMap.put("password", password);
-    valueMap.put("signtype", signtype);
     
     return memberDao.selectOneByEmailPassword(valueMap);
   }
@@ -57,12 +56,12 @@ public class MemberServiceImpl implements MemberService {
       throw new Exception(member.getNo() + "번 회원을 찾을 수 없습니다.");
     }
   }
-  @Override
-  public Member findOverLap(String email, String signtype) throws Exception {
-    HashMap<String,Object> valueMap = new HashMap<>();
-    valueMap.put("email", email);
-    valueMap.put("signtype", signtype);
-    return memberDao.findOverLap(valueMap);
-  }
+//  @Override
+//  public Member findOverLap(String email, String signtype) throws Exception {
+//    HashMap<String,Object> valueMap = new HashMap<>();
+//    valueMap.put("email", email);
+//    valueMap.put("signtype", signtype);
+//    return memberDao.findOverLap(valueMap);
+//  }
 	  	
 }

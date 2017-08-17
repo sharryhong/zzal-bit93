@@ -22,7 +22,7 @@
 	
   <select id="selectOneByEmailPassword" resultMap="memberMap" parameterType="map">
     <include refid="select1"/> 
-    where email=#{email} and pwd=password(#{password}) and stype=#{signtype}
+    where email=#{email} and pwd=password(#{password})
   </select>
   
   <select id="selectOne" resultMap="memberMap" parameterType="int">
@@ -33,7 +33,7 @@
   <insert id="insert" parameterType="member" 
           useGeneratedKeys="true" keyColumn="mno" keyProperty="no">
   insert into memb(nick, email, stype, pwd, mtype, pic, auth)
-  values(#{nick},#{email},#{signtype},password(#{password}),'zzaler',#{membpic},'0')
+  values(#{nick},#{email},'zzal',password(#{password}),'zzaler',#{membpic},'0')
   </insert> 
   
   <select id="selectList" resultMap="memberMap" >
@@ -55,10 +55,10 @@
     where mno=#{no}
   </update>
   
-  <select id="findOverLap" resultMap="memberMap" parameterType="map">
+<!--   <select id="findOverLap" resultMap="memberMap" parameterType="map">
     <include refid="select1"/> 
     where email=#{email} and stype=#{signtype}
-  </select>
+  </select> -->
   
 <!--   
   <select id="selectList" resultMap="categoryMap" parameterType="map">
