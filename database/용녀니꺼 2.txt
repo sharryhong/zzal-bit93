@@ -235,12 +235,14 @@ ALTER TABLE `COLCT`
 -- 알림
 CREATE TABLE `NOTICE` (
 	`NONO`   INTEGER     NOT NULL COMMENT '알림코드', -- 알림코드
-	`MNO`    INTEGER     NOT NULL COMMENT '회원코드', -- 회원코드
+	`MNO`    INTEGER     NULL     COMMENT '회원코드', -- 회원코드
 	`ZZNO`   INTEGER     NULL     COMMENT '짤강의 코드', -- 짤강의 코드
 	`RNO`    INTEGER     NULL     COMMENT '댓글 코드', -- 댓글 코드
 	`CONO`   INTEGER     NULL     COMMENT '컬렉션일련번호', -- 컬렉션일련번호
+	`dmno`   INTEGER     NULL     COMMENT '새 컬럼', -- 새 컬럼
 	`YNN`    BOOLEAN     NULL     DEFAULT false COMMENT '확인여부', -- 확인여부
-	`NoType` VARCHAR(20) NOT NULL COMMENT '알림유형' -- 알림유형
+	`NoType` VARCHAR(20) NULL     COMMENT '알림유형', -- 알림유형
+	`cdt`    DATETIME    NOT NULL COMMENT '날짜' -- 날짜
 )
 COMMENT '알림';
 
