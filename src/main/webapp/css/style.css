@@ -1114,7 +1114,7 @@ input::-moz-placeholder { color: #777; }
 	  height: 120px;
     width: 120px;
 	}
-	.mypage .user-name {
+	.mypage .user-info-face .user-name {
 	  line-height: 110px;
 	}
 }
