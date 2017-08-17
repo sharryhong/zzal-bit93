@@ -12,5 +12,5 @@ public interface MemberDao {
   int insert(Member member);
   int update(Member member);
   int updateCatgAuth(Member member);
-//  Member findOverLap(Map<String,Object> valueMap);
+  Member findOverLap(Map<String,Object> valueMap);
 }

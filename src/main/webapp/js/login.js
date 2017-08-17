@@ -222,15 +222,16 @@
 
 	});
 	
-			/* 로그인 */
-	
+		/* 로그인 */
 		$('#login-btn').click(function() {
 			console.log('login-btn')
 			$.post(contextRoot + '/auth/login.json', {
 		      'email': fiEmail.val(),
-		      'password': fiPassword.val()
+		      'password': fiPassword.val(),
+		      'signtype': 'zzal'
 		    }, function(result) {
 		    	$.getJSON(contextRoot + '/auth/userinfo.json', function(result) {
+//		    		console.log(result)
 		    		if (result.data.auth == false) {
 		    			location.href='choicecategory.html'
 		    		} else if (result.data.auth == true) {
@@ -251,8 +252,8 @@
 		    		}
 		    }, 'json')
 		})
-/*	// ----------------------------------------------------------------------- //
-	 카카오톡으로 로그인
+	// ----------------------------------------------------------------------- //
+/*	 //카카오톡으로 로그인
 	// 카카오 서버에 등록받은 어플리케이션 ID 넣기. 
 	// 카톡 로그인 1. - 카카오 로그인 서버 접속
 	Kakao.init("18483a72f0b203373e0201a0fa7fd0b2");
@@ -379,8 +380,8 @@
 //		Kakao.Auth.logout(function(){console.log('hihi')});
 //	})
 //	
-*/	// ----------------------------------------------------------------------- //
-/*	 페이스북 로그인 
+	// ----------------------------------------------------------------------- //
+	// 페이스북 로그인 
 	$(".login-container .fcbk-btn").click(function(){ //페이스북 로그인
 		fbLogin()
 		console.log('hihis')
@@ -427,7 +428,7 @@
 		});
 		testAPISignUp()
 	}
-	 페이스북으로 로그인할때 
+	// 페이스북으로 로그인할때 
 	// This is called with the results from from FB.getLoginStatus().
 	function statusChangeCallback(response) {
 		console.log('statusChangeCallback');
