@@ -1,6 +1,14 @@
 (function($){
   'use strict';
- 
+  var templateFn = null;
+  var generatedHTML = null;
+  function generateHandlebars(result, el, target) {
+	  templateFn = Handlebars.compile(el.text())
+	  generatedHTML = templateFn(result.data)
+	  target.text('')
+	  target.html(generatedHTML)
+  }
+
   let index = null
   let $zzalWrap = $('.zzal-wrap')
   let $zzalCon01 = $('.zzal-con01')
@@ -37,25 +45,45 @@
 		  no = result.data.no
 		  $('.user-info-face .user-name').text(result.data.nick)
 		  $('.profile-wrap .phot').css({"background-image": "url(upload/"+result.data.membpic+")"});
+		  selectzzalList()
 	  }
 	})
   
   
   // collect.list 내컬렉션 클릭시 컬렉션 리스트 가져오기
-  let mycollection = $('#my-collection');
   //내 컬렉션 title pic
   $(document.body).on('click', '.select_info #collect-setting', function(event) {
 	  console.log('내 컬렉션')
 	$.getJSON(contextRoot + '/collect/list.json', {'no': no}, function(result) {
 		if (result.data) {
 			console.log(result.data)
+			generateHandlebars(result, $('#my-collection-template'), $('#my-collection'))
 		}
-			let templateFn = Handlebars.compile($('#my-collection-template').text())
-			let generatedHTML = templateFn(result.data)
-			mycollection.text('')
-			mycollection.html(generatedHTML)
+			
     })
   });
+  
+  //내짤강 짤리스트 뿌리기
+  function selectzzalList() {
+	 $.getJSON('collect/selectzzalList.json', {'mno': no}, function(result) {
+		  console.log(result)
+		  if(result.data){
+			  console.log(result.data)
+			  generateHandlebars(result, $('#my-zzallist-template'), $('#zzal-handle'))
+		  }
+	 }) 
+  }
+  
+  // 임시 짤강 리스트
+  $(document.body).on('click', '#temp-zzal', function(event) {
+	  $.getJSON('collect/temporaryzzalList.json', {'mno': no}, function(result) {
+		  console.log(result)
+		  if(result.data){
+			  console.log(result.data)
+			  generateHandlebars(result, $('#temporary-zzallist-template'), $('#tmpor-zzal'))
+		  }
+	  })
+  })	
   
   //내컬렉션 컬렉션  클릭시 컬렉션 data-no
   $(document.body).on('click', '.mycollectlist', function(event) {
@@ -70,47 +98,6 @@
 	  location.href = 'collectupdate.html?cono=' + $(this).attr('data-no')
 	  event.preventDefault()
   });
-  
-  
-  //someonepage.html
-  //detailpage.html 에서 다른유저 프로필 클릭시 프로필이미지, 닉네임, 가져오기
-  var someoneNo = location.href.split('?')[1].split('=')[1]
-  var somno = 0;
-	  $.getJSON('zzal/list.json',{'zzno': someoneNo}, function(result){
-	  if (result.data) {
-		  var someone = result.data.list[0]
-		  /*console.log(someone)*/
-		  var sodata = someone.member
-		  somno = someone.mno
-		  console.log(somno,'memberNo')
-		  console.log(sodata)
-		  $('.user-info-face .user-name').text(sodata.nick)
-		  $('.profile-wrap .someone-phot').css({"background-image": "url(upload/"+ sodata.membpic +")"});
-		  // someonepage.html phot -> someone-phot로 변경후 css추가/적용했음
-	  }
-  })
-  
-  //다른유저 컬렉션
-  let someonecollection = $('#someone-collection');
-  
-  $(document.body).on('click', '#someone-collect-btn', function(event) {
-	$.getJSON(contextRoot + '/collect/list.json', {'no': someoneNo}, function(result) {
-		if (result.data) {
-			console.log(result.data)
-		}
-		let templateFn = Handlebars.compile($('#someone-collection-template').text())
-		let generatedHTML = templateFn(result.data)
-		someonecollection.text('')
-		someonecollection.html(generatedHTML)
-    })
-  });
-  
-	//다른유저 컬렉션 클릭시 디테일  
-	 $(document.body).on('click', '.mycollectlist', function(event) {
-		  console.log($(this).attr('data-no'))
-		  console.log(somno)
-		  location.href = 'someonedetail.html?cono=' + $(this).attr('data-no') + '&mno=' + somno
-		  event.preventDefault()
-	  });
-  
+	 
+	
 })(jQuery);

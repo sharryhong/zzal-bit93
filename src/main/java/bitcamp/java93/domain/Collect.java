@@ -3,15 +3,22 @@ package bitcamp.java93.domain;
 public class Collect {
   int no;
   int memNo;
-  int zzalno;
+  int zzno;
   String title;
   String content;
   String picture;
   Boolean isPublic;
+  Member membe;
+  Zzal zzall;
+  ZzalLike zzallikes;
+  /*int hitCount;
+  int likeCount;
+  int replyCount;*/
   @Override
   public String toString() {
-    return "Collect [no=" + no + ", memNo=" + memNo + ", zzalno=" + zzalno + ", title=" + title + ", content=" + content
-        + ", picture=" + picture + ", isPublic=" + isPublic + "]";
+    return "Collect [no=" + no + ", memNo=" + memNo + ", zzno=" + zzno + ", title=" + title + ", content=" + content
+        + ", picture=" + picture + ", isPublic=" + isPublic + ", membe=" + membe + ", zzall=" + zzall + ", zzallikes="
+        + zzallikes + "]";
   }
   public int getNo() {
     return no;
@@ -25,11 +32,11 @@ public class Collect {
   public void setMemNo(int memNo) {
     this.memNo = memNo;
   }
-  public int getZzalno() {
-    return zzalno;
+  public int getZzno() {
+    return zzno;
   }
-  public void setZzalno(int zzalno) {
-    this.zzalno = zzalno;
+  public void setZzno(int zzno) {
+    this.zzno = zzno;
   }
   public String getTitle() {
     return title;
@@ -55,10 +62,24 @@ public class Collect {
   public void setIsPublic(Boolean isPublic) {
     this.isPublic = isPublic;
   }
-
-  
-  
-  
+  public Member getMembe() {
+    return membe;
+  }
+  public void setMembe(Member membe) {
+    this.membe = membe;
+  }
+  public Zzal getZzall() {
+    return zzall;
+  }
+  public void setZzall(Zzal zzall) {
+    this.zzall = zzall;
+  }
+  public ZzalLike getZzallikes() {
+    return zzallikes;
+  }
+  public void setZzallikes(ZzalLike zzallikes) {
+    this.zzallikes = zzallikes;
+  }
   
   
 }

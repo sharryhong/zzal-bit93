@@ -42,25 +42,13 @@ public class CollectControl {
   }
   
   @RequestMapping("add")
-  public JsonResult add(
-      /*int memNo, String title, String content, String picture, Boolean isPublic,*/ Collect collect) throws Exception {
-    /*collect.setNo(memNo);
-    collect.setTitle(title);
-    collect.setContent(content);
-    collect.setPicture(picture);
-    collect.setIsPublic(isPublic);*/
+  public JsonResult add(Collect collect) throws Exception {
     System.out.println(collect);
     collectService.add(collect);
     return new JsonResult(JsonResult.SUCCESS, "ok");
   }
   @RequestMapping("update")
-  public JsonResult update(
-      /* int no, String title, String content, String picture, Boolean isPublic,*/ Collect collect) throws Exception {
-    /*collect.setNo(no);
-    collect.setTitle(title);
-    collect.setContent(content);
-    collect.setPicture(picture);
-    collect.setIsPublic(isPublic);*/
+  public JsonResult update(Collect collect) throws Exception {
     System.out.println(collect);
     collectService.update(collect);
     return new JsonResult(JsonResult.SUCCESS, "ok");
@@ -116,6 +104,38 @@ public class CollectControl {
     return String.format("%d_%d", System.currentTimeMillis(), ++count); 
   }
   
+  @RequestMapping("selectzzalList")
+  public JsonResult selectzzalList(int mno) throws Exception {
+    
+    HashMap<String,Object> dataMap = new HashMap<>();
+    dataMap.put("selectzzalList", collectService.selectzzalList(mno));
+    
+    return new JsonResult(JsonResult.SUCCESS, dataMap);
+  }
+  
+  @RequestMapping("temporaryzzalList")
+  public JsonResult temporaryzzalList(int mno) throws Exception {
+    
+    HashMap<String,Object> dataMap = new HashMap<>();
+    dataMap.put("temporaryzzalList", collectService.temporaryzzalList(mno));
+    
+    return new JsonResult(JsonResult.SUCCESS, dataMap);
+  }
+  
+  /*@RequestMapping("hitCountUp")
+  public JsonResult hitCountUp(Collect collect, HttpSession session) throws Exception {
+    collectService.hitCountUp(collect);
+    return new JsonResult(JsonResult.SUCCESS, "ok");
+  }*/
+  
+  /*@RequestMapping("myzzalList")
+  public JsonResult myzzalList(int mno) throws Exception {
+    
+    HashMap<String,Object> dataMap = new HashMap<>();
+    dataMap.put("myzzalList", collectService.myzzalList(mno));
+    
+    return new JsonResult(JsonResult.SUCCESS, dataMap);
+  }*/
 }
 
 

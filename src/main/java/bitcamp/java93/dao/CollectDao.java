@@ -6,6 +6,10 @@ import bitcamp.java93.domain.Collect;
 
 public interface CollectDao {
   List<Collect> selectList(int no);
+  List<Collect> selectzzalList(int mno);
+  List<Collect> temporaryzzalList(int mno);
+  /*int hitCountUp(Collect collect);*/
+  /*List<Collect> myzzalList(int mno);*/
   int countAll();
   Collect selectOne(int no); // selectOne()
   int insert(Collect collect);

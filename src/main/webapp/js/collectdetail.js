@@ -1,6 +1,13 @@
 (function($){
 	'use strict';
-
+var templateFn = null;
+  var generatedHTML = null;
+  function generateHandlebars(result, el, target) {
+	  templateFn = Handlebars.compile(el.text())
+	  generatedHTML = templateFn(result.data)
+	  target.text('')
+	  target.html(generatedHTML)
+  }
 var urls = ''	
 var cono = 0,
     mno = 0
@@ -13,14 +20,19 @@ var cono = 0,
 		mno = urls.split('&')[1].split('=')[1]
 		console.log(mno)
 	} catch (err) {}	
+	
 	// 유저 닉네임 프로필 사진
+	var no = 0
 	$.getJSON('/zzal-bit93/auth/userinfo.json', function(result) {
 		 if (result.data) {
+			 no = result.data.no
 			 $('.user-info-face .user-name').text(result.data.nick)
-			 $('.profile-wrap .phot').css({"background-image": "url(image/"+result.data.membpic+")"});
+			 $('.profile-wrap .phot').css({"background-image": "url(upload/"+result.data.membpic+")"});
+			 selectzzalList()
 		 }
 	})
-	// 컬렉션 디테일페이지/편집 버튼 클릭시 업데이트 페이지로 이동후 사진,제목,설명 보이기
+	
+	// 컬렉션 디테일페이지/편집 버튼 클릭시 업데이트 페이지로 이동후 사진,제목,설명 보이기 ,cono=? cono &mno=?
 	$.getJSON('collect/detail.json', {'no': cono}, function(result) {
 			$('.category-explain').text(result.data.content)
 			$('.category-title').text(result.data.title)
@@ -32,17 +44,37 @@ var cono = 0,
 		});
 	 });
 	
-	/*var somcollect = location.href.split('?')[1].split('=')[1]
-	console.log('somcollect', somcollect)*/
+	// cono=?&mno=? mno , 닉네임 프로필 사진 가져오기
+	var somcollect = location.href.split('?')[1].split('=')[1]
+	console.log('somcollect', somcollect)
 	$.getJSON('zzal/list.json',{'zzno': mno}, function(result){
-	  if (result.data) {
-		  var someone = result.data.list[0]
-		  console.log(someone)
-		  var sodata = someone.member
-		  console.log(sodata)
-		  $('.user-info-face .user-name').text(sodata.nick)
-		  $('.profile-wrap .someone-phot').css({"background-image": "url(upload/"+ sodata.membpic +")"});
-	  }
-	 
+		if (result.data) {
+			var someone = result.data.list[0]
+			console.log(someone)
+			var sodata = someone.member
+			console.log(sodata)
+			$('.user-info-face .user-name').text(sodata.nick)
+			$('.profile-wrap .someone-phot').css({"background-image": "url(upload/"+ sodata.membpic +")"});
+		}
+		
 	})
+	// 내짤강 리스트
+	function selectzzalList() {
+	  $.getJSON('collect/selectzzalList.json', {'mno': no}, function(result) {
+		  console.log(result)
+		  if(result.data){
+			  console.log(result.data)
+			  generateHandlebars(result, $('#collect-zzallist-template'), $('#zzal-list1'))
+		  }
+	  })
+	  // 다른 유저 짤강 리스트
+	  $.getJSON('collect/selectzzalList.json', {'mno': mno}, function(result) {
+			  console.log(result)
+			  if(result.data){
+				  console.log(result.data)
+				  generateHandlebars(result, $('#someone-zzallist-template'), $('#someone-zzal-list1'))
+			  }
+	  })
+    }
+	
 })(jQuery);

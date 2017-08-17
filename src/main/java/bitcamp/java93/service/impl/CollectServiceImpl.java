@@ -4,8 +4,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Propagation;
-import org.springframework.transaction.annotation.Transactional;
 
 import bitcamp.java93.dao.CollectDao;
 import bitcamp.java93.domain.Collect;
@@ -57,10 +55,35 @@ public class CollectServiceImpl implements CollectService {
     }
   } // remove()
 	
+	@Override
+  public List<Collect> selectzzalList(int mno) throws Exception {
+    return collectDao.selectzzalList(mno);
+  }
+	
+	@Override
+  public List<Collect> temporaryzzalList(int mno) throws Exception {
+    return collectDao.temporaryzzalList(mno);
+  }
+	
 	/*@Override
-	public void subsList(Collect collect) {
-		// TODO Auto-generated method stub
-		collectDao.subslist(collect);
-	}
-	 */
+  public void hitCountUp(Collect collect) throws Exception {
+    int count = collectDao.hitCountUp(collect);
+    if (count < 1) {
+      throw new Exception(collect.getZzno() + "번 짤강을 찾을 수 없습니다.");
+    }
+  }*/
+	
+	/*@Override
+  public List<Collect> myzzalList(int mno) throws Exception {
+    return collectDao.myzzalList(mno);
+  }*/
+	
+	
+	/*@Override
+  public void subsList(Collect collect) {
+    // TODO Auto-generated method stub
+    collectDao.subslist(collect);
+  }
+   */
+	
 }

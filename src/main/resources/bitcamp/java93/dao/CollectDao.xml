@@ -7,24 +7,79 @@
 	<resultMap type="collect" id="collectMap">
 		<id column="cono" property="no" />
 		<result column="mno" property="memNo" />
-		<result column="zzno" property="zzalno"/>
+		<result column="zzno" property="zzno"/>
 		<result column="title" property="title" />
 		<result column="cont" property="content" />
 		<result column="pic" property="picture" />
 		<result column="pub" property="isPublic" />
+	  <association property="membe" javaType="Member">
+	    <id column="mno" property="no"/>
+	    <result column="nick" property="nick"/>
+	    <result column="email" property="email"/>
+	    <result column="pwd" property="password"/>
+	    <result column="mtype" property="membtype"/>
+	    <result column="stype" property="signtype"/>
+	    <result column="pic1" property="membpic"/>
+	  </association>
+	  <association property="zzall" javaType="Zzal">
+		<id column="zzno" property="zzno"/>
+	    <result column="mno" property="mno"/>
+	    <result column="cno" property="cno"/>
+	    <result column="titl" property="title"/>
+	    <result column="pic2" property="mainPic"/>
+	    <result column="cdt2" property="cdt"/>
+	    <result column="ztmp" property="zzalTemporary"/>
+	    <result column="hitcnt" property="hitCount"/>
+	    <result column="like_cnt" property="likeCount"/>
+	    <result column="reply_cnt" property="replyCount"/>
+	    <result column="rCount" property="rowCount"/>
+	    <result column="cName" property="categoryName"/>
+	  </association>
+	  <association property="zzallikes" javaType="Zzallike">
+	    <id column="zzno" property="zzno"/>
+	    <result column="mno" property="mno"/>
+	    <result column="cdt1" property="cdt"/>
+	  </association>
 	</resultMap>
 
 	<sql id="select1">
 		select mno, cono, title, cont, pic, pub
 		from colct
 	</sql>
-
+	
 	<select id="selectList" resultMap="collectMap" parameterType="int">
 		<include refid="select1" />
 		where mno = #{memberNo}
 		order by cono desc
 	</select>
-
+	
+    <!-- writezzal에서 짤등록후 올리기버튼 누를시 mypage 에서 내짤강 리스트   -->
+    <select id="selectzzalList" resultMap="collectMap" parameterType="int">
+    	select z.zzno, z.mno, m.nick, m.pic as pic1, z.cno, z.titl, z.pic as pic2, z.cdt as cdt2, z.ztmp, z.hitcnt,
+    	(SELECT count(*) FROM lik WHERE zzno=z.zzno) as like_cnt, 
+    	(SELECT count(*) FROM reply WHERE zzno=z.zzno) as reply_cnt
+    	from zzal_lect z inner join memb m on z.mno = m.mno and z.mno = #{mno}
+		where z.ztmp = false
+		order by z.zzno desc
+	</select>
+    	
+	<!-- 임시저장시 mypage 임시 짤강 리스트 -->
+	<select id="temporaryzzalList" resultMap="collectMap" parameterType="int">
+    	select z.zzno, z.mno, m.nick, m.pic as pic1, z.cno, z.titl, z.pic as pic2, z.cdt as cdt2, z.ztmp, z.hitcnt,
+    	(SELECT count(*) FROM lik WHERE zzno=z.zzno) as like_cnt, 
+    	(SELECT count(*) FROM reply WHERE zzno=z.zzno) as reply_cnt 
+    	from zzal_lect z inner join memb m on z.mno = m.mno and z.mno = #{mno}
+		where z.ztmp = true
+		order by z.zzno desc
+	</select>
+	
+    <!-- select z.zzno, z.mno, m.nick, m.pic as pic1, z.cno, z.titl, z.pic as pic2, z.cdt as cdt2, z.ztmp, z.hitcnt,
+    	(SELECT count(*) FROM lik WHERE zzno=z.zzno) as like_cnt, 
+    	(SELECT count(*) FROM reply WHERE zzno=z.zzno) as reply_cnt 
+    	from zzal_lect z inner join memb m on z.mno = m.mno and z.mno = 5
+		where z.ztmp = false OR z.ztmp != true
+		order by z.zzno desc -->
+		
 	<select id="countAll" resultType="int">
 		select count(*)
 		from colct
@@ -67,6 +122,12 @@
 		delete from lik
 		where mno=#{mno} and zzno=#{zzno};
 	</delete> -->
+	
+	<!-- <update id="hitCountUp" parameterType="collect">
+      UPDATE zzal_lect SET 
+        hitcnt = hitcnt + 1
+      WHERE zzno=#{zzno}
+  	</update> -->
 </mapper> 
 
 

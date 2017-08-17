@@ -43,7 +43,7 @@
 	        <li>구독자 수 20137</li>
 	      </ul>
 	      <ul class="zzal-lects clearfix" id="zzal-list1">
-					<li>
+					<!-- <li>
 					  <a href="detailpage.html" class="zzal-lect">
 					    <div class="lect-top">
 					      <span class="user-photo" style="background-image:url(&quot;image/user.jpg&quot;)"></span>
@@ -216,7 +216,7 @@
 					      </div>
 					    </div>
 					  </a>
-					</li>
+					</li> -->
 					</ul>
 	    </div>
     </div>
@@ -224,30 +224,44 @@
 </div><!--main content -->
 <footer id="footer"></footer>
 </div>
-<!-- <script id="collectadd1-template1" type="text/x-handlebars-template">
-  {{#each collectionPhoto}}
-  <div class="collect-photo" style="background-image: url('{{collectphoTo}}');">
-    <a href="#" class="represent-photo"><i class="fa fa-camera" aria-hidden="true"></i></a><br>
-  </div>
-  {{/each}}
+<script id="collect-zzallist-template" type="text/x-handlebars-template">
+{{#each selectzzalList}}
+<li>
+  <a href="detailpage.html" class="zzal-lect" data-zzno="{{zzno}}">
+    <div class="lect-top">
+      <span class="user-photo" style='background-image:url("upload/{{membe.membpic}}")'></span>
+      <span class="user-name">{{membe.nick}}</span>
+    </div>
+    <div class="zzal">
+      <div class="zzal-img">
+        <img src="upload/{{zzall.mainPic}}" alt="">
+        <div class="for-title">
+          <h3 class="title">{{zzall.title}}</h3>
+        </div>
+      </div>
+    </div>
+    <div class="bottom">
+      <div class="view">
+        <span>조회수</span><span> {{zzall.hitCount}}</span>
+      </div>
+      <div class="right">
+        <div class="like">
+          <span><i class="fa fa-heart-o" aria-hidden="true"><span class="blind">좋아요</span></i></span><span> {{zzall.likeCount}}</span>
+        </div>
+        <div class="like">
+          <span><i class="fa fa-commenting-o" aria-hidden="true"><span class="blind">댓글</span></i></span><span>{{zzall.replyCount}}</span>
+        </div>
+      </div>
+    </div>
+  </a>
+</li>
+{{/each}}
 </script>
-<script id="collectadd2-template2" type="text/x-handlebars-template">
-  {{#each collectionAdd}}
-  <div class="input-option">{{collectionName}}</div>
-    <input class="collect-input-name" placeholder=" 이름을 입력해주세요">
-  <div class="input-option">{{collectionExplanation}}</div>
-    <input class="collect-input-exp" placeholder=" 내용을 입력해주세요">
-  <div class="input-option">{{collectionPrivate}}</div>
-    <ul>{{PrivateAddition}}</ul><br>
-  {{/each}}
-</script> -->
 <script src="node_modules/jquery/dist/jquery.min.js"></script>
-<!-- <script src="node_modules/handlebars/dist/handlebars.min.js"></script> -->
-<!-- <script src="js/collectadd.js"></script> -->
+<script src="node_modules/handlebars/dist/handlebars.min.js"></script>
 <script src="node_modules/swiper/dist/js/swiper.min.js"></script>
 <script src="js/load.js"></script>
 <script src="js/collectdetail.js"></script>
-
 
 </body>
 </html>
