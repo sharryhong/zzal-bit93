@@ -1,7 +1,7 @@
 (function($) {
-	var s = document.createElement("script"); 
-	s.src = "https://developers.kakao.com/sdk/js/kakao.min.js"; 
-	$("head").append(s);
+//	var s = document.createElement("script"); 
+//	s.src = "https://developers.kakao.com/sdk/js/kakao.min.js"; 
+//	$("head").append(s);
 	var that;
 	var dbNick = new Array();
 	var dbEmail = new Array();
@@ -251,8 +251,8 @@
 		    		}
 		    }, 'json')
 		})
-	// ----------------------------------------------------------------------- //
-	/* 카카오톡으로 로그인*/
+/*	// ----------------------------------------------------------------------- //
+	 카카오톡으로 로그인
 	// 카카오 서버에 등록받은 어플리케이션 ID 넣기. 
 	// 카톡 로그인 1. - 카카오 로그인 서버 접속
 	Kakao.init("18483a72f0b203373e0201a0fa7fd0b2");
@@ -379,7 +379,7 @@
 //		Kakao.Auth.logout(function(){console.log('hihi')});
 //	})
 //	
-	// ----------------------------------------------------------------------- //
+*/	// ----------------------------------------------------------------------- //
 	/* 페이스북 로그인 */
 	$(".login-container .fcbk-btn").click(function(){ //페이스북 로그인
 		fbLogin()
