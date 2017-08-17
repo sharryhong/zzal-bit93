@@ -8,15 +8,6 @@ function generateHandlebars(result, el, target) {
     target.html(generatedHTML)
 }
 
-// 동영상, 이미지일 때 구분해주기 위한 핸들바스의 헬퍼함수 
-Handlebars.registerHelper('isImage', function(isImg, options) {
-  if (isImg == "true") {
-    return options.fn(this);
-  } else {
-    return options.inverse(this);
-  }
-});
-
 /*$('.swiper-wrapper').on('mousedown touchstart pointerdown', function (e){
     e.stopPropagation();
   });*/
@@ -183,39 +174,6 @@ function buttonChecker(){
   }
 }
 
-$('#play-btn').on('click',function(event){
-   let up = $(this)[0].children[0]
-   let off = $(this)[0].children[1]
-  if(!isPlay){
-    $(up).removeClass('off-btn')
-    $(off).addClass('off-btn')
-    event.preventDefault()
-    return isPlay=true;
-  }else{
-    $(off).removeClass('off-btn')
-    $(up).addClass('off-btn')
-    event.preventDefault()
-    return isPlay=false;
-  }
-})
-
-
-$('#m-play-btn').on('click',function(event){
-   let up = $(this)[0].children[0]
-   let off = $(this)[0].children[1]
-  if(!isPlay){
-    $(up).removeClass('off-btn')
-    $(off).addClass('off-btn')
-    event.preventDefault()
-    return isPlay=true;
-  }else{
-    $(off).removeClass('off-btn')
-    $(up).addClass('off-btn')
-    event.preventDefault()
-    return isPlay=false;
-  }
-})
-
 var zzalEachPage = ''
 var zzalmno = 0
 $(document).on('ready',function(e){
@@ -247,6 +205,14 @@ $(document).on('ready',function(e){
 var isMobile = false
 function ZzalPages(zzno, lastPageEl) {
   $.getJSON('zzal/selectListPages.json', {'zzno': zzno}, function(result){
+	  // 동영상, 이미지일 때 구분해주기 위한 핸들바스의 헬퍼함수 
+	  Handlebars.registerHelper('isImage', function(isImg, options) {
+	    if (isImg == "true") {
+	      return options.fn(this);
+	    } else {
+	      return options.inverse(this);
+	    }
+	  });
 	  console.log(result.data)
 	  var templatetmpFn = Handlebars.compile($('#pages-swipeslide-template').text())
 	  swiper1.appendSlide(templatetmpFn(result.data))
@@ -273,13 +239,36 @@ function ZzalPages(zzno, lastPageEl) {
 	  });
 	  zzalEachPages()
 	  autoPlayZzal()
+	  imgHeight()
   })
 }
+
+// 글자 길이에 따라 이미지 높이 다르게하기 
+function imgHeight() {
+	var $pageTexts = $('.detail-siwpe .text'),
+	    $pageImgs = $('.detail-siwpe .images-wrapper')
+	    $pages = $('.detail-page-swipe .swiper-slide')
+	$pages.each(function(i, e) {
+		console.log($(this).find('.text').height())
+		if($(this).find('.text').height() >= 200) {
+			$(this).find('.pages.images-wrapper').css('max-height', 'calc(100vmax - 350px)')
+		}
+		/*var textHeight = $(this).height() + 'px'
+		console.log($pageImgs[i].style.height)
+		$pageImgs[i].style.height = 'calc(100vh - '+textHeight+'  - 90px)'
+		if($pageImgs[i].querySelector('iframe')) {
+			$pageImgs[i].querySelector('iframe').style.height = 'calc(100vh - '+textHeight+'  - 90px)'
+		}*/
+		
+	})
+	//console.log($('.detail-siwpe .text').height())
+}
+
+
 
 //만들어진 짤강의 (커버 + 각 페이지 등)
 function zzalEachPages() {
 	zzalEachPage = $('.detail-page-swipe .swiper-slide')
-//	console.log(zzalEachPage.length)
 }
 
 // zzaler의 다른짤강
@@ -328,16 +317,17 @@ function autoPlayZzal() {
 	    faPause = $('.auto-play .fa-pause'),
 	    faPlay = $('.auto-play .fa-play'),
 		isLast = false,
-		swiperBtn = $('.detail-siwpe.swiper-container .swiper-button-next')[0],
-		swiperLeftBtn = $('.detail-siwpe.swiper-container .swiper-button-prev')[0]
+		swiperBtn = $('.detail-siwpe.swiper-container .swiper-button-next.web-swiper-btn')[0],
+		swiperLeftBtn = $('.detail-siwpe.swiper-container .swiper-button-prev.web-swiper-btn')[0]
 	  
 	function autoZzalPlay() {
 		var zzals = $('.swiper-pagination-total').text() - $('.swiper-pagination-current').text() - 1
 		console.log(zzals)
 		swiperBtn.click()
 		if (zzals <= 0) {
-			faPause.addClass('off-btn')
-			faPlay.removeClass('off-btn')
+			console.log('마지막!')
+			faPause.css('display','none')
+			faPlay.css('display','inline-block')
 			clearInterval(autoPlay)
 			isLast = true
 		}
@@ -349,26 +339,35 @@ function autoPlayZzal() {
 		console.log(goFirst)
 		swiperLeftBtn.click()
 		if (goFirst <= 0) {
+			console.log('커버!')
 			clearInterval(toFirst)
-			clearInterval(autoPlay)
+			autoPlay = window.setInterval(autoZzalPlay, 3000)
 		}
 		goFirst--
 	}
 	
 	$('.auto-play .fa-play').on('click', function() {
+		faPlay.css('display','none')
+		faPause.css('display','inline-block')
 		swiperBtn.click()
 		if (isLast) { // 마지막 페이지 일 때, 커버로 가기 
+			goFirst = $('.swiper-pagination-total').text() - 2
+			clearInterval(autoPlay)
 			toFirst = window.setInterval(toFirstZzal, 50)
 			isLast = false
+		} else {
+			autoPlay = window.setInterval(autoZzalPlay, 3000)
 		}
-		autoPlay = window.setInterval(autoZzalPlay, 3000)
 	})
 	$('.auto-play .fa-pause').on('click', function() {
+		faPause.css('display','none')
+		faPlay.css('display','inline-block')
 		clearInterval(autoPlay)
 	})
-	swiperLeftBtn.on('click', function() {
+	$('.detail-siwpe.swiper-container .swiper-button-prev').on('click', function() {
 		isLast = false
 	})
 }
+
 
 

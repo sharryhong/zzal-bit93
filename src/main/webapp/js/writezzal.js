@@ -1,3 +1,37 @@
+// textarea 입력제한
+function fnChkByte(obj, maxByte) {
+	var str = obj.value;
+	var str_len = str.length;
+
+	var rbyte = 0;
+	var rlen = 0;
+	var one_char = "";
+	var str2 = "";
+
+	for(var i=0; i<str_len; i++){
+		one_char = str.charAt(i);
+		if(escape(one_char).length > 4){
+		    rbyte += 2;                                         //한글2Byte
+		}else{
+		    rbyte++;                                            //영문 등 나머지 1Byte
+		}
+
+		if(rbyte <= maxByte){
+		    rlen = i+1;                                          //return할 문자열 갯수
+		}
+	}
+
+	if(rbyte > maxByte){
+	    alert("한글 "+(maxByte/2)+"자 / 영문 "+maxByte+"자를 초과 입력할 수 없습니다.");
+	    str2 = str.substr(0,rlen);                                  //문자열 자르기
+	    obj.value = str2;
+	    fnChkByte(obj, maxByte);
+	}else{
+	    document.getElementById('byteInfo').innerText = rbyte;
+	}
+}
+
+
 (function($){
 	'use strict';
 	var fiFilenames,
@@ -15,8 +49,7 @@
 			justInit(no)
 	  }
 	})
-
-
+	
 // writezzal page의 구동 방식을 결정 짓는 메서드
 // param에 zzno가 있을 경우  임시 저장에서 온경우
 var initWrite;
@@ -226,7 +259,6 @@ function writefuncDone(){
 			$(document).on('click',".swiper-slide-active.number-"+indexNum+" .repre-video",function(e){
 				let inputNo =$(this).closest(".swiper-slide").attr('data-no')
 
-				console.log($('.images-div')[inputNo])
 				wrapWindowByMask()
 
 				$(".url-inputer").css("display","block")
@@ -235,14 +267,18 @@ function writefuncDone(){
 
 				$(".veido-check-btn").on('click',function(){
 
-					let ifstr=[]
-					let isimg = 0;
+					let ifstr=[],
+						inputUrl=[],
+						isimg = 0;
 
-					ifstr[0] = ($("#fi-url-inputer").val()).replace(/"/g, "'")
+					//ifstr[0] = ($("#fi-url-inputer").val()).replace(/"/g, "'")
+					inputUrl[0] = $("#fi-url-inputer").val().split('=')[1]
+					ifstr[0] = "<iframe src='https://www.youtube.com/embed/"+inputUrl[0]+"' frameborder='0' allowfullscreen></iframe>"
+					console.log(inputUrl[0])
 
 					$($('.images-div')[inputNo]).html("");
 					$(ifstr[0]).css({'width':670, 'height':370}).appendTo($($('.images-div')[inputNo]))
-					dataMaker(inputNo,ifstr,isimg)
+					dataMaker(inputNo,inputUrl,isimg)
 					$(".url-inputer").css("display","none")
 					$('.write-mask').fadeOut(1000);
 					$('.write-mask').fadeTo("slow",0.8);
@@ -272,7 +308,6 @@ function wrapWindowByMask(){
         //화면의 높이와 너비를 구한다.
         let maskHeight = $(document).height();
         let maskWidth = $(window).width();
-				console.log(maskWidth,maskHeight)
 
         //마스크의 높이와 너비를 화면 것으로 만들어 전체 화면을 채운다.
         $('.write-mask').css({'width':maskWidth,'height':maskHeight});
@@ -354,8 +389,6 @@ var ssl=0;
 				}
 			}
 			dataPlant()
-			console.log(pageArray[0],"나 zzal")
-			console.log(jsonPageArray,"나 zzalpage")
 			youJSonSender(pageArray[0],jsonPageArray)
 			location.href="mypage.html"
 
@@ -403,7 +436,7 @@ function dataGarage(){
 		pageArray[i].pageNo=i
 		pageArray[i].type=(($($("input[type=hidden]")[i]).attr("data-type"))==1 ? true : false);
 		pageArray[i].pagePic=$($("input[type=hidden]")[i])[0].value
-		pageArray[i].conText=$($('textarea')[i-1])[0].value
+		pageArray[i].conText=$($('textarea')[i-1])[0].value.replace(/\n/g, "<br />");
 	}
 
 	return pageArray;

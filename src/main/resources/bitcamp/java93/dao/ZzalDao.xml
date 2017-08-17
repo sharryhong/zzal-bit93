@@ -59,14 +59,14 @@
     ON zz.cno = c.cno
   </select>
   
-  <!-- index.html 짤강의 리스트 순서 : (좋아요 * 10) + 덧글 수 + 조회수  -->
+  <!-- index.html 짤강의 리스트 순서 : (좋아요 * 10) + 덧글 수 + 조회수  + 최신순(zzno순)-->
   <select id="zzalListWithCount" resultMap="zzalMap" parameterType="map">
     SELECT z.zzno, z.mno, m.nick, m.pic as pic1, z.cno, z.titl, z.pic as pic2, z.cdt as cdt2, z.hitcnt,
     (SELECT count(*) FROM lik WHERE zzno=z.zzno) as like_cnt, 
     (SELECT count(*) FROM reply WHERE zzno=z.zzno) as reply_cnt
     FROM zzal_lect z INNER JOIN memb m on z.mno = m.mno
     WHERE z.ztmp=false
-    ORDER BY (like_cnt * 10) + reply_cnt + z.hitcnt desc
+    ORDER BY (like_cnt * 10) + reply_cnt + z.hitcnt + z.zzno desc
     LIMIT #{startIndex}, #{pageSize}
   </select>
   

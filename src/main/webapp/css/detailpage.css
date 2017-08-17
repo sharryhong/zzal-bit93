@@ -1,6 +1,9 @@
 textarea {
   resize: none;
 }
+.fa-pause {
+	color: #ccc;
+}
 .images-wrapper.pages {
 	position: relative;
 }
@@ -12,6 +15,7 @@ textarea {
 	background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.5));
 }
 .detail-siwpe .images-wrapper img {
+	display: inline-block;
 	width: 100%;
 }
 .detail-siwpe .images-wrapper iframe {
@@ -88,9 +92,10 @@ textarea {
   overflow: hidden;
 }
 .detail-siwpe .text {
-	margin: 0 10px;
-	max-height: 136px;
-  overflow: hidden;
+	position: absolute;
+  /* bottom: 0; */
+  width: 100%;
+  padding: 0 10px;
 }
 .mCS-dark-thin.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
 	background-color: rgba(0,0,0,0.45);
@@ -119,7 +124,7 @@ textarea {
   transform: rotate(360deg);
 } */
 .left-upper-menu li {
-  height:52px;
+  height:70px;
 }
 .left-upper-menu li .bigboy {
   height:30px;
@@ -285,21 +290,25 @@ textarea {
      margin: 30px 0;
    }
    .hoverbig {
+     cursor: pointer;
      transition: .1s ease-in-out;
    }
-   .upper-upper:hover .hoverbig {
+   .hoverbig:hover {
      -ms-transform: scale(1.2,1.2); /* IE 9 */
 	    -webkit-transform: scale(1.2,1.2); /* Safari */
 	    transform: scale(1.2,1.2); /* Standard syntax */
    }
    .detail-left .upper-upper .bigboy{
-     font-size: 30px;
+     font-size: 35px;
+     width: 50px;
+     height: 45px;
+     padding: 5px;
    }
    .detail-left .upper-upper .smallboy{
      font-size: 16px;
    }
    .detail-left .left-down-menu {
-     padding-top: 30px;
+     padding-top: 60px;
    }
    .detail-left .left-down-menu .down-down {
      padding: 20px 0;
@@ -365,6 +374,7 @@ textarea {
   }
   .upper-contaniner .user-lects-units .other-lects{
     display: inline-block;
+    font-size: 14px;
   }
   .upper-contaniner .user-lects-units .more-view {
     float: right;
@@ -498,7 +508,7 @@ textarea {
 
 @media (max-width: 925px) {
 	.detail-siwpe .images-wrapper {
-	  max-height: calc(100vmax - 250px);
+	  max-height: calc(100vmax - 280px);
 	}
 	.detail-siwpe .images-wrapper iframe {
 		height: calc(100vmax - 250px);
@@ -586,8 +596,7 @@ textarea {
     position:relative;
   }
   .detail-main .sw-contents .type-contents {
-    position: absolute;
-    top: 53px;
+    padding-top: 53px;
     width: 100%;
   }
   .detail-m-footer {

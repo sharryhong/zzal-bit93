@@ -82,7 +82,7 @@
                       </a>
                     </li>
                     <li>
-                      <a href="#">
+                      <a>
                         <div class="upper-upper auto-play">
 	                        <div id="play-btn" class="">
 	                            <div class="hoverbig bigboy fa fa-pause off-btn" aria-hidden="true"></div>
@@ -204,25 +204,6 @@
 						 <div class="zzalswipe-tg swiper-slide main">
 						 </div>
 		
-            <!-- {{#each list2}} -->
-               <!-- <div class="swiper-slide sw-contents">
-                  <div class="contents">
-                     <div class="type-contents">
-                       <div  class="content-box">
-                         <div id="imagetest" class="images-wrapper">
-                           <img class= "contents-images-zzals"src="image/ohh.jpg">
-                         </div>
-                       </div>
-                       <div class="text">
-                         <p>he border-radius property is used to add rounded corners to an element.
-                           The border-radius property is a shorthand property for setting the four border-*-radius properties.
-                         </p>
-                       </div>
-                     </div> 
-                  </div>
-               </div> -->
-              <!-- {{/list2}} -->
-
             <div class="swiper-slide last-user-reply">
               <div class="contents last-user-page">
                 <div class="loca">
@@ -373,13 +354,12 @@
 			{{#isImage page.conTypeZ}}
           <img class= "contents-images-zzals" src="upload/{{page.pagePic}}">
 			{{else}}
-			    <iframe src="https://www.youtube.com/embed/TJWXgWrK82k" frameborder="0" allowfullscreen></iframe>
+			    <iframe src="https://www.youtube.com/embed/{{page.pagePic}}" frameborder="0" allowfullscreen></iframe>
 			{{/isImage}}
-      <div class="forimage"></div>
     </div>
   </div>
   <div class="text">
-    <p>{{page.ConTextZ}}</p>
+    <p>{{{page.ConTextZ}}}</p>
   </div>
 </div>
 </div>
@@ -520,6 +500,7 @@
 </script>
 
 <script src="node_modules/jquery/dist/jquery.min.js"></script>
+<script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
 <script src="node_modules/handlebars/dist/handlebars.min.js"></script>
 <script src="node_modules/swiper/dist/js/swiper.jquery.min.js"></script>
 <script src="scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>

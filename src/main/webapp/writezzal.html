@@ -107,7 +107,7 @@
 		<div class="input-con">
 			<div class="youtub"><i class="fa fa-youtube-square" aria-hidden="true"></i></div>
 			<div class="input-loca">
-			 <input id="fi-url-inputer" type="text" placeholder="youtub 소스코드를 입력하세요!!!" name="url-address">
+			 <input id="fi-url-inputer" type="text" placeholder="youtube 링크를 입력해주세요." name="url-address">
 		 </div>
 		 <div class="veido-check-btn">
 			 <a href="#">
@@ -162,7 +162,8 @@
 		</div>
   </div>
  	<div class="writezzal-text">
-    <textarea placeholder="짤강의 내용을 입력해 주세요" maxlength="180"></textarea>
+    <textarea placeholder="짤강의 내용을 입력해 주세요" onKeyUp="javascript:fnChkByte(this,'200')"></textarea>
+		<div class="byteCheck"><span id="byteInfo">0</span>/200Byte</div>
   </div>
 </div>
 
@@ -199,6 +200,7 @@
 
 
 <script src="node_modules/jquery/dist/jquery.min.js"></script>
+<script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
 <script src="node_modules/handlebars/dist/handlebars.min.js"></script>
 <script src="node_modules/swiper/dist/js/swiper.min.js"></script>
 <script src="node_modules/blueimp-file-upload/js/vendor/jquery.ui.widget.js"></script>

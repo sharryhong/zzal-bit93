@@ -316,13 +316,17 @@ input::-moz-placeholder { color: #ccc; }
 }
 .writezzal-text textarea {
 	width: 100%;
-	height: 133px;
-  line-height: 1.5;
+	height: 114px;
+  line-height: 2;
   font-size: 1rem;
   font-weight: bold;
 	border: none;
 	resize: none;
 	outline: none;
+}
+.byteCheck {
+	text-align: right;
+	font-size: 14px;
 }
 .bottom-menu {
   position: absolute;
