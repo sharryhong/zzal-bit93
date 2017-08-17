@@ -380,7 +380,7 @@
 //	})
 //	
 */	// ----------------------------------------------------------------------- //
-	/* 페이스북 로그인 */
+/*	 페이스북 로그인 
 	$(".login-container .fcbk-btn").click(function(){ //페이스북 로그인
 		fbLogin()
 		console.log('hihis')
@@ -427,7 +427,7 @@
 		});
 		testAPISignUp()
 	}
-	/* 페이스북으로 로그인할때 */
+	 페이스북으로 로그인할때 
 	// This is called with the results from from FB.getLoginStatus().
 	function statusChangeCallback(response) {
 		console.log('statusChangeCallback');
@@ -565,5 +565,5 @@
 				}); // member ajax()
 			fbLogout() // 이거때문에 진짜 고생했네...
 		}); //facebook testAPISignUp() response
-	}
+	}*/
 })(jQuery);
