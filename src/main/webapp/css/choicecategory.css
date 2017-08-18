@@ -184,9 +184,11 @@
 	}
 	.choice-btn.catg-submitBtn {
     font-size: 1rem;
-    float: right;
-    margin-left: 77%;
     margin-top: 16px;
+    margin: 0 auto; 
+    position: static;
+    display: block;
+    width:85%
 	}
 }
 
