@@ -269,10 +269,20 @@ function writefuncDone(){
 
 					let ifstr=[],
 						inputUrl=[],
+						videoUrl = '',
 						isimg = 0;
+					
+					videoUrl = $("#fi-url-inputer").val()
+					console.log('videoUrl', videoUrl)
 
 					//ifstr[0] = ($("#fi-url-inputer").val()).replace(/"/g, "'")
-					inputUrl[0] = $("#fi-url-inputer").val().split('=')[1]
+//					videoUrl.includes('=')
+					if (videoUrl.includes('=')) { // url에 '='가 있다면. 즉 일반 웹 
+						inputUrl[0] = videoUrl.split('=')[1]
+					} else { // 없다면. 즉, 모바일
+						console.log('없슈')
+						inputUrl[0] = videoUrl.split('/')[3]
+					}
 					ifstr[0] = "<iframe src='https://www.youtube.com/embed/"+inputUrl[0]+"' frameborder='0' allowfullscreen></iframe>"
 					console.log(inputUrl[0])
 
@@ -383,10 +393,10 @@ var ssl=0;
 
 			}else{
 				pageArray[0].publicType = false;
-				if(pageArray[1].pagePic==""){
+				/*if(pageArray[1].pagePic==""){
 					alert("2페이지에 사진은 꼭꼭!!해주세욤!");
 					return
-				}
+				}*/
 			}
 			dataPlant()
 			youJSonSender(pageArray[0],jsonPageArray)
