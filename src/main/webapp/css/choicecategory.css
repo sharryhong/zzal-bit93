@@ -131,8 +131,6 @@
 	border-radius: 10px;
 }
 
-
-
 .choice-btn.catg-submitBtn {
 	    font-size: 1.4rem;
     /* float: right; */
@@ -183,6 +181,12 @@
     height: 45px;
 	  top: 7px;
     left: 19px;
+	}
+	.choice-btn.catg-submitBtn {
+    font-size: 1rem;
+    float: right;
+    margin-left: 77%;
+    margin-top: 16px;
 	}
 }
 

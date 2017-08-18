@@ -201,7 +201,11 @@
     display: inline-block;
     border: 1px solid rgba(0,0,0,0.1);
 } 
-
+.zzal-nothing {
+    position: absolute;
+    left: 50%;
+    top: 250px;
+}
 /*desktop*/
 @media (min-width: 766px) {
 }
