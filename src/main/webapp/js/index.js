@@ -10,7 +10,6 @@ var templateFn = null;
 var generatedHTML = null;
 // 일반 핸들바스사용 
 function generateHandlebars(result, el, target) {
-//	console.log('generateHandlebars()')
     templateFn = Handlebars.compile(el.text())
     generatedHTML = templateFn(result.data)
     target.text('')
@@ -18,17 +17,45 @@ function generateHandlebars(result, el, target) {
 }
 // 무한 스크롤시 핸들바스 사용
 function generateHandlebarsInfinity(result, el, target) {
-//	console.log('generateHandlebarsInfinity()')
     templateFn = Handlebars.compile(el.text())
     generatedHTML = templateFn(result.data)
     target.append(generatedHTML)
 }
 $(document).ready(function(){ 
+	let membNo = 0,
+	    favorCargs = [],
+		pageNo = 1,
+		pageSize = 6,
+		checkLast = true
+	// 로그인 시 
+	$.getJSON('/zzal-bit93/auth/userinfo.json', function(result) {
+	    if (result.data) {
+	  	    membNo = result.data.no
+	    }
+	    console.log('membNo', membNo)
+	    // 로그인 하지 않았을 때 
+	    if (membNo == 0) {
+			zzalListMain(pageNo, pageSize)
+		} else { // 로그인 했을 때 
+			/* 회원이 기존에 저장한 카테고리를 불러오는 부분 */
+			$.getJSON('choicecategory/list.json', {'memberNumber': membNo}, function(result) {
+				saveListArray = result.data.list
+				for (var i = 0 ; i < (result.data.list).length; i++) {
+					favorCargs.push(parseInt(result.data.list[i]))
+				}
+				favorCargs = encodeURI(favorCargs).replace(/%5B/g, '').replace(/%5D/g, '')
+				console.log('favorCargs', favorCargs)
+				// 관심카테고리를 설정하지 않은 경우 
+				if (!favorCargs) { 
+					zzalListMain(pageNo, pageSize)
+				} else { // 관심카테고리를 설정한 경우 커스터미아징 된 리스트 뿌리기 
+					zzalMyListMain(pageNo, pageSize, favorCargs)
+				}
+			})
+		}
+	})
+	
 	// index.html 짤강의 리스트뿌리기
-	var pageNo = 1
-	    pageSize = 6
-	var checkLast = true
-	zzalListMain(pageNo, pageSize)
 	function zzalListMain(pageNo, pageSize) {
 		$.getJSON('zzal/zzalListWithCount.json',{'pageNo': pageNo, 'pageSize': pageSize}, function(result) {
 			console.log(result.data)
@@ -36,6 +63,21 @@ $(document).ready(function(){
 			var lastPageNo = parseInt(foundRows / pageSize) 
 			generateHandlebarsInfinity(result, $('#main-template'), $('#zzal-list'))
 		    
+			infinityScroll()
+		    if (pageNo < lastPageNo) { // 마지막 이후에는 무한스크롤 실행되지 않게 하기 
+		       checkLast = true
+		    }
+		})
+	}
+	
+	function zzalMyListMain(pageNo, pageSize, favorCargs) {
+		$.getJSON('zzal/zzalListMyCategory.json',{'pageNo': pageNo, 'pageSize': pageSize, 'categoryNumberArray': favorCargs}, function(result) {
+			console.log(result.data)
+			var foundRows = result.data.foundRows
+			var lastPageNo = parseInt(foundRows / pageSize) 
+			generateHandlebarsInfinity(result, $('#main-template'), $('#zzal-list'))
+		    
+			infinityScroll()
 		    if (pageNo < lastPageNo) { // 마지막 이후에는 무한스크롤 실행되지 않게 하기 
 		       checkLast = true
 		    }
@@ -43,29 +85,36 @@ $(document).ready(function(){
 	}
 	
 	/*무한 스크롤*/
-	var $scrollToTop = $('.scroll-to-top')
-	$(document).scroll(function() {
-		/*
-		 * $(window).scrollTop() : scroll의 top위치  
-		 * $(window).height() : 현재 보이는 window의 height 
-		 * $(document).height() : 현재 document전체 height
-		 */
-		if ($(window).scrollTop() > 300) {
-			$scrollToTop.fadeIn()
-		} else {
-			$scrollToTop.fadeOut()
-		}
-	    if (checkLast == true && ($(window).scrollTop() + 50) >= $(document).height() - $(window).height()) {
-	      checkLast = false
-	      ++pageNo
-	      console.log(pageNo)
-	      zzalListMain(pageNo, pageSize)
-	    }
-	});
-	$scrollToTop.click(function() {
-		$('html, body').animate({scrollTop: 0}, 200)
-		return false
-	})
+	function infinityScroll() {
+		var $scrollToTop = $('.scroll-to-top')
+		$(document).scroll(function() {
+			/*
+			 * $(window).scrollTop() : scroll의 top위치  
+			 * $(window).height() : 현재 보이는 window의 height 
+			 * $(document).height() : 현재 document전체 height
+			 */
+			if ($(window).scrollTop() > 300) {
+				$scrollToTop.fadeIn()
+			} else {
+				$scrollToTop.fadeOut()
+			}
+			if (checkLast == true && ($(window).scrollTop() + 50) >= $(document).height() - $(window).height()) {
+				checkLast = false
+				++pageNo
+				console.log('pageNo', pageNo)
+				
+				if (membNo == 0 || !favorCargs) {
+					zzalListMain(pageNo, pageSize)
+				} else {
+					zzalMyListMain(pageNo, pageSize, favorCargs)
+				}
+			}
+		});
+		$scrollToTop.click(function() {
+			$('html, body').animate({scrollTop: 0}, 200)
+			return false
+		})
+	}
 	
 	// index.html 금주의 인기짤강 & 슬라이드에 뿌리기 
 	$.getJSON('zzal/zzalBestList.json', function(result) {

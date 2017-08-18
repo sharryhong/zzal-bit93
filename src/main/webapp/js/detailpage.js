@@ -182,7 +182,6 @@ $(document).on('ready',function(e){
 		var realData = result.data.list[0]
 	    console.log(realData)
 	    var lastPageEl = $('.last-user-reply')
-		console.log(lastPageEl)
 	    var cdt = realData.cdt
 	    var date = new Date(cdt.replace(/ /g,'T'))
 	    zzalDate = date.getFullYear()+'-'+(date.getMonth()+1)+'-'+date.getDate()+' '+date.getHours()+':'+date.getMinutes()
@@ -249,19 +248,14 @@ function imgHeight() {
 	    $pageImgs = $('.detail-siwpe .images-wrapper')
 	    $pages = $('.detail-page-swipe .swiper-slide')
 	$pages.each(function(i, e) {
-		console.log($(this).find('.text').height())
 		if($(this).find('.text').height() >= 200) {
-			$(this).find('.pages.images-wrapper').css('max-height', 'calc(100vmax - 350px)')
+			if(window.innerWidth < 925) {
+				$(this).find('.pages.images-wrapper').css('max-height', 'calc(100vmax - 350px)')
+			} else {
+				$(this).find('.pages.images-wrapper').css('max-height', 'calc(100vh - 350px)')
+			}
 		}
-		/*var textHeight = $(this).height() + 'px'
-		console.log($pageImgs[i].style.height)
-		$pageImgs[i].style.height = 'calc(100vh - '+textHeight+'  - 90px)'
-		if($pageImgs[i].querySelector('iframe')) {
-			$pageImgs[i].querySelector('iframe').style.height = 'calc(100vh - '+textHeight+'  - 90px)'
-		}*/
-		
 	})
-	//console.log($('.detail-siwpe .text').height())
 }
 
 

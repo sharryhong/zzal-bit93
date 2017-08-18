@@ -48,6 +48,14 @@ public class ZzalControl {
     return new JsonResult(JsonResult.SUCCESS, dataMap);
   }
 	
+	@RequestMapping("zzalListMyCategory")
+  public JsonResult zzalListMyCategory(int pageNo, int pageSize, String[] categoryNumberArray) throws Exception {
+    HashMap<String,Object> dataMap = new HashMap<>();
+    dataMap.put("zzalList", zzalService.zzalListMyCategory(pageNo, pageSize, categoryNumberArray));
+    dataMap.put("totalCount", zzalService.getSize());
+    return new JsonResult(JsonResult.SUCCESS, dataMap);
+  }
+	
 	@RequestMapping("zzalListCategory")
   public JsonResult zzalListCategory(int pageNo, int pageSize, int cno) throws Exception {
     HashMap<String,Object> dataMap = new HashMap<>();
