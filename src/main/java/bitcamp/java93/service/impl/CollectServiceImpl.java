@@ -19,7 +19,12 @@ public class CollectServiceImpl implements CollectService {
 	public List<Collect> list(int no) throws Exception {
 		return collectDao.selectList(no);
 	}
-
+	
+	@Override
+  public List<Collect> publiclist(int no) throws Exception {
+    return collectDao.publicList(no);
+  }
+	
 	@Override
 	public int getSize() throws Exception {
 		return collectDao.countAll();
@@ -63,6 +68,11 @@ public class CollectServiceImpl implements CollectService {
 	@Override
   public List<Collect> temporaryzzalList(int mno) throws Exception {
     return collectDao.temporaryzzalList(mno);
+  }
+
+  @Override
+  public List<Collect> likezzal(int mno) throws Exception {
+    return collectDao.likezzal(mno);
   }
 	
 	/*@Override

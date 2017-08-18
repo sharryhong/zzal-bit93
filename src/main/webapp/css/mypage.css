@@ -200,12 +200,29 @@
     border-radius: 50%;
     display: inline-block;
     border: 1px solid rgba(0,0,0,0.1);
-} 
-.zzal-nothing {
-    position: absolute;
-    left: 50%;
-    top: 250px;
 }
+/* zzal이 없을때 */ 
+/* .picpicpic {
+	height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    position: relative;
+    left: 50px;
+    
+}
+
+.zzal-nothing {
+	margin:0;
+    position: relative;
+    top: 20px;
+    left: 30px;
+    font-size: 1.5rem;
+}
+.nobnob-zzal {
+	position: absolute;
+    top: 100px;
+} */
+
 /*desktop*/
 @media (min-width: 766px) {
 }

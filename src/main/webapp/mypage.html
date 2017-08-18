@@ -66,13 +66,16 @@
             <li class="menu" id="ilike-zzal"><a href="#">좋아요</a></li>
             <li class="menu" id="temp-zzal"><a href="#">임시</a></li>
           </ul>
-          <span class="zzal-nothing">에베베</span>
-          <div class="zzal-con01">
-            <ul class="zzal-lects clearfix" id="zzal-handle"></ul> <!-- 내짤강리스트 handlebars -->
+          	<div class="zzal-con01">
+	          <!-- <div class="nobnob-zzal">
+	          	<img src="upload/jc.gif" class="picpicpic" alt="">
+	          	 <p class="zzal-nothing">짤강을 추가해주세요.^^</p>
+	          </div>  -->
+          <ul class="zzal-lects clearfix" id="zzal-handle"></ul> <!-- 내짤강리스트 handlebars -->
           </div>
           <div class="zzal-con01">
-            <ul class="zzal-lects clearfix">
-              <li>
+            <ul class="zzal-lects clearfix" id="ilike-zzallist">
+              <!-- <li>
                 <div class="zzal-lect">
                   <div class="lect-top">
                     <span class="user-photo"></span>
@@ -158,7 +161,7 @@
                     </div>
                   </div>
                 </div>
-              </li>
+              </li> -->
             </ul>
           </div>
           <div class=zzal-con01>
@@ -169,6 +172,7 @@
           <ul class="zzal-menu02 zzal-menu clearfix">
             <li class="menu on"><a href="#">내 컬렉션</a></li>
             <li class="menu"><a href="#">구독 컬렉션</a></li>
+            <li class="menu" id="public-collect-list"><a href="#">비공개 컬렉션</a></li>
           </ul>
           <div class="zzal-con02">
              <ul class="collections clearfix">
@@ -183,7 +187,7 @@
           </div>
           <div class="zzal-con02">
             <ul class="collections clearfix">
-              <li class="clearfix">
+              <!-- <li class="clearfix">
                 <a href="#" class="img"></a>
                 <div class="right">
                   <a href="#" class="title">음식 모음.. 배고파 글자 긴거지롱 허허허허허허허허 흑흑 바다가고싶다.</a>
@@ -209,9 +213,14 @@
                   <span class="sfont">구독자수 12234</span>
                   <a href="#" class="btn btn-default">구독취소</a>
                 </div>
-              </li>
+              </li> -->
             </ul>
           </div>
+              <div class="zzal-con02">
+            	<ul class="collections clearfix">
+              	  <div class="collection-view" id="my-pub-collection"></div><!-- 비공개 핸들바스 -->
+              	</ul>
+              </div>
         </div>
         <div class="zzal-wrap zzal-category">
           <div class="categorys" id="choice-categorys">
@@ -295,6 +304,18 @@
  </li>
 {{/each}}
 </script>
+<script id="my-pubcollect-template" type="text/x-handlebars-template">
+{{#each publiclist}}
+<li class="clearfix">
+  <a href="collectdetail.html" class="img mycollectlist" data-no={{no}} style="background-image: url(upload/{{picture}});"></a>
+   <div class="right">
+     <a class="title" id="collectview">{{title}}</a>
+     <span class="sfont">짤강 126772</span>
+     <span class="sfont">구독자수 12234</span>
+   </div>
+ </li>
+{{/each}}
+</script>
 <script id="my-zzallist-template" type="text/x-handlebars-template">
 {{#each selectzzalList}}
 <li>
@@ -358,7 +379,40 @@
       </div>
     </div>
   </div>
-  </li>
+</li>
+{{/each}}
+</script>
+<script id="favorite-zzallist-template" type="text/x-handlebars-template">
+{{#each likezzal}}
+<li>
+  <div class="zzal-lect" data-zzno="{{zzno}}">
+    <div class="lect-top">
+      <span class="user-photo"style='background-image:url("upload/{{membe.membpic}}")'></span>
+      <span class="user-name">{{membe.nick}}</span>
+    </div>
+    <div class="zzal">
+      <div class="zzal-img">
+        <img src="upload/{{zzall.mainPic}}" alt="">
+        <div class="for-title">
+          <h3 class="title">{{zzall.title}}</h3>
+        </div>
+      </div>
+    </div>
+    <div class="bottom">
+      <div class="view">
+        <span>조회수</span><span> {{zzall.hitCount}}</span>
+      </div>
+      <div class="right">
+        <div class="like">
+          <span><i class="fa fa-heart-o" aria-hidden="true"><span class="blind">좋아요</span></i></span><span> {{zzall.likeCount}}</span>
+        </div>
+        <div class="like">
+          <span><i class="fa fa-commenting-o" aria-hidden="true"><span class="blind">댓글</span></i></span><span> {{zzall.replyCount}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</li>
 {{/each}}
 </script>
 <script src="node_modules/jquery/dist/jquery.min.js"></script>

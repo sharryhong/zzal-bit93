@@ -31,6 +31,15 @@ public class CollectControl {
     return new JsonResult(JsonResult.SUCCESS, dataMap);
   }
   
+  @RequestMapping("publiclist")
+  public JsonResult publiclist(int no) throws Exception {
+    
+    HashMap<String,Object> dataMap = new HashMap<>();
+    dataMap.put("publiclist", collectService.publiclist(no));
+    
+    return new JsonResult(JsonResult.SUCCESS, dataMap);
+  }
+  
   @RequestMapping("detail")
   public JsonResult detail(int no) throws Exception {
     System.out.println(no);
@@ -122,6 +131,16 @@ public class CollectControl {
     return new JsonResult(JsonResult.SUCCESS, dataMap);
   }
   
+  @RequestMapping("likezzal")
+  public JsonResult isLike( int mno) throws Exception {
+    
+    HashMap<String,Object> dataMap = new HashMap<>();
+    
+   dataMap.put("likezzal",collectService.likezzal(mno));
+    
+    return new JsonResult(JsonResult.SUCCESS, dataMap);
+  }
+  
   /*@RequestMapping("hitCountUp")
   public JsonResult hitCountUp(Collect collect, HttpSession session) throws Exception {
     collectService.hitCountUp(collect);
@@ -137,10 +156,6 @@ public class CollectControl {
     return new JsonResult(JsonResult.SUCCESS, dataMap);
   }*/
 }
-
-
-
-
 
 
 
