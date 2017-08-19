@@ -37,9 +37,9 @@
 	  con.eq(index).css("display", "block")
 	})
   }
-  
   var no = 0
   
+
   $.getJSON('/zzal-bit93/auth/userinfo.json', function(result) {
 	  if (result.data) {
 		  no = result.data.no
@@ -89,6 +89,7 @@
   })
   // 좋아요한 짤강 리스트
    $(document.body).on('click', '#ilike-zzal', function(event) {
+	   
 	  $.getJSON('collect/likezzal.json',{'mno' : no}, function(result) {
 		  if(result.data){
 			  console.log(result.data)

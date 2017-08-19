@@ -1,5 +1,6 @@
 package bitcamp.java93.service.impl;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,13 +62,13 @@ public class CollectServiceImpl implements CollectService {
   } // remove()
 	
 	@Override
-  public List<Collect> selectzzalList(int mno) throws Exception {
-    return collectDao.selectzzalList(mno);
+  public List<Collect> selectzzalList(HashMap<String, Object> map) throws Exception {
+    return collectDao.temporaryzzalList(map);
   }
 	
 	@Override
-  public List<Collect> temporaryzzalList(int mno) throws Exception {
-    return collectDao.temporaryzzalList(mno);
+  public List<Collect> temporaryzzalList(HashMap<String, Object> map) throws Exception {
+    return collectDao.temporaryzzalList(map);
   }
 
   @Override

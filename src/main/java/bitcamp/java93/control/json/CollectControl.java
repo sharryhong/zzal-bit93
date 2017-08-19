@@ -115,18 +115,22 @@ public class CollectControl {
   
   @RequestMapping("selectzzalList")
   public JsonResult selectzzalList(int mno) throws Exception {
-    
+    HashMap<String,Object> map = new HashMap<>();
+    map.put("mno", mno);
+    map.put("tmp", false);
     HashMap<String,Object> dataMap = new HashMap<>();
-    dataMap.put("selectzzalList", collectService.selectzzalList(mno));
+    dataMap.put("selectzzalList", collectService.selectzzalList(map));
     
     return new JsonResult(JsonResult.SUCCESS, dataMap);
   }
   
   @RequestMapping("temporaryzzalList")
   public JsonResult temporaryzzalList(int mno) throws Exception {
-    
+    HashMap<String,Object> map = new HashMap<>();
+    map.put("mno", mno);
+    map.put("tmp", true);
     HashMap<String,Object> dataMap = new HashMap<>();
-    dataMap.put("temporaryzzalList", collectService.temporaryzzalList(mno));
+    dataMap.put("temporaryzzalList", collectService.temporaryzzalList(map));
     
     return new JsonResult(JsonResult.SUCCESS, dataMap);
   }

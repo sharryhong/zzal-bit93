@@ -52,6 +52,7 @@
 		where pub = false and mno = #{mno}
 		order by cono desc
 	</select>
+	
 	<!-- 비공개한 컬렉션 리스트 -->
 	<select id="publicList" resultMap="collectMap" parameterType="int">
 		select mno, cono, title, cont, pic, pub
@@ -59,41 +60,20 @@
 		where pub = true and mno = #{mno}
 		order by cono desc
 	</select>
-	
-	<!-- select mno, cono, title, cont, pic, pub
-		from colct
-		where pub = true and mno = 5
-		order by cono desc -->
-		
-    <!-- writezzal에서 짤등록후 올리기버튼 누를시 mypage 에서 내짤강 리스트   -->
-    <select id="selectzzalList" resultMap="collectMap" parameterType="int">
-    	select z.zzno, z.mno, m.nick, m.pic as pic1, z.cno, z.titl, z.pic as pic2, z.cdt as cdt2, z.ztmp, z.hitcnt,
-    	(SELECT count(*) FROM lik WHERE zzno=z.zzno) as like_cnt, 
-    	(SELECT count(*) FROM reply WHERE zzno=z.zzno) as reply_cnt
-    	from zzal_lect z inner join memb m on z.mno = m.mno and z.mno = #{mno}
-		where z.ztmp = false
-		order by z.zzno desc
-	</select>
-    	
-	<!-- 임시저장시 mypage 임시 짤강 리스트 -->
-	<select id="temporaryzzalList" resultMap="collectMap" parameterType="int">
+
+	<!-- 등록시 내짤강리스트 or 임시저장시 mypage 임시 짤강 리스트 -->
+	<select id="temporaryzzalList" resultMap="collectMap" parameterType="map">
     	select z.zzno, z.mno, m.nick, m.pic as pic1, z.cno, z.titl, z.pic as pic2, z.cdt as cdt2, z.ztmp, z.hitcnt,
     	(SELECT count(*) FROM lik WHERE zzno=z.zzno) as like_cnt, 
     	(SELECT count(*) FROM reply WHERE zzno=z.zzno) as reply_cnt 
     	from zzal_lect z inner join memb m on z.mno = m.mno and z.mno = #{mno}
-		where z.ztmp = true
+		where z.ztmp = #{tmp}
 		order by z.zzno desc
 	</select>
 	
-    <!-- select z.zzno, z.mno, m.nick, m.pic as pic1, z.cno, z.titl, z.pic as pic2, z.cdt as cdt2, z.ztmp, z.hitcnt,
-    	(SELECT count(*) FROM lik WHERE zzno=z.zzno) as like_cnt, 
-    	(SELECT count(*) FROM reply WHERE zzno=z.zzno) as reply_cnt 
-    	from zzal_lect z inner join memb m on z.mno = m.mno and z.mno = 5
-		where z.ztmp = false OR z.ztmp != true
-		order by z.zzno desc -->
-		
-	<select id="likezzal" resultMap="collectMap" parameterType="map">
-		SELECT l.zzno, l.mno, m.nick, m.pic as pic1, z.titl, z.pic as pic2, z.cdt as cdt2, z.ztmp, z.hitcnt, l.cdt as cdt1,
+	<!-- 좋아요한 짤강 리스트 -->
+	<select id="likezzal" resultMap="collectMap" parameterType="int">
+		SELECT l.zzno, l.mno,(select mb.nick from memb mb where z.mno=mb.mno) as nick, (select mb.pic from memb mb where z.mno=mb.mno) as pic1, z.titl, z.pic as pic2, z.cdt as cdt2, z.ztmp, z.hitcnt, l.cdt as cdt1,
 		(SELECT count(*) FROM lik WHERE zzno=z.zzno) as like_cnt, 
     	(SELECT count(*) FROM reply WHERE zzno=z.zzno) as reply_cnt 
     	FROM lik l INNER JOIN memb m on l.mno = m.mno INNER JOIN zzal_lect z on l.zzno = z.zzno
