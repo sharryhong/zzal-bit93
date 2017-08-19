@@ -8,10 +8,6 @@ function generateHandlebars(result, el, target) {
     target.html(generatedHTML)
 }
 
-/*$('.swiper-wrapper').on('mousedown touchstart pointerdown', function (e){
-    e.stopPropagation();
-  });*/
-
 /*swiper 초기화들*/
 // 짤강의 swiper
 var detailSwipeBig = '.detail-siwpe.swiper-container';
@@ -213,6 +209,13 @@ function ZzalPages(zzno, lastPageEl) {
 	    }
 	  });
 	  console.log(result.data)
+	  // text에 링크가 있을 때 
+	  for (let i = 0; i < result.data.list.length; i++) {
+		  result.data.list[i].page.ConTextZ = result.data.list[i].page.ConTextZ.replace(/(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig, function(text, link) {
+			   return '<a href="'+ link +'" target="_blank">'+ link +'</a>'
+		  })
+//		  console.log(result.data.list[i].page.ConTextZ)
+	  }
 	  var templatetmpFn = Handlebars.compile($('#pages-swipeslide-template').text())
 	  swiper1.appendSlide(templatetmpFn(result.data))
 	  // 모바일에서 마지막에 last page 나오게 하기 
@@ -341,10 +344,12 @@ function autoPlayZzal() {
 	}
 	
 	$('.auto-play .fa-play').on('click', function() {
+		var zzals = $('.swiper-pagination-total').text() - $('.swiper-pagination-current').text()
+		console.log(zzals)
 		faPlay.css('display','none')
 		faPause.css('display','inline-block')
 		swiperBtn.click()
-		if (isLast) { // 마지막 페이지 일 때, 커버로 가기 
+		if (isLast || zzals == 0) { // 마지막 페이지 일 때, 커버로 가기 
 			goFirst = $('.swiper-pagination-total').text() - 2
 			clearInterval(autoPlay)
 			toFirst = window.setInterval(toFirstZzal, 50)
