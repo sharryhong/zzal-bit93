@@ -163,7 +163,7 @@
   </div>
  	<div class="writezzal-text">
     <textarea placeholder="짤강의 내용을 입력해 주세요" onKeyUp="javascript:fnChkByte(this,'200')"></textarea>
-		<div class="byteCheck"><span id="byteInfo">0</span>/200Byte</div>
+		<div class="byteCheck"><span class="byteInfo">0</span>/200Byte</div>
   </div>
 </div>
 
@@ -189,7 +189,8 @@
 		</div>
   </div>
  	<div class="writezzal-text">
-    <textarea placeholder="짤강의 내용을 입력해 주세요" maxlength="180"></textarea>
+    <textarea placeholder="짤강의 내용을 입력해 주세요" onKeyUp="javascript:fnChkByte(this,'200')"></textarea>
+		<div class="byteCheck"><span class="byteInfo">0</span>/200Byte</div>
   </div>
 </div>
 {{/each}}

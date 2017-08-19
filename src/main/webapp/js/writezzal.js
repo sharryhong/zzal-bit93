@@ -1,5 +1,6 @@
 // textarea 입력제한
 function fnChkByte(obj, maxByte) {
+	var $eachPageByte = $(obj).next().find('.byteInfo')
 	var str = obj.value;
 	var str_len = str.length;
 
@@ -27,7 +28,7 @@ function fnChkByte(obj, maxByte) {
 	    obj.value = str2;
 	    fnChkByte(obj, maxByte);
 	}else{
-	    document.getElementById('byteInfo').innerText = rbyte;
+		$eachPageByte.text(rbyte)
 	}
 }
 
