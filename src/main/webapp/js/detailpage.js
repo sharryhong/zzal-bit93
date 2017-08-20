@@ -172,11 +172,13 @@ function buttonChecker(){
 
 var zzalEachPage = ''
 var zzalmno = 0
+var coverImage = ''
 $(document).on('ready',function(e){
   $.getJSON('zzal/list.json',{'zzno': zzno},function(result){
 	if (result.data) {
 		var realData = result.data.list[0]
 	    console.log(realData)
+	    coverImage = realData.mainPic
 	    var lastPageEl = $('.last-user-reply')
 	    var cdt = realData.cdt
 	    var date = new Date(cdt.replace(/ /g,'T'))
@@ -202,19 +204,24 @@ function ZzalPages(zzno, lastPageEl) {
   $.getJSON('zzal/selectListPages.json', {'zzno': zzno}, function(result){
 	  // 동영상, 이미지일 때 구분해주기 위한 핸들바스의 헬퍼함수 
 	  Handlebars.registerHelper('isImage', function(isImg, options) {
-	    if (isImg == "true") {
+	    if (isImg == "false") { 
 	      return options.fn(this);
-	    } else {
+	    } else { 
 	      return options.inverse(this);
 	    }
 	  });
 	  console.log(result.data)
-	  // text에 링크가 있을 때 
 	  for (let i = 0; i < result.data.list.length; i++) {
+		  // text에 링크가 있을 때 
 		  result.data.list[i].page.ConTextZ = result.data.list[i].page.ConTextZ.replace(/(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig, function(text, link) {
 			   return '<a href="'+ link +'" target="_blank">'+ link +'</a>'
 		  })
-//		  console.log(result.data.list[i].page.ConTextZ)
+		  // 이미지나 동영상이 없을 때 
+		  if (result.data.list[i].page.pagePic == "") {
+			  console.log('비었구만')
+			  result.data.list[i].page.conTypeZ = true
+			  result.data.list[i].page.pagePic = coverImage
+		  }
 	  }
 	  var templatetmpFn = Handlebars.compile($('#pages-swipeslide-template').text())
 	  swiper1.appendSlide(templatetmpFn(result.data))
