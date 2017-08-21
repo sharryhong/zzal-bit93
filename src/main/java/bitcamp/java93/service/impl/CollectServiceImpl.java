@@ -22,6 +22,11 @@ public class CollectServiceImpl implements CollectService {
 	}
 	
 	@Override
+  public List<Collect> subslist(int mno) throws Exception {
+    return collectDao.subslist(mno);
+  }
+	
+	@Override
   public List<Collect> publiclist(int no) throws Exception {
     return collectDao.publicList(no);
   }
@@ -49,7 +54,6 @@ public class CollectServiceImpl implements CollectService {
     }
   }
 
-	/*@Transactional(propagation=Propagation.REQUIRED)*/
 	@Override
   public void remove(int no) throws Exception {
     /*collectDao.deletePhoto(no);*/
@@ -75,26 +79,7 @@ public class CollectServiceImpl implements CollectService {
   public List<Collect> likezzal(int mno) throws Exception {
     return collectDao.likezzal(mno);
   }
-	
-	/*@Override
-  public void hitCountUp(Collect collect) throws Exception {
-    int count = collectDao.hitCountUp(collect);
-    if (count < 1) {
-      throw new Exception(collect.getZzno() + "번 짤강을 찾을 수 없습니다.");
-    }
-  }*/
-	
-	/*@Override
-  public List<Collect> myzzalList(int mno) throws Exception {
-    return collectDao.myzzalList(mno);
-  }*/
-	
-	
-	/*@Override
-  public void subsList(Collect collect) {
-    // TODO Auto-generated method stub
-    collectDao.subslist(collect);
-  }
-   */
-	
+
+
+
 }

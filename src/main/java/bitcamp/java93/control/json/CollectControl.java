@@ -35,7 +35,16 @@ public class CollectControl {
   public JsonResult publiclist(int no) throws Exception {
     
     HashMap<String,Object> dataMap = new HashMap<>();
-    dataMap.put("publiclist", collectService.publiclist(no));
+    dataMap.put("list", collectService.publiclist(no));
+    
+    return new JsonResult(JsonResult.SUCCESS, dataMap);
+  }
+  
+  @RequestMapping("subslist")
+  public JsonResult subslist(int mno) throws Exception {
+    
+    HashMap<String,Object> dataMap = new HashMap<>();
+    dataMap.put("list", collectService.subslist(mno));
     
     return new JsonResult(JsonResult.SUCCESS, dataMap);
   }
@@ -91,21 +100,8 @@ public class CollectControl {
     return new JsonResult(JsonResult.SUCCESS, fileList);
   }
   
-  /* 
-  @RequestMapping(value="dousubs", method = RequestMethod.POST)
-  public JsonResult DoUSubscribe(@RequestParam int cono,
-		  				   @RequestParam int mno
-		  				   ,Collect collect) throws Exception {
-    
-    collect.setNo(cono);
-    collect.setMemNo(mno);;
-    	
-   collectService.subsList(collect);
-    
-    return new JsonResult(JsonResult.SUCCESS, "ok");
-  }
-   */
   int count = 0;
+  
   synchronized private String getNewFilename() {
     if (count > 100) {
       count = 0;
@@ -130,7 +126,7 @@ public class CollectControl {
     map.put("mno", mno);
     map.put("tmp", true);
     HashMap<String,Object> dataMap = new HashMap<>();
-    dataMap.put("temporaryzzalList", collectService.temporaryzzalList(map));
+    dataMap.put("selectzzalList", collectService.temporaryzzalList(map));
     
     return new JsonResult(JsonResult.SUCCESS, dataMap);
   }
@@ -140,25 +136,11 @@ public class CollectControl {
     
     HashMap<String,Object> dataMap = new HashMap<>();
     
-   dataMap.put("likezzal",collectService.likezzal(mno));
+   dataMap.put("selectzzalList",collectService.likezzal(mno));
     
     return new JsonResult(JsonResult.SUCCESS, dataMap);
   }
   
-  /*@RequestMapping("hitCountUp")
-  public JsonResult hitCountUp(Collect collect, HttpSession session) throws Exception {
-    collectService.hitCountUp(collect);
-    return new JsonResult(JsonResult.SUCCESS, "ok");
-  }*/
-  
-  /*@RequestMapping("myzzalList")
-  public JsonResult myzzalList(int mno) throws Exception {
-    
-    HashMap<String,Object> dataMap = new HashMap<>();
-    dataMap.put("myzzalList", collectService.myzzalList(mno));
-    
-    return new JsonResult(JsonResult.SUCCESS, dataMap);
-  }*/
 }
 
 
