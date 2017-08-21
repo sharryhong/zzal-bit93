@@ -63,21 +63,27 @@
 	</insert>
 	
 	<select id="noticeList" parameterType="int" resultType="notice">
-  select n.mno,
+  select n.nono,n.mno,ifnull(n.zzno,0) as zzalNono,ifnull(n.cono,0) as conono,
         (select m.nick from memb m where m.mno= n.dmno) as who_nick,
+        (select m.pic from memb m where m.mno= n.dmno) as who_pic,
 	ifnull ((select z.titl from zzal_lect z where z.zzno=n.zzno),0) as zzal_title,
 	ifnull ((select c.title from colct c where c.cono=n.cono),0) as colct_title,
 	ifnull ((select r.cont from reply r where r.rno=n.rno),0) as reply_con,
 	n.notype,
 	n.ynn,
 	n.dmno,
-	n.cdt
+	n.cdt as noticdt
   from notice n where n.mno=#{mno} and n.ynn=0;
 	</select>
 	
 	<select id="getCnt" parameterType="int" resultType="int">
-		select count(*) from notice where mno=#{mno}
+		select count(*) from notice where mno=#{mno} and ynn=0;
 	</select>
+	
+	<delete>
+	</delete>
+	
+	
 </mapper> 
 
 

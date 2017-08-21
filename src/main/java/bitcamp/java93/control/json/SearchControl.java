@@ -24,11 +24,13 @@ public class SearchControl {
 
 	//	
 	@RequestMapping("found")
-	public JsonResult zzalSearch(@RequestParam(defaultValue="")String keyword) throws Exception {
-		
+	public JsonResult zzalSearch(@RequestParam(defaultValue="")String keyword,
+								@RequestParam(defaultValue="1")int pageNo,
+								@RequestParam(defaultValue="7")int pageSize) throws Exception {
+		System.out.println(keyword);
 		HashMap<String,Object> dataMap = new HashMap<>();
-		dataMap.put("zzalList", searchService.searchlist(keyword));
-
+		dataMap.put("zzalList", searchService.searchlist(keyword, pageNo,pageSize));
+		dataMap.put("totNum", searchService.getcount(keyword, pageNo));
 		return new JsonResult(JsonResult.SUCCESS, dataMap);
 	}
 	@RequestMapping("autosearch")

@@ -1,6 +1,17 @@
 .search-zzallect {
-	
+	    height: calc(100vh - 66px);
+    overflow-y: scroll;
 }
+
+.suggest-in-line:hover{
+	background-color:#ddd
+}
+
+
+.suggest-in-line.on{
+	background-color:#ddd
+}
+
 
 .suggest-in-line {
 	position: relative;
@@ -8,7 +19,9 @@
 	height: 140px;
 	border-bottom: 1px solid #ccc;
 }
-
+.suggest-in-line .search-line-pack{
+	width:100%
+}
 .suggest-in-line .btn-key {
 	position: absolute;
 	right: 15px;
@@ -69,21 +82,31 @@
 }
 
 .search-mid-con .user-info .name {
+	margin-left:10px;
+	font-size:12px;
 	height: 30px;
 	line-height: 50px;
 }
 
-
+.search-mid-con .s-catg-titl{
+	line-height: 40px;
+	
+}
 .search-mid-con  .cata-name {
+	width: 60px;
+	display: inline-block;
 	height:16px;
     font-size: 12px;
 
 }
 
 .search-mid-con  .lect-titl {
-	padding-left: 10px;
+	font-weight:bold;
+	font-size:18px;
+	display: inline-block;
+	padding-left: 5px;
     height: 30px;
-    line-height: 30px;
+    /* line-height: 30px; */
 
 }
 .search-mid-con  .cdt {

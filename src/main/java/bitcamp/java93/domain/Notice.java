@@ -12,19 +12,12 @@ public class Notice {
   String Notype;
   int who;
   String who_nick;
+  String who_pic;
   String zzal_title;
   String colct_title;
   String reply_con;
+  String noticdt;
   List<Notice> noticearr;
-
-  
-@Override
-public String toString() {
-	return "Notice [nono=" + nono + ", ownerNo=" + ownerNo + ", zzalNono=" + zzalNono + ", reNono=" + reNono
-			+ ", conono=" + conono + ", ynn=" + ynn + ", Notype=" + Notype + ", who=" + who + ", who_nick=" + who_nick
-			+ ", zzal_title=" + zzal_title + ", colct_title=" + colct_title + ", reply_con=" + reply_con
-			+ ", noticearr=" + noticearr + "]";
-}
 public int getNono() {
 	return nono;
 }
@@ -79,6 +72,12 @@ public String getWho_nick() {
 public void setWho_nick(String who_nick) {
 	this.who_nick = who_nick;
 }
+public String getWho_pic() {
+	return who_pic;
+}
+public void setWho_pic(String who_pic) {
+	this.who_pic = who_pic;
+}
 public String getZzal_title() {
 	return zzal_title;
 }
@@ -97,14 +96,26 @@ public String getReply_con() {
 public void setReply_con(String reply_con) {
 	this.reply_con = reply_con;
 }
+public String getNoticdt() {
+	return noticdt;
+}
+public void setNoticdt(String noticdt) {
+	this.noticdt = noticdt;
+}
 public List<Notice> getNoticearr() {
 	return noticearr;
 }
 public void setNoticearr(List<Notice> noticearr) {
 	this.noticearr = noticearr;
 }
+@Override
+public String toString() {
+	return "Notice [nono=" + nono + ", ownerNo=" + ownerNo + ", zzalNono=" + zzalNono + ", reNono=" + reNono
+			+ ", conono=" + conono + ", ynn=" + ynn + ", Notype=" + Notype + ", who=" + who + ", who_nick=" + who_nick
+			+ ", who_pic=" + who_pic + ", zzal_title=" + zzal_title + ", colct_title=" + colct_title + ", reply_con="
+			+ reply_con + ", noticdt=" + noticdt + ", noticearr=" + noticearr + "]";
+}
 
-  
   
   
 }	

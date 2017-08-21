@@ -30,6 +30,17 @@
 	font-weight: bold;
 }
 
+
+.notices .right{
+    line-height: 20px;
+    /* top: 20px; */
+    display: inline-block;
+    float: right;
+    margin-right: 10px;
+}
+
+
+
 /*mobile*/
 @media (max-width: 765px) {
 	.header.change-header .right {

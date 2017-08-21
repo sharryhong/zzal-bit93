@@ -29,38 +29,19 @@
 
 <script id="notice-template" type="text/x-handlebars-template">
   <h2 class="title">알림</h2>
-{{#each list}}
-   {{#isVowel}}
+{{#each list}} 
       <div class="notices clearfix">
       <div class="left">
-          <span class="user-photo">1</span>
+          <span class="user-photo" style="background-image: url(upload/{{who_pic}});"></span>
         </div>
+	<div class="right">
+          <span class="fa fa-times"></span>
+        </div>	
         <div class="contents">
-          <span class="bold">{{who_nick}}</span>님이 <span class="bold">{{zzal_title}}</span> 을(를) 좋아합니다.
-          <p class="date">2017-06-18 오전 11:40</p>
+ 			{{isVowel}}
+          <p class="date">{{noticdt}}</p>
         </div>
       </div>
-      {{else isVowel}}
-      <div class="notices clearfix">
-      <div class="left">
-          <span class="user-photo">2</span>
-        </div>
-        <div class="contents">
-          <span class="bold">{{who_nick}}</span>님이 <span class="bold">{{zzal_title}}</span>에 덧글을 달았습니다.
-          <p class="date">2017-06-18 오전 11:40</p>
-        </div>
-      </div>
-      {{else}}
-      <div class="notices clearfix">
-      <div class="left">
-          <span class="user-photo">3</span>
-        </div>
-        <div class="contents">
-          <span class="bold">{{who_nick}}</span>님이 <span class="bold">{{colct_title}}</span>콜렉션을 구독 하였습니다.
-          <p class="date">2017-06-18 오전 11:40</p>
-        </div>
-      </div>
-   {{/isVowel}}
   {{/each}}
 </script>
 <!--

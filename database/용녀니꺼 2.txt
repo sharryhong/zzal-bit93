@@ -456,3 +456,6 @@ ALTER TABLE `QNA`
 		REFERENCES `MY_SCHEMA`.`MEMB` ( -- 회원
 			`MNO` -- 회원코드
 		);
+
+
+		
