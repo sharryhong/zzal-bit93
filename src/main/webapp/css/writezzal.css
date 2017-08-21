@@ -5,11 +5,13 @@ input::-moz-placeholder { color: #ccc; }
 ::-webkit-input-placeholder { color: #ccc; }
 ::-moz-placeholder { color: #ccc; }
 
-/* .sweet-alert {
-  width: 486px;
-  margin-left: -243px;
+.input-loca .cancle-btn {
+	position: absolute;
+  right: 0px;
+  top: 18px;
+  padding: 1px;
+  color: #aaa;
 }
- */
 .write-mask {
   position:absolute;
   left:0;
@@ -410,6 +412,7 @@ input::-moz-placeholder { color: #ccc; }
 @media (max-width : 765px) {
 	.url-inputer .center-con .input-con .input-loca > input {
 	  font-size: 18px;
+	  width: 87%;
 	}
 	.url-inputer {
 	   width: 95%;

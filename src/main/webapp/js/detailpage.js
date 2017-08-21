@@ -318,7 +318,6 @@ $(window).on("load",function(){
     })
 })
 
-// 자동재생
 function autoPlayZzal() {
 	var autoPlay = '',
 	    toFirst = '',
@@ -326,7 +325,7 @@ function autoPlayZzal() {
 	    faPlay = $('.auto-play .fa-play'),
 		isLast = false,
 		swiperBtn = $('.detail-siwpe.swiper-container .swiper-button-next.web-swiper-btn')[0],
-		swiperLeftBtn = $('.detail-siwpe.swiper-container .swiper-button-prev.web-swiper-btn')[0]
+		swiperLeftBtn = $('.detail-siwpe.swiper-container .swiper-button-prev.web-swiper-btn')[0];
 	  
 	function autoZzalPlay() {
 		var zzals = $('.swiper-pagination-total').text() - $('.swiper-pagination-current').text() - 1
@@ -344,17 +343,18 @@ function autoPlayZzal() {
 	
 	var goFirst = $('.swiper-pagination-total').text() - 2
 	function toFirstZzal() {
-		console.log(goFirst)
+		var	settimeSec = $('.settime-sec').val() * 1000
 		swiperLeftBtn.click()
 		if (goFirst <= 0) {
 			console.log('커버!')
 			clearInterval(toFirst)
-			autoPlay = window.setInterval(autoZzalPlay, 3000)
+			autoPlay = window.setInterval(autoZzalPlay, settimeSec)
 		}
 		goFirst--
 	}
 	
 	$('.auto-play .fa-play').on('click', function() {
+		var	settimeSec = $('.settime-sec').val() * 1000
 		var zzals = $('.swiper-pagination-total').text() - $('.swiper-pagination-current').text()
 		console.log(zzals)
 		faPlay.css('display','none')
@@ -366,7 +366,7 @@ function autoPlayZzal() {
 			toFirst = window.setInterval(toFirstZzal, 50)
 			isLast = false
 		} else {
-			autoPlay = window.setInterval(autoZzalPlay, 3000)
+			autoPlay = window.setInterval(autoZzalPlay, settimeSec)
 		}
 	})
 	$('.auto-play .fa-pause').on('click', function() {

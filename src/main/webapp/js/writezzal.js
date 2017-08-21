@@ -268,7 +268,11 @@ function writefuncDone(){
 				$(".url-inputer").css("display","block")
 				$("#fi-url-inputer").val("")
 				$("<div>").addClass("fake-dvd").appendTo(".write-mask")
-
+				
+				$('.input-loca .cancle-btn').on('click',function(){
+					$("#fi-url-inputer").val('')
+				})
+				
 				$(".veido-check-btn").on('click',function(){
 
 					let ifstr=[],
@@ -296,7 +300,8 @@ function writefuncDone(){
 					$('.write-mask').fadeOut(1000);
 					$('.write-mask').fadeTo("slow",0.8);
 					e.preventDefault();
-			  })
+				})
+				  
 				e.preventDefault();
 			})
 
