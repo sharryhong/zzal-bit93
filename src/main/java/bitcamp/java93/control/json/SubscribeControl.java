@@ -29,7 +29,20 @@ public class SubscribeControl {
 
 		return new JsonResult(JsonResult.SUCCESS, dataMap);
 	}
+	
+	@RequestMapping("getcono")
+	public JsonResult getCono(int zzno, Subscribe subscribe) throws Exception {
+		
+		subscribe.setZzalNo(zzno);
+//		subscribe.setMemberno(mno);
+		HashMap<String,Object> dataMap = new HashMap<>();
+		dataMap.put("list", subscribeService.getCono(subscribe));
 
+		return new JsonResult(JsonResult.SUCCESS, dataMap);
+	}
+	
+	
+	
 
 	@RequestMapping("insert")
 	public JsonResult addSubs(int mno, int cono, Subscribe subscribe) throws Exception {

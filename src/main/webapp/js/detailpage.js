@@ -48,7 +48,7 @@ $.getJSON('auth/userinfo.json',function(result){
      rulogin=true;
    }
    memberno=result.data.no
-   collectno =4;
+   collectno=4;
  }catch(e){
    rulogin = false;
  }

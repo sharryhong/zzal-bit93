@@ -25,6 +25,7 @@ $.getJSON('/zzal-bit93/auth/userinfo.json', function(result) {
 	  let mno = result.data.no
 
 	  
+		  
 	  $.ajax({
 			url:'/zzal-bit93/notice/count.json',
 			method:'GET',
@@ -50,9 +51,13 @@ $.getJSON('/zzal-bit93/auth/userinfo.json', function(result) {
 
 		   })
 		}//성공
+	
 		
-  })
-  }
+  })//노티스 파운드 ajax
+  
+  
+  
+  }//맨위 이프
 }) 
 
 

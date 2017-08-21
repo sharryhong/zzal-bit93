@@ -9,6 +9,11 @@ package bitcamp.java93.domain;
 public class Subscribe {
   int memberno;
   int collectNo;
+  int zzalNo;
+@Override
+public String toString() {
+	return "Subscribe [memberno=" + memberno + ", collectNo=" + collectNo + ", zzalNo=" + zzalNo + "]";
+}
 public int getMemberno() {
 	return memberno;
 }
@@ -21,12 +26,13 @@ public int getCollectNo() {
 public void setCollectNo(int collectNo) {
 	this.collectNo = collectNo;
 }
-@Override
-public String toString() {
-	return "Subscribe [memberno=" + memberno + ", collectNo=" + collectNo + "]";
+public int getZzalNo() {
+	return zzalNo;
+}
+public void setZzalNo(int zzalNo) {
+	this.zzalNo = zzalNo;
 }
 
-  
   
   
   

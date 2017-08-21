@@ -73,7 +73,7 @@
 	n.ynn,
 	n.dmno,
 	n.cdt as noticdt
-  from notice n where n.mno=#{mno};
+  from notice n where n.mno=#{mno} order by n.nono desc;
 	</select>
 	
 	<select id="getCnt" parameterType="int" resultType="int">

@@ -64,7 +64,7 @@
 		$(this).on('click','.nodel',function(){
 			let nono = $(this).attr("data-nono")
 			
-			console.log(nono)
+			$(this).closest('.notices').css('display','none')
 			$.ajax({
 			url:'/zzal-bit93/notice/delete.json',
 			method: 'POST',
@@ -73,7 +73,7 @@
 				
 			}
 	
-		})
+		    })
 		})
 		
 		
