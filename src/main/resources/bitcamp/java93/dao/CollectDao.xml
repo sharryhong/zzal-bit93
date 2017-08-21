@@ -112,11 +112,11 @@
   
   <update id="update" parameterType="collect">
 	update colct set title=#{title}, cont=#{content}, pub=#{isPublic}, pic=#{picture} 
-	where cono=#{no}
+	where cono = #{no}
   </update>
   
   <delete id="delete" parameterType="int">
-	delete from colct where cono=#{cono}
+	delete from colct where cono = #{no}
   </delete>
 	
 </mapper> 

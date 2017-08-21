@@ -53,6 +53,8 @@ public class CollectControl {
   public JsonResult detail(int no) throws Exception {
     System.out.println(no);
     Collect collect = collectService.get(no);
+//    HashMap<String,Object> dataMap = new HashMap<>();
+//    dataMap.put("list", collect);
     /*if (collect == null) {
       return new JsonResult(JsonResult.FAIL, no + "번 Collection이 없습니다.");
     }*/

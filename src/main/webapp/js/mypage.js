@@ -65,15 +65,17 @@
   $(document.body).on('click', '.zzal-menu02 #subs-btn', function(event) {
 	  $.getJSON(contextRoot + '/collect/subslist.json', {'mno': no}, function(result) {
 		  if(result.data){
-			  /*console.log(result.data)
-			  var passdata = result.data.subslist[0]
+			  console.log(result.data)
+			  var passdata = result.data.list[0]
 			  console.log(passdata)
-			  subsUser = passdata.memNo
-			  console.log(subsUser)*/
-//			  generateHandlebars(result, $('#subs-collection-template'), $('#subs-list-collect'))
+			  subsUser = passdata.no
+			  console.log(subsUser)
 			  generateHandlebars(result, $('#my-collection-template'), $('#my-collection02'))
+			  $('#my-collection02 .editerbtn').css('display', 'none')
+			  
 		  }
 	  })
+	  
   })
   // 비공개 컬렉션 리스트
   $(document.body).on('click', '.zzal-menu02 #public-collect-list', function(event) {
@@ -117,12 +119,12 @@
 	  event.preventDefault()
   });
   // 편집 버튼 클릭시 컬렉션 data-no
-  $(document.body).on('click', '#my-collection.collection-view .btn-info', function(event) {
+  $(document.body).on('click', '.editerbtn', function(event) {
 	  location.href = 'collectupdate.html?cono=' + $(this).attr('data-no')
 	  event.preventDefault()
   });
-  $(document.body).on('click', '.subscollectlist', function(event) {
-	  location.href = 'collectdetail.html?collection=' + subsUser
+  $(document.body).on('click', '#my-collection02 .mycollectlist', function(event) {
+	  location.href = 'someonedetail.html?collection=' + subsUser
 	  event.preventDefault()
   });	 
 })(jQuery);
