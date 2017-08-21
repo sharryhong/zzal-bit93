@@ -23,7 +23,7 @@ function fnChkByte(obj, maxByte) {
 	}
 
 	if(rbyte > maxByte){
-	    alert("한글 "+(maxByte/2)+"자 / 영문 "+maxByte+"자를 초과 입력할 수 없습니다.");
+		swal("글자 수 제한", "한글 "+(maxByte/2)+"자 / 영문 "+maxByte+"자를 초과 입력할 수 없습니다.", "warning")
 	    str2 = str.substr(0,rlen);                                  //문자열 자르기
 	    obj.value = str2;
 	    fnChkByte(obj, maxByte);
@@ -74,6 +74,7 @@ function justInit(no){
 	}catch(e){}
 }
 
+let tmpMpic = ''
 function StringMaker(obj){
 	let changer = String(obj)
 	return obj = changer.substring(1,changer.length-1)
@@ -84,7 +85,7 @@ function StringMaker(obj){
 		let tmpMcoNo = data.zzal.cono
 		let tmpMCno = data.zzal.cno
 		let tmpMtitl = data.zzal.title
-		let tmpMpic = StringMaker(data.zzal.mainPic)
+		tmpMpic = StringMaker(data.zzal.mainPic)
 
 		let arrpic=[]
 		let arrcontext=[]
@@ -185,6 +186,7 @@ var pageCon = function(){
 
 
 var pageArray = [];
+var isCorverImage = false // 커버 이미지 올렸는지 확인 
 
 slideNumberring()
 
@@ -210,8 +212,9 @@ function writefuncDone(){
 				photoUpLoad = $('.swiper-slide-active .photo-upload-btn')
 
 				// return indexNum;
-				console.log(photoUpLoad)
+				// console.log(photoUpLoad)
 						$(photoUpLoad).on('click',function(){
+							isCorverImage = true
 							let curslide = $(this).closest(".swiper-slide")
 							let curSlideNo = $(this).closest(".swiper-slide").attr('data-no')
 
@@ -329,14 +332,12 @@ function wrapWindowByMask(){
 
 		  $('.delete-btn').on('click',function(e){
 				e.preventDefault();
-				console.log('is event nested?')
 				if(indexNum>1){
 					swiper.removeSlide([indexNum])
 					slideNumberring()
 					setTimeout(deleteSync(),150);
-					console.log($('.swiper-slide'))
 				}else {
-					alert("메인과 첫페이지는 삭제가 되지 않습니다.")
+					swal("error", "메인과 첫페이지는 삭제가 되지 않습니다.", "error");
 				}
 			 })
 				function deleteSync(){
@@ -363,18 +364,20 @@ var ssl=0;
 		}
 
 		$(document).on('click', '#add-btn, #temp-save-btn', function() {
-
 			if($(fiCategory).val()==0){
-				alert("카테고리를 입력해주세요")
+				swal("카테고리를 입력해주세요", "", "warning");
 				return
 			}
 			if(!$(fiTitle).val()){
-				alert("제목을 입력해주세요")
+				swal("제목을 입력해주세요", "", "warning");
+				return
+			}
+			if(!isCorverImage) {
+				swal("커버 이미지를 입력해주세요", "", "warning");
 				return
 			}
 
 			if(initWrite){
-				console.log("지금zzno있어요")
 				$.ajax({
 					url:'/zzal-bit93/write/delete.json',
 					method:'POST',
@@ -387,8 +390,7 @@ var ssl=0;
 
 			dataGarage()
 			if($(this).attr("data-tmppub")=="true"){
-				console.log("true데스")
-				console.log(this)
+//				console.log(this)
 				pageArray[0].publicType = true;
 
 			}else{
@@ -402,6 +404,22 @@ var ssl=0;
 			youJSonSender(pageArray[0],jsonPageArray)
 			location.href="mypage.html"
 
+		})
+		
+		$(document).on('click', '#cancle-btn', function() {
+			swal({
+				  title: "정말 취소하시겠습니까?",
+				  text: "임시저장되지 않고 바로 삭제됩니다.",
+				  type: "warning",
+				  showCancelButton: true,
+				  confirmButtonColor: "#DD6B55",
+				  confirmButtonText: "삭제",
+				  cancelButtonText: "취소",
+				  closeOnConfirm: false
+				},
+				function(){
+					location.href="index.html"
+				})
 		})
 
 		function youJSonSender(obj,jsonObj){

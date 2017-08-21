@@ -135,7 +135,11 @@ $.getJSON('auth/userinfo.json',function(result){
     } else {
 
       $('.upper-upper #like-btn, #subscribe-btn').on('click',function(){
-        alert('로그인 하세요!')
+        swal({
+		  title: "로그인이 필요합니다.",
+		  timer: 1000,
+		  showConfirmButton: true
+		});
         $.getScript('js/login.js',function(data, textStatus, jqxhr){
 
             $(".login-curtain").show();

@@ -5,11 +5,11 @@ input::-moz-placeholder { color: #ccc; }
 ::-webkit-input-placeholder { color: #ccc; }
 ::-moz-placeholder { color: #ccc; }
 
-.sweet-alert {
+/* .sweet-alert {
   width: 486px;
   margin-left: -243px;
 }
-
+ */
 .write-mask {
   position:absolute;
   left:0;
