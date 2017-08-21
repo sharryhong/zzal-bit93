@@ -52,7 +52,13 @@ $(document).ready(function() {
 	  location.href = 'detailpage.html?zzno=' + $(this).attr('data-zzno') // 짤강 detail 완성 후  링크수정
 	  event.preventDefault()
 	})
-
+	
+	// 클릭시 전화면으로 가기!!
+	$(document.body).on('click', '.change-header .close', function(event) {
+	  window.history.back();
+	  event.preventDefault()
+	})
+	
 	// 로그인, 회원가입
 	var fiEmail = $('#fi-email'),
 		fiPassword = $('#fi-password'),

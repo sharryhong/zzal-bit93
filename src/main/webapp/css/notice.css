@@ -78,4 +78,12 @@
 	.zzal-container {
 	  padding: 0px;
 	}
+@media (max-width: 470px){
+	.titles-wrap .contents {
+		width: 76%;
+	}
+	
+}	
+	
+	
 }
