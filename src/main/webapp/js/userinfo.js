@@ -22,7 +22,32 @@ $.getJSON('/zzal-bit93/auth/userinfo.json', function(result) {
 		  location.href = 'profilemodify.html?no=' + result.data.no 
 		  event.preventDefault()
 		})*/
-	  
+	  let mno = result.data.no
+	  console.log(mno,'여기는 유저 인포')
+	  $.ajax({
+			url:'/zzal-bit93/notice/count.json',
+			method:'GET',
+			data: {'mno': mno },
+			success : function(result){			
+				let str = result.data 
+				console.log(str,'str  유저 인포')
+				console.log($('.after-login .num-box'))
+				$('.after-login .num-box')[0].innerHTML=str
+				
+			$(".notice").click(function(){
+				
+				$.ajax({
+					url:'/zzal-bit93/notice/update.json',
+					method: 'POST',
+					data: {'mno':mno},
+					success : function(data){console.log(data,"우앙 왔당!")
+			        }
+				})	
+
+		   })
+		}//성공
+		
+  })
   }
 }) 
 

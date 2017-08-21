@@ -1,5 +1,8 @@
 (function($){
-
+	
+	
+	
+	
 	var no;
 	$.getJSON('/zzal-bit93/auth/userinfo.json', function(result) {
 		if (result.data) {
@@ -54,8 +57,27 @@
 			success : function(data){console.log(data,"우앙 왔당!")}
 		})
 	})
-
-
+	
+	
+	// 삭제 버튼 
+	$(document).on('ready',function(){
+		$(this).on('click','.nodel',function(){
+			let nono = $(this).attr("data-nono")
+			
+			console.log(nono)
+			$.ajax({
+			url:'/zzal-bit93/notice/delete.json',
+			method: 'POST',
+			data: {'nono':nono  },
+			success : function(data){console.log(data,"우앙 왔당!")
+				
+			}
+	
+		})
+		})
+		
+		
+	})
 
 
 })(jQuery);

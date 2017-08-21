@@ -73,14 +73,20 @@
 	n.ynn,
 	n.dmno,
 	n.cdt as noticdt
-  from notice n where n.mno=#{mno} and n.ynn=0;
+  from notice n where n.mno=#{mno};
 	</select>
 	
 	<select id="getCnt" parameterType="int" resultType="int">
 		select count(*) from notice where mno=#{mno} and ynn=0;
 	</select>
 	
-	<delete>
+	<update id="updateNo" parameterType="int">
+		update notice set ynn=1 where mno=#{mno}
+	</update>
+	
+	
+	<delete id="deleteNo" parameterType="int">
+		delete from notice where nono=#{nono};
 	</delete>
 	
 	
