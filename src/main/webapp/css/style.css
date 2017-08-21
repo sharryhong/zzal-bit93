@@ -8,6 +8,10 @@ body {
 	overflow-y: scroll;
 }
 
+.zzal-lects {
+	cursor: pointer;
+}
+
 .main-page {
   min-width: 300px;
 }

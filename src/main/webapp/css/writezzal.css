@@ -5,12 +5,16 @@ input::-moz-placeholder { color: #ccc; }
 ::-webkit-input-placeholder { color: #ccc; }
 ::-moz-placeholder { color: #ccc; }
 
+.sweet-alert {
+  width: 486px;
+  margin-left: -243px;
+}
 
 .write-mask {
   position:absolute;
   left:0;
   top:0;
-  z-index:9000;
+  z-index:900;
   background-color:#000;
   display:none;
 
@@ -18,8 +22,8 @@ input::-moz-placeholder { color: #ccc; }
 .write-mask .fake-dvd{
   position: absolute;
   top: 20px;
-/* margin: auto; */
-  left: 18%;
+  left: 50%;
+  transform: translateX(-50%);
   width: 670px;
   height: 370px;
   background-color: #eee;
@@ -29,7 +33,7 @@ input::-moz-placeholder { color: #ccc; }
  display: none;
 
 	background-color: #fbfbfb;
-  z-index: 100000;
+  z-index: 1000;
   text-align: center;
   width: 100%;
 	position: absolute;
@@ -37,26 +41,28 @@ input::-moz-placeholder { color: #ccc; }
 	top:45%;
 }
 
-
-
 .inner-con{
 	border-bottom: 1px solid #ccc;
 	width: 100%;
-
 }
 
 .center-con {
 	position: relative;
   height: 60px;
-	width: 90%;
+	width: 100%;
+  padding: 0 20px;
 }
 .center-con .input-con{
 	height: 55px;
 	line-height: 55px;
-	width: 80%;
+	width: 100%;
 	position: relative;
 	margin: auto;
   display: inline-block;
+}
+.bottom-btns {
+	height: 55px;
+  line-height: 55px;
 }
 
 .center-con .input-con .input-loca{
@@ -98,10 +104,6 @@ input::-moz-placeholder { color: #ccc; }
 	 margin-top: 7px;
 }
 
-.url-inputer .center-con .cancle-loca {
-	width: 90px;
-}
-
 .url-inputer .center-con .url-btns{
 	display: inline-block;
 	position: absolute;
@@ -113,7 +115,7 @@ input::-moz-placeholder { color: #ccc; }
 }
 
 
-.url-inputer .center-con .veido-check-btn:hover,.url-inputer .center-con .veido-check-btn:active{
+/* .url-inputer .center-con .veido-check-btn:hover,.url-inputer .center-con .veido-check-btn:active{
 	font-size: 240%;
   color: rgb(255,0,51);
 	margin-bottom: 20px;
@@ -122,7 +124,7 @@ input::-moz-placeholder { color: #ccc; }
   -o-transform: rotate(360deg);
   -ms-transform: rotate(360deg);
   transform: rotate(360deg);
-}
+} */
 
 
 
@@ -388,8 +390,34 @@ input::-moz-placeholder { color: #ccc; }
 	}
 }
 
+.url-inputer {
+   width: 80%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   height: 122px;
+   top: 50%;
+   border-radius: 5px;
+   border: 1px solid rgba(0,0,0,0.2);
+}
+.veido-check-btn,
+.cancle-loca.btn {
+	width: 49%;
+	height: 45px;
+  font-size: 16px;
+}
+
 /*mobile*/
 @media (max-width : 765px) {
+	.url-inputer .center-con .input-con .input-loca > input {
+	  font-size: 18px;
+	}
+	.url-inputer {
+	   width: 95%;
+	   border-radius
+	}
+	.center-con {
+    padding: 0 10px;
+	}
 	.bottom-menu {
 		height: 97px;
 	}

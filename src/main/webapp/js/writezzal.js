@@ -276,16 +276,15 @@ function writefuncDone(){
 					videoUrl = $("#fi-url-inputer").val()
 					console.log('videoUrl', videoUrl)
 
-					//ifstr[0] = ($("#fi-url-inputer").val()).replace(/"/g, "'")
-//					videoUrl.includes('=')
-					if (videoUrl.includes('=')) { // url에 '='가 있다면. 즉 일반 웹 
+					if (!videoUrl.includes('youtu')) { // youtube링크가 아니라면 
+						swal("youtube 링크를 입력해주세요!", "예) https://www.youtube.com/watch?v=82TD06U4ppA", "error")
+						return
+					} else if (videoUrl.includes('=')) { // url에 '='가 있다면. 즉 일반 웹 
 						inputUrl[0] = videoUrl.split('=')[1]
 					} else { // 없다면. 즉, 모바일
-						console.log('없슈')
 						inputUrl[0] = videoUrl.split('/')[3]
 					}
 					ifstr[0] = "<iframe src='https://www.youtube.com/embed/"+inputUrl[0]+"' frameborder='0' allowfullscreen></iframe>"
-					console.log(inputUrl[0])
 
 					$($('.images-div')[inputNo]).html("");
 					$(ifstr[0]).css({'width':670, 'height':370}).appendTo($($('.images-div')[inputNo]))
@@ -298,7 +297,7 @@ function writefuncDone(){
 				e.preventDefault();
 			})
 
-			$(".url-btns").on('click',function(e){
+			$(".cancle-loca").on('click',function(e){
 				console.log(this)
 				e.preventDefault();
 				$(".url-inputer").css("display","none")
