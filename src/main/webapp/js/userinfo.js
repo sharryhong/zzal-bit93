@@ -23,16 +23,20 @@ $.getJSON('/zzal-bit93/auth/userinfo.json', function(result) {
 		  event.preventDefault()
 		})*/
 	  let mno = result.data.no
-	  console.log(mno,'여기는 유저 인포')
+
+	  
 	  $.ajax({
 			url:'/zzal-bit93/notice/count.json',
 			method:'GET',
 			data: {'mno': mno },
 			success : function(result){			
 				let str = result.data 
-				console.log(str,'str  유저 인포')
-				console.log($('.after-login .num-box'))
-				$('.after-login .num-box')[0].innerHTML=str
+				
+				if(str==0){
+					$('.after-login .num-box').css('display','none')
+				}else{
+					$('.after-login .num-box')[0].innerHTML=str					
+				}
 				
 			$(".notice").click(function(){
 				
