@@ -670,7 +670,7 @@ input::-moz-placeholder { color: #777; }
     padding-bottom: 81%;
 	}
 	.titles-wrap {
-	  display: none;
+	  /* display: none; */
 	  margin-top: 0px;
 	  padding: 0;
 	}
