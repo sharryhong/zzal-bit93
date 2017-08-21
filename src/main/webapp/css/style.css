@@ -224,6 +224,7 @@ input::-moz-placeholder { color: #777; }
   background: white;
 }
 .zzal-lects li {
+	position: relative;
   float: left;
   width: 33.333%;
   padding: 5px;

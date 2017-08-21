@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta charset="UTF-8">
+<title>zzal school</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="node_modules/swiper/dist/css/swiper.min.css">
+<link rel="stylesheet" type="text/css" href="css/sweetalert.css">
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/writezzal.css">
+</head>
+<body>
+<div class="main-page">
+
+<div class="write-mask"></div>
+<!-- <div id="header"></div> -->
+<div class="writezzal-con header change-header">
+	<div class="left">
+		<h1 class="logo">
+			<a href="./">Zzal School</a>
+		</h1>
+	</div>
+	<!-- <div class="page-right">
+   	<h2 class="title">알림</h2>
+    <a href="#" class="close"><i class="fa fa-times" aria-hidden="true"><span class="blind">닫기</span></i></a>
+  </div> -->
+  <div class="writezzal-header-right ">
+    <a href="#" class="mobile-btn btn" id="add-btn" data-tmppub="false">올리기</a>
+    <a href="#" class="mobile-btn btn" id="cancle-btn">취소</a>
+  </div>
+</div>
+<div class="main-content">
+<div class="writezzal-wrap">
+<div class="swiper-container">
+<div class="swiper-wrapper">
+
+  <div class="writezzal-page swiper-slide">
+	  <div class="top clearfix">
+			<div class="user-info-face">
+	      <div class="profile-wrap clearfix">
+	       <div class="phot"></div>
+	       <span class="user-name"></span>
+	      </div>
+	    </div>
+	    <select class="selectbox" id="select-category">
+			</select>
+		  <select class="selectbox" id="select-collect">
+			</select>
+	  </div>
+	  <div class="writezzal-title">
+	    <input type="text" placeholder="짤강의 제목" id="fi-title">
+	  </div>
+	  <div class="img-cover">
+		  <div class="writezzal-img writezzal-cover images-div">
+  </div>
+	    <div class="btns">
+  	    <button type="button" href="#" class="represent-photo"><i class="fa fa-camera-retro" aria-hidden="true"></i><span class="text">커버 이미지</span></button>
+  	    <input class="photo-upload-btn" type="file" name="files" accept="image/gif, image/png, image/jpg, image/jpeg">
+      	<input class="fi-filenames sd" type="hidden" names="filenames">
+	    </div>
+	  </div>
+	</div>
+
+</div>
+
+<!--slide-wrapper-->
+
+	  <div class="bottom-menu">
+			  <div class="selectpage">
+				  <div class="swiper-pagination"></div>
+				  <div class="swiper-button-prev"></div>
+				  <div class="swiper-button-next"></div>
+				</div>
+				<div class="btns-right">
+					<button type="button" class="delete-btn btn btn-default">페이지 삭제</button>
+				  <button type="button" class="append-slide plus-btn btn btn-default"><i class="fa fa-plus-circle" aria-hidden="true"></i> 페이지 추가</button>
+				  <button type="button" class="plus-btn btn btn-default" id="temp-save-btn" data-tmppub="true">임시저장</button>
+				</div>
+		</div>
+  </div>
+</div>
+</div>
+
+<div class="url-inputer">
+	<div class="inner-con">
+	<div class="center-con">
+		<div class="input-con">
+			<div class="youtub"><i class="fa fa-youtube-square" aria-hidden="true"></i></div>
+			<div class="input-loca">
+			 <input id="fi-url-inputer" type="text" placeholder="youtube 링크를 입력해주세요." name="url-address">
+			 <button class="cancle-btn"><i class="fa fa-times"></i></button>
+		 </div>
+		</div>
+		<div class="bottom-btns">
+	    <button  class="veido-check-btn btn btn-info" type="button" name="button">확인</button>
+		  <button class="cancle-loca btn btn-default" type="button" name="button">취소</button>
+		</div>
+	</div>
+  </div>
+
+</div>
+
+
+</div><!--main-->
+
+<script id="select-category-template" type="text/x-handlebars-template">
+<option value="0">카테고리 (필수)</option>
+{{#each list}}
+<option value="{{no}}">{{name}}</option>
+{{/each}}
+</script>
+
+<script id="select-collect-template" type="text/x-handlebars-template">
+<option value="0">내컬렉션 (선택)</option>
+{{#each list}}
+<option value="{{no}}">{{title}}</option>
+{{/each}}
+</script>
+
+<script id="addpage-template" type="text/x-handlebars-template">
+
+<div class="writezzal-page swiper-slide each-page">
+  <div class="img-cover">
+	  <div class="writezzal-img writezzal-cover images-div">
+            비워두면 커버이미지가 올라가요!
+	  </div>
+		<div class="sub-btns">
+			<button type="button" href="#" class="represent-photo"><i class="fa fa-camera-retro" aria-hidden="true"></i><span class="text">이미지 업로드</span></button>
+			<input class="photo-upload-btn" type="file" name="files" accept="image/gif, image/png, image/jpg, image/jpeg">
+			<input class="fi-filenames" type="hidden" names="filenames">
+			<div class="url-upload" >
+					<button type="button" class="represent-photo repre-video"><i class="fa fa-video-camera" aria-hidden="true"></i><span class="text">동영상 링크</span></button>
+					<!-- <input class="fi-urlstring" type="hidden" name="url-address"> -->
+			</div>
+		</div>
+  </div>
+ 	<div class="writezzal-text">
+    <textarea placeholder="짤강의 내용을 입력해 주세요" onKeyUp="javascript:fnChkByte(this,'200')"></textarea>
+		<div class="byteCheck"><span class="byteInfo">0</span>/200Byte</div>
+  </div>
+</div>
+
+</script>
+
+
+<script id="tmppage-template" type="text/x-handlebars-template">
+	{{#each page}}
+<div class="writezzal-page swiper-slide each-page">
+  <div class="img-cover">
+	  <div class="writezzal-img writezzal-cover images-div">
+			비워두면 커버이미지가 올라가요!
+	  </div>
+		<div class="sub-btns">
+			<button type="button" href="#" class="represent-photo"><i class="fa fa-camera-retro" aria-hidden="true"></i><span class="text">이미지 업로드</span></button>
+			<input class="photo-upload-btn" type="file" name="files" accept="image/gif, image/png, image/jpg, image/jpeg">
+			<input class="fi-filenames" type="hidden" names="filenames">
+			<div class="url-upload">
+					<button type="button" class="represent-photo repre-video"><i class="fa fa-video-camera" aria-hidden="true"></i><span class="text">동영상 링크</span></button>
+
+					<!-- <input class="fi-urlstring" type="hidden" name="url-address"> -->
+			</div>
+
+		</div>
+  </div>
+ 	<div class="writezzal-text">
+    <textarea placeholder="짤강의 내용을 입력해 주세요" onKeyUp="javascript:fnChkByte(this,'200')"></textarea>
+		<div class="byteCheck"><span class="byteInfo">0</span>/200Byte</div>
+  </div>
+</div>
+{{/each}}
+</script>
+
+
+
+
+
+<script src="node_modules/jquery/dist/jquery.min.js"></script>
+<script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+<script src="node_modules/handlebars/dist/handlebars.min.js"></script>
+<script src="node_modules/swiper/dist/js/swiper.min.js"></script>
+<script src="node_modules/blueimp-file-upload/js/vendor/jquery.ui.widget.js"></script>
+<script src="node_modules/blueimp-load-image/js/load-image.all.min.js"></script>
+<script src="node_modules/blueimp-canvas-to-blob/js/canvas-to-blob.js"></script>
+<script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+<script src="node_modules/blueimp-file-upload/js/jquery.iframe-transport.js"></script>
+<script src="node_modules/blueimp-file-upload/js/jquery.fileupload.js"></script>
+<script src="node_modules/blueimp-file-upload/js/jquery.fileupload-process.js"></script>
+<script src="node_modules/blueimp-file-upload/js/jquery.fileupload-image.js"></script>
+<script src="js/sweetalert.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/writezzal.js"></script>
+</body>
+</html>

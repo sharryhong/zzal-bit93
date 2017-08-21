@@ -108,7 +108,7 @@
 	  $.getJSON('collect/likezzal.json',{'mno' : no}, function(result) {
 		  if(result.data){
 			  console.log(result.data)
-		  generateHandlebars(result, $('#my-zzallist-template'), $('#ilike-zzallist'))
+		  generateHandlebars(result, $('#my-like-zzallist-template'), $('#ilike-zzallist'))
 		  }
 	  })
    })
@@ -126,5 +126,10 @@
   $(document.body).on('click', '#my-collection02 .mycollectlist', function(event) {
 	  location.href = 'someonepage.html?collection=' + subsUser
 	  event.preventDefault()
-  });	 
+  });	
+  // 짤강 편집 클릭시 
+  $(document.body).on('click', '.modify-zzal', function(event) {
+	  location.href = 'updatezzal.html?zzno=' + $(this).closest('li').find('.zzal-lect').attr('data-zzno')
+	  event.preventDefault()
+  });
 })(jQuery);
