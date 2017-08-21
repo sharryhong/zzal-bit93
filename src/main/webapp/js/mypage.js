@@ -68,11 +68,10 @@
 			  console.log(result.data)
 			  var passdata = result.data.list[0]
 			  console.log(passdata)
-			  subsUser = passdata.no
+			  subsUser = passdata.memNo
 			  console.log(subsUser)
 			  generateHandlebars(result, $('#my-collection-template'), $('#my-collection02'))
 			  $('#my-collection02 .editerbtn').css('display', 'none')
-			  
 		  }
 	  })
 	  
@@ -123,8 +122,9 @@
 	  location.href = 'collectupdate.html?cono=' + $(this).attr('data-no')
 	  event.preventDefault()
   });
+  // 구독한 컬렉션 클릭시 
   $(document.body).on('click', '#my-collection02 .mycollectlist', function(event) {
-	  location.href = 'someonedetail.html?collection=' + subsUser
+	  location.href = 'someonepage.html?collection=' + subsUser
 	  event.preventDefault()
   });	 
 })(jQuery);
