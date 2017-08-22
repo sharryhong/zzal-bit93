@@ -19,7 +19,7 @@
 						templateFn = Handlebars.compile(el.text())
 
 						Handlebars.registerHelper('isVowel', function(options) {
-							var regexp = this.Notype;
+							let regexp = this.Notype;
 							console.log(this)
 							//
 							switch (regexp) {
@@ -36,7 +36,20 @@
 							default: return new Handlebars.SafeString("<h1>알림이 없습니다.</h1>")
 							}
 						});
-
+						Handlebars.registerHelper('isZzalNo', function(options) {
+							
+							let regexp = this.Notype;
+							console.log(this)
+							//
+							if(regexp=='sub'){
+								return new Handlebars.SafeString(
+										"<div class='notices clearfix selection' data-locano-cono="+this.conono +">")
+							}else{
+								return new Handlebars.SafeString(
+										"<div class='notices clearfix selection' data-locano-zzno="+this.zzalNono +">")
+								
+							}
+						});	
 
 						generatedHTML = templateFn(result.data)
 						target.text('')
@@ -77,7 +90,30 @@
 		})
 		
 		
+		
+		$(this).on('click','.notices.selection',function(){
+			
+		
+				if($(this).attr('data-locano-cono')){
+					
+				
+					location.href='collectdetail.html?no='+$(this).attr('data-locano-cono')
+					
+				}else{
+					location.href='detailpage.html?='+$(this).attr('data-locano-zzno')
+					
+				}
+		
+		})
+		
 	})
+	
+	
+	
+	
+	
+	
+	
 
 
 })(jQuery);

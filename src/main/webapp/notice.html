@@ -30,40 +30,22 @@
 <script id="notice-template" type="text/x-handlebars-template">
   <h2 class="title">알림</h2>
 {{#each list}} 
-      <div class="notices clearfix">
+	
+     {{isZzalNo}}
       <div class="left">
           <span class="user-photo" style="background-image: url(upload/{{who_pic}});"></span>
         </div>
-	<div class="right">
+	  <div class="right">
           <a href='#'><span class="fa fa-times nodel" data-nono={{nono}}></span></a>
-        </div>	
-        <div class="contents">
+      </div>	
+      <div class="contents">
  			{{isVowel}}
-          <p class="date">{{noticdt}}</p>
-        </div>
-      </div>
+        <p class="date">{{noticdt}}</p>
+      </div>  
+     </div>
+	
   {{/each}}
 </script>
-<!--
-<div class="notices clearfix">
-  <div class="left">
-    <span class="user-photo"></span>
-  </div>
-  <div class="contents">
-    <span class="bold">유끼만두</span>님이 <span class="bold">우리함께 브런치할까요? 단돈 3000원에 후훗</span> 짤강에 댓글을 남겼습니다.
-    <p class="date">2017-06-18 오전 11:40</p>
-  </div>
-</div>
-
-<div class="notices clearfix">
-  <div class="left">
-    <span class="user-photo"></span>
-  </div>
-  <div class="contents">
-    <span class="bold">유끼만두</span>님이 <span class="bold">우리함께 브런치할까요? 단돈 3000원에 후훗</span> 짤강에 댓글을 남겼습니다.
-    <p class="date">2017-06-18 오전 11:40</p>
-  </div>
-</div> -->
 
 <script src="node_modules/swiper/dist/js/swiper.min.js"></script>
 <script src="js/load.js"></script>

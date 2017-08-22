@@ -1,6 +1,10 @@
 #header .swiper-container {
 	display: none;
 }
+
+.notices.selection{
+	cursor:pointer
+} 
 .titles-wrap .notices {
 	width: 100%;
 	padding: 10px 10px;
