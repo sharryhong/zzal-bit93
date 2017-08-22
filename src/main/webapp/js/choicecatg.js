@@ -64,18 +64,16 @@
 							async: false,
 							success: function(data) {
 								swal({
-									title: "변경완료",
-									text: "관심 카테고리를 추가했습니다.",
-									type: "success",
-									showCancelButton: false,
-									closeOnConfirm: false,
-//									showLoaderOnConfirm: true,
-								},
-								function(){
-									setTimeout(function(){
-										location.href="index.html"
+									  title: "변경완료!",
+									  text: "관심 카테고리를 추가했습니다.",
+									  type: "success",
+									  timer: 2000,
+									  showConfirmButton: false
+									}, function(){
+										setTimeout(function(){
+											location.href="index.html"
+										});
 									});
-								});
 							}
 						})
 					}
@@ -92,6 +90,16 @@
 					},
 					async: false,
 					success: function(data) {
+//						swal({
+//							  title: "변경완료!",
+//							  text: "관심 카테고리를 변경했습니다.",
+//							  timer: 2000,
+//							  showConfirmButton: false
+//							}, function(){
+//								setTimeout(function(){
+//									location.href="index.html"
+//								});
+//							});
 						swal({
 							title: "변경완료",
 							text: "관심 카테고리를 변경했습니다.",
