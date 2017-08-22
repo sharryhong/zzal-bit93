@@ -48,20 +48,31 @@ $.getJSON('auth/userinfo.json',function(result){
      rulogin=true;
    }
    memberno=result.data.no
-   collectno=4;
+   console.log(zzno)
+	   $.getJSON('subs/getcono.json',{'zzno': zzno},function(result){
+//		  result.data.list
+		   		console.log(result.data.list,"cono")
+		   		if(result.data.list==undefined){
+		   			return $('.subs-null').css('display','none')
+		   		}
+		   		
+	   		    return collectno=result.data.list.collectNo
+             });
  }catch(e){
    rulogin = false;
  }
 
     //좋아요임?!
     $.getJSON('zzallike/doulike.json',{'mno':memberno,'zzno':zzno},function(result){
+    	
       islike=Boolean(result.data.doit)
       buttonChecker();
     })
 
     //구독하심?
     $.getJSON('subs/list.json',{'mno':memberno,'cono':collectno},function(result){
-      douSubscribe =Boolean(result.data.list)
+    	console.log(collectno,'콜넘')
+    	douSubscribe =Boolean(result.data.list)
       buttonChecker();
     })
 
@@ -99,7 +110,7 @@ $.getJSON('auth/userinfo.json',function(result){
          let off = $(this)[0].children[1]
          event.preventDefault()
          if(!douSubscribe){
-           $.post('subs/insert.json',{'mno':memberno, 'cono':collectno},function(result){
+           $.post('subs/insert.json',{'mno':memberno, 'cono':parseInt(collectno)},function(result){
              console.log(result)
            },"json")
            innerFuncion(up,off)

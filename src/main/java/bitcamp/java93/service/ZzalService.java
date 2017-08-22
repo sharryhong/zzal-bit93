@@ -20,4 +20,5 @@ public interface ZzalService {
 	int getSize() throws Exception;
 	int foundRows() throws Exception;
 	int foundRowsCatetory(int cno) throws Exception;
+	void remove(int no) throws Exception;
 }
