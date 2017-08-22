@@ -14,4 +14,9 @@ public interface ReplyService {
   void remove(Reply reply) throws Exception;
   void removeSonReply(Reply reply) throws Exception;
 
+  void replyLike(Reply reply) throws Exception;
+
+  void replydetail(Reply reply) throws Exception;
+  void replyLikeCountPlus(Reply reply) throws Exception;
+  void replyLikeCountMinus(Reply reply) throws Exception;
 }

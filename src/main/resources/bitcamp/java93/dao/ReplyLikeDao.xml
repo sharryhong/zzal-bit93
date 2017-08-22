@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bitcamp.java93.dao.ReplyLikeDao">
+
+	<resultMap type="replyLike" id="replyLikeMap">
+		<id column="rno" property="replyNumber" />
+		<result column="mno" property="memberNumber"/>
+		<result column="repno" property="reparentNumber"/>
+		
+	</resultMap>
+
+	<!-- 한 회원이 특정 댓글에 좋아요 눌렀는지 안눌렀는지 체크한다 -->
+	<select id ="selectList" resultMap="replyLikeMap" parameterType="replyLike">
+		select * from reply_memb where mno = #{memberNumber} and rno = #{replyNumber};
+	</select>
+	
+	 <!-- 한 회원이 눌렀던 모든 좋아요 댓글을 불러온다.  -->
+  <select id ="allLikeList"  resultType="string">
+    select * from reply_memb 
+    where mno = #{memberNumber};
+  </select>
+  
+  <!-- 하나의 댓글에 눌린 좋아요 갯수 구하기 -->
+  <select id="countLikeReply" parameterType="hashmap" resultType="integer">
+    select count(*) from reply_memb where  rno = #{replyNumber}
+  </select> 
+
+	<!-- 댓글 좋아요 추가 -->
+	<insert id="insert" parameterType="replyLike">
+		insert into reply_memb(mno, rno, repno) values (#{memberNumber}, #{replyNumber}, #{reparentNumber})
+	</insert>
+	
+	<!-- 댓글 좋아요 삭제 -->
+	<delete id="deleteReplyLike" parameterType="replyLike">
+		delete from reply_memb where mno = #{memberNumber} and rno = #{replyNumber}
+	</delete>
+
+
+	<!-- 관심카테고리 목록 <select id="selectList" resultType="string"> select cno from 
+		favor_catg where mno = #{memberNumber} </select> 카테고리 삭제 <delete id="deleteCategory" 
+		parameterType="ChoiceCategory"> delete from favor_catg where mno=#{memberNumber} 
+		and cno = #{categoryNumber} <foreach collection='unCategoryNumberArray' item='item'> 
+		mno=#{memberNumber} and cno=#{item} </foreach> </delete> -->
+
+
+
+</mapper> 
+
+
+
+

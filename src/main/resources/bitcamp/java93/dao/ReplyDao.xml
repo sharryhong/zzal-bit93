@@ -3,70 +3,111 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="bitcamp.java93.dao.ReplyDao">
-  
-  <resultMap type="reply" id="replyMap">
-    <id column="rno" property="replyNumber"/>
-    <result column="mno" property="memberNumber"/>
-    <result column="nick" property="nickName"/>
-    <result column="pic" property="membPic"/>
 
-    <result column="cont" property="content"/>
-    <result column="date_format(cdt, '%Y-%m-%d %p %h:%i')" property="createDate"/>
-    <result column="re_like" property="replyLike"/>
-    <result column="report" property="report"/>
-    <result column="zzno" property="zzalnumber"/>
-    <result column="reparent" property="rereplyParentNumber"/>
-    <result column="reorder" property="replyOrderNumber"/>
-  </resultMap>
+	<resultMap type="reply" id="replyMap">
+		<id column="rno" property="replyNumber" />
+		<result column="mno" property="memberNumber" />
+		<result column="nick" property="nickName" />
+		<result column="pic" property="membPic" />
 
+		<result column="cont" property="content" />
+		<result column="date_format(cdt, '%Y-%m-%d %p %h:%i')" property="createDate" />
+		<result column="re_like" property="replyLike" />
+		<result column="report" property="report" />
+		<result column="zzno" property="zzalnumber" />
+		<result column="reparent" property="rereplyParentNumber" />
+		<result column="reorder" property="replyOrderNumber"/>
+		<result column="repacnt" property="reparentCountNumber"/>
+	</resultMap>
 
-  <select id="selectList"  resultMap="replyMap">
-	  select r.zzno, r.rno, m.nick, r.cont, date_format(cdt, '%Y-%m-%d %p %h:%i'), r.re_like, r.report, r.mno, m.pic, r.reparent, r.reorder
-	  from memb m
-	  join reply r
-	  on m.mno = r.mno
-	  where zzno = #{zzalnumber}
-	  order by if(isnull(reparent), rno, reparent) desc, reorder
-
+  <select id="selectReplyNumberList" resultMap="replyMap">
   </select>
-  
-  <!-- 전체 댓글 갯수 조회 -->
-  <select id="countReply" resultType="int">
-    select count(*)
-    from reply
-    where zzno = #{zzalnumber}
-  </select>
-  
- <!--  새로운 댓글 추가 -->
-  <insert id="insert" parameterType="reply" useGeneratedKeys="true" keyColumn="rno" keyProperty="replyNumber">  
-    insert into reply(cont, cdt, re_like, report, zzno, mno, reorder) 
-    values(#{content}, current_timestamp(), #{replyLike}, #{report}, #{zzalnumber}, #{memberNumber}, 1)
-  </insert>
-  
-   <!--  새로운 대댓글 추가 -->
-  <insert id="rerepinsert" parameterType="reply" useGeneratedKeys="true" keyColumn="rno" keyProperty="replyNumber">  
-	  <selectKey resultType="string" keyProperty="replyOrderNumber" order="BEFORE" >
-	      select max(reorder)+1 from reply where reparent = #{replyNumber} or rno = #{replyNumber}
-	  </selectKey>
-	    insert into reply (cont, cdt, re_like, report, zzno, mno, reparent, reorder) 
-	    values(#{content}, current_timestamp(), #{replyLike}, #{report}, #{zzalnumber}, #{memberNumber}, #{replyNumber}, #{replyOrderNumber})
-      
-  </insert>
-  
-  <!-- 부모 댓글 삭제 -->
-  <delete id="deleteNoticeParentRep" parameterType="reply">
-    delete from notice where rno=#{replyNumber};
-  </delete>
-  
-  <delete id="deleteParentRep" parameterType="reply">
-    delete from reply where rno=#{replyNumber} or reparent=#{replyNumber}; 
-  </delete>
-  
-  <!-- 자식 댓글 삭제 -->
-  <delete id="deleteSonRep" parameterType="reply">
-    delete from reply where rno=#{replyNumber};
-  </delete>
-  
-  
+
+	<select id="selectList" resultMap="replyMap">
+		select r.zzno, r.rno, m.nick, r.cont, date_format(cdt, '%Y-%m-%d %p %h:%i'),
+		r.re_like, r.report, r.mno, m.pic, r.reparent, r.reorder,
+    (select count(*) from reply where reparent = r.rno) as repacnt,
+		(select count(*) from reply_memb where rno = #{replyNumber}) as re_like
+		from memb m
+		join reply r
+		on m.mno = r.mno
+		where zzno = #{zzalnumber}
+		order by if(isnull(reparent), rno, reparent) desc, reorder
+	</select>
+
+	<!-- 전체 댓글 갯수 조회 -->
+	<select id="countReply" resultType="int">
+		select count(*)
+		from reply
+		where zzno = #{zzalnumber}
+	</select>
+
+	<!-- 새로운 댓글 추가 -->
+	<insert id="insert" parameterType="reply" useGeneratedKeys="true"
+		keyColumn="rno" keyProperty="replyNumber">
+		insert into reply(cont, cdt, re_like, report, zzno, mno, reorder)
+		values(#{content}, current_timestamp(), #{replyLike}, #{report},
+		#{zzalnumber}, #{memberNumber}, 1)
+	</insert>
+
+	<!-- 새로운 대댓글 추가 -->
+	<insert id="rerepinsert" parameterType="reply" useGeneratedKeys="true"
+		keyColumn="rno" keyProperty="replyNumber">
+		<selectKey resultType="string" keyProperty="replyOrderNumber"
+			order="BEFORE">
+			select max(reorder)+1 from reply where reparent = #{replyNumber} or rno =
+			#{replyNumber}
+		</selectKey>
+		insert into reply (cont, cdt, re_like, report, zzno, mno, reparent,
+		reorder)
+		values(#{content}, current_timestamp(), #{replyLike}, #{report}, #{zzalnumber},
+		#{memberNumber}, #{replyNumber}, #{replyOrderNumber})
+
+	</insert>
+
+	<!-- 부모 댓글 삭제 -->
+	<delete id="deleteReplyMemb" parameterType="reply">
+		delete from reply_memb where rno = #{replyNumber} or repno = #{replyNumber};
+	</delete>
+
+	<delete id="deleteNoticeParentRep" parameterType="reply"> 
+		delete from notice where rno=#{replyNumber};
+	</delete>
+
+	<delete id="deleteParentRep" parameterType="reply">
+		delete from reply where rno=#{replyNumber} or reparent=#{replyNumber};
+	</delete>
+	
+	<!-- 자식 댓글 삭제 -->
+	<delete id="deleteSonRep" parameterType="reply">
+		delete from reply where rno=#{replyNumber};
+	</delete>
+
+	<!-- 댓글 좋아요 -->
+	<update id="replyLike" parameterType="reply">
+		update reply set re_like = if (re_like=0, 1, 0) where rno=#{replyNumber} and
+		mno=#{memberNumber};
+	</update>
+
+	<!-- 한 댓글 선택 (detail) -->
+	<select id="replydetail" resultMap="replyMap" parameterType="reply">
+		select rno, cont, re_like, zzno, mno
+		from reply
+		where rno = #{replyNumber};
+	</select>
+
+	<!-- 댓글좋아요 클릭시 누적 좋아요숫자 +1 증가 -->
+	<update id="replyLikeCountPlus" parameterType="reply">
+		UPDATE reply SET
+		re_like = re_like + 1
+		WHERE rno=#{replyNumber}
+	</update>
+
+	<!-- 댓글좋아요 클릭시 누적 좋아요숫자 -1 감소 -->
+	<update id="replyLikeCountMinus" parameterType="reply">
+		UPDATE reply SET
+		re_like = re_like - 1
+		WHERE rno=#{replyNumber}
+	</update>
 </mapper> 
 

@@ -10,24 +10,16 @@ public class Reply {
   int replyNumber;
   String content;
   String createDate;
-  Boolean replyLike;
+  int replyLike;
   Boolean report;
   int zzalnumber;
   int memberNumber;
   String nickName;
   String membPic;
+  int reparentCountNumber;
   
   String rereplyParentNumber;
   String replyOrderNumber;
-  
-  @Override
-  public String toString() {
-    return "Reply [replyNumber=" + replyNumber + ", content=" + content + ", createDate=" + createDate + ", replyLike="
-        + replyLike + ", report=" + report + ", zzalnumber=" + zzalnumber + ", memberNumber=" + memberNumber
-        + ", nickName=" + nickName + ", membPic=" + membPic + ", rereplyParentNumber=" + rereplyParentNumber
-        + ", replyOrderNumber=" + replyOrderNumber + "]";
-  }
-  
   public int getReplyNumber() {
     return replyNumber;
   }
@@ -37,7 +29,7 @@ public class Reply {
   public String getCreateDate() {
     return createDate;
   }
-  public Boolean getReplyLike() {
+  public int getReplyLike() {
     return replyLike;
   }
   public Boolean getReport() {
@@ -55,6 +47,9 @@ public class Reply {
   public String getMembPic() {
     return membPic;
   }
+  public int getReparentCountNumber() {
+    return reparentCountNumber;
+  }
   public String getRereplyParentNumber() {
     return rereplyParentNumber;
   }
@@ -70,7 +65,7 @@ public class Reply {
   public void setCreateDate(String createDate) {
     this.createDate = createDate;
   }
-  public void setReplyLike(Boolean replyLike) {
+  public void setReplyLike(int replyLike) {
     this.replyLike = replyLike;
   }
   public void setReport(Boolean report) {
@@ -88,13 +83,24 @@ public class Reply {
   public void setMembPic(String membPic) {
     this.membPic = membPic;
   }
+  public void setReparentCountNumber(int reparentCountNumber) {
+    this.reparentCountNumber = reparentCountNumber;
+  }
   public void setRereplyParentNumber(String rereplyParentNumber) {
     this.rereplyParentNumber = rereplyParentNumber;
   }
   public void setReplyOrderNumber(String replyOrderNumber) {
     this.replyOrderNumber = replyOrderNumber;
   }
- 
+  @Override
+  public String toString() {
+    return "Reply [replyNumber=" + replyNumber + ", content=" + content + ", createDate=" + createDate + ", replyLike="
+        + replyLike + ", report=" + report + ", zzalnumber=" + zzalnumber + ", memberNumber=" + memberNumber
+        + ", nickName=" + nickName + ", membPic=" + membPic + ", reparentCountNumber=" + reparentCountNumber
+        + ", rereplyParentNumber=" + rereplyParentNumber + ", replyOrderNumber=" + replyOrderNumber + "]";
+  }
   
- 
+//  int isMyLike = 0; // 1이면 like, 0이면 unlike
+
+  
 }

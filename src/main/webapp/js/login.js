@@ -380,7 +380,7 @@
 //		Kakao.Auth.logout(function(){console.log('hihi')});
 //	})
 //	
-	// ----------------------------------------------------------------------- //
+*/	// ----------------------------------------------------------------------- //
 	// 페이스북 로그인 
 	$(".login-container .fcbk-btn").click(function(){ //페이스북 로그인
 		fbLogin()
@@ -488,6 +488,7 @@
 	}(document, 'script', 'facebook-jssdk'));
 	// 로그인이 성공한 다음에는 간단한 그래프API를 호출한다.
 	// 이 호출은 statusChangeCallback()에서 이루어진다.
+	
 	function testAPI() {
 		FB.api('/me', {
 			fields : 'email, name'
@@ -566,5 +567,5 @@
 				}); // member ajax()
 			fbLogout() // 이거때문에 진짜 고생했네...
 		}); //facebook testAPISignUp() response
-	}*/
+	}
 })(jQuery);
