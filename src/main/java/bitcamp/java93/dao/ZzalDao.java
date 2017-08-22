@@ -21,4 +21,6 @@ public interface ZzalDao {
   int countAll();
   int foundRows();
   int foundRowsCatetory(int cno);
+  int delete(int no);
+  void deletePages(int no);
 }

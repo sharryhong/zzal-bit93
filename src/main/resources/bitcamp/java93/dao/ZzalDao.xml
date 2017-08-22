@@ -101,17 +101,6 @@
     LIMIT #{startIndex}, #{pageSize}
   </select>
   
-  
-  
- <!--  SELECT z.zzno, z.mno, m.nick, m.pic as pic1, z.cno, z.titl, z.pic as pic2, z.cdt as cdt2, z.hitcnt,
-    (SELECT count(*) FROM lik WHERE zzno=z.zzno) as like_cnt, 
-    (SELECT count(*) FROM reply WHERE zzno=z.zzno) as reply_cnt
-    FROM zzal_lect z INNER JOIN memb m on z.mno = m.mno
-    WHERE z.ztmp=false AND z.cno in (#{cno})
-    ORDER BY (like_cnt * 10) + reply_cnt + z.hitcnt desc
-    LIMIT #{startIndex}, #{pageSize} -->
-  
-  
   <!-- index.html 한주간 좋아요 많이 받은 랭킹 10 -->
   <select id="zzalBestList" resultMap="zzalMap" parameterType="map">
     SELECT *
@@ -211,6 +200,14 @@
       hitcnt = hitcnt + 1
     WHERE zzno=#{zzno}
   </update>
+  
+  <delete id="delete" parameterType="int">
+    delete from zzal_lect where zzno=#{no}
+  </delete>
+  
+  <delete id="deletePages" parameterType="int">
+    delete from page where zzno=#{no}
+  </delete>
   
 </mapper> 
 

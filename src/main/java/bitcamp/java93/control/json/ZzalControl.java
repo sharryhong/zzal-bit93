@@ -125,6 +125,12 @@ public class ZzalControl {
     zzalService.hitCountUpdate(zzal);
     return new JsonResult(JsonResult.SUCCESS, "ok");
   }
+	
+	@RequestMapping("delete")
+  public JsonResult delete(int no) throws Exception {
+	  zzalService.remove(no);
+    return new JsonResult(JsonResult.SUCCESS, "ok");
+  }
 
 }
 

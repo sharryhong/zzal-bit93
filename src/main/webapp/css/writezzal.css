@@ -267,7 +267,7 @@ input::-moz-placeholder { color: #ccc; }
 	display: inline-block;
 }
 .writezzal-cover {
-	padding: 10px;
+	/* padding: 10px; */
 	font-size: 14px;
 	height: calc(100vh - 300px);
 }

@@ -120,5 +120,17 @@ public class ZzalServiceImpl implements ZzalService {
   public int foundRowsCatetory(int cno) throws Exception {
     return zzalDao.foundRowsCatetory(cno);
   }
+  @Override
+  public void remove(int no) throws Exception {
+    zzalDao.deletePages(no);
+    int count = zzalDao.delete(no);
+    if (count < 1) {
+      throw new Exception(no + "번 짤강을 찾을 수 없습니다.");
+    }
+    
+    try {
+      count = zzalDao.delete(no);
+    } catch (Exception e) {}
+  }
 	  	
 }
