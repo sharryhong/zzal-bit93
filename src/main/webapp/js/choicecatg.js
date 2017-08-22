@@ -64,16 +64,16 @@
 							async: false,
 							success: function(data) {
 								swal({
-									  title: "변경완료!",
-									  text: "관심 카테고리를 추가했습니다.",
-									  type: "success",
-									  timer: 2000,
-									  showConfirmButton: false
-									}, function(){
-										setTimeout(function(){
-											location.href="index.html"
-										});
+									title: "변경완료!",
+									text: "관심 카테고리를 추가했습니다.",
+									type: "success",
+									timer: 1000,
+									showConfirmButton: false
+								}, function(){
+									setTimeout(function(){
+										location.href="index.html"
 									});
+								});
 							}
 						})
 					}
@@ -90,29 +90,30 @@
 					},
 					async: false,
 					success: function(data) {
-//						swal({
-//							  title: "변경완료!",
-//							  text: "관심 카테고리를 변경했습니다.",
-//							  timer: 2000,
-//							  showConfirmButton: false
-//							}, function(){
-//								setTimeout(function(){
-//									location.href="index.html"
-//								});
-//							});
 						swal({
-							title: "변경완료",
-							text: "관심 카테고리를 변경했습니다.",
+							title: "변경완료!",
+							text: "관심 카테고리를 추가했습니다.",
 							type: "success",
-							showCancelButton: false,
-							closeOnConfirm: false,
-//							showLoaderOnConfirm: true,
-						},
-						function(){
+							timer: 1000,
+							showConfirmButton: false
+						}, function(){
 							setTimeout(function(){
 								location.href="index.html"
 							});
 						});
+//						swal({
+//						title: "변경완료",
+//						text: "관심 카테고리를 변경했습니다.",
+//						type: "success",
+//						showCancelButton: false,
+//						closeOnConfirm: false,
+////						showLoaderOnConfirm: true,
+//						},
+//						function(){
+//						setTimeout(function(){
+//						location.href="index.html"
+//						});
+//						});
 					}
 				})/*.fail(function(){alert('하나라도 골라주세요 T^T')})*/
 			} 
@@ -149,18 +150,30 @@
 							async: false,
 							success: function(data) {
 								swal({
-									title: "변경완료",
+									title: "변경완료!",
 									text: "관심 카테고리를 추가했습니다.",
 									type: "success",
-									showCancelButton: false,
-									closeOnConfirm: false,
-//									showLoaderOnConfirm: true,
-								},
-								function(){
+									timer: 1000,
+									showConfirmButton: false
+								}, function(){
 									setTimeout(function(){
 										window.location.reload();
 									});
 								});
+
+//								swal({
+//								title: "변경완료",
+//								text: "관심 카테고리를 추가했습니다.",
+//								type: "success",
+//								showCancelButton: false,
+//								closeOnConfirm: false,
+////								showLoaderOnConfirm: true,
+//								},
+//								function(){
+//								setTimeout(function(){
+//								window.location.reload();
+//								});
+//								});
 							}
 						})
 					}
@@ -177,15 +190,26 @@
 					},
 					async: false,
 					success: function(data) {
+//						swal({
+//						title: "변경완료",
+//						text: "관심 카테고리를 변경했습니다.",
+//						type: "success",
+//						showCancelButton: false,
+//						closeOnConfirm: false,
+////						showLoaderOnConfirm: true,
+//						},
+//						function(){
+//						setTimeout(function(){
+//						window.location.reload();
+//						});
+//						});
 						swal({
-							title: "변경완료",
+							title: "변경완료!",
 							text: "관심 카테고리를 변경했습니다.",
 							type: "success",
-							showCancelButton: false,
-							closeOnConfirm: false,
-//							showLoaderOnConfirm: true,
-						},
-						function(){
+							timer: 1000,
+							showConfirmButton: false
+						}, function(){
 							setTimeout(function(){
 								window.location.reload();
 							});
