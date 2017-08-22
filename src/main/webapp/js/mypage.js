@@ -71,7 +71,7 @@
 			  subsUser = passdata.memNo
 			  console.log(subsUser)
 			  generateHandlebars(result, $('#my-collection-template'), $('#my-collection02'))
-			  $('#my-collection02 .editerbtn').css('display', 'none')
+			  $('#my-collection02 .editerbtn').text('구독취소')
 		  }
 	  })
 	  
