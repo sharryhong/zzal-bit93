@@ -25,8 +25,8 @@ insert into colct(cono,mno,title,cont,pic,pub) values(3,2,'English','자주쓰�
 insert into colct(cono,mno,title,cont,pic,pub) values(4,2,'코딩','C부터','category07.jpg',true);
 
 -- 짤강의
-insert into zzal_lect(zzno, mno, cno, cono, titl, pic, cdt, ztmp, hitcnt) values(1, 1, 1, 1, '짤강입니다1', '500_1501947979874_11_1-4.jpg', '2017-01-01', true, 0);
-insert into zzal_lect(zzno, mno, cno, cono, titl, pic, cdt, ztmp, hitcnt) values(2, 2, 2, 2, '짤강입니다2', '1501947988622_14_2-1.jpg', '2017-02-01', false, 50);
+insert into zzal_lect(zzno, mno, cno, cono, titl, pic, cdt, ztmp, hitcnt) values(1, 1, 1, null, '짤강입니다1', '500_1501947979874_11_1-4.jpg', '2017-01-01', true, 0);
+insert into zzal_lect(zzno, mno, cno, cono, titl, pic, cdt, ztmp, hitcnt) values(2, 2, 2, null, '짤강입니다2', '1501947988622_14_2-1.jpg', '2017-02-01', false, 50);
 insert into zzal_lect(zzno, mno, cno, cono, titl, pic, cdt, ztmp, hitcnt) values(3, 3, 3, null, '짤강입니다3', '500_1501948011845_22_3-3.jpg', '2017-03-01', false, 3);
 insert into zzal_lect(zzno, mno, cno, cono, titl, pic, cdt, ztmp, hitcnt) values(4, 4, 4, null, '짤강입니다4', '500_1501948017114_24_4-1.jpg', '2017-04-01', false, 5);
 insert into zzal_lect(zzno, mno, cno, cono, titl, pic, cdt, ztmp, hitcnt) values(5, 5, 5, null, '짤강입니다5', '500_1501999446798_50_cooking01.jpg', '2017-05-01', false, 12);
