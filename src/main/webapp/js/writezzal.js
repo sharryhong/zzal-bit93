@@ -75,17 +75,18 @@ function justInit(no){
 }
 
 let tmpMpic = ''
-function StringMaker(obj){
+/*function StringMaker(obj){
 	let changer = String(obj)
 	return obj = changer.substring(1,changer.length-1)
-}
+}*/
 
 	function tmpMaker(data) {
 
 		let tmpMcoNo = data.zzal.cono
 		let tmpMCno = data.zzal.cno
 		let tmpMtitl = data.zzal.title
-		tmpMpic = StringMaker(data.zzal.mainPic)
+//		tmpMpic = StringMaker(data.zzal.mainPic)
+		tmpMpic = data.zzal.mainPic
 
 		let arrpic=[]
 		let arrcontext=[]
@@ -95,15 +96,15 @@ function StringMaker(obj){
 		let k=0;
 
 		for(let pageroom of data.page){
-			arrpicname[k] = StringMaker(pageroom.pagePic)
-			arrpic[k] = './upload/'+StringMaker(pageroom.pagePic)
-			arrcontext[k] =	StringMaker(pageroom.ConTextZ)
+			arrpicname[k] = pageroom.pagePic
+			arrpic[k] = './upload/'+pageroom.pagePic
+			arrcontext[k] =	pageroom.ConTextZ
 			k++
 		}
 
 	 $("#select-collect > option[value="+tmpMcoNo+"]").attr("selected", true)
 	 $("#select-category > option[value="+tmpMCno+"]").attr("selected", true)
-	 $(fiTitle).val(StringMaker(tmpMtitl))
+	 $(fiTitle).val(tmpMtitl)
 
 		var templatetmpFn = Handlebars.compile($('#tmppage-template').text())
 

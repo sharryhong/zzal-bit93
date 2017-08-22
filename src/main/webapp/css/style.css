@@ -8,10 +8,13 @@ body {
 	overflow-y: scroll;
 }
 
-.zzal-lects {
+.zzal-lect {
 	cursor: pointer;
 }
-
+.zzal-lects .setting-zzal,
+.zzal-lects .setting-zzal button {
+	color: #5656b1;
+}
 .main-page {
   min-width: 300px;
 }

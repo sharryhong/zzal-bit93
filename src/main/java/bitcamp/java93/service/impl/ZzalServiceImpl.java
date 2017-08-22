@@ -122,6 +122,9 @@ public class ZzalServiceImpl implements ZzalService {
   }
   @Override
   public void remove(int no) throws Exception {
+    zzalDao.deleteNotice(no);
+    zzalDao.deleteLike(no);
+    zzalDao.deleteReply(no);
     zzalDao.deletePages(no);
     int count = zzalDao.delete(no);
     if (count < 1) {

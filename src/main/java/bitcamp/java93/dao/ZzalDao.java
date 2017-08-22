@@ -23,4 +23,7 @@ public interface ZzalDao {
   int foundRowsCatetory(int cno);
   int delete(int no);
   void deletePages(int no);
+  void deleteLike(int no);
+  void deleteNotice(int no);
+  void deleteReply(int no);
 }
