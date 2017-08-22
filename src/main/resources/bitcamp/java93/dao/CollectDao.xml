@@ -72,13 +72,33 @@
 	<!-- 등록시 내짤강리스트 or 임시저장시 mypage 임시 짤강 리스트 -->
 	<select id="temporaryzzalList" resultMap="collectMap" parameterType="map">
     	select z.zzno, z.mno, m.nick, m.pic as pic1, z.cno, z.titl, z.pic as pic2, z.cdt as cdt2, z.ztmp, z.hitcnt,
-    	(SELECT count(*) FROM lik WHERE zzno=z.zzno) as like_cnt, 
-    	(SELECT count(*) FROM reply WHERE zzno=z.zzno) as reply_cnt 
-    	from zzal_lect z inner join memb m on z.mno = m.mno and z.mno = #{mno}
-		where z.ztmp = #{tmp}
+    	(SELECT count(*) FROM lik l WHERE l.zzno=z.zzno) as like_cnt, 
+    	(SELECT count(*) FROM reply r WHERE r.zzno=z.zzno) as reply_cnt
+    	from zzal_lect z inner join memb m on z.mno = m.mno
+		where z.ztmp = #{tmp} and z.mno=#{mno}
 		order by z.zzno desc
 	</select>
 	
+	
+	<select id="detialzzalList" resultMap="collectMap" parameterType="map">
+    	select z.zzno, z.mno, m.nick, m.pic as pic1, z.cno, z.titl, z.pic as pic2, z.cdt as cdt2, z.ztmp, z.hitcnt,
+    	(SELECT count(*) FROM lik l WHERE l.zzno=z.zzno) as like_cnt, 
+    	(SELECT count(*) FROM reply r WHERE r.zzno=z.zzno) as reply_cnt
+    	from zzal_lect z inner join memb m on z.mno = m.mno
+		where z.cono=#{cono}
+		order by z.zzno desc
+	</select>
+	
+	
+	
+	
+	
+	<!-- select z.zzno, z.mno, m.nick, m.pic as pic1, z.cno, z.titl, z.pic as pic2, z.cdt as cdt2, z.ztmp, z.hitcnt,
+    	(SELECT count(*) FROM lik l WHERE l.zzno=z.zzno) as like_cnt, 
+    	(SELECT count(*) FROM reply r WHERE r.zzno=z.zzno) as reply_cnt
+    	from zzal_lect z inner join memb m on z.mno = m.mno
+		where z.ztmp = false and z.cono = 2
+		order by z.zzno desc -->
 	<!-- 좋아요한 짤강 리스트 -->
 	<select id="likezzal" resultMap="collectMap" parameterType="int">
 		SELECT l.zzno, l.mno,(select mb.nick from memb mb where z.mno=mb.mno) as nick, (select mb.pic from memb mb where z.mno=mb.mno) as pic1, z.titl, z.pic as pic2, z.cdt as cdt2, z.ztmp, z.hitcnt, l.cdt as cdt1,
@@ -93,6 +113,10 @@
     	(SELECT count(*) FROM reply WHERE zzno=z.zzno) as reply_cnt 
     	FROM lik l INNER JOIN memb m on l.mno = m.mno INNER JOIN zzal_lect z on l.zzno = z.zzno
     	where l.mno = 5 -->
+	
+	<!-- <select id="getZzalcntIncolct" resultType="int" parameterType="map">
+   		select count(*) from (select z.zzno from zzal_lect z where z.cono = #{conlectNo}) as zzal_cnt 
+  	</select>  -->
 		
 	<select id="countAll" resultType="int">
 		select count(*)

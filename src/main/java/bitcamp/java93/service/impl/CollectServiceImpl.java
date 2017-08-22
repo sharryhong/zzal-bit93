@@ -80,6 +80,12 @@ public class CollectServiceImpl implements CollectService {
     return collectDao.likezzal(mno);
   }
 
+@Override
+public List<Collect> detialzzalList(HashMap<String, Object> map) throws Exception {
+	
+	return  collectDao.detialzzalList(map);
+}
+
 
 
 }

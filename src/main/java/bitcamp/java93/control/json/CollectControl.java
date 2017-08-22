@@ -133,6 +133,21 @@ public class CollectControl {
     return new JsonResult(JsonResult.SUCCESS, dataMap);
   }
   
+  @RequestMapping("detialzzalList")
+  public JsonResult detialzzalList(int cono) throws Exception {
+    HashMap<String,Object> map = new HashMap<>();
+    map.put("cono", cono);
+    map.put("tmp", false);
+    HashMap<String,Object> dataMap = new HashMap<>();
+    dataMap.put("selectzzalList", collectService.detialzzalList(map));
+    
+    return new JsonResult(JsonResult.SUCCESS, dataMap);
+  }
+  
+  
+  
+  
+  
   @RequestMapping("likezzal")
   public JsonResult isLike( int mno) throws Exception {
     

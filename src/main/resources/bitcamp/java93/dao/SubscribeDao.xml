@@ -35,16 +35,7 @@
     delete from subs
     where mno=#{memberno} and cono=#{collectNo};
  </delete>
-  
-  
-  
-  
- <!--  <select id="countAll" resultType="int">
-    select count(*)
-    from catg
-  </select>
- -->
- 
+   
  
  
 </mapper> 

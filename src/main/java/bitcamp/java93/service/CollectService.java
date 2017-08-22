@@ -11,6 +11,7 @@ public interface CollectService {
   List<Collect> subslist(int mno) throws Exception;
   List<Collect> selectzzalList(HashMap<String, Object> map) throws Exception;
   List<Collect> temporaryzzalList(HashMap<String, Object> map) throws Exception;
+  List<Collect> detialzzalList(HashMap<String, Object> map) throws Exception;
   List<Collect> likezzal(int mno) throws Exception;
   int getSize() throws Exception;
   Collect get(int no) throws Exception; // get()

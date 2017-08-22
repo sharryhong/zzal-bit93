@@ -11,16 +11,20 @@ var templateFn = null;
 var urls = ''	
 var cono = 0,
     mno = 0
+    urls = location.href.split('?')[1]
 	try {
-		//urls = location.href.split('?')[1].split('=')[1]
-		urls = location.href.split('?')[1]
+		//urls = location.href.split('?')[1].split('=')[1]		
 		console.log(urls)
 		cono = urls.split('&')[0].split('=')[1]
 		console.log(cono)
 		mno = urls.split('&')[1].split('=')[1]
 		console.log(mno)
+		someoneZzal()
+		
+		
 	} catch (err) {}	
-	
+	cono=urls.split('=')[1]
+	console.log(cono)
 	// 유저 닉네임 프로필 사진
 	var no = 0
 	$.getJSON('/zzal-bit93/auth/userinfo.json', function(result) {
@@ -45,36 +49,41 @@ var cono = 0,
 	 });
 	
 	// cono=?&mno=? mno , 닉네임 프로필 사진 가져오기
-	var somcollect = location.href.split('?')[1].split('=')[1]
-	console.log('somcollect', somcollect)
-	$.getJSON('zzal/list.json',{'zzno': mno}, function(result){
-		if (result.data) {
-			var someone = result.data.list[0]
-			console.log(someone)
-			var sodata = someone.member
-			console.log(sodata)
-			$('.user-info-face .user-name').text(sodata.nick)
-			$('.profile-wrap .someone-phot').css({"background-image": "url(upload/"+ sodata.membpic +")"});
-		}
-		
-	})
+//	var somcollect = location.href.split('?')[1].split('=')[1]
+//	console.log('somcollect', somcollect)
+//	$.getJSON('zzal/list.json',{'zzno': mno}, function(result){
+//		if (result.data) {
+//			var someone = result.data.list[0]
+//			console.log(someone)
+//			var sodata = someone.member
+//			console.log(sodata)
+//			$('.user-info-face .user-name').text(sodata.nick)
+//			$('.profile-wrap .someone-phot').css({"background-image": "url(upload/"+ sodata.membpic +")"});
+//		}
+//		
+//	})
 	// 내짤강 리스트
 	function selectzzalList() {
-	  $.getJSON('collect/selectzzalList.json', {'mno': no}, function(result) {
+	
+	  $.getJSON('collect/detialzzalList.json', {'cono': cono}, function(result) {
 		  console.log(result)
 		  if(result.data){
 			  console.log(result.data)
 			  generateHandlebars(result, $('#collect-zzallist-template'), $('#zzal-list1'))
 		  }
 	  })
-	  // 다른 유저 짤강 리스트
-	  $.getJSON('collect/selectzzalList.json', {'mno': mno}, function(result) {
-			  console.log(result)
-			  if(result.data){
-				  console.log(result.data)
-				  generateHandlebars(result, $('#someone-zzallist-template'), $('#someone-zzal-list1'))
-			  }
-	  })
-    }
+	}  
+	function someoneZzal(){
+		// 다른 유저 짤강 리스트
+		$.getJSON('collect/selectzzalList.json', {'mno': mno}, function(result) {
+			console.log(result)
+			if(result.data){
+				console.log(result.data)
+				generateHandlebars(result, $('#someone-zzallist-template'), $('#someone-zzal-list1'))
+			}
+		})
+	}	  
+		
+	
 	
 })(jQuery);
