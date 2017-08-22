@@ -17,13 +17,23 @@ public class Zzal {
 	Member member;
 	ZzalLike zzallike;
 	Page page;
+	ChoiceCategory choiceCategory;
 	
   @Override
   public String toString() {
     return "Zzal [zzno=" + zzno + ", mno=" + mno + ", cno=" + cno + ", cono=" + cono + ", title=" + title + ", mainPic="
         + mainPic + ", cdt=" + cdt + ", categoryName=" + categoryName + ", zzalTemporary=" + zzalTemporary
         + ", hitCount=" + hitCount + ", likeCount=" + likeCount + ", replyCount=" + replyCount + ", rowCount="
-        + rowCount + ", member=" + member + ", zzallike=" + zzallike + ", page=" + page + "]";
+        + rowCount + ", member=" + member + ", zzallike=" + zzallike + ", page=" + page + ", choiceCategory="
+        + choiceCategory + "]";
+  }
+  
+  public ChoiceCategory getChoiceCategory() {
+    return choiceCategory;
+  }
+
+  public void setChoiceCategory(ChoiceCategory choiceCategory) {
+    this.choiceCategory = choiceCategory;
   }
 
   public Page getPage() {

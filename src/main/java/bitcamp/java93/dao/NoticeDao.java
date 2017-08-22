@@ -14,4 +14,6 @@ public interface NoticeDao {
   void insReplyNotice(Reply reply);
   void insSubsNotice(Subscribe subscribe);
   int getCnt(int mno);
+  void deleteNo(int nono);
+  void updateNo(int mno);
 }

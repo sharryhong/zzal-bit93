@@ -23,5 +23,15 @@ public class NoticeServiceImpl implements NoticeService {
 		// TODO Auto-generated method stub
 		return noticeDao.getCnt(mno);
 	}
+	@Override
+	public void deleteNo(int nono) {
+		noticeDao.deleteNo(nono);
+		
+	}
+	@Override
+	public void updateYnn(int mno) {
+		noticeDao.updateNo(mno);
+		
+	}
 
 }

@@ -1,6 +1,28 @@
 textarea {
   resize: none;
 }
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button {  
+   opacity: 1;
+}
+.set-time {
+	font-size: 12px;
+	margin-top: 3px;
+}
+.settime-sec {
+	width: 37px;
+	color: #999;
+	margin-right: 3px;
+	border: 1px solid #aaa;
+  border-radius: 3px;
+  text-align: center;
+}
+.detail-siwpe .contents .text a {
+	color: #3498db;
+}
+.detail-siwpe .contents .text a:hover {
+	text-decoration: underline;
+}
 .fa-pause {
 	color: #ccc;
 }
@@ -92,7 +114,7 @@ textarea {
   overflow: hidden;
 }
 .detail-siwpe .text {
-	position: absolute;
+	/* position: absolute; */
   /* bottom: 0; */
   width: 100%;
   padding: 0 10px;
@@ -507,6 +529,14 @@ textarea {
 }
 
 @media (max-width: 925px) {
+	.set-time {
+	  float: right;
+	  margin-top: 10px;
+	}
+	.settime-sec {
+	  background: rgba(255,255,255,0.3);
+	  color: white;
+	}
 	.detail-siwpe .images-wrapper {
 	  max-height: calc(100vmax - 280px);
 	}

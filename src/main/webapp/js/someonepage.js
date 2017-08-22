@@ -56,7 +56,7 @@
 	  $.getJSON('zzal/list.json',{'zzno': someoneNo}, function(result){
 	  if (result.data) {
 		  var someone = result.data.list[0]
-		  /*console.log(someone)*/
+		  console.log(someone)
 		  var sodata = someone.member
 		  somno = someone.mno
 		  console.log(somno,'memberNo')
@@ -86,7 +86,7 @@
 		  event.preventDefault()
 	  });
 	
-	 
+	 // 짤강 리스트
 	 function selectzzalList() { 
 		  $.getJSON('collect/selectzzalList.json', {'mno': somno}, function(result) {
 			  if(result.data){

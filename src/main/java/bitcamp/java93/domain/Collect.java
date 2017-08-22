@@ -11,9 +11,7 @@ public class Collect {
   Member membe;
   Zzal zzall;
   ZzalLike zzallikes;
-  /*int hitCount;
-  int likeCount;
-  int replyCount;*/
+  
   @Override
   public String toString() {
     return "Collect [no=" + no + ", memNo=" + memNo + ", zzno=" + zzno + ", title=" + title + ", content=" + content

@@ -7,4 +7,5 @@ public interface SubscribeService {
   //int getSize() throws Exception;
   void addCollec(Subscribe subscribe);
   void deleteCollec(Subscribe subscribe);
+  Subscribe getCono(Subscribe subscribe);
 }

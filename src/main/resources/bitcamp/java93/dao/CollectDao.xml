@@ -46,39 +46,53 @@
 		select mno, cono, title, cont, pic, pub
 		from colct
 	</sql>
-	
+	<!-- 공개한 컬렉션 리스트 -->
 	<select id="selectList" resultMap="collectMap" parameterType="int">
 		<include refid="select1" />
-		where mno = #{memberNo}
+		where pub = false and mno = #{mno}
 		order by cono desc
 	</select>
 	
-    <!-- writezzal에서 짤등록후 올리기버튼 누를시 mypage 에서 내짤강 리스트   -->
-    <select id="selectzzalList" resultMap="collectMap" parameterType="int">
-    	select z.zzno, z.mno, m.nick, m.pic as pic1, z.cno, z.titl, z.pic as pic2, z.cdt as cdt2, z.ztmp, z.hitcnt,
-    	(SELECT count(*) FROM lik WHERE zzno=z.zzno) as like_cnt, 
-    	(SELECT count(*) FROM reply WHERE zzno=z.zzno) as reply_cnt
-    	from zzal_lect z inner join memb m on z.mno = m.mno and z.mno = #{mno}
-		where z.ztmp = false
-		order by z.zzno desc
+	<!-- 비공개한 컬렉션 리스트 -->
+	<select id="publicList" resultMap="collectMap" parameterType="int">
+		select mno, cono, title, cont, pic, pub
+		from colct
+		where pub = true and mno = #{mno}
+		order by cono desc
 	</select>
-    	
-	<!-- 임시저장시 mypage 임시 짤강 리스트 -->
-	<select id="temporaryzzalList" resultMap="collectMap" parameterType="int">
+	
+	<select id="subslist" resultMap="collectMap" parameterType="int">
+    select c.mno, c.cono, c.title, c.pic,
+		   (SELECT count(*) FROM colct c where s.cono = c.cono),
+		   (SELECT count(*) FROM zzal_lect z where z.cono = s.cono) 
+	 from subs s join colct c on s.cono = c.cono 
+	 where s.mno= #{mno}
+	 </select>
+	 
+	<!-- 등록시 내짤강리스트 or 임시저장시 mypage 임시 짤강 리스트 -->
+	<select id="temporaryzzalList" resultMap="collectMap" parameterType="map">
     	select z.zzno, z.mno, m.nick, m.pic as pic1, z.cno, z.titl, z.pic as pic2, z.cdt as cdt2, z.ztmp, z.hitcnt,
     	(SELECT count(*) FROM lik WHERE zzno=z.zzno) as like_cnt, 
     	(SELECT count(*) FROM reply WHERE zzno=z.zzno) as reply_cnt 
     	from zzal_lect z inner join memb m on z.mno = m.mno and z.mno = #{mno}
-		where z.ztmp = true
+		where z.ztmp = #{tmp}
 		order by z.zzno desc
 	</select>
 	
-    <!-- select z.zzno, z.mno, m.nick, m.pic as pic1, z.cno, z.titl, z.pic as pic2, z.cdt as cdt2, z.ztmp, z.hitcnt,
-    	(SELECT count(*) FROM lik WHERE zzno=z.zzno) as like_cnt, 
+	<!-- 좋아요한 짤강 리스트 -->
+	<select id="likezzal" resultMap="collectMap" parameterType="int">
+		SELECT l.zzno, l.mno,(select mb.nick from memb mb where z.mno=mb.mno) as nick, (select mb.pic from memb mb where z.mno=mb.mno) as pic1, z.titl, z.pic as pic2, z.cdt as cdt2, z.ztmp, z.hitcnt, l.cdt as cdt1,
+		(SELECT count(*) FROM lik WHERE zzno=z.zzno) as like_cnt, 
     	(SELECT count(*) FROM reply WHERE zzno=z.zzno) as reply_cnt 
-    	from zzal_lect z inner join memb m on z.mno = m.mno and z.mno = 5
-		where z.ztmp = false OR z.ztmp != true
-		order by z.zzno desc -->
+    	FROM lik l INNER JOIN memb m on l.mno = m.mno INNER JOIN zzal_lect z on l.zzno = z.zzno
+    	where l.mno = #{mno};
+  	</select>
+  	
+	<!--SELECT l.zzno, l.mno, m.nick, m.pic as pic1, z.titl, z.pic as pic2, z.cdt as cdt2, z.ztmp, z.hitcnt, l.cdt as cdt1,
+		(SELECT count(*) FROM lik WHERE zzno=z.zzno) as like_cnt, 
+    	(SELECT count(*) FROM reply WHERE zzno=z.zzno) as reply_cnt 
+    	FROM lik l INNER JOIN memb m on l.mno = m.mno INNER JOIN zzal_lect z on l.zzno = z.zzno
+    	where l.mno = 5 -->
 		
 	<select id="countAll" resultType="int">
 		select count(*)
@@ -94,40 +108,17 @@
           useGeneratedKeys="true" keyColumn="cono" keyProperty="no">
     insert into colct(mno,title,cont,pic,pub) 
     values(#{memNo},#{title},#{content},#{picture},#{isPublic})
-  </insert>
+    </insert>
   
   <update id="update" parameterType="collect">
 	update colct set title=#{title}, cont=#{content}, pub=#{isPublic}, pic=#{picture} 
-	where cono=#{no}
+	where cono = #{no}
   </update>
   
   <delete id="delete" parameterType="int">
-	delete from colct where cono=#{cono}
-</delete>
-<!--
-
-	<select id="subslist" resultMap="zzalLikeMap" parameterType="collect">
-		select zzno,mno,cdt from lik
-		where mno =#{mno} and zzno =#{zzno};
-	</select>
-
-
-	<insert id="subscribeu" parameterType="zzalLike">
-		insert into lik(mno,zzno,cdt)
-		values(#{mno},#{zzno}, current_date);
-	</insert>
-
-
- 	<delete id="notsubscribeu" parameterType="zzalLike">
-		delete from lik
-		where mno=#{mno} and zzno=#{zzno};
-	</delete> -->
+	delete from colct where cono = #{no}
+  </delete>
 	
-	<!-- <update id="hitCountUp" parameterType="collect">
-      UPDATE zzal_lect SET 
-        hitcnt = hitcnt + 1
-      WHERE zzno=#{zzno}
-  	</update> -->
 </mapper> 
 
 

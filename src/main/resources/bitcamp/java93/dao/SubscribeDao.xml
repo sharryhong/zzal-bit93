@@ -19,6 +19,11 @@
     where mno=#{memberno} and cono=#{collectNo}; 
   </select>
   
+  <select id="getCono" resultMap="subsMap" parameterType="subscribe">
+    select z.cono from zzal_lect z where z.zzno=#{zzalNo}    
+  </select>
+  
+  
   
   <insert id="insertColct" parameterType="subscribe">
 	insert into subs(mno,cono) 

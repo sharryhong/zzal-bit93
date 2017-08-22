@@ -8,10 +8,6 @@ function generateHandlebars(result, el, target) {
     target.html(generatedHTML)
 }
 
-/*$('.swiper-wrapper').on('mousedown touchstart pointerdown', function (e){
-    e.stopPropagation();
-  });*/
-
 /*swiper 초기화들*/
 // 짤강의 swiper
 var detailSwipeBig = '.detail-siwpe.swiper-container';
@@ -52,7 +48,7 @@ $.getJSON('auth/userinfo.json',function(result){
      rulogin=true;
    }
    memberno=result.data.no
-   collectno =4;
+   collectno=4;
  }catch(e){
    rulogin = false;
  }
@@ -139,7 +135,11 @@ $.getJSON('auth/userinfo.json',function(result){
     } else {
 
       $('.upper-upper #like-btn, #subscribe-btn').on('click',function(){
-        alert('로그인 하세요!')
+        swal({
+		  title: "로그인이 필요합니다.",
+		  timer: 1000,
+		  showConfirmButton: true
+		});
         $.getScript('js/login.js',function(data, textStatus, jqxhr){
 
             $(".login-curtain").show();
@@ -176,13 +176,14 @@ function buttonChecker(){
 
 var zzalEachPage = ''
 var zzalmno = 0
+var coverImage = ''
 $(document).on('ready',function(e){
   $.getJSON('zzal/list.json',{'zzno': zzno},function(result){
 	if (result.data) {
 		var realData = result.data.list[0]
 	    console.log(realData)
+	    coverImage = realData.mainPic
 	    var lastPageEl = $('.last-user-reply')
-		console.log(lastPageEl)
 	    var cdt = realData.cdt
 	    var date = new Date(cdt.replace(/ /g,'T'))
 	    zzalDate = date.getFullYear()+'-'+(date.getMonth()+1)+'-'+date.getDate()+' '+date.getHours()+':'+date.getMinutes()
@@ -207,13 +208,25 @@ function ZzalPages(zzno, lastPageEl) {
   $.getJSON('zzal/selectListPages.json', {'zzno': zzno}, function(result){
 	  // 동영상, 이미지일 때 구분해주기 위한 핸들바스의 헬퍼함수 
 	  Handlebars.registerHelper('isImage', function(isImg, options) {
-	    if (isImg == "true") {
+	    if (isImg == "false") { 
 	      return options.fn(this);
-	    } else {
+	    } else { 
 	      return options.inverse(this);
 	    }
 	  });
 	  console.log(result.data)
+	  for (let i = 0; i < result.data.list.length; i++) {
+		  // text에 링크가 있을 때 
+		  result.data.list[i].page.ConTextZ = result.data.list[i].page.ConTextZ.replace(/(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig, function(text, link) {
+			   return '<a href="'+ link +'" target="_blank">'+ link +'</a>'
+		  })
+		  // 이미지나 동영상이 없을 때 
+		  if (result.data.list[i].page.pagePic == "") {
+			  console.log('비었구만')
+			  result.data.list[i].page.conTypeZ = true
+			  result.data.list[i].page.pagePic = coverImage
+		  }
+	  }
 	  var templatetmpFn = Handlebars.compile($('#pages-swipeslide-template').text())
 	  swiper1.appendSlide(templatetmpFn(result.data))
 	  // 모바일에서 마지막에 last page 나오게 하기 
@@ -249,19 +262,14 @@ function imgHeight() {
 	    $pageImgs = $('.detail-siwpe .images-wrapper')
 	    $pages = $('.detail-page-swipe .swiper-slide')
 	$pages.each(function(i, e) {
-		console.log($(this).find('.text').height())
 		if($(this).find('.text').height() >= 200) {
-			$(this).find('.pages.images-wrapper').css('max-height', 'calc(100vmax - 350px)')
+			if(window.innerWidth < 925) {
+				$(this).find('.pages.images-wrapper').css('max-height', 'calc(100vmax - 350px)')
+			} else {
+				$(this).find('.pages.images-wrapper').css('max-height', 'calc(100vh - 350px)')
+			}
 		}
-		/*var textHeight = $(this).height() + 'px'
-		console.log($pageImgs[i].style.height)
-		$pageImgs[i].style.height = 'calc(100vh - '+textHeight+'  - 90px)'
-		if($pageImgs[i].querySelector('iframe')) {
-			$pageImgs[i].querySelector('iframe').style.height = 'calc(100vh - '+textHeight+'  - 90px)'
-		}*/
-		
 	})
-	//console.log($('.detail-siwpe .text').height())
 }
 
 
@@ -310,7 +318,6 @@ $(window).on("load",function(){
     })
 })
 
-// 자동재생
 function autoPlayZzal() {
 	var autoPlay = '',
 	    toFirst = '',
@@ -318,7 +325,7 @@ function autoPlayZzal() {
 	    faPlay = $('.auto-play .fa-play'),
 		isLast = false,
 		swiperBtn = $('.detail-siwpe.swiper-container .swiper-button-next.web-swiper-btn')[0],
-		swiperLeftBtn = $('.detail-siwpe.swiper-container .swiper-button-prev.web-swiper-btn')[0]
+		swiperLeftBtn = $('.detail-siwpe.swiper-container .swiper-button-prev.web-swiper-btn')[0];
 	  
 	function autoZzalPlay() {
 		var zzals = $('.swiper-pagination-total').text() - $('.swiper-pagination-current').text() - 1
@@ -336,27 +343,30 @@ function autoPlayZzal() {
 	
 	var goFirst = $('.swiper-pagination-total').text() - 2
 	function toFirstZzal() {
-		console.log(goFirst)
+		var	settimeSec = $('.settime-sec').val() * 1000
 		swiperLeftBtn.click()
 		if (goFirst <= 0) {
 			console.log('커버!')
 			clearInterval(toFirst)
-			autoPlay = window.setInterval(autoZzalPlay, 3000)
+			autoPlay = window.setInterval(autoZzalPlay, settimeSec)
 		}
 		goFirst--
 	}
 	
 	$('.auto-play .fa-play').on('click', function() {
+		var	settimeSec = $('.settime-sec').val() * 1000
+		var zzals = $('.swiper-pagination-total').text() - $('.swiper-pagination-current').text()
+		console.log(zzals)
 		faPlay.css('display','none')
 		faPause.css('display','inline-block')
 		swiperBtn.click()
-		if (isLast) { // 마지막 페이지 일 때, 커버로 가기 
+		if (isLast || zzals == 0) { // 마지막 페이지 일 때, 커버로 가기 
 			goFirst = $('.swiper-pagination-total').text() - 2
 			clearInterval(autoPlay)
 			toFirst = window.setInterval(toFirstZzal, 50)
 			isLast = false
 		} else {
-			autoPlay = window.setInterval(autoZzalPlay, 3000)
+			autoPlay = window.setInterval(autoZzalPlay, settimeSec)
 		}
 	})
 	$('.auto-play .fa-pause').on('click', function() {

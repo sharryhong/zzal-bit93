@@ -22,8 +22,42 @@ $.getJSON('/zzal-bit93/auth/userinfo.json', function(result) {
 		  location.href = 'profilemodify.html?no=' + result.data.no 
 		  event.preventDefault()
 		})*/
+	  let mno = result.data.no
+
 	  
-  }
+		  
+	  $.ajax({
+			url:'/zzal-bit93/notice/count.json',
+			method:'GET',
+			data: {'mno': mno },
+			success : function(result){			
+				let str = result.data 
+				
+				if(str==0){
+					$('.after-login .num-box').css('display','none')
+				}else{
+					$('.after-login .num-box')[0].innerHTML=str					
+				}
+				
+			$(".notice").click(function(){
+				
+				$.ajax({
+					url:'/zzal-bit93/notice/update.json',
+					method: 'POST',
+					data: {'mno':mno},
+					success : function(data){console.log(data,"우앙 왔당!")
+			        }
+				})	
+
+		   })
+		}//성공
+	
+		
+  })//노티스 파운드 ajax
+  
+  
+  
+  }//맨위 이프
 }) 
 
 

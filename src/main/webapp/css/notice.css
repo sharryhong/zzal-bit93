@@ -1,6 +1,10 @@
 #header .swiper-container {
 	display: none;
 }
+
+.notices.selection{
+	cursor:pointer
+} 
 .titles-wrap .notices {
 	width: 100%;
 	padding: 10px 10px;
@@ -29,6 +33,17 @@
 .titles-wrap .bold {
 	font-weight: bold;
 }
+
+
+.notices .right{
+    line-height: 20px;
+    /* top: 20px; */
+    display: inline-block;
+    float: right;
+    margin-right: 10px;
+}
+
+
 
 /*mobile*/
 @media (max-width: 765px) {
@@ -67,4 +82,12 @@
 	.zzal-container {
 	  padding: 0px;
 	}
+@media (max-width: 470px){
+	.titles-wrap .contents {
+		width: 76%;
+	}
+	
+}	
+	
+	
 }

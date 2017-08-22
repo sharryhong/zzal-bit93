@@ -2,6 +2,7 @@ package bitcamp.java93.service.impl;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,9 +19,13 @@ public class SearchServiceImpl implements SearchService {
 	SearchDao searchDao;
 	
 	@Override
-		public List<Search> searchlist(String keyword) throws Exception {
+		public List<Search> searchlist(String keyword, int pageNo, int pageSize) throws Exception {
+		HashMap<String, Object> map = new HashMap<>();
+		map.put("keyword", keyword);
+		map.put("pageSize", pageSize);
+		map.put("startIndex", (pageNo - 1) * pageSize);
 		// TODO Auto-generated method stub
-		return searchDao.searchList(keyword);
+		return searchDao.searchList(map);
 	}
 
 	@Override
@@ -43,6 +48,16 @@ public class SearchServiceImpl implements SearchService {
 		System.out.println(autoList);
 		Collections.sort(autoList); 
 		return autoList;
+	}
+
+	
+	@Override
+	public int getcount(String keyword, int pageNo) {
+		HashMap<String, Object> map = new HashMap<>();
+		map.put("keyword", keyword);
+		map.put("pageNo", pageNo);
+		// TODO Auto-generated method stub
+		return searchDao.searchCountAll(map);
 	}
 
 }

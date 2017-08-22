@@ -1,6 +1,17 @@
 .search-zzallect {
-	
+	    height: calc(100vh - 66px);
+    overflow-y: scroll;
 }
+
+.suggest-in-line:hover{
+	background-color:#ddd
+}
+
+
+.suggest-in-line.on{
+	background-color:#ddd
+}
+
 
 .suggest-in-line {
 	position: relative;
@@ -8,7 +19,9 @@
 	height: 140px;
 	border-bottom: 1px solid #ccc;
 }
-
+.suggest-in-line .search-line-pack{
+	width:100%
+}
 .suggest-in-line .btn-key {
 	position: absolute;
 	right: 15px;
@@ -69,21 +82,32 @@
 }
 
 .search-mid-con .user-info .name {
+	margin-left:10px;
+	font-size:12px;
 	height: 30px;
 	line-height: 50px;
 }
 
 
 .search-mid-con  .cata-name {
+	width: 60px;
+	display: inline-block;
 	height:16px;
     font-size: 12px;
 
 }
 
 .search-mid-con  .lect-titl {
-	padding-left: 10px;
-    height: 30px;
-    line-height: 30px;
+	white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+	width: 100%;
+	font-weight:bold;
+	font-size:18px;
+	display: inline-block;
+	padding-left: 5px;
+    height: 25px;
+    /* line-height: 30px; */
 
 }
 .search-mid-con  .cdt {
@@ -130,3 +154,38 @@
 	line-height: 30px;
 	font-size: 1.125rem;
 }
+	/* .search-mid-con .s-catg-titl{
+	line-height: 40px;
+	
+    }
+
+ */
+
+@media (max-width: 500px){
+	.suggest-in-line .detail-info {
+	top: 20px;
+	right: 5%;
+	position: absolute;
+	display: inline-block;
+	width: 27%;
+	padding: 10px;
+}
+	
+	.search-mid-con .user-info {
+	display: block;
+	height: 50px;
+}
+	.search-mid-con  .lect-titl {
+	
+	 font-weight: bold;
+    font-size: 16px;
+    display: inline-block;
+    padding-left: 5px;
+    height: 30px;
+	
+	}
+	
+}
+
+
+

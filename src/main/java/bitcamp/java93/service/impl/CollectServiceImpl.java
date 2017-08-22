@@ -1,5 +1,6 @@
 package bitcamp.java93.service.impl;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +20,17 @@ public class CollectServiceImpl implements CollectService {
 	public List<Collect> list(int no) throws Exception {
 		return collectDao.selectList(no);
 	}
-
+	
+	@Override
+  public List<Collect> subslist(int mno) throws Exception {
+    return collectDao.subslist(mno);
+  }
+	
+	@Override
+  public List<Collect> publiclist(int no) throws Exception {
+    return collectDao.publicList(no);
+  }
+	
 	@Override
 	public int getSize() throws Exception {
 		return collectDao.countAll();
@@ -43,7 +54,6 @@ public class CollectServiceImpl implements CollectService {
     }
   }
 
-	/*@Transactional(propagation=Propagation.REQUIRED)*/
 	@Override
   public void remove(int no) throws Exception {
     /*collectDao.deletePhoto(no);*/
@@ -56,34 +66,20 @@ public class CollectServiceImpl implements CollectService {
   } // remove()
 	
 	@Override
-  public List<Collect> selectzzalList(int mno) throws Exception {
-    return collectDao.selectzzalList(mno);
+  public List<Collect> selectzzalList(HashMap<String, Object> map) throws Exception {
+    return collectDao.temporaryzzalList(map);
   }
 	
 	@Override
-  public List<Collect> temporaryzzalList(int mno) throws Exception {
-    return collectDao.temporaryzzalList(mno);
+  public List<Collect> temporaryzzalList(HashMap<String, Object> map) throws Exception {
+    return collectDao.temporaryzzalList(map);
   }
-	
-	/*@Override
-  public void hitCountUp(Collect collect) throws Exception {
-    int count = collectDao.hitCountUp(collect);
-    if (count < 1) {
-      throw new Exception(collect.getZzno() + "번 짤강을 찾을 수 없습니다.");
-    }
-  }*/
-	
-	/*@Override
-  public List<Collect> myzzalList(int mno) throws Exception {
-    return collectDao.myzzalList(mno);
-  }*/
-	
-	
-	/*@Override
-  public void subsList(Collect collect) {
-    // TODO Auto-generated method stub
-    collectDao.subslist(collect);
+
+  @Override
+  public List<Collect> likezzal(int mno) throws Exception {
+    return collectDao.likezzal(mno);
   }
-   */
-	
+
+
+
 }

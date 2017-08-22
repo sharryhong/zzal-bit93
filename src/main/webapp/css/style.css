@@ -8,6 +8,10 @@ body {
 	overflow-y: scroll;
 }
 
+.zzal-lects {
+	cursor: pointer;
+}
+
 .main-page {
   min-width: 300px;
 }
@@ -220,6 +224,7 @@ input::-moz-placeholder { color: #777; }
   background: white;
 }
 .zzal-lects li {
+	position: relative;
   float: left;
   width: 33.333%;
   padding: 5px;
@@ -666,7 +671,7 @@ input::-moz-placeholder { color: #777; }
     padding-bottom: 81%;
 	}
 	.titles-wrap {
-	  display: none;
+	  /* display: none; */
 	  margin-top: 0px;
 	  padding: 0;
 	}

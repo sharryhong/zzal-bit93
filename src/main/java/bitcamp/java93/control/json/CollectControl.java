@@ -31,10 +31,30 @@ public class CollectControl {
     return new JsonResult(JsonResult.SUCCESS, dataMap);
   }
   
+  @RequestMapping("publiclist")
+  public JsonResult publiclist(int no) throws Exception {
+    
+    HashMap<String,Object> dataMap = new HashMap<>();
+    dataMap.put("list", collectService.publiclist(no));
+    
+    return new JsonResult(JsonResult.SUCCESS, dataMap);
+  }
+  
+  @RequestMapping("subslist")
+  public JsonResult subslist(int mno) throws Exception {
+    
+    HashMap<String,Object> dataMap = new HashMap<>();
+    dataMap.put("list", collectService.subslist(mno));
+    
+    return new JsonResult(JsonResult.SUCCESS, dataMap);
+  }
+  
   @RequestMapping("detail")
   public JsonResult detail(int no) throws Exception {
     System.out.println(no);
     Collect collect = collectService.get(no);
+//    HashMap<String,Object> dataMap = new HashMap<>();
+//    dataMap.put("list", collect);
     /*if (collect == null) {
       return new JsonResult(JsonResult.FAIL, no + "번 Collection이 없습니다.");
     }*/
@@ -82,21 +102,8 @@ public class CollectControl {
     return new JsonResult(JsonResult.SUCCESS, fileList);
   }
   
-  /* 
-  @RequestMapping(value="dousubs", method = RequestMethod.POST)
-  public JsonResult DoUSubscribe(@RequestParam int cono,
-		  				   @RequestParam int mno
-		  				   ,Collect collect) throws Exception {
-    
-    collect.setNo(cono);
-    collect.setMemNo(mno);;
-    	
-   collectService.subsList(collect);
-    
-    return new JsonResult(JsonResult.SUCCESS, "ok");
-  }
-   */
   int count = 0;
+  
   synchronized private String getNewFilename() {
     if (count > 100) {
       count = 0;
@@ -106,41 +113,37 @@ public class CollectControl {
   
   @RequestMapping("selectzzalList")
   public JsonResult selectzzalList(int mno) throws Exception {
-    
+    HashMap<String,Object> map = new HashMap<>();
+    map.put("mno", mno);
+    map.put("tmp", false);
     HashMap<String,Object> dataMap = new HashMap<>();
-    dataMap.put("selectzzalList", collectService.selectzzalList(mno));
+    dataMap.put("selectzzalList", collectService.selectzzalList(map));
     
     return new JsonResult(JsonResult.SUCCESS, dataMap);
   }
   
   @RequestMapping("temporaryzzalList")
   public JsonResult temporaryzzalList(int mno) throws Exception {
-    
+    HashMap<String,Object> map = new HashMap<>();
+    map.put("mno", mno);
+    map.put("tmp", true);
     HashMap<String,Object> dataMap = new HashMap<>();
-    dataMap.put("temporaryzzalList", collectService.temporaryzzalList(mno));
+    dataMap.put("selectzzalList", collectService.temporaryzzalList(map));
     
     return new JsonResult(JsonResult.SUCCESS, dataMap);
   }
   
-  /*@RequestMapping("hitCountUp")
-  public JsonResult hitCountUp(Collect collect, HttpSession session) throws Exception {
-    collectService.hitCountUp(collect);
-    return new JsonResult(JsonResult.SUCCESS, "ok");
-  }*/
-  
-  /*@RequestMapping("myzzalList")
-  public JsonResult myzzalList(int mno) throws Exception {
+  @RequestMapping("likezzal")
+  public JsonResult isLike( int mno) throws Exception {
     
     HashMap<String,Object> dataMap = new HashMap<>();
-    dataMap.put("myzzalList", collectService.myzzalList(mno));
+    
+   dataMap.put("selectzzalList",collectService.likezzal(mno));
     
     return new JsonResult(JsonResult.SUCCESS, dataMap);
-  }*/
+  }
+  
 }
-
-
-
-
 
 
 

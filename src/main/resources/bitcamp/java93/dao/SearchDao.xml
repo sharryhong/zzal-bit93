@@ -20,17 +20,6 @@
 	<sql id="selectsql">
 	select z.zzno,
 		m.nick,
-		c.name,
-		z.titl,
-		p.cont
-		from zzal_lect z left join memb m on z.mno=m.mno
-		left join catg c on c.cno = z.cno
-		left join page p on p.zzno = z.zzno
-	</sql>
-
-	<select id="searchList" resultMap="SearchMap" parameterType="String">
-	 	select z.zzno,
-		m.nick,
 		m.pic,
 		z.pic as zpic,
 		c.name,
@@ -43,11 +32,27 @@
 		left join catg c on c.cno = z.cno
 		left join page p on p.zzno = z.zzno
 		left join reply r on r.zzno = z.zzno
-		left join lik l on l.zzno = z.zzno where m.nick like CONCAT('%','강','%')
-		 											or z.titl like CONCAT('%','강','%') 
-		 											or p.cont like CONCAT('%','강','%')
-		 											group by z.zzno;
+		left join lik l on l.zzno = z.zzno 
+	</sql>
+
+	<select id="searchList" resultMap="SearchMap" parameterType="map">
+		<include refid="selectsql"/>
+	 	where m.nick like CONCAT('%',#{keyword},'%')
+		 											or z.titl like CONCAT('%',#{keyword},'%') 
+		 											or p.cont like CONCAT('%',#{keyword},'%')
+		 											group by z.zzno
+		 											limit #{startIndex},#{pageSize};
 		</select>
+		
+		
+	<select id="searchCountAll" resultType="int" parameterType="map">
+		select count(*) from 
+		(<include refid="selectsql"></include>
+		where m.nick like CONCAT('%',#{keyword},'%')
+		 											or z.titl like CONCAT('%',#{keyword},'%') 
+		 											or p.cont like CONCAT('%',#{keyword},'%')
+		 											group by z.zzno) as b
+	</select>	
   <select id="getNick" resultType="String" >
   	select nick from memb;
   </select>

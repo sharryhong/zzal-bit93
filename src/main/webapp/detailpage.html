@@ -38,6 +38,9 @@
           <div id="m-play-btn" class="">
               <div class="bigboy fa fa-pause off-btn" aria-hidden="true"></div>
               <div class="bigboy fa fa-play" aria-hidden="true"></div>
+              <!-- <div class="set-time">
+                <input type="number" value="3" class="settime-sec" min="1" max="60">초
+              </div> -->
           </div>
         </a>
       </div>
@@ -60,7 +63,6 @@
                 <div class="left-upper-menu">
                   <ul>
                     <li>
-                      <a href="#">
                       	<div class="upper-upper like">
                           <div id="like-btn">
                             <div class="hoverbig heart bigboy fa fa-heart off-btn" aria-hidden="true"></div>
@@ -68,10 +70,8 @@
                           </div>
                           <div class="smallboy navinfo">좋아요</div>
                         </div>
-                      </a>
                     </li>
                     <li>
-                      <a href="#">
                    		  <div class="upper-upper subscribe">
 	                        <div id="subscribe-btn" class="">
 	                          <div class="hoverbig subs bigboy fa fa-bookmark off-btn" aria-hidden="true" ></div>
@@ -79,18 +79,18 @@
 	                        </div>
 	                        <div class="smallboy navinfo-four">구독하기</div>
                         </div>
-                      </a>
                     </li>
                     <li>
-                      <a>
                         <div class="upper-upper auto-play">
 	                        <div id="play-btn" class="">
 	                            <div class="hoverbig bigboy fa fa-pause off-btn" aria-hidden="true"></div>
 	                            <div class="hoverbig bigboy fa fa-play" aria-hidden="true"></div>
 	                        </div>
 	                        <div class="smallboy navinfo-four">자동재생</div>
+	                        <div class="set-time">
+	                          <input type="number" value="3" class="settime-sec" min="1" max="60">초
+	                        </div>
                         </div>
-	                    </a>
                     </li>
                   </ul>
                 </div>
@@ -352,9 +352,9 @@
   <div  class="content-box">
     <div class="images-wrapper pages">
 			{{#isImage page.conTypeZ}}
-          <img class= "contents-images-zzals" src="upload/{{page.pagePic}}">
-			{{else}}
 			    <iframe src="https://www.youtube.com/embed/{{page.pagePic}}" frameborder="0" allowfullscreen></iframe>
+			{{else}}
+          <img class= "contents-images-zzals" src="upload/{{page.pagePic}}">
 			{{/isImage}}
     </div>
   </div>

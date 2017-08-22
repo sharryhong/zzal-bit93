@@ -39,6 +39,20 @@ public class NoticeControl {
     
     return new JsonResult(JsonResult.SUCCESS, noticeService.getcount(mno));
   }
+  
+  @RequestMapping("delete")
+  public JsonResult noticeDel(int nono) throws Exception {
+    noticeService.deleteNo(nono);
+    
+    return new JsonResult(JsonResult.SUCCESS, "ok");
+  }
+  @RequestMapping("update")
+  public JsonResult noticeUpd(int mno) throws Exception {
+    noticeService.updateYnn(mno);
+    
+    return new JsonResult(JsonResult.SUCCESS, "ok");
+  }
+  
 }
 
 

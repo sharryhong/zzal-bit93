@@ -36,6 +36,26 @@ public class ZzalServiceImpl implements ZzalService {
     return zzalDao.zzalListWithCount(valueMap);
   }
 	
+  /*@Override // DB에서 서브쿼리 사용하지 않을 때 
+  public List<Zzal> zzalListWithCount(int pageNo, int pageSize) throws Exception {
+    HashMap<String,Object> valueMap = new HashMap<>();
+    valueMap.put("startIndex", (pageNo - 1) * pageSize);
+    valueMap.put("pageSize", pageSize);
+    List<Zzal> list = zzalDao.zzalListWithCount(valueMap);
+    for (Zzal zzal : list) {
+      zzal.setLikeCount(zzalLikeDao.getcnt(zzal.getZzno()));
+    }
+    return list;
+  }*/
+
+	public List<Zzal> zzalListMyCategory(int pageNo, int pageSize, String[] categoryNumberArray) throws Exception {
+    HashMap<String,Object> valueMap = new HashMap<>();
+    valueMap.put("startIndex", (pageNo - 1) * pageSize);
+    valueMap.put("pageSize", pageSize);
+    valueMap.put("categoryNumberArray", categoryNumberArray);
+    return zzalDao.zzalListMyCategory(valueMap);
+  }
+	
 	public List<Zzal> zzalListCategory(int pageNo, int pageSize, int cno) throws Exception {
     HashMap<String,Object> valueMap = new HashMap<>();
     valueMap.put("startIndex", (pageNo - 1) * pageSize);
@@ -88,18 +108,6 @@ public class ZzalServiceImpl implements ZzalService {
     return zzalDao.zzalListNew(valueMap);
   }
   
-  /*@Override // DB에서 서브쿼리 사용하지 않을 때 
-  public List<Zzal> zzalListWithCount(int pageNo, int pageSize) throws Exception {
-    HashMap<String,Object> valueMap = new HashMap<>();
-    valueMap.put("startIndex", (pageNo - 1) * pageSize);
-    valueMap.put("pageSize", pageSize);
-    List<Zzal> list = zzalDao.zzalListWithCount(valueMap);
-    for (Zzal zzal : list) {
-      zzal.setLikeCount(zzalLikeDao.getcnt(zzal.getZzno()));
-    }
-    return list;
-  }*/
-
   @Override
   public int getSize() throws Exception {
     return zzalDao.countAll();

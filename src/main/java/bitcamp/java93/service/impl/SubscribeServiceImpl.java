@@ -31,6 +31,12 @@ public class SubscribeServiceImpl implements SubscribeService {
 		subscribeDao.deleteColct(subscribe);
 	}
 
+	@Override
+	public Subscribe getCono(Subscribe subscribe) {
+		
+		return subscribeDao.getCono(subscribe);
+	}
+
 	
 	
 
