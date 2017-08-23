@@ -47,6 +47,29 @@ var zzalEachPage = '',
 	coverImage = '',
 	doSubBtn = $('.do-subc'),
 	noSubBtn = $('.no-subc')
+	
+function checkLikeSub() {
+	 //좋아요임?!
+	 $.getJSON('zzallike/doulike.json',{'mno':memberno,'zzno':zzno},function(result){
+		 
+		 islike=Boolean(result.data.doit)
+		 buttonChecker();
+	 })
+	 
+	 //구독하심?
+	 $.getJSON('subs/getcono.json',{'zzno': zzno},function(result){
+		 zzalcono = result.data.list.collectNo
+		 $.getJSON('subs/list.json',{'mno':memberno,'cono':zzalcono},function(result){
+			 console.log('memberno', memberno, 'zzalcono', zzalcono, 'result', result)
+			 if(result.data.list) {
+				 douSubscribe = true
+			 } else {
+				 douSubscribe = false
+			 }
+			 buttonChecker();
+	    })
+	 })
+ }
 
 // 컬렉션 넘버 받기 위함 (나중에 수정)
 $.getJSON('auth/userinfo.json',function(result){
@@ -84,19 +107,7 @@ $.getJSON('auth/userinfo.json',function(result){
    })
  }
 
-    //좋아요임?!
-    $.getJSON('zzallike/doulike.json',{'mno':memberno,'zzno':zzno},function(result){
-    	
-      islike=Boolean(result.data.doit)
-      buttonChecker();
-    })
-
-    //구독하심?
-    $.getJSON('subs/list.json',{'mno':memberno,'cono':collectno},function(result){
-    	console.log(collectno,'콜넘')
-    	douSubscribe =Boolean(result.data.list)
-      buttonChecker();
-    })
+ 
 
     if (rulogin) {
       $('#like-btn').on('click',function(){
@@ -126,7 +137,7 @@ $.getJSON('auth/userinfo.json',function(result){
         $(off).addClass('off-btn')
       }
       
-      $('#subscribe-btn').on('click',function(event){
+      $('.subscribe-btn').on('click',function(event){
 
          let up = $(this)[0].children[0]
          let off = $(this)[0].children[1]
@@ -134,6 +145,8 @@ $.getJSON('auth/userinfo.json',function(result){
          if(!douSubscribe){
            $.post('subs/insert.json',{'mno':memberno, 'cono':parseInt(collectno)},function(result){
              console.log(result)
+             doSubBtn.css('display', 'none')
+             noSubBtn.css('display', 'inline-block')
            },"json")
            innerFuncion(up,off)
             event.preventDefault()
@@ -141,6 +154,8 @@ $.getJSON('auth/userinfo.json',function(result){
          }else{
            $.post('subs/delete.json',{'mno':memberno, 'cono':collectno},function(result){
              console.log(result)
+             doSubBtn.css('display', 'inline-block')
+             noSubBtn.css('display', 'none')
            },"json")
            innerFuncion(off,up)
             event.preventDefault()
@@ -199,16 +214,11 @@ function buttonChecker(){
   }
 
   if(douSubscribe){
-	  doSubBtn.css('display', 'inline-block')
-	  noSubBtn.css('display', 'none')
-    /*$($('.subs')[2]).removeClass('off-btn')
-    $($('.subs')[3]).addClass('off-btn')*/
-
-  }else{
 	  doSubBtn.css('display', 'none')
 	  noSubBtn.css('display', 'inline-block')
-    /*$($('.subs')[3]).removeClass('off-btn')
-    $($('.subs')[2]).addClass('off-btn')*/
+  }else{
+	  doSubBtn.css('display', 'inline-block')
+	  noSubBtn.css('display', 'none')
   }
 }
 
@@ -234,6 +244,7 @@ $(document).on('ready',function(e){
     	ZzalPages(zzno, lastPageEl)
     	otherZzals()
     	getCono()
+    	checkLikeSub()
     }
   })
 })

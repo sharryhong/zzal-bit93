@@ -16,7 +16,7 @@
 
   <select id="getList" resultMap="subsMap" parameterType="subscribe">
     <include refid="select1"/>
-    where mno=#{memberno} and cono=#{collectNo}; 
+    where mno=#{mno} and cono=#{cono}; 
   </select>
   
   <select id="getCono" resultMap="subsMap" parameterType="subscribe">

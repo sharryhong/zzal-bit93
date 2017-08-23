@@ -19,13 +19,9 @@ public class SubscribeControl {
 	@Autowired SubscribeService subscribeService;
 
 	@RequestMapping("list")
-	public JsonResult list(int mno, int cono, Subscribe subscribe) throws Exception {
-		System.out.println(cono);
-		System.out.println(mno);
-		subscribe.setCollectNo(cono);
-		subscribe.setMemberno(mno);
+	public JsonResult list(int mno, int cono) throws Exception {
 		HashMap<String,Object> dataMap = new HashMap<>();
-		dataMap.put("list", subscribeService.list(subscribe));
+		dataMap.put("list", subscribeService.list(mno, cono));
 
 		return new JsonResult(JsonResult.SUCCESS, dataMap);
 	}

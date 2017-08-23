@@ -7,7 +7,7 @@ import bitcamp.java93.domain.Category;
 import bitcamp.java93.domain.Subscribe;
 
 public interface SubscribeDao {
-  Subscribe getList(Subscribe subscribe);
+  Subscribe getList(Map<String,Object> valueMap);
   Subscribe getCono(Subscribe subscribe);
   void insertColct(Subscribe subscribe);
   void deleteColct(Subscribe subscribe);

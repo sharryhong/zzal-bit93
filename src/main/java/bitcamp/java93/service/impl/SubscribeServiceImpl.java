@@ -1,5 +1,7 @@
 package bitcamp.java93.service.impl;
 
+import java.util.HashMap;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,9 +15,11 @@ public class SubscribeServiceImpl implements SubscribeService {
 	@Autowired
 	NoticeDao noticeDao;
 	@Override
-	public Subscribe list(Subscribe subscribe) throws Exception {
-		// TODO Auto-generated method stub
-		return subscribeDao.getList(subscribe);
+	public Subscribe list(int mno, int cono) throws Exception {
+	  HashMap<String,Object> valueMap = new HashMap<>();
+    valueMap.put("mno", mno);
+    valueMap.put("cono", cono);
+		return subscribeDao.getList(valueMap);
 	}
 
 	@Override
