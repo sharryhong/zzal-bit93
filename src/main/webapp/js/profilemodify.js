@@ -24,15 +24,12 @@ $(document).ready(function(){
 
 	$.getJSON('auth/userinfo.json', function(result) {
 		if (result.data) {
-			console.log('콘솔로그',result.data)
 			nickName = result.data.nick
 			loginEmail = result.data.email
 			signType = result.data.signtype
 			no = result.data.no
 			profileName.val(result.data.nick)
 			UserPassword = result.data.password
-//			console.log('리절트데이터패스워드', result.data.password)
-//			console.log('유저패스워드변수', UserPassword)
 
 			$('.profile-picture').css({"background-image": "url(upload/"+result.data.membpic+")"});
 			$('input[type="hidden"]')[0].value=result.data.membpic;
@@ -128,7 +125,6 @@ $(document).ready(function(){
 			if ($('#profile-pw-new').val() != "" || $('#profile-pw-re').val() != "") {
 
 				if (isOk == "yes") {
-					alert('닉넴+프사+비밀번호까지 변경할래요')
 					$.ajax ({
 						type: 'POST',
 						url: 'member/update.json',
@@ -157,7 +153,6 @@ $(document).ready(function(){
 
 				// 변경할 비밀번호를 입력하지 않았을 때 타는 로직(case. 프로필사진 or 닉네임만 변경)
 			} else if ($('#profile-pw-new').val() == "" && $('#profile-pw-re').val() == "") {
-				alert('닉넴과 프사만 변경할래요')
 				console.log("UserPassword", UserPassword)
 				$.ajax ({
 					type: 'POST',
@@ -193,8 +188,6 @@ $(document).ready(function(){
 		// 여기 위로는 login.js에서 추가한 코드들(wrongValueCheckerProfile, db연결)
 		// ----------------------------------------------------------------------- //
 		// 여기 아래는 원래 기본에 있었던 코드들. 
-
-
 
 		// 유저 프로필 , 닉네임, 패스워드 변경 submit버튼 클릭. 
 		/*	$('#profile-modify-btn').click(function() {
@@ -244,5 +237,10 @@ $(document).ready(function(){
 		});// 멤버 포토 업로드 점 온 
 
 
+		$(document).on("click", '.profile-changepage .btn-cancle', function() {
+			location.href = 'mypage.html';
+		})
+		
+		
 	})
 });
