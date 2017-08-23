@@ -5,6 +5,48 @@ input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {  
    opacity: 1;
 }
+.zzal-collection {
+	padding: 10px 0;
+	border-top: 1px dashed #ccc;
+	border-bottom: 1px dashed #ccc;
+}
+.zzal-collection .upside {
+	font-size: 14px;
+	margin-bottom: 5px;
+}
+.zzal-collection .img {
+    float: left;
+    position: relative;
+    background-image: url(../image/zzal03.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 60px;
+    width: 60px;
+    margin-right: 10px;
+    border-radius: 5px;
+    border: 1px solid #aaa;
+    box-shadow: 0px 2px 0px rgba(0,0,0,0.2);
+}
+.zzal-collection .title {
+	font-size: 15px;
+	font-weight: normal;
+	color: #5656b1;
+}
+.zzal-collection .bottomside {
+	font-size: 13px;
+}
+.zzal-collection .left-width {
+	display: inline-block;
+	width: 50px;
+	height: 20px;
+  line-height: 20px;
+}
+.zzal-collection .leftside {
+	float: left;
+}
+.zzal-collection .bottomside .btn {
+	float: right;
+}
 .set-time {
 	font-size: 12px;
 	margin-top: 3px;
@@ -362,10 +404,13 @@ input[type=number]::-webkit-outer-spin-button {
     margin-left: 10px;
   }
   .left-info .zzal-lect-info li{
-    font-size: 14px;
+    font-size: 13px;
     border-bottom: 1px solid #ccc;
-    height: 23px;
-    line-height: 23px;
+    height: 21px;
+    line-height: 21px;
+  }
+  .left-info .zzal-lect-info li:first-child {
+    font-size: 14px;
   }
   .zzal-lect-info li .left-1st {
     float:left;
@@ -390,7 +435,7 @@ input[type=number]::-webkit-outer-spin-button {
     position: relative;
   }
   .upper-contaniner .user-lects-units{
-    margin-top: 30px;
+    margin-top: 15px;
     height: 186px;
     width:100%;
   }

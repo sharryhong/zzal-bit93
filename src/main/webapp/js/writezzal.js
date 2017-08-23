@@ -194,7 +194,6 @@ var pageCon = function(){
 
 
 var pageArray = [];
-var isCorverImage = false // 커버 이미지 올렸는지 확인 
 
 slideNumberring()
 
@@ -222,7 +221,6 @@ function writefuncDone(){
 				// return indexNum;
 				// console.log(photoUpLoad)
 						$(photoUpLoad).on('click',function(){
-							isCorverImage = true
 							let curslide = $(this).closest(".swiper-slide")
 							let curSlideNo = $(this).closest(".swiper-slide").attr('data-no')
 
@@ -377,10 +375,7 @@ var ssl=0;
 		}
 
 		$(document).on('click', '#add-btn, #temp-save-btn', function() {
-			// writezzal.html과 updatezzal.html구별위해 
-			let href = location.href;
-			let pageurl = href.substr(href.lastIndexOf('/') + 1);
-			console.log(pageurl)
+			let isCorverImage = ($('.writezzal-cover').attr('style'))
 			
 			if($(fiCategory).val()==0){
 				swal("카테고리를 입력해주세요", "", "warning");
@@ -390,7 +385,7 @@ var ssl=0;
 				swal("제목을 입력해주세요", "", "warning");
 				return
 			}
-			if(!isCorverImage && pageurl.includes("write")) {
+			if(!isCorverImage) {
 				swal("커버 이미지를 입력해주세요", "", "warning");
 				return
 			}
@@ -408,7 +403,6 @@ var ssl=0;
 
 			dataGarage()
 			if($(this).attr("data-tmppub")=="true"){
-//				console.log(this)
 				pageArray[0].publicType = true;
 
 			}else{
