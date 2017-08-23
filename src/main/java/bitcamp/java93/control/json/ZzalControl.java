@@ -25,7 +25,7 @@ public class ZzalControl {
 	    
 	    HashMap<String,Object> dataMap = new HashMap<>();
 	    dataMap.put("list", zzalService.list(zzno));
-	    
+	    System.out.println(dataMap);
 	    return new JsonResult(JsonResult.SUCCESS, dataMap);
 	  }
 	

@@ -41,6 +41,13 @@ var zzno = location.href.split('?')[1].split('=')[1]
 var memberno = 0 ;
 var collectno = 0;
 
+var zzalEachPage = '',
+	zzalmno = 0,
+	zzalcono = 0,
+	coverImage = '',
+	doSubBtn = $('.do-subc'),
+	noSubBtn = $('.no-subc')
+
 // 컬렉션 넘버 받기 위함 (나중에 수정)
 $.getJSON('auth/userinfo.json',function(result){
  try{
@@ -48,9 +55,7 @@ $.getJSON('auth/userinfo.json',function(result){
      rulogin=true;
    }
    memberno=result.data.no
-   console.log(zzno)
 	   $.getJSON('subs/getcono.json',{'zzno': zzno},function(result){
-//		  result.data.list
 		   		console.log(result.data.list,"cono")
 		   		if(result.data.list==undefined){
 		   			return $('.subs-null').css('display','none')
@@ -60,6 +65,23 @@ $.getJSON('auth/userinfo.json',function(result){
              });
  }catch(e){
    rulogin = false;
+   doSubBtn.css('display', 'inline-block')
+   doSubBtn.on('click', function() {
+	   swal({
+			  title: "로그인이 필요합니다.",
+			  timer: 1000,
+			  showConfirmButton: true
+			});
+	        $.getScript('js/login.js',function(data, textStatus, jqxhr){
+
+	            $(".login-curtain").show();
+	            $(".login-container").show();
+	            $("body").css("overflow", "hidden");
+
+	            event.preventDefault()
+	        })//getScript
+	        event.preventDefault()
+   })
  }
 
     //좋아요임?!
@@ -166,6 +188,7 @@ $.getJSON('auth/userinfo.json',function(result){
 
 //버튼 상태를 체크하는 함수
 function buttonChecker(){
+	console.log('douSubscribe', douSubscribe)
   if(islike){
     $($('.heart')[0]).removeClass('off-btn')
     $($('.heart')[1]).addClass('off-btn')
@@ -176,18 +199,19 @@ function buttonChecker(){
   }
 
   if(douSubscribe){
-    $($('.subs')[2]).removeClass('off-btn')
-    $($('.subs')[3]).addClass('off-btn')
+	  doSubBtn.css('display', 'inline-block')
+	  noSubBtn.css('display', 'none')
+    /*$($('.subs')[2]).removeClass('off-btn')
+    $($('.subs')[3]).addClass('off-btn')*/
 
   }else{
-    $($('.subs')[3]).removeClass('off-btn')
-    $($('.subs')[2]).addClass('off-btn')
+	  doSubBtn.css('display', 'none')
+	  noSubBtn.css('display', 'inline-block')
+    /*$($('.subs')[3]).removeClass('off-btn')
+    $($('.subs')[2]).addClass('off-btn')*/
   }
 }
 
-var zzalEachPage = ''
-var zzalmno = 0
-var coverImage = ''
 $(document).on('ready',function(e){
   $.getJSON('zzal/list.json',{'zzno': zzno},function(result){
 	if (result.data) {
@@ -209,9 +233,50 @@ $(document).on('ready',function(e){
     	lastPageEl.css('display', 'none')
     	ZzalPages(zzno, lastPageEl)
     	otherZzals()
+    	getCono()
     }
   })
 })
+
+// 컬렉트 번호받고 구독 관련
+function getCono() {
+	$.getJSON('subs/getcono.json',{'zzno': zzno},function(result){
+   		if(result.data.list){
+   			$('.zzal-collection').css('display','block')
+   			zzalcono = result.data.list.collectNo
+	   		// 구독 관련 
+	   			$.getJSON('collect/detail.json', {'no': zzalcono}, function(result) {
+	   				console.log(result.data)
+	   				$('.mycollectlist').css({"background-image": "url(upload/"+result.data.picture+")"})
+	   				$('#collectview').text(result.data.title)
+	   				/*$('.category-explain').text(result.data.content)
+	   				$('.category-title').text(result.data.title)
+	   				$('.collect-photo').css({"background-image": "url(upload/"+result.data.picture+")"})
+	   				let memno=result.data.memNo
+	   				if(memno!=no){
+	   					$('.btn.btn-info').css('display','none')
+	   				}*/	
+	   				$.getJSON('collect/selectuser.json', {'cono': zzalcono}, function(result) {
+	   					if(result.data){
+	   						console.log(result.data)
+	   						/*var someOneNo = result.data.selectzzalList
+	   						var somenick = someOneNo.membe
+	   						$('.user-info-face .user-name').text(somenick.nick)
+	   						$('.profile-wrap .phot.spicture').css({'background-image': 'url(upload/'+someOneNo.picture+')'});
+	   						let cnts = result.data.selectcnts
+	   						$('.zcnt').text(cnts.zcnt)
+	   						$('.scnt').text(cnts.scnt)*/
+	   					}
+	   				})
+	   				/*$(document.body).on('click', '.btn-info', function(event) {
+	   					console.log($(this).attr('data-no'))
+	   					location.href = 'collectupdate.html?cono=' + result.data.no
+	   					event.preventDefault()
+	   				});*/
+	   			});
+   		}
+     });
+}
 
 // 짤강의 페이지들
 var isMobile = false
