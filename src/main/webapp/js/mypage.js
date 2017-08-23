@@ -47,7 +47,7 @@
 			selectzzalList()
 		}
 	})
-
+	// 내짤강 리스트, 좋아요 리스트 , 비공개 리스트
 	function selectzzalList() {
 		$.getJSON('collect/selectzzalList.json', {'mno': mno}, function(result) {
 			if(result.data){
@@ -77,7 +77,6 @@
 	}//selectzzalList 짤강관리!!
 	
 	// collect.list 내컬렉션 클릭시 컬렉션 리스트 가져오기, 내 컬렉션 title pic
-	/*let cono= 0;*/
 	
 	$(document.body).on('click', '.select_info #collect-setting', function(event) {
 		console.log('내 컬렉션')
@@ -93,12 +92,13 @@
 				
 				
 				for(var i = 0; i < list.length; i++){
-					selectuser(list[i].no,i,$('#my-collection01 .sfont .zzal-cnt'),$('#my-collection01 .sfont .subs-cnt'))
+					selectuser(list[i].no,i,$('#my-collection01 .sfont .zzal-cnt'),$('#my-collection01 .sfont .subs-cnt')) // 컬렉션에 담겨있는 짤강 수 와, 구독한 수
 				}
 			}
 				
 		}) //내 컬렉션
-
+		
+        // 구독 한 컬렉션 리스트
 		$(document.body).on('click', '.zzal-menu02 #subs-btn', function(event) {
 			$.getJSON('collect/subslist.json', {'mno': mno}, function(result) {
 				if(result.data){
@@ -110,11 +110,9 @@
 					let btnlst = $('#my-collection02 .editerbtn')
 						
 					
-					
-					
 					for(var i = 0; i < list.length; i++){
 						console.log(list[i].no)
-						selectuser(list[i].no,i,$('#my-collection02 .sfont .zzal-cnt'),$('#my-collection02 .sfont .subs-cnt'))
+						selectuser(list[i].no,i,$('#my-collection02 .sfont .zzal-cnt'),$('#my-collection02 .sfont .subs-cnt')) // 컬렉션에 담겨있는 짤강 수 와, 구독한 수
 						
 						$(btnlst[i]).removeClass('editerbtn').addClass('zzsubbtn').text('구독취소').attr('data-stype',true)
 					}
@@ -127,8 +125,24 @@
 		}) //구독
 
 		$(document.body).on('click', '.zzal-menu02 #public-collect-list', function(event) {
-			
-		}) //비공개
+			$.getJSON('collect/publiclist.json', {'no': mno}, function(result) {
+				if (result.data) {
+					console.log(result.data)
+					
+				   $('#my-collection01').html('')
+					generateHandlebars(result, $('#my-collection-template'), $('#my-collection03'))
+					console.log($('.sfont .zzal-cnt'))
+					let list = result.data.list
+					console.log(list)
+					
+					
+					for(var i = 0; i < list.length; i++){
+						selectuser(list[i].no,i,$('#my-collection03 .sfont .zzal-cnt'),$('#my-collection03 .sfont .subs-cnt')) // 컬렉션에 담겨있는 짤강 수 와, 구독한 수
+					}
+				}
+					
+			})
+			}) //비공개
 		
 	}); //내컬렉션 관리
 	
