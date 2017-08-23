@@ -9,19 +9,30 @@
 	$.getJSON('/zzal-bit93/auth/userinfo.json', function(result) {
 		if (result.data) {
 			memberNumberJS = result.data.no;
-			console.log('로그인한 멤버 넘버', memberNumberJS)
-
+//			console.log('로그인한 멤버 넘버', memberNumberJS)
 			$('.reply-inputer .user-name').text(result.data.nick)
 			$('.profile-wrap .phot').css({"background-image": "url(upload/"+result.data.membpic+")"});
 			$('.reply-inputer .user-phot').css({"background-image": "url(upload/"+result.data.membpic+")"});
 			$('.input-con .input-reply').prop('readonly', false); //로그인 후 inputtext라인 활성화
-
 		}
+
+
 
 		/* 1. 전체 댓글 목록 받아오기 (select) */
 		$(document).ready(function(){
+			/* 베스트 댓글 */
+//			$.getJSON('reply/bestReplyList.json', {'zzalnumber': zzno}, function(result) {
+//				console.log('베댓 데이터', result)
+//				if (result != null) { // 만약 베댓이 있다면, 베댓 핸들바스를  
+//				let templateFn = Handlebars.compile($('#reply-bestReplyList-template').text())
+//				let generatedHTML = templateFn(result.data) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
+//				$('.reply-list ul').text('') // tbody의 기존 tr 태그들을 지우고
+//				$('.reply-list ul').html(generatedHTML) // 새 tr 태그들로 설정한다.
+//				}
+//			})
+			
 			$.getJSON('reply/list.json', {'zzalnumber': zzno}, function(result) {
-				console.log(result)
+//				console.log(result)
 				let templateFn = Handlebars.compile($('#reply-list-template').text())
 				let generatedHTML = templateFn(result.data) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
 				$('.reply-list ul').text('') // tbody의 기존 tr 태그들을 지우고
@@ -35,12 +46,12 @@
 					$('.replynum').html(result.data.countReply);
 				})
 
-				//한회원이 눌른 전체 좋아요 목록 받아오기
-				$.getJSON('replylike/allLikeList.json', {memberNumber: memberNumberJS}, function(result) {
-					for (var i = 0 ; i < (result.data.list).length; i++) {
-						$(".press .like."+result.data.list[i]+" .fa").removeClass('fa-heart-o').addClass('fa-heart').css({"color":"red"})
-					}
-				}) 
+					//한회원이 눌른 전체 좋아요 목록 받아오기
+					$.getJSON('replylike/allLikeList.json', {memberNumber: memberNumberJS}, function(result) {
+						for (var i = 0 ; i < (result.data.list).length; i++) {
+							$(".press .like."+result.data.list[i]+" .fa").removeClass('fa-heart-o').addClass('fa-heart').css({"color":"red"})
+						}
+					}) 
 			})// 1.
 		})
 
@@ -139,7 +150,16 @@
 							$.getJSON('reply/countreply.json', {'zzalnumber': zzno}, function(result) {
 								$('.replycnt span:first-child').html(result.data.countReply);
 							})
+
+							//한회원이 눌른 전체 좋아요 목록 받아오기
+							$.getJSON('replylike/allLikeList.json', {memberNumber: memberNumberJS}, function(result) {
+								for (var i = 0 ; i < (result.data.list).length; i++) {
+									$(".press .like."+result.data.list[i]+" .fa").removeClass('fa-heart-o').addClass('fa-heart').css({"color":"red"})
+								}
+							}) 
 						})
+
+
 					} else {
 						sweetAlert("댓글 삭제 실패", "본인이 작성한 댓글만 삭제할 수 있습니다.", "error");
 					}
@@ -169,8 +189,14 @@
 							$.getJSON('reply/countreply.json', {'zzalnumber': zzno}, function(result) {
 								$('.replycnt span:first-child').html(result.data.countReply);
 							})
-						})
 
+							//한회원이 눌른 전체 좋아요 목록 받아오기
+							$.getJSON('replylike/allLikeList.json', {memberNumber: memberNumberJS}, function(result) {
+								for (var i = 0 ; i < (result.data.list).length; i++) {
+									$(".press .like."+result.data.list[i]+" .fa").removeClass('fa-heart-o').addClass('fa-heart').css({"color":"red"})
+								}
+							}) 
+						})
 					} else {
 						sweetAlert("댓글 삭제 실패", "본인이 작성한 댓글만 삭제할 수 있습니다.", "error");
 					}
@@ -181,7 +207,6 @@
 
 		/* 6. 대댓글 보이기 숨기기 버튼 */ // 내일은 여기서부터 다루어야 한다. 
 		$(document).on("click", '.reply-info .re-reply', function(){
-			console.log('로그인한 멤버 넘버', memberNumberJS)
 			if(memberNumberJS != null ){
 				var that = $(this)
 				that.closest(".reply-li").find(".re-reply-inputer").css('display','block')
@@ -263,7 +288,6 @@
 							data: {'replyNumber' :replyNumbers, 'memberNumber': memberNumberJS, 'reparentNumber' : reparent}, 
 							async: false,
 							success: function(data) {
-//								console.log("replylike insert 데이터 보냈습니다.")
 							}
 						})
 						$.ajax({ // 누적 좋아요 갯수에 + 1 한다. 
@@ -275,12 +299,22 @@
 //								console.log("replylikecount plus 데이터 보냈습니다.")
 							}
 						})
-
-						that.find(".fa").removeClass('fa-heart-o').addClass('fa-heart').css({"color":"red"})
-
-						var value = parseInt(that.find(".replyCount").text(value).text()) + 1
-//						console.log('하나 증가된 값 출력', value)
-						that.find(".replyCount").text(" " + value)
+						if(memberNumberJS != null ) {
+							$.ajax({ // 누적 좋아요 갯수에 + 1 한다. 
+								type: 'POST',
+								url: 'reply/replyLikeCountPlus.json',
+								data: {'replyNumber' : replyNumbers}, 
+								async: false,
+								success: function(data) {
+									console.log("replylikecount plus 데이터 보냈습니다.")
+								}
+							})
+							that.find(".fa").removeClass('fa-heart-o').addClass('fa-heart').css({"color":"red"})
+							var value = parseInt(that.find(".replyCount").text(value).text()) + 1
+							that.find(".replyCount").text(" " + value)
+						} else {
+							sweetAlert("좋아요 실패", "로그인 해야 이용할 수 있습니다.", "error");
+						}
 
 					} else { // 해당댓글을 좋아요 누른적이 있다면, db에서 delete 시킨다.
 						$.ajax({
@@ -289,7 +323,6 @@
 							data: {'replyNumber' :replyNumbers, 'memberNumber': memberNumberJS}, 
 							async: false,
 							success: function(data) {
-//								console.log("replylike delete 데이터 보냈습니다.")
 							}
 						})
 
@@ -299,7 +332,6 @@
 							data: {'replyNumber' : replyNumbers}, 
 							async: false,
 							success: function(data) {
-//								console.log("replylikecount minus 데이터 보냈습니다.")
 							}
 						})
 
