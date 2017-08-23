@@ -86,6 +86,27 @@ public List<Collect> detialzzalList(HashMap<String, Object> map) throws Exceptio
 	return  collectDao.detialzzalList(map);
 }
 
+@Override
+public Collect selectUser(int no) {
+  // TODO Auto-generated method stub
+  return collectDao.selectUser(no);
+}
 
+
+
+@Override
+public HashMap<String, Object> getcount(int cono) {
+  // TODO Auto-generated method stub
+  HashMap<String, Object> map =new HashMap<>(); 
+  map.put("scnt",collectDao.subscnt(cono));
+  map.put("zcnt",collectDao.zzalcnt(cono));
+  
+  return map;
+}
+
+@Override
+public List<Collect> selectAllList(int no) throws Exception {
+  return collectDao.selectAllList(no);
+}
 
 }

@@ -82,7 +82,7 @@
 	 $(document.body).on('click', '.mycollectlist', function(event) {
 		  console.log($(this).attr('data-no'))
 		  console.log(somno)
-		  location.href = 'someonedetail.html?cono=' + $(this).attr('data-no') + '&mno=' + somno
+		  location.href = 'someonedetail.html?cono=' + $(this).attr('data-no') /*+ '&mno=' + somno*/
 		  event.preventDefault()
 	  });
 	

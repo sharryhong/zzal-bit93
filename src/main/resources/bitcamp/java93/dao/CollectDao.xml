@@ -7,39 +7,41 @@
 	<resultMap type="collect" id="collectMap">
 		<id column="cono" property="no" />
 		<result column="mno" property="memNo" />
-		<result column="zzno" property="zzno"/>
+		<result column="zzno" property="zzno" />
 		<result column="title" property="title" />
 		<result column="cont" property="content" />
 		<result column="pic" property="picture" />
 		<result column="pub" property="isPublic" />
-	  <association property="membe" javaType="Member">
-	    <id column="mno" property="no"/>
-	    <result column="nick" property="nick"/>
-	    <result column="email" property="email"/>
-	    <result column="pwd" property="password"/>
-	    <result column="mtype" property="membtype"/>
-	    <result column="stype" property="signtype"/>
-	    <result column="pic1" property="membpic"/>
-	  </association>
-	  <association property="zzall" javaType="Zzal">
-		<id column="zzno" property="zzno"/>
-	    <result column="mno" property="mno"/>
-	    <result column="cno" property="cno"/>
-	    <result column="titl" property="title"/>
-	    <result column="pic2" property="mainPic"/>
-	    <result column="cdt2" property="cdt"/>
-	    <result column="ztmp" property="zzalTemporary"/>
-	    <result column="hitcnt" property="hitCount"/>
-	    <result column="like_cnt" property="likeCount"/>
-	    <result column="reply_cnt" property="replyCount"/>
-	    <result column="rCount" property="rowCount"/>
-	    <result column="cName" property="categoryName"/>
-	  </association>
-	  <association property="zzallikes" javaType="Zzallike">
-	    <id column="zzno" property="zzno"/>
-	    <result column="mno" property="mno"/>
-	    <result column="cdt1" property="cdt"/>
-	  </association>
+		<result column="zzalcnt" property="zzalCount" />
+		<result column="subscnt" property="subsCount" />
+		<association property="membe" javaType="Member">
+			<id column="mno" property="no" />
+			<result column="nick" property="nick" />
+			<result column="email" property="email" />
+			<result column="pwd" property="password" />
+			<result column="mtype" property="membtype" />
+			<result column="stype" property="signtype" />
+			<result column="pic1" property="membpic" />
+		</association>
+		<association property="zzall" javaType="Zzal">
+			<id column="zzno" property="zzno" />
+			<result column="mno" property="mno" />
+			<result column="cno" property="cno" />
+			<result column="titl" property="title" />
+			<result column="pic2" property="mainPic" />
+			<result column="cdt2" property="cdt" />
+			<result column="ztmp" property="zzalTemporary" />
+			<result column="hitcnt" property="hitCount" />
+			<result column="like_cnt" property="likeCount" />
+			<result column="reply_cnt" property="replyCount" />
+			<result column="rCount" property="rowCount" />
+			<result column="cName" property="categoryName" />
+		</association>
+		<association property="zzallikes" javaType="Zzallike">
+			<id column="zzno" property="zzno" />
+			<result column="mno" property="mno" />
+			<result column="cdt1" property="cdt" />
+		</association>
 	</resultMap>
 
 	<sql id="select1">
@@ -48,100 +50,126 @@
 	</sql>
 	<!-- 공개한 컬렉션 리스트 -->
 	<select id="selectList" resultMap="collectMap" parameterType="int">
-		<include refid="select1" />
+		<include refid="select1"/>
 		where pub = false and mno = #{mno}
 		order by cono desc
 	</select>
-	
+
 	<!-- 비공개한 컬렉션 리스트 -->
 	<select id="publicList" resultMap="collectMap" parameterType="int">
 		select mno, cono, title, cont, pic, pub
 		from colct
-		where pub = true and mno = #{mno}
+		where pub = true and
+		mno = #{mno}
 		order by cono desc
 	</select>
-	
+
 	<select id="subslist" resultMap="collectMap" parameterType="int">
-    select c.mno, c.cono, c.title, c.pic,
-		   (SELECT count(*) FROM colct c where s.cono = c.cono),
-		   (SELECT count(*) FROM zzal_lect z where z.cono = s.cono) 
-	 from subs s join colct c on s.cono = c.cono 
-	 where s.mno= #{mno}
-	 </select>
-	 
+		select c.mno, c.cono, c.title, c.pic,
+		(SELECT count(*) FROM colct c where s.cono = c.cono),
+		(SELECT count(*) FROM zzal_lect z where z.cono = s.cono)
+		from subs s join colct c on s.cono = c.cono
+		where s.mno= #{mno}
+	</select>
+
 	<!-- 등록시 내짤강리스트 or 임시저장시 mypage 임시 짤강 리스트 -->
-	<select id="temporaryzzalList" resultMap="collectMap" parameterType="map">
-    	select z.zzno, z.mno, m.nick, m.pic as pic1, z.cno, z.titl, z.pic as pic2, z.cdt as cdt2, z.ztmp, z.hitcnt,
-    	(SELECT count(*) FROM lik l WHERE l.zzno=z.zzno) as like_cnt, 
-    	(SELECT count(*) FROM reply r WHERE r.zzno=z.zzno) as reply_cnt
-    	from zzal_lect z inner join memb m on z.mno = m.mno
-		where z.ztmp = #{tmp} and z.mno=#{mno}
+	<select id="temporaryzzalList" resultMap="collectMap"
+		parameterType="map">
+		select z.zzno, z.mno, m.nick, m.pic as pic1, z.cno, z.titl, z.pic as pic2,
+		z.cdt as cdt2, z.ztmp, z.hitcnt,
+		(SELECT count(*) FROM lik l WHERE l.zzno=z.zzno) as like_cnt,
+		(SELECT count(*) FROM reply r WHERE r.zzno=z.zzno) as reply_cnt
+		from zzal_lect z inner join memb m on z.mno = m.mno
+		where z.ztmp = #{tmp}
+		and z.mno=#{mno}
 		order by z.zzno desc
 	</select>
-	
-	
-	<select id="detialzzalList" resultMap="collectMap" parameterType="map">
-    	select z.zzno, z.mno, m.nick, m.pic as pic1, z.cno, z.titl, z.pic as pic2, z.cdt as cdt2, z.ztmp, z.hitcnt,
-    	(SELECT count(*) FROM lik l WHERE l.zzno=z.zzno) as like_cnt, 
-    	(SELECT count(*) FROM reply r WHERE r.zzno=z.zzno) as reply_cnt
-    	from zzal_lect z inner join memb m on z.mno = m.mno
+
+
+	<select id="detialzzalList" resultMap="collectMap"
+		parameterType="map">
+		select z.zzno, z.mno, m.nick, m.pic as pic1, z.cno, z.titl, z.pic as pic2,
+		z.cdt as cdt2, z.ztmp, z.hitcnt,
+		(SELECT count(*) FROM lik l WHERE l.zzno=z.zzno) as like_cnt,
+		(SELECT count(*) FROM reply r WHERE r.zzno=z.zzno) as reply_cnt
+		from zzal_lect z inner join memb m on z.mno = m.mno
 		where z.cono=#{cono}
 		order by z.zzno desc
 	</select>
-	
-	
-	
-	
-	
-	<!-- select z.zzno, z.mno, m.nick, m.pic as pic1, z.cno, z.titl, z.pic as pic2, z.cdt as cdt2, z.ztmp, z.hitcnt,
-    	(SELECT count(*) FROM lik l WHERE l.zzno=z.zzno) as like_cnt, 
-    	(SELECT count(*) FROM reply r WHERE r.zzno=z.zzno) as reply_cnt
-    	from zzal_lect z inner join memb m on z.mno = m.mno
-		where z.ztmp = false and z.cono = 2
-		order by z.zzno desc -->
+
+	<!-- select z.zzno, z.mno, m.nick, m.pic as pic1, z.cno, z.titl, z.pic as 
+		pic2, z.cdt as cdt2, z.ztmp, z.hitcnt, (SELECT count(*) FROM lik l WHERE 
+		l.zzno=z.zzno) as like_cnt, (SELECT count(*) FROM reply r WHERE r.zzno=z.zzno) 
+		as reply_cnt from zzal_lect z inner join memb m on z.mno = m.mno where z.ztmp 
+		= false and z.cono = 2 order by z.zzno desc -->
 	<!-- 좋아요한 짤강 리스트 -->
-	<select id="likezzal" resultMap="collectMap" parameterType="int">
-		SELECT l.zzno, l.mno,(select mb.nick from memb mb where z.mno=mb.mno) as nick, (select mb.pic from memb mb where z.mno=mb.mno) as pic1, z.titl, z.pic as pic2, z.cdt as cdt2, z.ztmp, z.hitcnt, l.cdt as cdt1,
-		(SELECT count(*) FROM lik WHERE zzno=z.zzno) as like_cnt, 
-    	(SELECT count(*) FROM reply WHERE zzno=z.zzno) as reply_cnt 
-    	FROM lik l INNER JOIN memb m on l.mno = m.mno INNER JOIN zzal_lect z on l.zzno = z.zzno
-    	where l.mno = #{mno};
-  	</select>
-  	
-	<!--SELECT l.zzno, l.mno, m.nick, m.pic as pic1, z.titl, z.pic as pic2, z.cdt as cdt2, z.ztmp, z.hitcnt, l.cdt as cdt1,
-		(SELECT count(*) FROM lik WHERE zzno=z.zzno) as like_cnt, 
-    	(SELECT count(*) FROM reply WHERE zzno=z.zzno) as reply_cnt 
-    	FROM lik l INNER JOIN memb m on l.mno = m.mno INNER JOIN zzal_lect z on l.zzno = z.zzno
-    	where l.mno = 5 -->
 	
-	<!-- <select id="getZzalcntIncolct" resultType="int" parameterType="map">
-   		select count(*) from (select z.zzno from zzal_lect z where z.cono = #{conlectNo}) as zzal_cnt 
-  	</select>  -->
-		
+	<select id="likezzal" resultMap="collectMap" parameterType="int">
+		SELECT l.zzno, l.mno,(select mb.nick from memb mb where z.mno=mb.mno)
+		as nick, (select mb.pic from memb mb where z.mno=mb.mno) as pic1,
+		z.titl, z.pic as pic2, z.cdt as cdt2, z.ztmp, z.hitcnt, l.cdt as cdt1,
+		(SELECT count(*) FROM lik WHERE zzno=z.zzno) as like_cnt,
+		(SELECT count(*) FROM reply WHERE zzno=z.zzno) as reply_cnt
+		FROM lik l INNER JOIN memb m on l.mno = m.mno INNER JOIN zzal_lect z on
+		l.zzno = z.zzno
+		where l.mno = #{mno};
+	</select>
+
+	<!--SELECT l.zzno, l.mno, m.nick, m.pic as pic1, z.titl, z.pic as pic2, 
+		z.cdt as cdt2, z.ztmp, z.hitcnt, l.cdt as cdt1, (SELECT count(*) FROM lik 
+		WHERE zzno=z.zzno) as like_cnt, (SELECT count(*) FROM reply WHERE zzno=z.zzno) 
+		as reply_cnt FROM lik l INNER JOIN memb m on l.mno = m.mno INNER JOIN zzal_lect 
+		z on l.zzno = z.zzno where l.mno = 5 -->
+
+	<!-- <select id="getZzalcntIncolct" resultType="int" parameterType="map"> 
+		select count(*) from (select z.zzno from zzal_lect z where z.cono = #{conlectNo}) 
+		as zzal_cnt </select> -->
+
 	<select id="countAll" resultType="int">
 		select count(*)
 		from colct
 	</select>
 
 	<select id="selectOne" resultMap="collectMap" parameterType="int">
-		<include refid="select1" />
+		<include refid="select1"/>
 		where cono = #{no};
 	</select>
 
-	<insert id="insert" parameterType="collect" 
-          useGeneratedKeys="true" keyColumn="cono" keyProperty="no">
-    insert into colct(mno,title,cont,pic,pub) 
-    values(#{memNo},#{title},#{content},#{picture},#{isPublic})
-    </insert>
-  
-  <update id="update" parameterType="collect">
-	update colct set title=#{title}, cont=#{content}, pub=#{isPublic}, pic=#{picture} 
-	where cono = #{no}
-  </update>
-  
-  <delete id="delete" parameterType="int">
-	delete from colct where cono = #{no}
-  </delete>
+	<select id="selectUser" resultMap="collectMap" parameterType="int">
+		select m.mno,m.nick,m.pic from memb m where m.mno=(select c.mno from
+		colct c where c.cono=#{mno})
+	</select>
+
+	<select id="subscnt" resultType="int" parameterType="int">
+		select count(*) from subs s where s.cono = #{cono}
+	</select>
+	
+	<select id="zzalcnt" resultType="int" parameterType="int">
+		select count(*) from zzal_lect z where z.cono = #{cono}
+	</select>
+	<!-- select count(*) as zzalcnt from zzal_lect z where z.cono = 1; -->
+	<insert id="insert" parameterType="collect" useGeneratedKeys="true"
+		keyColumn="cono" keyProperty="no">
+		insert into colct(mno,title,cont,pic,pub)
+		values(#{memNo},#{title},#{content},#{picture},#{isPublic})
+	</insert>
+
+	<update id="update" parameterType="collect">
+		update colct set title=#{title}, cont=#{content}, pub=#{isPublic},
+		pic=#{picture}
+		where cono = #{no}
+	</update>
+
+	<delete id="delete" parameterType="int">
+		delete from colct where cono = #{no}
+	</delete>
+	
+  <!-- 나의 모든 컬렉션 리스트 -->
+   <select id="selectAllList" resultMap="collectMap" parameterType="int">
+      <include refid="select1" />
+      where mno = #{mno}
+      order by cono desc
+   </select>
 	
 </mapper> 
 

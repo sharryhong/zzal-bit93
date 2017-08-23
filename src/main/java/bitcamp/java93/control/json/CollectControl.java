@@ -144,10 +144,6 @@ public class CollectControl {
     return new JsonResult(JsonResult.SUCCESS, dataMap);
   }
   
-  
-  
-  
-  
   @RequestMapping("likezzal")
   public JsonResult isLike( int mno) throws Exception {
     
@@ -158,6 +154,24 @@ public class CollectControl {
     return new JsonResult(JsonResult.SUCCESS, dataMap);
   }
   
+  @RequestMapping("selectuser")
+  public JsonResult selectUser( int cono) throws Exception {
+    
+    HashMap<String,Object> dataMap = new HashMap<>();
+    System.out.println(collectService.selectUser(cono));
+   dataMap.put("selectzzalList",collectService.selectUser(cono));
+   dataMap.put("selectcnts",collectService.getcount(cono));
+    return new JsonResult(JsonResult.SUCCESS, dataMap);
+  }
+  
+  @RequestMapping("alllist")
+  public JsonResult selectAllList(int no) throws Exception {
+    
+    HashMap<String,Object> dataMap = new HashMap<>();
+    dataMap.put("list", collectService.selectAllList(no));
+    
+    return new JsonResult(JsonResult.SUCCESS, dataMap);
+  }
 }
 
 

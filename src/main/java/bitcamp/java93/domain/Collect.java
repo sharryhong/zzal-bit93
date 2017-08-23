@@ -11,7 +11,6 @@ public class Collect {
   Member membe;
   Zzal zzall;
   ZzalLike zzallikes;
-  
   @Override
   public String toString() {
     return "Collect [no=" + no + ", memNo=" + memNo + ", zzno=" + zzno + ", title=" + title + ", content=" + content
@@ -78,6 +77,7 @@ public class Collect {
   public void setZzallikes(ZzalLike zzallikes) {
     this.zzallikes = zzallikes;
   }
+
   
   
 }

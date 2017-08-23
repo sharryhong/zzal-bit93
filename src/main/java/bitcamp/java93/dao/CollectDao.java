@@ -14,9 +14,14 @@ public interface CollectDao {
   List<Collect> temporaryzzalList(HashMap<String, Object> map);
   List<Collect> likezzal(int mno);
   int countAll();
+  int subscnt(int cono);
+  int zzalcnt(int cono);
+
   Collect selectOne(int no); // selectOne()
+  Collect selectUser(int no);
   int insert(Collect collect);
   int delete(int no); // delete()
   int update(Collect collect);
+  List<Collect> selectAllList(int no);
 
 }

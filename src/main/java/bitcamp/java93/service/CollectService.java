@@ -15,8 +15,14 @@ public interface CollectService {
   List<Collect> likezzal(int mno) throws Exception;
   int getSize() throws Exception;
   Collect get(int no) throws Exception; // get()
+  Collect selectUser(int no);
   void add(Collect collect) throws Exception;
   void update(Collect collect) throws Exception; // update()
   void remove(int no) throws Exception; // remove()
-
+  HashMap<String, Object> getcount(int cono);
+  List<Collect> selectAllList(int no) throws Exception;
+  
+  
+  
+  
 }
