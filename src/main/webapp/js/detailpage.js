@@ -150,6 +150,7 @@ $.getJSON('auth/userinfo.json',function(result){
            },"json")
            innerFuncion(up,off)
            checkLikeSub()
+           getCono()
             event.preventDefault()
 //            douSubscribee=true;
          } else{
@@ -160,6 +161,7 @@ $.getJSON('auth/userinfo.json',function(result){
            },"json")
            innerFuncion(off,up)
            checkLikeSub()
+           getCono()
             event.preventDefault()
 //            douSubscribe=false;
          }
@@ -202,10 +204,6 @@ $.getJSON('auth/userinfo.json',function(result){
       })
     }
 })
-
-function reloadDiv() {
-  $(".zzal-collection").load(" .zzal-collection");
-}
 
 //버튼 상태를 체크하는 함수
 function buttonChecker(){

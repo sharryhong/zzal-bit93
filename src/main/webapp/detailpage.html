@@ -382,7 +382,64 @@
 
 </script>
 
+
 <!--  reply 핸들바스 script문 -->
+<!-- 베스트 댓글 -->
+ <script id="reply-bestReplyList-template" type="text/x-handlebars-template">
+ {{#each list}}
+  <li class='reply-li' data-mno='{{memberNumber}}'>
+    <div class='reply-unit-con'>
+      <a href='#'>
+        <div data-mno='{{memberNumber}}' class='reply-user-phot thumbnail-phot-insert' style="background-image:url('upload/{{membPic}}')"></div>
+      </a>
+      <div class='reply-con'>
+       <div class='best-nickname'>
+        <span class="best-reply">BEST</span><div class='user-name'><span class='name' data-mno='{{memberNumber}}'>{{nickName}}</span></div>
+       </div>
+          <a href="#" class="cancle-wrap">
+           <div class="cancle" data-rno='{{replyNumber}}' data-mno='{{memberNumber}}' data-reparent='{{rereplyParentNumber}}'><i class="fa fa-times" aria-hidden="true"></i></div>
+          </a>  
+        <div class='reply-text'><div class='text'>{{content}}</div></div>
+      </div>
+      <div class='reply-info clearfix'>
+        <div class='date'><span class='when'>{{createDate}}</span>
+          <a href='#'>
+           <span class='re-reply'>답글달기</span>
+          </a>
+      </div>
+      <div class='press'>
+          <a href='#'>
+            <span class='like {{replyNumber}}'>
+              <i class='fa fa-heart-o' aria-hidden='true'></i><span class="replyCount"> {{replyLike}}</span>
+            </span>
+          </a>
+          <a href='#'>
+            <span class='added-reply'>
+              <i class='fa fa-comment-o' aria-hidden='true'></i><span> {{reparentCountNumber}}</span>
+            </span>
+          </a>
+      </div>
+    </div>
+    </div>
+     <div class="re-reply-inputer clearfix" style="display:none">
+        <a href="#">
+          <div class="user-phot thumbnail-phot-insert">
+          </div>
+        </a>
+        <div class="input-con">
+          <form class="inputer" action="index.html" method="post">
+            <textarea class='input-re-reply' name="" value="" placeholder="대댓글을 입력해 보세요!"></textarea>
+            <button class='cancle-re-reply' type="button" name="button">취소</button>
+            <button class='submit-re-reply' type="button" name="button" data-rno='{{replyNumber}}'>입력</button>
+          </form>
+        </div>
+     </div>
+  </li>
+ {{/each}}
+</script>
+ 
+
+<!-- 부모댓글 or 자식댓글 추가(reparent 유무에 따라) -->
  <script id="reply-list-template" type="text/x-handlebars-template">
 {{#each list}}
 {{#if rereplyParentNumber}}
@@ -403,8 +460,8 @@
     </div>
     <div class='press'>
         <a href='#'>
-          <span class='like'>
-            <i class='fa fa-heart-o' aria-hidden='true'></i><span>200</span>
+          <span class='like {{replyNumber}}' data-reparent='{{rereplyParentNumber}}'>
+            <i class='fa fa-heart-o' aria-hidden='true'></i><span class="replyCount"> {{replyLike}}</span>
           </span>
         </a>
     </div>
@@ -432,13 +489,13 @@
       </div>
       <div class='press'>
           <a href='#'>
-            <span class='like'>
-              <i class='fa fa-heart-o' aria-hidden='true'></i><span>200</span>
+            <span class='like {{replyNumber}}'>
+              <i class='fa fa-heart-o' aria-hidden='true'></i><span class="replyCount"> {{replyLike}}</span>
             </span>
           </a>
           <a href='#'>
             <span class='added-reply'>
-              <i class='fa fa-comment-o' aria-hidden='true'></i><span>200</span>
+              <i class='fa fa-comment-o' aria-hidden='true'></i><span> {{reparentCountNumber}}</span>
             </span>
           </a>
       </div>
@@ -484,13 +541,13 @@
         </div>
         <div class='press'>
           <a href='#'>
-            <span class='like'>
-              <i class='fa fa-heart-o' aria-hidden='true'></i><span>200</span>
+            <span class='like' data-reparent='{{rereplyParentNumber}}'>
+              <i class='fa fa-heart-o' aria-hidden='true'></i><span class="replyCount"> {{replyLike}}</span>
             </span>
           </a>  
           <a href='#'>
             <span class='added-reply'>
-              <i class='fa fa-comment-o' aria-hidden='true'></i><span>200</span>
+              <i class='fa fa-comment-o' aria-hidden='true'></i><span> {{reparentCountNumber}}</span>
             </span>
           </a>
         </div>
