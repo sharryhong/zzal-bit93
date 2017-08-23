@@ -263,7 +263,7 @@ function getCono() {
 	   			$.getJSON('collect/detail.json', {'no': zzalcono}, function(result) {
 	   				console.log(result.data)
 	   				$('.mycollectlist').css({"background-image": "url(upload/"+result.data.picture+")"})
-	   				$('#collectview').text(result.data.title)
+	   				$('.collect-title').text(result.data.title)
 	   				$.getJSON('collect/selectuser.json', {'cono': zzalcono}, function(result) {
 	   					if(result.data){
 	   						let realData = result.data.selectcnts
