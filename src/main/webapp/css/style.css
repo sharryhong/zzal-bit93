@@ -8,6 +8,11 @@ body {
 	overflow-y: scroll;
 }
 
+.mypage .zzal-category,
+.mypage .zzal-collection,
+.mypage .zzal-con02 {
+	display: none;
+}
 .zzal-lect {
 	cursor: pointer;
 }

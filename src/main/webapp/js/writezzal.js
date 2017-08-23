@@ -92,10 +92,13 @@ let tmpMpic = ''
 		let arrcontext=[]
 		let arrpicname=[]
 		let arrvideo=[]
+		let arrType=[]
 
 		let k=0;
 
 		for(let pageroom of data.page){
+			console.log(pageroom)
+			arrType[k] = pageroom.conTypeZ
 			arrpicname[k] = pageroom.pagePic
 			arrpic[k] = './upload/'+pageroom.pagePic
 			arrcontext[k] =	pageroom.ConTextZ
@@ -115,16 +118,20 @@ let tmpMpic = ''
 
 	let tmpfiinput = $("input[type=hidden]")
 
-	console.log(tmpPageSelect)
-	console.log(tmpfiinput)
-
 	tmpfiinput[0].value=tmpMpic
-  $(tmpPageSelect[0]).css("background-image", 'url('+tmpstr1+')')
+    $(tmpPageSelect[0]).css("background-image", 'url('+tmpstr1+')')
 
 	for (let i=1; i < tmpPageSelect.length; i++ ){
-		data.page.type
+//		data.page.type
 		$(tmpfiinput[i]).val(arrpicname[i-1])
-		$("<img>").attr("src",arrpic[i-1]).appendTo(tmpPageSelect[i])
+		// 이미지 일 때 
+		if (arrType[i-1] === "true") {
+			$("<img>").attr("src",arrpic[i-1]).appendTo(tmpPageSelect[i])
+		} 
+		// 동영상 일 때 
+		else if (arrType[i-1] === "false" && arrpicname[i-1]) {
+			var videoIframe = "<iframe src='https://www.youtube.com/embed/" + arrpicname[i-1] + "' frameborder='0' allowfullscreen></iframe>"
+			$(videoIframe).css({'width':670, 'height':370}).appendTo(tmpPageSelect[i])		}
 		$(".swiper-slide textarea")[i-1].value=arrcontext[i-1]
 	}
 
@@ -140,7 +147,7 @@ let tmpMpic = ''
 
     // 컬렉션 리스트 뿌리기
   function getCollect(no) {
-		$.getJSON('/zzal-bit93/collect/list.json', {'no': no}, function(result) {
+		$.getJSON('/zzal-bit93/collect/alllist.json', {'no': no}, function(result) {
 			if (result.data) {
 				generateHandlebars(result, $('#select-collect-template'), $('#select-collect'));
 			}
@@ -370,6 +377,11 @@ var ssl=0;
 		}
 
 		$(document).on('click', '#add-btn, #temp-save-btn', function() {
+			// writezzal.html과 updatezzal.html구별위해 
+			let href = location.href;
+			let pageurl = href.substr(href.lastIndexOf('/') + 1);
+			console.log(pageurl)
+			
 			if($(fiCategory).val()==0){
 				swal("카테고리를 입력해주세요", "", "warning");
 				return
@@ -378,7 +390,7 @@ var ssl=0;
 				swal("제목을 입력해주세요", "", "warning");
 				return
 			}
-			if(!isCorverImage) {
+			if(!isCorverImage && pageurl.includes("write")) {
 				swal("커버 이미지를 입력해주세요", "", "warning");
 				return
 			}
