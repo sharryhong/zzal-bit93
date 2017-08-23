@@ -1,12 +1,13 @@
 .down-container li {
-  border-bottom: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
 }
-.submit-re-reply, 
-.cancle-re-reply {
+
+.submit-re-reply, .cancle-re-reply {
 	padding: 5px 3px;
 	border: 1px solid #ccc;
 	background: #eee;
 }
+
 .down-container .reply-inputer .user-phot {
 	width: 50px;
 	height: 50px;
@@ -25,85 +26,99 @@
 }
 
 .zzal-container .detail-funcbtn {
-	right:360px;
+	right: 360px;
 }
+
 .reply-info .date .when {
 	color: #aaa;
 }
+
 .reply-unit-con .reply-con .user-name {
-	margin-left:7px;
+	margin-left: 7px;
+	display: inline-block;
 }
 
 .reply-list .reply-unit-con .reply-user-phot {
-	margin : 14px 0px 0px 10px;
+	margin: 14px 0px 0px 10px;
 }
 
 .re-reply-inputer .user-phot {
 	width: 30px;
-	height : 30px;
-	float : left;
+	height: 30px;
+	float: left;
 	margin-left: 25px;
-  margin-right: 13px;
+	margin-right: 13px;
 }
 
 .reply-unit-con .re-reply-inputer {
-  margin-top:9px;
+	margin-top: 9px;
 }
 
- .input-con .inputer {
-	margin-right :3px;
-	width : 95%;
-} 
+.input-con .inputer {
+	margin-right: 3px;
+	width: 95%;
+}
 
 .input-con .inputer .submit-re-reply {
 	float: right;
 }
 
 .input-con .inputer .input-reply {
-	width : 159px;
+	width: 159px;
 }
 
 .cancle-re-reply {
-	float : right;
+	float: right;
 }
 
 .down-container .reply-info .date span {
 	margin-left: 0px;
-  margin-right: 0px;
+	margin-right: 0px;
 }
 
 .down-container .reply-info .date {
 	margin-left: 8px;
 }
 
-.down-container .reply-list .re-reply-con  {
+.down-container .reply-list .re-reply-con {
 	padding-left: 35px;
 }
 
 .down-container .reply-con .reply-text {
-	 border : none;
-	}
-	
+	border: none;
+}
+
 .down-container .reply-list .reply-unit-con {
-	border : none;
+	border: none;
 }
 
 .down-container .reply-info {
-  padding: 3px 0 5px;
-	border-top : none;
+	padding: 3px 0 5px;
+	border-top: none;
 	/* border-bottom: 1px solid #ccc; */
 }
 
 .down-container .reply-con {
-	line-height :20px;
+	text-align: left;
+	line-height: 20px;
 }
 
 .down-container .reply-con  .cancle {
-	 margin-top: 10px;
+	margin-top: 10px;
 }
 
 textarea.input-re-reply {
-  width: calc(100% - 140px);
-  height: 30px;
-  padding: 7px 3px 0 3px;
+	width: calc(100% - 140px);
+	height: 30px;
+	padding: 7px 3px 0 3px;
+}
+
+.best-reply {
+	font-size: 12px;
+	padding: 0px 4px 2px 4px;
+	display: inline-block;
+	background: #F39C12;
+	border-radius: 13px;
+	color: white;
+	margin-left: 5px;
 }

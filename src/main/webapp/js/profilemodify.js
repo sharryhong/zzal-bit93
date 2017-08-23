@@ -236,11 +236,35 @@ $(document).ready(function(){
 			});
 		});// 멤버 포토 업로드 점 온 
 
-
-		$(document).on("click", '.profile-changepage .btn-cancle', function() {
+		/* 취소버튼 눌렀을떄 mypage로 이동*/
+		$(document).on("click", '.profile-changepage .btn-cancle', function() { 
 			location.href = 'mypage.html';
 		})
 		
+		
+		$(document).on("click", '.profile-changepage .deletebtn .account-delete', function() {
+			$.ajax ({
+				type: 'POST',
+				url: 'member/deleteMember.json',
+				data: {
+					'no': no
+				}, 
+				async: false,
+				success: function(result) {/*
+					swal({
+						title: "변경 완료",
+						type: "success",
+						showCancelButton: false,
+						closeOnConfirm: true,
+					},
+					function(){
+						setTimeout(function(){
+							location.href = 'mypage.html';
+						});
+					});
+				*/}
+			}); // member add ajax()
+		})
 		
 	})
 });

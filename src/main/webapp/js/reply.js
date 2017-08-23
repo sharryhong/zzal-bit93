@@ -15,48 +15,56 @@
 			$('.reply-inputer .user-phot').css({"background-image": "url(upload/"+result.data.membpic+")"});
 			$('.input-con .input-reply').prop('readonly', false); //로그인 후 inputtext라인 활성화
 		}
-
-
-
+		reloadReply ()
+		
 		/* 1. 전체 댓글 목록 받아오기 (select) */
-		$(document).ready(function(){
-			/* 베스트 댓글 */
-//			$.getJSON('reply/bestReplyList.json', {'zzalnumber': zzno}, function(result) {
-//				console.log('베댓 데이터', result)
-//				if (result != null) { // 만약 베댓이 있다면, 베댓 핸들바스를  
-//				let templateFn = Handlebars.compile($('#reply-bestReplyList-template').text())
-//				let generatedHTML = templateFn(result.data) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
-//				$('.reply-list ul').text('') // tbody의 기존 tr 태그들을 지우고
-//				$('.reply-list ul').html(generatedHTML) // 새 tr 태그들로 설정한다.
-//				}
-//			})
-			
-			$.getJSON('reply/list.json', {'zzalnumber': zzno}, function(result) {
-//				console.log(result)
-				let templateFn = Handlebars.compile($('#reply-list-template').text())
-				let generatedHTML = templateFn(result.data) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
-				$('.reply-list ul').text('') // tbody의 기존 tr 태그들을 지우고
-				$('.reply-list ul').html(generatedHTML) // 새 tr 태그들로 설정한다.
+		function reloadReply () {
+			$(document).ready(function(){
+				$.getJSON('reply/list.json', {'zzalnumber': zzno}, function(result) {
+					console.log('댓글리절트', result)
+					let templateFn = Handlebars.compile($('#reply-list-template').text())
+					let generatedHTML = templateFn(result.data) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
+					// $('.reply-list ul').text('') // tbody의 기존 tr 태그들을 지우고
+					$('.reply-list ul').html(generatedHTML) // 새 tr 태그들로 설정한다.
 
-				$.getJSON('reply/countreply.json', {'zzalnumber': zzno}, function(result) {
-					if (result.data.countReply == 0) {
-						$('.replycnt span:first-child').html('0');
-					}
-					$('.replycnt span:first-child').html(result.data.countReply);
-					$('.replynum').html(result.data.countReply);
-				})
-
-				if (memberNumberJS != null ) {
-					//한회원이 눌른 전체 좋아요 목록 받아오기
-					$.getJSON('replylike/allLikeList.json', {memberNumber: memberNumberJS}, function(result) {
-						for (var i = 0 ; i < (result.data.list).length; i++) {
-							$(".press .like."+result.data.list[i]+" .fa").removeClass('fa-heart-o').addClass('fa-heart').css({"color":"red"})
+					$.getJSON('reply/countreply.json', {'zzalnumber': zzno}, function(result) {
+						if (result.data.countReply == 0) {
+							$('.replycnt span:first-child').html('0');
 						}
-					}) 
-				}
-			})// 1.
-		})
+						$('.replycnt span:first-child').html(result.data.countReply);
+						$('.replynum').html(result.data.countReply);
+					})
 
+					/* 베스트 댓글 */
+					$.getJSON('reply/bestReplyList.json', {'zzalnumber': zzno}, function(result) {
+						console.log('베댓 데이터', result)
+						if (result != null) { // 만약 베댓이 있다면, 베댓 핸들바스를  
+							let templateFn = Handlebars.compile($('#reply-bestReplyList-template').text())
+							let generatedHTML = templateFn(result.data) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
+							$('.reply-list ul').prepend(generatedHTML) // 새 tr 태그들로 설정한다.
+						}
+
+						if (memberNumberJS != null ) {
+							//한회원이 눌른 전체 좋아요 목록 받아오기
+							$.getJSON('replylike/allLikeList.json', {memberNumber: memberNumberJS}, function(result) {
+								for (var i = 0 ; i < (result.data.list).length; i++) {
+									$(".press .like."+result.data.list[i]+" .fa").removeClass('fa-heart-o').addClass('fa-heart').css({"color":"red"})
+								}
+							}) 
+						}
+					})
+
+					if (memberNumberJS != null ) {
+						//한회원이 눌른 전체 좋아요 목록 받아오기
+						$.getJSON('replylike/allLikeList.json', {memberNumber: memberNumberJS}, function(result) {
+							for (var i = 0 ; i < (result.data.list).length; i++) {
+								$(".press .like."+result.data.list[i]+" .fa").removeClass('fa-heart-o').addClass('fa-heart').css({"color":"red"})
+							}
+						}) 
+					}
+				})// 1.
+			})
+		}
 		/* 2. 한 짤강의에 대한, 총 댓글 갯수 (count) */
 		/*function replyCount() {
 	$.getJSON('reply/countreply.json', {'zzalnumber': zzno}, function(result) {
@@ -79,23 +87,7 @@
 					data: {content : $('.detail-right .input-reply').val(), 'zzalnumber' : zzno}, 
 					async: false,
 					success: function(data) {
-						$.getJSON('reply/list.json', {'zzalnumber': zzno}, function(result) {
-							console.log(result)
-							let templateFn = Handlebars.compile($('#reply-list-template').text())
-							let generatedHTML = templateFn(result.data) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
-							$('.reply-list ul').text('') // tbody의 기존 tr 태그들을 지우고
-							$('.reply-list ul').html(generatedHTML) // 새 tr 태그들로 설정한다.
-
-							$.getJSON('reply/countreply.json', {'zzalnumber': zzno}, function(result) {
-								$('.replycnt span:first-child').html(result.data.countReply);
-							})
-							$.getJSON('replylike/allLikeList.json', {memberNumber: memberNumberJS}, function(result) {
-								console.log(result.data.list)
-								for (var i = 0 ; i < (result.data.list).length; i++) {
-									$(".press .like."+result.data.list[i]+" .fa").removeClass('fa-heart-o').addClass('fa-heart').css({"color":"red"})
-								}
-							}) 
-						})
+						reloadReply ()
 						$('.detail-right .input-reply').val("")
 					}
 				});
@@ -113,18 +105,7 @@
 					data: {content : $('.detail-loca .input-reply').val(), 'zzalnumber' : zzno}, 
 					async: false,
 					success: function(data) {
-						$.getJSON('reply/list.json', {'zzalnumber': zzno}, function(result) {
-							console.log(result)
-							let templateFn = Handlebars.compile($('#reply-list-template').text())
-							let generatedHTML = templateFn(result.data) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
-							$('.reply-list ul').text('') // tbody의 기존 tr 태그들을 지우고
-							$('.reply-list ul').html(generatedHTML) // 새 tr 태그들로 설정한다.
-
-							$.getJSON('reply/countreply.json', {'zzalnumber': zzno}, function(result) {
-								$('.replycnt span:first-child').html(result.data.countReply);
-							})
-
-						})
+						reloadReply ()
 						$('.detail-loca .input-reply').val("")
 					}
 				});
@@ -142,26 +123,7 @@
 				async: false,
 				success: function(data) {
 					if (data == 1) {
-						$.getJSON('reply/list.json', {'zzalnumber': zzno}, function(result) {
-							console.log(result)
-							let templateFn = Handlebars.compile($('#reply-list-template').text())
-							let generatedHTML = templateFn(result.data) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
-							$('.reply-list ul').text('') // tbody의 기존 tr 태그들을 지우고
-							$('.reply-list ul').html(generatedHTML) // 새 tr 태그들로 설정한다.
-
-							$.getJSON('reply/countreply.json', {'zzalnumber': zzno}, function(result) {
-								$('.replycnt span:first-child').html(result.data.countReply);
-							})
-
-							//한회원이 눌른 전체 좋아요 목록 받아오기
-							$.getJSON('replylike/allLikeList.json', {memberNumber: memberNumberJS}, function(result) {
-								for (var i = 0 ; i < (result.data.list).length; i++) {
-									$(".press .like."+result.data.list[i]+" .fa").removeClass('fa-heart-o').addClass('fa-heart').css({"color":"red"})
-								}
-							}) 
-						})
-
-
+						reloadReply ()
 					} else {
 						sweetAlert("댓글 삭제 실패", "본인이 작성한 댓글만 삭제할 수 있습니다.", "error");
 					}
@@ -180,25 +142,7 @@
 				async: false,
 				success: function(data) {
 					if (data == 1) {
-						that.closest(".reply-li").remove();
-						$.getJSON('reply/list.json', {'zzalnumber': zzno}, function(result) {
-							console.log(result)
-							let templateFn = Handlebars.compile($('#reply-list-template').text())
-							let generatedHTML = templateFn(result.data) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
-							$('.reply-list ul').text('') // tbody의 기존 tr 태그들을 지우고
-							$('.reply-list ul').html(generatedHTML) // 새 tr 태그들로 설정한다.
-
-							$.getJSON('reply/countreply.json', {'zzalnumber': zzno}, function(result) {
-								$('.replycnt span:first-child').html(result.data.countReply);
-							})
-
-							//한회원이 눌른 전체 좋아요 목록 받아오기
-							$.getJSON('replylike/allLikeList.json', {memberNumber: memberNumberJS}, function(result) {
-								for (var i = 0 ; i < (result.data.list).length; i++) {
-									$(".press .like."+result.data.list[i]+" .fa").removeClass('fa-heart-o').addClass('fa-heart').css({"color":"red"})
-								}
-							}) 
-						})
+						reloadReply ()
 					} else {
 						sweetAlert("댓글 삭제 실패", "본인이 작성한 댓글만 삭제할 수 있습니다.", "error");
 					}
@@ -245,24 +189,7 @@
 					async: false,
 
 					success: function(data) {
-						$.getJSON('reply/list.json', {'zzalnumber': zzno}, function(result) {
-							console.log(result)
-							let templateFn = Handlebars.compile($('#reply-list-template').text())
-							let generatedHTML = templateFn(result.data) // 템플릿 함수에 데이터를 넣고 HTML을 생성한다.
-							$('.reply-list ul').text('') // tbody의 기존 tr 태그들을 지우고
-							$('.reply-list ul').html(generatedHTML) // 새 tr 태그들로 설정한다.
-
-							$.getJSON('reply/countreply.json', {'zzalnumber': zzno}, function(result) {
-								$('.replycnt span:first-child').html(result.data.countReply);
-							})
-
-							$.getJSON('replylike/allLikeList.json', {memberNumber: memberNumberJS}, function(result) {
-								console.log(result.data.list)
-								for (var i = 0 ; i < (result.data.list).length; i++) {
-									$(".press .like."+result.data.list[i]+" .fa").removeClass('fa-heart-o').addClass('fa-heart').css({"color":"red"})
-								}
-							}) 
-						})
+						reloadReply ()
 					}
 				});
 			}
