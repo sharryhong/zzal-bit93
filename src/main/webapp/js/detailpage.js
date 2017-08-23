@@ -143,23 +143,25 @@ $.getJSON('auth/userinfo.json',function(result){
          let off = $(this)[0].children[1]
          event.preventDefault()
          if(!douSubscribe){
+        	 console.log(result, 'memberno', memberno, 'collectno', collectno)
            $.post('subs/insert.json',{'mno':memberno, 'cono':collectno},function(result){
-             console.log(result, 'memberno', memberno, 'collectno', collectno)
              doSubBtn.css('display', 'none')
              noSubBtn.css('display', 'inline-block')
            },"json")
            innerFuncion(up,off)
+           checkLikeSub()
             event.preventDefault()
-           return douSubscribee=true;
-         }else{
+//            douSubscribee=true;
+         } else{
+        	 console.log(result, 'memberno', memberno, 'collectno', collectno)
            $.post('subs/delete.json',{'mno':memberno, 'cono':collectno},function(result){
-        	   console.log(result, 'memberno', memberno, 'collectno', collectno)
              doSubBtn.css('display', 'inline-block')
              noSubBtn.css('display', 'none')
            },"json")
            innerFuncion(off,up)
+           checkLikeSub()
             event.preventDefault()
-           return  douSubscribe=false;
+//            douSubscribe=false;
          }
       })
 
@@ -200,6 +202,10 @@ $.getJSON('auth/userinfo.json',function(result){
       })
     }
 })
+
+function reloadDiv() {
+  $(".zzal-collection").load(" .zzal-collection");
+}
 
 //버튼 상태를 체크하는 함수
 function buttonChecker(){
@@ -262,21 +268,11 @@ function getCono() {
 	   				$('#collectview').text(result.data.title)
 	   				$.getJSON('collect/selectuser.json', {'cono': zzalcono}, function(result) {
 	   					if(result.data){
-	   						console.log(result.data.selectcnts)
-	   						/*var someOneNo = result.data.selectzzalList
-	   						var somenick = someOneNo.membe
-	   						$('.user-info-face .user-name').text(somenick.nick)
-	   						$('.profile-wrap .phot.spicture').css({'background-image': 'url(upload/'+someOneNo.picture+')'});
-	   						let cnts = result.data.selectcnts
-	   						$('.zcnt').text(cnts.zcnt)
-	   						$('.scnt').text(cnts.scnt)*/
+	   						let realData = result.data.selectcnts
+	   						$('.zzal-cnt').text(realData.zcnt)
+	   						$('.subs-cnt').text(realData.scnt)
 	   					}
 	   				})
-	   				/*$(document.body).on('click', '.btn-info', function(event) {
-	   					console.log($(this).attr('data-no'))
-	   					location.href = 'collectupdate.html?cono=' + result.data.no
-	   					event.preventDefault()
-	   				});*/
 	   			});
    		}
      });
