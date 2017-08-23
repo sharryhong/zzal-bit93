@@ -13,4 +13,11 @@ public interface MemberDao {
   int update(Member member);
   int updateCatgAuth(Member member);
   Member findOverLap(Map<String,Object> valueMap);
+  
+  Member isRightMyPassword(Member member);
+  List<Member> listExceptMyNick(Member member);
+  int updateExceptPassword(Member member);
+  
+  Member refreshOne(Member member);
+
 }

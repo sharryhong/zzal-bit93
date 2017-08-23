@@ -42,6 +42,7 @@
 	margin-top: 50px;
 }
  .input-change {
+   display: block;
    font-size: 1.5rem;
  }
  .input-form {
@@ -50,7 +51,7 @@
    margin-bottom: 30px;
  }
  .profile-input-name {
-   width: 100%;
+   width: 74%;
    height: 40px;
    border: none;
    font-size: 1rem;
@@ -84,6 +85,16 @@
  .change-button .btn {
    display: inline-block;
  }
+ 
+ .profile-change .input-wrong {
+    line-height: 5.1;
+    float: right;
+    font-size: 0.8rem;
+    color: red;
+}
+ 
+ 
+ 
 /*mobile*/
 @media (max-width: 765px) {
 	.profile-photo-change .profile-picture {

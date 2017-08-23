@@ -16,7 +16,7 @@
   </resultMap>
 
   <sql id="select1">
-    select mno, nick, email, pic , auth
+    select mno, nick, email, pic , auth , stype, pwd
     from memb
   </sql>
 	
@@ -59,6 +59,30 @@
     <include refid="select1"/> 
     where email=#{email} and stype=#{signtype}
   </select>
+  
+  <select id="isRightMyPassword" resultMap="memberMap" parameterType="member">
+    <include refid="select1"/> 
+    where email=#{email} and pwd=password(#{password}) and stype=#{signtype}
+  </select>
+  
+  <select id="listExceptMyNick" resultMap="memberMap" >
+     <include refid="select1"/> 
+     where nick != #{nick}
+  </select> 
+
+    <update id="updateExceptPassword" parameterType="member">
+    update memb set 
+      nick=#{nick},
+      pwd=#{password}, 
+      pic=#{membpic}
+    where mno=#{no}
+  </update>
+  
+    <select id="refreshOne" resultMap="memberMap" parameterType="member">
+    <include refid="select1"/> 
+    where mno = #{no};
+  </select>
+  
   
 <!--   
   <select id="selectList" resultMap="categoryMap" parameterType="map">

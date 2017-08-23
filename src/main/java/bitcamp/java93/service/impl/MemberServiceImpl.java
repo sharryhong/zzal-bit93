@@ -33,7 +33,6 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public List<Member> list() throws Exception {
-		// TODO Auto-generated method stub
 		return memberDao.selectList();
 	}
 
@@ -64,5 +63,29 @@ public class MemberServiceImpl implements MemberService {
     valueMap.put("signtype", signtype);
     return memberDao.findOverLap(valueMap);
   }
-	  	
+
+  @Override
+  public Member isRightMyPassword(Member member) throws Exception {
+    return memberDao.isRightMyPassword(member);
+  }
+  
+  @Override
+  public List<Member> listExceptMyNick(Member member) throws Exception {
+    return memberDao.listExceptMyNick(member);
+  }
+  
+  @Override
+  public void updateExceptPassword(Member member) throws Exception {
+    int count = memberDao.updateExceptPassword(member);
+    if (count < 1) {
+      throw new Exception(member.getNo() + "번 회원을 찾을 수 없습니다.");
+    }
+  }
+
+  @Override
+  public Member refreshOne(Member member) throws Exception {
+    return memberDao.refreshOne(member);
+  }
+
+
 }

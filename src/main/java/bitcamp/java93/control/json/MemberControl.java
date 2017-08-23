@@ -24,6 +24,26 @@ public class MemberControl {
 	@Autowired ServletContext servletContext;
 	@Autowired MemberService memberService;
 	
+	
+  @RequestMapping("isRightMyPassword")
+  public JsonResult isRightMyPassword(Member member) throws Exception {
+    System.out.println(member);
+    member = memberService.isRightMyPassword(member);
+    if (member == null) {
+      return new JsonResult(JsonResult.FAIL, member);
+    } else {
+    return new JsonResult(JsonResult.SUCCESS, member);
+    }
+  }
+	
+  @RequestMapping("listExceptMyNick")
+  public JsonResult listExceptMyNick(Member member) throws Exception {
+    HashMap<String,Object> dataMap = new HashMap<>();
+    dataMap.put("list", memberService.listExceptMyNick(member));
+    return new JsonResult(JsonResult.SUCCESS, dataMap);
+  }
+  
+  
 	@RequestMapping("list")
 	  public JsonResult list() throws Exception {
 	    
@@ -51,20 +71,56 @@ public class MemberControl {
     return new JsonResult(JsonResult.SUCCESS, "ok");
   } 
 	
-	@RequestMapping("update")
-  public JsonResult update(Member member, HttpSession session) throws Exception {
-	  Member getMember = (Member)session.getAttribute("loginMember");
-	  memberService.update(member);
-	  System.out.println(member.getNick());
-	  String nick = member.getNick();
-	  String password = member.getPassword();
-	  String membpic = member.getMembpic();
-	  getMember.setNick(nick);
-	  getMember.setPassword(password);
-	  getMember.setMembpic(membpic);
-	  session.setAttribute("loginMember", getMember);
-    return new JsonResult(JsonResult.SUCCESS, "ok");
-  }
+//	@RequestMapping("update")
+//  public JsonResult update(Member member, HttpSession session) throws Exception {
+//	  Member getMember = (Member)session.getAttribute("loginMember");
+//	  memberService.update(member);
+//	  System.out.println(member.getNick());
+//	  String nick = member.getNick();
+//	  String password = member.getPassword();
+//	  String membpic = member.getMembpic();
+//	  getMember.setNick(nick);
+//	  getMember.setPassword(password);
+//	  getMember.setMembpic(membpic);
+//	  session.setAttribute("loginMember", getMember);
+//    return new JsonResult(JsonResult.SUCCESS, "ok");
+//  }
+	
+	 @RequestMapping("update")
+	  public JsonResult update(Member member, HttpSession session) throws Exception {
+	    Member getMember = (Member)session.getAttribute("loginMember");
+	    memberService.update(member);
+//     System.out.printf("이전멤버", member);
+	    
+	    member = memberService.refreshOne(member);
+//      System.out.printf("새로운 멤버", member);
+
+	    String nick = member.getNick();
+	    String password = member.getPassword();
+	    String membpic = member.getMembpic();
+	    
+	    getMember.setNick(nick);
+	    getMember.setPassword(password);
+	    getMember.setMembpic(membpic);
+	    session.setAttribute("loginMember", getMember);
+	    return new JsonResult(JsonResult.SUCCESS, "ok");
+	  }
+	
+	 @RequestMapping("updateExceptPassword")
+	  public JsonResult updateExceptPassword(Member member, HttpSession session) throws Exception {
+	    Member getMember = (Member)session.getAttribute("loginMember");
+	    memberService.updateExceptPassword(member);
+	    System.out.println(member.getNick());
+	    String nick = member.getNick();
+	    String password = member.getPassword();
+	    String membpic = member.getMembpic();
+	    getMember.setNick(nick);
+	    getMember.setPassword(password);
+	    getMember.setMembpic(membpic);
+	    session.setAttribute("loginMember", getMember);
+	    return new JsonResult(JsonResult.SUCCESS, "ok");
+	  }
+	
 	
 	 @RequestMapping("updatecatgauth")
 	  public JsonResult updateCatgAuth(Member member) throws Exception {

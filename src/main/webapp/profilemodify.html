@@ -7,11 +7,10 @@
   <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="node_modules/swiper/dist/css/swiper.min.css">
-  <link rel="stylesheet" href="css/jquery.bxslider.min.css">
+<!--   <link rel="stylesheet" href="css/jquery.bxslider.min.css"> -->  
   <link rel="stylesheet" href="css/common.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/profilemodify.css">
-
 
 </head>
 <body>
@@ -33,18 +32,22 @@
         <div class="input-form">
           <span class="input-change">닉네임 변경</span><br>
           <input class="profile-input-name" type=text placeholder=""  id="profile-name" maxlength="25">
+          <div class="input-wrong wrong-nick"></div>
         </div>
         <div class="input-form">
         <span class="input-change">현재 비밀번호</span>
           <input class="profile-input-name" type=password placeholder="현재 비밀번호를 입력해주세요." id="profile-pw">
+          <div class="input-wrong wrong-password"></div>
         </div>
         <div class="input-form">
         <span class="input-change">변경할 비밀번호</span>
           <input class="profile-input-name" type=password placeholder="변경할 비밀번호를 입력해주세요." id="profile-pw-new">
+          <div class="input-wrong wrong-newPassword"></div>
         </div>
         <div class="input-form">
         <span class="input-change">변경할 비밀번호 확인</span>
           <input class="profile-input-name" type=password placeholder="변경할 비밀번호를 다시한번 입력해주세요." id="profile-pw-re">
+          <div class="input-wrong wrong-password-re"></div>
         </div>
         <div class="deletebtn clearfix">
           <a href="#" class="account-delete">계정삭제</a>
@@ -60,6 +63,7 @@
 <footer id="footer"></footer>
 </div>
 <script src="node_modules/jquery/dist/jquery.min.js"></script>
+<script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
 <!-- <script src="node_modules/handlebars/dist/handlebars.min.js"></script> -->
 <script src="node_modules/swiper/dist/js/swiper.min.js"></script>
 <script src="node_modules/blueimp-file-upload/js/vendor/jquery.ui.widget.js"></script>
@@ -72,6 +76,7 @@
 <script src="node_modules/blueimp-file-upload/js/jquery.fileupload-image.js"></script> 
 <script src="js/load.js"></script>
 <script src="js/profilemodify.js"></script>
+<!-- <script src="js/logintest.js"></script> -->
 
 </body>
 </html>
