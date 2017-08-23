@@ -143,8 +143,8 @@ $.getJSON('auth/userinfo.json',function(result){
          let off = $(this)[0].children[1]
          event.preventDefault()
          if(!douSubscribe){
-           $.post('subs/insert.json',{'mno':memberno, 'cono':parseInt(collectno)},function(result){
-             console.log(result)
+           $.post('subs/insert.json',{'mno':memberno, 'cono':collectno},function(result){
+             console.log(result, 'memberno', memberno, 'collectno', collectno)
              doSubBtn.css('display', 'none')
              noSubBtn.css('display', 'inline-block')
            },"json")
@@ -153,7 +153,7 @@ $.getJSON('auth/userinfo.json',function(result){
            return douSubscribee=true;
          }else{
            $.post('subs/delete.json',{'mno':memberno, 'cono':collectno},function(result){
-             console.log(result)
+        	   console.log(result, 'memberno', memberno, 'collectno', collectno)
              doSubBtn.css('display', 'inline-block')
              noSubBtn.css('display', 'none')
            },"json")
@@ -260,16 +260,9 @@ function getCono() {
 	   				console.log(result.data)
 	   				$('.mycollectlist').css({"background-image": "url(upload/"+result.data.picture+")"})
 	   				$('#collectview').text(result.data.title)
-	   				/*$('.category-explain').text(result.data.content)
-	   				$('.category-title').text(result.data.title)
-	   				$('.collect-photo').css({"background-image": "url(upload/"+result.data.picture+")"})
-	   				let memno=result.data.memNo
-	   				if(memno!=no){
-	   					$('.btn.btn-info').css('display','none')
-	   				}*/	
 	   				$.getJSON('collect/selectuser.json', {'cono': zzalcono}, function(result) {
 	   					if(result.data){
-	   						console.log(result.data)
+	   						console.log(result.data.selectcnts)
 	   						/*var someOneNo = result.data.selectzzalList
 	   						var somenick = someOneNo.membe
 	   						$('.user-info-face .user-name').text(somenick.nick)
