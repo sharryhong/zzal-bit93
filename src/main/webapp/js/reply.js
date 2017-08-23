@@ -46,12 +46,14 @@
 					$('.replynum').html(result.data.countReply);
 				})
 
+				if (memberNumberJS != null ) {
 					//한회원이 눌른 전체 좋아요 목록 받아오기
 					$.getJSON('replylike/allLikeList.json', {memberNumber: memberNumberJS}, function(result) {
 						for (var i = 0 ; i < (result.data.list).length; i++) {
 							$(".press .like."+result.data.list[i]+" .fa").removeClass('fa-heart-o').addClass('fa-heart').css({"color":"red"})
 						}
 					}) 
+				}
 			})// 1.
 		})
 
@@ -288,15 +290,7 @@
 							data: {'replyNumber' :replyNumbers, 'memberNumber': memberNumberJS, 'reparentNumber' : reparent}, 
 							async: false,
 							success: function(data) {
-							}
-						})
-						$.ajax({ // 누적 좋아요 갯수에 + 1 한다. 
-							type: 'POST',
-							url: 'reply/replyLikeCountPlus.json',
-							data: {'replyNumber' : replyNumbers}, 
-							async: false,
-							success: function(data) {
-//								console.log("replylikecount plus 데이터 보냈습니다.")
+								console.log("replylike insert 데이터 보냈습니다.")
 							}
 						})
 						if(memberNumberJS != null ) {
