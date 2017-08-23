@@ -75,14 +75,26 @@
 		})
 	
 	}//selectzzalList 짤강관리!!
-	var cono =0;
+	
 	// collect.list 내컬렉션 클릭시 컬렉션 리스트 가져오기, 내 컬렉션 title pic
+	/*let cono= 0;*/
+	
 	$(document.body).on('click', '.select_info #collect-setting', function(event) {
 		console.log('내 컬렉션')
 		$.getJSON('collect/list.json', {'no': mno}, function(result) {
 			if (result.data) {
 				console.log(result.data)
+				
+			   $('#my-collection01').html('')
 				generateHandlebars(result, $('#my-collection-template'), $('#my-collection01'))
+				console.log($('.sfont .zzal-cnt'))
+				let list = result.data.list
+				console.log(list)
+				
+				
+				for(var i = 0; i < list.length; i++){
+					selectuser(list[i].no,i,$('#my-collection01 .sfont .zzal-cnt'),$('#my-collection01 .sfont .subs-cnt'))
+				}
 			}
 				
 		}) //내 컬렉션
@@ -91,35 +103,59 @@
 			$.getJSON('collect/subslist.json', {'mno': mno}, function(result) {
 				if(result.data){
 					console.log(result.data,"its mine")
+					let list = result.data.list
+					console.log(list)
 					generateHandlebars(result, $('#my-collection-template'), $('#my-collection02'))
-					$('#my-collection02 .editerbtn').text('구독취소')
+										
+					let btnlst = $('#my-collection02 .editerbtn')
+						
+					
+					
+					
+					for(var i = 0; i < list.length; i++){
+						console.log(list[i].no)
+						selectuser(list[i].no,i,$('#my-collection02 .sfont .zzal-cnt'),$('#my-collection02 .sfont .subs-cnt'))
+						
+						$(btnlst[i]).removeClass('editerbtn').addClass('zzsubbtn').text('구독취소').attr('data-stype',true)
+					}
+					
+					
+					
 				}
 			})
 
 		}) //구독
 
 		$(document.body).on('click', '.zzal-menu02 #public-collect-list', function(event) {
-			$.getJSON('collect/publiclist.json', {'no': mno}, function(result) {
-				if(result.data){
-					console.log(result.data)
-					generateHandlebars(result, $('#my-collection-template'), $('#my-collection03'))
-				}
-			})
+			
 		}) //비공개
 		
-		$.getJSON('collect/selectuser.json', {'cono': cono}, function(result) { //collect cono
-				if(result.data){
-					console.log(result.data)
-					let collectCnt = result.data.selectcnts
-					console.log(collectCnt)
-					$('.sfont .zzal-cnt').text(collectCnt.zcnt)
-					$('.sfont .subs-cnt').text(collectCnt.scnt)
-				}
-		})
 	}); //내컬렉션 관리
 	
 	
 	
+	
+	
+	
+	function selectuser(cono,index,el,el2) {
+		
+		
+		$.getJSON('collect/selectuser.json', {'cono': cono}, function(result) { //collect cono
+			if(result.data){
+				console.log(el)
+				console.log(result.data)
+				let collectCnt = result.data.selectcnts
+				console.log(collectCnt)
+	
+				el[index].innerHTML=collectCnt.zcnt
+				el2[index].innerHTML=collectCnt.scnt
+			}
+		})
+		
+		
+		
+		
+	}
 	//내컬렉션 컬렉션  클릭시 컬렉션 detail 구독 ,임시
 	$(document.body).on('click', '.mycollectlist', function(event) {
 		location.href = 'collectdetail.html?cono=' + $(this).attr('data-no')
@@ -130,6 +166,31 @@
 		location.href = 'collectupdate.html?cono=' + $(this).attr('data-no')
 		event.preventDefault()
 	});
+	
+	$(document.body).on('click', '.zzsubbtn', function(event) {
+		
+		console.log(mno)
+		let str =$(this).attr('data-stype')
+		let con = $(this).attr('data-no')
+		let bool = true
+		if(str==='true'){
+			
+			$(this).removeClass('btn-info').addClass('btn-default')
+			bool=false;
+			DoYouSubscribe(bool,mno,con)
+			
+			return $(this).attr('data-stype',false).text('구독하기')
+		}else{
+			
+			$(this).removeClass('btn-default').addClass('btn-info')
+			console.log(bool, '구독다시!')
+			DoYouSubscribe(bool,mno,con)
+			
+			return $(this).attr('data-stype',true).text('구독취소')
+		}
+		event.preventDefault()
+	});
+	
 	
 	// 짤강 편집 클릭시 
 	$(document.body).on('click', '.modify-zzal', function(event) {
@@ -153,5 +214,30 @@
 	        })
 	     })
 	 })
+	 
+	 
+//	 
+	 function DoYouSubscribe(bool,mno,cono){
+		 $.ajax({
+				url: bool ? 'subs/insert.json':'subs/delete.json',
+				method:'POST',
+				data: {'mno': mno,'cono': cono},
+				success : function(result){console.log(result.data,"성공 객체임")
+					let arr1=$('#my-collection02 .sfont .zzal-cnt')
+					let arr2=$('#my-collection02 .sfont .subs-cnt')
+					for (let i=0; i < arr1.length; i++){
+						
+						selectuser(cono,i,$('#my-collection02 .sfont .zzal-cnt'),$('#my-collection02 .sfont .subs-cnt'))
+					
+					}
+			
+				},
+				dataType: 'json'
+			})
+		 
+	 }
+	 
+	 
+	 
 	
 })(jQuery);

@@ -33,11 +33,12 @@ $.getJSON('/zzal-bit93/auth/userinfo.json', function(result) {
 			success : function(result){			
 				let str = result.data 
 				
-				if(str==0){
-					$('.after-login .num-box').css('display','none')
-				}else{
+				console.log('userinfo',str)
+				if(str!=0){
 					$('.after-login .num-box')[0].innerHTML=str					
+					$('.after-login .num-box').css('display','block')
 				}
+				
 				
 			$(".notice").click(function(){
 				

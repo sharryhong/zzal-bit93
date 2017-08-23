@@ -109,6 +109,8 @@ input::-moz-placeholder { color: #777; }
 	position: relative;
 }
 .header .notice .num-box {
+	display:none;
+	
 	position: absolute;
 	padding: 0 3px;
 	height: 18px;

@@ -11,12 +11,16 @@ public class Collect {
   Member membe;
   Zzal zzall;
   ZzalLike zzallikes;
+  int zzalCount;
+  int subsCount;
+  
   @Override
   public String toString() {
     return "Collect [no=" + no + ", memNo=" + memNo + ", zzno=" + zzno + ", title=" + title + ", content=" + content
         + ", picture=" + picture + ", isPublic=" + isPublic + ", membe=" + membe + ", zzall=" + zzall + ", zzallikes="
-        + zzallikes + "]";
+        + zzallikes + ", zzalCount=" + zzalCount + ", subsCount=" + subsCount + "]";
   }
+  
   public int getNo() {
     return no;
   }
@@ -77,7 +81,19 @@ public class Collect {
   public void setZzallikes(ZzalLike zzallikes) {
     this.zzallikes = zzallikes;
   }
-
+  public int getZzalCount() {
+    return zzalCount;
+  }
+  public void setZzalCount(int zzalCount) {
+    this.zzalCount = zzalCount;
+  }
+  public int getSubsCount() {
+    return subsCount;
+  }
+  public void setSubsCount(int subsCount) {
+    this.subsCount = subsCount;
+  }
+  
   
   
 }
