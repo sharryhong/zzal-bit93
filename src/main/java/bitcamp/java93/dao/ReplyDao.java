@@ -5,7 +5,9 @@ import java.util.List;
 import bitcamp.java93.domain.Reply;
 
 public interface ReplyDao {
+  List<Reply> selectBestReplyList(int zzalnumber);
   List<Reply> selectList(int zzalnumber);
+  
   int countReply(int zzalnumber);
   void insert(Reply reply);
   

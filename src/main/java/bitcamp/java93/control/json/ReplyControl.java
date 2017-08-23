@@ -23,6 +23,13 @@ public class ReplyControl {
   @Autowired ReplyService replyService;
   @Autowired MemberService memberService;
 
+  @RequestMapping("bestReplyList")
+  public JsonResult bestReplyList(int zzalnumber) throws Exception {
+
+    HashMap<String,Object> dataMap = new HashMap<>();
+    dataMap.put("list", replyService.bestReplyList(zzalnumber));
+    return new JsonResult(JsonResult.SUCCESS, dataMap);
+  }
 
   @RequestMapping("list")
   public JsonResult list(int zzalnumber) throws Exception {

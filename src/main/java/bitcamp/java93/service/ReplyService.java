@@ -5,7 +5,9 @@ import java.util.List;
 import bitcamp.java93.domain.Reply;
 
 public interface ReplyService {
+  List<Reply> bestReplyList(int zzalnumber) throws Exception;
   List<Reply> list(int zzalnumber) throws Exception;
+  
   int getSize(int zzalnumber) throws Exception;
   
   void add(Reply reply) throws Exception;

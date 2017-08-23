@@ -20,7 +20,19 @@
 		<result column="repacnt" property="reparentCountNumber"/>
 	</resultMap>
 
-  <select id="selectReplyNumberList" resultMap="replyMap">
+
+  <select id="selectBestReplyList" resultMap="replyMap">
+    select r.zzno, r.rno, m.nick, r.cont, date_format(cdt, '%Y-%m-%d %p %h:%i'),
+    r.re_like, r.report, r.mno, m.pic, r.reparent, r.reorder,
+    (select count(*) from reply where reparent = r.rno) as repacnt,
+    (select count(*) from reply_memb where rno = #{replyNumber}) as re_like
+    from memb m
+    join reply r
+    on m.mno = r.mno
+    where 
+    re_like >= 3 
+    and zzno = #{zzalnumber}
+    order by re_like desc limit 3
   </select>
 
 	<select id="selectList" resultMap="replyMap">

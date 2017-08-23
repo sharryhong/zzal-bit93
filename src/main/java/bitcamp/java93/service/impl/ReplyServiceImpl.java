@@ -38,6 +38,11 @@ public class ReplyServiceImpl implements ReplyService {
   }*/
   
   @Override
+  public List<Reply> bestReplyList(int zzalnumber) throws Exception {
+    return replyDao.selectBestReplyList(zzalnumber);
+  }
+  
+  @Override
   public List<Reply> list(int zzalnumber) throws Exception {
     return replyDao.selectList(zzalnumber);
   }
@@ -89,5 +94,6 @@ public class ReplyServiceImpl implements ReplyService {
   public void replyLikeCountMinus(Reply reply) throws Exception {
     replyDao.replyLikeCountMinus(reply);
   }
+
 
 } 
