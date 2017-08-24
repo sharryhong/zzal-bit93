@@ -27,13 +27,14 @@
   background-position: center;
 }
 .titles-wrap .contents {
+	width: calc(100% - 85px);
 	float: left;
 	padding-left: 10px;
 }
 
 .titles-wrap .bold.width-mine {
 	 display: inline-block;
-	 width:400px;
+	
 	 font-weight: bold;
 	 overflow: hidden; 
      white-space: nowrap;
@@ -99,17 +100,12 @@
     margin-top: 50px;
 	}
 	
-	.titles-wrap .contents {
-		width: 83%;
-	}
+	
 	.zzal-container {
 	  padding: 0px;
 	}
 @media (max-width: 470px){
-	.titles-wrap .contents {
-		width: 76%;
-	}
-	
+
 	
 	.titles-wrap .bold.width-mine {
 	 display: inline-block;

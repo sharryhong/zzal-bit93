@@ -76,10 +76,7 @@
 		reply_memb where rno = #{replyNumber} or repno = #{replyNumber};
 	</delete>
 
-	<delete id="deleteNoticeParentRep" parameterType="reply">
-		delete from
-		notice where rno=#{replyNumber};
-	</delete>
+
 
 	<delete id="deleteParentRep" parameterType="reply">
 		delete from reply
