@@ -19,12 +19,12 @@ public class ReplyServiceImpl implements ReplyService {
   ReplyDao replyDao;
 
   @Autowired
-	NoticeDao noticeDao;
-  
+  NoticeDao noticeDao;
+
   @Autowired
   ReplyLikeDao replyLikeDao;
-  
-/*  @Override
+
+  /*  @Override
   public List<Reply> list(int zzalnumber, int memberNumber) throws Exception  {
     List<Reply> replyList = replyDao.selectList(zzalnumber);
     for(Reply reply : replyList) {
@@ -34,15 +34,15 @@ public class ReplyServiceImpl implements ReplyService {
         reply.setReplyLike(true);
       }
     }
-    
+
     return replyList;
   }*/
-  
+
   @Override
   public List<Reply> bestReplyList(int zzalnumber) throws Exception {
     return replyDao.selectBestReplyList(zzalnumber);
   }
-  
+
   @Override
   public List<Reply> list(int zzalnumber) throws Exception {
     return replyDao.selectList(zzalnumber);
@@ -58,40 +58,42 @@ public class ReplyServiceImpl implements ReplyService {
     replyDao.insert(reply);
     noticeDao.insReplyNotice(reply);
   }
-  
+
   @Override
   public void rerepadd(Reply reply) throws Exception {
     replyDao.rerepinsert(reply);
+    noticeDao.insReplyNotice(reply);
   }
 
   @Override
   public void remove(Reply reply) throws Exception {
-    replyDao.deleteReplyMemb(reply);
-    
-    replyDao.deleteParentRep(reply);
     HashMap<String,Object> map = new HashMap<>();
-	
-	map.put("rno", reply.getReplyNumber());
-	map.put("notype", "reply");
-	noticeDao.deleteNo(map);
     
+    map.put("rno", reply.getReplyNumber());
+    map.put("notype", "reply");
+    noticeDao.deleteNo(map);
+
+    replyDao.deleteReplyMemb(reply);
+    replyDao.deleteParentRep(reply);
+
   }
 
   @Override
   public void removeSonReply(Reply reply) throws Exception {
-    replyDao.deleteSonRep(reply);
     HashMap<String,Object> map = new HashMap<>();
     map.put("dmno",reply.getMemberNumber());
-	map.put("zzno", reply.getZzalnumber());
-	map.put("notype", "reply");
-	noticeDao.deleteNo(map);
+    map.put("zzno", reply.getZzalnumber());
+    map.put("notype", "reply");
+    noticeDao.deleteNo(map);
+
+    replyDao.deleteSonRep(reply);
   }
-  
+
   @Override
   public void replyLike(Reply reply) throws Exception {
     replyDao.replyLike(reply);
   }
-  
+
   @Override
   public void replydetail(Reply reply) throws Exception {
     replyDao.replydetail(reply);
