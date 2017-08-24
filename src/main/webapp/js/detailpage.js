@@ -38,11 +38,11 @@ var rulogin;      // 로긴햇냥 ?! 묻는 플레그
 
 var zzno = location.href.split('?')[1].split('=')[1]
 
-var memberno = 0 ;
+var memberno = 0 ; // 로그인한 멤버
 var collectno = 0;
 
 var zzalEachPage = '',
-	zzalmno = 0,
+	zzalmno = 0,	// 해당 짤강 쓴 멤버 
 	zzalcono = 0,
 	coverImage = '',
 	doSubBtn = $('.do-subc'),
@@ -58,16 +58,18 @@ function checkLikeSub() {
 	 
 	 //구독하심?
 	 $.getJSON('subs/getcono.json',{'zzno': zzno},function(result){
-		 zzalcono = result.data.list.collectNo
-		 $.getJSON('subs/list.json',{'mno':memberno,'cono':zzalcono},function(result){
-			 console.log('memberno', memberno, 'zzalcono', zzalcono, 'result', result)
-			 if(result.data.list) {
-				 douSubscribe = true
-			 } else {
-				 douSubscribe = false
-			 }
-			 buttonChecker();
-	    })
+		 if (result.data.list.collectNo != undefined) {
+			 zzalcono = result.data.list.collectNo
+			 $.getJSON('subs/list.json',{'mno':memberno,'cono':zzalcono},function(result){
+				 console.log('memberno', memberno, 'zzalcono', zzalcono, 'result', result)
+				 if(result.data.list) {
+					 douSubscribe = true
+				 } else {
+					 douSubscribe = false
+				 }
+				 buttonChecker();
+			 })
+		 }
 	 })
  }
 
@@ -256,9 +258,17 @@ $(document).on('ready',function(e){
 // 컬렉트 번호받고 구독 관련
 function getCono() {
 	$.getJSON('subs/getcono.json',{'zzno': zzno},function(result){
+		console.log('로그인 누구?', memberno, '이 컬렉션은 누구꺼??', zzalmno)
    		if(result.data.list){
    			$('.zzal-collection').css('display','block')
    			zzalcono = result.data.list.collectNo
+   			$('.mycollectlist, .collect-title').on('click', function() {
+   				if (memberno == zzalmno) { 
+   					location.href = 'collectdetail.html?cono=' + zzalcono	
+   				} else {
+   					location.href = 'someonedetail.html?cono=' + zzalcono
+   				}
+   			})
 	   		// 구독 관련 
 	   			$.getJSON('collect/detail.json', {'no': zzalcono}, function(result) {
 	   				console.log(result.data)

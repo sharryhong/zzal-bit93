@@ -43,6 +43,11 @@
 	    <id column="cno" property="categoryNumber"/>
     	<result column="mno" property="memberNumber"/>
 	  </association>
+	  <association property="collect" javaType="Collect">
+	    <id column="cono" property="no"/>
+			<result column="zzno" property="zzno" />
+			<result column="pub" property="isPublic" />
+	  </association>
   </resultMap>
   
   <!-- 상세 페이지 -->
@@ -70,16 +75,32 @@
     (SELECT count(*) FROM lik WHERE zzno=z.zzno) as like_cnt, 
     (SELECT count(*) FROM reply WHERE zzno=z.zzno) as reply_cnt
     FROM zzal_lect z INNER JOIN memb m on z.mno = m.mno
-    WHERE z.ztmp=false
+    LEFT JOIN colct c on z.cono = c.cono
+    WHERE (z.ztmp=false AND z.cono IS NULL) OR (c.pub = false AND z.ztmp=false)
     ORDER BY (like_cnt * 10) + reply_cnt + z.hitcnt + z.zzno desc
     LIMIT #{startIndex}, #{pageSize}
   </select>
   
   <!-- 
-  select * from zzal_lect z inner join colct c on z.cono = c.cono  // 
+  <select id="zzalListWithCount" resultMap="zzalMap" parameterType="map">
+    SELECT z.zzno, z.cono, z.cno, z.ztmp, z.mno, m.nick, m.pic as pic1, z.titl, z.pic as pic2, z.cdt as cdt2, z.hitcnt,
+	  (SELECT count(*) FROM lik WHERE zzno=z.zzno) as like_cnt, 
+	  (SELECT count(*) FROM reply WHERE zzno=z.zzno) as reply_cnt
+	  FROM zzal_lect z LEFT JOIN memb m on z.mno = m.mno
+	  LEFT JOIN colct c on z.cono = c.cono
+	  WHERE (z.ztmp=false AND z.cono IS NULL) OR (c.pub = false AND z.ztmp=false)
+	  ORDER BY (like_cnt * 10) + reply_cnt + z.hitcnt + z.zzno desc
+    LIMIT #{startIndex}, #{pageSize}
+  </select>
   
-  
-  
+  SELECT z.zzno, z.cono, z.cno, c.pub, z.ztmp, z.mno, m.nick, m.pic as pic1,  z.titl, z.pic as pic2, z.cdt as cdt2, z.hitcnt,
+  (SELECT count(*) FROM lik WHERE zzno=z.zzno) as like_cnt, 
+  (SELECT count(*) FROM reply WHERE zzno=z.zzno) as reply_cnt
+  FROM zzal_lect z LEFT JOIN memb m on z.mno = m.mno
+  LEFT JOIN colct c on z.cono = c.cono
+  WHERE (z.ztmp=false AND z.cono IS NULL) OR (c.pub = false AND z.ztmp=false)
+  ORDER BY (like_cnt * 10) + reply_cnt + z.hitcnt + z.zzno desc
+
   -->
   
   <!-- index.html 로그인 후 -->

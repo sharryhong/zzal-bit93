@@ -18,6 +18,7 @@ public class Zzal {
 	ZzalLike zzallike;
 	Page page;
 	ChoiceCategory choiceCategory;
+	Collect collect;
 	
   @Override
   public String toString() {
@@ -25,9 +26,17 @@ public class Zzal {
         + mainPic + ", cdt=" + cdt + ", categoryName=" + categoryName + ", zzalTemporary=" + zzalTemporary
         + ", hitCount=" + hitCount + ", likeCount=" + likeCount + ", replyCount=" + replyCount + ", rowCount="
         + rowCount + ", member=" + member + ", zzallike=" + zzallike + ", page=" + page + ", choiceCategory="
-        + choiceCategory + "]";
+        + choiceCategory + ", collect=" + collect + "]";
   }
   
+  public Collect getCollect() {
+    return collect;
+  }
+
+  public void setCollect(Collect collect) {
+    this.collect = collect;
+  }
+
   public ChoiceCategory getChoiceCategory() {
     return choiceCategory;
   }
