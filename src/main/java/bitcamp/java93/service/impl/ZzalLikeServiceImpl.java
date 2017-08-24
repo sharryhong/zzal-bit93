@@ -54,6 +54,12 @@ public class ZzalLikeServiceImpl implements ZzalLikeService {
 	    valueMap.put("zzzno",zzno);*/
 	    
 		zzalLikeDao.notdloveu(zzalLike);
+		HashMap<String,Object> map = new HashMap<>();
+		map.put("dmno", zzalLike.getMno());
+		map.put("zzno", zzalLike.getZzno());
+		map.put("notype", "lik");
+		noticeDao.deleteNo(map);
+		
 	}
 
 

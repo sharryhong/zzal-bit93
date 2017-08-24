@@ -33,6 +33,14 @@ public class SubscribeServiceImpl implements SubscribeService {
 	public void deleteCollec(Subscribe subscribe) {
 		// TODO Auto-generated method stub
 		subscribeDao.deleteColct(subscribe);
+		
+		HashMap<String, Object> map = new HashMap<>();
+		map.put("dmno", subscribe.getMemberno());
+		map.put("cono", subscribe.getCollectNo());
+		map.put("notype", "subs");
+		
+		noticeDao.deleteNo(map);
+		
 	}
 
 	@Override

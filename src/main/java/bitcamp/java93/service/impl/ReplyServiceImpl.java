@@ -1,5 +1,6 @@
 package bitcamp.java93.service.impl;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -68,11 +69,22 @@ public class ReplyServiceImpl implements ReplyService {
     replyDao.deleteReplyMemb(reply);
     replyDao.deleteNoticeParentRep(reply);
     replyDao.deleteParentRep(reply);
+    HashMap<String,Object> map = new HashMap<>();
+	map.put("dmno",reply.getMemberNumber());
+	map.put("zzno", reply.getZzalnumber());
+	map.put("notype", "reply");
+	noticeDao.deleteNo(map);
+    
   }
 
   @Override
   public void removeSonReply(Reply reply) throws Exception {
     replyDao.deleteSonRep(reply);
+    HashMap<String,Object> map = new HashMap<>();
+    map.put("dmno",reply.getMemberNumber());
+	map.put("zzno", reply.getZzalnumber());
+	map.put("notype", "reply");
+	noticeDao.deleteNo(map);
   }
   
   @Override

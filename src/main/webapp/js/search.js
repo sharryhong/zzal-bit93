@@ -143,12 +143,11 @@
 
 
 		$(".search-zzallect").scroll(function() {
-			console.log('scroll man!!!호우1')
 
-			var elem = $(".search-zzallect"); 		
-
-			if(elem[0].scrollHeight-elem.scrollTop()<= elem.outerHeight()) {
-
+			var elem = $(".search-zzallect"); 	
+			
+			if(parseInt(elem[0].scrollHeight-elem.scrollTop()) == elem.outerHeight()) {
+				console.log('scroll man!!!호우2')
 				++searchpageNo;
 				return searchListMaker(searchpageNo)
 

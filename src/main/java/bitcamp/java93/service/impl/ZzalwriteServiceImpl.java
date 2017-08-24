@@ -25,11 +25,18 @@ public class ZzalwriteServiceImpl implements ZzalwriteService {
 	}
 
 	@Override
-	public void pageAdd(Page page) throws Exception {
-		zzalwriteDao.insertPage(page);
+	public void pageAdd(Page page,Boolean boo) throws Exception {
+		if(!boo){
+			zzalwriteDao.insertPage(page);			
+		}else {
+			zzalwriteDao.editInsertPage(page);
+		}
 
 	}
 
+
+
+	
 	@Override
 	public HashMap<String, Object> findTmplist(HashMap<String, Object> map) throws Exception {
 		HashMap<String, Object> resultMap = new HashMap<>();
@@ -43,8 +50,11 @@ public class ZzalwriteServiceImpl implements ZzalwriteService {
 	@Override
 	public void deteleInition(HashMap<String, Object> map) throws Exception {
 		zzalwriteDao.deletePage(map);
-		zzalwriteDao.deleteZzal(map);	
+//		zzalwriteDao.deleteZzal(map);
+		
+		zzalwriteDao.updateZzal((Zzal)map.get("zzal"));
 	}
+
 
 
 	/*private void insertPhoto(int zzno, String mainPic) {

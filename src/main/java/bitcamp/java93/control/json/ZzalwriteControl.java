@@ -29,47 +29,71 @@ import net.coobird.thumbnailator.Thumbnails;
 @RestController
 @RequestMapping("/write/")
 public class ZzalwriteControl {
-
+	int pagezzno = 0;
+	
 	@Autowired ServletContext servletContext;
 	@Autowired ZzalwriteService zzalwriteService;
 	
+	
+	
+	
+	
 	@RequestMapping(value="add", method=RequestMethod.POST)
-  public JsonResult add(@RequestParam HashMap<String, Object> map,
+	public JsonResult add(@RequestParam HashMap<String, Object> map,		  							
 		  							Zzal zzal,
 		  							Page page) throws Exception {
 
 		
 		String json = (String) map.get("zzal").toString();
+		Boolean boo = (Boolean)json.equals("null");
 		
-		HashMap<String, Object> attributes = new HashMap<>();
+		
+		
+		System.out.println("ADD----------------------json");
+		
+		System.out.println(json.equals("null"));
+//		
+//		if(json.equals("null")){
+//			pagezzno = zzno;
+//		}
+		
+		
 		
 		JsonParser jsonParser = new JsonParser();
 		
-		JsonObject jsonObject = (JsonObject) jsonParser.parse(json);
+		HashMap<String, Object> lectMap = new HashMap<String, Object>(); 
 		
-		Set<Entry<String, JsonElement>> entrySet = jsonObject.entrySet();
-        
-		for(Map.Entry<String,JsonElement> entry : entrySet){
-          attributes.put(entry.getKey(), jsonObject.get(entry.getKey()));
-        }
-        
-        String newsMainPic = attributes.get("mainPic").toString();
-        String newTitle = attributes.get("title").toString();
-        int hitCount = 0;
-        zzal.setCno((int)Integer.parseInt(attributes.get("cno").toString()));
-        zzal.setCono((int)Integer.parseInt(attributes.get("cono").toString()));
-        zzal.setMno((int)Integer.parseInt(attributes.get("mno").toString()));
-        zzal.setMainPic(newsMainPic.replaceAll("^\"+|\"+$", ""));
-        zzal.setTitle(newTitle.replaceAll("^\"+|\"+$", ""));
-        zzal.setZzalTemporary((Boolean)Boolean.parseBoolean(attributes.get("publicType").toString()));
-        zzal.setHitCount(hitCount);
+		if(!boo){
+		
+			HashMap<String, Object> attributes = new HashMap<>();
+			
+			JsonObject jsonObject = (JsonObject) jsonParser.parse(json);
+			
+			Set<Entry<String, JsonElement>> entrySet = jsonObject.entrySet();
+	        
+			for(Map.Entry<String,JsonElement> entry : entrySet){
+	          attributes.put(entry.getKey(), jsonObject.get(entry.getKey()));
+	        }
+	        
+	        String newsMainPic = attributes.get("mainPic").toString();
+	        String newTitle = attributes.get("title").toString();
+	        int hitCount = 0;
+	        zzal.setCno((int)Integer.parseInt(attributes.get("cno").toString()));
+	        zzal.setCono((int)Integer.parseInt(attributes.get("cono").toString()));
+	        zzal.setMno((int)Integer.parseInt(attributes.get("mno").toString()));
+	        zzal.setMainPic(newsMainPic.replaceAll("^\"+|\"+$", ""));
+	        zzal.setTitle(newTitle.replaceAll("^\"+|\"+$", ""));
+	        zzal.setZzalTemporary((Boolean)Boolean.parseBoolean(attributes.get("publicType").toString()));
+	        zzal.setHitCount(hitCount);
+	      
+	       
+	      
+	      lectMap.put("lectMap", zzalwriteService.add(zzal)); 
+		}		
       
-      HashMap<String, Object> lectMap = new HashMap<String, Object>();  
-      
-      lectMap.put("lectMap", zzalwriteService.add(zzal));
-        
-        String json2 = (String) map.get("zzalpage").toString();
-       
+      // 여기부터 페이지 저장
+      String json2 = (String) map.get("zzalpage").toString();
+       System.out.println(json2);
          JsonArray arr = (JsonArray)jsonParser.parse(json2);
          
         for(int i =0; i< arr.size(); i++){
@@ -78,15 +102,22 @@ public class ZzalwriteControl {
         	
         	String newsPagePic = tmp.get("pagePic").toString();
         	String newConText = tmp.get("conText").toString();
+        		
+        	try {
+				page.setZzalNo(pagegetno());
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
+        	
         	page.setPageNo((int)Integer.parseInt(tmp.get("pageNo").toString()));
         	page.setPagePic(newsPagePic.replaceAll("^\"+|\"+$", ""));
         	page.setConTypeZ(tmp.get("type").toString());
         	page.setConTextZ(newConText.replaceAll("^\"+|\"+$", ""));
         	
-        	zzalwriteService.pageAdd(page);
+        	zzalwriteService.pageAdd(page,boo);
         }
 
-    
+//		return new JsonResult(JsonResult.SUCCESS, "ok");
     return new JsonResult(JsonResult.SUCCESS, lectMap);
   }
 	
@@ -105,12 +136,52 @@ public class ZzalwriteControl {
  
  
  @RequestMapping("delete")
- public JsonResult delete(int no, int zzno) throws Exception {
+ public JsonResult delete(int no, int zzno, @RequestParam HashMap<String, Object> map, Zzal zzal) throws Exception {
+	 
+	 pagesetno(zzno);
+	 
+	 System.out.println("deelelejson");
+	 System.out.println(map);
+	 System.out.println("json");
+	 String json = (String) map.get("zzal").toString();
+	 System.out.println(json);
+		
+		HashMap<String, Object> attributes = new HashMap<>();
+		
+		JsonParser jsonParser = new JsonParser();
+		
+		JsonObject jsonObject = (JsonObject) jsonParser.parse(json);
+		
+		Set<Entry<String, JsonElement>> entrySet = jsonObject.entrySet();
+     
+		for(Map.Entry<String,JsonElement> entry : entrySet){
+       attributes.put(entry.getKey(), jsonObject.get(entry.getKey()));
+       }
+     
+     String newsMainPic = attributes.get("mainPic").toString();
+     String newTitle = attributes.get("title").toString();
+     int hitCount = 0;
+     zzal.setCno((int)Integer.parseInt(attributes.get("cno").toString()));
+     zzal.setCono((int)Integer.parseInt(attributes.get("cono").toString()));
+     zzal.setMno((int)Integer.parseInt(attributes.get("mno").toString()));
+     zzal.setMainPic(newsMainPic.replaceAll("^\"+|\"+$", ""));
+     zzal.setTitle(newTitle.replaceAll("^\"+|\"+$", ""));
+     zzal.setZzalTemporary((Boolean)Boolean.parseBoolean(attributes.get("publicType").toString()));
+     zzal.setHitCount(hitCount);
+	 
+	 System.out.println("zzal----------------------------");
+     System.out.println(zzal);
 	 HashMap<String, Object> findMap = new HashMap<>();
 	 findMap.put("zzno", zzno);
 	 findMap.put("mno", no);
+	 findMap.put("zzal",zzal);
+	 
+	 
+	 System.out.println("find map----------------------------");
+     System.out.println(findMap);
+	 
 	 zzalwriteService.deteleInition(findMap);
-	 HashMap<String, Object> tmplist = new HashMap<>();
+//	 HashMap<String, Object> tmplist = new HashMap<>();
 	 
 	 return new JsonResult(JsonResult.SUCCESS,"ok");
  }
@@ -148,6 +219,17 @@ public class ZzalwriteControl {
       count = 0;
     }
     return String.format("%d_%d", System.currentTimeMillis(), ++count); 
+  }
+
+
+  @SuppressWarnings("unused")
+  private void pagesetno(int no){
+		this.pagezzno=no;
+  }
+  
+  @SuppressWarnings("unused")
+  private int pagegetno(){
+		return this.pagezzno;
   }
 
 }

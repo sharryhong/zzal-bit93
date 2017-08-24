@@ -85,10 +85,32 @@
 	</update>
 	
 	
-	<delete id="deleteNo" parameterType="int">
-		delete from notice where nono=#{nono};
+	<!-- 딜릿을 할껀데  -->
+	<delete id="deleteNo" parameterType="map">
+	
+		delete from notice
+		<if test="notype != null">
+	    <where>
+	      <choose>
+	          <when test="notype == 'notice'">nono = #{nono}</when>
+		      <when test="notype == 'subs'">
+		      nono = (SELECT b.nono from (select n.nono,n.notype,n.dmno from notice n where n.cono=#{cono}) as b 
+		      where b.notype = 'subs' and b.dmno=#{dmno}) </when>
+		      <when test="notype == 'reply'">
+		      nono = (SELECT b.nono from (select n.nono,n.notype,n.dmno from notice n where n.zzno=#{zzno}) as b 
+		      where b.notype = 'reply' and b.dmno=#{dmno})
+		      </when>
+		      <when test="notype == 'lik'">
+		      nono =  (SELECT b.nono from (select n.nono,n.notype,n.dmno from notice n where n.zzno=#{zzno}) as b 
+		      where b.notype = 'lik' and b.dmno=#{dmno})</when>
+	      </choose>
+	    </where>
+	    </if>
+		
+	
 	</delete>
 	
+    
 	
 </mapper> 
 

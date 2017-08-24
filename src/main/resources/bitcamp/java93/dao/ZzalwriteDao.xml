@@ -54,6 +54,15 @@
     insert into page(zzno, pgno, type, pic, cont) 
     values(#{zzalNo}, #{pageNo},#{conTypeZ}, #{pagePic},#{ConTextZ});
   </insert>
+  
+  
+  <insert id="editInsertPage"  parameterType="page">
+    insert into page(zzno, pgno, type, pic, cont) 
+    values((select z.zzno from zzal_lect z where z.zzno=#{zzalNo}), #{pageNo},#{conTypeZ}, #{pagePic},#{ConTextZ});
+  </insert>
+  
+  
+  
 
  <select id="getZzalNo" resultType="zzal">
  	select zzno, mno, cno, cono from zzal_lect where zzno=(SELECT MAX(last_insert_id(z.zzno)) FROM zzal_lect z); 
@@ -64,14 +73,29 @@
   delete from page
     where zzno=#{zzno}
   </delete>
- <delete id="deleteZzal" parameterType="map">
+  
+  <update id="updateZzal" parameterType="zzal">
+  	update zzal_lect z set z.cno=(select c.cno from catg c where c.cno=#{cno}) 
+  						,z.cono=(select d.cono from colct d where d.cono=#{cono})  
+  						,z.titl=#{title},z.pic=#{mainPic},z.ztmp=#{zzalTemporary} where z.zzno=#{zzno}
+  </update>
+  
+  
+<!--  <delete id="deleteZzal" parameterType="map">
   delete from zzal_lect
     where zzno=#{zzno}
-  </delete>
-  
-  <select id="">
+  </delete> -->
+  <!-- <select id="">
   </select>
-
+  
+  update zzal_lect z set z.cno=(select c.cno from catg c where c.cno=1) 
+  						,z.cono=(select d.cono from colct d where d.cono=2) 
+  						where zzno=62
+  						,z.titl=#{title},z.pic=#{mainPic},z.ztmp=#{zzalTemporary} where zzno=62
+  
+  
+  
+ -->
 </mapper> 
 
 

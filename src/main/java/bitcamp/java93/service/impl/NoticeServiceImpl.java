@@ -1,5 +1,6 @@
 package bitcamp.java93.service.impl;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +26,11 @@ public class NoticeServiceImpl implements NoticeService {
 	}
 	@Override
 	public void deleteNo(int nono) {
-		noticeDao.deleteNo(nono);
+		
+		HashMap<String, Object> map = new HashMap<>();
+		map.put("nono", nono);
+		map.put("notype", "notice");
+		noticeDao.deleteNo(map);
 		
 	}
 	@Override

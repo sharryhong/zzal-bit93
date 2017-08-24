@@ -122,8 +122,12 @@ let tmpMpic = ''
     $(tmpPageSelect[0]).css("background-image", 'url('+tmpstr1+')')
 
 	for (let i=1; i < tmpPageSelect.length; i++ ){
-//		data.page.type
+//		data.page.conTypeZ
+		console.log(data)
+		let dataT = (Boolean(data.page[i-1].conTypeZ)==true? 1: 0)
+//		$($("input[type=hidden]")[i-1].attr("data-type",bool)
 		$(tmpfiinput[i]).val(arrpicname[i-1])
+		$(tmpfiinput[i]).attr('data-type',dataT)
 		// 이미지 일 때 
 		if (arrType[i-1] === "true") {
 			$("<img>").attr("src",arrpic[i-1]).appendTo(tmpPageSelect[i])
@@ -199,6 +203,7 @@ slideNumberring()
 
 function slideNumberring(){
 		let buddys = $('.swiper-slide')
+		
 		for (let i = 0; i < buddys.length; i++ ){
 			$(buddys[i]).attr('data-no',i)
 			$(buddys[i]).addClass('number-'+i)
@@ -391,16 +396,56 @@ var ssl=0;
 			}
 
 			if(initWrite){
-				$.ajax({
+			
+				
+				console.log(initWrite,"임시")
+				dataGarage()
+				if($(this).attr("data-tmppub")=="true"){
+//					console.log(this)
+					pageArray[0].publicType = true;
+
+				}else{
+					pageArray[0].publicType = false;
+					/*if(pageArray[1].pagePic==""){
+						alert("2페이지에 사진은 꼭꼭!!해주세욤!");
+						return
+					}*/
+				}
+				dataPlant()
+				
+					let tmpdatapachage = function(){
+					console.log(pageArray[0])
+					$.ajax({
 					url:'/zzal-bit93/write/delete.json',
 					method:'POST',
-
-					data:{"no" : no ,"zzno" : parseInt(initWrite.split("=")[1])},
-					success : function(data){console.log(data,"성공 객체임")},
+					
+					data:{"no" : no ,"zzno" : parseInt(initWrite.split("=")[1]),"zzal":JSON.stringify(pageArray[0])},
+					success : function(data){console.log(data,"성공 객체임")
+						      let obj = false
+						      console.log(jsonPageArray,'pageArray')
+						      
+						      
+						      youJSonSender(obj,jsonPageArray)
+							
+						      
+						      
+//						      location.href="mypage.html"
+					},
+										
+					
 					dataType: 'json'
-				})
-			}
-
+				    
+					
+					})//17-08-23 zzalpage는 업뎃 나머지는 딜릿하고 새로 업뎃
+				    }
+				
+				tmpdatapachage();
+				
+      			
+					
+				return
+			}//if문
+			console.log(initWrite,"올려!")
 			dataGarage()
 			if($(this).attr("data-tmppub")=="true"){
 				pageArray[0].publicType = true;
@@ -438,7 +483,9 @@ var ssl=0;
 			$.ajax({
 				url:'/zzal-bit93/write/add.json',
 				method:'POST',
-				data: {"zzal":JSON.stringify(obj), "zzalpage":JSON.stringify(jsonObj)},
+				data: {"zzal":function(){if(obj){return JSON.stringify(obj)}else{return null}},
+					"zzalpage":JSON.stringify(jsonObj)}
+				,
 				success : function(data){console.log(data,"성공 객체임")},
 				dataType: 'json'
 			})

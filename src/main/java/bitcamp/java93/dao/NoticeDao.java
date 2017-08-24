@@ -1,5 +1,6 @@
 package bitcamp.java93.dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import bitcamp.java93.domain.Notice;
@@ -14,6 +15,6 @@ public interface NoticeDao {
   void insReplyNotice(Reply reply);
   void insSubsNotice(Subscribe subscribe);
   int getCnt(int mno);
-  void deleteNo(int nono);
+  void deleteNo(HashMap<String, Object> map);
   void updateNo(int mno);
 }
