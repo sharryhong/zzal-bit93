@@ -570,5 +570,5 @@
 //			fbLogout() // 이거때문에 진짜 고생했네...
 //		}); //facebook testAPISignUp() response
 //	}
-	
+//	
 })(jQuery);
