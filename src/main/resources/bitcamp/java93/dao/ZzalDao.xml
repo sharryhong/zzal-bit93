@@ -120,7 +120,10 @@
   <select id="zzalBestList" resultMap="zzalMap" parameterType="map">
     SELECT *
 		FROM 
-		    (SELECT z.zzno, z.titl, z.pic as pic2, m.nick FROM zzal_lect z INNER JOIN memb m ON z.mno = m.mno WHERE ztmp=false) t1
+		    (SELECT z.zzno, z.titl, z.pic as pic2, m.nick 
+		     FROM zzal_lect z INNER JOIN memb m ON z.mno = m.mno 
+		     LEFT JOIN colct c on z.cono = c.cono
+		     WHERE (z.ztmp=false AND z.cono IS NULL) OR (c.pub = false AND z.ztmp=false)) t1
 		LEFT JOIN
 		    (SELECT zzno, cdt, count(*) as week_like FROM lik WHERE cdt Between AddDate(Now(),-7) AND Now() GROUP BY zzno) t2
 		ON
@@ -130,24 +133,14 @@
 		LIMIT 10
   </select>
   
-  
-  <!-- 
-    
-    /////
-    SELECT z.zzno, z.mno, m.nick, m.pic as pic1, z.cno, z.titl, z.pic as pic2, z.cdt as cdt2, z.hitcnt,
-    (SELECT count(*) FROM lik WHERE zzno=z.zzno) as like_cnt, 
-    (SELECT count(*) FROM reply WHERE zzno=z.zzno) as reply_cnt
-    FROM zzal_lect z INNER JOIN memb m on z.mno = m.mno
-    LEFT JOIN colct c on z.cono = c.cono
-    WHERE (z.ztmp=false AND z.cono IS NULL) OR (c.pub = false AND z.ztmp=false)
-    ORDER BY (like_cnt * 10) + reply_cnt + z.hitcnt + z.zzno desc
-    -->
-  
   <!-- category.html 한주간 좋아요 많이 받은 랭킹 10 -->
   <select id="zzalBestCategoryList" resultMap="zzalMap" parameterType="int">
     SELECT *
 		FROM 
-		    (SELECT z.zzno, z.titl, z.pic as pic2, m.nick FROM zzal_lect z INNER JOIN memb m ON z.mno = m.mno WHERE ztmp=false AND cno = #{cno}) t1
+		    (SELECT z.zzno, z.titl, z.pic as pic2, m.nick 
+		     FROM zzal_lect z INNER JOIN memb m ON z.mno = m.mno
+		     LEFT JOIN colct c on z.cono = c.cono 
+		     WHERE (z.ztmp=false AND z.cono IS NULL AND z.cno = #{cno}) OR (c.pub = false AND z.ztmp=false AND z.cno = #{cno})) t1
 		LEFT JOIN
 		    (SELECT zzno, cdt, count(*) as week_like FROM lik WHERE cdt Between AddDate(Now(),-7) AND Now() GROUP BY zzno) t2
 		ON
@@ -160,7 +153,11 @@
   <select id="zzalLikeRank" resultMap="zzalMap" parameterType="map">
     SELECT *
 		FROM 
-		    (SELECT z.zzno, z.titl, z.pic as pic2, m.nick FROM zzal_lect z INNER JOIN memb m ON z.mno = m.mno) t1
+		    (SELECT z.zzno, z.titl, z.pic as pic2, m.nick 
+		     FROM zzal_lect z INNER JOIN memb m ON z.mno = m.mno
+		     LEFT JOIN colct c on z.cono = c.cono
+    		 WHERE (z.ztmp=false AND z.cono IS NULL) OR (c.pub = false AND z.ztmp=false)
+		     ) t1
 		LEFT JOIN
 		    (SELECT zzno, cdt, count(*) as week_like FROM lik WHERE cdt Between AddDate(Now(),-7) AND Now() GROUP BY zzno) t2
 		ON
@@ -171,9 +168,10 @@
   
   <!-- 많이본 페이지. 한 주간 조회수 많은 랭킹 30 -->
   <select id="zzalViewRank" resultMap="zzalMap" parameterType="map">
-    SELECT zzno, titl, pic as pic2, hitcnt, cdt as cdt2
-		FROM zzal_lect
-		WHERE ztmp=false AND cdt Between AddDate(Now(),-7) AND Now() GROUP BY zzno
+    SELECT z.zzno, z.titl, z.pic as pic2, z.hitcnt, z.cdt as cdt2
+		FROM zzal_lect z
+		LEFT JOIN colct c on z.cono = c.cono
+		WHERE (z.ztmp=false AND z.cono IS NULL AND cdt Between AddDate(Now(),-7) AND Now()) OR (c.pub = false AND z.ztmp=false AND cdt Between AddDate(Now(),-7) AND Now())
 		ORDER BY hitcnt desc
 		LIMIT 30
   </select>
@@ -184,7 +182,8 @@
     (SELECT count(*) FROM lik WHERE zzno=z.zzno) as like_cnt, 
     (SELECT count(*) FROM reply WHERE zzno=z.zzno) as reply_cnt
     FROM zzal_lect z INNER JOIN memb m on z.mno = m.mno
-    WHERE z.ztmp=false 
+    LEFT JOIN colct c on z.cono = c.cono
+    WHERE (z.ztmp=false AND z.cono IS NULL) OR (c.pub = false AND z.ztmp=false)
     ORDER BY z.cdt desc
     LIMIT #{startIndex}, #{pageSize}
   </select>
@@ -193,7 +192,8 @@
   <select id="zzalListOthers" resultMap="zzalMap" parameterType="map">
     SELECT z.zzno, z.mno, m.nick, m.pic as pic1, z.cno, z.titl, z.pic as pic2, z.cdt as cdt2
     FROM zzal_lect z INNER JOIN memb m on z.mno = m.mno AND z.mno = #{mno}
-    WHERE z.ztmp=false 
+    LEFT JOIN colct c on z.cono = c.cono
+    WHERE (z.ztmp=false AND z.cono IS NULL) OR (c.pub = false AND z.ztmp=false)
     ORDER BY z.cdt desc
     LIMIT 10
   </select>
@@ -214,23 +214,6 @@
     WHERE (z.ztmp=false AND z.cono IS NULL) OR (c.pub = false AND z.ztmp=false)) as rowCount
   </select>
   
-  <!-- SELECT z.zzno, z.mno, m.nick, m.pic as pic1, z.cno, z.titl, z.pic as pic2, z.cdt as cdt2, z.hitcnt,
-    (SELECT count(*) FROM lik WHERE zzno=z.zzno) as like_cnt, 
-    (SELECT count(*) FROM reply WHERE zzno=z.zzno) as reply_cnt
-    FROM zzal_lect z INNER JOIN memb m on z.mno = m.mno
-    LEFT JOIN colct c on z.cono = c.cono
-    
-    WHERE (z.ztmp=false AND z.cono IS NULL AND z.cno in 
-    <foreach collection="categoryNumberArray" item="cno" open="(" close=")" separator=",">
-		  #{cno}
-		</foreach>
-    
-    ) OR (c.pub = false AND z.ztmp=false AND z.cno in 
-    <foreach collection="categoryNumberArray" item="cno" open="(" close=")" separator=",">
-		  #{cno}
-		</foreach>
-    )
-     -->
   <select id="foundRowsMyIndex" resultType="int">
     SELECT count(*) FROM(
     SELECT zzno,
@@ -258,7 +241,8 @@
     (SELECT count(*) FROM lik WHERE zzno=z.zzno) as like_cnt, 
     (SELECT count(*) FROM reply WHERE zzno=z.zzno) as reply_cnt
     FROM zzal_lect z INNER JOIN memb m on z.mno = m.mno
-    WHERE z.ztmp=false AND z.cno = #{cno}) as rowCount
+    LEFT JOIN colct c on z.cono = c.cono
+    WHERE (z.ztmp=false AND z.cono IS NULL AND z.cno = #{cno}) OR (c.pub = false AND z.ztmp=false AND z.cno = #{cno})) as rowCount
   </select>
   
   <!-- 짤강 클릭시 조회수 증가 -->
