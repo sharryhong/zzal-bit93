@@ -30,8 +30,20 @@
 	float: left;
 	padding-left: 10px;
 }
-.titles-wrap .bold {
+
+.titles-wrap .bold.width-mine {
+	 display: inline-block;
+	 width:400px;
+	 font-weight: bold;
+	 overflow: hidden; 
+     white-space: nowrap;
+     text-overflow: ellipsis;
+}
+
+.titles-wrap .bold{
+	
 	font-weight: bold;
+	
 }
 
 
@@ -42,7 +54,18 @@
     float: right;
     margin-right: 10px;
 }
+.notices .right .nodel{
+    text-align: center;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+}
 
+
+.notices .right .nodel:hover{
+	color:#fff;
+	font-size:150%;
+}
 
 
 /*mobile*/
@@ -86,6 +109,17 @@
 	.titles-wrap .contents {
 		width: 76%;
 	}
+	
+	
+	.titles-wrap .bold.width-mine {
+	 display: inline-block;
+	 width:100px;
+	 font-weight: bold;
+	 overflow: hidden; 
+     white-space: nowrap;
+     text-overflow: ellipsis;
+}
+	
 	
 }	
 	

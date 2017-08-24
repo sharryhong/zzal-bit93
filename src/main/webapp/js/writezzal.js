@@ -431,7 +431,7 @@ var ssl=0;
 							
 						      
 						      
-//						      location.href="mypage.html"
+						      location.href="mypage.html"
 					},
 										
 					
