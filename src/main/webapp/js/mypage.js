@@ -51,14 +51,12 @@
 	function selectzzalList() {
 		$.getJSON('collect/selectzzalList.json', {'mno': mno}, function(result) {
 			if(result.data){
-				console.log(result.data)
 				generateHandlebars(result, $('#my-zzallist-template'), $('#zzal-handle'))
 			}
 		}) 
 		$(document.body).on('click', '#temp-zzal', function(event) {
 			$.getJSON('collect/temporaryzzalList.json', {'mno': mno}, function(result) {
 				if(result.data){
-					console.log(result.data)
 					generateHandlebars(result, $('#my-zzallist-template'), $('#tmpor-zzal'))
 				}
 			})
@@ -68,7 +66,6 @@
 		$(document.body).on('click', '#ilike-zzal', function(event) {
 			$.getJSON('collect/likezzal.json',{'mno' : mno}, function(result) {
 				if(result.data){
-					console.log(result.data)
 					generateHandlebars(result, $('#my-like-zzallist-template'), $('#ilike-zzallist'))
 				}
 			})
@@ -82,14 +79,10 @@
 		console.log('내 컬렉션')
 		$.getJSON('collect/list.json', {'no': mno}, function(result) {
 			if (result.data) {
-				console.log(result.data)
-				
 			    $('#my-collection01').html('')
 				generateHandlebars(result, $('#my-collection-template'), $('#my-collection01'))
-				console.log($('.sfont .zzal-cnt'))
+				/*console.log($('.sfont .zzal-cnt'))*/
 				let list = result.data.list
-				console.log(list)
-				
 				
 				for(var i = 0; i < list.length; i++){
 					selectuser(list[i].no,i,$('#my-collection01 .sfont .zzal-cnt'),$('#my-collection01 .sfont .subs-cnt')) // 컬렉션에 담겨있는 짤강 수 와, 구독한 수
@@ -102,9 +95,7 @@
 		$(document.body).on('click', '.zzal-menu02 #subs-btn', function(event) {
 			$.getJSON('collect/subslist.json', {'mno': mno}, function(result) {
 				if(result.data){
-					console.log(result.data,"its mine")
 					let list = result.data.list
-					console.log(list)
 					generateHandlebars(result, $('#my-collection-template'), $('#my-collection02'))
 										
 					let btnlst = $('#my-collection02 .editerbtn')
@@ -127,15 +118,11 @@
 		$(document.body).on('click', '.zzal-menu02 #public-collect-list', function(event) {
 			$.getJSON('collect/publiclist.json', {'no': mno}, function(result) {
 				if (result.data) {
-					console.log(result.data)
 					
-				   /*$('#my-collection01').html('')*/
 					generateHandlebars(result, $('#my-collection-template'), $('#my-collection03'))
-					console.log($('.sfont .zzal-cnt'))
+					/*console.log($('.sfont .zzal-cnt'))*/
 					let list = result.data.list
-					console.log(list)
-					
-					
+				
 					for(var i = 0; i < list.length; i++){
 						selectuser(list[i].no,i,$('#my-collection03 .sfont .zzal-cnt'),$('#my-collection03 .sfont .subs-cnt')) // 컬렉션에 담겨있는 짤강 수 와, 구독한 수
 					}
@@ -152,10 +139,7 @@
 		
 		$.getJSON('collect/selectuser.json', {'cono': cono}, function(result) { //collect cono
 			if(result.data){
-				console.log(el)
-				console.log(result.data)
 				let collectCnt = result.data.selectcnts
-				console.log(collectCnt)
 				
 				el[index].innerHTML=collectCnt.zcnt
 				el2[index].innerHTML=collectCnt.scnt
@@ -176,7 +160,6 @@
 	
 	$(document.body).on('click', '.zzsubbtn', function(event) {
 		
-		console.log(mno)
 		let str =$(this).attr('data-stype')
 		let con = $(this).attr('data-no')
 		let bool = true
@@ -232,16 +215,13 @@
 				data: {'mno': mno,'cono': cono},
 				success : function(result){console.log(result.data,"성공 객체임")
 				
-
 					$.getJSON('collect/selectuser.json', {'cono': cono}, function(result) { //collect cono
 						if(result.data){
 						
 							let collectCnt = result.data.selectcnts
 							
-						
 							$(els[0]).find('span')[0].innerHTML=collectCnt.scnt			
 							$(els[1]).find('span')[0].innerHTML=collectCnt.zcnt
-
 						}
 					})
 					

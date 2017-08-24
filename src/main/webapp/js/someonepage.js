@@ -56,11 +56,8 @@
 	  $.getJSON('zzal/list.json',{'zzno': someoneNo}, function(result){
 	  if (result.data) {
 		  var someone = result.data.list[0]
-		  console.log(someone)
 		  var sodata = someone.member
 		  somno = someone.mno
-		  console.log(somno,'memberNo')
-		  console.log(sodata)
 		  $('.user-info-face .user-name').text(sodata.nick)
 		  $('.profile-wrap .someone-phot').css({"background-image": "url(upload/"+ sodata.membpic +")"});
 		  selectzzalList()
@@ -72,18 +69,14 @@
   $(document.body).on('click', '#someone-collect-btn', function(event) {
 	$.getJSON(contextRoot + '/collect/list.json', {'no': someoneNo}, function(result) {
 		if (result.data) {
-			console.log(result.data)
 			
 			/*$('#someone-collection').html('')*/
 			generateHandlebars(result, $('#someone-collection-template'), $('#someone-collection'))
 			console.log($('.sfont .zzal-cnt'))
 			let list2 = result.data.list
-			console.log(list2)
-			
 			let subsBtn = $('#someone-collection .btn-take')
 			
 			for(var i = 0; i < list2.length; i++){
-				console.log(i)
 				selectuser(list2[i].no,i,$('#someone-collection .sfont .zzal-cnt'),$('#someone-collection .sfont .subs-cnt'))
 				
 				$(subsBtn[i]).removeClass('btn-take').addClass('someonesubbtn').attr('data-stype',true)
@@ -96,10 +89,7 @@
 	  
 	  $.getJSON('collect/selectuser.json', {'cono': cono}, function(result) { //collect cono
 		  if(result.data){
-			  console.log(el)
-			  console.log(result.data)
 			  let collectCnt = result.data.selectcnts
-			  console.log(collectCnt)
 			  
 			  el[index].innerHTML=collectCnt.zcnt
 			  el2[index].innerHTML=collectCnt.scnt
@@ -114,16 +104,13 @@
 		let con = $(this).attr('data-no')
 		let bool = false
 		if(str==="true"){
-			console.log("트루")
 			$(this).removeClass('btn-info').addClass('btn-default')
 			bool=true;
 			Subscribe(bool,mno,con,this)
 			
 			return $(this).attr('data-stype',false).text('구독취소')
 		}else{
-			console.log("펄스")
 			$(this).removeClass('btn-default').addClass('btn-info')
-			console.log(bool, '구독')
 			Subscribe(bool,mno,con,this)
 			
 			return $(this).attr('data-stype',true).text('구독하기')
@@ -160,7 +147,6 @@
 	//다른유저 컬렉션 클릭시 디테일  
 	 $(document.body).on('click', '.mycollectlist', function(event) {
 		  console.log($(this).attr('data-no'))
-		  console.log(somno)
 		  location.href = 'someonedetail.html?cono=' + $(this).attr('data-no')
 		  event.preventDefault()
 	  });
@@ -169,7 +155,6 @@
 	 function selectzzalList() { 
 		  $.getJSON('collect/selectzzalList.json', {'mno': somno}, function(result) {
 			  if(result.data){
-				  console.log(result.data)
 				  generateHandlebars(result, $('#someone-zzal-template'), $('#someone-zzal-list1'))	
 			  }
 		  })
