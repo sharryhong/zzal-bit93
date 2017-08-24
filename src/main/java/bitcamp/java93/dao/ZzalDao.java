@@ -20,6 +20,7 @@ public interface ZzalDao {
   int hitCountUpdate(Zzal zzal);
   int countAll();
   int foundRows();
+  int foundRowsMyIndex(Map<String,Object> valueMap);
   int foundRowsCatetory(int cno);
   int delete(int no);
   void deletePages(int no);

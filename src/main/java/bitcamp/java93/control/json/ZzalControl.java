@@ -53,7 +53,7 @@ public class ZzalControl {
     HashMap<String,Object> dataMap = new HashMap<>();
     dataMap.put("zzalList", zzalService.zzalListMyCategory(pageNo, pageSize, categoryNumberArray));
     dataMap.put("totalCount", zzalService.getSize());
-    dataMap.put("foundRows", zzalService.foundRows());
+    dataMap.put("foundRows", zzalService.foundRowsMyIndex(categoryNumberArray));
     return new JsonResult(JsonResult.SUCCESS, dataMap);
   }
 	

@@ -214,6 +214,44 @@
     WHERE (z.ztmp=false AND z.cono IS NULL) OR (c.pub = false AND z.ztmp=false)) as rowCount
   </select>
   
+  <!-- SELECT z.zzno, z.mno, m.nick, m.pic as pic1, z.cno, z.titl, z.pic as pic2, z.cdt as cdt2, z.hitcnt,
+    (SELECT count(*) FROM lik WHERE zzno=z.zzno) as like_cnt, 
+    (SELECT count(*) FROM reply WHERE zzno=z.zzno) as reply_cnt
+    FROM zzal_lect z INNER JOIN memb m on z.mno = m.mno
+    LEFT JOIN colct c on z.cono = c.cono
+    
+    WHERE (z.ztmp=false AND z.cono IS NULL AND z.cno in 
+    <foreach collection="categoryNumberArray" item="cno" open="(" close=")" separator=",">
+		  #{cno}
+		</foreach>
+    
+    ) OR (c.pub = false AND z.ztmp=false AND z.cno in 
+    <foreach collection="categoryNumberArray" item="cno" open="(" close=")" separator=",">
+		  #{cno}
+		</foreach>
+    )
+     -->
+  <select id="foundRowsMyIndex" resultType="int">
+    SELECT count(*) FROM(
+    SELECT zzno,
+    (SELECT count(*) FROM lik WHERE zzno=z.zzno) as like_cnt, 
+    (SELECT count(*) FROM reply WHERE zzno=z.zzno) as reply_cnt
+    FROM zzal_lect z INNER JOIN memb m on z.mno = m.mno
+    LEFT JOIN colct c on z.cono = c.cono
+    
+    WHERE (z.ztmp=false AND z.cono IS NULL AND z.cno in 
+    <foreach collection="categoryNumberArray" item="cno" open="(" close=")" separator=",">
+		  #{cno}
+		</foreach>
+    
+    ) OR (c.pub = false AND z.ztmp=false AND z.cno in 
+    <foreach collection="categoryNumberArray" item="cno" open="(" close=")" separator=",">
+		  #{cno}
+		</foreach>
+    )
+    ) as rowCount
+  </select>
+  
   <select id="foundRowsCatetory" resultType="int">
     SELECT count(*) FROM(
     SELECT zzno,

@@ -19,6 +19,7 @@ public interface ZzalService {
 	void hitCountUpdate(Zzal zzal) throws Exception;
 	int getSize() throws Exception;
 	int foundRows() throws Exception;
+	int foundRowsMyIndex(String[] categoryNumberArray) throws Exception;
 	int foundRowsCatetory(int cno) throws Exception;
 	void remove(int no) throws Exception;
 }

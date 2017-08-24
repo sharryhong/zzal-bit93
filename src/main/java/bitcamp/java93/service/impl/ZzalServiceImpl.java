@@ -116,6 +116,21 @@ public class ZzalServiceImpl implements ZzalService {
   public int foundRows() throws Exception {
     return zzalDao.foundRows();
   }
+  /*
+  public List<Zzal> zzalListMyCategory(int pageNo, int pageSize, String[] categoryNumberArray) throws Exception {
+    HashMap<String,Object> valueMap = new HashMap<>();
+    valueMap.put("startIndex", (pageNo - 1) * pageSize);
+    valueMap.put("pageSize", pageSize);
+    valueMap.put("categoryNumberArray", categoryNumberArray);
+    return zzalDao.zzalListMyCategory(valueMap);
+  }
+  */
+  @Override
+  public int foundRowsMyIndex(String[] categoryNumberArray) throws Exception {
+    HashMap<String,Object> valueMap = new HashMap<>();
+    valueMap.put("categoryNumberArray", categoryNumberArray);
+    return zzalDao.foundRowsMyIndex(valueMap);
+  }
   @Override
   public int foundRowsCatetory(int cno) throws Exception {
     return zzalDao.foundRowsCatetory(cno);
