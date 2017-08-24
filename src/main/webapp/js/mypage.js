@@ -84,7 +84,7 @@
 			if (result.data) {
 				console.log(result.data)
 				
-			   $('#my-collection01').html('')
+			    $('#my-collection01').html('')
 				generateHandlebars(result, $('#my-collection-template'), $('#my-collection01'))
 				console.log($('.sfont .zzal-cnt'))
 				let list = result.data.list
@@ -93,9 +93,9 @@
 				
 				for(var i = 0; i < list.length; i++){
 					selectuser(list[i].no,i,$('#my-collection01 .sfont .zzal-cnt'),$('#my-collection01 .sfont .subs-cnt')) // 컬렉션에 담겨있는 짤강 수 와, 구독한 수
-				}
-			}
-				
+					
+				} // for문
+			} // result.data
 		}) //내 컬렉션
 		
         // 구독 한 컬렉션 리스트
@@ -121,15 +121,15 @@
 					
 				}
 			})
-
 		}) //구독
-
+		
+		//비공개 컬렉션
 		$(document.body).on('click', '.zzal-menu02 #public-collect-list', function(event) {
 			$.getJSON('collect/publiclist.json', {'no': mno}, function(result) {
 				if (result.data) {
 					console.log(result.data)
 					
-				   $('#my-collection01').html('')
+				   /*$('#my-collection01').html('')*/
 					generateHandlebars(result, $('#my-collection-template'), $('#my-collection03'))
 					console.log($('.sfont .zzal-cnt'))
 					let list = result.data.list
@@ -142,13 +142,9 @@
 				}
 					
 			})
-			}) //비공개
+		}) //비공개
 		
 	}); //내컬렉션 관리
-	
-	
-	
-	
 	
 	
 	function selectuser(cono,index,el,el2) {
@@ -165,8 +161,6 @@
 				el2[index].innerHTML=collectCnt.scnt
 			}
 		})
-		
-		
 		
 		
 	}

@@ -169,6 +169,7 @@
 }
 .category-page .profile-wrap {
 	display: inline-block;
+	cursor: pointer;
 }
 .category-title {
 	font-size: 1.68rem;

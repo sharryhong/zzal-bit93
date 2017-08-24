@@ -73,19 +73,92 @@
 	$.getJSON(contextRoot + '/collect/list.json', {'no': someoneNo}, function(result) {
 		if (result.data) {
 			console.log(result.data)
+			
+			$('#my-collection01').html('')
+			generateHandlebars(result, $('#someone-collection-template'), $('#someone-collection'))
+			console.log($('.sfont .zzal-cnt'))
+			let list2 = result.data.list
+			console.log(list2)
+			
+			let subsBtn = $('#someone-collection .btn-take')
+			
+			for(var i = 0; i < list2.length; i++){
+				console.log(i)
+				selectuser(list2[i].no,i,$('#someone-collection .sfont .zzal-cnt'),$('#someone-collection .sfont .subs-cnt'))
+				
+				$(subsBtn[i]).removeClass('btn-take').addClass('zzsubbtn').text('구독취소').attr('data-stype',true)
+			}
 		}
-		generateHandlebars(result, $('#someone-collection-template'), $('#someone-collection'))
     })
   });
   
+  function selectuser(cono,index,el,el2) {
+	  
+	  $.getJSON('collect/selectuser.json', {'cono': cono}, function(result) { //collect cono
+		  if(result.data){
+			  console.log(el)
+			  console.log(result.data)
+			  let collectCnt = result.data.selectcnts
+			  console.log(collectCnt)
+			  
+			  el[index].innerHTML=collectCnt.zcnt
+			  el2[index].innerHTML=collectCnt.scnt
+		  }
+	  })
+  }
+  
+  $(document.body).on('click', '.someonesubbtn', function(event) {
+		
+		console.log(mno)
+		let str =$(this).attr('data-stype')
+		let con = $(this).attr('data-no')
+		let bool = true
+		if(str==='true'){
+			
+			$(this).removeClass('btn-info').addClass('btn-default')
+			bool=false;
+			DoYouSubscribe(bool,mno,con)
+			
+			return $(this).attr('data-stype',false).text('구독하기')
+		}else{
+			
+			$(this).removeClass('btn-default').addClass('btn-info')
+			console.log(bool, '구독다시!')
+			DoYouSubscribe(bool,mno,con)
+			
+			return $(this).attr('data-stype',true).text('구독취소')
+		}
+		event.preventDefault()
+	});
+  	
+  	function Subscribe(bool,mno,cono){
+		 $.ajax({
+				url: bool ? 'subs/insert.json':'subs/delete.json',
+				method:'POST',
+				data: {'mno': mno,'cono': cono},
+				success : function(result){console.log(result.data,"성공 객체임")
+					let arr1=$('#my-collection02 .sfont .zzal-cnt')
+					let arr2=$('#my-collection02 .sfont .subs-cnt')
+					for (let i=0; i < arr1.length; i++){
+						
+						selectuser(cono,i,$('#my-collection02 .sfont .zzal-cnt'),$('#my-collection02 .sfont .subs-cnt'))
+					
+					}
+			
+				},
+				dataType: 'json'
+			})
+		 
+	 }
+    
 	//다른유저 컬렉션 클릭시 디테일  
 	 $(document.body).on('click', '.mycollectlist', function(event) {
 		  console.log($(this).attr('data-no'))
 		  console.log(somno)
-		  location.href = 'someonedetail.html?cono=' + $(this).attr('data-no') /*+ '&mno=' + somno*/
+		  location.href = 'someonedetail.html?cono=' + $(this).attr('data-no')
 		  event.preventDefault()
 	  });
-	
+	 
 	 // 짤강 리스트
 	 function selectzzalList() { 
 		  $.getJSON('collect/selectzzalList.json', {'mno': somno}, function(result) {
@@ -95,4 +168,5 @@
 			  }
 		  })
 	  }
+	 
 })(jQuery);
