@@ -217,7 +217,7 @@
 							data: {'replyNumber' :replyNumbers, 'memberNumber': memberNumberJS, 'reparentNumber' : reparent}, 
 							async: false,
 							success: function(data) {
-								console.log("replylike insert 데이터 보냈습니다.")
+//								console.log("replylike insert 데이터 보냈습니다.")
 							}
 						})
 						if(memberNumberJS != null ) {
@@ -227,7 +227,7 @@
 								data: {'replyNumber' : replyNumbers}, 
 								async: false,
 								success: function(data) {
-									console.log("replylikecount plus 데이터 보냈습니다.")
+//									console.log("replylikecount plus 데이터 보냈습니다.")
 								}
 							})
 							that.find(".fa").removeClass('fa-heart-o').addClass('fa-heart').css({"color":"red"})

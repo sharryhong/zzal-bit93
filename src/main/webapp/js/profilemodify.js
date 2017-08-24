@@ -22,6 +22,7 @@ $(document).ready(function(){
 	var signType; // 로그인한 회원의 가입유형이 담겨있다. 
 	var UserPassword; // 로그인한 회원의 비밀번호가 담겨있다. 
 
+	
 	$.getJSON('auth/userinfo.json', function(result) {
 		if (result.data) {
 			nickName = result.data.nick
@@ -34,7 +35,13 @@ $(document).ready(function(){
 			$('.profile-picture').css({"background-image": "url(upload/"+result.data.membpic+")"});
 			$('input[type="hidden"]')[0].value=result.data.membpic;
 		}
-
+		
+		console.log(signType)
+		/* 회원정보 수정할 때, 가입유형이 SNS일때 '현재비밀번호+변경비밀번호+재확인비밀번호' input 라인을 숨긴다'*/
+		if (signType == ('kakao' || 'facebook')) {
+			$(".profile-change .input-form").not(".save-when-sns").hide();
+		}
+		
 
 		function wrongValueCheckerProfile () {
 			/*  1단계. 공백여부 검증*/
@@ -119,7 +126,7 @@ $(document).ready(function(){
 		$(document).on("click", '#profile-modify-btn', function() {
 			that = $(this)
 			wrongValueCheckerProfile ()
-			console.log('isOk의 마지막 상태는?', isOk)
+//			console.log('isOk의 마지막 상태는?', isOk)
 
 			// 변경할 비밀번호를 입력했을 때 타는 로직 (case. 프로필사진 or 닉네임 + 비밀번호 변경) 
 			if ($('#profile-pw-new').val() != "" || $('#profile-pw-re').val() != "") {
@@ -153,7 +160,7 @@ $(document).ready(function(){
 
 				// 변경할 비밀번호를 입력하지 않았을 때 타는 로직(case. 프로필사진 or 닉네임만 변경)
 			} else if ($('#profile-pw-new').val() == "" && $('#profile-pw-re').val() == "") {
-				console.log("UserPassword", UserPassword)
+//				console.log("UserPassword", UserPassword)
 				$.ajax ({
 					type: 'POST',
 					url: 'member/updateExceptPassword.json',

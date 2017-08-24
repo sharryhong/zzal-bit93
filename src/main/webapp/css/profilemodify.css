@@ -56,7 +56,7 @@
    border: none;
    font-size: 1rem;
    padding: 3px;
-   margin-top: 10px;
+  /*  margin-top: 10px; */
  }
  .change-button .btn {
    width: 200px;
@@ -128,7 +128,7 @@
     margin-top: 0;
 	}
 	.input-change {
-	  font-size: 1.375rem;
+	  font-size: 1.3rem;
 	}
 	.change-button {
     text-align: center;
@@ -142,4 +142,8 @@
 	.profile-photo-change {
     margin: 0 0 20px 10%;
 	}
+	
+	.profile-change .input-wrong {
+    line-height: 3.1;
+}
 }
