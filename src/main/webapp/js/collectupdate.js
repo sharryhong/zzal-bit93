@@ -102,9 +102,18 @@
 	
 	// 컬렉션 삭제 버튼클릭시 삭제
 	$('#collect-delete').click(function() {
+		swal({
+	        title: "정말 삭제하시겠습니까?",
+	        type: "warning",
+	        showCancelButton: true,
+	        confirmButtonColor: "#DD6B55",
+	        confirmButtonText: "삭제",
+	        cancelButtonText: "취소",
+	        closeOnConfirm: false
+	     }, function(){
 		  $.getJSON('collect/delete.json', {'no': cono}, function(result) {
 		    location.href= 'mypage.html'
-		  })
+		  })  
+	   })
 	})
-	
 })(jQuery);
