@@ -38,11 +38,11 @@
 	})
   }
   
-  var no = 0
+  var mno = 0
   
   $.getJSON('/zzal-bit93/auth/userinfo.json', function(result) {
 	  if (result.data) {
-		  no = result.data.no
+		  mno = result.data.no
 		  $('.user-info-face .user-name').text(result.data.nick)
 		  $('.profile-wrap .phot').css({"background-image": "url(upload/"+result.data.membpic+")"});
 	  }
@@ -74,7 +74,7 @@
 		if (result.data) {
 			console.log(result.data)
 			
-			$('#my-collection01').html('')
+			/*$('#someone-collection').html('')*/
 			generateHandlebars(result, $('#someone-collection-template'), $('#someone-collection'))
 			console.log($('.sfont .zzal-cnt'))
 			let list2 = result.data.list
@@ -86,10 +86,10 @@
 				console.log(i)
 				selectuser(list2[i].no,i,$('#someone-collection .sfont .zzal-cnt'),$('#someone-collection .sfont .subs-cnt'))
 				
-				$(subsBtn[i]).removeClass('btn-take').addClass('zzsubbtn').text('구독취소').attr('data-stype',true)
+				$(subsBtn[i]).removeClass('btn-take').addClass('someonesubbtn').attr('data-stype',true)
 			}
 		}
-    })
+     })
   });
   
   function selectuser(cono,index,el,el2) {
@@ -112,39 +112,45 @@
 		console.log(mno)
 		let str =$(this).attr('data-stype')
 		let con = $(this).attr('data-no')
-		let bool = true
-		if(str==='true'){
-			
+		let bool = false
+		if(str==="true"){
+			console.log("트루")
 			$(this).removeClass('btn-info').addClass('btn-default')
-			bool=false;
-			DoYouSubscribe(bool,mno,con)
+			bool=true;
+			Subscribe(bool,mno,con,this)
 			
-			return $(this).attr('data-stype',false).text('구독하기')
+			return $(this).attr('data-stype',false).text('구독취소')
 		}else{
-			
+			console.log("펄스")
 			$(this).removeClass('btn-default').addClass('btn-info')
-			console.log(bool, '구독다시!')
-			DoYouSubscribe(bool,mno,con)
+			console.log(bool, '구독')
+			Subscribe(bool,mno,con,this)
 			
-			return $(this).attr('data-stype',true).text('구독취소')
+			return $(this).attr('data-stype',true).text('구독하기')
 		}
 		event.preventDefault()
 	});
   	
-  	function Subscribe(bool,mno,cono){
+  function Subscribe(bool,mno,cono,el){
+		let els=$(el).prevAll('span')
+		
 		 $.ajax({
 				url: bool ? 'subs/insert.json':'subs/delete.json',
 				method:'POST',
 				data: {'mno': mno,'cono': cono},
 				success : function(result){console.log(result.data,"성공 객체임")
-					let arr1=$('#my-collection02 .sfont .zzal-cnt')
-					let arr2=$('#my-collection02 .sfont .subs-cnt')
-					for (let i=0; i < arr1.length; i++){
+				
+					$.getJSON('collect/selectuser.json', {'cono': cono}, function(result) { //collect cono
+						if(result.data){
 						
-						selectuser(cono,i,$('#my-collection02 .sfont .zzal-cnt'),$('#my-collection02 .sfont .subs-cnt'))
+							let collectCnt = result.data.selectcnts
+							
+						
+							$(els[0]).find('span')[0].innerHTML=collectCnt.scnt			
+							$(els[1]).find('span')[0].innerHTML=collectCnt.zcnt
+						}
+					})
 					
-					}
-			
 				},
 				dataType: 'json'
 			})

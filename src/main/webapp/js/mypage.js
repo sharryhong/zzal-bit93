@@ -156,12 +156,11 @@
 				console.log(result.data)
 				let collectCnt = result.data.selectcnts
 				console.log(collectCnt)
-	
+				
 				el[index].innerHTML=collectCnt.zcnt
 				el2[index].innerHTML=collectCnt.scnt
 			}
 		})
-		
 		
 	}
 	//내컬렉션 컬렉션  클릭시 컬렉션 detail 구독 ,임시
@@ -185,14 +184,14 @@
 			
 			$(this).removeClass('btn-info').addClass('btn-default')
 			bool=false;
-			DoYouSubscribe(bool,mno,con)
+			DoYouSubscribe(bool,mno,con,this)
 			
 			return $(this).attr('data-stype',false).text('구독하기')
 		}else{
 			
 			$(this).removeClass('btn-default').addClass('btn-info')
 			console.log(bool, '구독다시!')
-			DoYouSubscribe(bool,mno,con)
+			DoYouSubscribe(bool,mno,con,this)
 			
 			return $(this).attr('data-stype',true).text('구독취소')
 		}
@@ -223,22 +222,29 @@
 	     })
 	 })
 	 
-	 
-//	 
-	 function DoYouSubscribe(bool,mno,cono){
+	  
+	 function DoYouSubscribe(bool,mno,cono,el){
+		let els=$(el).prevAll('span')
+		
 		 $.ajax({
 				url: bool ? 'subs/insert.json':'subs/delete.json',
 				method:'POST',
 				data: {'mno': mno,'cono': cono},
 				success : function(result){console.log(result.data,"성공 객체임")
-					let arr1=$('#my-collection02 .sfont .zzal-cnt')
-					let arr2=$('#my-collection02 .sfont .subs-cnt')
-					for (let i=0; i < arr1.length; i++){
+				
+
+					$.getJSON('collect/selectuser.json', {'cono': cono}, function(result) { //collect cono
+						if(result.data){
 						
-						selectuser(cono,i,$('#my-collection02 .sfont .zzal-cnt'),$('#my-collection02 .sfont .subs-cnt'))
+							let collectCnt = result.data.selectcnts
+							
+						
+							$(els[0]).find('span')[0].innerHTML=collectCnt.scnt			
+							$(els[1]).find('span')[0].innerHTML=collectCnt.zcnt
+
+						}
+					})
 					
-					}
-			
 				},
 				dataType: 'json'
 			})
