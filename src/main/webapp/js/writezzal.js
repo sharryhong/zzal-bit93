@@ -123,9 +123,11 @@ let tmpMpic = ''
 
 	for (let i=1; i < tmpPageSelect.length; i++ ){
 //		data.page.conTypeZ
-		console.log(data)
-		let dataT = (Boolean(data.page[i-1].conTypeZ)==true? 1: 0)
-//		$($("input[type=hidden]")[i-1].attr("data-type",bool)
+		
+		let dataT = (data.page[i-1].conTypeZ=="true" ? 1: 0)
+//		
+		
+		
 		$(tmpfiinput[i]).val(arrpicname[i-1])
 		$(tmpfiinput[i]).attr('data-type',dataT)
 		// 이미지 일 때 
