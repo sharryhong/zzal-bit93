@@ -81,39 +81,24 @@
     LIMIT #{startIndex}, #{pageSize}
   </select>
   
-  <!-- 
-  <select id="zzalListWithCount" resultMap="zzalMap" parameterType="map">
-    SELECT z.zzno, z.cono, z.cno, z.ztmp, z.mno, m.nick, m.pic as pic1, z.titl, z.pic as pic2, z.cdt as cdt2, z.hitcnt,
-	  (SELECT count(*) FROM lik WHERE zzno=z.zzno) as like_cnt, 
-	  (SELECT count(*) FROM reply WHERE zzno=z.zzno) as reply_cnt
-	  FROM zzal_lect z LEFT JOIN memb m on z.mno = m.mno
-	  LEFT JOIN colct c on z.cono = c.cono
-	  WHERE (z.ztmp=false AND z.cono IS NULL) OR (c.pub = false AND z.ztmp=false)
-	  ORDER BY (like_cnt * 10) + reply_cnt + z.hitcnt + z.zzno desc
-    LIMIT #{startIndex}, #{pageSize}
-  </select>
-  
-  SELECT z.zzno, z.cono, z.cno, c.pub, z.ztmp, z.mno, m.nick, m.pic as pic1,  z.titl, z.pic as pic2, z.cdt as cdt2, z.hitcnt,
-  (SELECT count(*) FROM lik WHERE zzno=z.zzno) as like_cnt, 
-  (SELECT count(*) FROM reply WHERE zzno=z.zzno) as reply_cnt
-  FROM zzal_lect z LEFT JOIN memb m on z.mno = m.mno
-  LEFT JOIN colct c on z.cono = c.cono
-  WHERE (z.ztmp=false AND z.cono IS NULL) OR (c.pub = false AND z.ztmp=false)
-  ORDER BY (like_cnt * 10) + reply_cnt + z.hitcnt + z.zzno desc
-
-  -->
-  
   <!-- index.html 로그인 후 -->
   <select id="zzalListMyCategory" resultMap="zzalMap" parameterType="map">
     SELECT z.zzno, z.mno, m.nick, m.pic as pic1, z.cno, z.titl, z.pic as pic2, z.cdt as cdt2, z.hitcnt,
     (SELECT count(*) FROM lik WHERE zzno=z.zzno) as like_cnt, 
     (SELECT count(*) FROM reply WHERE zzno=z.zzno) as reply_cnt
     FROM zzal_lect z INNER JOIN memb m on z.mno = m.mno
+    LEFT JOIN colct c on z.cono = c.cono
     
-		  WHERE z.ztmp=false AND z.cno in 
-		  <foreach collection="categoryNumberArray" item="cno" open="(" close=")" separator=",">
+    WHERE (z.ztmp=false AND z.cono IS NULL AND z.cno in 
+    <foreach collection="categoryNumberArray" item="cno" open="(" close=")" separator=",">
 		  #{cno}
-		  </foreach>
+		</foreach>
+    
+    ) OR (c.pub = false AND z.ztmp=false AND z.cno in 
+    <foreach collection="categoryNumberArray" item="cno" open="(" close=")" separator=",">
+		  #{cno}
+		</foreach>
+    )
     
     ORDER BY (like_cnt * 10) + reply_cnt + z.hitcnt desc
     LIMIT #{startIndex}, #{pageSize}
@@ -125,7 +110,8 @@
     (SELECT count(*) FROM lik WHERE zzno=z.zzno) as like_cnt, 
     (SELECT count(*) FROM reply WHERE zzno=z.zzno) as reply_cnt
     FROM zzal_lect z INNER JOIN memb m on z.mno = m.mno
-    WHERE z.ztmp=false AND z.cno = #{cno}
+    LEFT JOIN colct c on z.cono = c.cono
+    WHERE (z.ztmp=false AND z.cono IS NULL AND z.cno = #{cno}) OR (c.pub = false AND z.ztmp=false AND z.cno = #{cno})
     ORDER BY (like_cnt * 10) + reply_cnt + z.hitcnt desc
     LIMIT #{startIndex}, #{pageSize}
   </select>
@@ -143,6 +129,19 @@
 		ORDER BY week_like DESC
 		LIMIT 10
   </select>
+  
+  
+  <!-- 
+    
+    /////
+    SELECT z.zzno, z.mno, m.nick, m.pic as pic1, z.cno, z.titl, z.pic as pic2, z.cdt as cdt2, z.hitcnt,
+    (SELECT count(*) FROM lik WHERE zzno=z.zzno) as like_cnt, 
+    (SELECT count(*) FROM reply WHERE zzno=z.zzno) as reply_cnt
+    FROM zzal_lect z INNER JOIN memb m on z.mno = m.mno
+    LEFT JOIN colct c on z.cono = c.cono
+    WHERE (z.ztmp=false AND z.cono IS NULL) OR (c.pub = false AND z.ztmp=false)
+    ORDER BY (like_cnt * 10) + reply_cnt + z.hitcnt + z.zzno desc
+    -->
   
   <!-- category.html 한주간 좋아요 많이 받은 랭킹 10 -->
   <select id="zzalBestCategoryList" resultMap="zzalMap" parameterType="int">
@@ -211,7 +210,8 @@
     (SELECT count(*) FROM lik WHERE zzno=z.zzno) as like_cnt, 
     (SELECT count(*) FROM reply WHERE zzno=z.zzno) as reply_cnt
     FROM zzal_lect z INNER JOIN memb m on z.mno = m.mno
-    WHERE z.ztmp=false) as rowCount
+    LEFT JOIN colct c on z.cono = c.cono
+    WHERE (z.ztmp=false AND z.cono IS NULL) OR (c.pub = false AND z.ztmp=false)) as rowCount
   </select>
   
   <select id="foundRowsCatetory" resultType="int">
