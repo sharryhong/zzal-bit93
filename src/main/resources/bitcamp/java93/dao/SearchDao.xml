@@ -18,40 +18,42 @@
 		
 	</resultMap>
 	<sql id="selectsql">
-	select z.zzno,
-		m.nick,
-		m.pic,
-		z.pic as zpic,
-		c.name,
-		z.titl,
-		p.cont,
-		z.hitcnt,
-		(select count(*) from lik l where l.zzno=z.zzno ) as lcnt,
-		(select count(*) from reply r where r.zzno=z.zzno ) as replcnt
-		from zzal_lect z left join memb m on z.mno=m.mno
-		left join catg c on c.cno = z.cno
-		left join page p on p.zzno = z.zzno
-		left join reply r on r.zzno = z.zzno
-		left join lik l on l.zzno = z.zzno 
-	</sql>
+	 select z.zzno,
+    m.nick,
+    m.pic,
+    z.pic as zpic,
+    c.name,
+    z.titl,
+    p.cont,
+    z.hitcnt,
+    (select count(*) from lik l where l.zzno=z.zzno ) as lcnt,
+    (select count(*) from reply r where r.zzno=z.zzno ) as replcnt
+    from zzal_lect z left join memb m on z.mno=m.mno
+    left join catg c on c.cno = z.cno
+    left join page p on p.zzno = z.zzno
+    left join reply r on r.zzno = z.zzno
+    left join lik l on l.zzno = z.zzno
+    left join colct cl on cl.cono = z.cono
+	</sql>		
 
 	<select id="searchList" resultMap="SearchMap" parameterType="map">
 		<include refid="selectsql"/>
-	 	where m.nick like CONCAT('%',#{keyword},'%')
-		 											or z.titl like CONCAT('%',#{keyword},'%') 
-		 											or p.cont like CONCAT('%',#{keyword},'%')
-		 											group by z.zzno
-		 											limit #{startIndex},#{pageSize};
+	 	where ((z.ztmp=false AND z.cono IS NULL) OR (cl.pub = false AND z.ztmp=false))   
+            and (m.nick like CONCAT('%',#{keyword},'%') or z.titl like CONCAT('%',#{keyword},'%')
+            or p.cont like CONCAT('%',#{keyword},'%'))
+     group by z.zzno
+	 limit #{startIndex},#{pageSize};
+               		
 		</select>
 		
 		
 	<select id="searchCountAll" resultType="int" parameterType="map">
 		select count(*) from 
 		(<include refid="selectsql"></include>
-		where m.nick like CONCAT('%',#{keyword},'%')
-		 											or z.titl like CONCAT('%',#{keyword},'%') 
-		 											or p.cont like CONCAT('%',#{keyword},'%')
-		 											group by z.zzno) as b
+		where ((z.ztmp=false AND z.cono IS NULL) OR (cl.pub = false AND z.ztmp=false))   
+            and (m.nick like CONCAT('%',#{keyword},'%') or z.titl like CONCAT('%',#{keyword},'%')
+            or p.cont like CONCAT('%',#{keyword},'%'))
+            group by z.zzno) as b
 	</select>	
   <select id="getNick" resultType="String" >
   	select nick from memb;
@@ -96,6 +98,92 @@
 		 											or z.titl like CONCAT('%','강','%') 
 		 											or p.cont like CONCAT('%','강','%')
 		 											group by z.zzno;
+   
+   
+	   select z.zzno,
+			m.nick,
+			m.pic,
+			z.pic as zpic,
+			c.name,
+			z.titl,
+			p.cont,
+			z.hitcnt,
+			cl.pub,
+			(select count(*) from lik l where l.zzno=z.zzno ) as lcnt,
+			(select count(*) from reply r where r.zzno=z.zzno ) as replcnt
+			from zzal_lect z left join memb m on z.mno=m.mno
+			left join catg c on c.cno = z.cno
+			left join page p on p.zzno = z.zzno
+			left join reply r on r.zzno = z.zzno
+			left join lik l on l.zzno = z.zzno
+			left join colct cl on cl.cono =z.cono 
+	        where (z.ztmp=0 and cl.pub=0)
+	        and  (m.nick like CONCAT('%','강','%') or z.titl like CONCAT('%','강','%') 
+			 											or p.cont like CONCAT('%','강','%'))
+			 											group by z.zzno;
+   
+		 											limit #{startIndex},#{pageSize};
+   
+   select count(*) from(
+    select z.zzno,
+		m.nick,
+		m.pic,
+		z.pic as zpic,
+		c.name,
+		z.titl,
+		z.hitcnt,
+		(select count(*) from lik l where l.zzno=z.zzno ) as lcnt,
+		(select count(*) from reply r where r.zzno=z.zzno ) as replcnt
+		from zzal_lect z left join memb m on z.mno=m.mno
+		left join catg c on c.cno = z.cno
+		left join page p on p.zzno = z.zzno
+		left join reply r on r.zzno = z.zzno
+		left join lik l on l.zzno = z.zzno
+		left join colct cl on cl.cono = z.cono
+		 where ((z.cono is null and z.ztmp=0) or (z.cono is not null and z.ztmp=0))
+	 	   and (ifnull((select cl.pub from colct cl where cl.cono=z.cono),0)=0)
+           and (m.nick like CONCAT('%','강','%') or z.titl like CONCAT('%','강','%')
+		 											or p.cont like CONCAT('%','강','%')
+		 											group by z.zzno
+   ) as b
+   
+   
+   
+   
+   select z.zzno,
+    m.nick,
+    m.pic,
+    z.pic as zpic,
+    c.name,
+    z.titl,
+    p.cont,
+    z.hitcnt,
+    (select count(*) from lik l where l.zzno=z.zzno ) as lcnt,
+    (select count(*) from reply r where r.zzno=z.zzno ) as replcnt
+    from zzal_lect z left join memb m on z.mno=m.mno
+    left join catg c on c.cno = z.cno
+    left join page p on p.zzno = z.zzno
+    left join reply r on r.zzno = z.zzno
+    left join lik l on l.zzno = z.zzno
+    left join colct cl on cl.cono = z.cono
+            where ((z.ztmp=false AND z.cono IS NULL) OR (cl.pub = false AND z.ztmp=false))   
+            and (m.nick like CONCAT('%','강','%') or z.titl like CONCAT('%','강','%')
+            or p.cont like CONCAT('%','강','%'))
+     group by z.zzno;
+   
+   WHERE (z.ztmp=false AND z.cono IS NULL) OR (cl.pub = false AND z.ztmp=false)
+   
+   
+             ((z.cono is null and z.ztmp=0) or (z.cono is not null and z.ztmp=0))and (ifnull((select cl.pub from colct cl where cl.cono=z.cono),0)=0)
+   
+   
+   
+   
+   
+   
+   
+   
+   
    -->
 
 </mapper> 

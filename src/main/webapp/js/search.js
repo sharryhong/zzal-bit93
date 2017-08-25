@@ -144,9 +144,14 @@
 
 		$(".search-zzallect").scroll(function() {
 
-			var elem = $(".search-zzallect"); 	
-			
-			if(parseInt(elem[0].scrollHeight-elem.scrollTop()) == elem.outerHeight()) {
+			var elem = $(".search-zzallect");
+			console.log(elem.outerHeight(),'outer')
+			console.log(parseInt(elem[0].scrollHeight-elem.scrollTop()),'sum')
+//			console.log( == elem.outerHeight())
+					
+//			if(parseInt(elem[0].scrollHeight-elem.scrollTop()) == elem.outerHeight()) {
+		    
+			if(elem.outerHeight()-parseInt(elem[0].scrollHeight-elem.scrollTop())<16) {
 				console.log('scroll man!!!호우2')
 				++searchpageNo;
 				return searchListMaker(searchpageNo)
@@ -189,7 +194,12 @@
 
 	}
 
-
+$('.btn-delete').on('click',function(e){
+	$('#searchcon').val('')
+	e.preventDefault()
+})
+	
+	
 
 //	검색헤더 상태에서 취소버튼 누르면 일반 헤더로 전환됨
 	$('.cancle-btn').click(function() {
