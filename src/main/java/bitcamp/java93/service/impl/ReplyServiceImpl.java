@@ -83,6 +83,7 @@ public class ReplyServiceImpl implements ReplyService {
     HashMap<String,Object> map = new HashMap<>();
     map.put("dmno",reply.getMemberNumber());
     map.put("zzno", reply.getZzalnumber());
+    map.put("rno", reply.getReplyNumber());
     map.put("notype", "reply");
     noticeDao.deleteNo(map);
 

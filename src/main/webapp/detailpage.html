@@ -456,7 +456,7 @@
  <script id="reply-list-template" type="text/x-handlebars-template">
 {{#each list}}
 {{#if rereplyParentNumber}}
-<li class='reply-li re-reply-li'>
+<li class='reply-li re-reply-li' data-son='{{replyNumber}}' data-reparent='{{rereplyParentNumber}}'>
 <div class='reply-unit-con re-reply-con'>
     <a href='#'>
       <div data-mno='{{memberNumber}}' class='reply-user-phot thumbnail-phot-insert' style="background-image:url('upload/{{membPic}}')"></div>

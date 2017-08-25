@@ -1,7 +1,7 @@
 (function($){
 	'use strict'
 	var memberNumberJS;
-
+	
 	$('.input-con .input-reply').prop('readonly', true);
 
 
@@ -115,13 +115,24 @@
 		/* 4. 부모 댓글 삭제. delete */
 		$(document).on("click", '.reply-unit-con .cancle', function(){
 			var that = $(this)
-
-			$.ajax({
-				type: 'GET',
+			let itsme = $(this).attr('data-rno')	
+			let myfam= $('li[data-reparent='+itsme+']')
+			console.log(myfam.length/2)
+			for (let i=0; i < myfam.length/2; i++){
+				getoutson(this,parseInt($(myfam[i]).attr('data-son')))
+			}
+			
+			
+			let motherRepl=function(el){ 
+				$.ajax({
+				type: 'POST',
 				url: 'reply/delete.json',
-				data: {rno : $(this).attr('data-rno'), mno: $(this).attr('data-mno'), 'zzalnumber' : zzno}, 
+				data: {rno : $(el).attr('data-rno'), mno: $(el).attr('data-mno'), 'zzalnumber' : zzno}, 
 				async: false,
 				success: function(data) {
+					console.log(data)
+					
+					
 					if (data == 1) {
 						reloadReply ()
 					} else {
@@ -129,16 +140,28 @@
 					}
 				}
 			})
+			
+			}
+			motherRepl(this);	
+			
 		}) // 4.
 
 		/* 5.자식 댓글 삭제 */
 		$(document).on("click", '.reply-unit-con .cancle .re-reply-delete', function(){
 			var that = $(this)
+			getoutson(this,$(this).atrr('data-rno'))
+			
+		}) // 5 
 
+		
+		/*5-1 자식 댓글만 처리하는 함수!*/
+		
+		function getoutson(el,rno){
+			
 			$.ajax({
-				type: 'GET',
+				type: 'POST',
 				url: 'reply/deletesonreply.json',
-				data: {rno : $(this).attr('data-rno'), mno: $(this).attr('data-mno'), 'zzalnumber': zzno}, 
+				data: {rno : rno, mno: $(el).attr('data-mno'), 'zzalnumber': zzno}, 
 				async: false,
 				success: function(data) {
 					if (data == 1) {
@@ -148,8 +171,14 @@
 					}
 				}
 			})
-		}) // 5 
 
+		}
+		
+		
+		
+		
+		
+		
 
 		/* 6. 대댓글 보이기 숨기기 버튼 */ // 내일은 여기서부터 다루어야 한다. 
 		$(document).on("click", '.reply-info .re-reply', function(){
