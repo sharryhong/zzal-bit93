@@ -52,6 +52,7 @@
    height: 250px;
    background-position: center;
    background-size: cover;
+   background-image: url(../upload/co-bg.png);
  }
  .collect-photo .fa {
    line-height: 88px;
