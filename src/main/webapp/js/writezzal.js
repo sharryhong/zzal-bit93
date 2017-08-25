@@ -468,11 +468,11 @@ var ssl=0;
 		$(document).on('click', '#cancle-btn', function() {
 			swal({
 				  title: "정말 취소하시겠습니까?",
-				  text: "임시저장되지 않고 바로 삭제됩니다.",
+				  text: "임시저장되지 않습니다	.",
 				  type: "warning",
 				  showCancelButton: true,
 				  confirmButtonColor: "#DD6B55",
-				  confirmButtonText: "삭제",
+				  confirmButtonText: "확인",
 				  cancelButtonText: "취소",
 				  closeOnConfirm: false
 				},

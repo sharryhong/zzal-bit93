@@ -15,6 +15,10 @@
 					console.log(data,"우앙 왔당!")
 					
 					console.log(data.data.list.length)
+					if (data.data.list.length == 0) {
+						console.log('없슝')
+						$('.main-content.notice-page').css('background', 'center center url("./image/nothing-bg03.png") no-repeat')
+					}
 					SingenerateHandlebars(data, $('#notice-template'), $('#notice-target'))
 					
 					

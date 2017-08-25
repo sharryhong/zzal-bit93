@@ -1,7 +1,9 @@
+.main-content.notice-page {
+	background: center center no-repeat;
+}
 #header .swiper-container {
 	display: none;
 }
-
 .notices.selection{
 	cursor:pointer
 } 
