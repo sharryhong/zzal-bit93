@@ -46,8 +46,10 @@
 				swal({
 					title: "변경 완료",
 					type: "success",
+					timer: 1000,
+					showConfirmButton: false,
 					showCancelButton: false,
-					closeOnConfirm: true,
+					closeOnConfirm: true
 				},
 				function(){
 					setTimeout(function(){

@@ -61,6 +61,7 @@ public class MemberControl {
 		if (member == null) {
 			return new JsonResult(JsonResult.FAIL, no + "번 회원이 없습니다.");
 		}
+		System.out.println(member);
 		return new JsonResult(JsonResult.SUCCESS, member);
 	}
 	

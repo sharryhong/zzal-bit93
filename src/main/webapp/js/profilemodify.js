@@ -22,7 +22,7 @@ $(document).ready(function(){
 	var signType; // 로그인한 회원의 가입유형이 담겨있다. 
 	var UserPassword; // 로그인한 회원의 비밀번호가 담겨있다. 
 
-	
+
 	$.getJSON('auth/userinfo.json', function(result) {
 		if (result.data) {
 			nickName = result.data.nick
@@ -35,13 +35,13 @@ $(document).ready(function(){
 			$('.profile-picture').css({"background-image": "url(upload/"+result.data.membpic+")"});
 			$('input[type="hidden"]')[0].value=result.data.membpic;
 		}
-		
+
 		console.log(signType)
 		/* 회원정보 수정할 때, 가입유형이 SNS일때 '현재비밀번호+변경비밀번호+재확인비밀번호' input 라인을 숨긴다'*/
 		if (signType == ('kakao' || 'facebook')) {
 			$(".profile-change .input-form").not(".save-when-sns").hide();
 		}
-		
+
 
 		function wrongValueCheckerProfile () {
 			/*  1단계. 공백여부 검증*/
@@ -96,7 +96,7 @@ $(document).ready(function(){
 			// 개인정보 수정 시 변경할 '재확인 암호' 입력 여부 검증.
 			if ($(".profile-change #profile-pw-re").val()=="") {
 				$(".wrong-password-re").text('재확인 비밀번호를 입력해주세요.')
-//				isOk = "no";
+				isOk = "no";
 			} else if (regex_pwd.test($(".profile-change #profile-pw-re").val()) === false) {
 				$(".wrong-password-re").text('비밀번호는 영문, 숫자 혼합 6~20자 입니다')
 				isOk="no";
@@ -126,10 +126,10 @@ $(document).ready(function(){
 		$(document).on("click", '#profile-modify-btn', function() {
 			that = $(this)
 			wrongValueCheckerProfile ()
-//			console.log('isOk의 마지막 상태는?', isOk)
 
 			// 변경할 비밀번호를 입력했을 때 타는 로직 (case. 프로필사진 or 닉네임 + 비밀번호 변경) 
 			if ($('#profile-pw-new').val() != "" || $('#profile-pw-re').val() != "") {
+				console.log('isOk의 마지막 상태는?', isOk)
 
 				if (isOk == "yes") {
 					$.ajax ({
@@ -146,8 +146,10 @@ $(document).ready(function(){
 							swal({
 								title: "변경 완료",
 								type: "success",
+								timer: 2000,
 								showCancelButton: false,
 								closeOnConfirm: true,
+								showConfirmButton: false
 							},
 							function(){
 								setTimeout(function(){
@@ -159,8 +161,9 @@ $(document).ready(function(){
 				} 
 
 				// 변경할 비밀번호를 입력하지 않았을 때 타는 로직(case. 프로필사진 or 닉네임만 변경)
-			} else if ($('#profile-pw-new').val() == "" && $('#profile-pw-re').val() == "") {
-//				console.log("UserPassword", UserPassword)
+			}
+
+			if ($('#profile-pw-new').val() == "" && $('#profile-pw-re').val() == "") {
 				$.ajax ({
 					type: 'POST',
 					url: 'member/updateExceptPassword.json',
@@ -173,10 +176,12 @@ $(document).ready(function(){
 					async: false,
 					success: function(result) {
 						swal({
-							title: "변경 완료",
+							title: "변경 완료!",
 							type: "success",
+							timer: 2000,
 							showCancelButton: false,
 							closeOnConfirm: true,
+							showConfirmButton: false
 						},
 						function(){
 							setTimeout(function(){
@@ -247,8 +252,8 @@ $(document).ready(function(){
 		$(document).on("click", '.profile-changepage .btn-cancle', function() { 
 			location.href = 'mypage.html';
 		})
-		
-		
+
+
 		$(document).on("click", '.profile-changepage .deletebtn .account-delete', function() {
 			$.ajax ({
 				type: 'POST',
@@ -269,9 +274,9 @@ $(document).ready(function(){
 							location.href = 'mypage.html';
 						});
 					});
-				*/}
+				 */}
 			}); // member add ajax()
 		})
-		
+
 	})
 });

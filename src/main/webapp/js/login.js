@@ -2,13 +2,13 @@
 //	var s = document.createElement("script"); 
 //	s.src = "https://developers.kakao.com/sdk/js/kakao.min.js"; 
 //	$("head").append(s);
-	var that;
+	var that = $(this);
 	var dbNick = new Array();
 	var dbEmail = new Array();
 	var regex_id=/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/;
 	var regex_pwd = /^.*(?=.{6,20})(?=.*[0-9])(?=.*[a-zA-Z]).*$/;
 	var isOk="yes";
-	
+
 	var fiEmail = $('#fi-email'),
 	fiPassword = $('#fi-password'),
 	joinEmail = $('#join-email'),
@@ -16,20 +16,20 @@
 	joinRePw = $('#join-pw-re'),
 	joinNick = $('#join-nick'),
 	joinSignType = "zzal";
-	
+
 	function wrongValueChecker () {
 		/*  1단계. 공백여부 검증*/
 		// 회원가입 시 이메일 입력 여부 검증.
 		if ($("#join-email").val()=="") {
 			$(".wrong-email").text('이메일을 입력해주세요.')
 			isOk = "no";
-			} else if(regex_id.test($("#join-email").val()) === false) {
+		} else if(regex_id.test($("#join-email").val()) === false) {
 			$(".wrong-email").text('잘못된 이메일 형식입니다.')
 			isOk="no"
 		} else {
 			$(".wrong-email").empty()
 		}
-		
+
 		// 회원가입 시 암호 입력 여부 검증.
 		if ($("#join-pw").val()=="") {
 			$(".wrong-password").text('암호를 입력해주세요.')
@@ -40,7 +40,7 @@
 		} else {
 			$(".wrong-password").empty()
 		}
-		
+
 		// 회원가입 시 재확인 암호 입력 여부 검증.
 		if ($("#join-pw-re").val()=="") {
 			$(".wrong-password-re").text('재확인 암호를 입력해주세요.')
@@ -51,7 +51,7 @@
 		} else {
 			$(".wrong-password-re").empty()
 		}
-		
+
 		// 회원가입 시 닉네임 입력 여부 검증.
 		if ($("#join-nick").val()=="") {
 			$(".wrong-nick").text('닉네임을 입력해주세요.')
@@ -59,30 +59,32 @@
 		} else {
 			$(".wrong-nick").empty()
 		}
-		
+
 		// 약관동의 체크 여부 검증
-		if(that.closest(".login-normal").find("#agree-chk").prop('checked') == false) {
-/*			swal({
-				title: "회원가입 실패",
-				text: "약관에 동의하셔야 가입 가능합니다.",
-				type: "error",
-				confirmButtonText: "확인",
-				customClass: 'login-failed'
-			});*/
+//		if(that.closest(".login-normal").find("#agree-chk").prop('checked') == false) {
+		if($("#agree-chk").prop('checked') == false) {
+//			swal({
+//				title: "회원가입 실패",
+//				text: "약관에 동의하셔야 가입 가능합니다.",
+//				type: "error",
+//				confirmButtonText: "확인",
+//				customClass: 'login-failed',
+//				allowEnterKey : false
+//			});
 			$(".wrong-agree").text('약관에 동의해야 가입할 수 있습니다.')
 			isOk = "no";
 		} else {
 			$(".wrong-agree").empty()
 		}
 
-		
+
 		/* 2단계. DB중복 데이터(email, nickname) 여부 검증 */
 		$.getJSON('member/list.json',  function(result) {
 			for (var i = 0 ; i < (result.data.list).length; i++) {
 				dbNick.push(result.data.list[i].nick);
 
-				
-				
+
+
 				if ($("#join-nick").val() == dbNick[i]) {
 					$(".wrong-nick").text("이미 사용중인 닉네임입니다.")
 					isOk = "no";
@@ -107,11 +109,24 @@
 		}); // member ajax()
 	} //wrongValueChecker ()
 
-	
-	
+
 	/* 3단계 최종 DB저장 */ 
+	/* 마우스 클릭으로 회원가입 */
 	$(document).on("click", '#join-btn', function() {
-		that = $(this)
+		signUp();
+	}) // on click joinBtn 
+
+	/* 키보드입력으로 회원가입 */
+	$(document).ready(function(){
+		$(".signup-container .form-group, #agree-chk").keydown(function (key) {
+			if(key.keyCode == 13) {
+				signUp ()
+			}
+		});
+	});
+
+	
+	function signUp () {
 		wrongValueChecker ()
 		if (isOk=="yes") {
 			$.ajax ({
@@ -130,8 +145,10 @@
 						title: "가입을 환영합니다",
 						text: "짤스쿨의 유쾌하고 즐거운 강의들을 경험해보세요",
 						type: "success",
+						timer: 2000,
 						showCancelButton: false,
 						closeOnConfirm: true,
+						showConfirmButton: false,
 					},
 					function(){
 						setTimeout(function(){
@@ -143,18 +160,18 @@
 		} else {
 			isOk="yes";
 		}
-	}) // on click joinBtn 
 	
+	}
 	
 	// ----------------------------------------------------------------------- //
-	
-	
+
+
 	$('.login').click(function() {
 		$(".login-curtain").show();
 		$(".login-container").show();
 		$("body").css("overflow", "hidden");
 	});
-	
+
 	$('.login-form .close-btn').click(function() {
 		console.log('closebtn click!!!')
 		$(".login-curtain").hide();
@@ -162,8 +179,8 @@
 		$(".signup-container").hide();
 		$(".findId-container").hide();
 		$(".findId-sendEmail-container").hide();
-	    $("body").css("overflow", "visible");
-	    
+		$("body").css("overflow", "visible");
+
 		$(".wrong-email").empty()
 		$(".wrong-password").empty()
 		$(".wrong-password-re").empty()
@@ -175,7 +192,7 @@
 		$("#join-pw").val('')
 		$("#join-pw-re").val('')
 	});
-	
+
 	$('.sign-in').click(function() {
 		console.log('sign-in click!!!')
 		$(".login-container").hide();
@@ -184,20 +201,19 @@
 		$(".mini-logo").hide();
 		$("body").css("overflow", "hidden");
 	});
-	
+
 	$('.findId').click(function(){
 		console.log('span findId click^^!')
 		$(".login-container").hide();
 		$(".findId-container").show();
 		$("body").css("overflow", "hidden");
 	});
-	
-	
+
+
 
 	// 비밀번호 찾기 창에서, 엔터키로 확인누르기. 
 	$(".input-findId").keydown(function(key) {
 		if (key.keyCode == 13) {
-
 			$(function() {
 				console.log('findIdConBtn click!!!')
 				$(".findId-container").hide();
@@ -207,7 +223,7 @@
 			});
 		}
 	});
-	
+
 	// 비밀번호 찾기 창에서, 마우스로 확인누르기. 
 	$('.findIdConBtn').click(function() {
 		$(".findId-container").hide();
@@ -221,168 +237,182 @@
 		$(".login-curtain").hide();
 
 	});
-	
-		/* 로그인 */
-		$('#login-btn').click(function() {
-			console.log('login-btn')
-			$.post(contextRoot + '/auth/login.json', {
-		      'email': fiEmail.val(),
-		      'password': fiPassword.val(),
-		      'signtype': 'zzal'
-		    }, function(result) {
-		    	$.getJSON(contextRoot + '/auth/userinfo.json', function(result) {
-//		    		console.log(result)
-		    		if (result.data.auth == false) {
-		    			location.href='choicecategory.html'
-		    		} else if (result.data.auth == true) {
-		    			location.href = 'index.html'
-		    		}
-		    	})
-		    	
-		    	if (result.data == "fail") {
-		    		swal({
-		    			  title: "로그인 실패",
-		    			  text: "아이디와 비밀번호를 확인해주세요",
-		    			  type: "error",
-		    			  confirmButtonText: "확인",
-		    			  customClass: 'login-failed'
-		    			});
-		    		} else {
-		    			location.href = 'index.html'
-		    		}
-		    }, 'json')
-		})
+
+	/* 로그인 */
+	/*클릭으로 로그인*/
+	$('#login-btn').click(function() {
+		console.log('login-btn')
+		login()
+	})
+
+	/*키보드입력으로 로그인*/
+	$(document).ready(function(){
+		$("#fi-password, #fi-email").keydown(function (key) {
+			if(key.keyCode == 13) {
+				login()
+			}
+		});
+	});
+
+	function login() {
+		$.post(contextRoot + '/auth/login.json', {
+			'email': fiEmail.val(),
+			'password': fiPassword.val(),
+			'signtype': 'zzal'
+		}, function(result) {
+			$.getJSON(contextRoot + '/auth/userinfo.json', function(result) {
+//				console.log(result)
+				if (result.data.auth == false) {
+					location.href='choicecategory.html'
+				} else if (result.data.auth == true) {
+					location.href = 'index.html'
+				}
+			})
+
+			if (result.data == "fail") {
+				swal({
+					title: "로그인 실패",
+					text: "아이디와 비밀번호를 확인해주세요",
+					type: "error",
+					confirmButtonText: "확인",
+					customClass: 'login-failed'
+				});
+			} else {
+				location.href = 'index.html'
+			}
+		}, 'json')
+	}
 	// ----------------------------------------------------------------------- //
-//	 //카카오톡으로 로그인
+//	//카카오톡으로 로그인
 //	// 카카오 서버에 등록받은 어플리케이션 ID 넣기. 
 //	// 카톡 로그인 1. - 카카오 로그인 서버 접속
 //	Kakao.init("18483a72f0b203373e0201a0fa7fd0b2");
 //	Kakao.Auth.logout();
 //	$(".login-container .kakao-btn").click(function() {
-//		Kakao.Auth.login({
-//			persistAccessToken: true,
-//			persistRefreshToken: true,
-//			success: function(authObj) {
-//				getKakaotalkUserProfile(); //회원 정보 알아오는 function.
-//			},
-//			fail: function(err) {
-//				console.log(err);
-//			}
-//		});
+//	Kakao.Auth.login({
+//	persistAccessToken: true,
+//	persistRefreshToken: true,
+//	success: function(authObj) {
+//	getKakaotalkUserProfile(); //회원 정보 알아오는 function.
+//	},
+//	fail: function(err) {
+//	console.log(err);
+//	}
+//	});
 //	});
 //	// 카톡 로그인 2.- 카카오 아이디 로그인이 완료된후, api로 회원의 email과 아이디 그리고 idnumber를 알아온다.
 //	function getKakaotalkUserProfile(){
-//		Kakao.API.request({
-//			url: '/v1/user/me', // 이게 달라지면 리퀘스트 오류가 난다. 
-//			success: function(res) {
-//				$.post(contextRoot + '/auth/login.json', {
-//					'email': res.kaccount_email,
-//					'password': "sns1234",
-//					'signtype' : "kakao"
-//				}, function(result) {
-////					console.log('카카오톡', result)
-//					if (result.status == "success") {
-//						$.getJSON('/zzal-bit93/auth/userinfo.json', function(result) {
-////							console.log('카카오톡 안의 유저인포', result)
-//							if (result.data.auth == false) {
-//								location.href='choicecategory.html'
-//							} else if (result.data.auth == true) {
-//								location.href = 'index.html'
-//							}
-//						})
-//					}
-//					if (result.data == "fail") {
-//						swal({
-//							title: "로그인 실패T^T",
-//							text: "카카오톡으로 가입한 아이디가 존재하지 않습니다",
-//							type: "error",
-//							confirmButtonText: "확인",
-//							customClass: 'login-failed'
-//						});
-//					} else {
-//						location.href = 'index.html'
-//					}
-//				}, 'json')
-////				Kakao.init("18483a72f0b203373e0201a0fa7fd0b2");
-////				Kakao.Auth.logout(function(){console.log('hihi')});
-//		
-//			}, // success
-//			fail: function(error) {
-//				console.log(error);
-//			} // fail
-//		});
+//	Kakao.API.request({
+//	url: '/v1/user/me', // 이게 달라지면 리퀘스트 오류가 난다. 
+//	success: function(res) {
+//	$.post(contextRoot + '/auth/login.json', {
+//	'email': res.kaccount_email,
+//	'password': "sns1234",
+//	'signtype' : "kakao"
+//	}, function(result) {
+////	console.log('카카오톡', result)
+//	if (result.status == "success") {
+//	$.getJSON('/zzal-bit93/auth/userinfo.json', function(result) {
+////	console.log('카카오톡 안의 유저인포', result)
+//	if (result.data.auth == false) {
+//	location.href='choicecategory.html'
+//	} else if (result.data.auth == true) {
+//	location.href = 'index.html'
+//	}
+//	})
+//	}
+//	if (result.data == "fail") {
+//	swal({
+//	title: "로그인 실패T^T",
+//	text: "카카오톡으로 가입한 아이디가 존재하지 않습니다",
+//	type: "error",
+//	confirmButtonText: "확인",
+//	customClass: 'login-failed'
+//	});
+//	} else {
+//	location.href = 'index.html'
+//	}
+//	}, 'json')
+////	Kakao.init("18483a72f0b203373e0201a0fa7fd0b2");
+////	Kakao.Auth.logout(function(){console.log('hihi')});
+
+//	}, // success
+//	fail: function(error) {
+//	console.log(error);
+//	} // fail
+//	});
 //	} // getKakaotalkUserProfile()
 //	// 카톡 회원가입 1. - 카카오 로그인 서버 접속  
 //	$(".signup-container .kakao-btn").click(function() {
-//		Kakao.Auth.login({
-//			persistAccessToken: true,
-//			persistRefreshToken: true,
-//			success: function(authObj) {
-//				getKakaotalkUserProfileSignUp(); //회원 정보 알아오는 function.
-//				$(".signup-container .form-group, .signup-container .method2").not(".div-join-nickname").hide();
-//			},
-//			fail: function(err) {
-//				console.log(err);
-//			}
-//		});
-//		Kakao.Auth.logout();
+//	Kakao.Auth.login({
+//	persistAccessToken: true,
+//	persistRefreshToken: true,
+//	success: function(authObj) {
+//	getKakaotalkUserProfileSignUp(); //회원 정보 알아오는 function.
+//	$(".signup-container .form-group, .signup-container .method2").not(".div-join-nickname").hide();
+//	},
+//	fail: function(err) {
+//	console.log(err);
+//	}
 //	});
-//
+//	Kakao.Auth.logout();
+//	});
+
 //	// 카톡 회원가입 2. 
 //	function getKakaotalkUserProfileSignUp(){
-//		Kakao.API.request({
-//			url: '/v1/user/me', // 이게 달라지면 리퀘스트 오류가 난다. 
-//			success: function(res) {
-//				joinEmail.val(res.kaccount_email),
-//				joinPw.val("sns1234"),
-//				joinRePw.val("sns1234"),
-//				joinSignType = "kakao"
-//					$.ajax ({ //이메일 중복여부 검사
-//						type: 'POST',
-//						url: contextRoot + '/auth/loginoverlap.json',
-//						data: {
-//							email: joinEmail.val(),
-//							signtype: joinSignType
-//						}, 
-//						async: false,
-//						success: function(result) {
-//							console.log(result)
-//							if(result.data.email == $("#join-email").val() ) {
-//								swal({
-//									title: "이미 카톡으로 가입하셨네요",
-//									text: "아이디와 이메일을 확인해주세요",
-//									type: "error",
-//									showCancelButton: false,
-//									closeOnConfirm: true,
-//								},
-//								function(){
-//									setTimeout(function(){
-//										$(".wrong-email").empty()
-//										$(".wrong-password").empty()
-//										$(".wrong-password-re").empty()
-//										$(".wrong-nick").empty()
-//										$(".wrong-agree").empty()
-//										$(".signup-container .form-group, .signup-container .method2").not(".div-join-nickname").show();
-//										$("#join-email").val('')
-//										$("#join-pw").val('')
-//										$("#join-pw-re").val('')
-//									});
-//								});
-//							}
-//						}
-//					}); // member ajax()
-//			}, // kakao api success
-//			fail: function(error) {
-//				console.log(error);
-//			} // fail
-//		}); // Kakao.API.request
+//	Kakao.API.request({
+//	url: '/v1/user/me', // 이게 달라지면 리퀘스트 오류가 난다. 
+//	success: function(res) {
+//	joinEmail.val(res.kaccount_email),
+//	joinPw.val("sns1234"),
+//	joinRePw.val("sns1234"),
+//	joinSignType = "kakao"
+//	$.ajax ({ //이메일 중복여부 검사
+//	type: 'POST',
+//	url: contextRoot + '/auth/loginoverlap.json',
+//	data: {
+//	email: joinEmail.val(),
+//	signtype: joinSignType
+//	}, 
+//	async: false,
+//	success: function(result) {
+//	console.log(result)
+//	if(result.data.email == $("#join-email").val() ) {
+//	swal({
+//	title: "이미 카톡으로 가입하셨네요",
+//	text: "아이디와 이메일을 확인해주세요",
+//	type: "error",
+//	showCancelButton: false,
+//	closeOnConfirm: true,
+//	},
+//	function(){
+//	setTimeout(function(){
+//	$(".wrong-email").empty()
+//	$(".wrong-password").empty()
+//	$(".wrong-password-re").empty()
+//	$(".wrong-nick").empty()
+//	$(".wrong-agree").empty()
+//	$(".signup-container .form-group, .signup-container .method2").not(".div-join-nickname").show();
+//	$("#join-email").val('')
+//	$("#join-pw").val('')
+//	$("#join-pw-re").val('')
+//	});
+//	});
+//	}
+//	}
+//	}); // member ajax()
+//	}, // kakao api success
+//	fail: function(error) {
+//	console.log(error);
+//	} // fail
+//	}); // Kakao.API.request
 //	} // getKakaotalkUserProfile()
-////	$("#logout-link").click(function() {
-////		Kakao.init("18483a72f0b203373e0201a0fa7fd0b2");
-////		Kakao.Auth.logout(function(){console.log('hihi')});
-////	})
-////	
-//	// ----------------------------------------------------------------------- //
+//	$("#logout-link").click(function() {
+//	Kakao.init("18483a72f0b203373e0201a0fa7fd0b2");
+//	Kakao.Auth.logout(function(){console.log('hihi')});
+//	})
+
+	// ----------------------------------------------------------------------- //
 //	// 페이스북 로그인 
 //	$(".login-container .fcbk-btn").click(function(){ //페이스북 로그인
 //		fbLogin()
@@ -394,10 +424,10 @@
 //			fbSignUp()
 //	})
 ////	$("#logout-link.logout").click(function(){
-////		setTimeout(fbLogout(), 2000);
-////		console.log('로그로그아웃')
+////	setTimeout(fbLogout(), 2000);
+////	console.log('로그로그아웃')
 ////	})
-//	
+//
 //
 //	// 페북 로그아웃 함수
 //	function fbLogout(){
@@ -490,7 +520,7 @@
 //	}(document, 'script', 'facebook-jssdk'));
 //	// 로그인이 성공한 다음에는 간단한 그래프API를 호출한다.
 //	// 이 호출은 statusChangeCallback()에서 이루어진다.
-//	
+//
 //	function testAPI() {
 //		FB.api('/me', {
 //			fields : 'email, name'
@@ -570,5 +600,5 @@
 //			fbLogout() // 이거때문에 진짜 고생했네...
 //		}); //facebook testAPISignUp() response
 //	}
-//	
+
 })(jQuery);

@@ -53,16 +53,27 @@
   var someoneNo = location.href.split('?')[1].split('=')[1]
   
   var somno = 0;
-	  $.getJSON('zzal/list.json',{'zzno': someoneNo}, function(result){
+	  $.getJSON('member/detail.json',{'no': someoneNo}, function(result){
 	  if (result.data) {
-		  var someone = result.data.list[0]
-		  var sodata = someone.member
+		  console.log(result.data)
+		  var someone = result.data
+		  console.log(someone)
+		  var sodata = someone.no
+		  console.log(sodata)
 		  somno = someone.mno
-		  $('.user-info-face .user-name').text(sodata.nick)
-		  $('.profile-wrap .someone-phot').css({"background-image": "url(upload/"+ sodata.membpic +")"});
+		  $('.user-info-face .user-name').text(someone.nick)
+		  $('.profile-wrap .someone-phot').css({"background-image": "url(upload/"+ someone.membpic +")"});
 		  selectzzalList()
-		  // someonepage.html phot -> someone-phot로 변경후 css추가/적용했음
+		  // someonepage.html phot -> someone-phot로 변경후 css추가/적용했음	  
 	  }
+	// 짤강 리스트
+		 function selectzzalList() { 
+			  $.getJSON('collect/selectzzalList.json', {'mno': sodata}, function(result) {
+				  if(result.data){
+					  generateHandlebars(result, $('#someone-zzal-template'), $('#someone-zzal-list1'))	
+				  }
+			  })
+		  }
   })
   
   //다른유저 컬렉션
@@ -151,13 +162,6 @@
 		  event.preventDefault()
 	  });
 	 
-	 // 짤강 리스트
-	 function selectzzalList() { 
-		  $.getJSON('collect/selectzzalList.json', {'mno': somno}, function(result) {
-			  if(result.data){
-				  generateHandlebars(result, $('#someone-zzal-template'), $('#someone-zzal-list1'))	
-			  }
-		  })
-	  }
+	 
 	 
 })(jQuery);
