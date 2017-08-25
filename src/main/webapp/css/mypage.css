@@ -1,5 +1,5 @@
 .zzal-con01 {
-	height: 284px;
+	min-height: 284px;
 	background: center center no-repeat;
 }
 .user-info-face .setting-wrap {
@@ -113,7 +113,7 @@
 }
 .zzal-collection .collections {
 	width: 100%;
-	height: 284px;
+	min-height: 284px;
 	background: center center no-repeat;
 }
 .zzal-collection .collections li {
