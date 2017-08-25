@@ -37,6 +37,16 @@
 			con.eq(index).css("display", "block")
 		})
 	}
+	
+	// 데이터 없을 때, 없다는 배경 뜨게 하기 
+	function nothingData(data, el, bg) {
+		if(data == 0) {
+			el.css('background', 'center center url('+ bg +') no-repeat')
+		} else {
+			el.css('background', 'center center no-repeat')
+		}
+	}
+	
 	var mno = 0
 
 	$.getJSON('/zzal-bit93/auth/userinfo.json', function(result) {
@@ -50,24 +60,33 @@
 	// 내짤강 리스트, 좋아요 리스트 , 비공개 리스트
 	function selectzzalList() {
 		$.getJSON('collect/selectzzalList.json', {'mno': mno}, function(result) {
-			if(result.data){
+//			if(result.data){
+//				console.log('내짤강', result.data.selectzzalList.length)
+				/*if(result.data.selectzzalList.length == 0) {
+					$('.zzal-con01').css('background', 'center center url("./image/nothing-bg02.png") no-repeat')
+				} else {
+					$('.zzal-con01').css('background', 'center center no-repeat')
+				}*/
+				nothingData(result.data.selectzzalList.length, $('.zzal-con01'), "./image/nothing-bg02.png")
 				generateHandlebars(result, $('#my-zzallist-template'), $('#zzal-handle'))
-			}
+//			}
 		}) 
 		$(document.body).on('click', '#temp-zzal', function(event) {
 			$.getJSON('collect/temporaryzzalList.json', {'mno': mno}, function(result) {
-				if(result.data){
+//				if(result.data){
+//					console.log('임시짤강', result.data.selectzzalList.length)
+					nothingData(result.data.selectzzalList.length, $('.zzal-con01'), "./image/nothing-bg02.png")
 					generateHandlebars(result, $('#my-zzallist-template'), $('#tmpor-zzal'))
-				}
+//				}
 			})
 		})
-
-
 		$(document.body).on('click', '#ilike-zzal', function(event) {
 			$.getJSON('collect/likezzal.json',{'mno' : mno}, function(result) {
-				if(result.data){
+//				if(result.data){
+//					console.log('좋아요짤강', result.data.selectzzalList.length)
+					nothingData(result.data.selectzzalList.length, $('.zzal-con01'), "./image/nothing-bg02.png")
 					generateHandlebars(result, $('#my-like-zzallist-template'), $('#ilike-zzallist'))
-				}
+//				}
 			})
 		})
 	
@@ -79,11 +98,10 @@
 		console.log('내 컬렉션')
 		$.getJSON('collect/list.json', {'no': mno}, function(result) {
 			if (result.data) {
+				nothingData(result.data.list.length, $('.zzal-collection .collections'), "./image/nothing-bg04.png")
 			    $('#my-collection01').html('')
 				generateHandlebars(result, $('#my-collection-template'), $('#my-collection01'))
-				/*console.log($('.sfont .zzal-cnt'))*/
 				let list = result.data.list
-				
 				for(var i = 0; i < list.length; i++){
 					selectuser(list[i].no,i,$('#my-collection01 .sfont .zzal-cnt'),$('#my-collection01 .sfont .subs-cnt')) // 컬렉션에 담겨있는 짤강 수 와, 구독한 수
 					
@@ -95,21 +113,16 @@
 		$(document.body).on('click', '.zzal-menu02 #subs-btn', function(event) {
 			$.getJSON('collect/subslist.json', {'mno': mno}, function(result) {
 				if(result.data){
+					nothingData(result.data.list.length, $('.zzal-collection .collections'), "./image/nothing-bg04.png")
 					let list = result.data.list
 					generateHandlebars(result, $('#my-collection-template'), $('#my-collection02'))
-										
 					let btnlst = $('#my-collection02 .editerbtn')
-						
-					
 					for(var i = 0; i < list.length; i++){
 						console.log(list[i].no)
 						selectuser(list[i].no,i,$('#my-collection02 .sfont .zzal-cnt'),$('#my-collection02 .sfont .subs-cnt')) // 컬렉션에 담겨있는 짤강 수 와, 구독한 수
 						
 						$(btnlst[i]).removeClass('editerbtn').addClass('zzsubbtn').text('구독취소').attr('data-stype',true)
 					}
-					
-					
-					
 				}
 			})
 		}) //구독
@@ -118,16 +131,13 @@
 		$(document.body).on('click', '.zzal-menu02 #public-collect-list', function(event) {
 			$.getJSON('collect/publiclist.json', {'no': mno}, function(result) {
 				if (result.data) {
-					
+					nothingData(result.data.list.length, $('.zzal-collection .collections'), "./image/nothing-bg04.png")
 					generateHandlebars(result, $('#my-collection-template'), $('#my-collection03'))
-					/*console.log($('.sfont .zzal-cnt'))*/
 					let list = result.data.list
-				
 					for(var i = 0; i < list.length; i++){
 						selectuser(list[i].no,i,$('#my-collection03 .sfont .zzal-cnt'),$('#my-collection03 .sfont .subs-cnt')) // 컬렉션에 담겨있는 짤강 수 와, 구독한 수
 					}
 				}
-					
 			})
 		}) //비공개
 		
