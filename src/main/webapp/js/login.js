@@ -64,12 +64,12 @@
 //		if(that.closest(".login-normal").find("#agree-chk").prop('checked') == false) {
 		if($("#agree-chk").prop('checked') == false) {
 //			swal({
-//				title: "회원가입 실패",
-//				text: "약관에 동의하셔야 가입 가능합니다.",
-//				type: "error",
-//				confirmButtonText: "확인",
-//				customClass: 'login-failed',
-//				allowEnterKey : false
+//			title: "회원가입 실패",
+//			text: "약관에 동의하셔야 가입 가능합니다.",
+//			type: "error",
+//			confirmButtonText: "확인",
+//			customClass: 'login-failed',
+//			allowEnterKey : false
 //			});
 			$(".wrong-agree").text('약관에 동의해야 가입할 수 있습니다.')
 			isOk = "no";
@@ -125,7 +125,7 @@
 		});
 	});
 
-	
+
 	function signUp () {
 		wrongValueChecker ()
 		if (isOk=="yes") {
@@ -160,9 +160,9 @@
 		} else {
 			isOk="yes";
 		}
-	
+
 	}
-	
+
 	// ----------------------------------------------------------------------- //
 
 
@@ -208,6 +208,11 @@
 		$(".findId-container").show();
 		$("body").css("overflow", "hidden");
 	});
+
+	$('.signup-container .close-btn').click(function() {
+		$(".mini-logo").show();
+		$(".login-logo").show();
+	})
 
 
 
@@ -415,190 +420,246 @@
 	// ----------------------------------------------------------------------- //
 //	// 페이스북 로그인 
 //	$(".login-container .fcbk-btn").click(function(){ //페이스북 로그인
-//		fbLogin()
-//		console.log('hihis')
+//	fbLogin()
+//	console.log('hihis')
 //	})
 //	$(".signup-container .fcbk-btn").click(function(){ //페이스북 회원가입
-//		$(".signup-container .form-group, .signup-container .method2").not(".div-join-nickname").hide();
-//		joinSignType:"facebook"
-//			fbSignUp()
+//	$(".signup-container .form-group, .signup-container .method2").not(".div-join-nickname").hide();
+//	joinSignType:"facebook"
+//	fbSignUp()
 //	})
 ////	$("#logout-link.logout").click(function(){
 ////	setTimeout(fbLogout(), 2000);
 ////	console.log('로그로그아웃')
 ////	})
-//
-//
+
+
 //	// 페북 로그아웃 함수
 //	function fbLogout(){
-//		FB.getLoginStatus(function(ret) {
-//			FB.logout(function(response) {
-//				console.log("로그아웃되었다냥")
-//			});
-//		})
+//	FB.getLoginStatus(function(ret) {
+//	FB.logout(function(response) {
+//	console.log("로그아웃되었다냥")
+//	});
+//	})
 //	} 
 //	// 페북 로그인 함수
 //	function fbLogin(){	
-//		FB.getLoginStatus(function(ret) {
-//			FB.login(statusChangeCallback, {
-//				scope : 'email, public_profile',
-//				return_scopes : true
-//			});			
-//		})
+//	FB.getLoginStatus(function(ret) {
+//	FB.login(statusChangeCallback, {
+//	scope : 'email, public_profile',
+//	return_scopes : true
+//	});			
+//	})
 //	} 
 //	// 페북 회원가입 함수
 //	function fbSignUp(){
-//		FB.getLoginStatus(function(ret) {
-//			console.log(ret)
-//			/// are they currently logged into Facebook?
-//			if(!ret.authResponse) {
-//				FB.login(statusChangeCallbackSignUp, {
-//					scope : 'email, public_profile',
-//					return_scopes : true
-//				});
-//			} else {}
-//		});
-//		testAPISignUp()
+//	FB.getLoginStatus(function(ret) {
+//	console.log(ret)
+//	/// are they currently logged into Facebook?
+//	if(!ret.authResponse) {
+//	FB.login(statusChangeCallbackSignUp, {
+//	scope : 'email, public_profile',
+//	return_scopes : true
+//	});
+//	} else {}
+//	});
+//	testAPISignUp()
 //	}
 //	// 페이스북으로 로그인할때 
 //	// This is called with the results from from FB.getLoginStatus().
 //	function statusChangeCallback(response) {
-//		console.log('statusChangeCallback');
-//		if (response.status === 'connected') {
-//			testAPI();
-//		} else if (response.status === 'not_authorized') {
-//			// 페이스북에는 로그인 했으나, 앱에는 로그인이 되어있지 않다.
-//			console.log("가입해야해요")
-//		} else {
-//			// 페이스북에 로그인이 되어있지 않다. 따라서, 앱에 로그인이 되어있는지 여부가 불확실하다.
-//		}
+//	console.log('statusChangeCallback');
+//	if (response.status === 'connected') {
+//	testAPI();
+//	} else if (response.status === 'not_authorized') {
+//	// 페이스북에는 로그인 했으나, 앱에는 로그인이 되어있지 않다.
+//	console.log("가입해야해요")
+//	} else {
+//	// 페이스북에 로그인이 되어있지 않다. 따라서, 앱에 로그인이 되어있는지 여부가 불확실하다.
+//	}
 //	}
 //	function statusChangeCallbackSignUp(response) {
-//		console.log('statusChangeCallback');
-//		console.log(response);
-//		// response 객체는 현재 로그인 상태를 나타내는 정보를 보여준다. 
-//		// 앱에서 현재의 로그인 상태에 따라 동작하면 된다.
-//		// FB.getLoginStatus().의 레퍼런스에서 더 자세한 내용이 참조 가능하다.
-//		if (response.status === 'connected') {
-//			// 페이스북을 통해서 로그인이 되어있다.
-//			testAPISignUp();
-//		} else if (response.status === 'not_authorized') {
-//			// 페이스북에는 로그인 했으나, 앱에는 로그인이 되어있지 않다.
-//			document.getElementById('status').innerHTML = 'Please log '
-//				+ 'into this app.';
-//		} else {
-//			// 페이스북에 로그인이 되어있지 않다. 따라서, 앱에 로그인이 되어있는지 여부가 불확실하다.
-//			document.getElementById('status').innerHTML = 'Please log '
-//				+ 'into Facebook.';
-//		}
+//	console.log('statusChangeCallback');
+//	console.log(response);
+//	// response 객체는 현재 로그인 상태를 나타내는 정보를 보여준다. 
+//	// 앱에서 현재의 로그인 상태에 따라 동작하면 된다.
+//	// FB.getLoginStatus().의 레퍼런스에서 더 자세한 내용이 참조 가능하다.
+//	if (response.status === 'connected') {
+//	// 페이스북을 통해서 로그인이 되어있다.
+//	testAPISignUp();
+//	} else if (response.status === 'not_authorized') {
+//	// 페이스북에는 로그인 했으나, 앱에는 로그인이 되어있지 않다.
+//	document.getElementById('status').innerHTML = 'Please log '
+//	+ 'into this app.';
+//	} else {
+//	// 페이스북에 로그인이 되어있지 않다. 따라서, 앱에 로그인이 되어있는지 여부가 불확실하다.
+//	document.getElementById('status').innerHTML = 'Please log '
+//	+ 'into Facebook.';
+//	}
 //	}
 //	// 이 함수는 누군가가 로그인 버튼에 대한 처리가 끝났을 때 호출된다.
 //	// onlogin 핸들러를 아래와 같이 첨부하면 된다.
 //	function checkLoginState() {
-//		FB.getLoginStatus(function(response) {
-//			statusChangeCallback(response);
-//		});
+//	FB.getLoginStatus(function(response) {
+//	statusChangeCallback(response);
+//	});
 //	}
 //	window.fbAsyncInit = function() {
-//		FB.init({
-//			appId : '332224223875073',
-//			cookie : true, // 쿠키가 세션을 참조할 수 있도록 허용
-//			xfbml : true, // 소셜 플러그인이 있으면 처리
-//			status : true,
-//			version : 'v2.1' // 버전 2.1 사용,
-//		});
+//	FB.init({
+//	appId : '332224223875073',
+//	cookie : true, // 쿠키가 세션을 참조할 수 있도록 허용
+//	xfbml : true, // 소셜 플러그인이 있으면 처리
+//	status : true,
+//	version : 'v2.1' // 버전 2.1 사용,
+//	});
 //	};
 //	// SDK를 비동기적으로 호출
 //	(function(d, s, id) {
-//		var js, fjs = d.getElementsByTagName(s)[0];
-//		if (d.getElementById(id))
-//			return;
-//		js = d.createElement(s);
-//		js.id = id;
-//		js.src = "//connect.facebook.net/en_US/sdk.js";
-//		fjs.parentNode.insertBefore(js, fjs);
+//	var js, fjs = d.getElementsByTagName(s)[0];
+//	if (d.getElementById(id))
+//	return;
+//	js = d.createElement(s);
+//	js.id = id;
+//	js.src = "//connect.facebook.net/en_US/sdk.js";
+//	fjs.parentNode.insertBefore(js, fjs);
 //	}(document, 'script', 'facebook-jssdk'));
 //	// 로그인이 성공한 다음에는 간단한 그래프API를 호출한다.
 //	// 이 호출은 statusChangeCallback()에서 이루어진다.
-//
+
 //	function testAPI() {
-//		FB.api('/me', {
-//			fields : 'email, name'
-//		}, function(response) { // 페이스북에서 보내준 response
-//			$.post(contextRoot + '/auth/login.json', {
-//				'email': response.email,
-//				'password': "sns1234",
-//				'signtype': "facebook"
-//			}, function(result) {
-//				if (result.data == "success") {
-//					$.getJSON(contextRoot + '/auth/userinfo.json', function(result) {
-//						if (result.data.auth == false) {
-//							location.href='choicecategory.html'
-//						} else if (result.data.auth == true) {
-//							location.href = 'index.html'
-//						}
-//					})
-//				}
-//				if (result.data == "fail") {
-//					swal({
-//						title: "로그인 실패T^T",
-//						text: "짤스쿨 회원이 아니네요.. 회원가입부터 해주세요 ",
-//						type: "error",
-//						confirmButtonText: "확인",
-//						customClass: 'login-failed'
-//					});
-//				} else {
-//					location.href = 'index.html'
-//				}
-//			}, 'json')
-//			console.log(response)
-//			fbLogout() // 이거때문에 진짜 고생했네...
-//		});
+//	FB.api('/me', {
+//	fields : 'email, name'
+//	}, function(response) { // 페이스북에서 보내준 response
+//	$.post(contextRoot + '/auth/login.json', {
+//	'email': response.email,
+//	'password': "sns1234",
+//	'signtype': "facebook"
+//	}, function(result) {
+//	if (result.data == "success") {
+//	$.getJSON(contextRoot + '/auth/userinfo.json', function(result) {
+//	if (result.data.auth == false) {
+//	location.href='choicecategory.html'
+//	} else if (result.data.auth == true) {
+//	location.href = 'index.html'
+//	}
+//	})
+//	}
+//	if (result.data == "fail") {
+//	swal({
+//	title: "로그인 실패T^T",
+//	text: "짤스쿨 회원이 아니네요.. 회원가입부터 해주세요 ",
+//	type: "error",
+//	confirmButtonText: "확인",
+//	customClass: 'login-failed'
+//	});
+//	} else {
+//	location.href = 'index.html'
+//	}
+//	}, 'json')
+//	console.log(response)
+//	fbLogout() // 이거때문에 진짜 고생했네...
+//	});
 //	}
 //	function testAPISignUp() {
-//		FB.api('/me', {
-//			fields : 'email, name'
-//		}, function(response) {
-//			joinEmail.val(response.email)
-//			joinPw.val("sns1234"),
-//			joinRePw.val("sns1234"),
-//			joinSignType = "facebook"
-//				$.ajax ({ //이메일 중복여부 검사
-//					type: 'POST',
-//					url: contextRoot + '/auth/loginoverlap.json',
-//					data: {
-//						email: joinEmail.val(),
-//						signtype: joinSignType
-//					}, 
-//					async: false,
-//					success: function(result) {
-//						console.log(result)
-//						if(result.data.email == $("#join-email").val() ) {
-//							swal({
-//								title: "이미 페이스북으로 가입하셨네요",
-//								text: "아이디와 이메일을 확인해주세요",
-//								type: "error",
-//								showCancelButton: false,
-//								closeOnConfirm: true,
-//							},
-//							function(){
-//								setTimeout(function(){
-//									$(".wrong-email").empty()
-//									$(".wrong-password").empty()
-//									$(".wrong-password-re").empty()
-//									$(".wrong-nick").empty()
-//									$(".wrong-agree").empty()
-//									$(".signup-container .form-group, .signup-container .method2").not(".div-join-nickname").show();
-//									$("#join-email").val('')
-//									$("#join-pw").val('')
-//									$("#join-pw-re").val('')
-//								});
-//							});
-//						}
-//					}
-//				}); // member ajax()
-//			fbLogout() // 이거때문에 진짜 고생했네...
-//		}); //facebook testAPISignUp() response
+//	FB.api('/me', {
+//	fields : 'email, name'
+//	}, function(response) {
+//	joinEmail.val(response.email)
+//	joinPw.val("sns1234"),
+//	joinRePw.val("sns1234"),
+//	joinSignType = "facebook"
+//	$.ajax ({ //이메일 중복여부 검사
+//	type: 'POST',
+//	url: contextRoot + '/auth/loginoverlap.json',
+//	data: {
+//	email: joinEmail.val(),
+//	signtype: joinSignType
+//	}, 
+//	async: false,
+//	success: function(result) {
+//	console.log(result)
+//	if(result.data.email == $("#join-email").val() ) {
+//	swal({
+//	title: "이미 페이스북으로 가입하셨네요",
+//	text: "아이디와 이메일을 확인해주세요",
+//	type: "error",
+//	showCancelButton: false,
+//	closeOnConfirm: true,
+//	},
+//	function(){
+//	setTimeout(function(){
+//	$(".wrong-email").empty()
+//	$(".wrong-password").empty()
+//	$(".wrong-password-re").empty()
+//	$(".wrong-nick").empty()
+//	$(".wrong-agree").empty()
+//	$(".signup-container .form-group, .signup-container .method2").not(".div-join-nickname").show();
+//	$("#join-email").val('')
+//	$("#join-pw").val('')
+//	$("#join-pw-re").val('')
+//	});
+//	});
 //	}
+//	}
+//	}); // member ajax()
+//	fbLogout() // 이거때문에 진짜 고생했네...
+//	}); //facebook testAPISignUp() response
+//	}
+
+	// 아이디 기억하기----------------------------------------------------------------------- //
+	$(document).ready(function(){
+	// 저장된 쿠키값을 가져와서 ID 칸에 넣어준다. 없으면 공백으로 들어감.
+	var userInputId = getCookie("userInputId");
+	$("#fi-email").val(userInputId); 
+
+	if($("#fi-email").val() != ""){ // 그 전에 ID를 저장해서 처음 페이지 로딩 시, 입력 칸에 저장된 ID가 표시된 상태라면,
+		$("#rememberid").attr("checked", true); // ID 저장하기를 체크 상태로 두기.
+	}
+
+	$("#rememberid").change(function(){ // 체크박스에 변화가 있다면,
+		if($("#rememberid").is(":checked")){ // ID 저장하기 체크했을 때,
+			var userInputId = $("#fi-email").val();
+			setCookie("userInputId", userInputId, 7); // 7일 동안 쿠키 보관
+		}else{ // ID 저장하기 체크 해제 시,
+			deleteCookie("userInputId");
+		}
+	});
+
+	// ID 저장하기를 체크한 상태에서 ID를 입력하는 경우, 이럴 때도 쿠키 저장.
+	$("#fi-email").keyup(function(){ // ID 입력 칸에 ID를 입력할 때,
+		if($("#rememberid").is(":checked")){ // ID 저장하기를 체크한 상태라면,
+			var userInputId = $("#fi-email").val();
+			setCookie("userInputId", userInputId, 7); // 7일 동안 쿠키 보관
+		}
+	});
+});
+
+
+function setCookie(cookieName, value, exdays){
+	var exdate = new Date();
+	exdate.setDate(exdate.getDate() + exdays);
+	var cookieValue = escape(value) + ((exdays==null) ? "" : "; expires=" + exdate.toGMTString());
+	document.cookie = cookieName + "=" + cookieValue;
+}
+
+function deleteCookie(cookieName){
+	var expireDate = new Date();
+	expireDate.setDate(expireDate.getDate() - 1);
+	document.cookie = cookieName + "= " + "; expires=" + expireDate.toGMTString();
+}
+
+function getCookie(cookieName) {
+	cookieName = cookieName + '=';
+	var cookieData = document.cookie;
+	var start = cookieData.indexOf(cookieName);
+	var cookieValue = '';
+	if(start != -1){
+		start += cookieName.length;
+		var end = cookieData.indexOf(';', start);
+		if(end == -1)end = cookieData.length;
+		cookieValue = cookieData.substring(start, end);
+	}
+	return unescape(cookieValue);
+}
 
 })(jQuery);
