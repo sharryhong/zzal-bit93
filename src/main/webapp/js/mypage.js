@@ -5,7 +5,7 @@
 	function generateHandlebars(result, el, target) {
 		templateFn = Handlebars.compile(el.text())
 		generatedHTML = templateFn(result.data)
-		target.text('')
+//		target.text('')
 		target.html(generatedHTML)
 	}
 
@@ -60,33 +60,29 @@
 	// 내짤강 리스트, 좋아요 리스트 , 비공개 리스트
 	function selectzzalList() {
 		$.getJSON('collect/selectzzalList.json', {'mno': mno}, function(result) {
-//			if(result.data){
-//				console.log('내짤강', result.data.selectzzalList.length)
-				/*if(result.data.selectzzalList.length == 0) {
-					$('.zzal-con01').css('background', 'center center url("./image/nothing-bg02.png") no-repeat')
-				} else {
-					$('.zzal-con01').css('background', 'center center no-repeat')
-				}*/
+			nothingData(result.data.selectzzalList.length, $('.zzal-con01'), "./image/nothing-bg02.png")
+			generateHandlebars(result, $('#my-zzallist-template'), $('#zzal-handle'))
+		}) 
+		$(document.body).on('click', '#zzal-setting, #my-zzal', function(event) {
+			$('.zzal-wrap.zzal-cons .menu').removeClass('on')
+			$('.zzal-wrap.zzal-cons .menu:nth-of-type(1)').addClass('on')
+			$('.zzal-wrap.zzal-cons .zzal-con01').css('display','none')
+			$('.zzal-wrap.zzal-cons .zzal-con01:nth-of-type(1)').css('display','block')
+			$.getJSON('collect/selectzzalList.json', {'mno': mno}, function(result) {
 				nothingData(result.data.selectzzalList.length, $('.zzal-con01'), "./image/nothing-bg02.png")
 				generateHandlebars(result, $('#my-zzallist-template'), $('#zzal-handle'))
-//			}
-		}) 
+			}) 
+		})
 		$(document.body).on('click', '#temp-zzal', function(event) {
 			$.getJSON('collect/temporaryzzalList.json', {'mno': mno}, function(result) {
-//				if(result.data){
-//					console.log('임시짤강', result.data.selectzzalList.length)
-					nothingData(result.data.selectzzalList.length, $('.zzal-con01'), "./image/nothing-bg02.png")
-					generateHandlebars(result, $('#my-zzallist-template'), $('#tmpor-zzal'))
-//				}
+				nothingData(result.data.selectzzalList.length, $('.zzal-con01'), "./image/nothing-bg02.png")
+				generateHandlebars(result, $('#my-zzallist-template'), $('#tmpor-zzal'))
 			})
 		})
 		$(document.body).on('click', '#ilike-zzal', function(event) {
 			$.getJSON('collect/likezzal.json',{'mno' : mno}, function(result) {
-//				if(result.data){
-//					console.log('좋아요짤강', result.data.selectzzalList.length)
-					nothingData(result.data.selectzzalList.length, $('.zzal-con01'), "./image/nothing-bg02.png")
-					generateHandlebars(result, $('#my-like-zzallist-template'), $('#ilike-zzallist'))
-//				}
+				nothingData(result.data.selectzzalList.length, $('.zzal-con01'), "./image/nothing-bg02.png")
+				generateHandlebars(result, $('#my-like-zzallist-template'), $('#ilike-zzallist'))
 			})
 		})
 	
@@ -94,25 +90,34 @@
 	
 	// collect.list 내컬렉션 클릭시 컬렉션 리스트 가져오기, 내 컬렉션 title pic
 	
-	$(document.body).on('click', '.select_info #collect-setting', function(event) {
+	$(document.body).on('click', '#collect-setting, #my-collect-list', function(event) {
 		console.log('내 컬렉션')
+		$('.zzal-collection .menu').removeClass('on')
+		$('.zzal-collection .menu:first-child').addClass('on')
+		$('.zzal-collection .zzal-con02').css('display','none')
+		$('.zzal-collection .zzal-con02:nth-of-type(1)').css('display','block')
+		
 		$.getJSON('collect/list.json', {'no': mno}, function(result) {
-			if (result.data) {
+//			if (result.data) {
+				console.log(result.data)
+				console.log('내컬렉션', result.data.list.length)
 				nothingData(result.data.list.length, $('.zzal-collection .collections'), "./image/nothing-bg04.png")
-			    $('#my-collection01').html('')
+//			    $('#my-collection01').html('')
 				generateHandlebars(result, $('#my-collection-template'), $('#my-collection01'))
 				let list = result.data.list
 				for(var i = 0; i < list.length; i++){
 					selectuser(list[i].no,i,$('#my-collection01 .sfont .zzal-cnt'),$('#my-collection01 .sfont .subs-cnt')) // 컬렉션에 담겨있는 짤강 수 와, 구독한 수
 					
 				} // for문
-			} // result.data
+//			} // result.data
 		}) //내 컬렉션
+	}); //내컬렉션 관리
 		
         // 구독 한 컬렉션 리스트
 		$(document.body).on('click', '.zzal-menu02 #subs-btn', function(event) {
 			$.getJSON('collect/subslist.json', {'mno': mno}, function(result) {
-				if(result.data){
+//				if(result.data){
+					console.log('구독컬렉션', result.data.list.length)
 					nothingData(result.data.list.length, $('.zzal-collection .collections'), "./image/nothing-bg04.png")
 					let list = result.data.list
 					generateHandlebars(result, $('#my-collection-template'), $('#my-collection02'))
@@ -123,25 +128,26 @@
 						
 						$(btnlst[i]).removeClass('editerbtn').addClass('zzsubbtn').text('구독취소').attr('data-stype',true)
 					}
-				}
+//				}
 			})
 		}) //구독
 		
 		//비공개 컬렉션
 		$(document.body).on('click', '.zzal-menu02 #public-collect-list', function(event) {
 			$.getJSON('collect/publiclist.json', {'no': mno}, function(result) {
-				if (result.data) {
+//				if (result.data) {
+					console.log('비공개컬렉션', result.data.list.length)
 					nothingData(result.data.list.length, $('.zzal-collection .collections'), "./image/nothing-bg04.png")
 					generateHandlebars(result, $('#my-collection-template'), $('#my-collection03'))
 					let list = result.data.list
 					for(var i = 0; i < list.length; i++){
 						selectuser(list[i].no,i,$('#my-collection03 .sfont .zzal-cnt'),$('#my-collection03 .sfont .subs-cnt')) // 컬렉션에 담겨있는 짤강 수 와, 구독한 수
 					}
-				}
+//				}
 			})
 		}) //비공개
 		
-	}); //내컬렉션 관리
+	
 	
 	
 	function selectuser(cono,index,el,el2) {
