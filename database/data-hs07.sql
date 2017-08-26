@@ -8,9 +8,9 @@ insert into memb(mno,nick,email,pwd,pic,stype,mtype,auth) values(6,'김대연','
 insert into memb(mno,nick,email,pwd,pic,stype,mtype,auth) values(7,'zico','zico8982@test.com',password('1111'), 'sul.jpg','zzal','zzaler',false);
 
 -- 카테고리
-insert into catg(cno,name) values(1,'음악');
+insert into catg(cno,name) values(1,'음악·예술');
 insert into catg(cno,name) values(2,'사진·여행');
-insert into catg(cno,name) values(3,'예술·문화');
+insert into catg(cno,name) values(3,'언어·학문');
 insert into catg(cno,name) values(4,'연예·가족');
 insert into catg(cno,name) values(5,'요리');
 insert into catg(cno,name) values(6,'경제');
