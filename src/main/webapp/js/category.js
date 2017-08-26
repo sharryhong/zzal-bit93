@@ -6,9 +6,9 @@ $(document).ready(function(){
 	
 	var $categoryTitle = $('.category-con .titles-wrap .title')
 	var selectedMenu = null
-	if (cno == 1) { $categoryTitle.text('음악'); }
+	if (cno == 1) { $categoryTitle.text('음악 · 예술'); }
 	if (cno == 2) { $categoryTitle.text('사진 · 여행') }
-	if (cno == 3) { $categoryTitle.text('예술 · 문화') }
+	if (cno == 3) { $categoryTitle.text('언어 · 학문') }
 	if (cno == 4) { $categoryTitle.text('연애 · 가족') }
 	if (cno == 5) { $categoryTitle.text('요리') }
 	if (cno == 6) { $categoryTitle.text('경제') }
