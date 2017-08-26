@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import bitcamp.java93.domain.Collect;
+import bitcamp.java93.domain.Subscribe;
 import bitcamp.java93.service.CollectService;
+import bitcamp.java93.service.SubscribeService;
 import net.coobird.thumbnailator.Thumbnails;
 
 @RestController
@@ -21,6 +23,7 @@ public class CollectControl {
   
   @Autowired ServletContext servletContext;
   @Autowired CollectService collectService;
+  @Autowired SubscribeService subscribeService;
   
   @RequestMapping("list")
   public JsonResult list(int no) throws Exception {
@@ -75,8 +78,9 @@ public class CollectControl {
   }
   
   @RequestMapping("delete")
-  public JsonResult delete(int no) throws Exception {
-    collectService.remove(no);
+  public JsonResult delete(Subscribe subscribe) throws Exception {
+    System.out.println(subscribe);
+    collectService.remove(subscribe);
     
     return new JsonResult(JsonResult.SUCCESS, "ok");
     

@@ -36,7 +36,10 @@
     where mno=#{memberno} and cono=#{collectNo};
  </delete>
    
- 
+ <delete id="deleteSubs" parameterType="subscribe">
+    delete from subs
+    where cono=#{collectNo};
+ </delete>
  
 </mapper> 
 

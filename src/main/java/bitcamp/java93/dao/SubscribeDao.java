@@ -11,4 +11,5 @@ public interface SubscribeDao {
   Subscribe getCono(Subscribe subscribe);
   void insertColct(Subscribe subscribe);
   void deleteColct(Subscribe subscribe);
+  void deleteSubs(Subscribe subscribe);
 }

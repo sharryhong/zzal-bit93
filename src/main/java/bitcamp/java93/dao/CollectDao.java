@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import bitcamp.java93.domain.Collect;
+import bitcamp.java93.domain.Subscribe;
 
 public interface CollectDao {
   List<Collect> selectList(int no);
@@ -23,5 +24,6 @@ public interface CollectDao {
   int delete(int no); // delete()
   int update(Collect collect);
   List<Collect> selectAllList(int no);
-
+  int updatefordelete(int collectNo); // 짤강에서 참조하는 cono delete
+  void deleteNotice(Subscribe subscribe);
 }

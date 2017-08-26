@@ -97,7 +97,7 @@
 		      nono = (SELECT b.nono from (select n.nono,n.notype,n.dmno from notice n where n.cono=#{cono}) as b 
 		      where b.notype = 'subs' and b.dmno=#{dmno}) </when>
 		      <when test="notype == 'reply'">
-		      rno = #{rno}
+		      nono=(select b.nono from (select c.nono,c.rno from notice c) b where b.rno = #{rno});
 		      </when>
 		      <when test="notype == 'lik'">
 		      nono =  (SELECT b.nono from (select n.nono,n.notype,n.dmno from notice n where n.zzno=#{zzno}) as b 
@@ -109,7 +109,7 @@
 	
 	</delete>
 	
-    <!-- (select b.nono from (select c.nono,c.rno from notice c) b where b.rno = #{rno}); -->
+    
 	
 </mapper> 
 

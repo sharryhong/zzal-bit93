@@ -60,7 +60,6 @@
 		  console.log(someone)
 		  var sodata = someone.no
 		  console.log(sodata)
-		  somno = someone.mno
 		  $('.user-info-face .user-name').text(someone.nick)
 		  $('.profile-wrap .someone-phot').css({"background-image": "url(upload/"+ someone.membpic +")"});
 		  selectzzalList()

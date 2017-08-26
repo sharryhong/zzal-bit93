@@ -166,10 +166,29 @@
 		pic=#{picture}
 		where cono = #{no}
 	</update>
-
-	<delete id="delete" parameterType="int">
-		delete from colct where cono = #{no}
+	
+	<update id="updatefordelete" parameterType="int">
+		update zzal_lect z set z.cono=null where z.cono in (select c.cono from colct c where z.cono=#{cono})	
+	</update>
+	
+	<!-- 
+	//파라미터로 맴버 넘버 받기 
+	// 섭스에서 불러오기 delete from subs where mno=#{memberno} and cono=#{collectNo};
+	update zzal_lect z set z.cono=null where (select d.cono from colct d where d.cono=#{cono})  
+  	delete 노티스로 시키기 map -->
+  	
+  	<delete id="deleteNotice" parameterType="int">							
+    delete from notice where nono =(SELECT b.nono from (select n.nono,n.notype,n.dmno from notice n where n.cono=#{collectNo}) as b 
+		      where b.notype = 'subs' and b.mno=#{memberno})
+    
 	</delete>
+  	
+  	
+	<delete id="delete" parameterType="int">							
+    delete from colct where cono = #{cono}
+    
+	</delete>
+	<!-- delete from colct where cono = 6 -->
 	
   <!-- 나의 모든 컬렉션 리스트 -->
    <select id="selectAllList" resultMap="collectMap" parameterType="int">

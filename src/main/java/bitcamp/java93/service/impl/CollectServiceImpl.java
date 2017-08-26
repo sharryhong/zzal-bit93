@@ -7,7 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import bitcamp.java93.dao.CollectDao;
+import bitcamp.java93.dao.NoticeDao;
+import bitcamp.java93.dao.SubscribeDao;
 import bitcamp.java93.domain.Collect;
+import bitcamp.java93.domain.Subscribe;
 import bitcamp.java93.service.CollectService;
 
 @Service
@@ -15,7 +18,11 @@ public class CollectServiceImpl implements CollectService {
 
 	@Autowired
 	CollectDao collectDao;
-
+	@Autowired
+	SubscribeDao subscribeDao;
+	@Autowired
+	NoticeDao noticeDao;
+	
 	@Override
 	public List<Collect> list(int no) throws Exception {
 		return collectDao.selectList(no);
@@ -55,14 +62,29 @@ public class CollectServiceImpl implements CollectService {
   }
 
 	@Override
-  public void remove(int no) throws Exception {
+  public void remove(Subscribe subscribe) throws Exception {
     /*collectDao.deletePhoto(no);*/
-    
-    int count = collectDao.delete(no);
-    
-    if (count < 1) {
-      throw new Exception(no + "번 회원을 삭제하지 못했습니다.");
+	  System.out.println("----------------");
+	  try {
+//	    HashMap<String, Object> map = new HashMap<>();
+//	    map.put("dmno", subscribe.getMemberno());
+//	    map.put("cono", subscribe.getCollectNo());
+//	    map.put("notype", "subs");
+//	    System.out.println(map);
+
+	    
+	    collectDao.deleteNotice(subscribe);
+      
+    } catch (Exception e) {
+      // TODO: handle exception
     }
+	  subscribeDao.deleteSubs(subscribe);
+	  
+	  collectDao.updatefordelete(subscribe.getCollectNo());
+	  
+	  collectDao.delete(subscribe.getCollectNo());
+
+    System.out.println("ddd");
   } // remove()
 	
 	@Override
@@ -108,5 +130,6 @@ public HashMap<String, Object> getcount(int cono) {
 public List<Collect> selectAllList(int no) throws Exception {
   return collectDao.selectAllList(no);
 }
+
 
 }

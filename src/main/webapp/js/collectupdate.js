@@ -3,10 +3,17 @@
 	
 	var fififilename = $('.fifi-filename');	
 	var cono = 0
+	var mno = 0;
 	try {
 		cono = location.href.split('?')[1].split('=')[1]
 	} catch (err) {}	
       	
+	$.getJSON('/zzal-bit93/auth/userinfo.json', function(result) {
+		if (result.data) {
+			mno = result.data.no
+		}
+	})
+	
 	//업데이트페이지에서 등록된 제목, 설명, 사진, 공개여부, 뿌리기
 	$.getJSON('collect/detail.json', {'no': cono}, function(result) {
 			$("#collect-add-title").attr("value", result.data.title);
@@ -59,7 +66,8 @@
 			}
 		});
 	});	
-		/*$('#collect-savebtn').click(function() {
+}); // detail, update
+	/*$('#collect-savebtn').click(function() {
 			$.post(contextRoot + '/collect/update.json', {
 				'no' : Num,
 				'title' : $(title).val(),
@@ -71,7 +79,7 @@
 				location.href = 'mypage.html'
 			},'json')
 		})*/ 
-	});
+	
 	// 사진파일 업데이트 
 	var collectPhotoUpLoad
 
@@ -100,10 +108,14 @@
 					}
 				}
 		});
-	});
-	
+	}); // 업로드
+	/*$.getJSON('collect/delete.json', {'no': cono}, function(result) {
+		
+		
+	    location.href= 'mypage.html'
+	  })  */
 	// 컬렉션 삭제 버튼클릭시 삭제
-	$('#collect-delete').click(function() {
+	$('#collect-delete').click(function(event) {
 		swal({
 	        title: "정말 삭제하시겠습니까?",
 	        type: "warning",
@@ -113,9 +125,25 @@
 	        cancelButtonText: "취소",
 	        closeOnConfirm: false
 	     }, function(){
-		  $.getJSON('collect/delete.json', {'no': cono}, function(result) {
-		    location.href= 'mypage.html'
-		  })  
+//		  $.getJSON('collect/delete.json', {'cono': cono, 'mno' : Num}, function(result) {
+//		    location.href= 'mypage.html'
+//		  })
+		  $.ajax ({
+				type: 'POST',
+				url: 'collect/delete.json',
+				data: {
+					'memberno' : mno,
+					'collectNo': cono
+				}, 
+				async: false,
+				success: function(result) {
+				console.log(result)
+				
+				location.href= 'mypage.html'
+				}
+			});
+		  
+		  
 	   })
 	})
 })(jQuery);
