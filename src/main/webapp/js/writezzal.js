@@ -138,7 +138,8 @@ let tmpMpic = ''
 		else if (arrType[i-1] === "false" && arrpicname[i-1]) {
 			var videoIframe = "<iframe src='https://www.youtube.com/embed/" + arrpicname[i-1] + "' frameborder='0' allowfullscreen></iframe>"
 			$(videoIframe).css({'width':670, 'height':370}).appendTo(tmpPageSelect[i])		}
-		$(".swiper-slide textarea")[i-1].value=arrcontext[i-1]
+		let resultString = arrcontext[i-1].replace(/<br>/g, '\n')
+		$(".swiper-slide textarea")[i-1].value = resultString
 	}
 
 	slideNumberring()
@@ -300,7 +301,13 @@ function writefuncDone(){
 						swal("youtube 링크를 입력해주세요!", "예) https://www.youtube.com/watch?v=82TD06U4ppA", "error")
 						return
 					} else if (videoUrl.includes('=')) { // url에 '='가 있다면. 즉 일반 웹 
-						inputUrl[0] = videoUrl.split('=')[1]
+						let indexEqual = videoUrl.indexOf('=') + 1
+						inputUrl[0] = videoUrl.substring(indexEqual)
+						if (inputUrl[0].includes('&')) {
+							let re = /&/g;
+							let result = inputUrl[0].replace(re, "?")
+							inputUrl[0] = result
+						}
 					} else { // 없다면. 즉, 모바일
 						inputUrl[0] = videoUrl.split('/')[3]
 					}
@@ -525,7 +532,7 @@ function dataGarage(){
 		pageArray[i].pageNo=i
 		pageArray[i].type=(($($("input[type=hidden]")[i]).attr("data-type"))==1 ? true : false);
 		pageArray[i].pagePic=$($("input[type=hidden]")[i])[0].value
-		pageArray[i].conText=$($('textarea')[i-1])[0].value.replace(/\n/g, "<br />");
+		pageArray[i].conText=$($('textarea')[i-1])[0].value.replace(/\n/g, "<br>");
 	}
 
 	return pageArray;

@@ -261,6 +261,7 @@ input::-moz-placeholder { color: #ccc; }
 	border: 1px solid #eee;
   background-position: center;
 	background-image: url("../image/img-bg1.gif");
+	background-size: 100%;
 	overflow: hidden;
 }
 .writezzal-img .btns label {
