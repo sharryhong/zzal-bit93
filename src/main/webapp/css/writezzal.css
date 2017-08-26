@@ -261,8 +261,11 @@ input::-moz-placeholder { color: #ccc; }
 	border: 1px solid #eee;
   background-position: center;
 	background-image: url("../image/img-bg1.gif");
-	background-size: 100%;
 	overflow: hidden;
+}
+.updatazzal-page .writezzal-img {
+	background-size: 100%;
+	background-image: none;
 }
 .writezzal-img .btns label {
 	display: inline-block;

@@ -602,8 +602,11 @@ input[type=number]::-webkit-outer-spin-button {
 	  margin-top: 10px;
 	}
 	.settime-sec {
-	  background: rgba(255,255,255,0.3);
-	  color: white;
+	  background: rgba(0,0,0,0.2);
+    border: 1px solid rgba(0,0,0,0.3);
+    color: white;
+    width: 30px;
+    margin-top: 3px;
 	}
 	.detail-siwpe .images-wrapper {
 	  max-height: calc(100vmax - 280px);
