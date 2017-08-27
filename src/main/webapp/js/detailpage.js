@@ -306,7 +306,6 @@ function ZzalPages(zzno, lastPageEl) {
 		  })
 		  // 이미지나 동영상이 없을 때 
 		  if (result.data.list[i].page.pagePic == "") {
-			  console.log('비었구만')
 			  result.data.list[i].page.conTypeZ = true
 			  result.data.list[i].page.pagePic = coverImage
 		  }
@@ -407,6 +406,7 @@ function autoPlayZzal() {
 	    toFirst = '',
 	    faPause = $('.auto-play .fa-pause'),
 	    faPlay = $('.auto-play .fa-play'),
+	    autoPlayBtn = $('.auto-play'),
 		isLast = false,
 		swiperBtn = $('.detail-siwpe.swiper-container .swiper-button-next.web-swiper-btn')[0],
 		swiperLeftBtn = $('.detail-siwpe.swiper-container .swiper-button-prev.web-swiper-btn')[0];
@@ -425,9 +425,12 @@ function autoPlayZzal() {
 		zzals--
 	}
 	
+	var settimeSec = 0
 	var goFirst = $('.swiper-pagination-total').text() - 2
 	function toFirstZzal() {
-		var	settimeSec = $('.settime-sec').val() * 1000
+		/*var thisSec = $(this).closest('.auto-play').find('.settime-sec')
+		var	settimeSec = thisSec.val() * 1000*/
+		console.log(settimeSec)
 		swiperLeftBtn.click()
 		if (goFirst <= 0) {
 			console.log('커버!')
@@ -438,7 +441,8 @@ function autoPlayZzal() {
 	}
 	
 	$('.auto-play .fa-play').on('click', function() {
-		var	settimeSec = $('.settime-sec').val() * 1000
+		var thisSec = $(this).closest('.auto-play').find('.settime-sec')
+		settimeSec = thisSec.val() * 1000
 		var zzals = $('.swiper-pagination-total').text() - $('.swiper-pagination-current').text()
 		console.log(zzals)
 		faPlay.css('display','none')
