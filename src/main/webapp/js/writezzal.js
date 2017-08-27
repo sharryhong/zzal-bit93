@@ -45,7 +45,7 @@ function fnChkByte(obj, maxByte) {
 	  if (result.data) {
 		  no = result.data.no
 		  $('.user-info-face .user-name').text(result.data.nick)
-		  $('.profile-wrap .phot').css({"background-image": "url(image/"+result.data.membpic+")"});
+		  $('.profile-wrap .phot').css({"background-image": "url(upload/"+result.data.membpic+")"});
 		  getCollect(no)
 			justInit(no)
 	  }
