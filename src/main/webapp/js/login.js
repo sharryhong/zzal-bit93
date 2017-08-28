@@ -167,6 +167,7 @@
 
 
 	$('.login').click(function() {
+		$('html, body').animate({scrollTop: 0}, 200)
 		$(".login-curtain").show();
 		$(".login-container").show();
 		$("body").css("overflow", "hidden");
