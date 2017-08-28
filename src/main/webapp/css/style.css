@@ -7,7 +7,9 @@ body {
 	color: #333;
 	overflow-y: scroll;
 }
-
+#zzal-list1 {
+	min-height: calc(100vh - 670px);
+}
 .mypage .zzal-category,
 .mypage .zzal-collection,
 .mypage .zzal-con02 {
