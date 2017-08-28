@@ -165,6 +165,7 @@
 	}
 	//내컬렉션 컬렉션  클릭시 컬렉션 detail 구독 ,임시
 	$(document.body).on('click', '.mycollectlist', function(event) {
+		console.log(this)
 		location.href = 'collectdetail.html?cono=' + $(this).attr('data-no')
 		event.preventDefault()
 	});
