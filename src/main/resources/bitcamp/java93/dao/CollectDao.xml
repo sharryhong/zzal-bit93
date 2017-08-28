@@ -177,9 +177,10 @@
 	update zzal_lect z set z.cono=null where (select d.cono from colct d where d.cono=#{cono})  
   	delete 노티스로 시키기 map -->
   	
-  	<delete id="deleteNotice" parameterType="int">							
-    delete from notice where nono =(SELECT b.nono from (select n.nono,n.notype,n.dmno from notice n where n.cono=#{collectNo}) as b 
-		      where b.notype = 'subs' and b.mno=#{memberno})
+  	<delete id="deleteNotice" parameterType="subscribe">							
+    delete from notice where nono =(select b.nono from 
+    (select nono,notype,dmno from notice where cono=#{collectNo}) as b);
+
     
 	</delete>
   	

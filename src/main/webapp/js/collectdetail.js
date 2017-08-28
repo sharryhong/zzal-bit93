@@ -35,9 +35,12 @@
 	
 	// 컬렉션 디테일페이지/편집 버튼 클릭시 업데이트 페이지로 이동후 사진,제목,설명 보이기 ,cono=? cono &mno=?
 	$.getJSON('collect/detail.json', {'no': cono}, function(result) {
+		console.log('디테일이얌')
+		console.log(result)
 		$('.category-explain').text(result.data.content)
 		$('.category-title').text(result.data.title)
-		$('.collect-photo').css({"background-image": "url(upload/"+result.data.picture+")"})
+		$('.collect-photo').css({"background-image": "url(upload/"+(result.data.picture=='nopic2.gif'? co-bg.png:result.data.picture)+")"})
+		// 안들어 있을 때 공통 사진 ㅊㅊ
 		let memno=result.data.memNo
 		if(memno!=no){
 			$('.btn.btn-info').css('display','none')

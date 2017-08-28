@@ -25,7 +25,7 @@ if (no == 0){ // 새 컬렉션 등록
 				'title' : $(title).val(),
 				'content' : $(content).val(),
 				'isPublic' : $(isPublic).prop("checked"),
-				'picture' : $(fififilename).val() ? $(fififilename).val():'nopic2.gif'
+				'picture' : $(fififilename).val() ? $(fififilename).val():'co-bg.png'
 			}, function(result) {
 				console.log(result)
 				location.href = 'mypage.html'
