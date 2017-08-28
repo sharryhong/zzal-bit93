@@ -179,6 +179,7 @@
 	color: #999;
 }
 .category-page .buttons .btn {
+	display:none;
 	width: inherit;
 	padding: 6px 25px;
 	border-radius: 30px;

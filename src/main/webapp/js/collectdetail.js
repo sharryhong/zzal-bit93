@@ -1,4 +1,4 @@
-(function($){
+	(function($){
 	'use strict';
 	var templateFn = null;
 	var generatedHTML = null;
@@ -42,8 +42,8 @@
 		$('.collect-photo').css({"background-image": "url(upload/"+(result.data.picture=='nopic2.gif'? co-bg.png:result.data.picture)+")"})
 		// 안들어 있을 때 공통 사진 ㅊㅊ
 		let memno=result.data.memNo
-		if(memno!=no){
-			$('.btn.btn-info').css('display','none')
+		if(memno==no){
+			$('.btn.btn-info').css('display','block')
 		}	
 		$.getJSON('collect/selectuser.json', {'cono': cono}, function(result) {
 			if(result.data){
