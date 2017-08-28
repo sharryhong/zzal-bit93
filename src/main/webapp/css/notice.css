@@ -36,11 +36,11 @@
 
 .titles-wrap .bold.width-mine {
 	 display: inline-block;
-	
 	 font-weight: bold;
 	 overflow: hidden; 
-     white-space: nowrap;
-     text-overflow: ellipsis;
+   white-space: nowrap;
+   text-overflow: ellipsis;
+   line-height: 1;
 }
 
 .titles-wrap .bold{
