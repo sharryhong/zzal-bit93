@@ -39,7 +39,7 @@
 		console.log(result)
 		$('.category-explain').text(result.data.content)
 		$('.category-title').text(result.data.title)
-		$('.collect-photo').css({"background-image": "url(upload/"+(result.data.picture=='nopic2.gif'? co-bg.png:result.data.picture)+")"})
+		$('.collect-photo').css({"background-image": "url(upload/"+(result.data.picture=='nopic2.gif'? 'cobg.png' :result.data.picture)+")"})
 		// 안들어 있을 때 공통 사진 ㅊㅊ
 		let memno=result.data.memNo
 		if(memno==no){
