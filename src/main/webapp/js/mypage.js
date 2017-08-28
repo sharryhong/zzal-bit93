@@ -175,6 +175,8 @@
 		event.preventDefault()
 	});
 	
+	
+	//submit button
 	$(document.body).on('click', '.zzsubbtn', function(event) {
 		
 		let str =$(this).attr('data-stype')
