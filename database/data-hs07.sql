@@ -11,7 +11,7 @@ insert into memb(mno,nick,email,pwd,pic,stype,mtype,auth) values(7,'zico','zico8
 insert into catg(cno,name) values(1,'음악·예술');
 insert into catg(cno,name) values(2,'사진·여행');
 insert into catg(cno,name) values(3,'언어·학문');
-insert into catg(cno,name) values(4,'연예·가족');
+insert into catg(cno,name) values(4,'연애·가족');
 insert into catg(cno,name) values(5,'요리');
 insert into catg(cno,name) values(6,'경제');
 insert into catg(cno,name) values(7,'IT');

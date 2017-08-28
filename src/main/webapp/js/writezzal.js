@@ -357,12 +357,12 @@ function wrapWindowByMask(){
 
 		  $('.delete-btn').on('click',function(e){
 				e.preventDefault();
-				if(indexNum>1){
+				if(indexNum>=1){
 					swiper.removeSlide([indexNum])
 					slideNumberring()
 					setTimeout(deleteSync(),150);
 				}else {
-					swal("error", "메인과 첫페이지는 삭제가 되지 않습니다.", "error");
+//					swal("error", "메인과 첫페이지는 삭제가 되지 않습니다.", "error");
 				}
 			 })
 				function deleteSync(){
@@ -374,10 +374,23 @@ var ssl=0;
     $(document).on('click', '.append-slide', function(e) {
     	e.preventDefault();
     	templateFn = Handlebars.compile($('#addpage-template').text())
-    	swiper.appendSlide(templateFn())
+    	
 			let swiperSlideTotNumber = parseInt($('.swiper-slide').length-1)
-			let SwiperSlidesSelect = $('.swiper-slide')
-		  slideNumberring()
+		    let SwiperSlidesSelect = $('.swiper-slide')
+		       let nowView = swiper.realIndex
+		       
+		       // 페이지 추가!!
+		       if(nowView>0 && nowView <swiperSlideTotNumber){
+		          $('div[data-no='+swiper.realIndex+']').after($(templateFn()))
+		          swiper.update()
+		          
+		       }else{
+		          swiper.appendSlide(templateFn())
+		          
+		       }
+			
+			
+			slideNumberring()
 			
 		  window.setTimeout(goNextPage(), 100);
 
