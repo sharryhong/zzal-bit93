@@ -61,7 +61,7 @@ function checkLikeSub() {
 		 if (result.data.list.collectNo != undefined) {
 			 zzalcono = result.data.list.collectNo
 			 $.getJSON('subs/list.json',{'mno':memberno,'cono':zzalcono},function(result){
-				 console.log('memberno', memberno, 'zzalcono', zzalcono, 'result', result)
+//				 console.log('memberno', memberno, 'zzalcono', zzalcono, 'result', result)
 				 if(result.data.list) {
 					 douSubscribe = true
 				 } else {
@@ -116,15 +116,18 @@ $.getJSON('auth/userinfo.json',function(result){
 
         let up = $(this)[0].children[0]
         let off = $(this)[0].children[1]
-
        if(!islike){
          $.post('zzallike/loveu.json',{'mno':memberno, 'zzno':zzno},function(result){
+        	 console.log(result)
+        	 likeClikeAfter()
          },"json")
          innerFuncion(up,off)
           event.preventDefault()
          return islike=true;
        }else{
          $.post('zzallike/notloveu.json',{'mno':memberno, 'zzno':zzno},function(result){
+        	 console.log(result)
+        	 likeClikeAfter()
          },"json")
          innerFuncion(off,up)
           event.preventDefault()
@@ -209,7 +212,7 @@ $.getJSON('auth/userinfo.json',function(result){
 
 //버튼 상태를 체크하는 함수
 function buttonChecker(){
-	console.log('douSubscribe', douSubscribe)
+//	console.log('douSubscribe', douSubscribe)
   if(islike){
     $($('.heart')[0]).removeClass('off-btn')
     $($('.heart')[1]).addClass('off-btn')
@@ -271,7 +274,7 @@ function getCono() {
    			})
 	   		// 구독 관련 
 	   			$.getJSON('collect/detail.json', {'no': zzalcono}, function(result) {
-	   				console.log(result.data)
+//	   				console.log(result.data)
 	   				$('.mycollectlist').css({"background-image": "url(upload/"+result.data.picture+")"})
 	   				$('.collect-title').text(result.data.title)
 	   				$.getJSON('collect/selectuser.json', {'cono': zzalcono}, function(result) {
@@ -286,6 +289,18 @@ function getCono() {
      });
 }
 
+// 좋아요 클릭시 작성 정보에 업뎃 
+function likeClikeAfter() {
+	$.getJSON('zzal/list.json',{'zzno': zzno},function(result){
+		if (result.data) {
+			let likeCount = result.data.list[0].likeCount
+			console.log(likeCount)
+			$('.mdetail-footer .likenumber').text(likeCount)
+			$('.zzal-lect-info .likenum').text(likeCount)
+		}
+	})
+}
+
 // 짤강의 페이지들
 var isMobile = false
 function ZzalPages(zzno, lastPageEl) {
@@ -298,7 +313,7 @@ function ZzalPages(zzno, lastPageEl) {
 	      return options.inverse(this);
 	    }
 	  });
-	  console.log(result.data)
+//	  console.log(result.data)
 	  for (let i = 0; i < result.data.list.length; i++) {
 		  // text에 링크가 있을 때 
 		  result.data.list[i].page.ConTextZ = result.data.list[i].page.ConTextZ.replace(/(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig, function(text, link) {
@@ -365,7 +380,7 @@ function zzalEachPages() {
 // zzaler의 다른짤강
 function otherZzals() {
   $.getJSON('zzal/zzalListOthers.json', {"mno" : zzalmno}, function(result){
-	  console.log(result.data)
+//	  console.log(result.data)
 	  generateHandlebars(result, $('#writer-otherzzal-template'), $('#writer-otherzzal'))
 	  generateHandlebars(result, $('#writer-otherzzal-template'), $('#writer-otherzzal2'))
 	  // zzaler의 다른짤강 swiper
