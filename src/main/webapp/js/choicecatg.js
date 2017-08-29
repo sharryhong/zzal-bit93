@@ -135,7 +135,7 @@
 					type: 'POST',
 					url: 'choicecategory/add.json',
 					data: {
-						categoryNumberArray : checkCatgNumber,
+						categoryNumberArray : saveListArray,
 						memberNumber : membNo	
 					},
 					async: false,
@@ -160,20 +160,6 @@
 										window.location.reload();
 									});
 								});
-
-//								swal({
-//								title: "변경완료",
-//								text: "관심 카테고리를 추가했습니다.",
-//								type: "success",
-//								showCancelButton: false,
-//								closeOnConfirm: false,
-////								showLoaderOnConfirm: true,
-//								},
-//								function(){
-//								setTimeout(function(){
-//								window.location.reload();
-//								});
-//								});
 							}
 						})
 					}
@@ -190,19 +176,6 @@
 					},
 					async: false,
 					success: function(data) {
-//						swal({
-//						title: "변경완료",
-//						text: "관심 카테고리를 변경했습니다.",
-//						type: "success",
-//						showCancelButton: false,
-//						closeOnConfirm: false,
-////						showLoaderOnConfirm: true,
-//						},
-//						function(){
-//						setTimeout(function(){
-//						window.location.reload();
-//						});
-//						});
 						swal({
 							title: "변경완료!",
 							text: "관심 카테고리를 변경했습니다.",
