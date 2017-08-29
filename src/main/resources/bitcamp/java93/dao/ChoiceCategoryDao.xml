@@ -31,7 +31,7 @@
   <delete id="deleteCategory" parameterType="ChoiceCategory">
       delete from
       favor_catg 
-      where mno=#{memberNumber} and cno = #{categoryNumber}
+      where mno=#{memberNumber};
         <!-- <foreach collection='unCategoryNumberArray' item='item'>
           mno=#{memberNumber} and cno=#{item}
         </foreach> -->

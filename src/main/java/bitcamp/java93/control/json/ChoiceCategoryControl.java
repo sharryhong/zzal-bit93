@@ -38,13 +38,13 @@ public class ChoiceCategoryControl {
   
   @RequestMapping("delete")
   public void delete(ChoiceCategory choiceCategory) throws Exception {
-    String[] arrNum = choiceCategory.getUnCategoryNumberArray();
-    String no;
-    for (int i=0; i < arrNum.length; i++) {
-      no = arrNum[i];
-      choiceCategory.setCategoryNumber(Integer.parseInt(no));
-      choiceCategoryService.remove(choiceCategory);
-    }
+//    String[] arrNum = choiceCategory.getUnCategoryNumberArray();
+//    String no;
+//    for (int i=0; i < arrNum.length; i++) {
+//      no = arrNum[i];
+//    }
+    choiceCategoryService.remove(choiceCategory);
+//    choiceCategory.setCategoryNumber(Integer.parseInt(no));
   }
   
   
