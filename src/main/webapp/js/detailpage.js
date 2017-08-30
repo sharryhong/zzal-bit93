@@ -416,6 +416,7 @@ $(window).on("load",function(){
     })
 })
 
+// 자동재생 
 function autoPlayZzal() {
 	var autoPlay = '',
 	    toFirst = '',
@@ -425,6 +426,22 @@ function autoPlayZzal() {
 		isLast = false,
 		swiperBtn = $('.detail-siwpe.swiper-container .swiper-button-next.web-swiper-btn')[0],
 		swiperLeftBtn = $('.detail-siwpe.swiper-container .swiper-button-prev.web-swiper-btn')[0];
+	
+	var mobileSec = [1, 3, 5, 10, 20, 30],
+	    index = 1
+	    length = mobileSec.length
+//	    console.log(length)
+	$('#m-play-btn .set-time').on('click', function() {
+		if(length == 1) {
+			length = mobileSec.length + 1
+			index = 0
+		}
+		var nextSec = mobileSec[index]
+//		console.log(nextSec)
+		$('#m-play-btn .settime-sec').val(nextSec)
+		index++
+		length--
+	})
 	  
 	function autoZzalPlay() {
 		var zzals = $('.swiper-pagination-total').text() - $('.swiper-pagination-current').text() - 1
@@ -443,8 +460,6 @@ function autoPlayZzal() {
 	var settimeSec = 0
 	var goFirst = $('.swiper-pagination-total').text() - 2
 	function toFirstZzal() {
-		/*var thisSec = $(this).closest('.auto-play').find('.settime-sec')
-		var	settimeSec = thisSec.val() * 1000*/
 		console.log(settimeSec)
 		swiperLeftBtn.click()
 		if (goFirst <= 0) {

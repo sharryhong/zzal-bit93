@@ -5,6 +5,25 @@ input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {  
    opacity: 1;
 }
+#m-play-btn .set-time {
+	font-size: 16px;
+	margin-top: 15px;
+}
+#m-play-btn .set-time .fa {
+	position: absolute;
+  right: 32px;
+  top: 22px;
+  display: inline-block;
+  font-size: 16px;
+  color: rgba(255,255,255,0.7);
+}
+#m-play-btn .settime-sec {
+	position: relative;
+	width: 40px;
+	height: 26px;
+	text-align: left;
+	padding: 0 5px;
+}
 .zzal-collection {
 	display: none;
 	padding: 10px 0;
@@ -59,6 +78,7 @@ input[type=number]::-webkit-outer-spin-button {
 	margin-top: 3px;
 }
 .settime-sec {
+	display: inline-block;
 	width: 37px;
 	color: #999;
 	margin-right: 3px;
