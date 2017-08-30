@@ -442,6 +442,9 @@ function autoPlayZzal() {
 		index++
 		length--
 	})
+	$('#m-play-btn .settime-sec').focus(function(e) {
+	    $(this).blur();
+	});
 	  
 	function autoZzalPlay() {
 		var zzals = $('.swiper-pagination-total').text() - $('.swiper-pagination-current').text() - 1
