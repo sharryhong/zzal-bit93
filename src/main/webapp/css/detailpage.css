@@ -5,6 +5,13 @@ input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {  
    opacity: 1;
 }
+@media screen and (-webkit-min-device-pixel-ratio:0) { 
+  select,
+  textarea,
+  input {
+    font-size: 16px;
+  }
+}
 #m-play-btn .set-time {
 	font-size: 16px;
 	margin-top: 15px;
@@ -441,12 +448,13 @@ input[type=number]::-webkit-outer-spin-button {
   }
   .left-info .zzal-lect-info li{
     font-size: 13px;
-    border-bottom: 1px solid #ccc;
+    /* border-bottom: 1px solid #ccc; */
     height: 21px;
     line-height: 21px;
   }
   .left-info .zzal-lect-info li:first-child {
     font-size: 14px;
+    border-bottom: 1px solid #ccc;
   }
   .zzal-lect-info li .left-1st {
     float:left;
@@ -767,8 +775,11 @@ input[type=number]::-webkit-outer-spin-button {
     float: left;
   }
   .left-info .zzal-lect-info li{
-    border-bottom: 1px solid #ccc;
+    /* border-bottom: 1px solid #ccc; */
     height: 21px;
+  }
+  .left-info .zzal-lect-info li:first-child {
+    border-bottom: 1px solid #ccc;
   }
   .zzal-lect-info li .left-1st {
     float:left;
