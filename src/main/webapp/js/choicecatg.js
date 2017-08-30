@@ -27,7 +27,7 @@
 		function saveArrayplant(){
 			console.log($('input[type=checkbox]').length)
 			let arr=[]
-			let charr=$('input[type=checkbox]')
+			let charr=$('.catg-choicer input[type=checkbox]')
 			console.log(charr)
 			for (var i = 0 ; i < charr.length; i++){
 				if(charr[i].checked){ 
